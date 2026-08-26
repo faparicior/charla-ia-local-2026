@@ -624,6 +624,13 @@ body.theme-dark .legend-dot.black { background-color: #f5f4f0; }
   padding-bottom: 0.85rem;
 }
 
+.press-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
 .press-source {
   font-family: var(--font-mono);
   font-size: 1.1rem;
@@ -631,6 +638,18 @@ body.theme-dark .legend-dot.black { background-color: #f5f4f0; }
   text-transform: uppercase;
   color: #ea580c;
   letter-spacing: 0.06em;
+}
+
+.press-date {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+  letter-spacing: 0.02em;
+}
+
+body.theme-dark .press-date {
+  color: #9ca3af;
 }
 
 .press-headline {
