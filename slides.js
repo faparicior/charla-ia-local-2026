@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const slides = Array.from(document.querySelectorAll('.slide'));
+  const slides = Array.from(document.querySelectorAll('.slide:not(.slide-hidden)'));
   const progressBar = document.getElementById('progress-bar');
   const currentCounter = document.getElementById('slide-current');
   const totalCounter = document.getElementById('slide-total');

@@ -326,7 +326,7 @@
               <div class="versus-price-tag">$2.00 – $5.00 / 1M</div>
             </div>
             <div class="versus-title">APIs Occidentales</div>
-            <div style="font-family: var(--font-mono); font-size: 1rem; font-weight: 600; color: var(--text-muted);">
+            <div class="versus-providers">
               OpenAI (GPT-5.6 / o3) • Anthropic (Claude 5) • Google
             </div>
 
@@ -357,7 +357,7 @@
               <div class="versus-price-tag">$0.08 – $0.55 / 1M</div>
             </div>
             <div class="versus-title">APIs Asiáticas</div>
-            <div style="font-family: var(--font-mono); font-size: 1rem; font-weight: 600; color: var(--text-muted);">
+            <div class="versus-providers">
               DeepSeek (V4 / R1) • Alibaba Qwen (3.8 Max / 72B)
             </div>
 
@@ -405,7 +405,7 @@
               <div class="versus-price-tag">3,22 € – 33 € / h</div>
             </div>
             <div class="versus-title">Alquiler de GPUs Cloud</div>
-            <div style="font-family: var(--font-mono); font-size: 1rem; font-weight: 600; color: var(--text-muted);">
+            <div class="versus-providers">
               RunPod • Lambda • 1× a 8× NVIDIA H200 (141GB – 1.128GB)
             </div>
 
@@ -436,7 +436,7 @@
               <div class="versus-price-tag free">0,00 € / token</div>
             </div>
             <div class="versus-title">Hardware Propio Local</div>
-            <div style="font-family: var(--font-mono); font-size: 1rem; font-weight: 600; color: var(--text-muted);">
+            <div class="versus-providers">
               Apple Silicon (Mac Studio M-series) • Workstations RTX/NPU
             </div>
 
@@ -466,7 +466,7 @@
     <!-- ====================================================================
          SLIDE 7: ECONOMÍA DE LOS TOKENS / COSTES DE INFERENCIA
          ==================================================================== -->
-    <section class="slide" id="slide-7">
+    <section class="slide slide-hidden" id="slide-7" style="display: none;">
       <div class="slide-content">
         <div class="tag">Economía de Inferencia</div>
         <h2>Costes de Inferencia por 1M de Tokens</h2>
@@ -534,7 +534,7 @@
     <!-- ====================================================================
          SLIDE 8: ALQUILER DE GPUS A TERCEROS (H200)
          ==================================================================== -->
-    <section class="slide" id="slide-8">
+    <section class="slide slide-hidden" id="slide-8" style="display: none;">
       <div class="slide-content">
         <div class="tag">La Vía Intermedia</div>
         <h2>Alquilar GPUs a terceros para Open Weights</h2>
@@ -761,7 +761,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">12</span>
+        <span id="slide-current">1</span> / <span id="slide-total">10</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
