@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Local Crafters | Por qué estamos hablando de esto</title>
+  <meta name="description" content="Presentación interactiva sobre el fin de la IA subvencionada, costes de inferencia y desarrollo con IA Local">
+
+  <!-- Fuentes Google: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra de progreso superior -->
+  <div id="progress-bar"></div>
+
+  <!-- Contenedor principal de slides -->
+  <main id="deck">
+
+    <!-- ====================================================================
+         SLIDE 1: PORTADA EDITORIAL
+         ==================================================================== -->
+    <section class="slide slide-hero active" id="slide-1">
+      <div class="slide-content">
+        <div class="tag">AI Local Crafters • Keynote</div>
+        <div class="hero-header">
+          <h1>
+            Por qué estamos <br>
+            <span class="serif-italic">hablando de esto</span>
+          </h1>
+          <p class="subtitle">
+            El fin de la era de la IA subvencionada, la crisis de los modelos de suscripción y el camino hacia la autonomía en local.
+          </p>
+        </div>
+
+        <div class="hero-footer">
+          <div class="speaker-badge">
+            <div class="speaker-avatar">01</div>
+            <div>
+              <div class="speaker-name">Fernando</div>
+              <div class="speaker-role">Software Crafter &amp; AI Architect</div>
+            </div>
+          </div>
+          <div class="tag">ai-local-crafters</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 2: PROGRESS COMPARISON - LA ERA DORADA VS. LA REALIDAD
+         ==================================================================== -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <div class="timeline-comparison-grid">
+          
+          <div class="timeline-intro">
+            <h2>El Fin del<br>Bufé Libre</h2>
+            <p>
+              La fase de captación financiada por capital riesgo ha terminado. Creada la dependencia en el flujo diario, llega el choque de precios y la sostenibilidad forzada.
+            </p>
+          </div>
+
+          <!-- Columna 1: La Era Dorada Subvencionada -->
+          <div class="timeline-column">
+            <div class="timeline-header">La Era Dorada</div>
+            <div class="timeline-track">
+              
+              <div class="timeline-item">
+                <div class="num-node">01</div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Uso Gratuito Generoso</div>
+                  <div class="timeline-desc">Acceso sin límites a modelos punteros para crear hábito.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="num-node">02</div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Tarifa Plana de 10 $/mes</div>
+                  <div class="timeline-desc">Por una cuota simbólica tenías capacidad casi infinita.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="num-node">03</div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Pérdidas Asumidas</div>
+                  <div class="timeline-desc">Las tecnológicas asumían miles de millones en subsidios de cómputo.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Columna 2: Creada la Necesidad -->
+          <div class="timeline-column">
+            <div class="timeline-header">El Despertar</div>
+            <div class="timeline-track">
+              
+              <div class="timeline-item">
+                <div class="num-node peach">01</div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Cambios de la Noche a la Mañana</div>
+                  <div class="timeline-desc">Alteración de condiciones incluso en contratos anuales pagados.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="num-node peach">02</div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Escalones de 200 € / mes</div>
+                  <div class="timeline-desc">El razonamiento profundo y los agentes quedan fuera del plan estándar.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="num-node peach">03</div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Es el Mercado, Amigo</div>
+                  <div class="timeline-desc">Saben que estás enganchado a la herramienta y que pagarás.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 3: PRENSA Y COBERTURA MEDIÁTICA
+         ==================================================================== -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content">
+        <div class="tag">Prensa y Análisis</div>
+        <h2>El choque de precios en los medios</h2>
+        
+        <div class="press-grid">
+          
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">Xataka</span>
+              <span class="tag">Economía IA</span>
+            </div>
+            <div class="press-headline">«Las suscripciones de IA son un chollo insostenible: el fin del bufé libre»</div>
+            <p class="press-desc">
+              200 dólares al mes dan acceso a 14.000 $ en tokens reales. La llegada de agentes autónomos obliga a cerrar el grifo de las tarifas planas ilimitadas.
+            </p>
+          </div>
+
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">The New York Times / TechCrunch</span>
+              <span class="tag">Filtración</span>
+            </div>
+            <div class="press-headline">«La hoja de ruta de OpenAI para subir ChatGPT hasta 44 $ al mes»</div>
+            <p class="press-desc">
+              Planes internos filtrados detallan la duplicación progresiva del precio de la suscripción Plus para compensar la factura masiva de servidores.
+            </p>
+          </div>
+
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">Xataka Android</span>
+              <span class="tag">Mercado Pro</span>
+            </div>
+            <div class="press-headline">«La batalla de los 200 € al mes: ChatGPT Pro vs. Gemini Ultra»</div>
+            <p class="press-desc">
+              Fragmentación del mercado: las funciones potentes de razonamiento profundo y agentes autónomos se desplazan a tramos de 229 € a 275 € mensuales.
+            </p>
+          </div>
+
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">MindStudio</span>
+              <span class="tag">Capital Riesgo</span>
+            </div>
+            <div class="press-headline">«Por qué la era de los 20 $/mes se acaba y llega el pricing shock»</div>
+            <p class="press-desc">
+              La fase de adquisición subvencionada por fondos de inversión ha terminado; las plataformas recortan el plan básico y cobran recargos por cada tarea pesada.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 4: ESPECIAL GITHUB COPILOT (FORMATO PRENSA Y NOTICIAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <div class="tag">Caso de Estudio • Rebelión Dev</div>
+        <h2>Especial GitHub Copilot: <span class="serif-italic">La crisis de los Refunds</span></h2>
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          La eliminación unilateral de la tarifa plana ilimitada provocó acusaciones de <em>bait-and-switch</em>, cancelaciones masivas y disputas bancarias.
+        </p>
+
+        <div class="press-grid">
+          
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">GitHub Community Forum</span>
+              <span class="tag">Queja Formal</span>
+            </div>
+            <div class="press-headline">«Formal Complaint: Copilot Pricing Changes and Breach of Contract»</div>
+            <p class="press-desc">
+              Suscriptores anuales denuncian la introducción de <em>AI Credits</em> con multiplicadores abusivos que reducen el valor útil a menos de un tercio a mitad de contrato.
+            </p>
+          </div>
+
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">Tech Analysis / Medium</span>
+              <span class="tag">Impacto Global</span>
+            </div>
+            <div class="press-headline">«GitHub Copilot Just Betrayed 4.7 Million Devs: The End of Flat Rate»</div>
+            <p class="press-desc">
+              Crónica del colapso del modelo económico de suscripción fija tras la llegada de agentes autónomos y la frustración masiva en la comunidad de software.
+            </p>
+          </div>
+
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">Reddit (r/GithubCopilot)</span>
+              <span class="tag">Chargebacks</span>
+            </div>
+            <div class="press-headline">«Massive Backlash: Model Downgrades and Refund Disputes»</div>
+            <p class="press-desc">
+              Hilos con miles de votos organizando disputas en PayPal y tarjetas por <em>bait-and-switch</em> tras la degradación automática a modelos básicos en 2-3 días.
+            </p>
+          </div>
+
+          <div class="press-card">
+            <div class="press-header">
+              <span class="press-source">GitHub Blog Oficial</span>
+              <span class="tag">Comunicado</span>
+            </div>
+            <div class="press-headline">«Changes to Copilot Individual Plans and Refund Clarifications»</div>
+            <p class="press-desc">
+              La dirección de GitHub se ve obligada a publicar aclaraciones oficiales sobre los límites por créditos y a habilitar el reembolso prorrateado para calmar las bajas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 5: ECONOMÍA DE LOS TOKENS / COSTES DE INFERENCIA
+         ==================================================================== -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <div class="tag">Economía de Inferencia</div>
+        <h2>Costes de Inferencia por 1M de Tokens</h2>
+        
+        <div class="table-container">
+          <table class="editorial-table">
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Modelo</th>
+                <th>Entrada ($ / €)</th>
+                <th>Entrada con Caché</th>
+                <th>Tipo / Categoría</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OpenAI</td>
+                <td class="model-name">GPT-5.6 Sol / o3</td>
+                <td class="mono-price">$5.00 / 4,60 €</td>
+                <td class="mono-price">$0.50 / 0,46 €</td>
+                <td>Frontier Flagship</td>
+              </tr>
+              <tr>
+                <td>Anthropic</td>
+                <td class="model-name">Claude Sonnet 5</td>
+                <td class="mono-price">$2.00 / 1,84 €</td>
+                <td class="mono-price">$0.20 / 0,18 €</td>
+                <td>Gama Media / Agentes</td>
+              </tr>
+              <tr>
+                <td>Google</td>
+                <td class="model-name">Gemini 3.6 Flash</td>
+                <td class="mono-price">$1.50 / 1,38 €</td>
+                <td class="mono-price">$0.15 / 0,14 €</td>
+                <td>Equilibrado Cloud</td>
+              </tr>
+              <tr>
+                <td>DeepSeek</td>
+                <td class="model-name">DeepSeek V4 Flash / R1</td>
+                <td class="mono-price">$0.14 – $0.55</td>
+                <td class="mono-price">$0.003 / 0,003 €</td>
+                <td>Open-Weight MoE</td>
+              </tr>
+              <tr>
+                <td>Alibaba Qwen</td>
+                <td class="model-name">Qwen 3.8 (27B / 72B)</td>
+                <td class="mono-price">$0.08 – $0.40</td>
+                <td class="mono-price">Hasta 90% desc.</td>
+                <td>Open-Weight Eficiente</td>
+              </tr>
+              <tr class="highlight-row">
+                <td><strong>AI Local Crafters</strong></td>
+                <td class="model-name"><strong>Hardware Propio (GGUF / vLLM)</strong></td>
+                <td class="mono-price"><strong>0,00 € / token</strong></td>
+                <td class="mono-price"><strong>Ilimitado</strong></td>
+                <td><strong>100% Privado &amp; Autónomo</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 6: ALQUILER DE GPUS A TERCEROS (H200)
+         ==================================================================== -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content">
+        <div class="tag">La Vía Intermedia</div>
+        <h2>Alquilar GPUs a terceros para Open Weights</h2>
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          Para correr modelos masivos en servidores dedicados on-demand sin pagar peaje de token propietario.
+        </p>
+
+        <div class="gpu-grid">
+          
+          <div class="gpu-card">
+            <span class="gpu-tier">Nivel 1</span>
+            <div class="gpu-title">1× H200</div>
+            <div class="gpu-vram">141 GB VRAM</div>
+            <div class="gpu-price">3,22 € – 4,22 €<span style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
+            <div class="gpu-usecase">Modelos 70B–72B en FP16/FP8 sin sharding. Ideal para experimentación y testing.</div>
+          </div>
+
+          <div class="gpu-card">
+            <span class="gpu-tier">Nivel 2</span>
+            <div class="gpu-title">2× H200</div>
+            <div class="gpu-vram">282 GB (NVLink)</div>
+            <div class="gpu-price">6,44 € – 8,45 €<span style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
+            <div class="gpu-usecase">Modelos MoE densos (DeepSeek / Qwen 3.8 en FP8) con alto throughput.</div>
+          </div>
+
+          <div class="gpu-card">
+            <span class="gpu-tier">Nivel 3</span>
+            <div class="gpu-title">4× H200</div>
+            <div class="gpu-vram">564 GB (SXM5)</div>
+            <div class="gpu-price">12,88 € – 16,89 €<span style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
+            <div class="gpu-usecase">Inferencia de modelos frontera 230B–405B para equipos de desarrollo completos.</div>
+          </div>
+
+          <div class="gpu-card">
+            <span class="gpu-tier">Nivel 4</span>
+            <div class="gpu-title">8× H200</div>
+            <div class="gpu-vram">1.128 GB (DGX)</div>
+            <div class="gpu-price">25,76 € – 33,12 €<span style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
+            <div class="gpu-usecase">DeepSeek V3/V4 a precisión nativa con máxima concurrencia y razonamiento masivo.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 7: GRÁFICO / ANALYTICS CURVES
+         ==================================================================== -->
+    <section class="slide" id="slide-7">
+      <div class="slide-content">
+        
+        <div class="chart-slide-header">
+          <h2>Result for<br>Local AI Adoption</h2>
+          <p>
+            Evolución de métricas clave en equipos de software: salto en privacidad y autonomía, con costes predecibles frente al encarecimiento exponencial de las APIs propietarias.
+          </p>
+        </div>
+
+        <div class="chart-legend">
+          <div class="legend-item">
+            <span class="legend-dot gray"></span> Performance
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot orange"></span> Privacy
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot black"></span> Autonomy
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot peach"></span> Cost Efficiency
+          </div>
+        </div>
+
+        <div class="chart-box">
+          <svg class="chart-svg" viewBox="0 0 1000 240" preserveAspectRatio="none">
+            <line x1="40" y1="20" x2="960" y2="20" class="chart-grid-line" />
+            <line x1="40" y1="70" x2="960" y2="70" class="chart-grid-line" />
+            <line x1="40" y1="120" x2="960" y2="120" class="chart-grid-line" />
+            <line x1="40" y1="170" x2="960" y2="170" class="chart-grid-line" />
+            <line x1="40" y1="220" x2="960" y2="220" class="chart-grid-line" stroke-width="1.5" />
+
+            <text x="15" y="25" class="chart-axis-text">25</text>
+            <text x="15" y="75" class="chart-axis-text">20</text>
+            <text x="15" y="125" class="chart-axis-text">15</text>
+            <text x="15" y="175" class="chart-axis-text">10</text>
+            <text x="15" y="225" class="chart-axis-text">0</text>
+
+            <path d="M 120 180 C 250 160, 380 40, 500 30 C 620 20, 750 140, 880 40" 
+                  fill="none" stroke="#a8a29e" stroke-width="1.5" />
+            <circle cx="120" cy="180" r="5" fill="#a8a29e" />
+            <circle cx="310" cy="140" r="5" fill="#a8a29e" />
+            <circle cx="500" cy="30" r="5" fill="#a8a29e" />
+            <circle cx="690" cy="120" r="5" fill="#a8a29e" />
+            <circle cx="880" cy="40" r="5" fill="#a8a29e" />
+
+            <path d="M 120 150 C 250 200, 380 180, 500 130 C 620 90, 750 150, 880 70" 
+                  fill="none" stroke="#f97316" stroke-width="1.5" />
+            <circle cx="120" cy="150" r="5.5" fill="#f97316" />
+            <circle cx="310" cy="190" r="5.5" fill="#f97316" />
+            <circle cx="500" cy="130" r="5.5" fill="#f97316" />
+            <circle cx="690" cy="135" r="5.5" fill="#f97316" />
+            <circle cx="880" cy="70" r="5.5" fill="#f97316" />
+
+            <path d="M 120 195 C 250 160, 380 90, 500 195 C 620 190, 750 140, 880 135" 
+                  fill="none" stroke="#0e0f12" stroke-width="1.5" />
+            <circle cx="120" cy="195" r="5" fill="#0e0f12" />
+            <circle cx="310" cy="120" r="5" fill="#0e0f12" />
+            <circle cx="500" cy="195" r="5" fill="#0e0f12" />
+            <circle cx="690" cy="140" r="5" fill="#0e0f12" />
+            <circle cx="880" cy="135" r="5" fill="#0e0f12" />
+
+            <path d="M 120 70 C 250 160, 380 140, 500 70 C 620 40, 750 50, 880 70" 
+                  fill="none" stroke="#fdba74" stroke-width="1.5" />
+            <circle cx="120" cy="70" r="5" fill="#fdba74" />
+            <circle cx="310" cy="140" r="5" fill="#fdba74" />
+            <circle cx="500" cy="70" r="5" fill="#fdba74" />
+            <circle cx="690" cy="55" r="5" fill="#fdba74" />
+            <circle cx="880" cy="70" r="5.5" fill="#fdba74" />
+
+            <text x="120" y="240" text-anchor="middle" class="chart-axis-text">2021</text>
+            <text x="310" y="240" text-anchor="middle" class="chart-axis-text">2022</text>
+            <text x="500" y="240" text-anchor="middle" class="chart-axis-text">2023</text>
+            <text x="690" y="240" text-anchor="middle" class="chart-axis-text">2024</text>
+            <text x="880" y="240" text-anchor="middle" class="chart-axis-text">2025</text>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 8: CÓDIGO Y CONTROL EN LOCAL
+         ==================================================================== -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <div class="tag">Inferencia Local</div>
+        <h2>Invocación directa sin salir a internet</h2>
+        
+        <div class="code-window">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <div class="code-title">local_crafter_client.py</div>
+            <div></div>
+          </div>
+          <pre class="code-content"><code><span class="comment"># Invocación local sin salir de la máquina vía endpoint Ollama</span>
+<span class="keyword">import</span> httpx
+
+<span class="func">async def</span> <span class="func">generate_code_solution</span>(spec: <span class="keyword">str</span>) -> <span class="keyword">str</span>:
+    <span class="keyword">async with</span> httpx.AsyncClient() <span class="keyword">as</span> client:
+        response = <span class="keyword">await</span> client.<span class="func">post</span>(
+            <span class="string">"http://localhost:11434/api/generate"</span>,
+            json={
+                <span class="string">"model"</span>: <span class="string">"qwen2.5-coder:7b"</span>,
+                <span class="string">"prompt"</span>: f<span class="string">"Craft a clean architecture solution for: {spec}"</span>,
+                <span class="string">"stream"</span>: <span class="keyword">False</span>
+            }
+        )
+        <span class="keyword">return</span> response.<span class="func">json</span>()[<span class="string">"response"</span>]</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 9: CITA EDITORIAL
+         ==================================================================== -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <div class="quote-box">
+          <div class="quote-text">
+            “La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código.”
+          </div>
+          <div class="quote-author">
+            — Artesanía de Software en la era de la IA
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 10: CIERRE & Q&A
+         ==================================================================== -->
+    <section class="slide" id="slide-10">
+      <div class="slide-content">
+        <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
+        
+        <div class="split-grid">
+          <div class="card">
+            <div class="card-title">Hablemos</div>
+            <p class="card-text">¿Cómo estás gestionando el coste y la privacidad de la IA en tu equipo? ¿Qué modelos y configuraciones en local o GPU on-demand has probado?</p>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Recursos &amp; Comunidad</div>
+            <p class="card-text">
+              • Diapositivas HTML + CSS + JS exportables a PDF<br>
+              • Comunidad: <strong>AI Local Crafters</strong><br>
+              • Repositorio abierto con scripts y ejemplos de inferencia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       HUD / CONTROLES DE NAVEGACIÓN
+       ==================================================================== -->
+  <footer id="hud">
+    <div class="hud-left">
+      <div class="slide-counter">
+        <span id="slide-current">1</span> / <span id="slide-total">10</span>
+      </div>
+      <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
+      <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
+    </div>
+
+    <div class="hud-right">
+      <button class="hud-btn" id="btn-theme" title="Alternar Tema (T)">🌓</button>
+      <button class="hud-btn" id="btn-pdf" title="Exportar a PDF / Imprimir (P / Ctrl+P)">📄</button>
+      <button class="hud-btn" id="btn-overview" title="Vista en cuadrícula (O)">⊞</button>
+      <button class="hud-btn" id="btn-fullscreen" title="Pantalla completa (F)">⛶</button>
+      <button class="hud-btn" id="btn-help" title="Atajos de teclado (?)">?</button>
+    </div>
+  </footer>
+
+  <!-- Modal de ayuda con atajos de teclado -->
+  <div id="help-modal">
+    <div class="modal-content">
+      <div class="modal-title">
+        <h3>Atajos de Navegación</h3>
+      </div>
+      <div class="shortcut-row">
+        <span>Siguiente diapositiva</span>
+        <div><kbd>→</kbd> / <kbd>Espacio</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Diapositiva anterior</span>
+        <div><kbd>←</kbd> / <kbd>Shift+Espacio</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Vista general (Overview)</span>
+        <div><kbd>O</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Pantalla completa</span>
+        <div><kbd>F</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Alternar tema (Light / Dark)</span>
+        <div><kbd>T</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Exportar a PDF / Imprimir</span>
+        <div><kbd>P</kbd> / <kbd>Ctrl+P</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Primera / Última slide</span>
+        <div><kbd>Inicio</kbd> / <kbd>Fin</kbd></div>
+      </div>
+      <div class="shortcut-row">
+        <span>Cerrar ayuda</span>
+        <div><kbd>Esc</kbd> / <kbd>?</kbd></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="slides.js"></script>
+</body>
+</html>
