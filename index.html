@@ -774,9 +774,86 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 11: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 11: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
          ==================================================================== -->
     <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
+        <h2>El Drama de Blackwell: <span class="serif-italic">La odisea en los foros</span></h2>
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          De la desincronización de energía al vacío de kernels oficiales: la frustración técnica de los primeros compradores de GB10.
+        </p>
+
+        <div class="press-grid">
+
+          <!-- 1. NVIDIA Dev Forums -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">NVIDIA Dev Forums</span>
+                <span class="press-date">14 Mar 2026</span>
+              </div>
+              <span class="tag">Power Throttle</span>
+            </div>
+            <div class="press-headline">«DGX Spark &amp; ASUS GX10 stuck at 611MHz / 13W throttle state»</div>
+            <p class="press-desc">
+              Bugs en el controlador USB-C PD bloquean la GPU en modo seguro inutilizable. <mark class="highlighter">El soporte oficial confirma que el único fix temporal es el "cold drain"</mark>: desconectar físicamente de la corriente y esperar a vaciar condensadores.
+            </p>
+          </div>
+
+          <!-- 2. GitHub Issues vLLM -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">GitHub Issues (vLLM)</span>
+                <span class="press-date">8 Abr 2026</span>
+              </div>
+              <span class="tag">SM 12.1a Mismatch</span>
+            </div>
+            <div class="press-headline">«Fatal CUDA error: Datacenter sm_100 containers fail on GB10»</div>
+            <p class="press-desc">
+              La arquitectura de consumo SM 12.1a no es compatible con binarios oficiales. <mark class="highlighter">Los kernels de Tensor Core tcgen05 para FP4 vienen deshabilitados o sin compilar</mark>, provocando fallos inmediatos.
+            </p>
+          </div>
+
+          <!-- 3. Reddit r/LocalLLaMA -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reddit (r/LocalLLaMA)</span>
+                <span class="press-date">19 May 2026</span>
+              </div>
+              <span class="tag">Roadmap Trap</span>
+            </div>
+            <div class="press-headline">«NVFP4 on GB10 performs WORSE than INT4 on Ada: Where are the kernels?»</div>
+            <p class="press-desc">
+              Compradores de estaciones de 128GB descubren que <mark class="highlighter">NVIDIA no liberará soporte maduro de NVFP4 hasta finales de 2026</mark>, dejando el hardware puntero a un tercio de su velocidad teórica.
+            </p>
+          </div>
+
+          <!-- 4. Community Release Notes -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Community Release</span>
+                <span class="press-date">2 Jun 2026</span>
+              </div>
+              <span class="tag">Open Source Fix</span>
+            </div>
+            <div class="press-headline">«avarok/vllm-nvfp4-gb10 &amp; spark-vllm-docker: Unlocking 128GB Unified Memory»</div>
+            <p class="press-desc">
+              Desarrolladores independientes publican <mark class="highlighter">imágenes Docker con kernels CUTLASS recompilados a mano</mark>, permitiendo correr Nemotron y Qwen 72B a máxima velocidad sin esperar a los drivers oficiales.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 12: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         ==================================================================== -->
+    <section class="slide" id="slide-12">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source</div>
         <h2>Hackeando el Hierro: La Comunidad al Rescate</h2>
@@ -829,9 +906,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 12: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 13: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-12">
+    <section class="slide" id="slide-13">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -866,9 +943,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 13: CITA EDITORIAL
+         SLIDE 14: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-14">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -883,9 +960,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: CIERRE & Q&A
+         SLIDE 15: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-14">
+    <section class="slide" id="slide-15">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -916,7 +993,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">14</span>
+        <span id="slide-current">1</span> / <span id="slide-total">15</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
