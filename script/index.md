@@ -77,3 +77,4 @@ Configuración,VRAM Total,Rango On-Demand ($/h),Rango On-Demand (€/h),Caso de 
 2× H200 (NVLink),282 GB,$7.00 – $9.18,"6,44 € – 8,45 €",Modelos MoE densos (DeepSeek/Qwen 3.8 en FP8)
 4× H200 (HGX/SXM5),564 GB,$14.00 – $18.36,"12,88 € – 16,89 €",Inferencia de modelos frontera 230B–405B
 8× H200 (Nodo DGX),1.128 GB,$28.00 – $36.00,"25,76 € – 33,12 €",DeepSeek V3/V4 a precisión nativa + alto concurrencia
+
