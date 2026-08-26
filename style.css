@@ -667,6 +667,28 @@ body.theme-dark .press-date {
   font-weight: 400;
 }
 
+/* ==========================================================================
+   SUBRAYADOR FLUORESCENTE MANUAL (LIGERO Y SIN NEGRITA)
+   ========================================================================== */
+mark.highlighter,
+.highlighter {
+  background: linear-gradient(103deg, rgba(254, 240, 138, 0.15) 0%, rgba(254, 240, 138, 0.55) 4%, rgba(253, 224, 71, 0.48) 94%, rgba(254, 240, 138, 0.15) 100%);
+  color: inherit;
+  font-weight: inherit;
+  padding: 0.12em 0.3em;
+  margin: 0 -0.05em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-shadow: none;
+}
+
+body.theme-dark mark.highlighter,
+body.theme-dark .highlighter {
+  background: linear-gradient(103deg, rgba(234, 179, 8, 0.1) 0%, rgba(234, 179, 8, 0.32) 5%, rgba(202, 138, 4, 0.3) 95%, rgba(234, 179, 8, 0.1) 100%);
+  color: inherit;
+}
+
 body.theme-dark .press-card {
   background: linear-gradient(175deg, #22242c 0%, #1c1d24 60%, #17181e 100%);
   border-color: rgba(255, 255, 255, 0.12);
