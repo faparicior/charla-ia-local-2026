@@ -225,12 +225,12 @@ body.theme-dark .tag {
 }
 
 /* ==========================================================================
-   LAYOUT 1: TIMELINE COMPARISON - EL FIN DEL BUFÉ LIBRE (SLIDE 2)
+   LAYOUT 1: TIMELINE COMPARISON - EL FIN DEL BUFÉ LIBRE (SLIDE 2 - AMPLIADO PROYECTOR)
    ========================================================================== */
 .buffet-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr 1.05fr;
-  gap: 3rem;
+  grid-template-columns: 0.95fr 1.1fr 1.1fr;
+  gap: 2.75rem;
   align-items: stretch;
   width: 100%;
 }
@@ -239,28 +239,28 @@ body.theme-dark .tag {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .buffet-intro h2 {
-  font-size: 4.6rem;
-  line-height: 1.05;
+  font-size: 5rem;
+  line-height: 1.04;
 }
 
 .buffet-intro p {
-  font-size: 1.35rem;
-  line-height: 1.6;
-  color: var(--text-muted);
+  font-size: 1.55rem;
+  line-height: 1.65;
+  color: var(--text-main);
 }
 
 .buffet-card {
   background: var(--bg-surface);
-  border: 1.5px solid var(--border-subtle);
+  border: 2px solid var(--border-subtle);
   border-radius: 22px;
   padding: 2.2rem 2.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.35rem;
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.03);
   position: relative;
   transition: transform 0.25s ease;
@@ -272,8 +272,8 @@ body.theme-dark .tag {
 
 .buffet-card.buffet-trap {
   background: linear-gradient(155deg, #ffffff 0%, #fff7ed 60%, #ffedd5 100%);
-  border: 2px solid #ea580c;
-  box-shadow: 0 12px 34px rgba(234, 88, 12, 0.16);
+  border: 2.5px solid #ea580c;
+  box-shadow: 0 12px 36px rgba(234, 88, 12, 0.18);
 }
 
 body.theme-dark .buffet-card.buffet-trap {
@@ -289,7 +289,7 @@ body.theme-dark .buffet-card.buffet-trap {
 
 .buffet-card-title {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-main);
   line-height: 1.15;
@@ -300,11 +300,11 @@ body.theme-dark .buffet-card.buffet-trap {
   align-items: baseline;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--text-main);
-  padding: 0.5rem 0;
-  border-bottom: 1.5px dashed var(--border-medium);
+  padding: 0.4rem 0;
+  border-bottom: 2px dashed var(--border-medium);
 }
 
 .buffet-price-callout.trap {
@@ -312,75 +312,79 @@ body.theme-dark .buffet-card.buffet-trap {
 }
 
 .buffet-price-callout span {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-dim);
 }
 
 .buffet-feature-list {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 1.25rem;
   margin-top: 0.25rem;
 }
 
 .buffet-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .buffet-icon-box {
-  width: 34px;
-  height: 34px;
-  min-width: 34px;
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   background: rgba(0, 0, 0, 0.05);
   margin-top: 0.1rem;
 }
 
 .buffet-card.buffet-trap .buffet-icon-box {
-  background: rgba(234, 88, 12, 0.12);
+  background: rgba(234, 88, 12, 0.14);
 }
 
 .buffet-feature-text {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .buffet-feature-heading {
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-main);
+  line-height: 1.2;
 }
 
 .buffet-feature-sub {
-  font-size: 1.05rem;
-  line-height: 1.4;
-  color: var(--text-muted);
+  font-size: 1.22rem;
+  line-height: 1.5;
+  color: var(--text-main);
+  opacity: 0.88;
 }
 
 .buffet-summary-pill {
   margin-top: auto;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
   font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 700;
-  background: rgba(0, 0, 0, 0.04);
-  color: var(--text-dim);
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
   text-align: center;
+  border: 1px solid var(--border-subtle);
 }
 
 .buffet-card.buffet-trap .buffet-summary-pill {
   background: #ea580c;
   color: #ffffff;
-  box-shadow: 0 3px 10px rgba(234, 88, 12, 0.3);
+  border-color: #ea580c;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
 /* ==========================================================================
