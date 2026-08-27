@@ -1021,7 +1021,7 @@
     <section class="slide" id="slide-12">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos vs. MoE</div>
-        <h2>Modelos Densos vs. MoE: <span class="serif-italic" style="color: #0284c7;">El Hombre Orquesta vs. La Oficina</span></h2>
+        <h2>Modelos Densos vs. MoE: <span class="serif-italic" style="color: #0284c7;">La Junta Médica vs. El Triaje</span></h2>
         <p class="subtitle" style="margin-top: -1rem;">
           ¿Por qué un modelo gigante de 122 mil millones de parámetros puede responder a la velocidad de uno de 10 mil millones?
         </p>
@@ -1033,48 +1033,48 @@
             <!-- Card 1: Modelo Denso -->
             <div class="moe-card card-dense">
               <div class="moe-card-header">
-                <span class="moe-card-title">🧠 Modelo Denso (El Hombre Orquesta)</span>
+                <span class="moe-card-title">🏥 Modelo Denso (Junta Médica Completa)</span>
                 <span class="moe-badge amber">100% Activo</span>
               </div>
 
               <div class="moe-visual-flow">
                 <div class="moe-flow-row">
-                  <span class="moe-flow-node">Palabra Entrada</span>
+                  <span class="moe-flow-node">Síntoma / Entrada</span>
                   <span>➔</span>
-                  <span class="moe-flow-node highlight-amber">Todas las Neuronas (70B)</span>
+                  <span class="moe-flow-node highlight-amber">Todo el Personal Médico (70B)</span>
                   <span>➔</span>
-                  <span class="moe-flow-node">Palabra Salida</span>
+                  <span class="moe-flow-node">Diagnóstico</span>
                 </div>
               </div>
 
               <div class="moe-points-list">
-                <div><strong>¿Cómo piensa?</strong> Activa obligatoriamente el <strong>100% del cerebro</strong> para cada palabra generada, ya sea para saludar o para resolver cálculo diferencial.</div>
+                <div><strong>La analogía:</strong> Entras al hospital por un dolor leve y <strong>se reúne todo el cuadro médico del centro</strong> (cardiología, neurocirugía, traumatología...) para deliberar sobre una simple tos.</div>
                 <div><strong>Ejemplos reales:</strong> LLaMA 3 (8B, 70B), Qwen 27B.</div>
-                <div><strong>El peaje:</strong> Cuanto más inteligente lo haces, más lenta y pesada se vuelve la GPU al multiplicar todas las matrices.</div>
+                <div><strong>El peaje:</strong> Gasto masivo de energía y lentitud: la GPU debe multiplicar <strong>todos los parámetros</strong> en cada palabra.</div>
               </div>
             </div>
 
             <!-- Card 2: Modelo MoE -->
             <div class="moe-card card-moe">
               <div class="moe-card-header">
-                <span class="moe-card-title">👥 Modelo MoE (La Oficina de Expertos)</span>
+                <span class="moe-card-title">🩺 Modelo MoE (Servicio de Triaje)</span>
                 <span class="moe-badge blue">Sparse / Especialistas</span>
               </div>
 
               <div class="moe-visual-flow">
                 <div class="moe-flow-row">
-                  <span class="moe-flow-node">Palabra Entrada</span>
+                  <span class="moe-flow-node">Síntoma / Entrada</span>
                   <span>➔</span>
-                  <span class="moe-flow-node highlight-blue">Router (Recepcionista)</span>
+                  <span class="moe-flow-node highlight-blue">Servicio de Triaje (Router)</span>
                   <span>➔</span>
-                  <span class="moe-flow-node highlight-green">Solo 2 Expertos (10B)</span>
+                  <span class="moe-flow-node highlight-green">Solo 2 Especialidades (10B)</span>
                 </div>
               </div>
 
               <div class="moe-points-list">
-                <div><strong>¿Cómo piensa?</strong> El <em>Router</em> analiza el token y despierta únicamente a los <strong>especialistas adecuados</strong> (ej. el experto en Python y el de Lógica).</div>
+                <div><strong>La analogía:</strong> El <strong>servicio de triaje (*Router*)</strong> evalúa el síntoma en 1 segundo y deriva la consulta <strong>exclusivamente a las especialidades necesarias</strong> (ej. traumatología y radiología). El resto del hospital no se interrumpe.</div>
                 <div><strong>Ejemplos reales:</strong> Mixtral 8x7B, Qwen 122B, DeepSeek-V3 / R1.</div>
-                <div><strong>La magia:</strong> Velocidad brutal de un modelo de <strong>10B</strong> con la enciclopedia y memoria de uno de <strong>122B</strong>.</div>
+                <div><strong>La magia:</strong> Velocidad de un modelo de <strong>10B</strong> con la enciclopedia y sabiduría de un hospital completo de <strong>122B</strong>.</div>
               </div>
             </div>
 
@@ -1085,7 +1085,7 @@
             <div class="moe-ribbon-left">
               <div class="moe-ribbon-icon">💡</div>
               <div class="moe-ribbon-text">
-                <strong>La regla de oro para hardware:</strong> En VRAM necesitas espacio para <strong>toda la oficina (122B)</strong>, pero en velocidad de GPU solo pagas el sueldo de los <strong>2 que trabajan (10B)</strong>. Por eso comprimir con <em>AutoRound</em> o <em>NVFP4</em> es la clave para meterlos en 128 GB.
+                <strong>La regla de oro para hardware:</strong> En VRAM necesitas espacio para <strong>todo el cuadro médico del hospital (122B)</strong>, pero en velocidad de GPU solo interviene <strong>el equipo especialista de guardia (10B)</strong>. Por eso comprimir con <em>AutoRound</em> o <em>NVFP4</em> es la clave para meterlos en 128 GB.
               </div>
             </div>
             <div class="moe-ribbon-badge">El Secreto de la Velocidad</div>

@@ -3,44 +3,44 @@
 
 ---
 
-## 1. Concepto Fundamental: La Mente Monolítica vs. La Oficina de Especialistas
+## 1. Concepto Fundamental: La Junta Médica Total vs. El Triaje de Urgencias
 
 En la arquitectura de los Grandes Modelos de Lenguaje (LLMs), existen dos filosofías fundamentales para organizar las redes neuronales:
 
 ```
-MODELO DENSO (Monolítico)                   MODELO MoE (Mixture of Experts)
-Para CADA palabra se activa el 100%:        Un Router despierta solo a los especialistas:
+MODELO DENSO (Junta Médica Completa)        MODELO MoE (Triaje + Especialistas)
+Para CADA síntoma entran los 100 médicos:   El Triaje (Router) envía solo al especialista:
 
-       [ Palabra Entrada ]                          [ Palabra Entrada ]
+       [ Palabra / Síntoma ]                        [ Palabra / Síntoma ]
                 │                                            │
                 ▼                                            ▼
       ┌──────────────────┐                               ┌────────┐
-      │   100% NEURONAS  │                               │ Router │ (Top-2)
-      │   ACTIVAS (70B)  │                               └───┬─┬──┘
-      └──────────────────┘                                   │ │
-                │                                    ┌───────┘ └───────┐
-                ▼                                    ▼                 ▼
-       [ Palabra Salida ]                      ┌──────────┐      ┌──────────┐
-                                               │ Experto  │      │ Experto  │ (3B c/u)
-                                               │ Python   │      │ Lógica   │
+      │  TODOS LOS 100   │                               │ Triaje │ (Router Top-2)
+      │  MÉDICOS ACTIVOS │                               └───┬─┬──┘
+      │      (70B)       │                                   │ │
+      └──────────────────┘                           ┌───────┘ └───────┐
+                │                                    ▼                 ▼
+                ▼                              ┌──────────┐      ┌──────────┐
+       [ Diagnóstico /    ]                    │ Traumató-│      │ Radió-   │ (3B c/u)
+       [  Palabra Salida  ]                    │   logo   │      │   logo   │
                                                └────┬─────┘      └────┬─────┘
                                                     └────────┬────────┘
                                                              ▼
-                                                    [ Palabra Salida ]
+                                                    [ Diagnóstico / Palabra Salida ]
 ```
 
 ### A. Modelo Denso (Dense Model)
 * **¿Cómo funciona?** Cada token procesado pasa obligatoriamente por **todos y cada uno de los parámetros** del modelo.
 * **Ejemplos:** LLaMA 3 (8B, 70B, 405B), Qwen 2.5 (7B, 14B, 27B, 32B, 72B), GPT-3 (175B).
-* **Analogía:** Un *Hombre Orquesta* o un erudito solitario que piensa con todo su cerebro para responder si una manzana es roja o para resolver una integral triple.
+* **Analogía Médica:** Entras al hospital por un dolor leve y **se reúne todo el cuadro médico del centro** (cardiología, neurocirugía, traumatología...) para deliberar sobre una simple tos: colapso, lentitud extrema y gasto desmesurado de energía.
 
 ### B. Modelo MoE (Mixture of Experts / Mezcla de Expertos)
-* **¿Cómo funciona?** Las capas de procesamiento (*Feed-Forward Networks* o FFN) se multiplican en $N$ sub-redes independientes llamadas **"expertos"**. Una red ligera llamada **Router (o Compuerta)** analiza el token y despierta únicamente a los $K$ expertos más adecuados (típicamente Top-1, Top-2 o Top-8).
+* **¿Cómo funciona?** Las capas de procesamiento (*Feed-Forward Networks* o FFN) se dividen en $N$ sub-redes independientes llamadas **"expertos"**. Una red ligera llamada **Router (el Servicio de Triaje)** analiza el token y despierta únicamente a las $K$ especialidades más adecuadas (típicamente Top-1, Top-2 o Top-8).
 * **Ejemplos:**
   * **Mixtral 8x7B:** 46.7B parámetros totales / **12.9B activos** por token (Top-2 de 8 expertos).
   * **Qwen 3.5 - 122B:** 122B parámetros totales / **10B activos** por token (Top-K de expertos finos).
   * **DeepSeek-V3 / DeepSeek-R1:** 671B parámetros totales / **37B activos** por token (64 expertos finos + 1 compartido).
-* **Analogía:** Una *Oficina de Consultoría*. La recepcionista (*Router*) recibe tu consulta sobre impuestos y se la pasa exclusivamente al fiscalista y al contable, mientras los otros 60 especialistas de la empresa siguen durmiendo.
+* **Analogía Médica:** Llegas a urgencias con dolor de rodilla. El **servicio de triaje (*Router*)** evalúa el síntoma en 1 segundo y deriva la consulta **exclusivamente a las especialidades necesarias** (ej. traumatología y radiología). El resto del centro permanece libre: atención instantánea con máxima especialización.
 
 ---
 
