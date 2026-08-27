@@ -858,9 +858,89 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 11: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 11: MODELOS DENSOS VS. MIXTURE OF EXPERTS (MOE)
          ==================================================================== -->
     <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <div class="tag">Arquitectura de Modelos • Densos vs. MoE</div>
+        <h2>Modelos Densos vs. MoE: <span class="serif-italic" style="color: #0284c7;">La Junta Médica vs. El Triaje</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          ¿Por qué un modelo gigante de 122 mil millones de parámetros puede responder a la velocidad de uno de 10 mil millones?
+        </p>
+
+        <div class="moe-dense-deck">
+
+          <div class="moe-dense-grid-2col">
+
+            <!-- Card 1: Modelo Denso -->
+            <div class="moe-card card-dense">
+              <div class="moe-card-header">
+                <span class="moe-card-title">🏥 Modelo Denso (Junta Médica Completa)</span>
+                <span class="moe-badge amber">100% Activo</span>
+              </div>
+
+              <div class="moe-visual-flow">
+                <div class="moe-flow-row">
+                  <span class="moe-flow-node">Síntoma / Entrada</span>
+                  <span>➔</span>
+                  <span class="moe-flow-node highlight-amber">Todo el Personal Médico (70B)</span>
+                  <span>➔</span>
+                  <span class="moe-flow-node">Diagnóstico</span>
+                </div>
+              </div>
+
+              <div class="moe-points-list">
+                <div><strong>La analogía:</strong> Entras al hospital por un dolor leve y <strong>se reúne todo el cuadro médico del centro</strong> (cardiología, neurocirugía, traumatología...) para deliberar sobre una simple tos.</div>
+                <div><strong>Ejemplos reales:</strong> LLaMA 3 (8B, 70B), Qwen 27B.</div>
+                <div><strong>El peaje:</strong> Gasto masivo de energía y lentitud: la GPU debe multiplicar <strong>todos los parámetros</strong> en cada palabra.</div>
+              </div>
+            </div>
+
+            <!-- Card 2: Modelo MoE -->
+            <div class="moe-card card-moe">
+              <div class="moe-card-header">
+                <span class="moe-card-title">🩺 Modelo MoE (Servicio de Triaje)</span>
+                <span class="moe-badge blue">Sparse / Especialistas</span>
+              </div>
+
+              <div class="moe-visual-flow">
+                <div class="moe-flow-row">
+                  <span class="moe-flow-node">Síntoma / Entrada</span>
+                  <span>➔</span>
+                  <span class="moe-flow-node highlight-blue">Servicio de Triaje (Router)</span>
+                  <span>➔</span>
+                  <span class="moe-flow-node highlight-green">Solo 2 Especialidades (10B)</span>
+                </div>
+              </div>
+
+              <div class="moe-points-list">
+                <div><strong>La analogía:</strong> El <strong>servicio de triaje (*Router*)</strong> evalúa el síntoma en 1 segundo y deriva la consulta <strong>exclusivamente a las especialidades necesarias</strong> (ej. traumatología y radiología). El resto del hospital no se interrumpe.</div>
+                <div><strong>Ejemplos reales:</strong> Mixtral 8x7B, Qwen 122B, DeepSeek-V3 / R1.</div>
+                <div><strong>La magia:</strong> Velocidad de un modelo de <strong>10B</strong> con la enciclopedia y sabiduría de un hospital completo de <strong>122B</strong>.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Ribbon -->
+          <div class="moe-summary-ribbon">
+            <div class="moe-ribbon-left">
+              <div class="moe-ribbon-icon">💡</div>
+              <div class="moe-ribbon-text">
+                <strong>La regla de oro para hardware:</strong> En VRAM necesitas espacio para <strong>todo el cuadro médico del hospital (122B)</strong>, pero en velocidad de GPU solo interviene <strong>el equipo especialista de guardia (10B)</strong>. Por eso comprimir con <em>AutoRound</em> o <em>NVFP4</em> es la clave para meterlos en 128 GB.
+              </div>
+            </div>
+            <div class="moe-ribbon-badge">El Secreto de la Velocidad</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 12: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         ==================================================================== -->
+    <section class="slide" id="slide-12">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #16a34a;">La Zona Ricitos de Oro</span></h2>
@@ -1009,86 +1089,6 @@
               </div>
             </div>
             <div class="goldilocks-tag-pill">Target: DGX Spark / GB10 (128 GB)</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 12: MODELOS DENSOS VS. MIXTURE OF EXPERTS (MOE)
-         ==================================================================== -->
-    <section class="slide" id="slide-12">
-      <div class="slide-content">
-        <div class="tag">Arquitectura de Modelos • Densos vs. MoE</div>
-        <h2>Modelos Densos vs. MoE: <span class="serif-italic" style="color: #0284c7;">La Junta Médica vs. El Triaje</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          ¿Por qué un modelo gigante de 122 mil millones de parámetros puede responder a la velocidad de uno de 10 mil millones?
-        </p>
-
-        <div class="moe-dense-deck">
-
-          <div class="moe-dense-grid-2col">
-
-            <!-- Card 1: Modelo Denso -->
-            <div class="moe-card card-dense">
-              <div class="moe-card-header">
-                <span class="moe-card-title">🏥 Modelo Denso (Junta Médica Completa)</span>
-                <span class="moe-badge amber">100% Activo</span>
-              </div>
-
-              <div class="moe-visual-flow">
-                <div class="moe-flow-row">
-                  <span class="moe-flow-node">Síntoma / Entrada</span>
-                  <span>➔</span>
-                  <span class="moe-flow-node highlight-amber">Todo el Personal Médico (70B)</span>
-                  <span>➔</span>
-                  <span class="moe-flow-node">Diagnóstico</span>
-                </div>
-              </div>
-
-              <div class="moe-points-list">
-                <div><strong>La analogía:</strong> Entras al hospital por un dolor leve y <strong>se reúne todo el cuadro médico del centro</strong> (cardiología, neurocirugía, traumatología...) para deliberar sobre una simple tos.</div>
-                <div><strong>Ejemplos reales:</strong> LLaMA 3 (8B, 70B), Qwen 27B.</div>
-                <div><strong>El peaje:</strong> Gasto masivo de energía y lentitud: la GPU debe multiplicar <strong>todos los parámetros</strong> en cada palabra.</div>
-              </div>
-            </div>
-
-            <!-- Card 2: Modelo MoE -->
-            <div class="moe-card card-moe">
-              <div class="moe-card-header">
-                <span class="moe-card-title">🩺 Modelo MoE (Servicio de Triaje)</span>
-                <span class="moe-badge blue">Sparse / Especialistas</span>
-              </div>
-
-              <div class="moe-visual-flow">
-                <div class="moe-flow-row">
-                  <span class="moe-flow-node">Síntoma / Entrada</span>
-                  <span>➔</span>
-                  <span class="moe-flow-node highlight-blue">Servicio de Triaje (Router)</span>
-                  <span>➔</span>
-                  <span class="moe-flow-node highlight-green">Solo 2 Especialidades (10B)</span>
-                </div>
-              </div>
-
-              <div class="moe-points-list">
-                <div><strong>La analogía:</strong> El <strong>servicio de triaje (*Router*)</strong> evalúa el síntoma en 1 segundo y deriva la consulta <strong>exclusivamente a las especialidades necesarias</strong> (ej. traumatología y radiología). El resto del hospital no se interrumpe.</div>
-                <div><strong>Ejemplos reales:</strong> Mixtral 8x7B, Qwen 122B, DeepSeek-V3 / R1.</div>
-                <div><strong>La magia:</strong> Velocidad de un modelo de <strong>10B</strong> con la enciclopedia y sabiduría de un hospital completo de <strong>122B</strong>.</div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Bottom Ribbon -->
-          <div class="moe-summary-ribbon">
-            <div class="moe-ribbon-left">
-              <div class="moe-ribbon-icon">💡</div>
-              <div class="moe-ribbon-text">
-                <strong>La regla de oro para hardware:</strong> En VRAM necesitas espacio para <strong>todo el cuadro médico del hospital (122B)</strong>, pero en velocidad de GPU solo interviene <strong>el equipo especialista de guardia (10B)</strong>. Por eso comprimir con <em>AutoRound</em> o <em>NVFP4</em> es la clave para meterlos en 128 GB.
-              </div>
-            </div>
-            <div class="moe-ribbon-badge">El Secreto de la Velocidad</div>
           </div>
 
         </div>
@@ -2031,9 +2031,286 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 23: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
     <section class="slide" id="slide-23">
+      <div class="slide-content">
+        <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
+        <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          De un modelo open-weights de 6M$ al "Momento Sputnik", el hackeo en ensamblador PTX y la adopción oficial de NVIDIA.
+        </p>
+
+        <div class="rect-timeline-deck">
+
+          <!-- Wrapper con la barra de fondo y las 5 columnas alternantes -->
+          <div class="rect-timeline-wrapper">
+
+            <!-- Barra rectangular continua de fondo con extensiones laterales -->
+            <div class="rect-timeline-bar-bg">
+              <div class="rect-bar-cap left"></div>
+              <div class="rect-bar-segments cols-5">
+                <div class="rect-bar-segment c1"></div>
+                <div class="rect-bar-segment c2"></div>
+                <div class="rect-bar-segment c6"></div>
+                <div class="rect-bar-segment c5"></div>
+                <div class="rect-bar-segment c4"></div>
+              </div>
+              <div class="rect-bar-cap right"></div>
+            </div>
+
+            <!-- Cuadrícula interactiva de 5 columnas -->
+            <div class="rect-timeline-grid cols-5">
+
+              <!-- COLUMNA 1: Dic 2024 – Ene 2025 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-blue">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">DeepSeek V3 / R1</div>
+                      <span class="rect-card-tag">Ene 2025</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      MoE (671B / 37B activos) con <strong>MLA</strong>. Razonamiento al nivel de OpenAI o1 con un coste de entrenamiento 95% inferior (~6M$).
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Entrenamiento</span>
+                      <strong style="color: #0284c7;">Coste 20x menor</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">DIC 24 – ENE 25</div>
+                    <div class="rect-date-label">V3 &amp; R1 MoE</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 2: Ene – Feb 2025 (Fecha Arriba / Card Abajo) -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">ENE – FEB 2025</div>
+                    <div class="rect-date-label">Momento Sputnik</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Terremoto Tech</div>
+                      <span class="rect-card-tag" style="color: #d97706; font-weight: 800;">Pánico en Bolsa</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Desplome de chips en Wall Street: la prueba de que el <strong>ingenio algorítmico supera la fuerza bruta</strong> y el monopolio de cómputo.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Mercado</span>
+                      <strong style="color: #d97706;">Giro Histórico</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 3: 24–28 Feb 2025 (Card Arriba / Fecha Abajo - DESTACADO) -->
+              <div class="rect-col c-crimson">
+                <div class="rect-top-slot">
+                  <div class="rect-card highlight">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title" style="color: #e11d48;">Open Source Week</div>
+                      <span class="rect-card-tag" style="background: #e11d48; color: #fff; font-weight: 800;">Kernels PTX</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Liberan FlashMLA, DeepGEMM (PTX), DeepEP y DualPipe. Bypassean los compiladores para exprimir el silicio al 100% (&gt;1.550 TFLOPS).
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Hardware</span>
+                      <strong style="color: #e11d48;">Hack al Silicio</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">24–28 FEB 2025</div>
+                    <div class="rect-date-label">Open Source Week</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 4: Mar – Abr 2025 (Fecha Arriba / Card Abajo) -->
+              <div class="rect-col c-teal">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">MAR – ABR 2025</div>
+                    <div class="rect-date-label">Respuesta NVIDIA</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">TensorRT-LLM</div>
+                      <span class="rect-card-tag" style="color: #0d9488; font-weight: 800;">Adopción Oficial</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Jensen Huang elogia la ingeniería. NVIDIA <strong>integra DeepGEMM nativamente</strong> en TensorRT-LLM y NIM para evitar parches externos.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">moe_config.backend</span>
+                      <strong style="color: #0d9488;">DEEPGEMM</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 5: 2026 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-orange">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">DSpark &amp; DeepSpec</div>
+                      <span class="rect-card-tag">Junio 2026</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Liberación de <strong>DeepSpec (MIT)</strong> con DSpark (decoding con filtro de confianza) adaptado y utilizado en <strong>Qwen, Llama y vLLM</strong>.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Licencia: MIT</span>
+                      <strong style="color: #ea580c;">Estándar Abierto</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">JUNIO 2026</div>
+                    <div class="rect-date-label">Ecosistema Abierto</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 24: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         ==================================================================== -->
+    <section class="slide" id="slide-24">
+      <div class="slide-content">
+        <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
+        <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          Cómo DeepSeek reescribió los kernels en ensamblador PTX y obligó a NVIDIA a rediseñar TensorRT-LLM para evitar parches extraoficiales.
+        </p>
+
+        <div class="press-grid">
+
+          <!-- 1. DeepSeek Open Source Week -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">DeepSeek AI / GitHub</span>
+                <span class="press-date">24–28 Feb 2025</span>
+              </div>
+              <span class="tag">Open Source Week</span>
+            </div>
+            <div class="press-headline">«FlashMLA, DeepGEMM y DeepEP: saltándose el compilador oficial de NVIDIA»</div>
+            <p class="press-desc">
+              DeepSeek libera librerías en <mark class="highlighter">código ensamblador PTX a bajo nivel</mark> que exprimen Hopper hasta los <mark class="highlighter">1.550+ TFLOPS en FP8</mark> y 3.000 GB/s de ancho de banda, demostrando un 50% de rendimiento oculto.
+            </p>
+          </div>
+
+          <!-- 2. Jensen Huang / Declaraciones Oficiales -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reuters / Financial Times</span>
+                <span class="press-date">Marzo 2025</span>
+              </div>
+              <span class="tag">Reacción Oficial</span>
+            </div>
+            <div class="press-headline">«Jensen Huang elogia a DeepSeek: "El ejemplo perfecto del escalado en inferencia"»</div>
+            <p class="press-desc">
+              El CEO de NVIDIA reconoce públicamente el avance técnico de DeepSeek y asegura que <mark class="highlighter">el ecosistema abierto acelera la demanda y adopción de inferencia</mark> sobre silicio NVIDIA.
+            </p>
+          </div>
+
+          <!-- 3. NVIDIA TensorRT-LLM Native Support -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">NVIDIA Developer Blog</span>
+                <span class="press-date">Abril 2025</span>
+              </div>
+              <span class="tag">Integración Nativa</span>
+            </div>
+            <div class="press-headline">«NVIDIA añade soporte nativo para DeepGEMM y FlashMLA en TensorRT-LLM»</div>
+            <p class="press-desc">
+              Para evitar parches de ensamblador no oficiales en producción, <mark class="highlighter">NVIDIA absorbe los kernels de DeepSeek</mark> activables de forma nativa con una sola línea: <code>moe_config.backend = "DEEPGEMM"</code>.
+            </p>
+          </div>
+
+          <!-- 4. DeepSpec / Ecosistema Universal -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Hugging Face / Towards AI</span>
+                <span class="press-date">Junio 2026</span>
+              </div>
+              <span class="tag">Ecosistema Abierto</span>
+            </div>
+            <div class="press-headline">«DeepSpec y DSpark democratizan el hardware: compatible con Qwen, Llama y vLLM»</div>
+            <p class="press-desc">
+              Las técnicas de <mark class="highlighter">speculative decoding con filtro de confianza</mark> de DeepSeek se convierten en estándar de la industria, optimizando inferencia en servidores y en local sin renovar hardware.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 25: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         ==================================================================== -->
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -2264,9 +2541,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 26: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -2373,9 +2650,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 27: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -2485,9 +2762,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 28: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -2607,283 +2884,6 @@
               <div class="dspark-novel-desc">
                 Al evitar verificaciones fallidas, <strong>permite atender hasta un 85% más de usuarios</strong> o generar mucho más rápido con el mismo hardware.
               </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 27: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
-         ==================================================================== -->
-    <section class="slide" id="slide-27">
-      <div class="slide-content">
-        <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
-        <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
-          Cómo DeepSeek reescribió los kernels en ensamblador PTX y obligó a NVIDIA a rediseñar TensorRT-LLM para evitar parches extraoficiales.
-        </p>
-
-        <div class="press-grid">
-
-          <!-- 1. DeepSeek Open Source Week -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">DeepSeek AI / GitHub</span>
-                <span class="press-date">24–28 Feb 2025</span>
-              </div>
-              <span class="tag">Open Source Week</span>
-            </div>
-            <div class="press-headline">«FlashMLA, DeepGEMM y DeepEP: saltándose el compilador oficial de NVIDIA»</div>
-            <p class="press-desc">
-              DeepSeek libera librerías en <mark class="highlighter">código ensamblador PTX a bajo nivel</mark> que exprimen Hopper hasta los <mark class="highlighter">1.550+ TFLOPS en FP8</mark> y 3.000 GB/s de ancho de banda, demostrando un 50% de rendimiento oculto.
-            </p>
-          </div>
-
-          <!-- 2. Jensen Huang / Declaraciones Oficiales -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Reuters / Financial Times</span>
-                <span class="press-date">Marzo 2025</span>
-              </div>
-              <span class="tag">Reacción Oficial</span>
-            </div>
-            <div class="press-headline">«Jensen Huang elogia a DeepSeek: "El ejemplo perfecto del escalado en inferencia"»</div>
-            <p class="press-desc">
-              El CEO de NVIDIA reconoce públicamente el avance técnico de DeepSeek y asegura que <mark class="highlighter">el ecosistema abierto acelera la demanda y adopción de inferencia</mark> sobre silicio NVIDIA.
-            </p>
-          </div>
-
-          <!-- 3. NVIDIA TensorRT-LLM Native Support -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">NVIDIA Developer Blog</span>
-                <span class="press-date">Abril 2025</span>
-              </div>
-              <span class="tag">Integración Nativa</span>
-            </div>
-            <div class="press-headline">«NVIDIA añade soporte nativo para DeepGEMM y FlashMLA en TensorRT-LLM»</div>
-            <p class="press-desc">
-              Para evitar parches de ensamblador no oficiales en producción, <mark class="highlighter">NVIDIA absorbe los kernels de DeepSeek</mark> activables de forma nativa con una sola línea: <code>moe_config.backend = "DEEPGEMM"</code>.
-            </p>
-          </div>
-
-          <!-- 4. DeepSpec / Ecosistema Universal -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Hugging Face / Towards AI</span>
-                <span class="press-date">Junio 2026</span>
-              </div>
-              <span class="tag">Ecosistema Abierto</span>
-            </div>
-            <div class="press-headline">«DeepSpec y DSpark democratizan el hardware: compatible con Qwen, Llama y vLLM»</div>
-            <p class="press-desc">
-              Las técnicas de <mark class="highlighter">speculative decoding con filtro de confianza</mark> de DeepSeek se convierten en estándar de la industria, optimizando inferencia en servidores y en local sin renovar hardware.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 28: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
-         ==================================================================== -->
-    <section class="slide" id="slide-28">
-      <div class="slide-content">
-        <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
-        <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          De un modelo open-weights de 6M$ al "Momento Sputnik", el hackeo en ensamblador PTX y la adopción oficial de NVIDIA.
-        </p>
-
-        <div class="rect-timeline-deck">
-
-          <!-- Wrapper con la barra de fondo y las 5 columnas alternantes -->
-          <div class="rect-timeline-wrapper">
-
-            <!-- Barra rectangular continua de fondo con extensiones laterales -->
-            <div class="rect-timeline-bar-bg">
-              <div class="rect-bar-cap left"></div>
-              <div class="rect-bar-segments cols-5">
-                <div class="rect-bar-segment c1"></div>
-                <div class="rect-bar-segment c2"></div>
-                <div class="rect-bar-segment c6"></div>
-                <div class="rect-bar-segment c5"></div>
-                <div class="rect-bar-segment c4"></div>
-              </div>
-              <div class="rect-bar-cap right"></div>
-            </div>
-
-            <!-- Cuadrícula interactiva de 5 columnas -->
-            <div class="rect-timeline-grid cols-5">
-
-              <!-- COLUMNA 1: Dic 2024 – Ene 2025 (Card Arriba / Fecha Abajo) -->
-              <div class="rect-col c-blue">
-                <div class="rect-top-slot">
-                  <div class="rect-card">
-                    <div class="rect-card-header">
-                      <div class="rect-card-title">DeepSeek V3 / R1</div>
-                      <span class="rect-card-tag">Ene 2025</span>
-                    </div>
-                    <div class="rect-card-desc">
-                      MoE (671B / 37B activos) con <strong>MLA</strong>. Razonamiento al nivel de OpenAI o1 con un coste de entrenamiento 95% inferior (~6M$).
-                    </div>
-                    <div class="rect-card-footer">
-                      <span style="color: var(--text-dim);">Entrenamiento</span>
-                      <strong style="color: #0284c7;">Coste 20x menor</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-pin-stem"></div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-date-block" style="margin-top: 0.5rem;">
-                    <div class="rect-date-year">DIC 24 – ENE 25</div>
-                    <div class="rect-date-label">V3 &amp; R1 MoE</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- COLUMNA 2: Ene – Feb 2025 (Fecha Arriba / Card Abajo) -->
-              <div class="rect-col c-amber">
-                <div class="rect-top-slot">
-                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
-                    <div class="rect-date-year">ENE – FEB 2025</div>
-                    <div class="rect-date-label">Momento Sputnik</div>
-                  </div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-pin-stem"></div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-card">
-                    <div class="rect-card-header">
-                      <div class="rect-card-title">Terremoto Tech</div>
-                      <span class="rect-card-tag" style="color: #d97706; font-weight: 800;">Pánico en Bolsa</span>
-                    </div>
-                    <div class="rect-card-desc">
-                      Desplome de chips en Wall Street: la prueba de que el <strong>ingenio algorítmico supera la fuerza bruta</strong> y el monopolio de cómputo.
-                    </div>
-                    <div class="rect-card-footer">
-                      <span style="color: var(--text-dim);">Mercado</span>
-                      <strong style="color: #d97706;">Giro Histórico</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- COLUMNA 3: 24–28 Feb 2025 (Card Arriba / Fecha Abajo - DESTACADO) -->
-              <div class="rect-col c-crimson">
-                <div class="rect-top-slot">
-                  <div class="rect-card highlight">
-                    <div class="rect-card-header">
-                      <div class="rect-card-title" style="color: #e11d48;">Open Source Week</div>
-                      <span class="rect-card-tag" style="background: #e11d48; color: #fff; font-weight: 800;">Kernels PTX</span>
-                    </div>
-                    <div class="rect-card-desc">
-                      Liberan FlashMLA, DeepGEMM (PTX), DeepEP y DualPipe. Bypassean los compiladores para exprimir el silicio al 100% (&gt;1.550 TFLOPS).
-                    </div>
-                    <div class="rect-card-footer">
-                      <span style="color: var(--text-dim);">Hardware</span>
-                      <strong style="color: #e11d48;">Hack al Silicio</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-pin-stem"></div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-date-block" style="margin-top: 0.5rem;">
-                    <div class="rect-date-year">24–28 FEB 2025</div>
-                    <div class="rect-date-label">Open Source Week</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- COLUMNA 4: Mar – Abr 2025 (Fecha Arriba / Card Abajo) -->
-              <div class="rect-col c-teal">
-                <div class="rect-top-slot">
-                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
-                    <div class="rect-date-year">MAR – ABR 2025</div>
-                    <div class="rect-date-label">Respuesta NVIDIA</div>
-                  </div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-pin-stem"></div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-card">
-                    <div class="rect-card-header">
-                      <div class="rect-card-title">TensorRT-LLM</div>
-                      <span class="rect-card-tag" style="color: #0d9488; font-weight: 800;">Adopción Oficial</span>
-                    </div>
-                    <div class="rect-card-desc">
-                      Jensen Huang elogia la ingeniería. NVIDIA <strong>integra DeepGEMM nativamente</strong> en TensorRT-LLM y NIM para evitar parches externos.
-                    </div>
-                    <div class="rect-card-footer">
-                      <span style="color: var(--text-dim);">moe_config.backend</span>
-                      <strong style="color: #0d9488;">DEEPGEMM</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- COLUMNA 5: 2026 (Card Arriba / Fecha Abajo) -->
-              <div class="rect-col c-orange">
-                <div class="rect-top-slot">
-                  <div class="rect-card">
-                    <div class="rect-card-header">
-                      <div class="rect-card-title">DSpark &amp; DeepSpec</div>
-                      <span class="rect-card-tag">Junio 2026</span>
-                    </div>
-                    <div class="rect-card-desc">
-                      Liberación de <strong>DeepSpec (MIT)</strong> con DSpark (decoding con filtro de confianza) adaptado y utilizado en <strong>Qwen, Llama y vLLM</strong>.
-                    </div>
-                    <div class="rect-card-footer">
-                      <span style="color: var(--text-dim);">Licencia: MIT</span>
-                      <strong style="color: #ea580c;">Estándar Abierto</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-pin-stem"></div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-date-block" style="margin-top: 0.5rem;">
-                    <div class="rect-date-year">JUNIO 2026</div>
-                    <div class="rect-date-label">Ecosistema Abierto</div>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
           </div>
