@@ -715,112 +715,96 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 10: EL TRILEMA DE LA IA LOCAL (MEMORIA, CALIDAD, VELOCIDAD)
+         SLIDE 10: EL TRILEMA DE LA IA LOCAL (DIAGRAMA TRIANGULAR MINIMALISTA)
          ==================================================================== -->
     <section class="slide" id="slide-10">
       <div class="slide-content">
-        <div class="tag">Marco Mental • El Trilema de la IA Local</div>
-        <h2>Las 3 Variables que lo definen todo: <span class="serif-italic" style="color: #0284c7;">Memoria, Calidad y Velocidad</span></h2>
+        <div class="tag">Marco Mental • Las 3 Variables Clave</div>
+        <h2>El Trilema de la IA Local: <span class="serif-italic" style="color: #0284c7;">Memoria, Calidad y Velocidad</span></h2>
         <p class="subtitle" style="margin-top: -1rem;">
-          Antes de tocar hardware o descargar pesos: toda decisión técnica busca el equilibrio entre estos tres pilares.
+          Toda decisión de hardware, arquitectura y cuantización busca el equilibrio perfecto entre estos tres pilares.
         </p>
 
-        <div class="trilemma-deck">
+        <!-- Contenedor del Triángulo Minimalista -->
+        <div class="tri-minimal-stage">
 
-          <div class="trilemma-grid-3col">
+          <!-- Gráfico SVG Limpio: Solo líneas de conexión y fondo -->
+          <svg class="tri-minimal-svg" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="500,80 180,370 820,370" 
+                     fill="rgba(2, 132, 199, 0.02)" 
+                     stroke="#cbd5e1" 
+                     stroke-width="2" 
+                     stroke-dasharray="6 6" />
 
-            <!-- Pilar 1: Memoria / VRAM -->
-            <div class="trilemma-card card-memory">
-              <div>
-                <div class="trilemma-card-header">
-                  <span class="trilemma-icon-badge">💾</span>
-                  <span class="trilemma-pillar-tag blue">Pilar 1 • El Límite Físico</span>
-                </div>
-                <div class="trilemma-card-title">1. Memoria (VRAM)</div>
-                <div class="trilemma-card-question">"¿Cabe el modelo en mi máquina?"</div>
-                
-                <div class="trilemma-formula-chip">
-                  VRAM = Pesos Fijos + (KV Cache × Usuarios)
-                </div>
+            <line x1="500" y1="80" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5" />
+            <line x1="180" y1="370" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5" />
+            <line x1="820" y1="370" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5" />
+          </svg>
 
-                <div class="trilemma-bullets-list">
-                  <div>• <strong>El muro de silicio:</strong> Si te quedas sin VRAM, el sistema colapsa (OOM) o cae a RAM de CPU perdiendo el 90% de velocidad.</div>
-                  <div>• <strong>No solo son los pesos:</strong> Cada token de contexto y cada usuario concurrente devora memoria en tiempo real.</div>
-                </div>
-              </div>
-
-              <div class="trilemma-card-footer">
-                <span style="color: var(--text-dim);">Análisis detallado</span>
-                <span class="trilemma-footer-link">Slide 11 ➔</span>
-              </div>
+          <!-- 1. VÉRTICE SUPERIOR: CALIDAD -->
+          <div class="tri-node node-top">
+            <div class="tri-node-badge-clean purple">
+              <span class="tri-node-dot purple"></span>
+              <span>CALIDAD (Inteligencia)</span>
             </div>
-
-            <!-- Pilar 2: Calidad / Inteligencia -->
-            <div class="trilemma-card card-quality">
-              <div>
-                <div class="trilemma-card-header">
-                  <span class="trilemma-icon-badge">🧠</span>
-                  <span class="trilemma-pillar-tag purple">Pilar 2 • La Precisión</span>
-                </div>
-                <div class="trilemma-card-title">2. Calidad &amp; Razonamiento</div>
-                <div class="trilemma-card-question">"¿Es fiable o empezará a alucinar?"</div>
-                
-                <div class="trilemma-formula-chip">
-                  FP16 (100%) ➔ FP8 (99.6%) ➔ 4-bit (98%) ➔ 3-bit (&lt;90%)
-                </div>
-
-                <div class="trilemma-bullets-list">
-                  <div>• <strong>El peaje de comprimir:</strong> Reducir bits ahorra memoria, pero un redondeo descuidado destruye la capacidad lógica.</div>
-                  <div>• <strong>El efecto dominó:</strong> En preguntas cortas parece perfecto, pero en razonamiento largo los errores de 4 bits se multiplican.</div>
-                </div>
-              </div>
-
-              <div class="trilemma-card-footer">
-                <span style="color: var(--text-dim);">Análisis detallado</span>
-                <span class="trilemma-footer-link">Slide 14 ➔</span>
-              </div>
-            </div>
-
-            <!-- Pilar 3: Velocidad / Arquitectura -->
-            <div class="trilemma-card card-speed">
-              <div>
-                <div class="trilemma-card-header">
-                  <span class="trilemma-icon-badge">⚡</span>
-                  <span class="trilemma-pillar-tag orange">Pilar 3 • El Throughput</span>
-                </div>
-                <div class="trilemma-card-title">3. Velocidad (Tokens/s)</div>
-                <div class="trilemma-card-question">"¿Responde al instante o tarda minutos?"</div>
-                
-                <div class="trilemma-formula-chip">
-                  Denso (100% cálculo) vs MoE (Especialistas activos)
-                </div>
-
-                <div class="trilemma-bullets-list">
-                  <div>• <strong>La arquitectura manda:</strong> Un modelo denso multiplica todos sus billones de parámetros en cada palabra generada.</div>
-                  <div>• <strong>La magia de MoE:</strong> Un hospital de 122B responde a la velocidad de un 10B activando solo 2 especialidades de guardia.</div>
-                </div>
-              </div>
-
-              <div class="trilemma-card-footer">
-                <span style="color: var(--text-dim);">Análisis detallado</span>
-                <span class="trilemma-footer-link">Slide 12 ➔</span>
-              </div>
-            </div>
-
+            <div class="tri-node-sub">¿Es fiable o alucina?</div>
+            <div class="tri-node-pill">FP8 ➔ INT4 (AutoRound / NVFP4)</div>
           </div>
 
-          <!-- Bottom Summary Banner -->
-          <div class="trilemma-summary-ribbon">
-            <div class="trilemma-ribbon-left">
-              <div class="trilemma-ribbon-icon">🎯</div>
-              <div class="trilemma-ribbon-text">
-                <strong>El "Sweet Spot" del Crafter:</strong> La meta es encontrar la combinación donde un modelo de frontera (ej. <strong>Qwen 122B MoE</strong>) cabe en una máquina de 128 GB, genera a <strong>&gt;40 tokens/s</strong> y preserva más del <strong>98% de su razonamiento</strong> con algoritmos como <em>AutoRound</em> o <em>NVFP4</em>.
-              </div>
+          <!-- 2. VÉRTICE INFERIOR IZQUIERDO: MEMORIA -->
+          <div class="tri-node node-left">
+            <div class="tri-node-badge-clean blue">
+              <span class="tri-node-dot blue"></span>
+              <span>MEMORIA (VRAM)</span>
             </div>
-            <div class="trilemma-ribbon-badge">El Santo Grial Local</div>
+            <div class="tri-node-sub">¿Cabe en mi hardware?</div>
+            <div class="tri-node-pill">Pesos Fijos + KV Cache Dinámico</div>
+          </div>
+
+          <!-- 3. VÉRTICE INFERIOR DERECHO: VELOCIDAD -->
+          <div class="tri-node node-right">
+            <div class="tri-node-badge-clean orange">
+              <span class="tri-node-dot orange"></span>
+              <span>VELOCIDAD (Throughput)</span>
+            </div>
+            <div class="tri-node-sub">¿A cuántos tokens/s responde?</div>
+            <div class="tri-node-pill">Modelos MoE vs. Densos</div>
+          </div>
+
+          <!-- CENTRO: SWEET SPOT -->
+          <div class="tri-node node-center">
+            <div class="tri-center-icon">🎯</div>
+            <div class="tri-center-title">El "Sweet Spot" del Crafter</div>
+            <div class="tri-center-target">Qwen 122B MoE en 128 GB</div>
+            <div class="tri-center-stats">&gt;40 tokens/s • 98.4% precisión intacta</div>
           </div>
 
         </div>
+
+        <!-- 3 Tarjetas Inferiores Limpias y Explicativas -->
+        <div class="tri-bottom-cards">
+          <div class="tri-summary-card">
+            <div class="tri-summary-head" style="color: #0284c7;">
+              <span>💾</span> <strong>1. Memoria (El Límite)</strong>
+            </div>
+            <p>Si el modelo y el contexto no caben en VRAM, la velocidad cae un 90% por swap a CPU.</p>
+          </div>
+
+          <div class="tri-summary-card">
+            <div class="tri-summary-head" style="color: #7c3aed;">
+              <span>🧠</span> <strong>2. Calidad (La Lógica)</strong>
+            </div>
+            <p>Comprimir a 4 bits ahorra VRAM; la clave es no romper cadenas de razonamiento largo.</p>
+          </div>
+
+          <div class="tri-summary-card">
+            <div class="tri-summary-head" style="color: #ea580c;">
+              <span>⚡</span> <strong>3. Velocidad (La Fluidez)</strong>
+            </div>
+            <p>La arquitectura MoE activa solo a los expertos de guardia para responder al instante.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
