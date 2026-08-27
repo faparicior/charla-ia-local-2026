@@ -1179,9 +1179,361 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 14: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
     <section class="slide" id="slide-14">
+      <div class="slide-content">
+        <div class="tag">Estrategia de Aceleración • MTP</div>
+        <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          En lugar de adivinar palabra por palabra, el modelo usa cabezales internos para anticipar varias palabras a la vez sin modelos externos.
+        </p>
+
+        <div class="mtp-clean-deck">
+
+          <!-- Comparativa: Modelo Normal vs Modelo MTP -->
+          <div class="mtp-comparison-grid">
+
+            <!-- Card 1: Modelo Tradicional -->
+            <div class="mtp-model-card">
+              <div class="mtp-card-header">
+                <div class="mtp-card-title">Modelo Tradicional</div>
+                <span class="mtp-badge standard">1 Paso = 1 Palabra</span>
+              </div>
+
+              <div class="mtp-visual-architecture">
+                <div class="mtp-trunk-box">Tronco del LLM</div>
+                <span style="font-size: 1.2rem; color: var(--text-dim);">➔</span>
+                <div class="mtp-head-row">
+                  <span class="mtp-head-pill" style="color: var(--text-muted); border-color: var(--border-medium); background: rgba(0,0,0,0.05);">Cabezal Único</span>
+                  <span class="mtp-token-val">t+1</span>
+                </div>
+              </div>
+
+              <div class="mtp-card-desc">
+                Genera texto <strong>estrictamente de uno en uno</strong>. Para escribir 3 palabras necesita ejecutar 3 pasadas completas por todo el modelo gigante.
+              </div>
+            </div>
+
+            <!-- Card 2: Modelo con MTP (HIGHLIGHT) -->
+            <div class="mtp-model-card highlight">
+              <div class="mtp-card-header">
+                <div class="mtp-card-title" style="color: #d97706;">Modelo con MTP (Multi-Token)</div>
+                <span class="mtp-badge amber">1 Paso = 3 Palabras</span>
+              </div>
+
+              <div class="mtp-visual-architecture">
+                <div class="mtp-trunk-box" style="border-color: #d97706; color: #d97706;">Tronco del LLM</div>
+                <span style="font-size: 1.2rem; color: #d97706; font-weight: 800;">➔</span>
+                <div class="mtp-heads-cluster">
+                  <div class="mtp-head-row">
+                    <span class="mtp-head-pill">Cabezal 1</span>
+                    <span class="mtp-token-val" style="color: #d97706; font-weight: 800;">t+1: "el"</span>
+                  </div>
+                  <div class="mtp-head-row">
+                    <span class="mtp-head-pill">Cabezal 2</span>
+                    <span class="mtp-token-val" style="color: #d97706; font-weight: 800;">t+2: "código"</span>
+                  </div>
+                  <div class="mtp-head-row">
+                    <span class="mtp-head-pill">Cabezal 3</span>
+                    <span class="mtp-token-val" style="color: #d97706; font-weight: 800;">t+3: "funciona"</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mtp-card-desc">
+                <strong>Cabezales auxiliares integrados en el propio modelo.</strong> En un solo paso de cómputo anticipa la frase entera sin requerir ningún modelo externo.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 3 Conceptos Clave Explicados para Audiencia Novel -->
+          <div class="mtp-novel-grid">
+
+            <div class="mtp-novel-card">
+              <div class="mtp-novel-title">
+                <span style="color: #d97706;">🧠</span>
+                <span>Auto-Especulación Interna</span>
+              </div>
+              <div class="mtp-novel-desc">
+                El propio modelo <strong>es su propio asistente</strong>. No tienes que descargar ni configurar un segundo modelo pequeño en tu software de inferencia.
+              </div>
+            </div>
+
+            <div class="mtp-novel-card">
+              <div class="mtp-novel-title">
+                <span style="color: #16a34a;">🚀</span>
+                <span>0 GB de Memoria Extra</span>
+              </div>
+              <div class="mtp-novel-desc">
+                Los cabezales son diminutos y van incorporados en los mismos pesos. Consumo de VRAM <strong>prácticamente nulo</strong> en tu Mac o GPU.
+              </div>
+            </div>
+
+            <div class="mtp-novel-card">
+              <div class="mtp-novel-title">
+                <span style="color: #ea580c;">📈</span>
+                <span>Mejor Razonamiento y Código</span>
+              </div>
+              <div class="mtp-novel-desc">
+                Al obligar al modelo a planificar varias palabras por adelantado durante su entrenamiento, <strong>mejora su lógica y reduce errores sintácticos</strong>.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 15: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         ==================================================================== -->
+    <section class="slide" id="slide-15">
+      <div class="slide-content">
+        <div class="tag">Estrategia de Aceleración • DFlash</div>
+        <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Estrategia en tándem: un modelo pequeño escribe un borrador entero en un instante y el modelo grande lo valida en una sola pasada.
+        </p>
+
+        <div class="dflash-clean-deck">
+
+          <!-- Diagrama de los 2 Modelos en Tándem -->
+          <div class="dflash-tandem-grid">
+
+            <!-- 1. MODELO PEQUEÑO DRAFTER (DELANTE) -->
+            <div class="dflash-actor-card drafter">
+              <div class="dflash-actor-header">
+                <span class="dflash-role-badge">Paso 1 • Propuesta</span>
+                <span class="dflash-actor-size">Modelo Pequeño (~1B – 3B)</span>
+              </div>
+              <div class="dflash-actor-title">DFlash (Drafter Ligero)</div>
+              
+              <div class="dflash-tokens-sample">
+                <span class="dflash-sample-token proposed">def</span>
+                <span class="dflash-sample-token proposed">procesar_datos</span>
+                <span class="dflash-sample-token proposed">(</span>
+                <span class="dflash-sample-token proposed">items</span>
+                <span class="dflash-sample-token proposed">)</span>
+                <span class="dflash-sample-token proposed">-></span>
+                <span class="dflash-sample-token proposed">bool</span>
+                <span class="dflash-sample-token proposed">:</span>
+              </div>
+
+              <div class="dflash-actor-desc">
+                <strong>Escribe un bloque de 8 a 15 palabras de golpe.</strong> Gracias a la <em>difusión por bloques</em>, no genera palabra por palabra, sino que "pinta" la frase entera en 1 solo paso ultrarrápido.
+              </div>
+            </div>
+
+            <!-- PUENTE / FLECHA CONECTORA -->
+            <div class="dflash-bridge">
+              <span class="dflash-bridge-pill">Borrador de 8–15 tokens</span>
+              <span class="dflash-bridge-arrow">➔</span>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--text-dim);">Revisión en bloque</span>
+            </div>
+
+            <!-- 2. MODELO GRANDE TARGET (VALIACIÓN FINAL) -->
+            <div class="dflash-actor-card verifier">
+              <div class="dflash-actor-header">
+                <span class="dflash-role-badge">Paso 2 • Aprobación</span>
+                <span class="dflash-actor-size">Modelo Grande (35B – 72B)</span>
+              </div>
+              <div class="dflash-actor-title">Modelo Principal (Base LLM)</div>
+              
+              <div class="dflash-tokens-sample">
+                <span class="dflash-sample-token accepted">✓ def</span>
+                <span class="dflash-sample-token accepted">✓ procesar_datos</span>
+                <span class="dflash-sample-token accepted">✓ (</span>
+                <span class="dflash-sample-token accepted">✓ items</span>
+                <span class="dflash-sample-token accepted">✓ )</span>
+                <span class="dflash-sample-token accepted">✓ -></span>
+                <span class="dflash-sample-token accepted">✓ bool</span>
+                <span class="dflash-sample-token accepted">✓ :</span>
+              </div>
+
+              <div class="dflash-actor-desc">
+                <strong>El experto revisa y valida de un solo vistazo.</strong> Da el visto bueno a las palabras correctas. Si algo falla, lo corrige al instante. La calidad final es <strong>100% la del modelo grande</strong>.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 3 Conceptos Clave Explicados de Forma Sencilla -->
+          <div class="dflash-novel-grid">
+
+            <div class="dflash-novel-card">
+              <div class="dflash-novel-title">
+                <span style="color: #ea580c;">⚡</span>
+                <span>Hasta 3x más rápido</span>
+              </div>
+              <div class="dflash-novel-desc">
+                El modelo grande se cansa menos: en lugar de pensar cada letra desde cero, <strong>solo supervisa y corrige</strong> borradores ya escritos.
+              </div>
+            </div>
+
+            <div class="dflash-novel-card">
+              <div class="dflash-novel-title">
+                <span style="color: #16a34a;">🎯</span>
+                <span>Cero Pérdida (Lossless)</span>
+              </div>
+              <div class="dflash-novel-desc">
+                <strong>No hay degradación de calidad ni alucinaciones extra.</strong> El texto final resultante es exactamente el mismo que si lo hubiera escrito el grande.
+              </div>
+            </div>
+
+            <div class="dflash-novel-card">
+              <div class="dflash-novel-title">
+                <span style="color: #e11d48;">💻</span>
+                <span>Ideal para Inferencia Local</span>
+              </div>
+              <div class="dflash-novel-desc">
+                El modelo pequeño <strong>apenas ocupa memoria VRAM</strong> en tu GPU o Mac, permitiendo exprimir al máximo tu hardware propio.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 16: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         ==================================================================== -->
+    <section class="slide" id="slide-16">
+      <div class="slide-content">
+        <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
+        <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          La innovación de DeepSeek: combina generación rápida de bloques con un filtro de probabilidad para no saturar al modelo principal.
+        </p>
+
+        <div class="dspark-clean-deck">
+
+          <!-- Comparativa / Pipeline: Cómo funciona DSpark y compatibilidad -->
+          <div class="dspark-comparison-grid">
+
+            <!-- Card 1: Mecanismo de Confianza y Corte Dinámico -->
+            <div class="dspark-card highlight">
+              <div class="dspark-card-header">
+                <div class="dspark-card-title" style="color: #0284c7;">Corte Dinámico de Confianza</div>
+                <span class="dspark-badge">+60% a +85% Boost</span>
+              </div>
+
+              <div class="dspark-confidence-flow">
+                <div class="dspark-tokens-row">
+                  <div class="dspark-tok-item">
+                    <span class="dspark-tok-word">t₁</span>
+                    <span class="dspark-tok-score">98%</span>
+                  </div>
+                  <div class="dspark-tok-item">
+                    <span class="dspark-tok-word">t₂</span>
+                    <span class="dspark-tok-score">95%</span>
+                  </div>
+                  <div class="dspark-tok-item">
+                    <span class="dspark-tok-word">t₃</span>
+                    <span class="dspark-tok-score">91%</span>
+                  </div>
+                  <div class="dspark-tok-item">
+                    <span class="dspark-tok-word">t₄</span>
+                    <span class="dspark-tok-score">84%</span>
+                  </div>
+                  <div class="dspark-cutoff-line">
+                    <span>✂ Corte &lt; 70%</span>
+                  </div>
+                  <div class="dspark-tok-item discarded">
+                    <span class="dspark-tok-word">t₅</span>
+                    <span class="dspark-tok-score">42%</span>
+                  </div>
+                  <div class="dspark-tok-item discarded">
+                    <span class="dspark-tok-word">t₆</span>
+                    <span class="dspark-tok-score">28%</span>
+                  </div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  ➔ <strong>Solo se envían al grande los tokens seguros</strong> (evita desperdiciar GPU en tokens erróneos).
+                </div>
+              </div>
+
+              <div class="dspark-card-desc">
+                Un cabezal de Markov evalúa la coherencia interna del bloque y <strong>trunca la longitud en tiempo real</strong> según la carga del sistema.
+              </div>
+            </div>
+
+            <!-- Card 2: Framework DeepSpec (Multi-Modelo) -->
+            <div class="dspark-card">
+              <div class="dspark-card-header">
+                <div class="dspark-card-title">¿Solo para DeepSeek?</div>
+                <span class="dspark-badge subtle">Open Source (MIT)</span>
+              </div>
+
+              <div class="dspark-models-list">
+                <div class="dspark-model-chip-row">
+                  <span class="dspark-model-chip-name">DeepSeek V4 / R1</span>
+                  <span class="dspark-model-chip-tag">Nativo</span>
+                </div>
+                <div class="dspark-model-chip-row">
+                  <span class="dspark-model-chip-name">Qwen (3.5 / 3.6 / 3.8)</span>
+                  <span class="dspark-model-chip-tag">Soportado</span>
+                </div>
+                <div class="dspark-model-chip-row">
+                  <span class="dspark-model-chip-name">Llama 3.x &amp; Gemma</span>
+                  <span class="dspark-model-chip-tag">Soportado</span>
+                </div>
+              </div>
+
+              <div class="dspark-card-desc">
+                <strong>No es exclusivo de DeepSeek.</strong> A través del toolkit abierto <strong>DeepSpec</strong>, se utiliza en Qwen, Llama y Gemma sobre motores como <strong>vLLM</strong> y <strong>SGLang</strong>.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 3 Conceptos Clave para Audiencia Novel -->
+          <div class="dspark-novel-grid">
+
+            <div class="dspark-novel-card">
+              <div class="dspark-novel-title">
+                <span style="color: #0284c7;">🎯</span>
+                <span>Filtro de Confianza Activo</span>
+              </div>
+              <div class="dspark-novel-desc">
+                En lugar de enviar palabras a ciegas, <strong>calcula la probabilidad de acierto</strong> y descarta las dudosas antes de validar.
+              </div>
+            </div>
+
+            <div class="dspark-novel-card">
+              <div class="dspark-novel-title">
+                <span style="color: #16a34a;">🧩</span>
+                <span>Plug-in (Cero Reentrenamiento)</span>
+              </div>
+              <div class="dspark-novel-desc">
+                <strong>Los pesos del modelo grande no se tocan.</strong> DSpark se acopla como un módulo ligero externo sin alterar el modelo base.
+              </div>
+            </div>
+
+            <div class="dspark-novel-card">
+              <div class="dspark-novel-title">
+                <span style="color: #ea580c;">⚡</span>
+                <span>Alta Eficiencia en Servidores</span>
+              </div>
+              <div class="dspark-novel-desc">
+                Al evitar verificaciones fallidas, <strong>permite atender hasta un 85% más de usuarios</strong> o generar mucho más rápido con el mismo hardware.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 17: CÓDIGO Y CONTROL EN LOCAL
+         ==================================================================== -->
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -1216,9 +1568,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 15: CITA EDITORIAL
+         SLIDE 18: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -1233,9 +1585,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: CIERRE & Q&A
+         SLIDE 19: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -1266,7 +1618,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">16</span>
+        <span id="slide-current">1</span> / <span id="slide-total">19</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>

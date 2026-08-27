@@ -1902,6 +1902,683 @@ body.theme-dark .c-crimson { color: #fb7185; }
 }
 
 /* ==========================================================================
+   LAYOUT ESTRATEGIA DFLASH (SLIDE 14 - TANDEM ASISTENTE + EXPERTO)
+   ========================================================================== */
+.dflash-clean-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+/* Tandem de 2 Modelos: Asistente Rápido ➔ Validador Experto */
+.dflash-tandem-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.dflash-actor-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dflash-actor-card:hover {
+  transform: translateY(-3px);
+}
+
+.dflash-actor-card.drafter {
+  background: linear-gradient(160deg, #ffffff 0%, #fff7ed 60%, #ffedd5 100%);
+  border-color: #ea580c;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.12);
+}
+
+body.theme-dark .dflash-actor-card.drafter {
+  background: linear-gradient(160deg, #22242d 0%, #342017 60%, #29170e 100%);
+  border-color: #f97316;
+}
+
+.dflash-actor-card.verifier {
+  background: linear-gradient(160deg, #ffffff 0%, #f0fdf4 60%, #dcfce7 100%);
+  border-color: #16a34a;
+  box-shadow: 0 10px 30px rgba(22, 163, 74, 0.12);
+}
+
+body.theme-dark .dflash-actor-card.verifier {
+  background: linear-gradient(160deg, #22242d 0%, #172e20 60%, #0f2317 100%);
+  border-color: #22c55e;
+}
+
+.dflash-actor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dflash-role-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.dflash-actor-card.drafter .dflash-role-badge {
+  background: #ea580c;
+  color: #ffffff;
+}
+
+.dflash-actor-card.verifier .dflash-role-badge {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.dflash-actor-size {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dflash-actor-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+
+/* Bloque interactivo de tokens de ejemplo */
+.dflash-tokens-sample {
+  background: var(--bg-surface);
+  border: 1.5px dashed var(--border-medium);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.dflash-sample-token {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
+}
+
+body.theme-dark .dflash-sample-token {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dflash-sample-token.proposed {
+  background: rgba(234, 88, 12, 0.18);
+  color: #ea580c;
+  border: 1px solid rgba(234, 88, 12, 0.35);
+}
+
+.dflash-sample-token.accepted {
+  background: rgba(22, 163, 74, 0.18);
+  color: #16a34a;
+  border: 1px solid rgba(22, 163, 74, 0.35);
+}
+
+.dflash-actor-desc {
+  font-size: 1.12rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+body.theme-dark .dflash-actor-desc {
+  color: #cbd5e1;
+}
+
+.dflash-actor-desc strong {
+  color: var(--text-main);
+}
+
+/* Conector central entre ambos actores */
+.dflash-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.dflash-bridge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ea580c;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.dflash-bridge-arrow {
+  font-size: 2.2rem;
+  color: #ea580c;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* 3 Tarjetas de Beneficios Claras para audiencia novel */
+.dflash-novel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.dflash-novel-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.dflash-novel-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dflash-novel-desc {
+  font-size: 1.05rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+body.theme-dark .dflash-novel-desc {
+  color: #94a3b8;
+}
+
+.dflash-novel-desc strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   LAYOUT ESTRATEGIA MTP (SLIDE 14 - CABEZALES DE PREDICCIÓN INTEGRADOS)
+   ========================================================================== */
+.mtp-clean-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.mtp-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.mtp-model-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.85rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.mtp-model-card:hover {
+  transform: translateY(-3px);
+}
+
+.mtp-model-card.highlight {
+  background: linear-gradient(160deg, #ffffff 0%, #fffbeb 60%, #fef3c7 100%);
+  border-color: #d97706;
+  box-shadow: 0 10px 30px rgba(217, 119, 6, 0.14);
+}
+
+body.theme-dark .mtp-model-card.highlight {
+  background: linear-gradient(160deg, #22242d 0%, #2e2615 60%, #241d0e 100%);
+  border-color: #f59e0b;
+}
+
+.mtp-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mtp-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+
+.mtp-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.mtp-badge.standard {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+}
+
+body.theme-dark .mtp-badge.standard {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+.mtp-badge.amber {
+  background: #d97706;
+  color: #ffffff;
+}
+
+/* Esquema visual del tronco y los cabezales */
+.mtp-visual-architecture {
+  background: var(--bg-surface);
+  border: 1.5px dashed var(--border-medium);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mtp-trunk-box {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-main);
+  text-align: center;
+  min-width: 130px;
+}
+
+body.theme-dark .mtp-trunk-box {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mtp-heads-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.mtp-head-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mtp-head-pill {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(217, 119, 6, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  white-space: nowrap;
+}
+
+body.theme-dark .mtp-head-pill {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.mtp-token-val {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+body.theme-dark .mtp-token-val {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mtp-card-desc {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+body.theme-dark .mtp-card-desc {
+  color: #cbd5e1;
+}
+
+.mtp-card-desc strong {
+  color: var(--text-main);
+}
+
+/* 3 Tarjetas de Beneficios MTP */
+.mtp-novel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.mtp-novel-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.mtp-novel-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mtp-novel-desc {
+  font-size: 1.05rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+body.theme-dark .mtp-novel-desc {
+  color: #94a3b8;
+}
+
+.mtp-novel-desc strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   LAYOUT ESTRATEGIA DSPARK / DEEPSPEC (SLIDE 16 - FILTRO DE CONFIANZA)
+   ========================================================================== */
+.dspark-clean-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.dspark-comparison-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.dspark-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.85rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dspark-card:hover {
+  transform: translateY(-3px);
+}
+
+.dspark-card.highlight {
+  background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 60%, #e0f2fe 100%);
+  border-color: #0284c7;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.14);
+}
+
+body.theme-dark .dspark-card.highlight {
+  background: linear-gradient(160deg, #22242d 0%, #0f2b3c 60%, #081d2a 100%);
+  border-color: #38bdf8;
+}
+
+.dspark-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dspark-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+
+.dspark-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.dspark-badge.subtle {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+}
+
+body.theme-dark .dspark-badge.subtle {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+/* Visualizador de Confianza y Corte Dinámico */
+.dspark-confidence-flow {
+  background: var(--bg-surface);
+  border: 1.5px dashed var(--border-medium);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dspark-tokens-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.dspark-tok-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: rgba(2, 132, 199, 0.1);
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+}
+
+.dspark-tok-word {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.dspark-tok-score {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+body.theme-dark .dspark-tok-score {
+  color: #38bdf8;
+}
+
+.dspark-cutoff-line {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px dashed rgba(239, 68, 68, 0.35);
+}
+
+.dspark-tok-item.discarded {
+  opacity: 0.35;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--border-medium);
+}
+
+.dspark-tok-item.discarded .dspark-tok-score {
+  color: #ef4444;
+}
+
+.dspark-card-desc {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+body.theme-dark .dspark-card-desc {
+  color: #cbd5e1;
+}
+
+.dspark-card-desc strong {
+  color: var(--text-main);
+}
+
+/* Chips de Modelos Compatibles */
+.dspark-models-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.dspark-model-chip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.dspark-model-chip-name {
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.dspark-model-chip-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(22, 163, 74, 0.12);
+  color: #16a34a;
+}
+
+/* 3 Tarjetas de Beneficios DSpark */
+.dspark-novel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.dspark-novel-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.dspark-novel-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dspark-novel-desc {
+  font-size: 1.05rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+body.theme-dark .dspark-novel-desc {
+  color: #94a3b8;
+}
+
+.dspark-novel-desc strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
    UI CONTROLS & HUD
    ========================================================================== */
 #hud {
@@ -2167,7 +2844,13 @@ body.overview-mode .slide-content {
   .table-container,
   .gpu-card,
   .rect-card,
-  .rect-summary-ribbon {
+  .rect-summary-ribbon,
+  .dflash-actor-card,
+  .dflash-novel-card,
+  .mtp-model-card,
+  .mtp-novel-card,
+  .dspark-card,
+  .dspark-novel-card {
     background: #ffffff !important;
     border: 1px solid #dbd9d2 !important;
     box-shadow: none !important;
