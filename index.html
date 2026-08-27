@@ -1016,9 +1016,290 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 12: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         SLIDE 12: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
     <section class="slide" id="slide-12">
+      <div class="slide-content">
+        <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
+        <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Impacto real de la cuantización en razonamiento y código: desde la fidelidad intacta de FP8 hasta el colapso en 3 bits.
+        </p>
+
+        <div class="quant-loss-deck">
+
+          <!-- 1. Los 4 Escalones del Espectro de Precisión -->
+          <div class="quant-spectrum-grid">
+            <div class="quant-spectrum-step step-fp8">
+              <div class="quant-step-header">
+                <span class="quant-step-title">FP8 (8-bit)</span>
+                <span class="quant-step-badge green">99.6% Calidad</span>
+              </div>
+              <div class="quant-step-desc">
+                <strong>Cero pérdida perceptible.</strong> Razonamiento idéntico al original de laboratorio.
+              </div>
+            </div>
+
+            <div class="quant-spectrum-step step-int4">
+              <div class="quant-step-header">
+                <span class="quant-step-title">AutoRound / NVFP4</span>
+                <span class="quant-step-badge blue">~98.2% Calidad</span>
+              </div>
+              <div class="quant-step-desc">
+                <strong>Sweet Spot 128 GB.</strong> 3.5x más ligero manteniendo el 98% de lógica y código.
+              </div>
+            </div>
+
+            <div class="quant-spectrum-step step-q4">
+              <div class="quant-step-header">
+                <span class="quant-step-title">GGUF Q4 / AWQ</span>
+                <span class="quant-step-badge amber">~97.0% Calidad</span>
+              </div>
+              <div class="quant-step-desc">
+                <strong>Estándar Local.</strong> Pequeña caída en matemáticas complejas y razonamiento multi-paso.
+              </div>
+            </div>
+
+            <div class="quant-spectrum-step step-int3">
+              <div class="quant-step-header">
+                <span class="quant-step-title">INT3 / Q3 (Extremo)</span>
+                <span class="quant-step-badge red">Inutilizable</span>
+              </div>
+              <div class="quant-step-desc">
+                <strong>⚠️ Zona de Peligro.</strong> Colapso sintáctico, bucles repetitivos y pérdida grave de código.
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Tabla Comparativa Visual (Caso de Estudio Qwen 122B) -->
+          <div class="quant-loss-table-card">
+            <table class="quant-loss-table">
+              <thead>
+                <tr>
+                  <th>Formato</th>
+                  <th>VRAM (122B)</th>
+                  <th style="width: 240px;">Retención Global</th>
+                  <th>MMLU (Razonamiento)</th>
+                  <th>HumanEval (Código)</th>
+                  <th>Diagnóstico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-format">BF16 / FP16 (Base)</td>
+                  <td class="col-vram">~244 GB</td>
+                  <td>
+                    <div class="quant-retention-bar-wrap">
+                      <div class="quant-retention-track"><div class="quant-retention-fill green" style="width: 100%;"></div></div>
+                      <span class="quant-retention-val" style="color: #16a34a;">100%</span>
+                    </div>
+                  </td>
+                  <td>88.4%</td>
+                  <td>84.5%</td>
+                  <td>💎 Original (Inviable en 1 GPU)</td>
+                </tr>
+
+                <tr>
+                  <td class="col-format">FP8 (Hopper / Blackwell)</td>
+                  <td class="col-vram">~122 GB</td>
+                  <td>
+                    <div class="quant-retention-bar-wrap">
+                      <div class="quant-retention-track"><div class="quant-retention-fill green" style="width: 99.6%;"></div></div>
+                      <span class="quant-retention-val" style="color: #16a34a;">99.6%</span>
+                    </div>
+                  </td>
+                  <td>88.2% <small style="color: var(--text-dim);">(-0.2%)</small></td>
+                  <td>84.3% <small style="color: var(--text-dim);">(-0.2%)</small></td>
+                  <td>✨ Máxima Fidelidad (Datacenter)</td>
+                </tr>
+
+                <tr class="highlight-goldilocks">
+                  <td class="col-format">AutoRound INT4 (Intel)</td>
+                  <td class="col-vram" style="color: #15803d;">~69 GB</td>
+                  <td>
+                    <div class="quant-retention-bar-wrap">
+                      <div class="quant-retention-track"><div class="quant-retention-fill blue" style="width: 98.4%;"></div></div>
+                      <span class="quant-retention-val" style="color: #0284c7;">98.4%</span>
+                    </div>
+                  </td>
+                  <td>87.2% <small style="color: var(--text-dim);">(-1.2%)</small></td>
+                  <td>83.1% <small style="color: var(--text-dim);">(-1.4%)</small></td>
+                  <td>🌟 <strong>Sweet Spot MoE (Estaciones 128GB)</strong></td>
+                </tr>
+
+                <tr class="highlight-goldilocks">
+                  <td class="col-format">NVFP4 (NVIDIA Blackwell)</td>
+                  <td class="col-vram" style="color: #0284c7;">~65 GB</td>
+                  <td>
+                    <div class="quant-retention-bar-wrap">
+                      <div class="quant-retention-track"><div class="quant-retention-fill blue" style="width: 98.1%;"></div></div>
+                      <span class="quant-retention-val" style="color: #0284c7;">98.1%</span>
+                    </div>
+                  </td>
+                  <td>87.0% <small style="color: var(--text-dim);">(-1.4%)</small></td>
+                  <td>82.8% <small style="color: var(--text-dim);">(-1.7%)</small></td>
+                  <td>🚀 <strong>Aceleración Nativa Tensor Core</strong></td>
+                </tr>
+
+                <tr>
+                  <td class="col-format">GGUF Q4_K_M (imatrix)</td>
+                  <td class="col-vram">~69 GB</td>
+                  <td>
+                    <div class="quant-retention-bar-wrap">
+                      <div class="quant-retention-track"><div class="quant-retention-fill amber" style="width: 96.8%;"></div></div>
+                      <span class="quant-retention-val" style="color: #d97706;">96.8%</span>
+                    </div>
+                  </td>
+                  <td>85.9% <small style="color: var(--text-dim);">(-2.5%)</small></td>
+                  <td>81.2% <small style="color: var(--text-dim);">(-3.3%)</small></td>
+                  <td>⚙️ Estándar Local en Ollama / Mac</td>
+                </tr>
+
+                <tr class="highlight-danger">
+                  <td class="col-format">INT3 / Q3_K_M (Extremo)</td>
+                  <td class="col-vram" style="color: #dc2626;">~52 GB</td>
+                  <td>
+                    <div class="quant-retention-bar-wrap">
+                      <div class="quant-retention-track"><div class="quant-retention-fill red" style="width: 89.5%;"></div></div>
+                      <span class="quant-retention-val" style="color: #dc2626;">&lt;90%</span>
+                    </div>
+                  </td>
+                  <td>78.5% <small style="color: #dc2626;">(-9.9%)</small></td>
+                  <td>71.0% <small style="color: #dc2626;">(-13.5%)</small></td>
+                  <td>❌ <strong>Inutilizable: Colapso en Código &amp; Lógica</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 13: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
+         ==================================================================== -->
+    <section class="slide" id="slide-13">
+      <div class="slide-content">
+        <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
+        <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Por qué un "89% en MMLU" es engañoso: en cadenas de pensamiento largas (DeepSeek R1 / Qwen Thinking), el error se multiplica exponencialmente.
+        </p>
+
+        <div class="domino-deck">
+
+          <!-- 1. Comparativa 1 Token vs. Cadena de Razonamiento -->
+          <div class="domino-comparison-grid">
+
+            <!-- Card 1: Benchmark Estático -->
+            <div class="domino-card static">
+              <div class="domino-card-header">
+                <div class="domino-card-title">
+                  <span>🎯 Benchmark Estático (MMLU)</span>
+                </div>
+                <span class="domino-score-badge blue">Test de 1-Token</span>
+              </div>
+
+              <div class="domino-visual-box">
+                <span>Decisión puntual: <code>P("B") &gt; P("A")</code></span>
+                <span style="font-weight: 700; color: #1d4ed8;">Score: 89.5%</span>
+              </div>
+
+              <div class="domino-card-desc">
+                <strong>Falsa sensación de seguridad.</strong> El modelo solo tiene que acertar una letra de opción múltiple. Si se desvía un 2% de probabilidad, el test sigue marcando "aprobado".
+              </div>
+            </div>
+
+            <!-- Card 2: Cadena de Pensamiento Real -->
+            <div class="domino-card cascade">
+              <div class="domino-card-header">
+                <div class="domino-card-title">
+                  <span style="color: #dc2626;">💥 Razonamiento Real (Thinking 5.000 tokens)</span>
+                </div>
+                <span class="domino-score-badge red">Efecto Dominó</span>
+              </div>
+
+              <div class="domino-visual-box">
+                <span>Acumulación de error: <code>(0.98)⁵⁰</code></span>
+                <span class="domino-math-callout">Éxito real: ≈ 36%</span>
+              </div>
+
+              <div class="domino-card-desc">
+                <strong>Deriva acumulativa crítica.</strong> Cada paso depende del anterior. Un pequeño error de cuantización en el paso 10 hace que el modelo alucine o pierda el hilo en el paso 50.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 2. Semáforo de Sensibilidad -->
+          <div class="sensitivity-grid">
+
+            <div class="sensitivity-card">
+              <div class="sensitivity-header">
+                <div class="sensitivity-title">
+                  <span>🔴 Modelos de Razonamiento</span>
+                </div>
+                <span class="sensitivity-tag crit">Crítica</span>
+              </div>
+              <div class="sensitivity-desc">
+                <strong>DeepSeek R1, Qwen-Thinking:</strong> Se desorientan con facilidad a menos de 4 bits; entran en bucle y no cierran la etiqueta <code>&lt;/think&gt;</code>.
+              </div>
+            </div>
+
+            <div class="sensitivity-card">
+              <div class="sensitivity-header">
+                <div class="sensitivity-title">
+                  <span>🟠 Modelos Pequeños (&lt;9B)</span>
+                </div>
+                <span class="sensitivity-tag high">Alta</span>
+              </div>
+              <div class="sensitivity-desc">
+                <strong>Poca redundancia:</strong> Cada sinapsis cuenta. Cuantizar a 4-bit les hace perder mucha más lógica proporcional que a un modelo grande.
+              </div>
+            </div>
+
+            <div class="sensitivity-card">
+              <div class="sensitivity-header">
+                <div class="sensitivity-title">
+                  <span>🟢 Modelos MoE / Grandes (122B)</span>
+                </div>
+                <span class="sensitivity-tag ok">Resistente</span>
+              </div>
+              <div class="sensitivity-desc">
+                <strong>Alta masa crítica:</strong> Con <em>AutoRound INT4</em> o <em>NVFP4</em> absorben el ruido y mantienen la coherencia en agentes complejos.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 3. Síntomas Reales en Producción -->
+          <div class="symptoms-banner">
+            <div class="symptoms-title">⚠️ Síntomas en Producción:</div>
+            <div class="symptoms-items-row">
+              <div class="symptom-item">
+                <span>🌀</span>
+                <span><strong>Bucle infinito:</strong> Piensa eternamente sin responder.</span>
+              </div>
+              <div class="symptom-item">
+                <span>💥</span>
+                <span><strong>Código roto:</strong> Paréntesis sin cerrar e imports inventados.</span>
+              </div>
+              <div class="symptom-item">
+                <span>📉</span>
+                <span><strong>Pérdida de objetivo:</strong> Olvida las reglas en el 3º turno.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 14: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         ==================================================================== -->
+    <section class="slide" id="slide-14">
       <div class="slide-content">
         <div class="tag">Early Adopters &amp; Hardware</div>
         <h2>NVIDIA Blackwell GB10: Expectativa vs. Realidad</h2>
@@ -1072,9 +1353,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 13: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
+         SLIDE 15: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
          ==================================================================== -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-15">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -1149,9 +1430,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 16: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-14">
+    <section class="slide" id="slide-16">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -1244,9 +1525,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 15: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 17: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -1477,9 +1758,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 18: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -1586,9 +1867,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 19: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -1698,9 +1979,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 20: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -1829,9 +2110,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 21: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -1906,9 +2187,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 22: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2106,9 +2387,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 23: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -2143,9 +2424,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: CITA EDITORIAL
+         SLIDE 24: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -2160,9 +2441,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: CIERRE & Q&A
+         SLIDE 25: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -2193,7 +2474,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">23</span>
+        <span id="slide-current">1</span> / <span id="slide-total">25</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
