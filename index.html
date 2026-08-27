@@ -1633,9 +1633,99 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         SLIDE 18: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
     <section class="slide" id="slide-18">
+      <div class="slide-content">
+        <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
+        <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          ¿Por qué Qwen 122B MoE no colapsa en 4 bits? El truco de Intel: optimizar el redondeo por bloques sin depender de chips propietarios.
+        </p>
+
+        <div class="autoround-deck">
+
+          <div class="autoround-grid-3col">
+
+            <!-- Card 1: La Fragilidad del Router MoE -->
+            <div class="autoround-card card-router">
+              <div class="autoround-card-header">
+                <span class="autoround-card-icon">🔀</span>
+                <span class="autoround-card-title">1. El Reto del Router MoE</span>
+              </div>
+
+              <div class="autoround-visual-box">
+                <div style="font-family: var(--font-mono); font-size: 0.76rem; text-align: center; color: #dc2626; font-weight: 700;">
+                  Ruido INT4 clásico ➔ Token a experto erróneo
+                </div>
+              </div>
+
+              <div class="autoround-card-desc">
+                En un MoE (122B con solo 10B activos), la puerta de entrada (<em>Router</em>) decide qué experto atiende cada palabra. Si redondeas a lo bruto, el Router se confunde y <strong>el modelo alucina</strong>.
+              </div>
+            </div>
+
+            <!-- Card 2: La Compensación entre Vecinos (Sign-SGD) -->
+            <div class="autoround-card card-gradient">
+              <div class="autoround-card-header">
+                <span class="autoround-card-icon">⚖️</span>
+                <span class="autoround-card-title">2. Compensación Inteligente</span>
+              </div>
+
+              <div class="autoround-visual-box">
+                <div class="autoround-compensate-row">
+                  <span class="autoround-compensate-pill down">W₁: -0.01</span>
+                  <span>+</span>
+                  <span class="autoround-compensate-pill up">W₂: +0.01</span>
+                  <span>=</span>
+                  <span class="autoround-compensate-pill zero">Error 0</span>
+                </div>
+              </div>
+
+              <div class="autoround-card-desc">
+                <strong>El truco de Intel:</strong> Si redondear un peso hacia abajo genera un pequeño error, AutoRound redondea el peso vecino hacia arriba para <strong>anular el error global del bloque</strong>.
+              </div>
+            </div>
+
+            <!-- Card 3: Universal y 128 GB Ready -->
+            <div class="autoround-card card-universal">
+              <div class="autoround-card-header">
+                <span class="autoround-card-icon">🌟</span>
+                <span class="autoround-card-title">3. El Campeón Universal</span>
+              </div>
+
+              <div class="autoround-visual-box">
+                <div style="font-family: var(--font-mono); font-size: 0.76rem; text-align: center; color: #15803d; font-weight: 800;">
+                  ~69 GB VRAM • &gt;50 GB Libres • 98.4% Calidad
+                </div>
+              </div>
+
+              <div class="autoround-card-desc">
+                <strong>No necesita Blackwell:</strong> Funciona en vLLM, SGLang, RTX 3090/4090 y Mac Studio. Permite correr <em>Qwen 122B</em> en 128 GB con <strong>fidelidad casi idéntica a FP16</strong>.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Ribbon explicativo inferior -->
+          <div class="autoround-summary-ribbon">
+            <div class="autoround-ribbon-left">
+              <div class="autoround-ribbon-icon">💡</div>
+              <div class="autoround-ribbon-text">
+                <strong>La conclusión clave:</strong> NVFP4 es la solución de silicio de NVIDIA; <strong>AutoRound INT4 es la solución matemática universal</strong> que permite a cualquier máquina de 128 GB correr gigantes MoE sin perder inteligencia.
+              </div>
+            </div>
+            <div class="autoround-ribbon-badge">El Estándar Abierto</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 19: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         ==================================================================== -->
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Early Adopters &amp; Hardware</div>
         <h2>NVIDIA Blackwell GB10: Expectativa vs. Realidad</h2>
@@ -1689,9 +1779,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
+         SLIDE 20: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -1766,9 +1856,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 21: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -1861,9 +1951,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 22: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -2094,9 +2184,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 23: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -2203,9 +2293,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 24: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -2315,9 +2405,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 25: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -2446,9 +2536,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 26: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2523,9 +2613,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 27: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2723,9 +2813,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 28: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -2760,9 +2850,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: CITA EDITORIAL
+         SLIDE 29: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -2777,9 +2867,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: CIERRE & Q&A
+         SLIDE 30: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -2810,7 +2900,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">29</span>
+        <span id="slide-current">1</span> / <span id="slide-total">30</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
