@@ -68,7 +68,7 @@ Este documento define la narrativa paso a paso basada en la **experiencia person
 | **19** | `slide-19` | **Acto 4: Vivencia** | La Decisión: Las «Calculasiones» | **El Meme de la Compra:** "Conforme a todas las calculasiones que he hecho... me compro el aparato". |
 | **20** | `slide-20` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
 | **21** | `slide-21` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
-| **22** | `slide-22` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Cómo la comunidad salvó el hardware con scripts de energía y kernels libres. |
+| **22** | `slide-22` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
 | **23** | `slide-23` | **Acto 4: Vivencia** | Caso DeepSeek: Cronología de una Revolución | El terremoto del Momento Sputnik y la democratización del razonamiento. |
 | **24** | `slide-24` | **Acto 4: Vivencia** | El "Hackeo" a NVIDIA: De parches PTX a integración nativa | La comunidad reescribiendo ensamblador PTX y forzando a los fabricantes. |
 | **25** | `slide-25` | **Acto 5: Futuro** | 2026: Timeline de Modelos & Aceleración | Mapa cronológico de cómo la inferencia se multiplicó por 5x. |

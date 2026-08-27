@@ -1826,90 +1826,109 @@
          ==================================================================== -->
     <section class="slide" id="slide-22">
       <div class="slide-content">
-        <div class="tag">Artesanía de Software &amp; Open Source</div>
+        <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Cuando los vendors fallan, el ecosistema open-weights y los desarrolladores artesanos abren el camino.
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          Cuando los drivers propietarios fallan o se retrasan, los artesanos y la comunidad abren el camino a base de kernels y parches.
         </p>
 
-        <div class="hackers-grid">
+        <div class="hackers-deck">
 
-          <!-- Card 1: El Bloqueo Oficial -->
-          <div class="hacker-card">
-            <div class="hacker-card-header">
-              <span class="tag">El Bloqueo Oficial</span>
-              <span style="font-size: 1.3rem;">🛑</span>
-            </div>
-            <div class="hacker-card-title">El Ecosistema Propietario Bloqueado</div>
+          <div class="hackers-grid">
 
-            <div class="hacker-list">
-              <div class="hacker-item">
-                <div class="hacker-icon-badge con">✗</div>
-                <div class="hacker-item-body">
-                  <div class="hacker-item-title">Sin binarios para microarquitectura <code>sm_121a</code></div>
-                  <div class="hacker-item-desc">TensorRT-LLM carece de precompilaciones oficiales para hardware GB10.</div>
+            <!-- Card 1: Eugr -->
+            <div class="hacker-card highlight">
+              <div class="hacker-profile-header">
+                <img src="script/img/eugr.webp" alt="Eugr" class="hacker-avatar">
+                <div class="hacker-profile-info">
+                  <div class="hacker-name-row">
+                    <span class="hacker-name">Eugr</span>
+                    <span class="hacker-handle">@eugr</span>
+                  </div>
+                  <span class="hacker-role">Independent Hacker &amp; ML Engineer</span>
+                  <span class="hacker-repo-tag">eugr/spark-vllm-docker</span>
                 </div>
               </div>
 
-              <div class="hacker-item">
-                <div class="hacker-icon-badge con">✗</div>
-                <div class="hacker-item-body">
-                  <div class="hacker-item-title">Caída masiva de rendimiento en fallbacks</div>
-                  <div class="hacker-item-desc">Ejecución en modos no optimizados rinde peor que GPUs de generación previa.</div>
+              <div class="hacker-list">
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Contenedores Docker &amp; Fixes de Energía</div>
+                    <div class="hacker-item-desc">Creó recetas e imágenes listas para Asus Ascent GX10 / DGX Spark, resolviendo los fallos de controladores PD y estrangulamiento.</div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="hacker-item">
-                <div class="hacker-icon-badge con">✗</div>
-                <div class="hacker-item-body">
-                  <div class="hacker-item-title">Roadmaps pospuestos a finales de año</div>
-                  <div class="hacker-item-desc">NVIDIA traslada las actualizaciones críticas a futuras revisiones de drivers.</div>
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Soporte MTP &amp; Aceleración Especulativa</div>
+                    <div class="hacker-item-desc">Integró recetas de Multi-Token Prediction directamente en vLLM para multiplicar la velocidad de inferencia sin VRAM adicional.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">128 GB Unificados al Máximo</div>
+                    <div class="hacker-item-desc">Habilitó la ejecución de modelos MoE y densos masivos (Qwen, Nemotron) sorteando las trabas iniciales de software del vendor.</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="hacker-card-footer">
-              Diagnóstico: Depender del vendor = Quedar paralizado
+            <!-- Card 2: Thomas Braun (Avarok) -->
+            <div class="hacker-card highlight-blue">
+              <div class="hacker-profile-header">
+                <img src="script/img/thomas-braun.webp" alt="Thomas Braun (Avarok)" class="hacker-avatar avarok">
+                <div class="hacker-profile-info">
+                  <div class="hacker-name-row">
+                    <span class="hacker-name">Thomas Braun</span>
+                    <span class="hacker-handle">@tbraun96 • Avarok</span>
+                  </div>
+                  <span class="hacker-role">Founder of Avarok &amp; Kernel Hacker</span>
+                  <span class="hacker-repo-tag blue">avarok/vllm-nvfp4-gb10</span>
+                </div>
+              </div>
+
+              <div class="hacker-list">
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Recompilación de Kernels CUTLASS</div>
+                    <div class="hacker-item-desc">Parcheó y recompiló a mano los kernels para la microarquitectura <code>sm_121a</code> de Blackwell GB10 saltándose los binarios oficiales.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">NVFP4 Nativo Meses Antes del Roadmap</div>
+                    <div class="hacker-item-desc">Desbloqueó la aceleración FP4 en Tensor Cores en mayo/junio 2026, mientras NVIDIA posponía el soporte oficial a finales de año.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Rendimiento Teórico Recuperado</div>
+                    <div class="hacker-item-desc">Multiplicó por 3x la velocidad de Nemotron y Qwen 72B frente a los lentos fallbacks por software estándar.</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
 
-          <!-- Card 2: Los Rescatadores Comunitarios -->
-          <div class="hacker-card highlight">
-            <div class="hacker-card-header">
-              <span class="tag" style="background: rgba(234, 88, 12, 0.15); border-color: #ea580c; color: #c2410c;">Héroes Open Source</span>
-              <span style="font-size: 1.3rem;">🛠️</span>
-            </div>
-            <div class="hacker-card-title">vLLM, SGLang, Eugr &amp; Avarok</div>
-
-            <div class="hacker-list">
-              <div class="hacker-item">
-                <div class="hacker-icon-badge pro">✓</div>
-                <div class="hacker-item-body">
-                  <div class="hacker-item-title"><code>avarok/vllm-nvfp4-gb10</code></div>
-                  <div class="hacker-item-desc">Imágenes Docker con kernels SM120/121 recompilados a mano por la comunidad.</div>
-                </div>
-              </div>
-
-              <div class="hacker-item">
-                <div class="hacker-icon-badge pro">✓</div>
-                <div class="hacker-item-body">
-                  <div class="hacker-item-title"><code>eugr/spark-vllm-docker</code></div>
-                  <div class="hacker-item-desc">Build recipes optimizadas para correr Nemotron y Qwen en DGX Spark.</div>
-                </div>
-              </div>
-
-              <div class="hacker-item">
-                <div class="hacker-icon-badge pro">✓</div>
-                <div class="hacker-item-body">
-                  <div class="hacker-item-title">vLLM &amp; SGLang Upstream</div>
-                  <div class="hacker-item-desc">Integración comunitaria de kernels CUTLASS parcheados para máxima velocidad.</div>
-                </div>
+          <!-- Ribbon explicativo vLLM & SGLang Upstream -->
+          <div class="hackers-upstream-ribbon">
+            <div class="hackers-upstream-left">
+              <div class="hackers-upstream-icon">🛠️</div>
+              <div class="hackers-upstream-text">
+                <strong>El Ecosistema vLLM &amp; SGLang al Rescate:</strong> La comunidad y los mantenedores integran continuamente parches de kernels CUTLASS/PTX y PRs upstream para que el hardware funcione a máxima potencia sin esperar a los drivers oficiales.
               </div>
             </div>
-
-            <div class="hacker-card-footer">
-              ⚡ Conclusión: La soberanía exige dominar todo el stack de inferencia
-            </div>
+            <div class="hackers-upstream-badge">Comunidad Open Source</div>
           </div>
 
         </div>
