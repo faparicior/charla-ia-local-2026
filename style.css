@@ -77,30 +77,40 @@ body {
 }
 
 /* ==========================================================================
-   CONTENEDOR DE PRESENTACIÓN
+   CONTENEDOR DE PRESENTACIÓN & ZOOM TO FIT
    ========================================================================== */
+:root {
+  --slide-scale: 1;
+}
+
 #deck {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
 }
 
-/* Slide Base - Ajustado para llenar la pantalla en proyector */
+/* Slide Base - Dimensiones fijas 1920x1080 con escalado responsive (Zoom to Fit) */
 .slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2.5rem 3.5rem;
+  padding: 3.5rem 5rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px) scale(0.996);
+  transform: translate(-50%, -50%) scale(calc(var(--slide-scale, 1) * 0.98));
+  transform-origin: center center;
   transition: opacity var(--transition-speed) ease,
     transform var(--transition-speed) var(--ease-spring),
     visibility var(--transition-speed);
@@ -111,19 +121,18 @@ body {
 .slide.active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0) scale(1);
+  transform: translate(-50%, -50%) scale(var(--slide-scale, 1));
   pointer-events: auto;
   z-index: 2;
 }
 
 .slide-content {
-  width: 94vw;
-  max-width: 1720px;
-  max-height: 92vh;
+  width: 100%;
+  max-width: 1760px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 2.25rem;
 }
 
 /* ==========================================================================
@@ -909,18 +918,18 @@ body.theme-dark .radar-legend-card.highlight {
 .press-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem 2.5rem;
+  gap: 2rem 2.5rem;
   width: 100%;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 .press-card {
   position: relative;
   background: linear-gradient(175deg, #ffffff 0%, #faf8f2 60%, #f4f0e6 100%);
-  padding: 3rem 2.75rem;
+  padding: 2.2rem 2.4rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.1rem;
   border-radius: 2px;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.09)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.04));
   transition: transform 0.25s ease, filter 0.25s ease;
@@ -1594,41 +1603,49 @@ body.overview-mode {
 
 body.overview-mode #deck {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
-  padding: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2.25rem;
+  padding: 3.5rem 3rem 6rem;
   height: auto;
   min-height: 100vh;
+  overflow: visible;
+  align-items: start;
+  justify-items: center;
 }
 
 body.overview-mode .slide {
   position: relative;
-  width: 100%;
-  height: 240px;
+  top: auto;
+  left: auto;
+  width: 360px;
+  height: 202.5px; /* 16:9 aspect ratio */
   opacity: 0.92;
   visibility: visible;
-  transform: none;
+  transform: none !important;
   pointer-events: auto;
   cursor: pointer;
-  padding: 1.5rem;
+  padding: 0.75rem 1rem;
   background: var(--bg-surface);
   border: 2px solid var(--border-subtle);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 body.overview-mode .slide:hover {
   opacity: 1;
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-4px) scale(1.02) !important;
   border-color: #f97316;
-  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.18);
 }
 
 body.overview-mode .slide.active {
   border-color: #ea580c;
-  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.3);
 }
 
 body.overview-mode .slide * {
@@ -1636,66 +1653,18 @@ body.overview-mode .slide * {
 }
 
 body.overview-mode .slide-content {
-  transform: scale(0.42);
+  transform: scale(0.1875); /* 360 / 1920 */
   transform-origin: top left;
-  width: 238%;
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .slide {
-    padding: 2.5rem 1.5rem;
-  }
-
-  h1 {
-    font-size: 3.6rem;
-  }
-
-  h2 {
-    font-size: 2.8rem;
-  }
-
-  .timeline-comparison-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .mindmap-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .mindmap-item.reverse {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .chart-slide-header {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .split-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .gpu-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-
-  .press-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+  width: 1760px;
+  max-width: none;
+  gap: 1.5rem;
 }
 
 /* ==========================================================================
    EXPORTACIÓN A PDF / ESTILOS DE IMPRESIÓN
    ========================================================================== */
 @page {
-  size: landscape;
+  size: 1920px 1080px;
   margin: 0;
 }
 
@@ -1729,10 +1698,10 @@ body.overview-mode .slide-content {
     position: relative !important;
     top: auto !important;
     left: auto !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    min-height: 100vh !important;
+    width: 1920px !important;
+    height: 1080px !important;
+    max-height: 1080px !important;
+    min-height: 1080px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -1744,7 +1713,7 @@ body.overview-mode .slide-content {
     page-break-inside: avoid !important;
     break-after: page !important;
     break-inside: avoid !important;
-    padding: 3rem 4.5rem !important;
+    padding: 3.5rem 5rem !important;
     background-color: var(--bg-primary) !important;
     box-sizing: border-box !important;
   }
@@ -1752,7 +1721,7 @@ body.overview-mode .slide-content {
   .slide-content {
     max-height: 100% !important;
     width: 100% !important;
-    max-width: 1540px !important;
+    max-width: 1760px !important;
   }
 
   .card,

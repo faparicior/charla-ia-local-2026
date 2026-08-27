@@ -88,6 +88,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const BASE_WIDTH = 1920;
+  const BASE_HEIGHT = 1080;
+
+  function updateScale() {
+    if (isOverview) return;
+    const availableWidth = window.innerWidth * 0.96;
+    const availableHeight = window.innerHeight * 0.92;
+    const scale = Math.min(availableWidth / BASE_WIDTH, availableHeight / BASE_HEIGHT);
+    document.documentElement.style.setProperty('--slide-scale', scale.toFixed(4));
+  }
+
+  window.addEventListener('resize', updateScale);
+  window.addEventListener('orientationchange', updateScale);
+  document.addEventListener('fullscreenchange', updateScale);
+
   function toggleOverview(forceState) {
     isOverview = typeof forceState === 'boolean' ? forceState : !isOverview;
     document.body.classList.toggle('overview-mode', isOverview);
@@ -95,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isOverview) {
       // Scroll suave hasta la slide actual en overview
       slides[currentIndex]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      updateScale();
     }
   }
 
@@ -241,7 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Inicializar en la slide correspondiente
+  // Inicializar en la slide correspondiente y calcular escala
+  updateScale();
   const initialIndex = getSlideIndexFromHash();
   goToSlide(initialIndex, false);
 });
