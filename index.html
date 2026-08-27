@@ -951,145 +951,225 @@
     <section class="slide" id="slide-13">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
-        <h2>2026: <span class="serif-italic">Modelos y Técnicas de Aceleración</span></h2>
+        <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
         <p class="subtitle" style="margin-top: -1rem;">
-          De la predicción multi-token (MTP) a la difusión por bloques (DFlash 2): la evolución técnica para maximizar tokens/s en hardware local.
+          Línea temporal de la revolución open-weights: lanzamientos de arquitecturas y evolución del <em>speculative decoding</em> (MTP ➔ DFlash ➔ DFlash 2).
         </p>
 
-        <div class="timeline-roadmap-container">
+        <div class="rect-timeline-deck">
 
-          <!-- 1. Hitos Cronológicos 2026 -->
-          <div class="timeline-milestones">
+          <!-- Wrapper con la barra de fondo y las 6 columnas alternantes -->
+          <div class="rect-timeline-wrapper">
 
-            <!-- Hito 1 -->
-            <div class="milestone-card">
-              <div class="milestone-header">
-                <div class="milestone-node">01</div>
-                <div class="milestone-date">Feb 2026</div>
+            <!-- Barra rectangular continua de fondo con extensiones laterales -->
+            <div class="rect-timeline-bar-bg">
+              <div class="rect-bar-cap left"></div>
+              <div class="rect-bar-segments">
+                <div class="rect-bar-segment c1"></div>
+                <div class="rect-bar-segment c2"></div>
+                <div class="rect-bar-segment c3"></div>
+                <div class="rect-bar-segment c4"></div>
+                <div class="rect-bar-segment c5"></div>
+                <div class="rect-bar-segment c6"></div>
               </div>
-              <div class="milestone-title">Qwen 3.5 MoE</div>
-              <div class="milestone-desc">
-                Lanzamiento de <strong>122B</strong> (A10B) y <strong>35B</strong> (A3B). Arquitecturas MoE multimodales con inferencia base y quant AutoRound INT4/FP8.
-              </div>
+              <div class="rect-bar-cap right"></div>
             </div>
 
-            <!-- Hito 2 -->
-            <div class="milestone-card">
-              <div class="milestone-header">
-                <div class="milestone-node">02</div>
-                <div class="milestone-date">Mar – Abr 2026</div>
-              </div>
-              <div class="milestone-title">Adopción MTP</div>
-              <div class="milestone-desc">
-                Llega <strong>Qwen 3.6 35B</strong>. Integración de recetas <code>MTP</code> (1–2 tokens) en repositorios <code>eugr</code> para vLLM sin sobrecoste de VRAM.
-              </div>
-            </div>
+            <!-- Cuadrícula interactiva de 6 columnas -->
+            <div class="rect-timeline-grid">
 
-            <!-- Hito 3 -->
-            <div class="milestone-card">
-              <div class="milestone-header">
-                <div class="milestone-node">03</div>
-                <div class="milestone-date">Jun – Jul 2026</div>
-              </div>
-              <div class="milestone-title">Era DFlash v1</div>
-              <div class="milestone-desc">
-                Lanzamiento de <code>z-lab/DFlash</code>. *Block diffusion* paralelo (8–15 tokens) superando el cuello de botella secuencial del *drafting*.
-              </div>
-            </div>
+              <!-- COLUMNA 1: Feb 2026 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-blue">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Qwen 3.5 MoE</div>
+                      <span class="rect-card-tag">23-24 Feb</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Lanzamiento de <strong>122B</strong> (A10B) y <strong>35B</strong> (A3B). MoE multimodales con inferencia base.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Quant: AutoRound</span>
+                      <strong style="color: #0284c7;">1.0x Base</strong>
+                    </div>
+                  </div>
+                </div>
 
-            <!-- Hito 4: DESTACADO -->
-            <div class="milestone-card highlight">
-              <div class="milestone-header">
-                <div class="milestone-node">04</div>
-                <div class="milestone-date">Ago 2026</div>
-              </div>
-              <div class="milestone-title">Qwen 3.8 + DFlash 2</div>
-              <div class="milestone-desc">
-                <strong>Qwen 3.8 27B</strong> (híbrido DeltaNet + Attention) y <code>DFlash 2</code> con selector de caminos multi-candidato (~3.4x de aceleración).
-              </div>
-            </div>
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
 
-          </div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">FEB 2026</div>
+                    <div class="rect-date-label">Qwen 3.5 MoE</div>
+                  </div>
+                </div>
+              </div>
 
-          <!-- 2. Comparativa de Técnicas Especulativas -->
-          <div class="speculative-grid">
+              <!-- COLUMNA 2: Mar – Abr 2026 (Fecha Arriba / Card Abajo) -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">MAR – ABR</div>
+                    <div class="rect-date-label">Recetas MTP</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
 
-            <!-- Técnica 1: MTP -->
-            <div class="speculative-card">
-              <div class="speculative-card-header">
-                <div class="speculative-card-title">MTP (Multi-Token)</div>
-                <span class="speculative-badge">Cabezales Internos</span>
-              </div>
-              <div class="speculative-features">
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Mecanismo:</strong> Cabezales extra en el <em>trunk</em> predicen t+1 a t+3 en un solo forward pass.</span>
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
                 </div>
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Overhead:</strong> 0 GB extra de VRAM; no necesita modelo auxiliar externo.</span>
-                </div>
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Límite:</strong> Aceptación decae rápido más allá de 2–3 tokens hacia adelante.</span>
-                </div>
-              </div>
-              <div class="speculative-footer-metric">
-                <span>Rendimiento: <strong>1 – 3 tokens</strong></span>
-                <span>Salida: <strong>Lossless</strong></span>
-              </div>
-            </div>
 
-            <!-- Técnica 2: DFlash -->
-            <div class="speculative-card">
-              <div class="speculative-card-header">
-                <div class="speculative-card-title">DFlash (Block Diffusion)</div>
-                <span class="speculative-badge">2x – 3x Speedup</span>
-              </div>
-              <div class="speculative-features">
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Mecanismo:</strong> Predice un bloque completo (8–16 tokens) en 1 forward pass no autoregresivo.</span>
-                </div>
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Ventaja:</strong> Elimina el drafting secuencial; optimizado para código y flujos agentic.</span>
-                </div>
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Overhead:</strong> Huella de VRAM muy baja con modelo auxiliar compacto.</span>
+                <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">MTP en vLLM</div>
+                      <span class="rect-card-tag" style="color: #d97706; font-weight: 800;">~1.6x Speed</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Multi-Token Prediction en repositorios <code>eugr</code>. Cabezales en el <em>trunk</em> predicen <code>t+1..t+3</code> con 0 GB extra de VRAM.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Drafter: Heads Internos</span>
+                      <strong style="color: #d97706;">1–2 Tokens</strong>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="speculative-footer-metric">
-                <span>Rendimiento: <strong>8 – 16 tokens</strong></span>
-                <span>Salida: <strong>Lossless</strong></span>
-              </div>
-            </div>
 
-            <!-- Técnica 3: DFlash 2 -->
-            <div class="speculative-card highlight">
-              <div class="speculative-card-header">
-                <div class="speculative-card-title">DFlash 2 (Path Selector)</div>
-                <span class="speculative-badge">Hasta ~3.4x Boost</span>
-              </div>
-              <div class="speculative-features">
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Mecanismo:</strong> Genera hasta 16 candidatos por slot y un micro-selector traza la ruta óptima.</span>
+              <!-- COLUMNA 3: 16 Abr 2026 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-purple">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Qwen 3.6 35B</div>
+                      <span class="rect-card-tag">16 Abr</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      MoE multimodal optimizado (A3B). Soporte inmediato de recetas MTP y cuantizaciones FP8.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Arch: MoE Eficiente</span>
+                      <strong style="color: #7c3aed;">1.0x Base</strong>
+                    </div>
+                  </div>
                 </div>
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Anti-Decay:</strong> Mitiga la pérdida de precisión en los últimos tokens del bloque.</span>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
                 </div>
-                <div class="speculative-feature">
-                  <span class="bullet">›</span>
-                  <span><strong>Impacto:</strong> Máxima tasa de aceptación en modelos densos/híbridos (Qwen 3.8).</span>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">16 ABR</div>
+                    <div class="rect-date-label">Qwen 3.6 35B</div>
+                  </div>
                 </div>
               </div>
-              <div class="speculative-footer-metric">
-                <span>Rendimiento: <strong>8 tokens + Grafos</strong></span>
-                <span>Salida: <strong>Lossless</strong></span>
+
+              <!-- COLUMNA 4: Jun – Jul 2026 (Fecha Arriba / Card Abajo) -->
+              <div class="rect-col c-orange">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">JUN – JUL</div>
+                    <div class="rect-date-label">Era DFlash v1</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">DFlash (Diff)</div>
+                      <span class="rect-card-tag" style="color: #ea580c; font-weight: 800;">~2.5x Speed</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      <em>Block Diffusion</em> (<code>z-lab/DFlash</code>). Genera 8–15 tokens en <strong>1 solo forward pass</strong> paralelo no-autoregresivo.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Drafter: Difusión</span>
+                      <strong style="color: #ea580c;">8–15 Tokens</strong>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <!-- COLUMNA 5: 14-18 Ago 2026 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-teal">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Qwen 3.8 27B</div>
+                      <span class="rect-card-tag">14 Ago</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Dense multimodal híbrido (DeltaNet + Linear Attention) con MTP nativo (2–5 tokens).
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Arch: DeltaNet Híbrido</span>
+                      <strong style="color: #0d9488;">1.0x Base</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">14-18 AGO</div>
+                    <div class="rect-date-label">Qwen 3.8 27B</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 6: 20-22 Ago 2026 (Fecha Arriba / Card Abajo - DESTACADO) -->
+              <div class="rect-col c-crimson">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">20-22 AGO</div>
+                    <div class="rect-date-label">DFlash 2 (Grafos)</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-card highlight">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title" style="color: #e11d48;">DFlash 2 (Path)</div>
+                      <span class="rect-card-tag" style="background: #e11d48; color: #fff; font-weight: 800;">~3.4x Boost</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Multi-candidatos (hasta 16 por slot) y selector de trayectoria óptima: elimina el <em>tail decay</em> en modelos densos.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Drafter: Selector Grafo</span>
+                      <strong style="color: #e11d48;">Máx Aceptación</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
