@@ -1652,6 +1652,11 @@ body.theme-dark .rect-bar-cap {
   height: 16px;
 }
 
+.rect-bar-segments.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
 .rect-bar-segment {
   height: 16px;
   border-radius: 4px;
@@ -1664,7 +1669,7 @@ body.theme-dark .rect-bar-cap {
 .rect-bar-segment.c5 { background-color: #0d9488; }
 .rect-bar-segment.c6 { background-color: #e11d48; }
 
-/* Grid de las 6 columnas superpuesto */
+/* Grid de las columnas superpuesto */
 .rect-timeline-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1672,6 +1677,11 @@ body.theme-dark .rect-bar-cap {
   width: 100%;
   position: relative;
   z-index: 2;
+}
+
+.rect-timeline-grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
 }
 
 .rect-col {
@@ -2579,6 +2589,163 @@ body.theme-dark .dspark-novel-desc {
 }
 
 /* ==========================================================================
+   LAYOUT TIMELINE CASO DEEPSEEK (SLIDE 17 - CRONOLOGÍA COMPLETA)
+   ========================================================================== */
+.ds-timeline-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.ds-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  position: relative;
+}
+
+.ds-stage-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.ds-stage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ds-stage-card.s1 { border-top: 4px solid #0284c7; }
+.ds-stage-card.s2 { border-top: 4px solid #d97706; }
+.ds-stage-card.s3 { border-top: 4px solid #e11d48; background: linear-gradient(170deg, #ffffff 0%, #fff1f2 100%); }
+.ds-stage-card.s4 { border-top: 4px solid #16a34a; }
+.ds-stage-card.s5 { border-top: 4px solid #ea580c; }
+
+body.theme-dark .ds-stage-card.s3 {
+  background: linear-gradient(170deg, #22242d 0%, #38121a 100%);
+}
+
+.ds-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ds-stage-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-muted);
+}
+
+body.theme-dark .ds-stage-num {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.ds-stage-card.s3 .ds-stage-num {
+  background: #e11d48;
+  color: #ffffff;
+}
+
+.ds-stage-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.ds-stage-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.ds-stage-desc {
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+body.theme-dark .ds-stage-desc {
+  color: #94a3b8;
+}
+
+.ds-stage-desc strong {
+  color: var(--text-main);
+}
+
+.ds-stage-footer {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.ds-stage-impact {
+  color: #0284c7;
+}
+
+.ds-stage-card.s2 .ds-stage-impact { color: #d97706; }
+.ds-stage-card.s3 .ds-stage-impact { color: #e11d48; font-weight: 800; }
+.ds-stage-card.s4 .ds-stage-impact { color: #16a34a; }
+.ds-stage-card.s5 .ds-stage-impact { color: #ea580c; }
+
+/* Barra resumen inferior del caso DeepSeek */
+.ds-summary-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.ds-summary-items {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.ds-summary-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ds-summary-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+/* ==========================================================================
    UI CONTROLS & HUD
    ========================================================================== */
 #hud {
@@ -2850,7 +3017,8 @@ body.overview-mode .slide-content {
   .mtp-model-card,
   .mtp-novel-card,
   .dspark-card,
-  .dspark-novel-card {
+  .dspark-novel-card,
+  .ds-stage-card {
     background: #ffffff !important;
     border: 1px solid #dbd9d2 !important;
     box-shadow: none !important;

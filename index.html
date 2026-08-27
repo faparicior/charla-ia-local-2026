@@ -1531,9 +1531,286 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 17: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
     <section class="slide" id="slide-17">
+      <div class="slide-content">
+        <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
+        <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          Cómo DeepSeek reescribió los kernels en ensamblador PTX y obligó a NVIDIA a rediseñar TensorRT-LLM para evitar parches extraoficiales.
+        </p>
+
+        <div class="press-grid">
+
+          <!-- 1. DeepSeek Open Source Week -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">DeepSeek AI / GitHub</span>
+                <span class="press-date">24–28 Feb 2025</span>
+              </div>
+              <span class="tag">Open Source Week</span>
+            </div>
+            <div class="press-headline">«FlashMLA, DeepGEMM y DeepEP: saltándose el compilador oficial de NVIDIA»</div>
+            <p class="press-desc">
+              DeepSeek libera librerías en <mark class="highlighter">código ensamblador PTX a bajo nivel</mark> que exprimen Hopper hasta los <mark class="highlighter">1.550+ TFLOPS en FP8</mark> y 3.000 GB/s de ancho de banda, demostrando un 50% de rendimiento oculto.
+            </p>
+          </div>
+
+          <!-- 2. Jensen Huang / Declaraciones Oficiales -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reuters / Financial Times</span>
+                <span class="press-date">Marzo 2025</span>
+              </div>
+              <span class="tag">Reacción Oficial</span>
+            </div>
+            <div class="press-headline">«Jensen Huang elogia a DeepSeek: "El ejemplo perfecto del escalado en inferencia"»</div>
+            <p class="press-desc">
+              El CEO de NVIDIA reconoce públicamente el avance técnico de DeepSeek y asegura que <mark class="highlighter">el ecosistema abierto acelera la demanda y adopción de inferencia</mark> sobre silicio NVIDIA.
+            </p>
+          </div>
+
+          <!-- 3. NVIDIA TensorRT-LLM Native Support -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">NVIDIA Developer Blog</span>
+                <span class="press-date">Abril 2025</span>
+              </div>
+              <span class="tag">Integración Nativa</span>
+            </div>
+            <div class="press-headline">«NVIDIA añade soporte nativo para DeepGEMM y FlashMLA en TensorRT-LLM»</div>
+            <p class="press-desc">
+              Para evitar parches de ensamblador no oficiales en producción, <mark class="highlighter">NVIDIA absorbe los kernels de DeepSeek</mark> activables de forma nativa con una sola línea: <code>moe_config.backend = "DEEPGEMM"</code>.
+            </p>
+          </div>
+
+          <!-- 4. DeepSpec / Ecosistema Universal -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Hugging Face / Towards AI</span>
+                <span class="press-date">Junio 2026</span>
+              </div>
+              <span class="tag">Ecosistema Abierto</span>
+            </div>
+            <div class="press-headline">«DeepSpec y DSpark democratizan el hardware: compatible con Qwen, Llama y vLLM»</div>
+            <p class="press-desc">
+              Las técnicas de <mark class="highlighter">speculative decoding con filtro de confianza</mark> de DeepSeek se convierten en estándar de la industria, optimizando inferencia en servidores y en local sin renovar hardware.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 18: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-18">
+      <div class="slide-content">
+        <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
+        <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          De un modelo open-weights de 6M$ al "Momento Sputnik", el hackeo en ensamblador PTX y la adopción oficial de NVIDIA.
+        </p>
+
+        <div class="rect-timeline-deck">
+
+          <!-- Wrapper con la barra de fondo y las 5 columnas alternantes -->
+          <div class="rect-timeline-wrapper">
+
+            <!-- Barra rectangular continua de fondo con extensiones laterales -->
+            <div class="rect-timeline-bar-bg">
+              <div class="rect-bar-cap left"></div>
+              <div class="rect-bar-segments cols-5">
+                <div class="rect-bar-segment c1"></div>
+                <div class="rect-bar-segment c2"></div>
+                <div class="rect-bar-segment c6"></div>
+                <div class="rect-bar-segment c5"></div>
+                <div class="rect-bar-segment c4"></div>
+              </div>
+              <div class="rect-bar-cap right"></div>
+            </div>
+
+            <!-- Cuadrícula interactiva de 5 columnas -->
+            <div class="rect-timeline-grid cols-5">
+
+              <!-- COLUMNA 1: Dic 2024 – Ene 2025 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-blue">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">DeepSeek V3 / R1</div>
+                      <span class="rect-card-tag">Ene 2025</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      MoE (671B / 37B activos) con <strong>MLA</strong>. Razonamiento al nivel de OpenAI o1 con un coste de entrenamiento 95% inferior (~6M$).
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Entrenamiento</span>
+                      <strong style="color: #0284c7;">Coste 20x menor</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">DIC 24 – ENE 25</div>
+                    <div class="rect-date-label">V3 &amp; R1 MoE</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 2: Ene – Feb 2025 (Fecha Arriba / Card Abajo) -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">ENE – FEB 2025</div>
+                    <div class="rect-date-label">Momento Sputnik</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Terremoto Tech</div>
+                      <span class="rect-card-tag" style="color: #d97706; font-weight: 800;">Pánico en Bolsa</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Desplome de chips en Wall Street: la prueba de que el <strong>ingenio algorítmico supera la fuerza bruta</strong> y el monopolio de cómputo.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Mercado</span>
+                      <strong style="color: #d97706;">Giro Histórico</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 3: 24–28 Feb 2025 (Card Arriba / Fecha Abajo - DESTACADO) -->
+              <div class="rect-col c-crimson">
+                <div class="rect-top-slot">
+                  <div class="rect-card highlight">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title" style="color: #e11d48;">Open Source Week</div>
+                      <span class="rect-card-tag" style="background: #e11d48; color: #fff; font-weight: 800;">Kernels PTX</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Liberan FlashMLA, DeepGEMM (PTX), DeepEP y DualPipe. Bypassean los compiladores para exprimir el silicio al 100% (&gt;1.550 TFLOPS).
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Hardware</span>
+                      <strong style="color: #e11d48;">Hack al Silicio</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">24–28 FEB 2025</div>
+                    <div class="rect-date-label">Open Source Week</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 4: Mar – Abr 2025 (Fecha Arriba / Card Abajo) -->
+              <div class="rect-col c-teal">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">MAR – ABR 2025</div>
+                    <div class="rect-date-label">Respuesta NVIDIA</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">TensorRT-LLM</div>
+                      <span class="rect-card-tag" style="color: #0d9488; font-weight: 800;">Adopción Oficial</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Jensen Huang elogia la ingeniería. NVIDIA <strong>integra DeepGEMM nativamente</strong> en TensorRT-LLM y NIM para evitar parches externos.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">moe_config.backend</span>
+                      <strong style="color: #0d9488;">DEEPGEMM</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 5: 2026 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-orange">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">DSpark &amp; DeepSpec</div>
+                      <span class="rect-card-tag">Junio 2026</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Liberación de <strong>DeepSpec (MIT)</strong> con DSpark (decoding con filtro de confianza) adaptado y utilizado en <strong>Qwen, Llama y vLLM</strong>.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Licencia: MIT</span>
+                      <strong style="color: #ea580c;">Estándar Abierto</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">JUNIO 2026</div>
+                    <div class="rect-date-label">Ecosistema Abierto</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 19: CÓDIGO Y CONTROL EN LOCAL
+         ==================================================================== -->
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -1568,9 +1845,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: CITA EDITORIAL
+         SLIDE 20: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -1585,9 +1862,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: CIERRE & Q&A
+         SLIDE 21: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -1618,7 +1895,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">19</span>
+        <span id="slide-current">1</span> / <span id="slide-total">21</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
