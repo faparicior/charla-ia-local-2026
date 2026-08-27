@@ -4183,6 +4183,253 @@ body.theme-dark .nvfp4-diagram-box {
 }
 
 /* ==========================================================================
+   SLIDES DE PROFUNDIZACIÓN: NVFP4 PASO 1, PASO 2 Y PASO 3
+   ========================================================================== */
+.deep-dive-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  margin-top: 0.15rem;
+}
+
+.deep-dive-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem;
+  width: 100%;
+}
+
+.deep-dive-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  padding: 1.3rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+.deep-dive-card.card-int {
+  border-left: 5px solid #dc2626;
+}
+
+.deep-dive-card.card-fp {
+  border-left: 5px solid #0284c7;
+  background: linear-gradient(180deg, rgba(2, 132, 199, 0.03) 0%, var(--bg-surface) 100%);
+}
+
+.deep-dive-card.card-traditional {
+  border-left: 5px solid #d97706;
+}
+
+.deep-dive-card.card-microscale {
+  border-left: 5px solid #16a34a;
+  background: linear-gradient(180deg, rgba(22, 163, 74, 0.03) 0%, var(--bg-surface) 100%);
+}
+
+.deep-dive-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deep-dive-card-title {
+  font-family: var(--font-sans);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deep-dive-badge {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.deep-dive-badge.red {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+}
+
+.deep-dive-badge.blue {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+}
+
+.deep-dive-badge.amber {
+  background: rgba(217, 119, 6, 0.12);
+  color: #d97706;
+}
+
+.deep-dive-badge.green {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+}
+
+body.theme-dark .deep-dive-badge.red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+body.theme-dark .deep-dive-badge.blue {
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+}
+
+body.theme-dark .deep-dive-badge.amber {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fde047;
+}
+
+body.theme-dark .deep-dive-badge.green {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+}
+
+/* Regla visual de espaciado */
+.ruler-diagram {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+body.theme-dark .ruler-diagram {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ruler-ticks-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 28px;
+  border-bottom: 2px solid var(--border-medium);
+  padding: 0 0.5rem;
+}
+
+.ruler-tick {
+  width: 2px;
+  height: 12px;
+  background: var(--text-muted);
+  position: relative;
+}
+
+.ruler-tick.highlight {
+  background: #0284c7;
+  height: 18px;
+  width: 3px;
+}
+
+.ruler-tick span {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.deep-dive-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Bloques visuales de Outliers */
+.outlier-block-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.outlier-tag-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.outlier-tag-box.danger {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.05);
+}
+
+.outlier-tag-box.safe {
+  border-color: #16a34a;
+  color: #15803d;
+  background: rgba(22, 163, 74, 0.05);
+}
+
+/* Comparativa de Silicio (Hardware Architecture) */
+.hardware-pipeline-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hardware-flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+
+body.theme-dark .hardware-flow-row {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hardware-node {
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+}
+
+.hardware-node.active {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+}
+
+.hardware-node.bottleneck {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* ==========================================================================
    EXPORTACIÓN A PDF / ESTILOS DE IMPRESIÓN
    ========================================================================== */
 @page {
