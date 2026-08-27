@@ -1297,9 +1297,104 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         SLIDE 14: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
     <section class="slide" id="slide-14">
+      <div class="slide-content">
+        <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
+        <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          ¿Cómo comprime NVIDIA a 4 bits sin destruir la inteligencia? Las 3 claves del <em>Microscaling</em> explicadas en 15 segundos.
+        </p>
+
+        <div class="nvfp4-deck">
+
+          <div class="nvfp4-keys-grid">
+
+            <!-- Clave 1: Solo 16 Números con Forma de Cerebro -->
+            <div class="nvfp4-key-card card-numbers">
+              <div class="nvfp4-card-header">
+                <span class="nvfp4-card-icon">🔢</span>
+                <span class="nvfp4-card-title">1. Solo 16 Números (E2M1)</span>
+              </div>
+
+              <div class="nvfp4-visual-display">
+                <div class="nvfp4-code-pill">{ 0, ±0.5, ±1, ±1.5, ±2, ±3, ±4, ±6 }</div>
+                <div style="font-size: 0.76rem; color: var(--text-muted); text-align: center;">Punto flotante logarítmico (más resolución en el centro)</div>
+              </div>
+
+              <div class="nvfp4-card-desc">
+                En vez de enteros rígidos (INT4), usa <strong>punto flotante</strong>: tiene mucha resolución donde el cerebro de la IA más lo necesita.
+              </div>
+            </div>
+
+            <!-- Clave 2: El Truco del Micro-Bloque -->
+            <div class="nvfp4-key-card card-blocks">
+              <div class="nvfp4-card-header">
+                <span class="nvfp4-card-icon">🔬</span>
+                <span class="nvfp4-card-title">2. Micro-Bloques de 16</span>
+              </div>
+
+              <div class="nvfp4-visual-display">
+                <div class="nvfp4-code-pill" style="color: #0284c7;">[ 16 valores FP4 ] ➔ Escala FP8</div>
+                <div style="font-size: 0.76rem; color: var(--text-muted); text-align: center;">Aislamiento total de anomalías (outliers)</div>
+              </div>
+
+              <div class="nvfp4-card-desc">
+                Si un número se dispara, <strong>solo afecta a sus 16 vecinos</strong>. El 99.9% restante del modelo conserva su máxima precisión.
+              </div>
+            </div>
+
+            <!-- Clave 3: Grabado en el Silicio Blackwell -->
+            <div class="nvfp4-key-card card-hardware">
+              <div class="nvfp4-card-header">
+                <span class="nvfp4-card-icon">⚡</span>
+                <span class="nvfp4-card-title">3. Silicio Tensor Core Gen 5</span>
+              </div>
+
+              <div class="nvfp4-visual-display">
+                <div class="nvfp4-metric-trio">
+                  <div class="nvfp4-metric-box">
+                    <div class="nvfp4-metric-val">3.5x</div>
+                    <div class="nvfp4-metric-lbl">Menos VRAM</div>
+                  </div>
+                  <div class="nvfp4-metric-box">
+                    <div class="nvfp4-metric-val">4x</div>
+                    <div class="nvfp4-metric-lbl">Velocidad</div>
+                  </div>
+                  <div class="nvfp4-metric-box">
+                    <div class="nvfp4-metric-val">&gt;98%</div>
+                    <div class="nvfp4-metric-lbl">Precisión</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nvfp4-card-desc">
+                Es <strong>propietario de NVIDIA</strong> porque los Tensor Cores de Blackwell multiplican en FP4 directamente sin descomprimir.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Ribbon explicativo inferior -->
+          <div class="nvfp4-summary-ribbon">
+            <div class="nvfp4-ribbon-left">
+              <div class="nvfp4-ribbon-icon">💡</div>
+              <div class="nvfp4-ribbon-text">
+                <strong>La conclusión para recordar:</strong> NVFP4 permite meter modelos gigantes (como <em>Qwen 122B</em> o <em>DeepSeek R1</em>) en una sola máquina de 128 GB <strong>a velocidad de cohete y con inteligencia intacta</strong>.
+              </div>
+            </div>
+            <div class="nvfp4-ribbon-badge">El Estándar Blackwell</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 15: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         ==================================================================== -->
+    <section class="slide" id="slide-15">
       <div class="slide-content">
         <div class="tag">Early Adopters &amp; Hardware</div>
         <h2>NVIDIA Blackwell GB10: Expectativa vs. Realidad</h2>
@@ -1353,9 +1448,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 15: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
+         SLIDE 16: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-16">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -1430,9 +1525,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 17: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -1525,9 +1620,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 18: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -1758,9 +1853,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 19: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -1867,9 +1962,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 20: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -1979,9 +2074,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 21: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -2110,9 +2205,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 22: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2187,9 +2282,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 23: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2387,9 +2482,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 24: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -2424,9 +2519,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: CITA EDITORIAL
+         SLIDE 25: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -2441,9 +2536,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: CIERRE & Q&A
+         SLIDE 26: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -2474,7 +2569,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">25</span>
+        <span id="slide-current">1</span> / <span id="slide-total">26</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
