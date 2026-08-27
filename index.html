@@ -715,9 +715,119 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 10: ANATOMÍA DE LA MEMORIA: PESOS VS. KV CACHE
+         SLIDE 10: EL TRILEMA DE LA IA LOCAL (MEMORIA, CALIDAD, VELOCIDAD)
          ==================================================================== -->
     <section class="slide" id="slide-10">
+      <div class="slide-content">
+        <div class="tag">Marco Mental • El Trilema de la IA Local</div>
+        <h2>Las 3 Variables que lo definen todo: <span class="serif-italic" style="color: #0284c7;">Memoria, Calidad y Velocidad</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Antes de tocar hardware o descargar pesos: toda decisión técnica busca el equilibrio entre estos tres pilares.
+        </p>
+
+        <div class="trilemma-deck">
+
+          <div class="trilemma-grid-3col">
+
+            <!-- Pilar 1: Memoria / VRAM -->
+            <div class="trilemma-card card-memory">
+              <div>
+                <div class="trilemma-card-header">
+                  <span class="trilemma-icon-badge">💾</span>
+                  <span class="trilemma-pillar-tag blue">Pilar 1 • El Límite Físico</span>
+                </div>
+                <div class="trilemma-card-title">1. Memoria (VRAM)</div>
+                <div class="trilemma-card-question">"¿Cabe el modelo en mi máquina?"</div>
+                
+                <div class="trilemma-formula-chip">
+                  VRAM = Pesos Fijos + (KV Cache × Usuarios)
+                </div>
+
+                <div class="trilemma-bullets-list">
+                  <div>• <strong>El muro de silicio:</strong> Si te quedas sin VRAM, el sistema colapsa (OOM) o cae a RAM de CPU perdiendo el 90% de velocidad.</div>
+                  <div>• <strong>No solo son los pesos:</strong> Cada token de contexto y cada usuario concurrente devora memoria en tiempo real.</div>
+                </div>
+              </div>
+
+              <div class="trilemma-card-footer">
+                <span style="color: var(--text-dim);">Análisis detallado</span>
+                <span class="trilemma-footer-link">Slide 11 ➔</span>
+              </div>
+            </div>
+
+            <!-- Pilar 2: Calidad / Inteligencia -->
+            <div class="trilemma-card card-quality">
+              <div>
+                <div class="trilemma-card-header">
+                  <span class="trilemma-icon-badge">🧠</span>
+                  <span class="trilemma-pillar-tag purple">Pilar 2 • La Precisión</span>
+                </div>
+                <div class="trilemma-card-title">2. Calidad &amp; Razonamiento</div>
+                <div class="trilemma-card-question">"¿Es fiable o empezará a alucinar?"</div>
+                
+                <div class="trilemma-formula-chip">
+                  FP16 (100%) ➔ FP8 (99.6%) ➔ 4-bit (98%) ➔ 3-bit (&lt;90%)
+                </div>
+
+                <div class="trilemma-bullets-list">
+                  <div>• <strong>El peaje de comprimir:</strong> Reducir bits ahorra memoria, pero un redondeo descuidado destruye la capacidad lógica.</div>
+                  <div>• <strong>El efecto dominó:</strong> En preguntas cortas parece perfecto, pero en razonamiento largo los errores de 4 bits se multiplican.</div>
+                </div>
+              </div>
+
+              <div class="trilemma-card-footer">
+                <span style="color: var(--text-dim);">Análisis detallado</span>
+                <span class="trilemma-footer-link">Slide 14 ➔</span>
+              </div>
+            </div>
+
+            <!-- Pilar 3: Velocidad / Arquitectura -->
+            <div class="trilemma-card card-speed">
+              <div>
+                <div class="trilemma-card-header">
+                  <span class="trilemma-icon-badge">⚡</span>
+                  <span class="trilemma-pillar-tag orange">Pilar 3 • El Throughput</span>
+                </div>
+                <div class="trilemma-card-title">3. Velocidad (Tokens/s)</div>
+                <div class="trilemma-card-question">"¿Responde al instante o tarda minutos?"</div>
+                
+                <div class="trilemma-formula-chip">
+                  Denso (100% cálculo) vs MoE (Especialistas activos)
+                </div>
+
+                <div class="trilemma-bullets-list">
+                  <div>• <strong>La arquitectura manda:</strong> Un modelo denso multiplica todos sus billones de parámetros en cada palabra generada.</div>
+                  <div>• <strong>La magia de MoE:</strong> Un hospital de 122B responde a la velocidad de un 10B activando solo 2 especialidades de guardia.</div>
+                </div>
+              </div>
+
+              <div class="trilemma-card-footer">
+                <span style="color: var(--text-dim);">Análisis detallado</span>
+                <span class="trilemma-footer-link">Slide 12 ➔</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Summary Banner -->
+          <div class="trilemma-summary-ribbon">
+            <div class="trilemma-ribbon-left">
+              <div class="trilemma-ribbon-icon">🎯</div>
+              <div class="trilemma-ribbon-text">
+                <strong>El "Sweet Spot" del Crafter:</strong> La meta es encontrar la combinación donde un modelo de frontera (ej. <strong>Qwen 122B MoE</strong>) cabe en una máquina de 128 GB, genera a <strong>&gt;40 tokens/s</strong> y preserva más del <strong>98% de su razonamiento</strong> con algoritmos como <em>AutoRound</em> o <em>NVFP4</em>.
+              </div>
+            </div>
+            <div class="trilemma-ribbon-badge">El Santo Grial Local</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 11: ANATOMÍA DE LA MEMORIA: PESOS VS. KV CACHE
+         ==================================================================== -->
+    <section class="slide" id="slide-11">
       <div class="slide-content">
         <div class="tag">Anatomía de la Memoria • VRAM &amp; Hardware</div>
         <h2>¿En qué se gasta la Memoria? <span class="serif-italic">Pesos vs. KV Cache</span></h2>
@@ -858,9 +968,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 11: MODELOS DENSOS VS. MIXTURE OF EXPERTS (MOE)
+         SLIDE 12: MODELOS DENSOS VS. MIXTURE OF EXPERTS (MOE)
          ==================================================================== -->
-    <section class="slide" id="slide-11">
+    <section class="slide" id="slide-12">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos vs. MoE</div>
         <h2>Modelos Densos vs. MoE: <span class="serif-italic" style="color: #0284c7;">La Junta Médica vs. El Triaje</span></h2>
@@ -938,9 +1048,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 12: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 13: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
          ==================================================================== -->
-    <section class="slide" id="slide-12">
+    <section class="slide" id="slide-13">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #16a34a;">La Zona Ricitos de Oro</span></h2>
@@ -1096,9 +1206,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 13: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
+         SLIDE 14: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-14">
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
@@ -1244,8 +1354,8 @@
                       <span class="quant-retention-val" style="color: #dc2626;">&lt;90%</span>
                     </div>
                   </td>
-                  <td>78.5% <small style="color: #dc2626;">(-9.9%)</small></td>
-                  <td>71.0% <small style="color: #dc2626;">(-13.5%)</small></td>
+                  <td>78.5% <small style="color: var(--text-dim);">(-9.9%)</small></td>
+                  <td>71.0% <small style="color: var(--text-dim);">(-13.5%)</small></td>
                   <td>❌ <strong>Inutilizable: Colapso en Código &amp; Lógica</strong></td>
                 </tr>
               </tbody>
@@ -1257,9 +1367,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
+         SLIDE 15: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
          ==================================================================== -->
-    <section class="slide" id="slide-14">
+    <section class="slide" id="slide-15">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
         <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
@@ -1377,9 +1487,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 15: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
+         SLIDE 16: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-16">
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
@@ -1483,9 +1593,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
+         SLIDE 17: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
@@ -1573,9 +1683,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
+         SLIDE 18: LA CRUDA REALIDAD DEL HARDWARE (EXPECTATIVA VS. REALIDAD)
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Early Adopters &amp; Hardware</div>
         <h2>NVIDIA Blackwell GB10: Expectativa vs. Realidad</h2>
@@ -1629,9 +1739,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
+         SLIDE 19: ESPECIAL FOROS DE HARDWARE (FORMATO PRENSA Y COMUNIDAD)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -1706,9 +1816,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 20: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -1801,9 +1911,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 21: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2001,9 +2111,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 22: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2078,9 +2188,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 23: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -2311,9 +2421,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 24: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -2420,9 +2530,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 25: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -2532,9 +2642,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 26: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -2663,9 +2773,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 27: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -2700,9 +2810,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: CITA EDITORIAL
+         SLIDE 28: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -2717,9 +2827,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: CIERRE & Q&A
+         SLIDE 29: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -2750,7 +2860,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">28</span>
+        <span id="slide-current">1</span> / <span id="slide-total">29</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
