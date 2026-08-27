@@ -1304,87 +1304,98 @@
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
         <p class="subtitle" style="margin-top: -1rem;">
-          ¿Cómo comprime NVIDIA a 4 bits sin destruir la inteligencia? Las 3 claves del <em>Microscaling</em> explicadas en 15 segundos.
+          ¿Cómo meter un modelo gigante en 4 bits sin destruir su inteligencia? El flujo conectado en 3 pasos:
         </p>
 
-        <div class="nvfp4-deck">
+        <div class="nvfp4-pipeline-deck">
 
-          <div class="nvfp4-keys-grid">
+          <!-- Flujo de 3 Pasos Conectados -->
+          <div class="nvfp4-flow-grid">
 
-            <!-- Clave 1: Solo 16 Números con Forma de Cerebro -->
-            <div class="nvfp4-key-card card-numbers">
-              <div class="nvfp4-card-header">
-                <span class="nvfp4-card-icon">🔢</span>
-                <span class="nvfp4-card-title">1. Solo 16 Números (E2M1)</span>
+            <!-- PASO 1: El Reto de los 16 Moldes -->
+            <div class="nvfp4-step-card step-problem">
+              <div class="nvfp4-step-header">
+                <span class="nvfp4-step-num red">Paso 1</span>
+                <span class="nvfp4-step-title">El Reto: Solo 16 Moldes</span>
               </div>
 
-              <div class="nvfp4-visual-display">
-                <div class="nvfp4-code-pill">{ 0, ±0.5, ±1, ±1.5, ±2, ±3, ±4, ±6 }</div>
-                <div style="font-size: 0.76rem; color: var(--text-muted); text-align: center;">Punto flotante logarítmico (más resolución en el centro)</div>
-              </div>
-
-              <div class="nvfp4-card-desc">
-                En vez de enteros rígidos (INT4), usa <strong>punto flotante</strong>: tiene mucha resolución donde el cerebro de la IA más lo necesita.
-              </div>
-            </div>
-
-            <!-- Clave 2: El Truco del Micro-Bloque -->
-            <div class="nvfp4-key-card card-blocks">
-              <div class="nvfp4-card-header">
-                <span class="nvfp4-card-icon">🔬</span>
-                <span class="nvfp4-card-title">2. Micro-Bloques de 16</span>
-              </div>
-
-              <div class="nvfp4-visual-display">
-                <div class="nvfp4-code-pill" style="color: #0284c7;">[ 16 valores FP4 ] ➔ Escala FP8</div>
-                <div style="font-size: 0.76rem; color: var(--text-muted); text-align: center;">Aislamiento total de anomalías (outliers)</div>
-              </div>
-
-              <div class="nvfp4-card-desc">
-                Si un número se dispara, <strong>solo afecta a sus 16 vecinos</strong>. El 99.9% restante del modelo conserva su máxima precisión.
-              </div>
-            </div>
-
-            <!-- Clave 3: Grabado en el Silicio Blackwell -->
-            <div class="nvfp4-key-card card-hardware">
-              <div class="nvfp4-card-header">
-                <span class="nvfp4-card-icon">⚡</span>
-                <span class="nvfp4-card-title">3. Silicio Tensor Core Gen 5</span>
-              </div>
-
-              <div class="nvfp4-visual-display">
-                <div class="nvfp4-metric-trio">
-                  <div class="nvfp4-metric-box">
-                    <div class="nvfp4-metric-val">3.5x</div>
-                    <div class="nvfp4-metric-lbl">Menos VRAM</div>
-                  </div>
-                  <div class="nvfp4-metric-box">
-                    <div class="nvfp4-metric-val">4x</div>
-                    <div class="nvfp4-metric-lbl">Velocidad</div>
-                  </div>
-                  <div class="nvfp4-metric-box">
-                    <div class="nvfp4-metric-val">&gt;98%</div>
-                    <div class="nvfp4-metric-lbl">Precisión</div>
-                  </div>
+              <div class="nvfp4-diagram-box">
+                <div style="font-size: 0.72rem; color: var(--text-dim); text-align: center; font-weight: 700;">Regla Fija FP4 (E2M1):</div>
+                <div class="nvfp4-slots-row">
+                  <span class="nvfp4-slot-chip">0</span>
+                  <span class="nvfp4-slot-chip">±0.5</span>
+                  <span class="nvfp4-slot-chip">±1</span>
+                  <span class="nvfp4-slot-chip">±1.5</span>
+                  <span class="nvfp4-slot-chip">±2</span>
+                  <span class="nvfp4-slot-chip">±3</span>
+                  <span class="nvfp4-slot-chip">±4</span>
+                  <span class="nvfp4-slot-chip">±6</span>
                 </div>
               </div>
 
-              <div class="nvfp4-card-desc">
-                Es <strong>propietario de NVIDIA</strong> porque los Tensor Cores de Blackwell multiplican en FP4 directamente sin descomprimir.
+              <div class="nvfp4-step-desc">
+                Un peso real vale <code>0.0034</code> o <code>12.8</code>. Con solo 16 números fijos, los decimales pequeños se redondean a cero y el modelo <strong>pierde la memoria</strong>.
+              </div>
+            </div>
+
+            <!-- Flecha Conectora 1 -->
+            <div class="nvfp4-connector">➔</div>
+
+            <!-- PASO 2: La Solución (La Lente de Aumento) -->
+            <div class="nvfp4-step-card step-solution">
+              <div class="nvfp4-step-header">
+                <span class="nvfp4-step-num blue">Paso 2</span>
+                <span class="nvfp4-step-title">La Solución: El Micro-Zoom</span>
+              </div>
+
+              <div class="nvfp4-diagram-box">
+                <div class="nvfp4-block-visual">
+                  <span class="nvfp4-block-elements">16 pesos contiguos</span>
+                  <span class="nvfp4-block-lens">Zoom FP8 (×0.001)</span>
+                </div>
+                <div style="font-size: 0.72rem; color: #0284c7; text-align: center; font-weight: 700;">Ajuste milimétrico a las 16 ranuras</div>
+              </div>
+
+              <div class="nvfp4-step-desc">
+                Se agrupan los pesos de <strong>16 en 16</strong> y a cada grupo se le da su propio "zoom" (FP8). Si un peso se desmadra, solo afecta a sus 16 vecinos.
+              </div>
+            </div>
+
+            <!-- Flecha Conectora 2 -->
+            <div class="nvfp4-connector">➔</div>
+
+            <!-- PASO 3: El Silicio Blackwell -->
+            <div class="nvfp4-step-card step-silicon">
+              <div class="nvfp4-step-header">
+                <span class="nvfp4-step-num green">Paso 3</span>
+                <span class="nvfp4-step-title">El Silicio: Cómputo Directo</span>
+              </div>
+
+              <div class="nvfp4-diagram-box">
+                <div class="nvfp4-hardware-flow">
+                  <span style="color: var(--text-muted);">VRAM (4b)</span>
+                  <span style="color: #16a34a;">➔</span>
+                  <span style="color: #16a34a; font-weight: 900;">Tensor Core Gen 5</span>
+                </div>
+                <div style="font-size: 0.72rem; color: #16a34a; text-align: center; font-weight: 700;">Multiplica en 4-bit sin descomprimir</div>
+              </div>
+
+              <div class="nvfp4-step-desc">
+                Blackwell calcula <strong>directamente en 4 bits en silicio</strong> y aplica el zoom al final: <strong>3.5x menos VRAM</strong>, velocidad <strong>4x</strong> y <strong>&gt;98% de inteligencia intacta</strong>.
               </div>
             </div>
 
           </div>
 
-          <!-- Ribbon explicativo inferior -->
+          <!-- Ribbon explicativo de 10 segundos -->
           <div class="nvfp4-summary-ribbon">
             <div class="nvfp4-ribbon-left">
               <div class="nvfp4-ribbon-icon">💡</div>
               <div class="nvfp4-ribbon-text">
-                <strong>La conclusión para recordar:</strong> NVFP4 permite meter modelos gigantes (como <em>Qwen 122B</em> o <em>DeepSeek R1</em>) en una sola máquina de 128 GB <strong>a velocidad de cohete y con inteligencia intacta</strong>.
+                <strong>En 10 segundos:</strong> 16 moldes matemáticos (Paso 1) + una lupa de aumento cada 16 números (Paso 2) + ejecución directa en el chip (Paso 3) = <strong>Modelos gigantes en 1 sola máquina de 128 GB sin perder razonamiento.</strong>
               </div>
             </div>
-            <div class="nvfp4-ribbon-badge">El Estándar Blackwell</div>
+            <div class="nvfp4-ribbon-badge">El Secreto Blackwell</div>
           </div>
 
         </div>
