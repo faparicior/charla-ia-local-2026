@@ -4605,6 +4605,216 @@ body.theme-dark .autoround-compensate-pill.zero {
 }
 
 /* ==========================================================================
+   SLIDE: MODELOS DENSOS VS. MIXTURE OF EXPERTS (MoE)
+   ========================================================================== */
+.moe-dense-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 0.15rem;
+}
+
+.moe-dense-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.moe-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 16px;
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.moe-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.moe-card.card-dense::before {
+  background: #f59e0b;
+}
+
+.moe-card.card-moe::before {
+  background: #0284c7;
+}
+
+.moe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.moe-card-title {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.moe-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.moe-badge.amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+.moe-badge.blue {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+}
+
+body.theme-dark .moe-badge.amber {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fde047;
+}
+
+body.theme-dark .moe-badge.blue {
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+}
+
+.moe-visual-flow {
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+body.theme-dark .moe-visual-flow {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.moe-flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.moe-flow-node {
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  color: var(--text-main);
+}
+
+.moe-flow-node.highlight-amber {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #b45309;
+}
+
+.moe-flow-node.highlight-blue {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.moe-flow-node.highlight-green {
+  background: rgba(22, 163, 74, 0.12);
+  border-color: #16a34a;
+  color: #15803d;
+}
+
+body.theme-dark .moe-flow-node.highlight-amber {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde047;
+}
+
+body.theme-dark .moe-flow-node.highlight-blue {
+  background: rgba(2, 132, 199, 0.2);
+  color: #7dd3fc;
+}
+
+body.theme-dark .moe-flow-node.highlight-green {
+  background: rgba(22, 163, 74, 0.2);
+  color: #86efac;
+}
+
+.moe-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.moe-points-list strong {
+  color: var(--text-main);
+}
+
+/* Ribbon resumen inferior MoE */
+.moe-summary-ribbon {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  border-radius: 12px;
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.moe-ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.moe-ribbon-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.moe-ribbon-text {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.moe-ribbon-badge {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+/* ==========================================================================
    EXPORTACIÓN A PDF / ESTILOS DE IMPRESIÓN
    ========================================================================== */
 @page {
