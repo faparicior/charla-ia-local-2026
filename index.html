@@ -2082,9 +2082,224 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 24: ESCOGIENDO MODELOS: MEMORIA VS. VELOCIDAD (TOKENS/S)
          ==================================================================== -->
     <section class="slide" id="slide-24">
+      <div class="slide-content">
+        <div class="tag">Benchmarking Local • VRAM vs. Throughput</div>
+        <h2>Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Memoria vs. Velocidad (Tokens/s)</span></h2>
+        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+          Ocupación en los 128 GB de memoria del GB10 y velocidad de generación según cuantización y técnicas de aceleración (MTP / DFlash 2).
+        </p>
+
+        <div class="model-sizing-deck">
+
+          <!-- Barra Superior de Referencia 128 GB -->
+          <div class="model-sizing-header-bar">
+            <span class="model-sizing-top-label">128 GB Memoria Unificada</span>
+            <div class="model-sizing-top-bar">
+              <span>NVIDIA GB10</span>
+              <div class="model-sizing-top-reserved" title="4 GB Base OS / Display">
+                <span>4</span><span>GB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rejilla de Modelos -->
+          <div class="model-sizing-grid">
+
+            <!-- Fila 1: Qwen 3.5 122B FP8 (Gris - Descartado) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon"></div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar unselected" style="width: 95.3%;">
+                  <span class="model-bar-label">Qwen 3.5 - 122B FP8 <span class="model-bar-size">(122 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds"></div>
+            </div>
+
+            <!-- Fila 2: Qwen 3.5 122B INT4 AutoRound (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon">🐢</div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 53.9%;">
+                  <span class="model-bar-label">Qwen 3.5 - 122B A10B INT4 Autoround <span class="model-bar-size">(69 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge boost">28 tokens/seg</span>
+              </div>
+            </div>
+
+            <!-- Fila 3: Qwen 3.5 122B Hybrid + MTP-2 (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon">🐢💨</div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 53.9%;">
+                  <span class="model-bar-label">Qwen 3.5 - 122B A10B Hybrid INT4 AutoR + FP8 Dense Layers + MTP-2 <span class="model-bar-size">(69 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge boost">54 tokens/seg</span>
+              </div>
+            </div>
+
+            <!-- Grupo 1: Qwen 3 Coder Next (Brackets) -->
+            <div class="model-group-bracket">
+              <div class="model-bracket-curve"></div>
+              
+              <!-- Fila 4: Qwen 3 Coder Next FP8 (Gris) -->
+              <div class="model-sizing-row">
+                <div class="model-sizing-icon"></div>
+                <div class="model-sizing-bar-track">
+                  <div class="model-sizing-bar unselected" style="width: 58.6%;">
+                    <span class="model-bar-label">Qwen 3 Coder Next FP8 <span class="model-bar-size">(75 GB)</span></span>
+                  </div>
+                </div>
+                <div class="model-sizing-speeds">
+                  <span class="speed-badge neutral">46 tokens/seg</span>
+                </div>
+              </div>
+
+              <!-- Fila 5: Qwen 3 Coder Next INT4 AutoR (Verde) -->
+              <div class="model-sizing-row">
+                <div class="model-sizing-icon"></div>
+                <div class="model-sizing-bar-track">
+                  <div class="model-sizing-bar selected" style="width: 32.0%;">
+                    <span class="model-bar-label">Qwen 3 Coder Next INT4 AutoR <span class="model-bar-size">(41 GB)</span></span>
+                  </div>
+                </div>
+                <div class="model-sizing-speeds">
+                  <span class="speed-badge boost">73 tokens/seg</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 6: Nemotron 3 Super 120B (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon"></div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 58.6%;">
+                  <span class="model-bar-label">Nemotron 3 Super - 120B A12B NVFP4 <span class="model-bar-size">(75 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge neutral">16 tokens/seg</span>
+              </div>
+            </div>
+
+            <!-- Grupo 2: Qwen 3.6 35B (Brackets) -->
+            <div class="model-group-bracket">
+              <div class="model-bracket-curve"></div>
+
+              <!-- Fila 7: Qwen 3.6 35B FP8 (Gris) -->
+              <div class="model-sizing-row">
+                <div class="model-sizing-icon"></div>
+                <div class="model-sizing-bar-track">
+                  <div class="model-sizing-bar unselected" style="width: 27.3%;">
+                    <span class="model-bar-label">Qwen 3.6 - 35B FP8 <span class="model-bar-size">(35 GB)</span></span>
+                  </div>
+                </div>
+                <div class="model-sizing-speeds">
+                  <span class="speed-badge neutral">52 tokens/seg</span>
+                </div>
+              </div>
+
+              <!-- Fila 8: Qwen 3.6 35B NVFP4 (Verde) -->
+              <div class="model-sizing-row">
+                <div class="model-sizing-icon">🐇</div>
+                <div class="model-sizing-bar-track">
+                  <div class="model-sizing-bar selected" style="width: 14.8%;">
+                    <span class="model-bar-label">Qwen 3.6 - 35B NVFP4 <span class="model-bar-size">(19 GB)</span></span>
+                  </div>
+                </div>
+                <div class="model-sizing-speeds">
+                  <span class="speed-badge neutral">74 tokens/seg</span>
+                  <span class="speed-badge boost">134 tokens/seg con MTP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 9: Nemotron Nano 30B (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon"></div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 14.8%;">
+                  <span class="model-bar-label">Nemotron Nano - 30B NVFP4 <span class="model-bar-size">(19 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge neutral">56 tokens/seg</span>
+              </div>
+            </div>
+
+            <!-- Fila 10: Qwen 3.6 27B FP8 (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon">🐢</div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 22.7%;">
+                  <span class="model-bar-label">Qwen 3.6 - 27B FP8 <span class="model-bar-size">(29 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge neutral">8 tokens/seg</span>
+                <span class="speed-badge neutral">16 tokens/seg con MTP</span>
+              </div>
+            </div>
+
+            <!-- Fila 11: Qwen 3.8 27B FP8 + DFlash2 (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon">🐢💨</div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 22.7%;">
+                  <span class="model-bar-label">Qwen 3.8 - 27B FP8 <span class="model-bar-size">(29 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge neutral">12 tokens/seg</span>
+                <span class="speed-badge boost">28 tokens/seg con MTP/Dflash2</span>
+              </div>
+            </div>
+
+            <!-- Fila 12: Ornith 1.5 30B (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon"></div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 14.8%;">
+                  <span class="model-bar-label">Ornith 1.5 - 30B A3B NVFP4 <span class="model-bar-size">(19 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge neutral">74 tokens/seg</span>
+                <span class="speed-badge boost">134 tokens/seg con MTP</span>
+              </div>
+            </div>
+
+            <!-- Fila 13: Agents A1 30B (Verde) -->
+            <div class="model-sizing-row">
+              <div class="model-sizing-icon"></div>
+              <div class="model-sizing-bar-track">
+                <div class="model-sizing-bar selected" style="width: 14.8%;">
+                  <span class="model-bar-label">Agents A1 - 30B A3B NVFP4 <span class="model-bar-size">(19 GB)</span></span>
+                </div>
+              </div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge neutral">74 tokens/seg</span>
+                <span class="speed-badge boost">134 tokens/seg con MTP</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 25: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2289,9 +2504,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 26: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2377,9 +2592,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 27: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -2616,9 +2831,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 28: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -2733,9 +2948,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 29: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -2855,9 +3070,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 30: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -2994,9 +3209,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 31: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3031,9 +3246,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: CITA EDITORIAL
+         SLIDE 32: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -3048,9 +3263,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: CIERRE & Q&A
+         SLIDE 33: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 

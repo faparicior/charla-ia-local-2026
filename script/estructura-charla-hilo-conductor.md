@@ -70,12 +70,13 @@ Este documento define la narrativa paso a paso basada en la **experiencia person
 | **21** | `slide-21` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
 | **22** | `slide-22` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
 | **23** | `slide-23` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
-| **24** | `slide-24` | **Acto 4: Vivencia** | Caso DeepSeek: Cronología de una Revolución | El terremoto del Momento Sputnik y la democratización del razonamiento. |
-| **25** | `slide-25` | **Acto 4: Vivencia** | El "Hackeo" a NVIDIA: De parches PTX a integración nativa | La comunidad reescribiendo ensamblador PTX y forzando a los fabricantes. |
-| **26** | `slide-26` | **Acto 5: Futuro** | 2026: Timeline de Modelos & Aceleración | Mapa cronológico de cómo la inferencia se multiplicó por 5x. |
-| **27** | `slide-27` | **Acto 5: Futuro** | ¿Cómo funciona MTP? Predecir el futuro en un solo paso | Multi-Token Prediction: generar $N$ palabras simultáneas con cabezales extra. |
-| **28** | `slide-28` | **Acto 5: Futuro** | ¿Cómo funciona DFlash? El Asistente Rápido + El Experto | Especulación con modelo borrador ultra-rápido (400 t/s) y validador. |
-| **29** | `slide-29` | **Acto 5: Futuro** | Estrategia DSpark: Borradores con Filtro de Confianza | Descarte temprano de tokens de baja confianza. |
-| **30** | `slide-30` | **Acto 5: Futuro** | Invocación directa sin salir a internet | Código Python y terminal ejecutando modelos en local. |
-| **31** | `slide-31` | **Acto 5: Futuro** | Cita Editorial | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." |
-| **32** | `slide-32` | **Acto 5: Futuro** | Preguntas & Debate | Conclusiones, recursos, enlaces comunitarios y turno de preguntas. |
+| **24** | `slide-24` | **Acto 4: Vivencia** | Escogiendo Modelos: Memoria vs. Velocidad (Tokens/s) | Comparativa de ocupación en los 128 GB del GB10 y throughput (MTP / DFlash 2 / NVFP4 / INT4). |
+| **25** | `slide-25` | **Acto 4: Vivencia** | Caso DeepSeek: Cronología de una Revolución | El terremoto del Momento Sputnik y la democratización del razonamiento. |
+| **26** | `slide-26` | **Acto 4: Vivencia** | El "Hackeo" a NVIDIA: De parches PTX a integración nativa | La comunidad reescribiendo ensamblador PTX y forzando a los fabricantes. |
+| **27** | `slide-27` | **Acto 5: Futuro** | 2026: Timeline de Modelos & Aceleración | Mapa cronológico de cómo la inferencia se multiplicó por 5x. |
+| **28** | `slide-28` | **Acto 5: Futuro** | ¿Cómo funciona MTP? Predecir el futuro en un solo paso | Multi-Token Prediction: generar $N$ palabras simultáneas con cabezales extra. |
+| **29** | `slide-29` | **Acto 5: Futuro** | ¿Cómo funciona DFlash? El Asistente Rápido + El Experto | Especulación con modelo borrador ultra-rápido (400 t/s) y validador. |
+| **30** | `slide-30` | **Acto 5: Futuro** | Estrategia DSpark: Borradores con Filtro de Confianza | Descarte temprano de tokens de baja confianza. |
+| **31** | `slide-31` | **Acto 5: Futuro** | Invocación directa sin salir a internet | Código Python y terminal ejecutando modelos en local. |
+| **32** | `slide-32` | **Acto 5: Futuro** | Cita Editorial | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." |
+| **33** | `slide-33` | **Acto 5: Futuro** | Preguntas & Debate | Conclusiones, recursos, enlaces comunitarios y turno de preguntas. |
