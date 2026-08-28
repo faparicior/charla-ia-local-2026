@@ -8,11 +8,32 @@ Este documento combina una **explicación 100% intuitiva y visual** (la metáfor
 
 Un modelo de lenguaje no lee palabra a palabra; procesa todas las palabras de un texto simultáneamente en una matriz de tensores. Para saber qué palabra va antes y cuál después, necesita codificar la posición relativa entre cualquier par de tokens:
 
-* **La solución de RoPE (Rotary Position Embedding):** En lugar de sumar un número o vector fijo a cada palabra, le asigna a cada token un **reloj con múltiples manecillas que giran a diferentes velocidades**.
+* **La solución de RoPE (Rotary Position Embedding):** En lugar de sumar un número o vector fijo a cada palabra, le asigna a cada token un **sello de tiempo único (DNI posicional)** compuesto por varias frecuencias que giran a diferentes velocidades.
 
 ---
 
-## 2. La Metáfora del Reloj de 3 Manecillas
+## 2. El DNI de la Palabra: No son "capas", es un Sello Digital `[Día : Hora : Segundo]`
+
+Una duda muy común es pensar que las frecuencias son "capas de diferentes tamaños". **No son capas:**
+* Cada palabra del texto se convierte en una lista de números (un vector).
+* Dentro de esa **misma lista de números**, RoPE estampa un **sello de tiempo con 3 casillas simultáneas**:
+
+$$\text{"gato"} \longrightarrow \Big[ \; \overbrace{\text{Día 12}}^{\text{Bajas Frecuencias (Global)}}, \quad \overbrace{\text{Hora 14}}^{\text{Frecuencia Media (Párrafos)}}, \quad \overbrace{\text{Segundo 35}}^{\text{Altas Frecuencias (Sintaxis)}} \; \Big]$$
+
+### ¿Cómo mantiene la coherencia el modelo?
+El modelo **lee todas las casillas a la vez**, por lo que nunca hay choque ni desalineación:
+1. **Para saber si dos palabras van pegadas (Gramática):** Compara los **segundos**.
+   * Palabra 1 (*"el"*): `[Día 1, Hora 1, Segundo 34]`
+   * Palabra 2 (*"gato"*): `[Día 1, Hora 1, Segundo 35]`
+   * $\Delta = 1$ segundo $\rightarrow$ **¡Están pegadas en la frase!** El modelo sabe con certeza el orden sintáctico (*"el gato"* vs *"gato el"*).
+2. **Para saber la distancia en textos gigantes (Contexto 1M):** Compara los **días**.
+   * Inicio del repositorio (*"import main"*): `[Día 1, Hora 2, Segundo 10]`
+   * Final del archivo (*"export app"*): `[Día 850, Hora 18, Segundo 45]`
+   * $\Delta = 849$ días $\rightarrow$ Sabe que están a **800.000 palabras de distancia**, sin importar qué segundo tengan.
+
+---
+
+## 3. La Metáfora del Reloj de 3 Manecillas
 
 ```
  ⏱️ EL SEGUNDERO (Altas Frecuencias)     ⏳ EL MINUTERO (Rampa Spline)          🕰️ EL HORARIO / DÍAS (Bajas Frec.)

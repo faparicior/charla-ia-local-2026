@@ -6806,6 +6806,161 @@ body.theme-dark .rope-comparison-header.ok {
 }
 
 /* ==========================================================================
+   SLIDE: EL SELLO DE TIEMPO EN ROPE (EL DNI DE LA PALABRA)
+   ========================================================================== */
+.rope-stamp-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.rope-stamp-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-dark .rope-stamp-box {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rope-stamp-token {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  background: var(--bg-surface-elevated);
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.rope-stamp-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.rope-stamp-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+}
+
+.rope-stamp-chip.chip-sec {
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+body.theme-dark .rope-stamp-chip.chip-sec {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+}
+
+.rope-stamp-chip.chip-hour {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+body.theme-dark .rope-stamp-chip.chip-hour {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.rope-stamp-chip.chip-day {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.theme-dark .rope-stamp-chip.chip-day {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.rope-stamp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+
+.rope-stamp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.95rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.rope-stamp-card.card-syntax {
+  border-top: 4px solid #6366f1;
+}
+
+.rope-stamp-card.card-global {
+  border-top: 4px solid #10b981;
+}
+
+body.theme-dark .rope-stamp-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rope-stamp-title {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.rope-stamp-desc {
+  font-size: 0.81rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+}
+
+.rope-stamp-demo {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+body.theme-dark .rope-stamp-demo {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
    SLIDE: ESCALANDO A 1 MEGA (1M TOKENS) CON YARN
    ========================================================================== */
 .yarn-deck {
