@@ -2429,9 +2429,118 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 26: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
          ==================================================================== -->
     <section class="slide" id="slide-26">
+      <div class="slide-content">
+        <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
+        <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria Estable</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Por qué el patrón híbrido 3:1 de Qwen permite 256K tokens de contexto sin devorar la VRAM: estado recurrente fijo vs. caché acumulativo.
+        </p>
+
+        <div class="hybrid-arch-deck">
+
+          <!-- Comparativa Superior 2 Columnas -->
+          <div class="hybrid-compare-grid">
+
+            <!-- Card 1: Gated DeltaNet (Recurrencia O(1)) -->
+            <div class="hybrid-card card-deltanet">
+              <div class="hybrid-card-header">
+                <span class="hybrid-card-title">Gated DeltaNet (75% de las capas)</span>
+                <span class="hybrid-badge green">Memoria Constante O(1)</span>
+              </div>
+
+              <div class="hybrid-vis-box">
+                <span class="hybrid-vis-state green">Estado Recurrente S<sub>t</sub> Fijo</span>
+                <span class="hybrid-vis-metric">Token 1 ➔ Token 256.000: <strong>0 MB extra</strong></span>
+              </div>
+
+              <p class="hybrid-desc">
+                <strong>Comprime el contexto en una matriz fija:</strong> En lugar de apilar tokens en memoria, actualiza un estado asociativo mediante la <em>Regla Delta</em>. Al no guardar vectores $K$ y $V$, el consumo de VRAM no crece durante la conversación.
+              </p>
+
+              <div class="hybrid-formula-box">
+                <code>S<sub>t</sub> = α<sub>t</sub> S<sub>t-1</sub> + β<sub>t</sub> (v<sub>t</sub> - S<sub>t-1</sub> k<sub>t</sub>) k<sub>t</sub><sup>⊤</sup></code>
+              </div>
+            </div>
+
+            <!-- Card 2: Gated Attention (Softmax O(N)) -->
+            <div class="hybrid-card card-attention">
+              <div class="hybrid-card-header">
+                <span class="hybrid-card-title">Gated Attention (25% de las capas)</span>
+                <span class="hybrid-badge blue">KV Cache Lineal O(N)</span>
+              </div>
+
+              <div class="hybrid-vis-box">
+                <span class="hybrid-vis-state blue">KV Cache Dinámico Acumulativo</span>
+                <span class="hybrid-vis-metric">Token 1 ➔ Token 256.000: <strong>Crece token a token</strong></span>
+              </div>
+
+              <p class="hybrid-desc">
+                <strong>Recuperación global de alta precisión:</strong> Auto-atención completa Softmax para consultas exactas (needle-in-a-haystack) y dependencias de código a larga distancia. <strong>Es la única capa que almacena KV Cache</strong>.
+              </p>
+
+              <div class="hybrid-formula-box">
+                <code>Attention(Q, K, V) = softmax(Q K<sup>⊤</sup> / √d) V</code>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Diagrama del Bloque Híbrido 3:1 -->
+          <div class="hybrid-block-stage">
+            <div class="hybrid-block-title-row">
+              <span class="hybrid-block-heading">
+                <span>🧱</span> Anatomía del Bloque Repetitivo 3:1 (×12 en 122B / ×10 en 35B)
+              </span>
+              <span class="hybrid-block-pill">3 DeltaNet por cada 1 Attention</span>
+            </div>
+
+            <div class="hybrid-layers-row">
+              <div class="hybrid-layer-pill deltanet">
+                <span class="hybrid-layer-num">Capa 1</span>
+                <span class="hybrid-layer-name">Gated DeltaNet</span>
+                <span class="hybrid-layer-cache green">🔒 0 GB KV Cache (Fijo)</span>
+              </div>
+
+              <div class="hybrid-layer-pill deltanet">
+                <span class="hybrid-layer-num">Capa 2</span>
+                <span class="hybrid-layer-name">Gated DeltaNet</span>
+                <span class="hybrid-layer-cache green">🔒 0 GB KV Cache (Fijo)</span>
+              </div>
+
+              <div class="hybrid-layer-pill deltanet">
+                <span class="hybrid-layer-num">Capa 3</span>
+                <span class="hybrid-layer-name">Gated DeltaNet</span>
+                <span class="hybrid-layer-cache green">🔒 0 GB KV Cache (Fijo)</span>
+              </div>
+
+              <div class="hybrid-layer-pill attention">
+                <span class="hybrid-layer-num">Capa 4</span>
+                <span class="hybrid-layer-name">Gated Attention</span>
+                <span class="hybrid-layer-cache blue">💬 Almacena KV Cache</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banner Inferior de Impacto en Memoria -->
+          <div class="hybrid-summary-ribbon">
+            <div class="hybrid-ribbon-icon">💡</div>
+            <div class="hybrid-ribbon-text">
+              <strong>El Resultado Práctico (Reducción 4x en KV Cache):</strong> Al reservar el almacenamiento de tokens solo para el <strong>25% de las capas</strong>, un contexto masivo de 256.000 tokens consume <strong>~10 GB de VRAM</strong> en lugar de los &gt;40 GB de un Transformer convencional, dejando espacio holgado en los 128 GB del equipo.
+            </div>
+            <div class="hybrid-ribbon-badge">4x Menos Memoria</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 27: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2636,9 +2745,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 28: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2724,9 +2833,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 29: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -2963,9 +3072,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 30: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -3080,9 +3189,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 31: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -3202,9 +3311,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 32: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -3341,9 +3450,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 33: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3378,9 +3487,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: CITA EDITORIAL
+         SLIDE 34: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -3395,9 +3504,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 34: CIERRE & Q&A
+         SLIDE 35: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-35">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -3428,7 +3537,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">34</span>
+        <span id="slide-current">1</span> / <span id="slide-total">35</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
