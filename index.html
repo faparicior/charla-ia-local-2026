@@ -2678,85 +2678,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: ANATOMÍA DE ROPE: ¿QUÉ SON LAS FRECUENCIAS EN ATENCIÓN?
+         SLIDE 28: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
          ==================================================================== -->
     <section class="slide" id="slide-28">
-      <div class="slide-content">
-        <div class="tag">Física de la Atención • Frecuencias Rotacionales en RoPE</div>
-        <h2>Altas vs. Bajas Frecuencias: <span class="serif-italic" style="color: #6366f1;">El Reloj de la Memoria</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Cómo codifica RoPE la posición de las palabras: por qué ralentizar el segundero rompe la gramática, pero estirar el horario permite 1M de tokens.
-        </p>
-
-        <div class="rope-freq-deck">
-
-          <!-- 3 Columnas: Metáfora del Reloj de 3 Manecillas -->
-          <div class="rope-freq-grid">
-
-            <!-- Card 1: Segundero (Altas Frecuencias) -->
-            <div class="rope-freq-card card-high">
-              <div class="rope-freq-header">
-                <span class="rope-freq-title">⏱️ Altas Frecuencias</span>
-                <span class="rope-freq-badge purple">El Segundero</span>
-              </div>
-              <p class="rope-freq-desc">
-                <strong>Gira muy rápido (1 vuelta cada 10-50 tokens):</strong> Mide la posición y relación entre palabras contiguas y la sintaxis inmediata (distinguir <em>"el gato"</em> de <em>"gato el"</em>).
-              </p>
-              <div class="rope-freq-meta">
-                <span>🎯 <strong>Comportamiento:</strong> Longitud de onda corta</span>
-                <span>🔒 <strong>Tratamiento YaRN:</strong> <code>s = 1.0 (Intactas)</code></span>
-              </div>
-            </div>
-
-            <!-- Card 2: Minutero (Rampa Spline) -->
-            <div class="rope-freq-card card-mid">
-              <div class="rope-freq-header">
-                <span class="rope-freq-title">⏳ Rampa Spline γ(r)</span>
-                <span class="rope-freq-badge amber">El Minutero</span>
-              </div>
-              <p class="rope-freq-desc">
-                <strong>Gira a velocidad media (párrafos y funciones):</strong> Es la banda intermedia que conecta la sintaxis local con el contexto amplio. Aplica una interpolación suave.
-              </p>
-              <div class="rope-freq-meta">
-                <span>⚡ <strong>Comportamiento:</strong> Transición gradual</span>
-                <span>📌 <strong>Tratamiento YaRN:</strong> Evita saltos de fase</span>
-              </div>
-            </div>
-
-            <!-- Card 3: Horas y Días (Bajas Frecuencias) -->
-            <div class="rope-freq-card card-low">
-              <div class="rope-freq-header">
-                <span class="rope-freq-title">🕰️ Bajas Frecuencias</span>
-                <span class="rope-freq-badge green">El Horario / Días</span>
-              </div>
-              <p class="rope-freq-desc">
-                <strong>Gira lentísimo (1 vuelta cada cientos de miles):</strong> Mide la posición macro en libros enteros o repositorios masivos (¿estamos en el inicio o en la línea 40.000?).
-              </p>
-              <div class="rope-freq-meta">
-                <span>📈 <strong>Comportamiento:</strong> Longitud de onda masiva</span>
-                <span>🚀 <strong>Tratamiento YaRN:</strong> <code>s = 4.0× (1M tokens)</code></span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior Explicativo del Error de Meta vs YaRN -->
-          <div class="chosen-synergy-banner" style="margin-top: 0;">
-            <div class="chosen-synergy-icon">💡</div>
-            <div class="chosen-synergy-text">
-              <strong>Por qué falló la interpolación clásica (PI de Meta) y triunfa YaRN:</strong> PI reducía la velocidad de <em>todas</em> las manecillas por igual, haciendo que el segundero fuera tan lento que el modelo no distinguía el orden de dos palabras seguidas. <strong>YaRN no toca el segundero</strong> y solo estira el horario.
-            </div>
-            <div class="chosen-synergy-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">Zero Olvido</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 29: EXTENSIÓN A 1 MEGA CON YARN
-         ==================================================================== -->
-    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
         <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #10b981;">Contexto Masivo en Local</span></h2>
@@ -2777,7 +2701,7 @@
               </div>
 
               <div class="yarn-svg-viewport">
-                <svg viewBox="0 0 490 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 490 270" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="gradWaveHigh" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stop-color="#818cf8" />
@@ -2794,40 +2718,40 @@
                   </defs>
 
                   <!-- Zona 1: Altas Frecuencias (Dims Bajas) -->
-                  <rect x="15" y="15" width="145" height="145" rx="8" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.2" />
-                  <text x="87" y="34" text-anchor="middle" fill="#6366f1" font-family="var(--font-sans)" font-size="10" font-weight="800">Altas Frecuencias</text>
-                  <rect x="42" y="42" width="90" height="16" rx="3" fill="rgba(99, 102, 241, 0.15)" />
-                  <text x="87" y="54" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="8.5" font-weight="700">s = 1.0 (Intactas)</text>
+                  <rect x="15" y="15" width="145" height="175" rx="8" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.2" />
+                  <text x="87" y="38" text-anchor="middle" fill="#6366f1" font-family="var(--font-sans)" font-size="11" font-weight="800">Altas Frecuencias</text>
+                  <rect x="37" y="47" width="100" height="20" rx="4" fill="rgba(99, 102, 241, 0.15)" />
+                  <text x="87" y="61" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="9" font-weight="700">s = 1.0 (Intactas)</text>
                   <!-- Onda rápida -->
-                  <path d="M 25 95 Q 35 68 45 95 T 65 95 T 85 95 T 105 95 T 125 95 T 145 95" fill="none" stroke="url(#gradWaveHigh)" stroke-width="2.4" stroke-linecap="round" />
-                  <text x="87" y="132" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="8.5" font-weight="700">Sintaxis Inmediata</text>
-                  <text x="87" y="146" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="7.5">Palabras Contiguas (Zero Olvido)</text>
+                  <path d="M 25 115 Q 35 85 45 115 T 65 115 T 85 115 T 105 115 T 125 115 T 145 115" fill="none" stroke="url(#gradWaveHigh)" stroke-width="2.6" stroke-linecap="round" />
+                  <text x="87" y="155" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="9.5" font-weight="700">Sintaxis Inmediata</text>
+                  <text x="87" y="172" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="8">Palabras Contiguas (Zero Olvido)</text>
 
                   <!-- Zona 2: Rampa de Transición γ(r) -->
-                  <rect x="170" y="15" width="145" height="145" rx="8" fill="rgba(245, 158, 11, 0.06)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.2" />
-                  <text x="242" y="34" text-anchor="middle" fill="#d97706" font-family="var(--font-sans)" font-size="10" font-weight="800">Rampa Spline γ(r)</text>
-                  <rect x="197" y="42" width="90" height="16" rx="3" fill="rgba(245, 158, 11, 0.15)" />
-                  <text x="242" y="54" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="8.5" font-weight="700">Transición Suave</text>
+                  <rect x="170" y="15" width="145" height="175" rx="8" fill="rgba(245, 158, 11, 0.06)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.2" />
+                  <text x="242" y="38" text-anchor="middle" fill="#d97706" font-family="var(--font-sans)" font-size="11" font-weight="800">Rampa Spline γ(r)</text>
+                  <rect x="192" y="47" width="100" height="20" rx="4" fill="rgba(245, 158, 11, 0.15)" />
+                  <text x="242" y="61" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="9" font-weight="700">Transición Suave</text>
                   <!-- Onda media -->
-                  <path d="M 180 95 Q 200 68 220 95 T 260 95 T 300 95" fill="none" stroke="url(#gradWaveMid)" stroke-width="2.4" stroke-linecap="round" />
-                  <text x="242" y="132" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="8.5" font-weight="700">Ajuste Continuo</text>
-                  <text x="242" y="146" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="7.5">Sin Ruptura de Fase</text>
+                  <path d="M 180 115 Q 200 85 220 115 T 260 115 T 300 115" fill="none" stroke="url(#gradWaveMid)" stroke-width="2.6" stroke-linecap="round" />
+                  <text x="242" y="155" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="9.5" font-weight="700">Ajuste Continuo</text>
+                  <text x="242" y="172" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="8">Sin Ruptura de Fase</text>
 
                   <!-- Zona 3: Bajas Frecuencias (Dims Altas) -->
-                  <rect x="325" y="15" width="145" height="145" rx="8" fill="rgba(16, 185, 129, 0.06)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.2" />
-                  <text x="397" y="34" text-anchor="middle" fill="#059669" font-family="var(--font-sans)" font-size="10" font-weight="800">Bajas Frecuencias</text>
-                  <rect x="352" y="42" width="90" height="16" rx="3" fill="rgba(16, 185, 129, 0.15)" />
-                  <text x="397" y="54" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="8.5" font-weight="700">s = 4.0× (1M tokens)</text>
+                  <rect x="325" y="15" width="145" height="175" rx="8" fill="rgba(16, 185, 129, 0.06)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.2" />
+                  <text x="397" y="38" text-anchor="middle" fill="#059669" font-family="var(--font-sans)" font-size="11" font-weight="800">Bajas Frecuencias</text>
+                  <rect x="342" y="47" width="110" height="20" rx="4" fill="rgba(16, 185, 129, 0.15)" />
+                  <text x="397" y="61" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="9" font-weight="700">s = 4.0× (1M tokens)</text>
                   <!-- Onda larga -->
-                  <path d="M 335 95 Q 370 65 405 95 T 460 95" fill="none" stroke="url(#gradWaveLow)" stroke-width="2.4" stroke-linecap="round" />
-                  <text x="397" y="132" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="8.5" font-weight="700">Horizonte Global</text>
-                  <text x="397" y="146" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="7.5">256K ➔ 1.048.576 tokens</text>
+                  <path d="M 335 115 Q 370 82 405 115 T 460 115" fill="none" stroke="url(#gradWaveLow)" stroke-width="2.6" stroke-linecap="round" />
+                  <text x="397" y="155" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="9.5" font-weight="700">Horizonte Global</text>
+                  <text x="397" y="172" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="8">256K ➔ 1.048.576 tokens</text>
 
                   <!-- Banner Inferior de Temperatura Softmax -->
-                  <rect x="15" y="172" width="455" height="46" rx="6" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1" />
-                  <text x="30" y="191" fill="#ea580c" font-family="var(--font-sans)" font-size="9" font-weight="800">🔥 Corrección de Temperatura:</text>
-                  <text x="185" y="191" fill="var(--text-main)" font-family="var(--font-mono)" font-size="8.5">√t ≈ 0.1 · ln(s) + 1</text>
-                  <text x="30" y="206" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="7.8">Afila la atención ante 1M de elementos evitando que la distribución Softmax se aplane (100% Needle-in-a-Haystack).</text>
+                  <rect x="15" y="205" width="455" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="30" y="226" fill="#ea580c" font-family="var(--font-sans)" font-size="10" font-weight="800">🔥 Corrección de Temperatura:</text>
+                  <text x="200" y="226" fill="var(--text-main)" font-family="var(--font-mono)" font-size="9.5" font-weight="700">√t ≈ 0.1 · ln(s) + 1</text>
+                  <text x="30" y="244" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="8.3">Afila la atención ante 1M de elementos para mantener 100% en Needle-in-a-Haystack (evita que la Softmax se aplane).</text>
                 </svg>
               </div>
             </div>
@@ -2894,6 +2818,96 @@
               <strong>El Hito Crafter (1 Mega de Contexto Real):</strong> Ingiere repositorios completos con miles de archivos o el historial de un año en local sin colapso de atención y consumiendo <strong>4 veces menos VRAM</strong> que un modelo tradicional.
             </div>
             <div class="chosen-synergy-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">1.048.576 Tokens</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 29: ANATOMÍA DE ROPE: ¿QUÉ SON LAS FRECUENCIAS EN ATENCIÓN?
+         ==================================================================== -->
+    <section class="slide" id="slide-29">
+      <div class="slide-content">
+        <div class="tag">Intuición Visual • ¿Cómo entiende el orden un LLM?</div>
+        <h2>El Reloj de la Memoria: <span class="serif-italic" style="color: #6366f1;">¿Por qué hablamos de Frecuencias?</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Un LLM no lee palabra a palabra: recibe todo a la vez. Para no confundir el orden, le asigna a cada palabra un <strong>reloj de 3 manecillas</strong>.
+        </p>
+
+        <div class="rope-freq-deck">
+
+          <!-- 3 Columnas: Metáfora del Reloj de 3 Manecillas -->
+          <div class="rope-freq-grid">
+
+            <!-- Card 1: Segundero (Altas Frecuencias) -->
+            <div class="rope-freq-card card-high">
+              <div class="rope-freq-header">
+                <span class="rope-freq-title">⏱️ El Segundero</span>
+                <span class="rope-freq-badge purple">Altas Frecuencias</span>
+              </div>
+              <p class="rope-freq-desc">
+                <strong>Gira a toda pastilla (cada 2–10 palabras):</strong> Si dos palabras están juntas (<em>"base"</em> y <em>"datos"</em>), el segundero gira 90° entre ellas. El modelo "ve" ese giro y sabe que están pegadas.
+              </p>
+              <div class="rope-freq-meta">
+                <span>🎯 <strong>Misión:</strong> Sintaxis, concordancia y orden local</span>
+                <span style="color: #6366f1;">🔒 <strong>En YaRN:</strong> <strong>¡NO SE TOCA!</strong> (Mantiene gramática)</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Minutero (Rampa Spline) -->
+            <div class="rope-freq-card card-mid">
+              <div class="rope-freq-header">
+                <span class="rope-freq-title">⏳ El Minutero</span>
+                <span class="rope-freq-badge amber">Rampa Spline γ(r)</span>
+              </div>
+              <p class="rope-freq-desc">
+                <strong>Gira a velocidad media:</strong> Conecta oraciones completas, párrafos y funciones de código entre sí sin saltos bruscos.
+              </p>
+              <div class="rope-freq-meta">
+                <span>⚡ <strong>Misión:</strong> Puente elástico y continuo</span>
+                <span style="color: #d97706;">📌 <strong>En YaRN:</strong> Suaviza el cambio entre manecillas</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Horas y Días (Bajas Frecuencias) -->
+            <div class="rope-freq-card card-low">
+              <div class="rope-freq-header">
+                <span class="rope-freq-title">🕰️ El Horario / Días</span>
+                <span class="rope-freq-badge green">Bajas Frecuencias</span>
+              </div>
+              <p class="rope-freq-desc">
+                <strong>Gira lentísimo (tarda 256.000 palabras en 1 vuelta):</strong> Casi no se mueve entre palabras contiguas, pero sabe con exactitud si estás en la <strong>página 1 o en la página 800</strong>.
+              </p>
+              <div class="rope-freq-meta">
+                <span>📈 <strong>Misión:</strong> Posición macro en el libro/repo</span>
+                <span style="color: #059669;">🚀 <strong>En YaRN:</strong> <strong>SE ESTIRA 4×</strong> (Llega a 1M tokens)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Comparativa Inferior: El Error de Meta vs El Acierto de YaRN -->
+          <div class="rope-comparison-grid">
+
+            <div class="rope-comparison-card card-meta-fail">
+              <div class="rope-comparison-header fail">
+                <span>❌ El Error de Meta (Position Interpolation)</span>
+              </div>
+              <div>
+                <strong>«Ralenticemos todas las manecillas 4 veces»:</strong> El segundero pasó a girar solo 22.5° entre palabras vecinas. La diferencia se volvió borrosa y el modelo sufrió <strong>amnesia sintáctica</strong>, cometiendo faltas y desordenando frases.
+              </div>
+            </div>
+
+            <div class="rope-comparison-card card-yarn-ok">
+              <div class="rope-comparison-header ok">
+                <span>✅ La Solución YaRN (NTK-by-parts)</span>
+              </div>
+              <div>
+                <strong>«Deja el segundero quieto y solo estira el horario»:</strong> La red redacta con la misma perfección lingüística original y a la vez es capaz de orientarse en <strong>1.048.576 tokens</strong> sin perder el hilo.
+              </div>
+            </div>
+
           </div>
 
         </div>
