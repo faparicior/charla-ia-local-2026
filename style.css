@@ -5584,14 +5584,26 @@ body.theme-dark .tri-center-target {
    SLIDE 24: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
    ========================================================================== */
 #slide-24 .slide-content {
-  gap: 0.75rem;
+  gap: 0.35rem;
   justify-content: flex-start;
+}
+
+.model-sizing-title {
+  margin-bottom: 0.15rem;
+}
+
+.model-sizing-subtitle {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
 }
 
 .model-sizing-deck {
   width: 100%;
   max-width: 1540px;
-  margin: 0.2rem auto 0 auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.32rem;
@@ -5603,8 +5615,8 @@ body.theme-dark .tri-center-target {
   margin-left: 73px;
   margin-right: 359px;
   position: relative;
-  margin-top: 0.6rem;
-  margin-bottom: 0.35rem;
+  margin-top: 1.35rem;
+  margin-bottom: 0.5rem;
 }
 
 .model-sizing-top-bar {
@@ -5626,12 +5638,14 @@ body.theme-dark .tri-center-target {
 
 .model-sizing-top-label {
   position: absolute;
-  top: -19px;
+  top: -21px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--text-muted);
 }
 
