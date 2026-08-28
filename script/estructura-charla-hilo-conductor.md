@@ -66,15 +66,16 @@ Este documento define la narrativa paso a paso basada en la **experiencia person
 | **17** | `slide-17` | **Acto 3: 4-Bits** | NVIDIA NVFP4: El Secreto de los 4 Bits | Solución Silicio: 16 moldes (FP4) + micro-zoom + Tensor Cores Blackwell. |
 | **18** | `slide-18` | **Acto 3: 4-Bits** | AutoRound INT4: El Secreto en Modelos MoE | Solución Abierta: Intel Sign-SGD anulando errores para Qwen 122B en 128 GB. |
 | **19** | `slide-19` | **Acto 4: Vivencia** | La Decisión: Las «Calculasiones» | **El Meme de la Compra:** "Conforme a todas las calculasiones que he hecho... me compro el aparato". |
-| **20** | `slide-20` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
-| **21** | `slide-21` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
-| **22** | `slide-22` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
-| **23** | `slide-23` | **Acto 4: Vivencia** | Caso DeepSeek: Cronología de una Revolución | El terremoto del Momento Sputnik y la democratización del razonamiento. |
-| **24** | `slide-24` | **Acto 4: Vivencia** | El "Hackeo" a NVIDIA: De parches PTX a integración nativa | La comunidad reescribiendo ensamblador PTX y forzando a los fabricantes. |
-| **25** | `slide-25` | **Acto 5: Futuro** | 2026: Timeline de Modelos & Aceleración | Mapa cronológico de cómo la inferencia se multiplicó por 5x. |
-| **26** | `slide-26` | **Acto 5: Futuro** | ¿Cómo funciona MTP? Predecir el futuro en un solo paso | Multi-Token Prediction: generar $N$ palabras simultáneas con cabezales extra. |
-| **27** | `slide-27` | **Acto 5: Futuro** | ¿Cómo funciona DFlash? El Asistente Rápido + El Experto | Especulación con modelo borrador ultra-rápido (400 t/s) y validador. |
-| **28** | `slide-28` | **Acto 5: Futuro** | Estrategia DSpark: Borradores con Filtro de Confianza | Descarte temprano de tokens de baja confianza. |
-| **29** | `slide-29` | **Acto 5: Futuro** | Invocación directa sin salir a internet | Código Python y terminal ejecutando modelos en local. |
-| **30** | `slide-30` | **Acto 5: Futuro** | Cita Editorial | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." |
-| **31** | `slide-31` | **Acto 5: Futuro** | Preguntas & Debate | Conclusiones, recursos, enlaces comunitarios y turno de preguntas. |
+| **20** | `slide-20` | **Acto 4: Vivencia** | ¡Llegó el Aparato!: Alquimia de la buena | **El Meme de la Llegada:** "Me llega el aparato, estoy contento y ya me puedo poner a hacer alquimia de la buena". |
+| **21** | `slide-21` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
+| **22** | `slide-22` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
+| **23** | `slide-23` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
+| **24** | `slide-24` | **Acto 4: Vivencia** | Caso DeepSeek: Cronología de una Revolución | El terremoto del Momento Sputnik y la democratización del razonamiento. |
+| **25** | `slide-25` | **Acto 4: Vivencia** | El "Hackeo" a NVIDIA: De parches PTX a integración nativa | La comunidad reescribiendo ensamblador PTX y forzando a los fabricantes. |
+| **26** | `slide-26` | **Acto 5: Futuro** | 2026: Timeline de Modelos & Aceleración | Mapa cronológico de cómo la inferencia se multiplicó por 5x. |
+| **27** | `slide-27` | **Acto 5: Futuro** | ¿Cómo funciona MTP? Predecir el futuro en un solo paso | Multi-Token Prediction: generar $N$ palabras simultáneas con cabezales extra. |
+| **28** | `slide-28` | **Acto 5: Futuro** | ¿Cómo funciona DFlash? El Asistente Rápido + El Experto | Especulación con modelo borrador ultra-rápido (400 t/s) y validador. |
+| **29** | `slide-29` | **Acto 5: Futuro** | Estrategia DSpark: Borradores con Filtro de Confianza | Descarte temprano de tokens de baja confianza. |
+| **30** | `slide-30` | **Acto 5: Futuro** | Invocación directa sin salir a internet | Código Python y terminal ejecutando modelos en local. |
+| **31** | `slide-31` | **Acto 5: Futuro** | Cita Editorial | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." |
+| **32** | `slide-32` | **Acto 5: Futuro** | Preguntas & Debate | Conclusiones, recursos, enlaces comunitarios y turno de preguntas. |
