@@ -2678,77 +2678,75 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: EXTENSIÓN A 1 MEGA CON YARN
+         SLIDE 28: ANATOMÍA DE ROPE: ¿QUÉ SON LAS FRECUENCIAS EN ATENCIÓN?
          ==================================================================== -->
     <section class="slide" id="slide-28">
       <div class="slide-content">
-        <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
-        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #6366f1;">Contexto Masivo en Local</span></h2>
+        <div class="tag">Física de la Atención • Frecuencias Rotacionales en RoPE</div>
+        <h2>Altas vs. Bajas Frecuencias: <span class="serif-italic" style="color: #6366f1;">El Reloj de la Memoria</span></h2>
         <p class="subtitle" style="margin-top: -1rem;">
-          Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a YaRN y la arquitectura 3:1.
+          Cómo codifica RoPE la posición de las palabras: por qué ralentizar el segundero rompe la gramática, pero estirar el horario permite 1M de tokens.
         </p>
 
-        <div class="yarn-deck">
+        <div class="rope-freq-deck">
 
-          <!-- 3 Columnas Clave -->
-          <div class="yarn-grid">
+          <!-- 3 Columnas: Metáfora del Reloj de 3 Manecillas -->
+          <div class="rope-freq-grid">
 
-            <!-- Card 1: NTK-by-parts -->
-            <div class="yarn-card card-freq">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">🎛️ NTK-by-parts RoPE</span>
-                <span class="yarn-badge purple">Frecuencias</span>
+            <!-- Card 1: Segundero (Altas Frecuencias) -->
+            <div class="rope-freq-card card-high">
+              <div class="rope-freq-header">
+                <span class="rope-freq-title">⏱️ Altas Frecuencias</span>
+                <span class="rope-freq-badge purple">El Segundero</span>
               </div>
-              <p class="yarn-desc">
-                <strong>No escala todas las dimensiones por igual:</strong> Mantiene intactas las altas frecuencias (sintaxis inmediata) e interpola solo las bajas (horizonte temporal global a 1M).
+              <p class="rope-freq-desc">
+                <strong>Gira muy rápido (1 vuelta cada 10-50 tokens):</strong> Mide la posición y relación entre palabras contiguas y la sintaxis inmediata (distinguir <em>"el gato"</em> de <em>"gato el"</em>).
               </p>
-              <div class="yarn-meta-box">
-                <span>🎯 <strong>Zero Olvido:</strong> 100% agudeza local</span>
-                <span>📈 <strong>Factor:</strong> 4.0× (256K ➔ 1M tokens)</span>
+              <div class="rope-freq-meta">
+                <span>🎯 <strong>Comportamiento:</strong> Longitud de onda corta</span>
+                <span>🔒 <strong>Tratamiento YaRN:</strong> <code>s = 1.0 (Intactas)</code></span>
               </div>
             </div>
 
-            <!-- Card 2: Temperatura Softmax -->
-            <div class="yarn-card card-temp">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">🔥 Temperatura Softmax</span>
-                <span class="yarn-badge amber">Atención</span>
+            <!-- Card 2: Minutero (Rampa Spline) -->
+            <div class="rope-freq-card card-mid">
+              <div class="rope-freq-header">
+                <span class="rope-freq-title">⏳ Rampa Spline γ(r)</span>
+                <span class="rope-freq-badge amber">El Minutero</span>
               </div>
-              <p class="yarn-desc">
-                <strong>Corrige la entropía de 1M tokens:</strong> Al atender a un millón de elementos, la distribución Softmax se aplana. YaRN aplica un factor $\sqrt{t}$ para <strong>afilar la atención</strong>.
+              <p class="rope-freq-desc">
+                <strong>Gira a velocidad media (párrafos y funciones):</strong> Es la banda intermedia que conecta la sintaxis local con el contexto amplio. Aplica una interpolación suave.
               </p>
-              <div class="yarn-meta-box">
-                <span>⚡ <strong>Fórmula:</strong> √t ≈ 0.1 · ln(s) + 1</span>
-                <span>📌 <strong>Resultado:</strong> Needle-in-a-Haystack perfecto</span>
+              <div class="rope-freq-meta">
+                <span>⚡ <strong>Comportamiento:</strong> Transición gradual</span>
+                <span>📌 <strong>Tratamiento YaRN:</strong> Evita saltos de fase</span>
               </div>
             </div>
 
-            <!-- Card 3: Viabilidad Silicio Local -->
-            <div class="yarn-card card-silicon">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">💾 El Milagro Local (3:1)</span>
-                <span class="yarn-badge green">128 GB Unified</span>
+            <!-- Card 3: Horas y Días (Bajas Frecuencias) -->
+            <div class="rope-freq-card card-low">
+              <div class="rope-freq-header">
+                <span class="rope-freq-title">🕰️ Bajas Frecuencias</span>
+                <span class="rope-freq-badge green">El Horario / Días</span>
               </div>
-              <p class="yarn-desc">
-                <strong>Por qué solo el híbrido puede:</strong> En Transformers puros, 1M de tokens consume &gt;160 GB de KV Cache (OOM). En Qwen, el <strong>75% DeltaNet no crece</strong> y solo el 25% escala.
+              <p class="rope-freq-desc">
+                <strong>Gira lentísimo (1 vuelta cada cientos de miles):</strong> Mide la posición macro en libros enteros o repositorios masivos (¿estamos en el inicio o en la línea 40.000?).
               </p>
-              <div class="yarn-meta-box">
-                <span>🔒 <strong>DeltaNet (75%):</strong> ~100 MB fijos</span>
-                <span>💬 <strong>Attention (25%):</strong> ~38 – 42 GB VRAM</span>
+              <div class="rope-freq-meta">
+                <span>📈 <strong>Comportamiento:</strong> Longitud de onda masiva</span>
+                <span>🚀 <strong>Tratamiento YaRN:</strong> <code>s = 4.0× (1M tokens)</code></span>
               </div>
             </div>
 
           </div>
 
-          <!-- Barra Inferior de Configuración en Motores -->
-          <div class="yarn-bottom-container">
-            <div class="yarn-code-row">
-              <span class="yarn-code-tag">vLLM / llama.cpp / config.json</span>
-              <code>"rope_scaling": {"type": "yarn", "factor": 4.0, "original_max_position_embeddings": 262144, "max_position_embeddings": 1048576}</code>
+          <!-- Banner Inferior Explicativo del Error de Meta vs YaRN -->
+          <div class="chosen-synergy-banner" style="margin-top: 0;">
+            <div class="chosen-synergy-icon">💡</div>
+            <div class="chosen-synergy-text">
+              <strong>Por qué falló la interpolación clásica (PI de Meta) y triunfa YaRN:</strong> PI reducía la velocidad de <em>todas</em> las manecillas por igual, haciendo que el segundero fuera tan lento que el modelo no distinguía el orden de dos palabras seguidas. <strong>YaRN no toca el segundero</strong> y solo estira el horario.
             </div>
-            <div class="yarn-vram-badge">
-              Total 1M: ~109 GB VRAM (Pesos 69 GB + KV 40 GB)
-            </div>
+            <div class="chosen-synergy-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">Zero Olvido</div>
           </div>
 
         </div>
@@ -2756,9 +2754,156 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 29: EXTENSIÓN A 1 MEGA CON YARN
          ==================================================================== -->
     <section class="slide" id="slide-29">
+      <div class="slide-content">
+        <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
+        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #10b981;">Contexto Masivo en Local</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a YaRN y la arquitectura 3:1.
+        </p>
+
+        <div class="yarn-deck">
+
+          <!-- Rejilla Principal: Gráfico NTK-by-parts a la izquierda, Tabla 1M a la derecha -->
+          <div class="yarn-split-grid">
+
+            <!-- Columna Izquierda: Diagrama Gráfico de YaRN (Frecuencias + Temperatura) -->
+            <div class="yarn-graphic-card">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">🎛️ Modulación de Frecuencias + Temperatura</span>
+                <span class="yarn-badge purple">Algoritmo YaRN</span>
+              </div>
+
+              <div class="yarn-svg-viewport">
+                <svg viewBox="0 0 490 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="gradWaveHigh" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#818cf8" />
+                      <stop offset="100%" stop-color="#6366f1" />
+                    </linearGradient>
+                    <linearGradient id="gradWaveMid" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#fbbf24" />
+                      <stop offset="100%" stop-color="#f59e0b" />
+                    </linearGradient>
+                    <linearGradient id="gradWaveLow" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#34d399" />
+                      <stop offset="100%" stop-color="#10b981" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Zona 1: Altas Frecuencias (Dims Bajas) -->
+                  <rect x="15" y="15" width="145" height="145" rx="8" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.2" />
+                  <text x="87" y="34" text-anchor="middle" fill="#6366f1" font-family="var(--font-sans)" font-size="10" font-weight="800">Altas Frecuencias</text>
+                  <rect x="42" y="42" width="90" height="16" rx="3" fill="rgba(99, 102, 241, 0.15)" />
+                  <text x="87" y="54" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="8.5" font-weight="700">s = 1.0 (Intactas)</text>
+                  <!-- Onda rápida -->
+                  <path d="M 25 95 Q 35 68 45 95 T 65 95 T 85 95 T 105 95 T 125 95 T 145 95" fill="none" stroke="url(#gradWaveHigh)" stroke-width="2.4" stroke-linecap="round" />
+                  <text x="87" y="132" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="8.5" font-weight="700">Sintaxis Inmediata</text>
+                  <text x="87" y="146" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="7.5">Palabras Contiguas (Zero Olvido)</text>
+
+                  <!-- Zona 2: Rampa de Transición γ(r) -->
+                  <rect x="170" y="15" width="145" height="145" rx="8" fill="rgba(245, 158, 11, 0.06)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.2" />
+                  <text x="242" y="34" text-anchor="middle" fill="#d97706" font-family="var(--font-sans)" font-size="10" font-weight="800">Rampa Spline γ(r)</text>
+                  <rect x="197" y="42" width="90" height="16" rx="3" fill="rgba(245, 158, 11, 0.15)" />
+                  <text x="242" y="54" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="8.5" font-weight="700">Transición Suave</text>
+                  <!-- Onda media -->
+                  <path d="M 180 95 Q 200 68 220 95 T 260 95 T 300 95" fill="none" stroke="url(#gradWaveMid)" stroke-width="2.4" stroke-linecap="round" />
+                  <text x="242" y="132" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="8.5" font-weight="700">Ajuste Continuo</text>
+                  <text x="242" y="146" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="7.5">Sin Ruptura de Fase</text>
+
+                  <!-- Zona 3: Bajas Frecuencias (Dims Altas) -->
+                  <rect x="325" y="15" width="145" height="145" rx="8" fill="rgba(16, 185, 129, 0.06)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.2" />
+                  <text x="397" y="34" text-anchor="middle" fill="#059669" font-family="var(--font-sans)" font-size="10" font-weight="800">Bajas Frecuencias</text>
+                  <rect x="352" y="42" width="90" height="16" rx="3" fill="rgba(16, 185, 129, 0.15)" />
+                  <text x="397" y="54" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="8.5" font-weight="700">s = 4.0× (1M tokens)</text>
+                  <!-- Onda larga -->
+                  <path d="M 335 95 Q 370 65 405 95 T 460 95" fill="none" stroke="url(#gradWaveLow)" stroke-width="2.4" stroke-linecap="round" />
+                  <text x="397" y="132" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="8.5" font-weight="700">Horizonte Global</text>
+                  <text x="397" y="146" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="7.5">256K ➔ 1.048.576 tokens</text>
+
+                  <!-- Banner Inferior de Temperatura Softmax -->
+                  <rect x="15" y="172" width="455" height="46" rx="6" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1" />
+                  <text x="30" y="191" fill="#ea580c" font-family="var(--font-sans)" font-size="9" font-weight="800">🔥 Corrección de Temperatura:</text>
+                  <text x="185" y="191" fill="var(--text-main)" font-family="var(--font-mono)" font-size="8.5">√t ≈ 0.1 · ln(s) + 1</text>
+                  <text x="30" y="206" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="7.8">Afila la atención ante 1M de elementos evitando que la distribución Softmax se aplane (100% Needle-in-a-Haystack).</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Tabla Comparativa de Inferencia a 1 Mega (128 GB) -->
+            <div class="yarn-table-card">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">💾 Inferencia a 1 Mega en Local (128 GB)</span>
+                <span class="yarn-badge green">Silicio Viable</span>
+              </div>
+
+              <table class="yarn-table">
+                <thead>
+                  <tr>
+                    <th>Arquitectura / Modelo</th>
+                    <th>Capas KV</th>
+                    <th>KV Cache a 1M</th>
+                    <th>Pesos</th>
+                    <th>Total VRAM</th>
+                    <th>128 GB</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Transformer Puro</strong> <small>(100% Attn)</small></td>
+                    <td>48 / 48</td>
+                    <td>&gt;160 GB</td>
+                    <td>~70 GB</td>
+                    <td class="yarn-badge-fail">&gt;230 GB</td>
+                    <td class="yarn-badge-fail">❌ OOM</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen 3.5 - 122B</strong> <small>(3:1 Híbrido)</small></td>
+                    <td>12 / 48</td>
+                    <td>~40 GB</td>
+                    <td>69 GB</td>
+                    <td class="yarn-badge-ok">~109 GB</td>
+                    <td class="yarn-badge-ok">✅ CABE</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen 3.6 - 35B</strong> <small>(3:1 Híbrido)</small></td>
+                    <td>10 / 40</td>
+                    <td>~26 GB</td>
+                    <td>19 GB</td>
+                    <td class="yarn-badge-ok">~45 GB</td>
+                    <td class="yarn-badge-ok">✅ HOLGADO</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Configuración en Motores -->
+              <div class="yarn-config-bar">
+                <span class="yarn-config-tag">vLLM / llama.cpp</span>
+                <code>"rope_scaling": {"type": "yarn", "factor": 4.0, "max_position_embeddings": 1048576}</code>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior de Conclusión en Hardware Local -->
+          <div class="chosen-synergy-banner" style="margin-top: 0;">
+            <div class="chosen-synergy-icon">🚀</div>
+            <div class="chosen-synergy-text">
+              <strong>El Hito Crafter (1 Mega de Contexto Real):</strong> Ingiere repositorios completos con miles de archivos o el historial de un año en local sin colapso de atención y consumiendo <strong>4 veces menos VRAM</strong> que un modelo tradicional.
+            </div>
+            <div class="chosen-synergy-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">1.048.576 Tokens</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 30: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2963,9 +3108,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 31: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -3051,9 +3196,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 32: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -3290,9 +3435,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 33: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -3407,9 +3552,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 34: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -3529,9 +3674,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 34: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 35: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-35">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -3668,9 +3813,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 35: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 36: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-35">
+    <section class="slide" id="slide-36">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3705,9 +3850,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 36: CITA EDITORIAL
+         SLIDE 37: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-36">
+    <section class="slide" id="slide-37">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -3722,9 +3867,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 37: CIERRE & Q&A
+         SLIDE 38: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-37">
+    <section class="slide" id="slide-38">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -3755,7 +3900,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">37</span>
+        <span id="slide-current">1</span> / <span id="slide-total">38</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
