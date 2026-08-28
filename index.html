@@ -2577,9 +2577,110 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 27: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
          ==================================================================== -->
     <section class="slide" id="slide-27">
+      <div class="slide-content">
+        <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
+        <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #10b981;">¿Dónde vive la memoria?</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          La diferencia radical entre acumular folios en una estantería ($O(N)$) y sobreescribir una matriz asociativa ($O(1)$) en VRAM.
+        </p>
+
+        <div class="memory-story-deck">
+
+          <!-- Fila Superior: Las Dos Analogías Clave -->
+          <div class="memory-story-grid">
+
+            <!-- Card 1: El Archivador (Attention) -->
+            <div class="memory-story-card card-archivador">
+              <div class="memory-story-header">
+                <span class="memory-story-title">📁 Gated Attention: <em>El Archivador</em></span>
+                <span class="memory-story-badge blue">KV Cache Lineal O(N)</span>
+              </div>
+              <p class="memory-story-desc">
+                <strong>Guarda cada token en una carpeta:</strong> Cada palabra genera vectores $K$ y $V$ que se apilan en la memoria. A los 256.000 tokens necesitas <strong>un almacén industrial entero (&gt;40 GB)</strong>.
+              </p>
+              <div class="memory-story-meta">
+                <span>🎯 <strong>Ventaja:</strong> Recuperación exacta (Token #4.521)</span>
+                <span class="memory-val-red">⚠️ Devora VRAM</span>
+              </div>
+            </div>
+
+            <!-- Card 2: La Pizarra (DeltaNet) -->
+            <div class="memory-story-card card-pizarra">
+              <div class="memory-story-header">
+                <span class="memory-story-title">📝 Gated DeltaNet: <em>La Pizarra</em></span>
+                <span class="memory-story-badge green">Memoria Fija O(1)</span>
+              </div>
+              <p class="memory-story-desc">
+                <strong>Sobreescribe una matriz fija:</strong> Tiene una matriz asociativa $S_t$ fija (~100 MB). Cada nuevo token borra y reescribe los números con la <em>Regla Delta</em>. <strong>Siempre mide lo mismo.</strong>
+              </p>
+              <div class="memory-story-meta">
+                <span>⚡ <strong>Ventaja:</strong> 0 MB de incremento a 256K</span>
+                <span class="memory-val-green">🔒 ~100 MB fijos</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Fila Inferior: Tabla de Progresión de VRAM en Producción -->
+          <div class="memory-table-card">
+            <table class="memory-progression-table">
+              <thead>
+                <tr>
+                  <th>Longitud de Contexto</th>
+                  <th>🔵 Attention Pura (100%)</th>
+                  <th>🟢 DeltaNet Puro (100%)</th>
+                  <th>⚡ Arquitectura Híbrida 3:1 (Qwen)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tag-col">Token 1 <small>(Prompt inicial)</small></td>
+                  <td>~0.15 MB</td>
+                  <td class="memory-val-green">~100 MB <small>(Matriz S₁ fija)</small></td>
+                  <td class="memory-val-highlight">~100 MB</td>
+                </tr>
+                <tr>
+                  <td class="tag-col">10.000 tokens <small>(1 archivo / clase)</small></td>
+                  <td>~1.5 GB</td>
+                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
+                  <td class="memory-val-highlight">~0.4 GB</td>
+                </tr>
+                <tr>
+                  <td class="tag-col">64.000 tokens <small>(Módulo de código)</small></td>
+                  <td>~10.2 GB</td>
+                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
+                  <td class="memory-val-highlight">~2.6 GB</td>
+                </tr>
+                <tr>
+                  <td class="tag-col">256.000 tokens <small>(Repo completo / Libro)</small></td>
+                  <td class="memory-val-red">&gt;40.0 GB <small>(Crash / OOM)</small></td>
+                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
+                  <td class="memory-val-highlight">~10.1 GB <small>(Espacio holgado en 128 GB)</small></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Banner Inferior de Conclusión en Hardware Local -->
+          <div class="chosen-synergy-banner" style="margin-top: 0;">
+            <div class="chosen-synergy-icon">🚀</div>
+            <div class="chosen-synergy-text">
+              <strong>El Enfoque Práctico Crafter:</strong> El modelo de <strong>122B (69 GB)</strong> o de <strong>35B (19 GB)</strong> puede ingerir una base de código entera de <strong>256K tokens</strong> gastando solo <strong>~10 GB de KV Cache</strong>, dejando <strong>&gt;45 GB de VRAM libres</strong> para agentes paralelos y velocidad máxima.
+            </div>
+            <div class="chosen-synergy-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">Habilitador Local</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 28: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2784,9 +2885,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 29: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2872,9 +2973,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 30: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -3111,9 +3212,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 31: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -3228,9 +3329,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 32: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -3350,9 +3451,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 33: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -3489,9 +3590,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 34: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3526,9 +3627,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 34: CITA EDITORIAL
+         SLIDE 35: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-35">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -3543,9 +3644,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 35: CIERRE & Q&A
+         SLIDE 36: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-35">
+    <section class="slide" id="slide-36">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -3576,7 +3677,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">35</span>
+        <span id="slide-current">1</span> / <span id="slide-total">36</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>

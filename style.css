@@ -6411,6 +6411,202 @@ body.theme-dark .hybrid-ribbon-badge {
 }
 
 /* ==========================================================================
+   SLIDE: FÍSICA DE LA MEMORIA EN 256K (EL ARCHIVADOR VS. LA PIZARRA)
+   ========================================================================== */
+.memory-story-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.memory-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+}
+
+.memory-story-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform var(--transition-speed);
+}
+
+.memory-story-card:hover {
+  transform: translateY(-2px);
+}
+
+.memory-story-card.card-archivador {
+  border-top: 4px solid #0284c7;
+}
+
+.memory-story-card.card-pizarra {
+  border-top: 4px solid #16a34a;
+}
+
+body.theme-dark .memory-story-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.memory-story-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.memory-story-title {
+  font-family: var(--font-sans);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.memory-story-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.memory-story-badge.blue {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+body.theme-dark .memory-story-badge.blue {
+  background: rgba(2, 132, 199, 0.2);
+  color: #38bdf8;
+}
+
+.memory-story-badge.green {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+  border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+body.theme-dark .memory-story-badge.green {
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+}
+
+.memory-story-desc {
+  font-size: 0.82rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+}
+
+.memory-story-meta {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.theme-dark .memory-story-meta {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Tabla de Progresión de VRAM */
+.memory-table-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.8rem 1.15rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-dark .memory-table-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.memory-progression-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.81rem;
+}
+
+.memory-progression-table th {
+  text-align: left;
+  padding: 0.4rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: 0.03em;
+}
+
+.memory-progression-table td {
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.memory-progression-table tr:last-child td {
+  border-bottom: none;
+}
+
+.memory-progression-table td.tag-col {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.memory-val-green {
+  color: #16a34a;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+body.theme-dark .memory-val-green {
+  color: #4ade80;
+}
+
+.memory-val-red {
+  color: #dc2626;
+  font-weight: 800;
+  font-family: var(--font-mono);
+}
+
+body.theme-dark .memory-val-red {
+  color: #f87171;
+}
+
+.memory-val-highlight {
+  color: #0284c7;
+  font-weight: 800;
+  font-family: var(--font-mono);
+}
+
+body.theme-dark .memory-val-highlight {
+  color: #38bdf8;
+}
+
+/* ==========================================================================
    EXPORTACIÓN A PDF / ESTILOS DE IMPRESIÓN
    ========================================================================== */
 @page {
