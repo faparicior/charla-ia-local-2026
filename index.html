@@ -2297,9 +2297,141 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 25: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
     <section class="slide" id="slide-25">
+      <div class="slide-content">
+        <div class="tag">Model Selection • Stack Definitivo en Local</div>
+        <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Estrategia de doble motor para una estación de 128 GB: máxima lógica y arquitectura profunda + generación de código ultrarrápida.
+        </p>
+
+        <div class="chosen-models-deck">
+
+          <div class="chosen-models-grid">
+
+            <!-- Card 1: Qwen 3.5 122B A10B (Cerebro de Razonamiento) -->
+            <div class="chosen-card card-brain">
+              <div class="chosen-card-header">
+                <div class="chosen-badge-row">
+                  <span class="chosen-role-badge brain">🧠 Cerebro &amp; Razonamiento</span>
+                  <span class="chosen-quant-badge green">INT4 AutoRound</span>
+                </div>
+                <div class="chosen-model-title">Qwen 3.5 - 122B A10B</div>
+                <div class="chosen-hf-link">
+                  <span class="chosen-hf-icon">🤗</span>
+                  <code>Qwen/Qwen3.5-122B-A10B</code>
+                </div>
+              </div>
+
+              <div class="chosen-role-desc">
+                <strong>El Estratega del Sistema:</strong> Prioriza <strong>profundidad lógica y consistencia</strong> en cadenas de razonamiento largo. Aunque genera a velocidad pausada (~28-54 t/s con MTP), su inmensa masa crítica evita alucinaciones en arquitectura y refactorizaciones críticas.
+              </div>
+
+              <!-- Ficha Técnica de Hugging Face -->
+              <div class="chosen-spec-table">
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Parámetros (Tot. / Act.)</span>
+                  <span class="spec-value"><strong>122B</strong> / <strong>10B Activos</strong> <small>(MoE Sparse)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
+                  <span class="spec-value"><strong>48 capas</strong> <small>(12 bloques: 3× DeltaNet + 1× Attn)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
+                  <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1 compartido)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
+                  <span class="spec-value"><strong>3.072</strong> <small>• 32 Attention Heads • 2 KV (GQA)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Dimensión Intermedia MoE</span>
+                  <span class="spec-value"><strong>1.024</strong> <small>(SwiGLU / SiLU)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
+                  <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Multimodal Nativo</small></span>
+                </div>
+                <div class="chosen-spec-row highlight-green">
+                  <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
+                  <span class="spec-value"><strong>~69 GB</strong> en INT4 <small>(&gt;50 GB libres)</small> • <strong>28 – 54 t/s</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Qwen 3.6 35B A3B (Especialista en Código) -->
+            <div class="chosen-card card-coder">
+              <div class="chosen-card-header">
+                <div class="chosen-badge-row">
+                  <span class="chosen-role-badge coder">⚡ Especialista en Código</span>
+                  <span class="chosen-quant-badge blue">NVFP4 / FP8</span>
+                </div>
+                <div class="chosen-model-title">Qwen 3.6 - 35B A3B</div>
+                <div class="chosen-hf-link">
+                  <span class="chosen-hf-icon">🤗</span>
+                  <code>Qwen/Qwen3.6-35B-A3B</code>
+                </div>
+              </div>
+
+              <div class="chosen-role-desc">
+                <strong>El Artesano Ágil:</strong> Diseñado para <strong>máxima velocidad en el IDE</strong> (74 a 134 t/s con MTP). Solo activa 3B de parámetros por token, permitiendo autocompletado instantáneo, generación de tests y edición de archivos sin latencia.
+              </div>
+
+              <!-- Ficha Técnica de Hugging Face -->
+              <div class="chosen-spec-table">
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Parámetros (Tot. / Act.)</span>
+                  <span class="spec-value"><strong>35B</strong> / <strong>3B Activos</strong> <small>(Cálculo ultraligero 3B)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
+                  <span class="spec-value"><strong>40 capas</strong> <small>(10 bloques: 3x DeltaNet + 1x Attn)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
+                  <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1 compartido)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
+                  <span class="spec-value"><strong>2.048</strong> <small>• 16 Attention Heads • 2 KV (GQA)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Dimensión Intermedia MoE</span>
+                  <span class="spec-value"><strong>512</strong> <small>(SwiGLU / SiLU)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
+                  <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Extensible &gt;1M con YaRN</small></span>
+                </div>
+                <div class="chosen-spec-row highlight-blue">
+                  <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
+                  <span class="spec-value"><strong>~19 GB</strong> en NVFP4 <small>(~35 GB FP8)</small> • <strong>74 – 134 t/s</strong></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior de Sinergia Crafter -->
+          <div class="chosen-synergy-banner">
+            <div class="chosen-synergy-icon">🎯</div>
+            <div class="chosen-synergy-text">
+              <strong>La Sinergia en Local (128 GB):</strong> El modelo de <strong>122B</strong> razona la arquitectura, planifica refactorizaciones y valida contratos; el modelo de <strong>35B</strong> escribe código y pruebas unitarias a más de <strong>130 tokens/s</strong> con respuesta inmediata.
+            </div>
+            <div class="chosen-synergy-badge">Stack de Producción</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 26: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2504,9 +2636,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 27: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2592,9 +2724,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 28: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -2831,9 +2963,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 29: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -2948,9 +3080,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 30: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -3070,9 +3202,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 31: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -3209,9 +3341,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 32: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3246,9 +3378,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: CITA EDITORIAL
+         SLIDE 33: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -3263,9 +3395,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: CIERRE & Q&A
+         SLIDE 34: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -3296,7 +3428,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">31</span>
+        <span id="slide-current">1</span> / <span id="slide-total">34</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>

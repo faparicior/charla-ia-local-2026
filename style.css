@@ -5846,6 +5846,280 @@ body.theme-dark .speed-badge.neutral {
 }
 
 /* ==========================================================================
+   SLIDE: MODELOS ESCOGIDOS (FICHAS TÉCNICAS HUGGING FACE 122B & 35B)
+   ========================================================================== */
+.chosen-models-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.chosen-models-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.chosen-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-speed), border-color var(--transition-speed);
+}
+
+.chosen-card:hover {
+  transform: translateY(-2px);
+}
+
+.chosen-card.card-brain {
+  border-top: 4px solid #ea580c;
+}
+
+.chosen-card.card-coder {
+  border-top: 4px solid #0284c7;
+}
+
+body.theme-dark .chosen-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chosen-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.chosen-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chosen-role-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chosen-role-badge.brain {
+  background: rgba(234, 88, 12, 0.12);
+  color: #c2410c;
+  border: 1px solid rgba(234, 88, 12, 0.3);
+}
+
+body.theme-dark .chosen-role-badge.brain {
+  background: rgba(234, 88, 12, 0.2);
+  color: #fb923c;
+  border-color: rgba(234, 88, 12, 0.4);
+}
+
+.chosen-role-badge.coder {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0369a1;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+body.theme-dark .chosen-role-badge.coder {
+  background: rgba(2, 132, 199, 0.2);
+  color: #38bdf8;
+  border-color: rgba(2, 132, 199, 0.4);
+}
+
+.chosen-quant-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+}
+
+.chosen-quant-badge.green {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+  border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+body.theme-dark .chosen-quant-badge.green {
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+}
+
+.chosen-quant-badge.blue {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+body.theme-dark .chosen-quant-badge.blue {
+  background: rgba(2, 132, 199, 0.2);
+  color: #38bdf8;
+}
+
+.chosen-model-title {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  margin-top: 0.1rem;
+}
+
+.chosen-hf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.chosen-hf-link code {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+body.theme-dark .chosen-hf-link code {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.chosen-role-desc {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 0.55rem 0.8rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--border-medium);
+}
+
+body.theme-dark .chosen-role-desc {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.chosen-spec-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg-surface-elevated);
+}
+
+body.theme-dark .chosen-spec-table {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.chosen-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.24rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.chosen-spec-row:not(:last-child) {
+  border-bottom: 1px dotted var(--border-subtle);
+}
+
+.chosen-spec-row .spec-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.chosen-spec-row .spec-value {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-main);
+  text-align: right;
+}
+
+.chosen-spec-row.highlight-green {
+  background: rgba(22, 163, 74, 0.08);
+}
+
+body.theme-dark .chosen-spec-row.highlight-green {
+  background: rgba(22, 163, 74, 0.15);
+}
+
+.chosen-spec-row.highlight-blue {
+  background: rgba(2, 132, 199, 0.08);
+}
+
+body.theme-dark .chosen-spec-row.highlight-blue {
+  background: rgba(2, 132, 199, 0.15);
+}
+
+/* Banner inferior de sinergia */
+.chosen-synergy-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.75rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+body.theme-dark .chosen-synergy-banner {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+.chosen-synergy-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.chosen-synergy-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  flex-grow: 1;
+}
+
+.chosen-synergy-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #ea580c;
+  background: rgba(234, 88, 12, 0.12);
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+body.theme-dark .chosen-synergy-badge {
+  color: #fb923c;
+  background: rgba(234, 88, 12, 0.2);
+}
+
+/* ==========================================================================
    EXPORTACIÓN A PDF / ESTILOS DE IMPRESIÓN
    ========================================================================== */
 @page {
