@@ -70,7 +70,7 @@ Este documento define la narrativa paso a paso basada en la **experiencia person
 | **21** | `slide-21` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
 | **22** | `slide-22` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
 | **23** | `slide-23` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
-| **24** | `slide-24` | **Acto 4: Vivencia** | Escogiendo Modelos: Memoria vs. Velocidad (Tokens/s) | Comparativa de ocupación en los 128 GB del GB10 y throughput (MTP / DFlash 2 / NVFP4 / INT4). |
+| **24** | `slide-24` | **Acto 4: Vivencia** | Escogiendo Modelos: Calidad, Memoria y Velocidad | Comparativa de ocupación en los 128 GB del GB10 y throughput (MTP / DFlash 2 / NVFP4 / INT4). |
 | **25** | `slide-25` | **Acto 4: Vivencia** | Caso DeepSeek: Cronología de una Revolución | El terremoto del Momento Sputnik y la democratización del razonamiento. |
 | **26** | `slide-26` | **Acto 4: Vivencia** | El "Hackeo" a NVIDIA: De parches PTX a integración nativa | La comunidad reescribiendo ensamblador PTX y forzando a los fabricantes. |
 | **27** | `slide-27` | **Acto 5: Futuro** | 2026: Timeline de Modelos & Aceleración | Mapa cronológico de cómo la inferencia se multiplicó por 5x. |
