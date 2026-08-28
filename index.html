@@ -2678,9 +2678,87 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 28: EXTENSIÓN A 1 MEGA CON YARN
          ==================================================================== -->
     <section class="slide" id="slide-28">
+      <div class="slide-content">
+        <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
+        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #6366f1;">Contexto Masivo en Local</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a YaRN y la arquitectura 3:1.
+        </p>
+
+        <div class="yarn-deck">
+
+          <!-- 3 Columnas Clave -->
+          <div class="yarn-grid">
+
+            <!-- Card 1: NTK-by-parts -->
+            <div class="yarn-card card-freq">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">🎛️ NTK-by-parts RoPE</span>
+                <span class="yarn-badge purple">Frecuencias</span>
+              </div>
+              <p class="yarn-desc">
+                <strong>No escala todas las dimensiones por igual:</strong> Mantiene intactas las altas frecuencias (sintaxis inmediata) e interpola solo las bajas (horizonte temporal global a 1M).
+              </p>
+              <div class="yarn-meta-box">
+                <span>🎯 <strong>Zero Olvido:</strong> 100% agudeza local</span>
+                <span>📈 <strong>Factor:</strong> 4.0× (256K ➔ 1M tokens)</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Temperatura Softmax -->
+            <div class="yarn-card card-temp">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">🔥 Temperatura Softmax</span>
+                <span class="yarn-badge amber">Atención</span>
+              </div>
+              <p class="yarn-desc">
+                <strong>Corrige la entropía de 1M tokens:</strong> Al atender a un millón de elementos, la distribución Softmax se aplana. YaRN aplica un factor $\sqrt{t}$ para <strong>afilar la atención</strong>.
+              </p>
+              <div class="yarn-meta-box">
+                <span>⚡ <strong>Fórmula:</strong> √t ≈ 0.1 · ln(s) + 1</span>
+                <span>📌 <strong>Resultado:</strong> Needle-in-a-Haystack perfecto</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Viabilidad Silicio Local -->
+            <div class="yarn-card card-silicon">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">💾 El Milagro Local (3:1)</span>
+                <span class="yarn-badge green">128 GB Unified</span>
+              </div>
+              <p class="yarn-desc">
+                <strong>Por qué solo el híbrido puede:</strong> En Transformers puros, 1M de tokens consume &gt;160 GB de KV Cache (OOM). En Qwen, el <strong>75% DeltaNet no crece</strong> y solo el 25% escala.
+              </p>
+              <div class="yarn-meta-box">
+                <span>🔒 <strong>DeltaNet (75%):</strong> ~100 MB fijos</span>
+                <span>💬 <strong>Attention (25%):</strong> ~38 – 42 GB VRAM</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Barra Inferior de Configuración en Motores -->
+          <div class="yarn-bottom-container">
+            <div class="yarn-code-row">
+              <span class="yarn-code-tag">vLLM / llama.cpp / config.json</span>
+              <code>"rope_scaling": {"type": "yarn", "factor": 4.0, "original_max_position_embeddings": 262144, "max_position_embeddings": 1048576}</code>
+            </div>
+            <div class="yarn-vram-badge">
+              Total 1M: ~109 GB VRAM (Pesos 69 GB + KV 40 GB)
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 29: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -2885,9 +2963,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 30: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -2973,9 +3051,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 31: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -3212,9 +3290,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 32: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -3329,9 +3407,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 33: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -3451,9 +3529,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 34: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -3590,9 +3668,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 34: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 35: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-35">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3627,9 +3705,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 35: CITA EDITORIAL
+         SLIDE 36: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-35">
+    <section class="slide" id="slide-36">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -3644,9 +3722,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 36: CIERRE & Q&A
+         SLIDE 37: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-36">
+    <section class="slide" id="slide-37">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -3677,7 +3755,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">36</span>
+        <span id="slide-current">1</span> / <span id="slide-total">37</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
