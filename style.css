@@ -6074,40 +6074,41 @@ body.theme-dark .chosen-spec-row.highlight-blue {
 .chosen-synergy-banner {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 0.75rem 1.2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  padding: 1.15rem 1.6rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 body.theme-dark .chosen-synergy-banner {
   background: var(--bg-surface);
   border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .chosen-synergy-icon {
-  font-size: 1.35rem;
+  font-size: 1.8rem;
   flex-shrink: 0;
 }
 
 .chosen-synergy-text {
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 1.12rem;
+  line-height: 1.5;
   color: var(--text-muted);
   flex-grow: 1;
 }
 
 .chosen-synergy-badge {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.92rem;
   font-weight: 800;
   color: #ea580c;
   background: rgba(234, 88, 12, 0.12);
   border: 1px solid rgba(234, 88, 12, 0.3);
-  padding: 0.3rem 0.75rem;
-  border-radius: 6px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
   white-space: nowrap;
   flex-shrink: 0;
   text-transform: uppercase;
@@ -6612,27 +6613,29 @@ body.theme-dark .memory-val-highlight {
 .rope-freq-deck {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   width: 100%;
 }
 
 .rope-freq-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
 .rope-freq-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 1.6rem 1.8rem;
+  border-radius: 16px;
+  padding: 2.2rem 2.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  gap: 1.2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   position: relative;
   transition: transform var(--transition-speed);
+  min-height: 320px;
+  justify-content: space-between;
 }
 
 .rope-freq-card:hover {
@@ -6640,21 +6643,21 @@ body.theme-dark .memory-val-highlight {
 }
 
 .rope-freq-card.card-high {
-  border-top: 5px solid #6366f1;
+  border-top: 6px solid #6366f1;
 }
 
 .rope-freq-card.card-mid {
-  border-top: 5px solid #f59e0b;
+  border-top: 6px solid #f59e0b;
 }
 
 .rope-freq-card.card-low {
-  border-top: 5px solid #10b981;
+  border-top: 6px solid #10b981;
 }
 
 body.theme-dark .rope-freq-card {
   background: var(--bg-surface);
   border-color: var(--border-subtle);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .rope-freq-header {
@@ -6666,20 +6669,20 @@ body.theme-dark .rope-freq-card {
 
 .rope-freq-title {
   font-family: var(--font-sans);
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: var(--text-main);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .rope-freq-badge {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  padding: 0.35rem 0.8rem;
-  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -6718,22 +6721,22 @@ body.theme-dark .rope-freq-badge.green {
 }
 
 .rope-freq-desc {
-  font-size: 1.15rem;
-  line-height: 1.5;
+  font-size: 1.22rem;
+  line-height: 1.6;
   color: var(--text-muted);
 }
 
 .rope-freq-meta {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 0.8rem 1.1rem;
+  border-radius: 12px;
+  padding: 1rem 1.3rem;
   font-family: var(--font-mono);
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   color: var(--text-main);
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 body.theme-dark .rope-freq-meta {
@@ -6743,28 +6746,28 @@ body.theme-dark .rope-freq-meta {
 .rope-comparison-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
 .rope-comparison-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 1.4rem 1.8rem;
+  border-radius: 16px;
+  padding: 1.8rem 2.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  font-size: 1.12rem;
-  line-height: 1.5;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
 .rope-comparison-card.card-meta-fail {
-  border-left: 5px solid #ef4444;
+  border-left: 6px solid #ef4444;
 }
 
 .rope-comparison-card.card-yarn-ok {
-  border-left: 5px solid #10b981;
+  border-left: 6px solid #10b981;
 }
 
 body.theme-dark .rope-comparison-card {
@@ -6783,10 +6786,10 @@ body.theme-dark .rope-comparison-card.card-yarn-ok {
 .rope-comparison-header {
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .rope-comparison-header.fail {
@@ -6932,6 +6935,167 @@ body.theme-dark .rope-stamp-demo {
 }
 
 /* ==========================================================================
+   SLIDE: LOS 3 NIVELES DE ATENCIÓN: JUNTAS, PRÓXIMAS Y ALEJADAS
+   ========================================================================== */
+.rope-levels-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.rope-levels-split-grid {
+  display: grid;
+  grid-template-columns: 1.22fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.rope-levels-svg-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-top: 5px solid #10b981;
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+}
+
+body.theme-dark .rope-levels-svg-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.rope-levels-svg-viewport {
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rope-levels-svg-viewport svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rope-levels-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.rope-level-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.25rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.rope-level-card.card-juntas {
+  border-left: 5px solid #6366f1;
+}
+
+.rope-level-card.card-proximas {
+  border-left: 5px solid #f59e0b;
+}
+
+.rope-level-card.card-alejadas {
+  border-left: 5px solid #10b981;
+}
+
+body.theme-dark .rope-level-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-dark .rope-level-card.card-juntas {
+  border-left-color: #818cf8;
+}
+
+body.theme-dark .rope-level-card.card-proximas {
+  border-left-color: #fbbf24;
+}
+
+body.theme-dark .rope-level-card.card-alejadas {
+  border-left-color: #34d399;
+}
+
+.rope-level-title {
+  font-family: var(--font-sans);
+  font-size: 1.32rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rope-level-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rope-level-badge.purple {
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.rope-level-badge.amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.rope-level-badge.green {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.theme-dark .rope-level-badge.purple {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+}
+
+body.theme-dark .rope-level-badge.amber {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+body.theme-dark .rope-level-badge.green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.rope-level-desc {
+  font-size: 1.08rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+.rope-level-desc strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
    SLIDE: ESCALANDO A 1 MEGA (1M TOKENS) CON YARN
    ========================================================================== */
 .yarn-deck {
@@ -7018,7 +7182,7 @@ body.theme-dark .yarn-badge.green {
 
 .yarn-svg-viewport {
   width: 100%;
-  height: 500px;
+  height: 520px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid var(--border-subtle);
@@ -7061,14 +7225,14 @@ body.theme-dark .yarn-table-card {
 .yarn-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
 }
 
 .yarn-table th {
   text-align: left;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 0.75rem;
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: 0.96rem;
   text-transform: uppercase;
   color: var(--text-dim);
   border-bottom: 1px solid var(--border-subtle);
@@ -7076,9 +7240,10 @@ body.theme-dark .yarn-table-card {
 }
 
 .yarn-table td {
-  padding: 0.95rem 1rem;
+  padding: 1.05rem 0.75rem;
   border-bottom: 1px solid var(--border-subtle);
   color: var(--text-main);
+  white-space: nowrap;
 }
 
 .yarn-table tr:last-child td {
@@ -7087,7 +7252,7 @@ body.theme-dark .yarn-table-card {
 
 .yarn-badge-ok {
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #10b981;
 }
@@ -7098,7 +7263,7 @@ body.theme-dark .yarn-badge-ok {
 
 .yarn-badge-fail {
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #ef4444;
 }
@@ -7111,9 +7276,9 @@ body.theme-dark .yarn-badge-fail {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
-  padding: 0.8rem 1.2rem;
+  padding: 1rem 1.4rem;
   font-family: var(--font-mono);
-  font-size: 0.98rem;
+  font-size: 1.02rem;
   color: var(--text-main);
   display: flex;
   align-items: center;

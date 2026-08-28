@@ -33,6 +33,33 @@ El modelo **lee todas las casillas a la vez**, por lo que nunca hay choque ni de
 
 ---
 
+## 2.1. Los 3 Niveles de Atención: Juntas, Próximas y Alejadas
+
+¿Cómo interactúan las palabras según su distancia sin estorbarse entre sí?
+
+```
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                             LOS 3 NIVELES DE CONEXIÓN DEL LLM                                    │
+├────────────────────────────────┬────────────────────────────────┬───────────────────────────────┤
+│ 🧩 1. JUNTAS (Inmediatas)      │ ⏳ 2. PRÓXIMAS (Párrafo)       │ 📖 3. ALEJADAS (1M Tokens)    │
+├────────────────────────────────┼────────────────────────────────┼───────────────────────────────┤
+│ • Distancia: 1 a 10 tokens     │ • Distancia: 50 a 2.000 tokens │ • Distancia: 100K a 1M tokens │
+│ • Manecilla: Segundero         │ • Manecilla: Minutero (Spline) │ • Manecilla: Horario / Días   │
+│ • Giro: 90° por palabra        │ • Giro: Velocidad media        │ • Giro: Casi imperceptible    │
+│ • Misión: Sintaxis y gramática │ • Misión: Coherencia de función│ • Misión: Memoria y búsqueda  │
+│   ("machine" + "learning")     │   (Línea 1 a Línea 25)         │   (Needle-in-a-Haystack 100%) │
+└────────────────────────────────┴────────────────────────────────┴───────────────────────────────┘
+```
+
+### ¿Por qué las palabras "alejadas" no pierden relación?
+No es que las palabras alejadas no tengan relación: **sí la tienen, pero su relación es semántica y de búsqueda, no gramatical**.
+* **Ejemplo en Código:**
+  * En la **Línea 1 (Día 1, token 5)** defines: `API_KEY = "sk-live-999"`.
+  * En la **Línea 80.000 (Día 850, token 800.000)** el usuario pregunta: *«¿Qué API Key definimos al principio?»*.
+  * Gracias a la manecilla de los **Días**, el modelo sabe con precisión matemática dónde está esa definición en el pasado sin confundirla con ninguna variable intermedia, permitiendo recuperar información a 1 millón de tokens de distancia con 100% de precisión.
+
+---
+
 ## 3. La Metáfora del Reloj de 3 Manecillas
 
 ```
