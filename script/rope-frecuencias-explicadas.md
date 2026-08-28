@@ -60,6 +60,41 @@ No es que las palabras alejadas no tengan relación: **sí la tienen, pero su re
 
 ---
 
+## 2.2. La Analogía del IBAN Bancario: Un Solo Vector, 3 Escalas Simultáneas
+
+Una duda recurrente es pensar si el modelo necesita 3 vectores independientes por cada palabra. **No: cada token tiene UN SOLO vector** (una lista de números, típicamente de 4.096 dimensiones en modelos como Qwen o LLaMA).
+
+Para entenderlo sin matemáticas, piensa en el **código IBAN de una cuenta bancaria**:
+
+$$\text{IBAN:} \quad \mathbf{\text{ES21}} \quad \mathbf{\text{0049}} \quad \mathbf{\text{1500}} \quad \mathbf{\text{1234567890}}$$
+
+Es **una sola cadena de texto**, pero resuelve 3 niveles de información al instante:
+1. **`ES21` (País / Macro / Bajas Frecuencias):** Mide la posición global a gran escala (*¿España o Japón?* / *¿Página 1 o Página 800?*).
+2. **`0049` (Banco / Meso / Frecuencia Media):** Conecta el bloque funcional (*¿Santander o BBVA?* / *¿Función A o Función B?*).
+3. **`1234567890` (Cuenta / Micro / Altas Frecuencias):** Identifica el elemento individual exacto (*¿Tu cuenta personal?* / *¿Palabra "el" o palabra "gato"?*).
+
+```
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   UN SOLO VECTOR DE EMBEDDING                                    │
+│                             (Ej: Vector de 4.096 floats por token)                               │
+├────────────────────────────────┬────────────────────────────────┬───────────────────────────────┤
+│ Dims 1 a 128 (MICRO)           │ Dims 129 a 512 (MESO)          │ Dims 513 a 4.096 (MACRO)      │
+│ ⏱️ SEGUNDERO (Sintaxis)        │ ⏳ MINUTERO (Párrafos)         │ 🕰️ CALENDARIO (1M Tokens)     │
+├────────────────────────────────┼────────────────────────────────┼───────────────────────────────┤
+│ Como los dígitos de la cuenta: │ Como el código de entidad:     │ Como el código de país:       │
+│ Mide si dos palabras van       │ Conecta variables y funciones  │ Sabe si estás en el inicio    │
+│ pegadas ("base" y "datos").    │ a lo largo de 50 líneas.       │ o al final de 1M de palabras. │
+└────────────────────────────────┴────────────────────────────────┴───────────────────────────────┘
+```
+
+### ¿Cómo opera el Transformer con el IBAN?
+En una sola multiplicación matricial (el producto escalar de atención $Q \cdot K^\top$):
+* **Si dos palabras están juntas:** Resuenan las dimensiones micro (número de cuenta) y se activan al 100%.
+* **Si una variable busca su definición a 800.000 palabras:** Resuenan las dimensiones macro (código de país) y localiza la definición en el pasado sin sufrir interferencias locales.
+* **¿Qué hace YaRN al extender el contexto a 1 Mega?** Solo amplía los dígitos del "País" (dimensiones macro) multiplicándolos por $4.0\times$, dejando **el número de cuenta bancaria (gramática local) exactamente intacto**.
+
+---
+
 ## 3. La Metáfora del Reloj de 3 Manecillas
 
 ```
