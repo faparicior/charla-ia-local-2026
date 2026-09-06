@@ -8879,6 +8879,352 @@ body.theme-dark .canvas-stamp {
   color: #34d399;
 }
 
+/* ==========================================================================
+   FORMATOS ALTERNATIVOS DE LEAN INCEPTION: OPCIONES A, B Y C
+   ========================================================================== */
+
+/* Hub de Selección de Formato */
+.inception-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.inception-hub-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.7rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.inception-hub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.inception-hub-card.opt-a:hover { border-color: #0284c7; }
+.inception-hub-card.opt-b:hover { border-color: #8b5cf6; }
+.inception-hub-card.opt-c:hover { border-color: #10b981; }
+
+body.theme-dark .inception-hub-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.3);
+}
+
+.inception-hub-badge {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.opt-a .inception-hub-badge { background: rgba(2, 132, 199, 0.15); color: #0284c7; }
+.opt-b .inception-hub-badge { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+.opt-c .inception-hub-badge { background: rgba(16, 185, 129, 0.15); color: #059669; }
+
+.inception-hub-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.inception-hub-desc {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.inception-hub-btn {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-main);
+  margin-top: auto;
+}
+
+/* OPCIÓN A: Embudo Horizontal de 8 Pasos */
+.inception-funnel-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.2rem;
+  width: 100%;
+}
+
+.funnel-step-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.funnel-step-card:hover {
+  transform: translateY(-3px);
+  border-color: #0284c7;
+}
+
+body.theme-dark .funnel-step-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.funnel-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.funnel-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.funnel-step-name {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.funnel-step-question {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.funnel-step-output {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.03);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  margin-top: auto;
+}
+
+body.theme-dark .funnel-step-output {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* OPCIÓN A: Las 3 Decisiones Críticas */
+.inception-triad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.inception-triad-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-dark .inception-triad-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.3);
+}
+
+.inception-triad-card.t-blue { border-top: 5px solid #0284c7; }
+.inception-triad-card.t-purple { border-top: 5px solid #8b5cf6; }
+.inception-triad-card.t-green { border-top: 5px solid #10b981; }
+
+.triad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.65rem;
+}
+
+.triad-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.triad-artifact-preview {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+body.theme-dark .triad-artifact-preview {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.triad-ai-shield {
+  background: rgba(239, 68, 68, 0.07);
+  border-left: 3.5px solid #ef4444;
+  padding: 0.75rem 0.95rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-main);
+}
+
+body.theme-dark .triad-ai-shield {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* OPCIÓN B: Bloques Lógicos */
+.inception-block-split-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.inception-block-split-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.inception-pillar-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.35rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-dark .inception-pillar-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.inception-pillar-card.c-blue { border-top: 5px solid #0284c7; }
+.inception-pillar-card.c-purple { border-top: 5px solid #8b5cf6; }
+.inception-pillar-card.c-green { border-top: 5px solid #10b981; }
+.inception-pillar-card.c-amber { border-top: 5px solid #f59e0b; }
+.inception-pillar-card.c-cyan { border-top: 5px solid #06b6d4; }
+.inception-pillar-card.c-pink { border-top: 5px solid #ec4899; }
+
+.pillar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pillar-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* OPCIÓN C: Pasos Despejados (1 Pregunta Retórica Clave) */
+.inception-lean-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.inception-lean-split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+}
+
+.lean-question-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-dark .lean-question-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.3);
+}
+
+.lean-question-hero {
+  font-size: 2.3rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--text-main);
+}
+
+.lean-question-lead {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.lean-ai-danger {
+  background: rgba(239, 68, 68, 0.08);
+  border-left: 4px solid #ef4444;
+  border-radius: 0 10px 10px 0;
+  padding: 0.95rem 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+body.theme-dark .lean-ai-danger {
+  background: rgba(239, 68, 68, 0.16);
+}
+
 @media print {
 
   html,
