@@ -2292,6 +2292,109 @@ body.theme-dark .c-cyan {
 }
 
 /* ==========================================================================
+   TRANSICIÓN ENTRE DECKS (PARTE 1 ➔ PARTE 2 / PLANTILLAS)
+   ========================================================================== */
+.deck-transition-box {
+  margin-top: 1rem;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 0.9rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.deck-transition-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.deck-transition-text strong {
+  color: var(--text-main);
+}
+
+.deck-transition-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #6366f1;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.deck-transition-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.45);
+}
+
+.deck-transition-btn .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.deck-transition-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.deck-back-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.deck-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+body.theme-dark .deck-back-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.deck-back-btn:hover {
+  color: #6366f1;
+  border-color: #6366f1;
+  transform: translateX(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
+}
+
+.deck-part-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+}
+
+/* ==========================================================================
    LAYOUT ESTRATEGIA DFLASH (SLIDE 14 - TANDEM ASISTENTE + EXPERTO)
    ========================================================================== */
 .dflash-clean-deck {

@@ -38,9 +38,12 @@ function initDeck() {
     totalCounter.textContent = slides.length;
   }
 
-  // Leer slide desde URL Hash (#1 o #slide-1 = slide 0)
+  // Leer slide desde URL Hash (#1 o #slide-1 = slide 0, o #last = última slide)
   function getSlideIndexFromHash() {
     let hash = window.location.hash.replace('#', '').trim();
+    if (hash === 'last') {
+      return slides.length - 1;
+    }
     if (hash.startsWith('slide-')) {
       hash = hash.replace('slide-', '');
     }
@@ -83,6 +86,8 @@ function initDeck() {
     }
     if (currentIndex < slides.length - 1) {
       goToSlide(currentIndex + 1);
+    } else if (document.body.dataset.nextDeck) {
+      window.location.href = document.body.dataset.nextDeck;
     }
   }
 
@@ -92,6 +97,8 @@ function initDeck() {
     }
     if (currentIndex > 0) {
       goToSlide(currentIndex - 1);
+    } else if (document.body.dataset.prevDeck) {
+      window.location.href = document.body.dataset.prevDeck;
     }
   }
 

@@ -124,7 +124,21 @@ def bundle_presentation(entry_html: Path, output_file: Path):
         flags=re.IGNORECASE
     )
 
-    # 4. Guardar archivo final empaquetado
+    # 4. Ajustar enlaces entre decks si es necesario para la versión dist/
+    if entry_html.name == "index.html":
+        html_content = html_content.replace('data-next-deck="parte2-ciclo-desarrollo.html"', 'data-next-deck="charla-parte2-ciclo-desarrollo.html"')
+        html_content = html_content.replace('href="parte2-ciclo-desarrollo.html"', 'href="charla-parte2-ciclo-desarrollo.html"')
+        html_content = html_content.replace('href="templates.html"', 'href="plantillas-referencia.html"')
+    elif entry_html.name == "parte2-ciclo-desarrollo.html":
+        html_content = html_content.replace('data-prev-deck="index.html#last"', 'data-prev-deck="charla-parte1-hardware-modelos.html#last"')
+        html_content = html_content.replace('href="index.html#last"', 'href="charla-parte1-hardware-modelos.html#last"')
+        html_content = html_content.replace('href="templates.html"', 'href="plantillas-referencia.html"')
+    elif entry_html.name == "templates.html":
+        html_content = html_content.replace('data-next-deck="index.html"', 'data-next-deck="charla-parte1-hardware-modelos.html"')
+        html_content = html_content.replace('href="index.html"', 'href="charla-parte1-hardware-modelos.html"')
+        html_content = html_content.replace('href="parte2-ciclo-desarrollo.html"', 'href="charla-parte2-ciclo-desarrollo.html"')
+
+    # 5. Guardar archivo final empaquetado
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(html_content, encoding='utf-8')
     
@@ -141,23 +155,49 @@ def bundle_presentation(entry_html: Path, output_file: Path):
     print("-" * 60)
 
 def main():
-    parser = argparse.ArgumentParser(description="Empaqueta la presentación en un único archivo HTML.")
+    parser = argparse.ArgumentParser(description="Empaqueta la presentación en archivos HTML independientes.")
     parser.add_argument(
         "-i", "--input",
-        default="index.html",
-        help="Archivo HTML de entrada (default: index.html)"
+        default=None,
+        help="Archivo HTML de entrada específico (opcional)"
     )
     parser.add_argument(
         "-o", "--output",
-        default="dist/charla-ai-local-crafters-standalone.html",
-        help="Ruta del archivo de salida (default: dist/charla-ai-local-crafters-standalone.html)"
+        default=None,
+        help="Ruta del archivo de salida específico (opcional)"
     )
     args = parser.parse_args()
 
-    entry = Path(args.input)
-    out = Path(args.output)
+    if args.input:
+        entry = Path(args.input)
+        out = Path(args.output) if args.output else Path("dist") / f"{entry.stem}-standalone.html"
+        bundle_presentation(entry, out)
+    else:
+        # Modo por defecto: Empaqueta los 3 decks del proyecto
+        print("🚀 Empaquetando los 3 decks del proyecto AI Local Crafters...")
+        print("=" * 60)
 
-    bundle_presentation(entry, out)
+        # 1. Parte 1: Hardware y Modelos
+        p1_out = Path("dist/charla-parte1-hardware-modelos.html")
+        bundle_presentation(Path("index.html"), p1_out)
+        
+        # Copia de compatibilidad
+        compat_out = Path("dist/charla-ai-local-crafters-standalone.html")
+        compat_out.write_text(p1_out.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"   ↳ 📋 Copia de compatibilidad actualizada: {compat_out.name}")
+
+        # 2. Parte 2: Ciclo de Desarrollo
+        p2_out = Path("dist/charla-parte2-ciclo-desarrollo.html")
+        bundle_presentation(Path("parte2-ciclo-desarrollo.html"), p2_out)
+
+        # 3. Catálogo de Plantillas
+        tmpl_out = Path("dist/plantillas-referencia.html")
+        bundle_presentation(Path("templates.html"), tmpl_out)
+
+        print("\n🎉 ¡Todos los paquetes han sido generados en la carpeta dist/!")
+        print("   1. dist/charla-parte1-hardware-modelos.html (Parte 1: 32 slides)")
+        print("   2. dist/charla-parte2-ciclo-desarrollo.html (Parte 2: 30 slides)")
+        print("   3. dist/plantillas-referencia.html          (Plantillas: 8 slides)")
 
 if __name__ == "__main__":
     main()
