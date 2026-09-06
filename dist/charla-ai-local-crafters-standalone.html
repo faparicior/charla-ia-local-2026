@@ -8905,8 +8905,8 @@ body.theme-dark .canvas-stamp {
 /* Hub de Selección de Formato */
 .inception-hub-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
   width: 100%;
 }
 
@@ -8914,10 +8914,10 @@ body.theme-dark .canvas-stamp {
   background: var(--bg-surface);
   border: 2px solid var(--border-subtle);
   border-radius: 16px;
-  padding: 1.7rem 1.6rem;
+  padding: 1.5rem 1.35rem;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.95rem;
   text-decoration: none;
   color: inherit;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -8932,6 +8932,7 @@ body.theme-dark .canvas-stamp {
 .inception-hub-card.opt-a:hover { border-color: #0284c7; }
 .inception-hub-card.opt-b:hover { border-color: #8b5cf6; }
 .inception-hub-card.opt-c:hover { border-color: #10b981; }
+.inception-hub-card.opt-d:hover { border-color: #f59e0b; }
 
 body.theme-dark .inception-hub-card {
   background: var(--bg-surface);
@@ -8941,9 +8942,9 @@ body.theme-dark .inception-hub-card {
 
 .inception-hub-badge {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  padding: 0.3rem 0.75rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 9999px;
   width: fit-content;
 }
@@ -8951,6 +8952,7 @@ body.theme-dark .inception-hub-card {
 .opt-a .inception-hub-badge { background: rgba(2, 132, 199, 0.15); color: #0284c7; }
 .opt-b .inception-hub-badge { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
 .opt-c .inception-hub-badge { background: rgba(16, 185, 129, 0.15); color: #059669; }
+.opt-d .inception-hub-badge { background: rgba(245, 158, 11, 0.15); color: #d97706; }
 
 .inception-hub-title {
   font-size: 1.45rem;
@@ -9242,6 +9244,154 @@ body.theme-dark .lean-question-card {
 
 body.theme-dark .lean-ai-danger {
   background: rgba(239, 68, 68, 0.16);
+}
+
+/* ==========================================================================
+   OPCIÓN D: LISTA VERTICAL COMPARATIVA (HUMANOS VS IA)
+   ========================================================================== */
+.inception-dual-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.dual-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.dual-list-header {
+  display: grid;
+  grid-template-columns: 290px 1fr 1fr;
+  gap: 1.2rem;
+  padding: 0 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.dual-list-row {
+  display: grid;
+  grid-template-columns: 290px 1fr 1fr;
+  gap: 1.2rem;
+  align-items: stretch;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dual-list-row:hover {
+  transform: translateY(-2px);
+}
+
+.dual-step-col {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+body.theme-dark .dual-step-col {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dual-step-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.dual-step-tag {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.dual-step-tag.c1 { background: rgba(2, 132, 199, 0.12); color: #0284c7; }
+.dual-step-tag.c2 { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
+.dual-step-tag.c3 { background: rgba(16, 185, 129, 0.12); color: #059669; }
+.dual-step-tag.c4 { background: rgba(245, 158, 11, 0.12); color: #d97706; }
+.dual-step-tag.c5 { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+.dual-step-tag.c6 { background: rgba(6, 182, 212, 0.12); color: #0891b2; }
+.dual-step-tag.c7 { background: rgba(236, 72, 153, 0.12); color: #db2777; }
+.dual-step-tag.c8 { background: rgba(16, 185, 129, 0.15); color: #059669; }
+
+.dual-step-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.dual-step-artifact {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-dim);
+}
+
+.dual-human-col {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1.5px solid rgba(16, 185, 129, 0.22);
+  border-left: 5px solid #10b981;
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+body.theme-dark .dual-human-col {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  border-left-color: #10b981;
+}
+
+.dual-ai-col {
+  background: rgba(99, 102, 241, 0.05);
+  border: 1.5px solid rgba(99, 102, 241, 0.22);
+  border-left: 5px solid #6366f1;
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+body.theme-dark .dual-ai-col {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+  border-left-color: #6366f1;
+}
+
+.dual-lead {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.dual-detail {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.4;
 }
 
 @media print {
@@ -13776,19 +13926,19 @@ body.theme-dark .lean-ai-danger {
     <section class="slide" id="slide-43">
       <div class="slide-content">
         <div class="tag">Fase 1 • Lean Inception • Selector de Formato</div>
-        <h2>3 Formas de Explicar Lean Inception: <span class="serif-italic" style="color: #6366f1;">¿Cuál encaja mejor con tu charla?</span></h2>
+        <h2>4 Formas de Explicar Lean Inception: <span class="serif-italic" style="color: #6366f1;">¿Cuál encaja mejor con tu charla?</span></h2>
         <p class="subtitle" style="margin-top: -1rem;">
-          Compara en directo las 3 alternativas según el tiempo disponible y el nivel de familiaridad de tu audiencia:
+          Compara en directo las 4 alternativas según el tiempo disponible y el nivel de familiaridad de tu audiencia:
         </p>
 
         <div class="inception-hub-grid">
           <!-- Opción A -->
           <a class="inception-hub-card opt-a" href="#44">
             <span class="inception-hub-badge">Opción A • Ultra-Síntesis</span>
-            <div class="inception-hub-title">⚡ 2 Diapositivas Maestras</div>
+            <div class="inception-hub-title">⚡ 2 Diapositivas</div>
             <p class="inception-hub-desc">
               <strong>El Embudo Completo + Las 3 Decisiones Críticas.</strong><br>
-              Máxima fluidez. La audiencia ve los 8 pasos de un vistazo en la primera slide, y en la segunda entiende las 3 únicas restricciones que salvan al modelo de alucinar.
+              Máxima fluidez. La audiencia ve los 8 pasos en un panel panorámico y luego las 3 únicas restricciones que salvan al modelo de alucinar.
             </p>
             <div class="inception-hub-btn" style="color: #0284c7;">👉 Probar Opción A (Slides 44 - 45) →</div>
           </a>
@@ -13799,7 +13949,7 @@ body.theme-dark .lean-ai-danger {
             <div class="inception-hub-title">🧩 Narrativa en 3 Actos</div>
             <p class="inception-hub-desc">
               <strong>Fronteras ➔ Empatía ➔ Contrato de Código.</strong><br>
-              Equilibrio perfecto. Agrupa los 8 pasos en 3 bloques digeribles (2 min por bloque). Explica qué no hacemos, para quién lo hacemos y cómo se traduce en especificaciones.
+              Equilibrio pedagógico. Agrupa los 8 pasos en 3 bloques digeribles (2 min por bloque): qué no hacemos, para quién y cómo se especifica.
             </p>
             <div class="inception-hub-btn" style="color: #8b5cf6;">👉 Probar Opción B (Slides 46 - 48) →</div>
           </a>
@@ -13810,16 +13960,27 @@ body.theme-dark .lean-ai-danger {
             <div class="inception-hub-title">🎯 8 Slides Despejadas</div>
             <p class="inception-hub-desc">
               <strong>1 Pregunta Retórica Clave por Paso (70% menos texto).</strong><br>
-              Para quien desea el recorrido paso a paso pero sin saturación: tipografía grande, artefacto esencial y la trampa concreta de la IA que neutraliza cada paso.
+              Recorrido paso a paso sin saturación: tipografía grande, artefacto esencial y la trampa concreta de la IA que neutraliza cada paso.
             </p>
             <div class="inception-hub-btn" style="color: #059669;">👉 Probar Opción C (Slides 49 - 56) →</div>
+          </a>
+
+          <!-- Opción D -->
+          <a class="inception-hub-card opt-d" href="#57">
+            <span class="inception-hub-badge">Opción D • Lista Humano vs IA</span>
+            <div class="inception-hub-title">⚖️ 2 Slides Comparativas</div>
+            <p class="inception-hub-desc">
+              <strong>De arriba a abajo: En qué punto estamos + Ventajas Humanos + Ventajas IA.</strong><br>
+              Estructura vertical directa. Para cada paso, explica cómo aporta control al equipo y cómo actúa de blindaje determinista para la IA.
+            </p>
+            <div class="inception-hub-btn" style="color: #d97706;">👉 Probar Opción D (Slides 57 - 58) →</div>
           </a>
         </div>
 
         <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
           <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Consejo para el Speaker:</strong> Haz clic en cualquiera de las 3 opciones para saltar directamente a ella, o avanza con las flechas del teclado para revisarlas una a una.
+            <strong>Consejo para el Speaker:</strong> Haz clic en cualquiera de las 4 opciones para saltar directamente a ella, o avanza con las flechas del teclado para revisarlas secuencialmente.
           </div>
         </div>
       </div>
@@ -14818,9 +14979,266 @@ body.theme-dark .lean-ai-danger {
 
 
     <!-- ====================================================================
-         SLIDE 57: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+         SLIDE 57: OPCIÓN D (1 DE 2) - LISTA DUAL HUMANO VS IA (PASOS 1 A 4)
          ==================================================================== -->
     <section class="slide" id="slide-57">
+      <div class="slide-content">
+        <div class="tag">Opción D (1 de 2) • Lista Vertical • /inception-workshop</div>
+        <h2>Lean Inception: <span class="serif-italic" style="color: #d97706;">¿Qué ganan los Humanos y qué gana la IA?</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          De arriba a abajo: alineación artesanal para el equipo y blindaje determinista contra alucinaciones (Pasos 1 a 4).
+        </p>
+
+        <div class="inception-dual-deck">
+          <div class="dual-list-header">
+            <div>📍 Punto del Taller</div>
+            <div style="color: #10b981;">👨‍💻 Ventajas para Humanos (Craft &amp; Control)</div>
+            <div style="color: #6366f1;">🤖 Ventajas para la IA (Blindaje &amp; Precisión)</div>
+          </div>
+
+          <div class="dual-list-container">
+            <!-- Fila 1: Paso 1 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c1">Paso 1 de 8</span>
+                  <span style="font-size: 1.2rem;">🎯</span>
+                </div>
+                <div class="dual-step-title">Visión &amp; Fronteras</div>
+                <div class="dual-step-artifact"><code>1-boundaries.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Alineación de negocio sin debates eternos</div>
+                <div class="dual-detail">
+                  Define en 1 página qué <strong>ES</strong> y qué <strong>NO ES</strong> el producto. Prohíbe formalmente construir lo que no esté pactado en el cuadrante.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Poda el 90% del espacio de búsqueda</div>
+                <div class="dual-detail">
+                  El "NO ES" y "NO HACE" evita que el LLM invente dependencias SaaS, frameworks sobrediseñados o telemetría innecesaria.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 2: Paso 2 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c2">Paso 2 de 8</span>
+                  <span style="font-size: 1.2rem;">⚖️</span>
+                </div>
+                <div class="dual-step-title">Tablero de Tradeoffs</div>
+                <div class="dual-step-artifact"><code>2-tradeoffs.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Consenso sin trampas: 1 cruz por columna</div>
+                <div class="dual-detail">
+                  Si todo es prioritario, nada lo es. Obliga a Product Owner y Arquitectura a decidir qué se sacrifica explícitamente.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Leyes de la física para el modelo</div>
+                <div class="dual-detail">
+                  Ante un conflicto arquitectónico, el agente sabe resolver el dilema (ej. privacidad y latencia antes que volumen de features).
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 3: Paso 3 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c3">Paso 3 de 8</span>
+                  <span style="font-size: 1.2rem;">👤</span>
+                </div>
+                <div class="dual-step-title">Personas de Usuario</div>
+                <div class="dual-step-artifact"><code>3-personas/elena.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Diseño para un artesano real y concreto</div>
+                <div class="dual-detail">
+                  Elena Torres (Tech Lead FinTech, hardware local). Destierra el sesgo de diseñar para un usuario abstracto que no existe.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Anclaje a hardware y permisos reales</div>
+                <div class="dual-detail">
+                  Evita que el LLM asuma servidores cloud infinitos, accesos de root permisivos o librerías incompatibles con local.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 4: Paso 4 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c4">Paso 4 de 8</span>
+                  <span style="font-size: 1.2rem;">🧭</span>
+                </div>
+                <div class="dual-step-title">Mapa de Empatía</div>
+                <div class="dual-step-artifact"><code>4-empathy.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Conexión con el dolor y la frustración real</div>
+                <div class="dual-detail">
+                  Ataca el miedo del equipo a romper producción, al código spaguetti generado y a la deuda técnica silenciosa.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Modulación de tono: código ultra-defensivo</div>
+                <div class="dual-detail">
+                  Al entender la ansiedad del usuario, la IA genera invariantes, tipado estricto y precondiciones en lugar de código frágil.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">⚖️</div>
+            <div class="chosen-synergy-text" style="font-size: 0.95rem;">
+              <strong>Principio Dual:</strong> Cada artefacto que reduce la ambigüedad para el equipo humano es exactamente una restricción que elimina las alucinaciones de la IA.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 58: OPCIÓN D (2 DE 2) - LISTA DUAL HUMANO VS IA (PASOS 5 A 8)
+         ==================================================================== -->
+    <section class="slide" id="slide-58">
+      <div class="slide-content">
+        <div class="tag">Opción D (2 de 2) • Lista Vertical • /inception-workshop</div>
+        <h2>Lean Inception: <span class="serif-italic" style="color: #059669;">¿Qué ganan los Humanos y qué gana la IA?</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          De arriba a abajo: de las ideas al contrato vinculante de ingeniería (Pasos 5 a 8).
+        </p>
+
+        <div class="inception-dual-deck">
+          <div class="dual-list-header">
+            <div>📍 Punto del Taller</div>
+            <div style="color: #10b981;">👨‍💻 Ventajas para Humanos (Craft &amp; Control)</div>
+            <div style="color: #6366f1;">🤖 Ventajas para la IA (Blindaje &amp; Precisión)</div>
+          </div>
+
+          <div class="dual-list-container">
+            <!-- Fila 5: Paso 5 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c5">Paso 5 de 8</span>
+                  <span style="font-size: 1.2rem;">💡</span>
+                </div>
+                <div class="dual-step-title">Brainstorming Filtrado</div>
+                <div class="dual-step-artifact"><code>5-brainstorming.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Divergencia creativa con justificación</div>
+                <div class="dual-detail">
+                  Ninguna feature se acepta "porque molaría": cada post-it debe responder a un dolor de la Persona y encajar en un pilar.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Filtro anti-dispersión de funcionalidades</div>
+                <div class="dual-detail">
+                  Evita que el LLM invente dashboards auxiliares o plugins irrelevantes que engorden artificialmente el alcance.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 6: Paso 6 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c6">Paso 6 de 8</span>
+                  <span style="font-size: 1.2rem;">🚶</span>
+                </div>
+                <div class="dual-step-title">User Journey Mapping</div>
+                <div class="dual-step-artifact"><code>6-user-journeys/</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Narrativa e2e clara: 4 nodos cronológicos</div>
+                <div class="dual-detail">
+                  De trigger a momento 'Wow'. Conecta directamente con los 3 diagramas Mermaid y especificaciones de la Fase 2.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Segmentación atómica en contexto</div>
+                <div class="dual-detail">
+                  El flujo cabe holgadamente en la ventana de contexto, permitiendo generar el test E2E rojo antes de codificar la lógica.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 7: Paso 7 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c7">Paso 7 de 8</span>
+                  <span style="font-size: 1.2rem;">🌊</span>
+                </div>
+                <div class="dual-step-title">Secuenciación en Olas</div>
+                <div class="dual-step-artifact"><code>7-sequencing.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Foco radical en el MVP indispensable</div>
+                <div class="dual-detail">
+                  Aísla la Ola 1 (imprescindible) de las Olas 2 y 3. Elimina la parálisis por análisis y permite validar valor en días.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Guardrail de alcance infranqueable</div>
+                <div class="dual-detail">
+                  La IA tiene terminantemente prohibido mezclar código o arquitectura de Olas futuras hasta cerrar y testear la Ola 1.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 8: Paso 8 -->
+            <div class="dual-list-row">
+              <div class="dual-step-col">
+                <div class="dual-step-badge-row">
+                  <span class="dual-step-tag c8">Paso 8 de 8</span>
+                  <span style="font-size: 1.2rem;">📋</span>
+                </div>
+                <div class="dual-step-title">MVP Canvas Validado</div>
+                <div class="dual-step-artifact"><code>8-mvp-canvas.md</code></div>
+              </div>
+              <div class="dual-human-col">
+                <div class="dual-lead">Contrato formal en 1 página: Score &ge; 8/10</div>
+                <div class="dual-detail">
+                  Criterio go/no-go inquebrantable: si la auditoría socrática no aprueba el lienzo con nota &ge; 8, nadie pica código.
+                </div>
+              </div>
+              <div class="dual-ai-col">
+                <div class="dual-lead">Prompt maestro determinista del SDLC</div>
+                <div class="dual-detail">
+                  Especificación de entrada unificada y sin contradicciones para alimentar las fases de diseño y generación TDD.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">📋</div>
+            <div class="chosen-synergy-text" style="font-size: 0.95rem;">
+              <strong>El Cierre del Taller:</strong> Con el MVP Canvas sellado, el humano tiene el control arquitectónico absoluto y la IA dispone del contexto perfecto para no errar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ====================================================================
+         SLIDE 59: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+         ==================================================================== -->
+    <section class="slide" id="slide-59">
       <div class="slide-content">
         <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
         <h2>Implementación y Evolución: <span class="serif-italic" style="color: #d97706;">TDD Híbrido y Living Docs sin Drift</span></h2>
@@ -14963,9 +15381,9 @@ body.theme-dark .lean-ai-danger {
 
 
     <!-- ====================================================================
-         SLIDE 58: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 60: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-58">
+    <section class="slide" id="slide-60">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -15170,9 +15588,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 59: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 61: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-59">
+    <section class="slide" id="slide-61">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -15258,9 +15676,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 60: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 62: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-60">
+    <section class="slide" id="slide-62">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -15497,9 +15915,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 61: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 63: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-61">
+    <section class="slide" id="slide-63">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -15614,9 +16032,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 62: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 64: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-62">
+    <section class="slide" id="slide-64">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -15736,9 +16154,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 63: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 65: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-63">
+    <section class="slide" id="slide-65">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -15875,9 +16293,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 64: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 66: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-64">
+    <section class="slide" id="slide-66">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -15912,9 +16330,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 65: CITA EDITORIAL
+         SLIDE 67: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-65">
+    <section class="slide" id="slide-67">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -15929,9 +16347,9 @@ body.theme-dark .lean-ai-danger {
     </section>
 
     <!-- ====================================================================
-         SLIDE 66: CIERRE & Q&A
+         SLIDE 68: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-66">
+    <section class="slide" id="slide-68">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -15962,7 +16380,7 @@ body.theme-dark .lean-ai-danger {
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">66</span>
+        <span id="slide-current">1</span> / <span id="slide-total">68</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
