@@ -8031,6 +8031,285 @@ body.theme-dark .sdlc-wf-num {
   color: #fb7185;
 }
 
+/* ==========================================================================
+   TEMPLATES & ESTILO OFICIAL SOFTWARE CRAFTERS BARCELONA (SCBCN26)
+   ========================================================================== */
+
+/* Header institucional SCBCN */
+.scbcn-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
+}
+
+.scbcn-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.scbcn-unicorn-svg {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.scbcn-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.scbcn-brand-title {
+  font-family: 'Brush Script MT', 'Caveat', 'Playfair Display', cursive, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #f59e0b;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+body.theme-dark .scbcn-brand-title {
+  color: #fbbf24;
+}
+
+.scbcn-brand-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.scbcn-edition-pill {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0284c7;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+body.theme-dark .scbcn-edition-pill {
+  color: #38bdf8;
+}
+
+.scbcn-hashtag {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+body.theme-dark .scbcn-hashtag {
+  color: #38bdf8;
+}
+
+/* Tipografía de títulos SCBCN */
+.scbcn-title {
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #007791;
+  line-height: 1.15;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+body.theme-dark .scbcn-title {
+  color: #38bdf8;
+}
+
+.scbcn-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #d97706;
+  line-height: 1.25;
+  margin: 0 0 1.5rem 0;
+}
+
+body.theme-dark .scbcn-subtitle {
+  color: #fbbf24;
+}
+
+/* Rejilla de división (Split Grid) */
+.scbcn-split-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.scbcn-split-grid.reverse {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+/* Lista multinivel jerárquica (9 niveles) */
+.scbcn-bullet-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  line-height: 1.42;
+}
+
+.scbcn-level {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.scbcn-level-1 { padding-left: 0; font-weight: 700; font-size: 1.22rem; }
+.scbcn-level-2 { padding-left: 1.6rem; font-size: 1.15rem; }
+.scbcn-level-3 { padding-left: 3.2rem; font-size: 1.1rem; }
+.scbcn-level-4 { padding-left: 4.8rem; font-size: 1.05rem; }
+.scbcn-level-5 { padding-left: 6.4rem; font-size: 1.02rem; }
+.scbcn-level-6 { padding-left: 8.0rem; font-size: 0.98rem; }
+.scbcn-level-7 { padding-left: 9.6rem; font-size: 0.95rem; }
+.scbcn-level-8 { padding-left: 11.2rem; font-size: 0.92rem; }
+.scbcn-level-9 { padding-left: 12.8rem; font-size: 0.90rem; }
+
+.scbcn-marker {
+  display: inline-block;
+  font-size: 0.8em;
+  color: var(--text-main);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Marco de imagen / Placeholder */
+.scbcn-image-frame {
+  background: #f1f3f6;
+  border: 1px solid #d5d9e2;
+  border-radius: 12px;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-dark .scbcn-image-frame {
+  background: #181b22;
+  border-color: #2e3440;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scbcn-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.scbcn-placeholder-icon {
+  width: 64px;
+  height: 64px;
+  color: #94a3b8;
+  opacity: 0.85;
+}
+
+body.theme-dark .scbcn-placeholder-icon {
+  color: #64748b;
+}
+
+.scbcn-placeholder-label {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* Catálogo de plantillas */
+.template-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.template-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  border-color: #6366f1;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+body.theme-dark .template-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.template-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.template-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.template-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.template-card-mini-preview {
+  height: 60px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: auto;
+}
+
+body.theme-dark .template-card-mini-preview {
+  background: rgba(255, 255, 255, 0.03);
+}
+
 @media print {
 
   html,

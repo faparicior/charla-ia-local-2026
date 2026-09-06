@@ -8050,6 +8050,285 @@ body.theme-dark .sdlc-wf-num {
   color: #fb7185;
 }
 
+/* ==========================================================================
+   TEMPLATES & ESTILO OFICIAL SOFTWARE CRAFTERS BARCELONA (SCBCN26)
+   ========================================================================== */
+
+/* Header institucional SCBCN */
+.scbcn-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
+}
+
+.scbcn-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.scbcn-unicorn-svg {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.scbcn-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.scbcn-brand-title {
+  font-family: 'Brush Script MT', 'Caveat', 'Playfair Display', cursive, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #f59e0b;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+body.theme-dark .scbcn-brand-title {
+  color: #fbbf24;
+}
+
+.scbcn-brand-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.scbcn-edition-pill {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0284c7;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+body.theme-dark .scbcn-edition-pill {
+  color: #38bdf8;
+}
+
+.scbcn-hashtag {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+body.theme-dark .scbcn-hashtag {
+  color: #38bdf8;
+}
+
+/* Tipografía de títulos SCBCN */
+.scbcn-title {
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #007791;
+  line-height: 1.15;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+body.theme-dark .scbcn-title {
+  color: #38bdf8;
+}
+
+.scbcn-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #d97706;
+  line-height: 1.25;
+  margin: 0 0 1.5rem 0;
+}
+
+body.theme-dark .scbcn-subtitle {
+  color: #fbbf24;
+}
+
+/* Rejilla de división (Split Grid) */
+.scbcn-split-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.scbcn-split-grid.reverse {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+/* Lista multinivel jerárquica (9 niveles) */
+.scbcn-bullet-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  line-height: 1.42;
+}
+
+.scbcn-level {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.scbcn-level-1 { padding-left: 0; font-weight: 700; font-size: 1.22rem; }
+.scbcn-level-2 { padding-left: 1.6rem; font-size: 1.15rem; }
+.scbcn-level-3 { padding-left: 3.2rem; font-size: 1.1rem; }
+.scbcn-level-4 { padding-left: 4.8rem; font-size: 1.05rem; }
+.scbcn-level-5 { padding-left: 6.4rem; font-size: 1.02rem; }
+.scbcn-level-6 { padding-left: 8.0rem; font-size: 0.98rem; }
+.scbcn-level-7 { padding-left: 9.6rem; font-size: 0.95rem; }
+.scbcn-level-8 { padding-left: 11.2rem; font-size: 0.92rem; }
+.scbcn-level-9 { padding-left: 12.8rem; font-size: 0.90rem; }
+
+.scbcn-marker {
+  display: inline-block;
+  font-size: 0.8em;
+  color: var(--text-main);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Marco de imagen / Placeholder */
+.scbcn-image-frame {
+  background: #f1f3f6;
+  border: 1px solid #d5d9e2;
+  border-radius: 12px;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-dark .scbcn-image-frame {
+  background: #181b22;
+  border-color: #2e3440;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scbcn-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.scbcn-placeholder-icon {
+  width: 64px;
+  height: 64px;
+  color: #94a3b8;
+  opacity: 0.85;
+}
+
+body.theme-dark .scbcn-placeholder-icon {
+  color: #64748b;
+}
+
+.scbcn-placeholder-label {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* Catálogo de plantillas */
+.template-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.template-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  border-color: #6366f1;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+body.theme-dark .template-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.template-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.template-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.template-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.template-card-mini-preview {
+  height: 60px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: auto;
+}
+
+body.theme-dark .template-card-mini-preview {
+  background: rgba(255, 255, 255, 0.03);
+}
+
 @media print {
 
   html,
@@ -8170,10 +8449,705 @@ body.theme-dark .sdlc-wf-num {
       </div>
     </section>
 
+
     <!-- ====================================================================
-         SLIDE 2: PROGRESS COMPARISON - EL FIN DEL BUFÉ LIBRE (ALTO IMPACTO)
+         SLIDE 2: CATÁLOGO DE PLANTILLAS (REPERTORIO VISUAL CRAFTER & SCBCN)
          ==================================================================== -->
     <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <div class="tag">Design System • Plantillas &amp; Layouts</div>
+        <h2>Catálogo de Plantillas: <span class="serif-italic" style="color: #ea580c;">Repertorio Visual Crafter</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Guía de estilos y estructuras modulares disponibles para la presentación, optimizadas para contraste, legibilidad y adaptabilidad.
+        </p>
+
+        <div class="template-catalog-grid">
+
+          <!-- 1. SCBCN A -->
+          <a class="template-card" href="#3">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(0, 119, 145, 0.12); color: #007791;">SCBCN 26</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#3</span>
+            </div>
+            <div class="template-card-title">🖼️ Texto + Imagen (Der)</div>
+            <div class="template-card-desc">Layout oficial SCBCN: título teal, subtítulo ámbar, lista jerárquica a 9 niveles e imagen a la derecha.</div>
+            <div class="template-card-mini-preview">[ Texto / Bullets ➔ | 🖼️ Imagen ]</div>
+          </a>
+
+          <!-- 2. SCBCN B -->
+          <a class="template-card" href="#4">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(0, 119, 145, 0.12); color: #007791;">SCBCN 26</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#4</span>
+            </div>
+            <div class="template-card-title">🖼️ Imagen (Izq) + Texto</div>
+            <div class="template-card-desc">Variante simétrica invertida para destacar diagramas o fotos en el lado izquierdo con viñetas a la derecha.</div>
+            <div class="template-card-mini-preview">[ 🖼️ Imagen | ➔ Texto / Bullets ]</div>
+          </a>
+
+          <!-- 3. Split Grid Crafter -->
+          <a class="template-card" href="#5">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">Cards &amp; Grid</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#5</span>
+            </div>
+            <div class="template-card-title">🃏 Split Grid &amp; Sinergia</div>
+            <div class="template-card-desc">Tarjetas modulares comparativas con badges, especificaciones clave y banner inferior de conclusión crafter.</div>
+            <div class="template-card-mini-preview">[ Card 1 ] [ Card 2 ] + [ 💡 Banner ]</div>
+          </a>
+
+          <!-- 4. Code Window -->
+          <a class="template-card" href="#6">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(16, 185, 129, 0.12); color: #059669;">Terminal</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#6</span>
+            </div>
+            <div class="template-card-title">💻 Ventana de Código</div>
+            <div class="template-card-desc">Editor estilo macOS con semáforo de ventana, barra de título, resaltado de sintaxis y tipografía monoespaciada.</div>
+            <div class="template-card-mini-preview">[ 🔴🟡🟢 editor.py | código... ]</div>
+          </a>
+
+          <!-- 5. Pipeline SDLC -->
+          <a class="template-card" href="#7">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(245, 158, 11, 0.12); color: #d97706;">Proceso</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#7</span>
+            </div>
+            <div class="template-card-title">🚀 Pipeline de Fases</div>
+            <div class="template-card-desc">Secuencia de 5 pasos horizontales con tarjetas de color, outputs destacados y fila de herramientas transversales.</div>
+            <div class="template-card-mini-preview">[ 1 ] ➔ [ 2 ] ➔ [ 3 ] ➔ [ 4 ] ➔ [ 5 ]</div>
+          </a>
+
+          <!-- 6. Rect Timeline -->
+          <a class="template-card" href="#8">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(2, 132, 199, 0.12); color: #0284c7;">Cronología</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#8</span>
+            </div>
+            <div class="template-card-title">⏳ Timeline Alternante</div>
+            <div class="template-card-desc">Línea de tiempo con barra rectangular continua y tarjetas que alternan entre arriba y abajo con pines conectados.</div>
+            <div class="template-card-mini-preview">[ Card ] --- ⬤ --- [ Card ]</div>
+          </a>
+
+          <!-- 7. TDD Híbrido -->
+          <a class="template-card" href="#43">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(244, 63, 94, 0.12); color: #e11d48;">Arquitectura</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#43</span>
+            </div>
+            <div class="template-card-title">🧪 TDD &amp; Capas DDD</div>
+            <div class="template-card-desc">Desglose de estados rojo/verde por capa hexagonal con panel de gestión de cambios y semáforo de living docs.</div>
+            <div class="template-card-mini-preview">[ 🔴 E2E ➔ 🟢 Domain ➔ 🟢 App ]</div>
+          </a>
+
+          <!-- 8. Editorial Quote -->
+          <a class="template-card" href="#9">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="template-card-badge" style="background: rgba(147, 51, 234, 0.12); color: #9333ea;">Cierre</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">#9</span>
+            </div>
+            <div class="template-card-title">✍️ Cita &amp; Alto Impacto</div>
+            <div class="template-card-desc">Bloque tipográfico editorial centrado en serif itálica con autor y firma para pausas de reflexión o conclusiones.</div>
+            <div class="template-card-mini-preview">“Frase memorable...” — Autor</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 3: PLANTILLA SCBCN A (TEXTO A LA IZQUIERDA + IMAGEN A LA DERECHA)
+         ==================================================================== -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content">
+        <!-- Header Institucional Software Crafters Barcelona -->
+        <div class="scbcn-header-bar">
+          <div class="scbcn-brand-lockup">
+            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Horn -->
+              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Forehead / Face -->
+              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Ear -->
+              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Snout -->
+              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Jaw & Cheek -->
+              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Crest & Mane -->
+              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Neck -->
+              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <div class="scbcn-brand-text">
+              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
+              <div class="scbcn-brand-meta">
+                <span class="scbcn-edition-pill">XIII EDITION</span>
+                <span class="scbcn-hashtag">#SCBCN26</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="scbcn-title">Click to edit theme title style</h2>
+        <div class="scbcn-subtitle">Click to edit theme subtitle style</div>
+
+        <div class="scbcn-split-grid">
+          <div class="scbcn-bullet-tree">
+            <div class="scbcn-level scbcn-level-1">
+              <span class="scbcn-marker">●</span>
+              <span>First level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-2">
+              <span class="scbcn-marker">○</span>
+              <span>Second level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-3">
+              <span class="scbcn-marker">■</span>
+              <span>Third level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-4">
+              <span class="scbcn-marker">●</span>
+              <span>Fourth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-5">
+              <span class="scbcn-marker">○</span>
+              <span>Fifth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-6">
+              <span class="scbcn-marker">■</span>
+              <span>Sixth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-7">
+              <span class="scbcn-marker">●</span>
+              <span>Seventh level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-8">
+              <span class="scbcn-marker">○</span>
+              <span>Eighth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-9">
+              <span class="scbcn-marker">■</span>
+              <span>Ninth level</span>
+            </div>
+          </div>
+          <div class="scbcn-image-frame">
+            <svg class="scbcn-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" ry="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <div class="scbcn-placeholder-label">Marco de Imagen (Placeholder)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 4: PLANTILLA SCBCN B (IMAGEN A LA IZQUIERDA + TEXTO A LA DERECHA)
+         ==================================================================== -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <!-- Header Institucional Software Crafters Barcelona -->
+        <div class="scbcn-header-bar">
+          <div class="scbcn-brand-lockup">
+            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Horn -->
+              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Forehead / Face -->
+              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Ear -->
+              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Snout -->
+              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Jaw & Cheek -->
+              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Crest & Mane -->
+              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Neck -->
+              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <div class="scbcn-brand-text">
+              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
+              <div class="scbcn-brand-meta">
+                <span class="scbcn-edition-pill">XIII EDITION</span>
+                <span class="scbcn-hashtag">#SCBCN26</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="scbcn-title">Click to edit theme title style</h2>
+        <div class="scbcn-subtitle">Click to edit theme subtitle style</div>
+
+        <div class="scbcn-split-grid reverse">
+          <div class="scbcn-image-frame">
+            <svg class="scbcn-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" ry="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <div class="scbcn-placeholder-label">Marco de Imagen (Placeholder)</div>
+          </div>
+          <div class="scbcn-bullet-tree">
+            <div class="scbcn-level scbcn-level-1">
+              <span class="scbcn-marker">●</span>
+              <span>First level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-2">
+              <span class="scbcn-marker">○</span>
+              <span>Second level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-3">
+              <span class="scbcn-marker">■</span>
+              <span>Third level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-4">
+              <span class="scbcn-marker">●</span>
+              <span>Fourth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-5">
+              <span class="scbcn-marker">○</span>
+              <span>Fifth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-6">
+              <span class="scbcn-marker">■</span>
+              <span>Sixth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-7">
+              <span class="scbcn-marker">●</span>
+              <span>Seventh level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-8">
+              <span class="scbcn-marker">○</span>
+              <span>Eighth level</span>
+            </div>
+            <div class="scbcn-level scbcn-level-9">
+              <span class="scbcn-marker">■</span>
+              <span>Ninth level</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 5: PLANTILLA CRAFTER C (SPLIT GRID & TARJETAS COMPARATIVAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <div class="tag">Plantilla Crafter • Comparación Modular</div>
+        <h2>Estructura Split Grid: <span class="serif-italic" style="color: #6366f1;">Métricas &amp; Sinergia</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Estructura de tarjetas dobles con badges de rol, especificaciones en tabla y banner inferior de conclusión.
+        </p>
+
+        <div class="chosen-models-deck">
+          <div class="chosen-models-grid">
+
+            <!-- Card A -->
+            <div class="chosen-card card-brain">
+              <div class="chosen-card-header">
+                <div class="chosen-badge-row">
+                  <span class="chosen-role-badge brain">🧠 Opción / Enfoque A</span>
+                  <span class="chosen-quant-badge green">Badge Estado</span>
+                </div>
+                <div class="chosen-model-title">Componente Principal A</div>
+                <div class="chosen-hf-link">
+                  <span>📌</span>
+                  <code>namespace / identificador-a</code>
+                </div>
+              </div>
+              <div class="chosen-role-desc">
+                <strong>Descripción del Enfoque:</strong> Espacio reservado para argumentar las fortalezas, trade-offs y rol dentro de la arquitectura técnica del sistema.
+              </div>
+              <div class="chosen-spec-table">
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Métrica Clave 1</span>
+                  <span class="spec-value"><strong>Valor 1</strong> <small>(Detalle)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Métrica Clave 2</span>
+                  <span class="spec-value"><strong>Valor 2</strong> <small>(Detalle)</small></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card B -->
+            <div class="chosen-card card-speed">
+              <div class="chosen-card-header">
+                <div class="chosen-badge-row">
+                  <span class="chosen-role-badge speed">⚡ Opción / Enfoque B</span>
+                  <span class="chosen-quant-badge amber">Badge Estado</span>
+                </div>
+                <div class="chosen-model-title">Componente Secundario B</div>
+                <div class="chosen-hf-link">
+                  <span>📌</span>
+                  <code>namespace / identificador-b</code>
+                </div>
+              </div>
+              <div class="chosen-role-desc">
+                <strong>Complementariedad Técnica:</strong> Espacio para contrastar la alternativa rápida, especializada o ligera frente a la opción principal.
+              </div>
+              <div class="chosen-spec-table">
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Métrica Clave 1</span>
+                  <span class="spec-value"><strong>Valor 1</strong> <small>(Detalle)</small></span>
+                </div>
+                <div class="chosen-spec-row">
+                  <span class="spec-label">Métrica Clave 2</span>
+                  <span class="spec-value"><strong>Valor 2</strong> <small>(Detalle)</small></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior de Sinergia -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 1rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 1rem;">
+              <strong>Regla Crafter de Sinergia:</strong> El banner inferior sintetiza la regla de oro o el aprendizaje clave que une ambas opciones en una única solución coherente.
+            </div>
+            <div class="chosen-synergy-badge">Sinergia Crafter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 6: PLANTILLA CRAFTER D (VENTANA DE CÓDIGO & TERMINAL MAC)
+         ==================================================================== -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content">
+        <div class="tag">Plantilla Crafter • Código &amp; Consola</div>
+        <h2>Ventana de Código: <span class="serif-italic" style="color: #10b981;">Sintaxis &amp; Ejecución</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Módulo de consola con controles estilo macOS, título de fichero, sintaxis coloreada y soporte para explicaciones técnicas.
+        </p>
+
+        <div class="code-window">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <div class="code-title">crafter_example_service.py</div>
+            <div></div>
+          </div>
+          <pre class="code-content"><code><span class="comment"># Plantilla de código ejecutable con llamada asíncrona</span>
+<span class="keyword">from</span> domain.models <span class="keyword">import</span> SoftwareArtifact
+<span class="keyword">from</span> infrastructure.client <span class="keyword">import</span> LocalLLMClient
+
+<span class="func">async def</span> <span class="func">execute_clean_pipeline</span>(spec_id: <span class="keyword">str</span>) -> SoftwareArtifact:
+    <span class="string">"""Ejecuta una transformación limpia guiada por contratos de dominio."""</span>
+    client = LocalLLMClient(base_url=<span class="string">"http://localhost:11434"</span>)
+    result = <span class="keyword">await</span> client.generate(
+        model=<span class="string">"qwen2.5-coder:32b"</span>,
+        prompt=f<span class="string">"Refactor according to DDD invariants: {spec_id}"</span>
+    )
+    <span class="keyword">return</span> SoftwareArtifact.from_response(result)</code></pre>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 7: PLANTILLA CRAFTER E (PIPELINE DE FASES & PROCESO)
+         ==================================================================== -->
+    <section class="slide" id="slide-7">
+      <div class="slide-content">
+        <div class="tag">Plantilla Crafter • Proceso Secuencial</div>
+        <h2>Pipeline de Fases: <span class="serif-italic" style="color: #d97706;">Flujo &amp; Transversalidad</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Estructura de 5 pasos correlativos superiores complementados con un bloque inferior de herramientas continuas.
+        </p>
+
+        <div class="sdlc-pipeline-deck">
+          <div class="sdlc-pipeline-steps">
+
+            <div class="sdlc-step-card c-blue">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Paso 1</span>
+                <span class="sdlc-phase-badge blue">Incepción</span>
+              </div>
+              <div class="sdlc-skill-cmd">Fase Inicial</div>
+              <div class="sdlc-step-question">¿Qué queremos?</div>
+              <ul class="sdlc-step-list">
+                <li>Definición de objetivos</li>
+                <li>Mapeo de restricciones</li>
+              </ul>
+              <div class="sdlc-step-output">📄 output-1.md</div>
+            </div>
+
+            <div class="sdlc-step-card c-purple">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Paso 2</span>
+                <span class="sdlc-phase-badge purple">Diseño</span>
+              </div>
+              <div class="sdlc-skill-cmd">Especificación</div>
+              <div class="sdlc-step-question">¿Cómo interactúa?</div>
+              <ul class="sdlc-step-list">
+                <li>Diagramas de secuencia</li>
+                <li>Contratos de API</li>
+              </ul>
+              <div class="sdlc-step-output">📄 output-2.md</div>
+            </div>
+
+            <div class="sdlc-step-card c-green">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Paso 3</span>
+                <span class="sdlc-phase-badge green">Dominio</span>
+              </div>
+              <div class="sdlc-skill-cmd">Modelado</div>
+              <div class="sdlc-step-question">¿Cuáles son las reglas?</div>
+              <ul class="sdlc-step-list">
+                <li>Invariantes de negocio</li>
+                <li>Máquina de estados</li>
+              </ul>
+              <div class="sdlc-step-output">📄 output-3.md</div>
+            </div>
+
+            <div class="sdlc-step-card c-amber">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Paso 4</span>
+                <span class="sdlc-phase-badge amber">Construcción</span>
+              </div>
+              <div class="sdlc-skill-cmd">Implementación</div>
+              <div class="sdlc-step-question">¿Cómo se valida?</div>
+              <ul class="sdlc-step-list">
+                <li>Ciclos TDD en capas</li>
+                <li>Tests que pasan a verde</li>
+              </ul>
+              <div class="sdlc-step-output">💻 Código + Tests</div>
+            </div>
+
+            <div class="sdlc-step-card c-rose">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Paso 5</span>
+                <span class="sdlc-phase-badge rose">Evolución</span>
+              </div>
+              <div class="sdlc-skill-cmd">Mantenimiento</div>
+              <div class="sdlc-step-question">¿Cómo se audita?</div>
+              <ul class="sdlc-step-list">
+                <li>Propuesta de cambio</li>
+                <li>Living docs al día</li>
+              </ul>
+              <div class="sdlc-step-output">📝 docs-updated.md</div>
+            </div>
+
+          </div>
+
+          <!-- Fila Inferior Transversal -->
+          <div class="sdlc-transversal-row">
+            <div class="sdlc-transversal-card">
+              <div class="sdlc-transversal-header">
+                <div class="sdlc-transversal-title">
+                  <span>🧭</span>
+                  <code>/explore</code>
+                  <span>Comprensión del Sistema</span>
+                </div>
+                <span class="yarn-badge purple">Transversal</span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">
+                Capacidad de consultar el estado del proyecto en cualquier momento sin modificar ficheros.
+              </div>
+            </div>
+
+            <div class="sdlc-transversal-card">
+              <div class="sdlc-transversal-header">
+                <div class="sdlc-transversal-title">
+                  <span>🛡️</span>
+                  <code>/audit</code>
+                  <span>Salud &amp; Deriva</span>
+                </div>
+                <span class="yarn-badge green">Calidad Continua</span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">
+                Verificación sistemática de que la documentación viva coincide con la realidad del código fuente.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 8: PLANTILLA CRAFTER F (LÍNEA TEMPORAL ALTERNANTE / TIMELINE)
+         ==================================================================== -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <div class="tag">Plantilla Crafter • Línea de Tiempo</div>
+        <h2>Línea de Tiempo Rectangular: <span class="serif-italic" style="color: #0284c7;">Hitos Alternantes</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Estructura de eventos cronológicos con barra continua y tarjetas conectadas por pines arriba y abajo.
+        </p>
+
+        <div class="rect-timeline-deck">
+          <div class="rect-timeline-wrapper">
+            <div class="rect-timeline-bar-bg">
+              <div class="rect-bar-cap left"></div>
+              <div class="rect-bar-segments cols-5">
+                <div class="rect-bar-segment c1"></div>
+                <div class="rect-bar-segment c2"></div>
+                <div class="rect-bar-segment c6"></div>
+                <div class="rect-bar-segment c5"></div>
+                <div class="rect-bar-segment c4"></div>
+              </div>
+              <div class="rect-bar-cap right"></div>
+            </div>
+
+            <div class="rect-timeline-grid cols-5">
+
+              <!-- Columna 1 (Card Arriba) -->
+              <div class="rect-col c-blue">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Hito 1: Lanzamiento</div>
+                      <span class="rect-card-tag">Mes 1</span>
+                    </div>
+                    <div class="rect-card-desc">Descripción sintética del primer evento relevante en el timeline.</div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Impacto</span>
+                      <strong style="color: #0284c7;">Alto</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">FASE INICIAL</div>
+                    <div class="rect-date-label">Punto de partida</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Columna 2 (Card Abajo) -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">FASE INTERMEDIA</div>
+                    <div class="rect-date-label">Evolución</div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem top"></div>
+                  <div class="rect-pin-node-dot top"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Hito 2: Punto de Inflexión</div>
+                      <span class="rect-card-tag">Mes 3</span>
+                    </div>
+                    <div class="rect-card-desc">Cambio de paradigma, optimización clave o publicación de resultados.</div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Resultado</span>
+                      <strong style="color: #d97706;">+50% Rendimiento</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Columna 3 (Card Arriba) -->
+              <div class="rect-col c-green">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Hito 3: Madurez</div>
+                      <span class="rect-card-tag">Mes 6</span>
+                    </div>
+                    <div class="rect-card-desc">Consolidación de la solución y despliegue generalizado en el equipo.</div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Estado</span>
+                      <strong style="color: #059669;">Producción</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">MADUREZ</div>
+                    <div class="rect-date-label">Estabilidad</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 9: PLANTILLA CRAFTER G (CITA EDITORIAL & REFLEXIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <div class="quote-box">
+          <div class="quote-text">
+            “La verdadera maestría artesanal consiste en dominar y controlar las herramientas que moldean nuestro código.”
+          </div>
+          <div class="quote-author">
+            — Artesanía de Software en la Era de la Inteligencia Artificial
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SLIDE 10: PROGRESS COMPARISON - EL FIN DEL BUFÉ LIBRE (ALTO IMPACTO)
+         ==================================================================== -->
+    <section class="slide" id="slide-10">
       <div class="slide-content">
         <div class="buffet-grid">
 
@@ -8277,9 +9251,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 3: PRENSA Y COBERTURA MEDIÁTICA
+         SLIDE 11: PRENSA Y COBERTURA MEDIÁTICA
          ==================================================================== -->
-    <section class="slide" id="slide-3">
+    <section class="slide" id="slide-11">
       <div class="slide-content">
         <div class="tag">Prensa y Análisis</div>
         <h2>El choque de precios en los medios</h2>
@@ -8360,9 +9334,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 4: ESPECIAL GITHUB COPILOT (FORMATO PRENSA Y NOTICIAS)
+         SLIDE 12: ESPECIAL GITHUB COPILOT (FORMATO PRENSA Y NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-4">
+    <section class="slide" id="slide-12">
       <div class="slide-content">
         <div class="tag">Caso de Estudio • Rebelión Dev</div>
         <h2>Especial GitHub Copilot: <span class="serif-italic">La crisis de los Refunds</span></h2>
@@ -8443,9 +9417,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 5: MODELOS CLOUD POR API — OCCIDENTALES VS. ASIÁTICOS
+         SLIDE 13: MODELOS CLOUD POR API — OCCIDENTALES VS. ASIÁTICOS
          ==================================================================== -->
-    <section class="slide" id="slide-5">
+    <section class="slide" id="slide-13">
       <div class="slide-content">
         <div class="tag">Inferencia por API</div>
         <h2>Modelos Cloud: Occidentales vs. Asiáticos</h2>
@@ -8522,9 +9496,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 6: TU PROPIA INFRAESTRUCTURA — ALQUILAR GPUS VS. HARDWARE LOCAL
+         SLIDE 14: TU PROPIA INFRAESTRUCTURA — ALQUILAR GPUS VS. HARDWARE LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-6">
+    <section class="slide" id="slide-14">
       <div class="slide-content">
         <div class="tag">Infraestructura Dedicada</div>
         <h2>Tu Infraestructura: GPUs Cloud vs. Local</h2>
@@ -8601,9 +9575,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 7: EVALUACIÓN RADAR DE LOS 4 CAMINOS
+         SLIDE 15: EVALUACIÓN RADAR DE LOS 4 CAMINOS
          ==================================================================== -->
-    <section class="slide" id="slide-7">
+    <section class="slide" id="slide-15">
       <div class="slide-content">
         <div class="tag">Análisis Pentagonal</div>
         <h2>Evaluación Radar de las 4 Alternativas</h2>
@@ -8707,9 +9681,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 8: ECONOMÍA DE LOS TOKENS / COSTES DE INFERENCIA
+         SLIDE 16: ECONOMÍA DE LOS TOKENS / COSTES DE INFERENCIA
          ==================================================================== -->
-    <section class="slide" id="slide-8">
+    <section class="slide" id="slide-16">
       <div class="slide-content">
         <div class="tag">Economía de Inferencia</div>
         <h2>Costes de Inferencia por 1M de Tokens</h2>
@@ -8775,9 +9749,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 9: ALQUILER DE GPUS A TERCEROS (H200)
+         SLIDE 17: ALQUILER DE GPUS A TERCEROS (H200)
          ==================================================================== -->
-    <section class="slide" id="slide-9">
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">La Vía Intermedia</div>
         <h2>Alquilar GPUs a terceros para Open Weights</h2>
@@ -8831,9 +9805,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 10: EL TRILEMA DE LA IA LOCAL (DIAGRAMA TRIANGULAR MINIMALISTA)
+         SLIDE 18: EL TRILEMA DE LA IA LOCAL (DIAGRAMA TRIANGULAR MINIMALISTA)
          ==================================================================== -->
-    <section class="slide" id="slide-10">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Marco Mental • Las 3 Variables Clave</div>
         <h2>El Trilema de la IA Local: <span class="serif-italic" style="color: #0284c7;">Memoria, Calidad y
@@ -8923,9 +9897,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 11: ANATOMÍA DE LA MEMORIA: PESOS VS. KV CACHE
+         SLIDE 19: ANATOMÍA DE LA MEMORIA: PESOS VS. KV CACHE
          ==================================================================== -->
-    <section class="slide" id="slide-11">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Anatomía de la Memoria • VRAM &amp; Hardware</div>
         <h2>¿En qué se gasta la Memoria? <span class="serif-italic">Pesos vs. KV Cache</span></h2>
@@ -9074,9 +10048,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 12: MODELOS DENSOS: LA JUNTA MÉDICA COMPLETA
+         SLIDE 20: MODELOS DENSOS: LA JUNTA MÉDICA COMPLETA
          ==================================================================== -->
-    <section class="slide" id="slide-12">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos (100% Activo)</div>
         <h2>Modelos Densos: <span class="serif-italic" style="color: #d97706;">La Junta Médica Completa</span></h2>
@@ -9137,9 +10111,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 13: MODELOS MOE: EL SERVICIO DE TRIAJE INTELIGENTE
+         SLIDE 21: MODELOS MOE: EL SERVICIO DE TRIAJE INTELIGENTE
          ==================================================================== -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Mixture of Experts (MoE)</div>
         <h2>Modelos MoE: <span class="serif-italic" style="color: #0284c7;">El Servicio de Triaje Inteligente</span>
@@ -9201,9 +10175,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 22: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
          ==================================================================== -->
-    <section class="slide" id="slide-14">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #16a34a;">La Zona Ricitos de Oro</span></h2>
@@ -9362,9 +10336,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 15: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
+         SLIDE 23: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
@@ -9536,9 +10510,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
+         SLIDE 24: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
         <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
@@ -9662,9 +10636,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
+         SLIDE 25: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
@@ -9777,9 +10751,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
+         SLIDE 26: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
@@ -9875,9 +10849,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: LA DECISIÓN: LAS "CALCULASIONES"
+         SLIDE 27: LA DECISIÓN: LAS "CALCULASIONES"
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
@@ -9898,9 +10872,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
+         SLIDE 28: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
         <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
@@ -9962,9 +10936,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
+         SLIDE 29: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -10049,9 +11023,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
+         SLIDE 30: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -10072,9 +11046,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 31: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -10196,9 +11170,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
+         SLIDE 32: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -10424,9 +11398,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
+         SLIDE 33: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
@@ -10576,9 +11550,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
+         SLIDE 34: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
         <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
@@ -10756,9 +11730,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
+         SLIDE 35: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-35">
       <div class="slide-content">
         <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
         <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #10b981;">¿Dónde vive la
@@ -10867,9 +11841,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
+         SLIDE 36: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-36">
       <div class="slide-content">
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
         <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #10b981;">Contexto Masivo en
@@ -11044,9 +12018,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: ANATOMÍA DE ROPE: ¿QUÉ SON LAS FRECUENCIAS EN ATENCIÓN?
+         SLIDE 37: ANATOMÍA DE ROPE: ¿QUÉ SON LAS FRECUENCIAS EN ATENCIÓN?
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-37">
       <div class="slide-content">
         <div class="tag">Intuición Visual • ¿Cómo entiende el orden un LLM?</div>
         <h2>El Reloj de la Memoria: <span class="serif-italic" style="color: #6366f1;">¿Por qué hablamos de
@@ -11166,9 +12140,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: EL SELLO DE TIEMPO EN ROPE (EL DNI DE LA PALABRA)
+         SLIDE 38: EL SELLO DE TIEMPO EN ROPE (EL DNI DE LA PALABRA)
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-38">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • El DNI de la Palabra</div>
         <h2>El Sello de Tiempo en RoPE: <span class="serif-italic" style="color: #6366f1;">No son capas, es un
@@ -11313,9 +12287,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
+         SLIDE 39: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-39">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
         <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #10b981;">Juntas, Próximas y Alejadas</span></h2>
@@ -11453,9 +12427,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
+         SLIDE 40: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-40">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
         <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
@@ -11590,9 +12564,9 @@ body.theme-dark .sdlc-wf-num {
 
 
     <!-- ====================================================================
-         SLIDE 33: EL CICLO DE DESARROLLO CON IA (PIPELINE SDLC COMPLETO)
+         SLIDE 41: EL CICLO DE DESARROLLO CON IA (PIPELINE SDLC COMPLETO)
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-41">
       <div class="slide-content">
         <div class="tag">Artesanía de Software • Del Descubrimiento a la Producción</div>
         <h2>El Ciclo de Desarrollo con IA: <span class="serif-italic" style="color: #6366f1;">Estructura, Disciplina y Contexto</span></h2>
@@ -11767,9 +12741,9 @@ body.theme-dark .sdlc-wf-num {
 
 
     <!-- ====================================================================
-         SLIDE 34: DE LA IDEA AL DOMINIO (FASES 1 A 3: DESCUBRIMIENTO Y MODELADO)
+         SLIDE 42: DE LA IDEA AL DOMINIO (FASES 1 A 3: DESCUBRIMIENTO Y MODELADO)
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-42">
       <div class="slide-content">
         <div class="tag">Fases 1 a 3 • Descubrimiento y Modelado DDD</div>
         <h2>De la Idea al Dominio: <span class="serif-italic" style="color: #059669;">Diseñar antes de tirar una sola línea</span></h2>
@@ -11883,9 +12857,9 @@ body.theme-dark .sdlc-wf-num {
 
 
     <!-- ====================================================================
-         SLIDE 35: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+         SLIDE 43: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
          ==================================================================== -->
-    <section class="slide" id="slide-35">
+    <section class="slide" id="slide-43">
       <div class="slide-content">
         <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
         <h2>Implementación y Evolución: <span class="serif-italic" style="color: #d97706;">TDD Híbrido y Living Docs sin Drift</span></h2>
@@ -12028,9 +13002,9 @@ body.theme-dark .sdlc-wf-num {
 
 
     <!-- ====================================================================
-         SLIDE 36: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 44: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-36">
+    <section class="slide" id="slide-44">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -12235,9 +13209,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 37: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 45: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-37">
+    <section class="slide" id="slide-45">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -12323,9 +13297,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 38: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 46: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-38">
+    <section class="slide" id="slide-46">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -12562,9 +13536,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 39: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 47: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-39">
+    <section class="slide" id="slide-47">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -12679,9 +13653,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 40: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 48: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-40">
+    <section class="slide" id="slide-48">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -12801,9 +13775,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 41: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 49: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-41">
+    <section class="slide" id="slide-49">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -12940,9 +13914,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 42: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 50: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-42">
+    <section class="slide" id="slide-50">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -12977,9 +13951,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 43: CITA EDITORIAL
+         SLIDE 51: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-43">
+    <section class="slide" id="slide-51">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -12994,9 +13968,9 @@ body.theme-dark .sdlc-wf-num {
     </section>
 
     <!-- ====================================================================
-         SLIDE 44: CIERRE & Q&A
+         SLIDE 52: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-44">
+    <section class="slide" id="slide-52">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -13027,7 +14001,7 @@ body.theme-dark .sdlc-wf-num {
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">41</span>
+        <span id="slide-current">1</span> / <span id="slide-total">52</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
