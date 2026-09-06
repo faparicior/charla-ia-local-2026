@@ -8310,6 +8310,437 @@ body.theme-dark .template-card-mini-preview {
   background: rgba(255, 255, 255, 0.03);
 }
 
+/* ==========================================================================
+   ARTEFACTOS VISUALES: 8 PASOS DE LEAN INCEPTION (FASE 1 SDLC)
+   ========================================================================== */
+
+.inception-artifact-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+body.theme-dark .inception-artifact-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+}
+
+.inception-artifact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.6rem;
+}
+
+.inception-artifact-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inception-file-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+body.theme-dark .inception-file-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+}
+
+/* Paso 1: Matriz de 4 Fronteras */
+.inception-boundary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.inception-boundary-box {
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.inception-boundary-box.is { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); }
+.inception-boundary-box.is-not { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); }
+.inception-boundary-box.does { background: rgba(2, 132, 199, 0.08); border-color: rgba(2, 132, 199, 0.3); }
+.inception-boundary-box.does-not { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3); }
+
+.inception-box-title {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.inception-boundary-box.is .inception-box-title { color: #059669; }
+.inception-boundary-box.is-not .inception-box-title { color: #dc2626; }
+.inception-boundary-box.does .inception-box-title { color: #0284c7; }
+.inception-boundary-box.does-not .inception-box-title { color: #d97706; }
+
+body.theme-dark .inception-boundary-box.is .inception-box-title { color: #34d399; }
+body.theme-dark .inception-boundary-box.is-not .inception-box-title { color: #f87171; }
+body.theme-dark .inception-boundary-box.does .inception-box-title { color: #38bdf8; }
+body.theme-dark .inception-boundary-box.does-not .inception-box-title { color: #fbbf24; }
+
+.inception-box-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.inception-box-list li {
+  position: relative;
+  padding-left: 0.85rem;
+  line-height: 1.35;
+}
+
+.inception-box-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Paso 2: Tabla de Tradeoffs */
+.inception-tradeoff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.inception-tradeoff-table th,
+.inception-tradeoff-table td {
+  padding: 0.45rem 0.55rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.inception-tradeoff-table th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.theme-dark .inception-tradeoff-table th {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.inception-tradeoff-table td:first-child {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.tradeoff-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+body.theme-dark .tradeoff-check {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+}
+
+/* Paso 3: Tarjeta de Persona */
+.inception-persona-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.inception-persona-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.inception-persona-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.inception-persona-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.inception-persona-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.inception-persona-role {
+  font-size: 0.82rem;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+body.theme-dark .inception-persona-role {
+  color: #818cf8;
+}
+
+.inception-persona-quote {
+  font-style: italic;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid #6366f1;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.4;
+}
+
+body.theme-dark .inception-persona-quote {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Paso 4: Mapa de Empatía */
+.inception-empathy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.inception-empathy-box {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.78rem;
+}
+
+body.theme-dark .inception-empathy-box {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.inception-empathy-title {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #6366f1;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+body.theme-dark .inception-empathy-title {
+  color: #818cf8;
+}
+
+/* Paso 5: Brainstorming de Features */
+.inception-brainstorm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.inception-postit {
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.inception-postit.yellow { background: #fef9c3; border: 1px solid #fef08a; color: #713f12; }
+.inception-postit.blue { background: #e0f2fe; border: 1px solid #bae6fd; color: #075985; }
+.inception-postit.purple { background: #f3e8ff; border: 1px solid #e9d5ff; color: #581c87; }
+
+body.theme-dark .inception-postit.yellow { background: rgba(250, 204, 21, 0.15); border-color: rgba(250, 204, 21, 0.3); color: #fde047; }
+body.theme-dark .inception-postit.blue { background: rgba(14, 165, 233, 0.15); border-color: rgba(14, 165, 233, 0.3); color: #7dd3fc; }
+body.theme-dark .inception-postit.purple { background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.3); color: #d8b4fe; }
+
+.postit-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Paso 6: User Journey Trail */
+.inception-journey-trail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.journey-step-node {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.8rem;
+}
+
+body.theme-dark .journey-step-node {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.journey-step-num {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+body.theme-dark .journey-step-num {
+  color: #34d399;
+}
+
+.journey-step-desc {
+  flex-grow: 1;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.journey-step-emotion {
+  font-size: 1.1rem;
+}
+
+/* Paso 7: Olas de Entrega */
+.inception-waves-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.inception-wave-card {
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.inception-wave-card.wave-1 { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); }
+.inception-wave-card.wave-2 { background: rgba(2, 132, 199, 0.08); border-color: rgba(2, 132, 199, 0.3); }
+.inception-wave-card.wave-3 { background: rgba(148, 163, 184, 0.08); border-color: rgba(148, 163, 184, 0.3); }
+
+.wave-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wave-title {
+  font-weight: 800;
+  font-size: 0.84rem;
+}
+
+.inception-wave-card.wave-1 .wave-title { color: #059669; }
+.inception-wave-card.wave-2 .wave-title { color: #0284c7; }
+.inception-wave-card.wave-3 .wave-title { color: #64748b; }
+
+body.theme-dark .inception-wave-card.wave-1 .wave-title { color: #34d399; }
+body.theme-dark .inception-wave-card.wave-2 .wave-title { color: #38bdf8; }
+body.theme-dark .inception-wave-card.wave-3 .wave-title { color: #94a3b8; }
+
+/* Paso 8: MVP Canvas */
+.inception-canvas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+}
+
+.inception-canvas-block {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.74rem;
+}
+
+body.theme-dark .inception-canvas-block {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.canvas-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #0284c7;
+  text-transform: uppercase;
+}
+
+body.theme-dark .canvas-block-label {
+  color: #38bdf8;
+}
+
+.canvas-stamp {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px dashed #10b981;
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #059669;
+}
+
+body.theme-dark .canvas-stamp {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
 @media print {
 
   html,
