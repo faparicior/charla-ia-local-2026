@@ -9247,6 +9247,297 @@ body.theme-dark .lean-ai-danger {
 }
 
 /* ==========================================================================
+   PLANTILLAS REALES DE LA SKILL (PREVIEW & LIGHTBOX ZOOM)
+   ========================================================================== */
+.template-preview-wrapper {
+  background: #161b22;
+  border: 2px solid #30363d;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.template-preview-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.template-preview-header {
+  background: #0d1117;
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #30363d;
+}
+
+.template-preview-title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #58a6ff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.template-preview-img-box {
+  width: 100%;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #0d1117;
+  cursor: zoom-in;
+  position: relative;
+}
+
+.template-preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.template-preview-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid #30363d;
+  color: #8b949e;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CONSOLA / EDITOR MARKDOWN INTERACTIVO Y SCROLLEABLE
+   ========================================================================== */
+.template-console-card {
+  background: #0d1117;
+  border: 2px solid #30363d;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.template-console-header {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 0.65rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.template-console-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.template-console-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.template-console-dots .dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.template-console-dots .dot.red { background: #ff5f56; }
+.template-console-dots .dot.yellow { background: #ffbd2e; }
+.template-console-dots .dot.green { background: #27c93f; }
+
+.template-console-file {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #58a6ff;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.template-console-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.2rem 1.4rem;
+  color: #e6edf3;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar elegante para la consola */
+.template-console-body::-webkit-scrollbar {
+  width: 8px;
+}
+.template-console-body::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+.template-console-body::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+.template-console-body::-webkit-scrollbar-thumb:hover {
+  background: #58a6ff;
+}
+
+/* Markdown Elements dentro de la consola */
+.template-console-body h1 {
+  font-size: 1.18rem;
+  color: #58a6ff;
+  border-bottom: 1px solid #21262d;
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.8rem 0;
+}
+
+.template-console-body h2 {
+  font-size: 1.05rem;
+  color: #79c0ff;
+  border-bottom: 1px solid #21262d;
+  padding-bottom: 0.3rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.template-console-body h3 {
+  font-size: 0.95rem;
+  color: #d2a8ff;
+  margin: 0.8rem 0 0.4rem 0;
+}
+
+.template-console-body p {
+  margin: 0 0 0.75rem 0;
+  color: #c9d1d9;
+}
+
+.template-console-body em {
+  color: #8b949e;
+}
+
+.template-console-body blockquote {
+  border-left: 3px solid #388bfd;
+  padding: 0.5rem 0.9rem;
+  color: #a5d6ff;
+  background: rgba(56, 139, 253, 0.08);
+  border-radius: 0 6px 6px 0;
+  margin: 0.7rem 0;
+}
+
+.template-console-body ul, 
+.template-console-body ol {
+  margin: 0 0 0.8rem 1.4rem;
+  padding: 0;
+}
+
+.template-console-body li {
+  margin-bottom: 0.35rem;
+  color: #c9d1d9;
+}
+
+.template-console-body strong,
+.template-console-body b {
+  color: #f0f6fc;
+  font-weight: 700;
+}
+
+.template-console-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0 1rem 0;
+  font-size: 0.86rem;
+}
+
+.template-console-body th {
+  background: #161b22;
+  color: #58a6ff;
+  border: 1px solid #30363d;
+  padding: 0.55rem 0.7rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.template-console-body td {
+  border: 1px solid #21262d;
+  padding: 0.5rem 0.7rem;
+  background: rgba(13, 17, 23, 0.4);
+  color: #c9d1d9;
+}
+
+.template-console-body tr:nth-child(even) td {
+  background: rgba(22, 27, 34, 0.6);
+}
+
+.template-console-body code {
+  font-family: var(--font-mono);
+  background: rgba(110, 118, 129, 0.2);
+  color: #ff7b72;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+.template-console-body hr {
+  border: 0;
+  border-top: 1px solid #21262d;
+  margin: 1rem 0;
+}
+
+.template-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #8b949e;
+  font-family: var(--font-mono);
+}
+
+/* Lightbox Modal para Plantilla a Toda Pantalla */
+#template-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+#template-lightbox.active {
+  display: flex;
+}
+
+#template-lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  border: 1px solid #30363d;
+  object-fit: contain;
+}
+
+/* ==========================================================================
    OPCIÓN D: LISTA VERTICAL COMPARATIVA (HUMANOS VS IA) - PROYECTOR EDITION
    ========================================================================== */
 .inception-dual-deck {
@@ -14453,41 +14744,84 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-blue">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🗺️</span> 1-boundaries.md</div>
-                <span class="yarn-badge green">Fronteras Claras</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">1-product-vision-and-boundaries.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-boundary-grid">
-                <div class="inception-boundary-box is">
-                  <span class="inception-box-title">✅ ES</span>
-                  <ul class="inception-box-list">
-                    <li>Motor de inferencia local autónomo</li>
-                    <li>Copiloto guiado por TDD estricto</li>
-                  </ul>
-                </div>
-                <div class="inception-boundary-box is-not">
-                  <span class="inception-box-title">❌ NO ES</span>
-                  <ul class="inception-box-list">
-                    <li>Generador ciego de código spaghetti</li>
-                    <li>Servicio SaaS en nube ajena</li>
-                  </ul>
-                </div>
-                <div class="inception-boundary-box does">
-                  <span class="inception-box-title">⚡ HACE</span>
-                  <ul class="inception-box-list">
-                    <li>Ejecuta modelos en tu GPU/Mac</li>
-                    <li>Valida capas contra tests reales</li>
-                  </ul>
-                </div>
-                <div class="inception-boundary-box does-not">
-                  <span class="inception-box-title">🚫 NO HACE</span>
-                  <ul class="inception-box-list">
-                    <li>Enviar telemetría a internet</li>
-                    <li>Modificar código sin propuesta</li>
-                  </ul>
-                </div>
+              <div class="template-console-body">
+                <h1># 1. Product Vision &amp; Boundaries</h1>
+                <p><em>Plantilla oficial de la skill /inception-workshop</em></p>
+
+                <h2>## 1.1 The Elevator Pitch</h2>
+                <p><em>The ultimate direction and differentiation.</em></p>
+                <table>
+                  <thead>
+                    <tr><th>For</th><th>Who</th><th>The Product</th><th>Is a</th><th>That</th><th>Unlike</th><th>Our Product</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Elena Torres</td>
+                      <td>necesita IA privada y determinista</td>
+                      <td><strong>AI Local Crafter</strong></td>
+                      <td>asistente local en IDE</td>
+                      <td>respeta TDD, DDD y privacidad total</td>
+                      <td>Copilot en la nube</td>
+                      <td>ejecuta 100% en GPU/Mac local con 0 fugas</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 1.2 Product Goals</h2>
+                <ol>
+                  <li><strong>Goal 1:</strong> Inferencia local autónoma con latencia &lt; 20s por flujo.</li>
+                  <li><strong>Goal 2:</strong> 100% determinismo arquitectónico (Zero drift en Living Docs).</li>
+                  <li><strong>Goal 3:</strong> Cumplimiento estricto de gobernanza sin telemetría externa.</li>
+                </ol>
+
+                <hr>
+
+                <h2>## 1.3 The Product Is/Is Not, Does/Does Not</h2>
+                <blockquote>
+                  <strong>Constraint de la Skill:</strong> Al menos 4 ítems obligatorios en cada cuadrante. Define límites innegociables para que el LLM no invente alcance.
+                </blockquote>
+
+                <table>
+                  <thead>
+                    <tr><th style="color:#3fb950;">The Product IS (✅)</th><th style="color:#f85149;">The Product IS NOT (❌)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Motor de inferencia local autónomo</td><td>Generador ciego de código spaghetti</td></tr>
+                    <tr><td>Copiloto guiado por TDD estricto</td><td>Servicio SaaS alojado en nube ajena</td></tr>
+                    <tr><td>Generador de Living Documentation viva</td><td>Reemplazo del criterio del artesano</td></tr>
+                    <tr><td>Suite de arquitectura hexagonal &amp; DDD</td><td>Chatbot conversacional generalista</td></tr>
+                  </tbody>
+                </table>
+
+                <table>
+                  <thead>
+                    <tr><th style="color:#388bfd;">The Product DOES (⚡)</th><th style="color:#d29922;">The Product DOES NOT (🚫)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Ejecuta modelos en tu GPU/Mac sin internet</td><td>Enviar telemetría o código a terceros</td></tr>
+                    <tr><td>Valida contratos contra tests Given/When/Then</td><td>Modificar código de producción sin propuesta</td></tr>
+                    <tr><td>Audita drift de arquitectura en cada commit</td><td>Ignorar tests fallidos para forzar el paso</td></tr>
+                    <tr><td>Sincroniza diagramas de secuencia Mermaid</td><td>Crear dependencias cloud no solicitadas</td></tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -14529,49 +14863,68 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-purple">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>⚖️</span> 2-tradeoffs.md</div>
-                <span class="yarn-badge purple">Ranking 1..6</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">2-tradeoffs.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <table class="inception-tradeoff-table">
-                <thead>
-                  <tr>
-                    <th>Dimensión</th>
-                    <th>P1 (Máx)</th>
-                    <th>P2</th>
-                    <th>P3</th>
-                    <th>P6 (Mín)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>🔒 Privacidad Local</td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                    <td></td><td></td><td></td>
-                  </tr>
-                  <tr>
-                    <td>⚡ Latencia GPU</td>
-                    <td></td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                    <td></td><td></td>
-                  </tr>
-                  <tr>
-                    <td>🛡️ Calidad TDD</td>
-                    <td></td><td></td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>📦 Volumen Features</td>
-                    <td></td><td></td><td></td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="sdlc-code-callout" style="font-size: 0.8rem;">
-                👉 <strong>Consenso:</strong> Privacidad y Latencia antes que Volumen de Features.
+              <div class="template-console-body">
+                <h1># ⚖️ Trade-off Board (Project Constraints)</h1>
+                <p><em>Construir un entendimiento común sobre la solución de compromiso antes de escribir código.</em></p>
+
+                <h2>## 1. Individual Perspectives</h2>
+                <p><em>Must-haves iniciales de cada stakeholder antes del consenso:</em></p>
+                <table>
+                  <thead>
+                    <tr><th>Role</th><th>Initial Priority #1</th><th>Reasoning</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Product Owner</strong></td><td>Time to Market</td><td>Necesitamos validar tracción cuanto antes</td></tr>
+                    <tr><td><strong>Tech Lead</strong></td><td>Privacidad Local &amp; TDD</td><td>Prohibido fugar código bancario o perder calidad</td></tr>
+                    <tr><td><strong>UX Advocate</strong></td><td>Latencia en Respuesta</td><td>Esperar 40s rompe el flujo mental del dev</td></tr>
+                    <tr><td><strong>Agile Coach</strong></td><td>Sostenibilidad de Entrega</td><td>Cero tolerancia a deuda técnica acumulada</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 2. Final Consensus Trade-off Board</h2>
+                <blockquote>
+                  <strong>The Golden Rule:</strong> Cada columna solo puede contener <strong>una sola cruz de consenso</strong>. Sin empates.
+                </blockquote>
+
+                <table>
+                  <thead>
+                    <tr><th>Dimensión</th><th>1 (Máx)</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6 (Mín)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>🔒 <strong>Privacidad Local</strong></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>⚡ <strong>Latencia GPU</strong></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>🛡️ <strong>Calidad TDD / DDD</strong></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td><td></td></tr>
+                    <tr><td>🔌 <strong>Flexibilidad Plugins</strong></td><td></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td></tr>
+                    <tr><td>👥 <strong>Simplicidad de Adopción</strong></td><td></td><td></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td></tr>
+                    <tr><td>📦 <strong>Volumen de Features</strong></td><td></td><td></td><td></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 3. Consensus Reasoning</h2>
+                <ul>
+                  <li><strong>¿Por qué Privacidad Local es #1?:</strong> En entornos corporativos regulados, una sola fuga de datos cierra el proyecto definitivamente.</li>
+                  <li><strong>¿Por qué Volumen de Features es #6 (sacrificado)?:</strong> Es infinitamente mejor un único flujo TDD impecable que veinte endpoints defectuosos.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -14613,31 +14966,60 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-green">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>👤</span> 3-personas/elena.md</div>
-                <span class="yarn-badge green">Tech Lead</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">3-personas.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-persona-box">
-                <div class="inception-persona-header">
-                  <div class="inception-persona-avatar">ET</div>
-                  <div class="inception-persona-meta">
-                    <div class="inception-persona-name">Elena Torres (36a)</div>
-                    <div class="inception-persona-role">Tech Lead en FinTech • Stack Hexagonal</div>
-                  </div>
-                </div>
-                <div class="inception-persona-quote">
-                  "No tolero tener que refactorizar 500 líneas de código generado sin tests ni mandar datos contables a terceros."
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: 0.82rem;">
-                  <div style="background: rgba(16, 185, 129, 0.08); padding: 0.6rem; border-radius: 6px;">
-                    <strong style="color: #059669;">🎯 Meta:</strong> Inferencia local + TDD
-                  </div>
-                  <div style="background: rgba(239, 68, 68, 0.08); padding: 0.6rem; border-radius: 6px;">
-                    <strong style="color: #dc2626;">💥 Dolor:</strong> Alucinaciones en DDD
-                  </div>
-                </div>
+              <div class="template-console-body">
+                <h1># Step 3: Personas</h1>
+                <p><em>Definir el artesano concreto para el que construimos el MVP.</em></p>
+
+                <h2>## Primary Persona: Elena Torres (Tech Lead)</h2>
+                <table>
+                  <thead>
+                    <tr><th>Attribute</th><th>Details</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Age &amp; Demographics</strong></td><td>36 años, Madrid, Senior Engineering Lead</td></tr>
+                    <tr><td><strong>Role / Job Title</strong></td><td>Tech Lead en FinTech • Core Banking Hexagonal</td></tr>
+                    <tr><td><strong>Experience Level</strong></td><td>14 años en arquitectura Java / Go / Rust, TDD estricto</td></tr>
+                    <tr><td><strong>Work Environment</strong></td><td>MacBook Pro M3 Max (64GB) / Linux RTX 4090, red aislada</td></tr>
+                    <tr><td><strong>Tech Savviness</strong></td><td>[x] Advanced (power user, automatización por CLI)</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h3>### Goals &amp; Motivations</h3>
+                <ul>
+                  <li><strong>Primary Goal:</strong> Acelerar el scaffolding de tests y casos de uso sin delegar el diseño en una caja negra.</li>
+                  <li><strong>Secondary Goal:</strong> Blindar la arquitectura contra deuda técnica y alucinaciones de frameworks.</li>
+                  <li><strong>What motivates her:</strong> Artesanía de software, código limpio y autonomía sin vendor lock-in.</li>
+                </ul>
+
+                <h3>### Pain Points &amp; Frustrations</h3>
+                <ul>
+                  <li>❌ <strong>Pain 1:</strong> Copilots cloud que sugieren código desactualizado, sin tipos o saltándose las capas hexagonales.</li>
+                  <li>❌ <strong>Pain 2:</strong> Prohibición estricta de compliance para subir código propietario a APIs externas.</li>
+                  <li>❌ <strong>Pain 3:</strong> Pérdida de tiempo limpiando código generado sin tests unitarios.</li>
+                </ul>
+
+                <h3>### Memorable Quote</h3>
+                <blockquote>
+                  "No tolero tener que refactorizar 500 líneas de código generado sin tests ni mandar datos contables a servidores ajenos."
+                </blockquote>
               </div>
             </div>
           </div>
@@ -14679,29 +15061,81 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-amber">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🧭</span> 4-empathy.md</div>
-                <span class="yarn-badge amber">Sensorial</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">4-empathy-map.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-empathy-grid">
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">🧠 Piensa &amp; Siente</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">"Si adopto IA sin rigor, ensucio el repositorio y pierdo el control."</div>
-                </div>
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">👂 Oye en Entorno</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">"El management pide velocidad; los crafters alertan del spaghetti."</div>
-                </div>
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">👀 Ve en Mercado</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">APIs cloud que suben de precio y crean vendor lock-in.</div>
-                </div>
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">🗣️ Dice &amp; Hace</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">Prueba modelos locales por las tardes en Ollama.</div>
-                </div>
+              <div class="template-console-body">
+                <h1># 🗺️ Empathy Map: Elena Torres</h1>
+                <p><em>Persona: Tech Lead FinTech • Foco: Desarrollo asistido por IA local</em></p>
+
+                <h2>## 1. The Quadrants (What They Experience)</h2>
+                <table>
+                  <thead>
+                    <tr><th style="color:#79c0ff;">👀 SEES (El Entorno)</th><th style="color:#d2a8ff;">🗣️ SAYS (En Público)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        • Equipos adoptando IA sin control y acumulando deuda técnica oculta.<br>
+                        • Facturas cloud y APIs SaaS que suben de precio con vendor lock-in.<br>
+                        • Modelos open-weights (Qwen 2.5 Coder) compitiendo con modelos cerrados.
+                      </td>
+                      <td>
+                        • "La IA debe ser una herramienta de soporte al artesano, no una fábrica de basura."<br>
+                        • "¿A dónde van a parar los datos contables de nuestros clientes?"
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table>
+                  <thead>
+                    <tr><th style="color:#f0883e;">🧠 THINKS (Mundo Interior)</th><th style="color:#3fb950;">✍️ DOES (Comportamiento Real)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        • <em>[Miedo:]</em> Si permito IA descuidada, destruiré la arquitectura del repo.<br>
+                        • <em>[Deseo:]</em> Un copiloto privado que trabaje como un artesano senior estricto.
+                      </td>
+                      <td>
+                        • Descarga y prueba Ollama / vLLM en su portátil por las tardes.<br>
+                        • Exige cobertura de tests &gt; 90% y rechaza PRs sin justificación arquitectónica.<br>
+                        • Escribe ADRs detallados para cada decisión estructural.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 2. Summary &amp; Outcome</h2>
+                <h3>😖 PAINS (Fears, Obstacles &amp; Frustrations)</h3>
+                <ul>
+                  <li><strong>Frustración 1:</strong> Alucinaciones de librerías obsoletas en el código generado.</li>
+                  <li><strong>Obstáculo 2:</strong> Brechas de seguridad por telemetría invisible.</li>
+                  <li><strong>Miedo 3:</strong> Pérdida de maestría artesanal en el equipo junior.</li>
+                </ul>
+
+                <h3>✨ GAINS (Wants, Needs &amp; Success)</h3>
+                <ul>
+                  <li><strong>Necesidad 1:</strong> Flujo Red-Green-Refactor determinista y local.</li>
+                  <li><strong>Deseo 2:</strong> Inferencia rápida sin depender de conexión a internet.</li>
+                  <li><strong>Métrica de Éxito 3:</strong> Suite completa en verde a la primera ejecución.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -14743,33 +15177,90 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-purple">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>💡</span> 5-brainstorming.md</div>
-                <span class="yarn-badge purple">Post-its Clave</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">5-brainstorming.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-brainstorm-grid" style="grid-template-columns: 1fr 1fr; gap: 0.65rem;">
-                <div class="inception-postit yellow">
-                  <span class="postit-tag">Núcleo Local</span>
-                  <strong>Inferencia Ollama</strong>
-                  <span>Fallback automático Qwen 3.5 &lt;=&gt; Coder.</span>
-                </div>
-                <div class="inception-postit blue">
-                  <span class="postit-tag">TDD &amp; DDD</span>
-                  <strong>Generador Test E2E</strong>
-                  <span>Fuerza Given/When/Then antes del código.</span>
-                </div>
-                <div class="inception-postit purple">
-                  <span class="postit-tag">Living Docs</span>
-                  <strong>Mermaid Sync</strong>
-                  <span>Sincronización en cada commit de git.</span>
-                </div>
-                <div class="inception-postit blue">
-                  <span class="postit-tag">TDD &amp; DDD</span>
-                  <strong>Guards Validator</strong>
-                  <span>Validación de precondiciones booleanas.</span>
-                </div>
+              <div class="template-console-body">
+                <h1># Step 5: Features Brainstorming</h1>
+                <p><em>Divergencia creativa filtrada estrictamente por las 4 fronteras del Paso 1.</em></p>
+
+                <blockquote>
+                  <strong>Coach's Question:</strong> "Si solo pudieras desplegar tres features para validar la hipótesis de desarrollo local con TDD, ¿cuáles serían y por qué?"
+                </blockquote>
+
+                <h2>## 🟢 Core Features (Must-have para MVP)</h2>
+                <table>
+                  <thead>
+                    <tr><th>Feature</th><th>Descripción</th><th>Relacionado con</th><th>Biz Value</th><th>Tech Effort</th><th>Conf.</th><th>Prioridad</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Inferencia Local Ollama</strong></td>
+                      <td>Servidor local Qwen 2.5 Coder con fallback GPU</td>
+                      <td>Elena's Privacy Pain</td>
+                      <td><strong>High</strong></td>
+                      <td>Medium</td>
+                      <td>🟢</td>
+                      <td><strong>Must-have</strong></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Generador Test Rojo TDD</strong></td>
+                      <td>Fuerza Given/When/Then antes del código prod</td>
+                      <td>Elena's Quality Goal</td>
+                      <td><strong>High</strong></td>
+                      <td>Medium</td>
+                      <td>🟢</td>
+                      <td><strong>Must-have</strong></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Mermaid Sync Automático</strong></td>
+                      <td>Actualiza diagramas de secuencia en cada commit</td>
+                      <td>Living Docs Principle</td>
+                      <td><strong>High</strong></td>
+                      <td>Low</td>
+                      <td>🟢</td>
+                      <td><strong>Must-have</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 🔵 Supporting Features (Should-have)</h2>
+                <table>
+                  <thead>
+                    <tr><th>Feature</th><th>Descripción</th><th>Biz Value</th><th>Tech Effort</th><th>Prioridad</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Guards &amp; Contracts Validator</strong></td><td>Validación de invariantes de dominio</td><td>Medium</td><td>Medium</td><td>Should-have</td></tr>
+                    <tr><td><strong>CLI Slash Commands</strong></td><td>Atajos directos <code>/implement-flow</code></td><td>Medium</td><td>Low</td><td>Should-have</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 🟠 Differentiating Features (Nice-to-have)</h2>
+                <table>
+                  <thead>
+                    <tr><th>Feature</th><th>Descripción</th><th>Biz Value</th><th>Tech Effort</th><th>Prioridad</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Cuantización NVFP4</strong></td><td>Optimización quirúrgica para RTX 4090/5090</td><td>Low</td><td>High</td><td><em>Nice-to-have</em></td></tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -14811,29 +15302,84 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-cyan">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🚶</span> 6-user-journeys/01.md</div>
-                <span class="yarn-badge cyan">4 Nodos</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">6-user-journey-mapping.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-journey-trail">
-                <div class="journey-step-node">
-                  <span class="journey-step-num">01</span>
-                  <div class="journey-step-desc">Elena ejecuta <code>/implement-flow</code> con la spec lista.</div>
-                </div>
-                <div class="journey-step-node">
-                  <span class="journey-step-num">02</span>
-                  <div class="journey-step-desc">El LLM genera el test E2E rojo en su suite local sin salir a internet.</div>
-                </div>
-                <div class="journey-step-node">
-                  <span class="journey-step-num">03</span>
-                  <div class="journey-step-desc">Construye capa por capa: Dominio ➔ Casos de uso ➔ Adaptadores.</div>
-                </div>
-                <div class="journey-step-node">
-                  <span class="journey-step-num">04</span>
-                  <div class="journey-step-desc">Ejecución de <code>mvn test</code>: ¡Suite en verde en 12 segundos! 🤩</div>
-                </div>
+              <div class="template-console-body">
+                <h1># Step 6: User Journey Mapping</h1>
+                <p><strong>Persona:</strong> Elena Torres • <strong>Main Goal:</strong> Implementar nuevo caso de uso con TDD local determinista</p>
+
+                <h2>## Overview Visualization</h2>
+                <pre><code>[Elena (Crafter)]            [Agente Local]                     [Suite de Tests]
+       │                             │                                  │
+       │─── /implement-flow ───────&gt; │ Stage 1: Parseo de Spec          │
+       │                             │  · Lee modelo de dominio         │
+       │                             │                                  │
+       │                             │─── Genera Test Rojo ────────────&gt;│
+       │                             │                                  │ (Falla 🔴)
+       │&lt;── Notifica Test Rojo ──────│ Stage 2: Validación Humana        │
+       │                             │                                  │
+       │─── Aprueba Implementación ─&gt;│ Stage 3: Código Hexagonal        │
+       │                             │  · Inferencia local Qwen (12s)   │
+       │                             │                                  │
+       │                             │─── Ejecuta mvn test ────────────&gt;│
+       │                             │                                  │ (Verde 🟢)
+       │&lt;── ¡Suite en Verde! ────────│ Stage 4: Sync Living Docs        │
+       │                             │  · Actualiza diagrama Mermaid    │</code></pre>
+
+                <hr>
+
+                <h2>## Lifecycle Overview</h2>
+                <table>
+                  <thead>
+                    <tr><th>Stage</th><th>Trigger</th><th>Persona's Action</th><th>System Response</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>1. Spec Ready</strong></td>
+                      <td>Elena define inputs</td>
+                      <td>Ejecuta <code>/implement-flow transfer.md</code></td>
+                      <td>Parsea tipos de dominio y precondiciones</td>
+                    </tr>
+                    <tr>
+                      <td><strong>2. Red Test</strong></td>
+                      <td>Spec validada</td>
+                      <td>Inspecciona el test unitario generado</td>
+                      <td>Ejecuta test y verifica que falle exactamente por la causa prevista</td>
+                    </tr>
+                    <tr>
+                      <td><strong>3. Hexagonal Code</strong></td>
+                      <td>Elena da el visto bueno</td>
+                      <td>Autoriza generación de capas</td>
+                      <td>Inferencia local genera Dominio ➔ Casos de uso ➔ Adaptadores</td>
+                    </tr>
+                    <tr>
+                      <td><strong>4. Green Test</strong></td>
+                      <td>Archivos escritos en disco</td>
+                      <td>Observa ejecución de test runner</td>
+                      <td>¡Suite en verde en 12 segundos! 🤩 Cero errores de compilación</td>
+                    </tr>
+                    <tr>
+                      <td><strong>5. Mermaid Sync</strong></td>
+                      <td>Commit en git</td>
+                      <td>Revisa el diff de documentación</td>
+                      <td>El agente actualiza el diagrama de secuencia vivo automáticamente</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -14875,40 +15421,94 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-pink">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🌊</span> 7-sequencing.md</div>
-                <span class="yarn-badge green">Ola 1 MVP</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">7-features-and-sequencing.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-waves-stack">
-                <div class="inception-wave-card wave-1">
-                  <div class="wave-card-header">
-                    <span class="wave-title">🚀 OLA 1 — MVP (Foco Absoluto)</span>
-                    <span class="sdlc-phase-badge green">Prioridad 1</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-main); font-weight: 600;">
-                    • Inferencia Ollama/vLLM local + Flujo TDD para 1 caso de uso
-                  </div>
-                </div>
-                <div class="inception-wave-card wave-2">
-                  <div class="wave-card-header">
-                    <span class="wave-title">📈 OLA 2 — Incremento Funcional</span>
-                    <span class="sdlc-phase-badge blue">Siguiente</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-muted);">
-                    • Auditoría de drift de docs + Eventos Kafka
-                  </div>
-                </div>
-                <div class="inception-wave-card wave-3">
-                  <div class="wave-card-header">
-                    <span class="wave-title">🔮 OLA 3 — Madurez &amp; Escala</span>
-                    <span class="sdlc-phase-badge rose">Roadmap</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-dim);">
-                    • Cuantización NVFP4 + Agentes multi-repo
-                  </div>
-                </div>
+              <div class="template-console-body">
+                <h1># 3. Features &amp; Sequencing</h1>
+                <p><em>Release planning y secuenciación en olas para blindar el foco de la IA.</em></p>
+
+                <h2>## 🌊 Wave 1: The Minimum Viable Product (MVP)</h2>
+                <p><em>Foco absoluto: features indispensables para validar el flujo completo de inferencia local con TDD.</em></p>
+                <table>
+                  <thead>
+                    <tr><th>Feature</th><th>Effort</th><th>Business Value</th><th>UX Value</th><th>Tech Comfort</th><th>Owner</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Inferencia Local Ollama (Qwen 2.5)</strong></td>
+                      <td>E</td>
+                      <td>$$$</td>
+                      <td>♥♥♥</td>
+                      <td>TTT</td>
+                      <td>@CoreTeam</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Motor de TDD Estricto (Red-Green)</strong></td>
+                      <td>EE</td>
+                      <td>$$$</td>
+                      <td>♥♥</td>
+                      <td>TT</td>
+                      <td>@CrafterLead</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Mermaid Sequence Living Docs Sync</strong></td>
+                      <td>E</td>
+                      <td>$$</td>
+                      <td>♥♥</td>
+                      <td>TTT</td>
+                      <td>@DocsLead</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 🌊 Wave 2: Next Increment</h2>
+                <p><em>Alto valor arquitectónico pospuesto para la siguiente iteración:</em></p>
+                <table>
+                  <thead>
+                    <tr><th>Feature</th><th>Effort</th><th>Business Value</th><th>UX Value</th><th>Tech Comfort</th><th>Owner</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Auditoría de drift en Git Hook</strong></td><td>EE</td><td>$$</td><td>♥</td><td>TT</td><td>@DevOps</td></tr>
+                    <tr><td><strong>Pipeline de eventos Kafka local</strong></td><td>EEE</td><td>$</td><td>♥</td><td>T</td><td>@DataTeam</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 🌊 Wave 3: Scale &amp; Ecosystem</h2>
+                <table>
+                  <thead>
+                    <tr><th>Feature</th><th>Effort</th><th>Business Value</th><th>UX Value</th><th>Tech Comfort</th><th>Owner</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Cuantización NVFP4 para modelos 32B+</strong></td><td>EEE</td><td>$$</td><td>♥</td><td>T</td><td>@MLOps</td></tr>
+                    <tr><td><strong>Coordinación de agentes multi-repo</strong></td><td>EEE</td><td>$$</td><td>♥♥</td><td>T</td><td>@ArchTeam</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 🗑️ Parking Lot (Out of Scope)</h2>
+                <ul>
+                  <li>[ ] Portal web con frontend SaaS alojado en servidor cloud externo.</li>
+                  <li>[ ] Telemetría de prompts o analytics enviados a terceros.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -14950,33 +15550,70 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-green">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>📋</span> 8-mvp-canvas.md</div>
-                <span class="yarn-badge green">Validado</span>
+            <!-- Consola Markdown de la Plantilla -->
+            <div class="template-console-card">
+              <div class="template-console-header">
+                <div class="template-console-left">
+                  <div class="template-console-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="template-console-file">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">8-mvp-canvas-definition.md</span>
+                  </div>
+                </div>
+                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
               </div>
-              <div class="inception-canvas-grid" style="grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">1. Propuesta</span>
-                  <span>IA privada rápida con TDD local</span>
-                </div>
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">2. Persona</span>
-                  <span>Elena Torres • Tech Lead</span>
-                </div>
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">3. Journeys</span>
-                  <span>Implementación DDD con tests</span>
-                </div>
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">4. Métricas</span>
-                  <span>Latencia &lt; 20s/flujo y 0 leaks</span>
-                </div>
-              </div>
-              <div class="canvas-stamp">
-                <span>✅ VALIDADO: Score 9.4 / 10</span>
-                <span style="font-size: 0.78rem; text-transform: uppercase;">Ready for Dev</span>
+              <div class="template-console-body">
+                <h1># Step 8: MVP Canvas Definition</h1>
+                <p><em>El contrato vinculante de 1 página que sintetiza los Pasos 1 al 7.</em></p>
+
+                <h2>## 1. MVP Proposal</h2>
+                <blockquote>
+                  "Un entorno de desarrollo local asistido por IA privada que permite a Elena Torres (Tech Lead) implementar casos de uso de arquitectura limpia mediante TDD estricto sin enviar un solo byte fuera de su máquina."
+                </blockquote>
+
+                <hr>
+
+                <h2>## 2. Business Results &amp; Metrics</h2>
+                <table>
+                  <thead>
+                    <tr><th>Métrica (KPI)</th><th>Objetivo</th><th>Método de Medición</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Privacidad de Código</strong></td><td>0 fugas (100% local)</td><td>Auditoría Wireshark / firewall</td></tr>
+                    <tr><td><strong>Tiempo por Flujo TDD</strong></td><td>&lt; 25 segundos</td><td>Benchmark Ollama local en GPU</td></tr>
+                    <tr><td><strong>Cobertura de Tests</strong></td><td>100% casos de uso</td><td>Reporte JaCoCo / pytest</td></tr>
+                    <tr><td><strong>Satisfacción Crafter</strong></td><td>Score &gt; 9 / 10</td><td>Auditoría del equipo técnico</td></tr>
+                  </tbody>
+                </table>
+
+                <hr>
+
+                <h2>## 3. Scope: Wave 1 Features</h2>
+                <ul>
+                  <li>✅ <strong>Inferencia en hardware propio</strong> (Mac/Linux con Qwen 2.5 Coder).</li>
+                  <li>✅ <strong>Flujo Red-Green-Refactor</strong> guiado por el asistente.</li>
+                  <li>✅ <strong>Living Documentation</strong> sincronizada automáticamente en Mermaid.</li>
+                </ul>
+
+                <hr>
+
+                <h2>## 4. Canvas Audit Score</h2>
+                <table>
+                  <thead>
+                    <tr><th>Criterio de Evaluación</th><th>Nota</th><th>Estado</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Claridad de Fronteras (Paso 1)</td><td>10 / 10</td><td>Excelente</td></tr>
+                    <tr><td>Sin empates en Tradeoffs (Paso 2)</td><td>10 / 10</td><td>Sin ambigüedad</td></tr>
+                    <tr><td>Definición de Usuario y Dolor (Pasos 3-4)</td><td>9 / 10</td><td>Muy sólido</td></tr>
+                    <tr><td>Secuenciación Quirúrgica en Olas (Paso 7)</td><td>9.5 / 10</td><td>MVP Acotado</td></tr>
+                    <tr><td><strong>Score Global Ponderado</strong></td><td><strong>9.4 / 10</strong></td><td><strong style="color:#3fb950;">✅ READY FOR DEV</strong></td></tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -16516,6 +17153,11 @@ body.theme-dark .dual-detail {
     </div>
   </div>
 
+  <!-- Lightbox Modal para zoom de plantillas -->
+  <div id="template-lightbox">
+    <img id="template-lightbox-img" src="" alt="Template Zoom">
+  </div>
+
   <script>
 /* Inlined from slides.js */
 /**
@@ -16523,8 +17165,10 @@ body.theme-dark .dual-detail {
  * ai-local-crafters
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initDeck() {
   const slides = Array.from(document.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
   const progressBar = document.getElementById('progress-bar');
   const currentCounter = document.getElementById('slide-current');
   const totalCounter = document.getElementById('slide-total');
@@ -16552,11 +17196,16 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('deck-theme', isDark ? 'dark' : 'light');
   }
 
-  totalCounter.textContent = slides.length;
+  if (totalCounter) {
+    totalCounter.textContent = slides.length;
+  }
 
-  // Leer slide desde URL Hash (#1 = slide 0)
+  // Leer slide desde URL Hash (#1 o #slide-1 = slide 0)
   function getSlideIndexFromHash() {
-    const hash = window.location.hash.replace('#', '');
+    let hash = window.location.hash.replace('#', '').trim();
+    if (hash.startsWith('slide-')) {
+      hash = hash.replace('slide-', '');
+    }
     const num = parseInt(hash, 10);
     if (!isNaN(num) && num >= 1 && num <= slides.length) {
       return num - 1;
@@ -16674,9 +17323,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === helpModal) toggleHelp(false);
   });
 
-  // Atajos de teclado
-  window.addEventListener('keydown', (e) => {
-    // Si el modal de ayuda está abierto y pulsan Esc o ?, cerrarlo
+  // Atajos de teclado para navegación y controles
+  document.addEventListener('keydown', (e) => {
+    // Lightbox de imágenes de plantillas
+    const lightbox = document.getElementById('template-lightbox');
+    if (lightbox && lightbox.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        lightbox.classList.remove('active');
+        return;
+      }
+    }
+
     if (helpModal.classList.contains('open')) {
       if (e.key === 'Escape' || e.key === '?') {
         e.preventDefault();
@@ -16778,11 +17436,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Lightbox interactivo para imágenes de plantillas
+  const lightboxElem = document.getElementById('template-lightbox');
+  const lightboxImg = document.getElementById('template-lightbox-img');
+
+  document.querySelectorAll('.template-preview-img-box').forEach(box => {
+    box.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const img = box.querySelector('img');
+      if (img && lightboxElem && lightboxImg) {
+        lightboxImg.src = img.src;
+        lightboxElem.classList.add('active');
+      }
+    });
+  });
+
+  if (lightboxElem) {
+    lightboxElem.addEventListener('click', () => {
+      lightboxElem.classList.remove('active');
+    });
+  }
+
   // Inicializar en la slide correspondiente y calcular escala
   updateScale();
   const initialIndex = getSlideIndexFromHash();
   goToSlide(initialIndex, false);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDeck);
+} else {
+  initDeck();
+}
 
 </script>
 </body>

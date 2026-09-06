@@ -9228,6 +9228,297 @@ body.theme-dark .lean-ai-danger {
 }
 
 /* ==========================================================================
+   PLANTILLAS REALES DE LA SKILL (PREVIEW & LIGHTBOX ZOOM)
+   ========================================================================== */
+.template-preview-wrapper {
+  background: #161b22;
+  border: 2px solid #30363d;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.template-preview-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.template-preview-header {
+  background: #0d1117;
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #30363d;
+}
+
+.template-preview-title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #58a6ff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.template-preview-img-box {
+  width: 100%;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #0d1117;
+  cursor: zoom-in;
+  position: relative;
+}
+
+.template-preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.template-preview-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid #30363d;
+  color: #8b949e;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CONSOLA / EDITOR MARKDOWN INTERACTIVO Y SCROLLEABLE
+   ========================================================================== */
+.template-console-card {
+  background: #0d1117;
+  border: 2px solid #30363d;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.template-console-header {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 0.65rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.template-console-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.template-console-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.template-console-dots .dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.template-console-dots .dot.red { background: #ff5f56; }
+.template-console-dots .dot.yellow { background: #ffbd2e; }
+.template-console-dots .dot.green { background: #27c93f; }
+
+.template-console-file {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #58a6ff;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.template-console-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.2rem 1.4rem;
+  color: #e6edf3;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar elegante para la consola */
+.template-console-body::-webkit-scrollbar {
+  width: 8px;
+}
+.template-console-body::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+.template-console-body::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+.template-console-body::-webkit-scrollbar-thumb:hover {
+  background: #58a6ff;
+}
+
+/* Markdown Elements dentro de la consola */
+.template-console-body h1 {
+  font-size: 1.18rem;
+  color: #58a6ff;
+  border-bottom: 1px solid #21262d;
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.8rem 0;
+}
+
+.template-console-body h2 {
+  font-size: 1.05rem;
+  color: #79c0ff;
+  border-bottom: 1px solid #21262d;
+  padding-bottom: 0.3rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.template-console-body h3 {
+  font-size: 0.95rem;
+  color: #d2a8ff;
+  margin: 0.8rem 0 0.4rem 0;
+}
+
+.template-console-body p {
+  margin: 0 0 0.75rem 0;
+  color: #c9d1d9;
+}
+
+.template-console-body em {
+  color: #8b949e;
+}
+
+.template-console-body blockquote {
+  border-left: 3px solid #388bfd;
+  padding: 0.5rem 0.9rem;
+  color: #a5d6ff;
+  background: rgba(56, 139, 253, 0.08);
+  border-radius: 0 6px 6px 0;
+  margin: 0.7rem 0;
+}
+
+.template-console-body ul, 
+.template-console-body ol {
+  margin: 0 0 0.8rem 1.4rem;
+  padding: 0;
+}
+
+.template-console-body li {
+  margin-bottom: 0.35rem;
+  color: #c9d1d9;
+}
+
+.template-console-body strong,
+.template-console-body b {
+  color: #f0f6fc;
+  font-weight: 700;
+}
+
+.template-console-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0 1rem 0;
+  font-size: 0.86rem;
+}
+
+.template-console-body th {
+  background: #161b22;
+  color: #58a6ff;
+  border: 1px solid #30363d;
+  padding: 0.55rem 0.7rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.template-console-body td {
+  border: 1px solid #21262d;
+  padding: 0.5rem 0.7rem;
+  background: rgba(13, 17, 23, 0.4);
+  color: #c9d1d9;
+}
+
+.template-console-body tr:nth-child(even) td {
+  background: rgba(22, 27, 34, 0.6);
+}
+
+.template-console-body code {
+  font-family: var(--font-mono);
+  background: rgba(110, 118, 129, 0.2);
+  color: #ff7b72;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+.template-console-body hr {
+  border: 0;
+  border-top: 1px solid #21262d;
+  margin: 1rem 0;
+}
+
+.template-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #8b949e;
+  font-family: var(--font-mono);
+}
+
+/* Lightbox Modal para Plantilla a Toda Pantalla */
+#template-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+#template-lightbox.active {
+  display: flex;
+}
+
+#template-lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  border: 1px solid #30363d;
+  object-fit: contain;
+}
+
+/* ==========================================================================
    OPCIÓN D: LISTA VERTICAL COMPARATIVA (HUMANOS VS IA) - PROYECTOR EDITION
    ========================================================================== */
 .inception-dual-deck {

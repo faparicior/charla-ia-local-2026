@@ -3,8 +3,10 @@
  * ai-local-crafters
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initDeck() {
   const slides = Array.from(document.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
   const progressBar = document.getElementById('progress-bar');
   const currentCounter = document.getElementById('slide-current');
   const totalCounter = document.getElementById('slide-total');
@@ -32,11 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('deck-theme', isDark ? 'dark' : 'light');
   }
 
-  totalCounter.textContent = slides.length;
+  if (totalCounter) {
+    totalCounter.textContent = slides.length;
+  }
 
-  // Leer slide desde URL Hash (#1 = slide 0)
+  // Leer slide desde URL Hash (#1 o #slide-1 = slide 0)
   function getSlideIndexFromHash() {
-    const hash = window.location.hash.replace('#', '');
+    let hash = window.location.hash.replace('#', '').trim();
+    if (hash.startsWith('slide-')) {
+      hash = hash.replace('slide-', '');
+    }
     const num = parseInt(hash, 10);
     if (!isNaN(num) && num >= 1 && num <= slides.length) {
       return num - 1;
@@ -154,9 +161,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === helpModal) toggleHelp(false);
   });
 
-  // Atajos de teclado
-  window.addEventListener('keydown', (e) => {
-    // Si el modal de ayuda está abierto y pulsan Esc o ?, cerrarlo
+  // Atajos de teclado para navegación y controles
+  document.addEventListener('keydown', (e) => {
+    // Lightbox de imágenes de plantillas
+    const lightbox = document.getElementById('template-lightbox');
+    if (lightbox && lightbox.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        lightbox.classList.remove('active');
+        return;
+      }
+    }
+
     if (helpModal.classList.contains('open')) {
       if (e.key === 'Escape' || e.key === '?') {
         e.preventDefault();
@@ -258,8 +274,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Lightbox interactivo para imágenes de plantillas
+  const lightboxElem = document.getElementById('template-lightbox');
+  const lightboxImg = document.getElementById('template-lightbox-img');
+
+  document.querySelectorAll('.template-preview-img-box').forEach(box => {
+    box.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const img = box.querySelector('img');
+      if (img && lightboxElem && lightboxImg) {
+        lightboxImg.src = img.src;
+        lightboxElem.classList.add('active');
+      }
+    });
+  });
+
+  if (lightboxElem) {
+    lightboxElem.addEventListener('click', () => {
+      lightboxElem.classList.remove('active');
+    });
+  }
+
   // Inicializar en la slide correspondiente y calcular escala
   updateScale();
   const initialIndex = getSlideIndexFromHash();
   goToSlide(initialIndex, false);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDeck);
+} else {
+  initDeck();
+}
