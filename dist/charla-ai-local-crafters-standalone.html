@@ -8333,16 +8333,118 @@ body.theme-dark .template-card-mini-preview {
    ARTEFACTOS VISUALES: 8 PASOS DE LEAN INCEPTION (FASE 1 SDLC)
    ========================================================================== */
 
+.inception-step-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+}
+
+.inception-step-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.6rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Columna Izquierda: Concepto, Reglas y AI Impact */
+.inception-concept-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.inception-concept-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.35rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  flex-grow: 1;
+}
+
+body.theme-dark .inception-concept-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.inception-concept-card.c-blue { border-top: 5px solid #0284c7; }
+.inception-concept-card.c-purple { border-top: 5px solid #6366f1; }
+.inception-concept-card.c-green { border-top: 5px solid #10b981; }
+.inception-concept-card.c-amber { border-top: 5px solid #f59e0b; }
+.inception-concept-card.c-cyan { border-top: 5px solid #06b6d4; }
+.inception-concept-card.c-pink { border-top: 5px solid #ec4899; }
+
+.inception-concept-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.inception-concept-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inception-pitch-box {
+  background: rgba(2, 132, 199, 0.06);
+  border-left: 4px solid #0284c7;
+  border-radius: 0 10px 10px 0;
+  padding: 0.95rem 1.15rem;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+body.theme-dark .inception-pitch-box {
+  background: rgba(2, 132, 199, 0.12);
+}
+
+.inception-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.98rem;
+  line-height: 1.48;
+  color: var(--text-main);
+}
+
+.inception-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.inception-point-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+/* Columna Derecha: Artefacto Vivo */
 .inception-artifact-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 1.3rem 1.4rem;
+  padding: 1.35rem 1.45rem;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.95rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   width: 100%;
+  height: 100%;
 }
 
 body.theme-dark .inception-artifact-card {
@@ -8351,16 +8453,23 @@ body.theme-dark .inception-artifact-card {
   box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
 }
 
+.inception-artifact-card.c-blue { border-top: 5px solid #0284c7; }
+.inception-artifact-card.c-purple { border-top: 5px solid #6366f1; }
+.inception-artifact-card.c-green { border-top: 5px solid #10b981; }
+.inception-artifact-card.c-amber { border-top: 5px solid #f59e0b; }
+.inception-artifact-card.c-cyan { border-top: 5px solid #06b6d4; }
+.inception-artifact-card.c-pink { border-top: 5px solid #ec4899; }
+
 .inception-artifact-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.65rem;
 }
 
 .inception-artifact-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-main);
   display: flex;
@@ -8368,14 +8477,21 @@ body.theme-dark .inception-artifact-card {
   gap: 0.5rem;
 }
 
+.inception-artifact-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .inception-file-badge {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-dim);
   background: rgba(0, 0, 0, 0.04);
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 6px;
+  border: 1px solid var(--border-subtle);
 }
 
 body.theme-dark .inception-file-badge {
@@ -8387,26 +8503,27 @@ body.theme-dark .inception-file-badge {
 .inception-boundary-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.65rem;
+  gap: 0.85rem;
+  flex-grow: 1;
 }
 
 .inception-boundary-box {
-  border-radius: 8px;
-  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  padding: 0.95rem 1.05rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  border: 1px solid var(--border-subtle);
+  gap: 0.55rem;
+  border: 1.5px solid var(--border-subtle);
 }
 
-.inception-boundary-box.is { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); }
-.inception-boundary-box.is-not { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); }
-.inception-boundary-box.does { background: rgba(2, 132, 199, 0.08); border-color: rgba(2, 132, 199, 0.3); }
-.inception-boundary-box.does-not { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3); }
+.inception-boundary-box.is { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.35); }
+.inception-boundary-box.is-not { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.35); }
+.inception-boundary-box.does { background: rgba(2, 132, 199, 0.08); border-color: rgba(2, 132, 199, 0.35); }
+.inception-boundary-box.does-not { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.35); }
 
 .inception-box-title {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -8428,15 +8545,15 @@ body.theme-dark .inception-boundary-box.does-not .inception-box-title { color: #
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  gap: 0.38rem;
+  font-size: 0.92rem;
+  color: var(--text-main);
 }
 
 .inception-box-list li {
   position: relative;
-  padding-left: 0.85rem;
-  line-height: 1.35;
+  padding-left: 1.1rem;
+  line-height: 1.42;
 }
 
 .inception-box-list li::before {
@@ -8444,25 +8561,27 @@ body.theme-dark .inception-boundary-box.does-not .inception-box-title { color: #
   position: absolute;
   left: 0;
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 /* Paso 2: Tabla de Tradeoffs */
 .inception-tradeoff-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
+  flex-grow: 1;
 }
 
 .inception-tradeoff-table th,
 .inception-tradeoff-table td {
-  padding: 0.45rem 0.55rem;
+  padding: 0.65rem 0.75rem;
   text-align: center;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .inception-tradeoff-table th {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 800;
   color: var(--text-dim);
   background: rgba(0, 0, 0, 0.02);
@@ -8476,23 +8595,25 @@ body.theme-dark .inception-tradeoff-table th {
   text-align: left;
   font-weight: 700;
   color: var(--text-main);
+  font-size: 0.95rem;
 }
 
 .tradeoff-check {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
-  background: rgba(245, 158, 11, 0.15);
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.18);
   color: #d97706;
   font-weight: 900;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 body.theme-dark .tradeoff-check {
-  background: rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.28);
   color: #fbbf24;
 }
 
@@ -8500,41 +8621,44 @@ body.theme-dark .tradeoff-check {
 .inception-persona-box {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.9rem;
+  flex-grow: 1;
 }
 
 .inception-persona-header {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .inception-persona-avatar {
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: linear-gradient(135deg, #6366f1, #06b6d4);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 800;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
 }
 
 .inception-persona-meta {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
 }
 
 .inception-persona-name {
-  font-size: 1.1rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 .inception-persona-role {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: #6366f1;
   font-weight: 600;
 }
@@ -8545,13 +8669,13 @@ body.theme-dark .inception-persona-role {
 
 .inception-persona-quote {
   font-style: italic;
-  font-size: 0.84rem;
+  font-size: 0.96rem;
   color: var(--text-muted);
   background: rgba(0, 0, 0, 0.03);
-  border-left: 3px solid #6366f1;
-  padding: 0.55rem 0.85rem;
+  border-left: 3.5px solid #6366f1;
+  padding: 0.75rem 1rem;
   border-radius: 0 8px 8px 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 body.theme-dark .inception-persona-quote {
@@ -8562,15 +8686,19 @@ body.theme-dark .inception-persona-quote {
 .inception-empathy-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
+  gap: 0.8rem;
+  flex-grow: 1;
 }
 
 .inception-empathy-box {
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 0.6rem 0.75rem;
-  font-size: 0.78rem;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 body.theme-dark .inception-empathy-box {
@@ -8579,9 +8707,9 @@ body.theme-dark .inception-empathy-box {
 
 .inception-empathy-title {
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   color: #6366f1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -8595,17 +8723,18 @@ body.theme-dark .inception-empathy-title {
 .inception-brainstorm-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.65rem;
+  gap: 0.85rem;
+  flex-grow: 1;
 }
 
 .inception-postit {
-  border-radius: 8px;
-  padding: 0.65rem 0.75rem;
-  font-size: 0.78rem;
+  border-radius: 10px;
+  padding: 0.85rem 0.95rem;
+  font-size: 0.88rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  gap: 0.45rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .inception-postit.yellow { background: #fef9c3; border: 1px solid #fef08a; color: #713f12; }
@@ -8618,27 +8747,29 @@ body.theme-dark .inception-postit.purple { background: rgba(168, 85, 247, 0.15);
 
 .postit-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Paso 6: User Journey Trail */
 .inception-journey-trail {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.65rem;
+  flex-grow: 1;
 }
 
 .journey-step-node {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.1rem;
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 0.55rem 0.85rem;
-  font-size: 0.8rem;
+  border-radius: 10px;
+  padding: 0.75rem 1.05rem;
+  font-size: 0.94rem;
 }
 
 body.theme-dark .journey-step-node {
@@ -8648,9 +8779,12 @@ body.theme-dark .journey-step-node {
 .journey-step-num {
   font-family: var(--font-mono);
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   color: #059669;
   flex-shrink: 0;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
 }
 
 body.theme-dark .journey-step-num {
@@ -8661,31 +8795,33 @@ body.theme-dark .journey-step-num {
   flex-grow: 1;
   color: var(--text-main);
   font-weight: 600;
+  line-height: 1.4;
 }
 
 .journey-step-emotion {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 /* Paso 7: Olas de Entrega */
 .inception-waves-stack {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.75rem;
+  flex-grow: 1;
 }
 
 .inception-wave-card {
-  border-radius: 8px;
-  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  border: 1px solid var(--border-subtle);
+  gap: 0.45rem;
+  border: 1.5px solid var(--border-subtle);
 }
 
-.inception-wave-card.wave-1 { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); }
-.inception-wave-card.wave-2 { background: rgba(2, 132, 199, 0.08); border-color: rgba(2, 132, 199, 0.3); }
-.inception-wave-card.wave-3 { background: rgba(148, 163, 184, 0.08); border-color: rgba(148, 163, 184, 0.3); }
+.inception-wave-card.wave-1 { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.35); }
+.inception-wave-card.wave-2 { background: rgba(2, 132, 199, 0.08); border-color: rgba(2, 132, 199, 0.35); }
+.inception-wave-card.wave-3 { background: rgba(148, 163, 184, 0.08); border-color: rgba(148, 163, 184, 0.35); }
 
 .wave-card-header {
   display: flex;
@@ -8695,7 +8831,7 @@ body.theme-dark .journey-step-num {
 
 .wave-title {
   font-weight: 800;
-  font-size: 0.84rem;
+  font-size: 0.95rem;
 }
 
 .inception-wave-card.wave-1 .wave-title { color: #059669; }
@@ -8710,18 +8846,20 @@ body.theme-dark .inception-wave-card.wave-3 .wave-title { color: #94a3b8; }
 .inception-canvas-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.55rem;
+  gap: 0.75rem;
+  flex-grow: 1;
 }
 
 .inception-canvas-block {
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.74rem;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
 }
 
 body.theme-dark .inception-canvas-block {
@@ -8730,7 +8868,7 @@ body.theme-dark .inception-canvas-block {
 
 .canvas-block-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #0284c7;
   text-transform: uppercase;
@@ -8741,17 +8879,17 @@ body.theme-dark .canvas-block-label {
 }
 
 .canvas-stamp {
-  margin-top: 0.6rem;
+  margin-top: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: rgba(16, 185, 129, 0.12);
   border: 1.5px dashed #10b981;
   border-radius: 8px;
-  padding: 0.55rem 0.85rem;
+  padding: 0.75rem 1.1rem;
   font-family: var(--font-mono);
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: #059669;
 }
 
@@ -13291,110 +13429,103 @@ body.theme-dark .canvas-stamp {
          ==================================================================== -->
     <section class="slide" id="slide-43">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 1 de 8 • /inception-workshop</div>
+        <h2>1. Visión &amp; Fronteras: <span class="serif-italic" style="color: #0284c7;">Delimitar el Territorio</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Definir qué ES, qué NO ES, qué HACE y qué NO HACE para evitar que el LLM delire alcance o invente complejidad.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-blue">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">🎯 Reglas de Oro de la Incepción</div>
+                  <span class="yarn-badge blue">Paso 1 • Fundacional</span>
+                </div>
+
+                <div class="inception-pitch-box">
+                  <strong>Elevator Pitch Canónico:</strong><br>
+                  <em>Para <strong>equipos de ingeniería</strong>, que necesitan <strong>acelerar con IA sin perder privacidad ni control</strong>, el producto es un <strong>harness autónomo</strong> que <strong>opera en local con TDD y DDD</strong>, a diferencia de copilotos cloud que alucinan código sin tests.</em>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">📐</span>
+                    <div><strong>Regla de las 4 Fronteras:</strong> Mínimo 4 ítems obligatorios en cada uno de los 4 cuadrantes. Prohibido dejar cuadrantes vacíos.</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🚫</span>
+                    <div><strong>Fronteras Negativas &gt; Positivas:</strong> Delimitar qué <em>NO ES</em> y qué <em>NO HACE</em> previene el 90% del código residual y dependencias espurias.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box blue">
+                  <strong>Por qué para la IA:</strong> El LLM tiende a sobre-diseñar añadiendo paneles web, bases de datos o servicios cloud. La matriz de fronteras congela el perímetro semántico del proyecto.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-blue">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>🗺️</span>
+                  <span>Matriz de Fronteras del Producto</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">1-product-vision-and-boundaries.md</span>
+                  <span class="yarn-badge green">16/16 Fronteras</span>
+                </div>
+              </div>
+
+              <div class="inception-boundary-grid">
+                <div class="inception-boundary-box is">
+                  <span class="inception-box-title">✅ ES</span>
+                  <ul class="inception-box-list">
+                    <li>Un motor de inferencia local autónomo</li>
+                    <li>Un copiloto guiado por TDD estricto</li>
+                    <li>Una herramienta de artesanía de software</li>
+                    <li>Un orquestador de modelos open-weights</li>
+                  </ul>
+                </div>
+                <div class="inception-boundary-box is-not">
+                  <span class="inception-box-title">❌ NO ES</span>
+                  <ul class="inception-box-list">
+                    <li>Un generador ciego de código spaghetti</li>
+                    <li>Un servicio SaaS en la nube ajena</li>
+                    <li>Un chatbot genérico de soporte</li>
+                    <li>Un reemplazo del juicio del ingeniero</li>
+                  </ul>
+                </div>
+                <div class="inception-boundary-box does">
+                  <span class="inception-box-title">⚡ HACE</span>
+                  <ul class="inception-box-list">
+                    <li>Ejecuta modelos cuantizados en tu GPU/Mac</li>
+                    <li>Valida cada capa contra tests unitarios</li>
+                    <li>Genera documentación viva con Mermaid</li>
+                    <li>Audita derivas de código vs. specs</li>
+                  </ul>
+                </div>
+                <div class="inception-boundary-box does-not">
+                  <span class="inception-box-title">🚫 NO HACE</span>
+                  <ul class="inception-box-list">
+                    <li>Enviar telemetría ni código a internet</li>
+                    <li>Modificar ficheros sin propuesta previa</li>
+                    <li>Compilar sin verificación de tipos</li>
+                    <li>Ignorar invariantes de arquitectura</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">1. Visión &amp; Fronteras: Delimitar el Territorio</h2>
-        <div class="scbcn-subtitle">Paso 1 de 8 • Definir qué ES, qué NO ES, qué HACE y qué NO HACE</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto & Reglas -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>Elevator Pitch Canónico:</strong> <em>Para [cliente], que tiene [problema], el [producto] es un [tipo] que [beneficio], a diferencia de [alternativas].</em></span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>La Regla de Oro de las 4 Fronteras:</strong> Mínimo 4 ítems obligatorios en cada uno de los 4 cuadrantes.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Fronteras Negativas:</strong> Definir qué <em>NO ES</em> y qué <em>NO HACE</em> es más importante que lo positivo.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Por qué para la IA:</strong> Evita que el LLM delire añadiendo paneles, integraciones secundarias o complejidades fuera de alcance.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Artefacto Visual Real -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">🗺️ Matriz de Fronteras del Producto</span>
-              <span class="inception-file-badge">1-product-vision-and-boundaries.md</span>
-            </div>
-            <div class="inception-boundary-grid">
-              <div class="inception-boundary-box is">
-                <span class="inception-box-title">✅ ES</span>
-                <ul class="inception-box-list">
-                  <li>Un motor de inferencia local autónomo</li>
-                  <li>Un copiloto guiado por TDD estricto</li>
-                  <li>Una herramienta de artesanía de software</li>
-                  <li>Un orquestador de modelos open-weights</li>
-                </ul>
-              </div>
-              <div class="inception-boundary-box is-not">
-                <span class="inception-box-title">❌ NO ES</span>
-                <ul class="inception-box-list">
-                  <li>Un generador ciego de código spaghetti</li>
-                  <li>Un servicio SaaS en la nube ajena</li>
-                  <li>Un chatbot genérico de soporte</li>
-                  <li>Un reemplazo del juicio del ingeniero</li>
-                </ul>
-              </div>
-              <div class="inception-boundary-box does">
-                <span class="inception-box-title">⚡ HACE</span>
-                <ul class="inception-box-list">
-                  <li>Ejecuta modelos cuantizados en tu GPU/Mac</li>
-                  <li>Valida cada capa contra tests unitarios</li>
-                  <li>Genera documentación viva con Mermaid</li>
-                  <li>Audita derivas de código vs. specs</li>
-                </ul>
-              </div>
-              <div class="inception-boundary-box does-not">
-                <span class="inception-box-title">🚫 NO HACE</span>
-                <ul class="inception-box-list">
-                  <li>Enviar telemetría ni código a internet</li>
-                  <li>Modificar ficheros sin propuesta previa</li>
-                  <li>Compilar sin verificación de tipos</li>
-                  <li>Ignorar invariantes de arquitectura</li>
-                </ul>
-              </div>
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🎯</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> Definir lo que el producto NO ES y NO HACE es diez veces más efectivo para guiar a un LLM que escribir cien páginas de especificaciones abiertas.
             </div>
           </div>
         </div>
@@ -13408,132 +13539,113 @@ body.theme-dark .canvas-stamp {
          ==================================================================== -->
     <section class="slide" id="slide-44">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 2 de 8 • /inception-workshop</div>
+        <h2>2. Tablero de Tradeoffs: <span class="serif-italic" style="color: #6366f1;">Si Todo es Prioridad, Nada lo Es</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Simulación de debate socrático entre 4 roles y consenso estricto: exactamente una sola cruz por columna de prioridad.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-purple">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">⚖️ Tensión Creativa &amp; Consenso</div>
+                  <span class="yarn-badge purple">Paso 2 • 4 Roles</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🎭</span>
+                    <div><strong>Simulación de los 4 Roles:</strong> La IA confronta al <em>Product Owner</em> (time-to-market), <em>Tech Lead</em> (robustez &amp; TDD), <em>User Advocate</em> (ergonomía) y <em>Agile Coach</em> (alcance sostenible).</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">❌</span>
+                    <div><strong>Regla Inquebrantable de la Matriz:</strong> <em>Exactamente una X por columna</em>. Si hay 6 dimensiones, solo una puede ocupar el rango P1 (Máximo). Prohibido el empate.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box blue">
+                  <strong>Por qué para la IA:</strong> Los LLMs tienden por complacencia a prometerlo todo: velocidad instantánea y características infinitas. La matriz le impone las leyes de la física del proyecto.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-purple">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>⚖️</span>
+                  <span>Tablero de Tradeoffs Consensuado</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">2-trade-offs-and-priorities.md</span>
+                  <span class="yarn-badge green">Consenso 4/4</span>
+                </div>
+              </div>
+
+              <table class="inception-tradeoff-table">
+                <thead>
+                  <tr>
+                    <th>Dimensión Clave</th>
+                    <th>P1 (Máx)</th>
+                    <th>P2</th>
+                    <th>P3</th>
+                    <th>P4</th>
+                    <th>P5</th>
+                    <th>P6 (Mín)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>🔒 Privacidad &amp; Control Local</td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>⚡ Latencia de Inferencia</td>
+                    <td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td><td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>🛡️ Calidad Arquitectónica &amp; TDD</td>
+                    <td></td><td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>🧩 Ergonomía &amp; Developer Experience</td>
+                    <td></td><td></td><td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>💰 Coste de Inversión Hardware</td>
+                    <td></td><td></td><td></td><td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>📦 Volumen Total de Features</td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="sdlc-code-callout" style="font-size: 0.82rem;">
+                👉 <strong>Consenso del Equipo:</strong> Sacrificamos volumen de features para blindar privacidad absoluta y latencia inmediata.
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">2. Tablero de Tradeoffs: Si Todo es Prioridad, Nada lo Es</h2>
-        <div class="scbcn-subtitle">Paso 2 de 8 • Simulación de debate socrático entre 4 roles y consenso estricto</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>El Debate de los 4 Roles:</strong> La IA simula la tensión creativa de un equipo multidisciplinar:</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Product Owner:</strong> Presiona por time-to-market y volumen de funcionalidades.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Tech Lead:</strong> Defiende la mantenibilidad, robustez y contención de deuda técnica.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>User Advocate:</strong> Exige mínima fricción y consistencia ergonómica.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Agile Coach:</strong> Protege la cadencia sostenible y el alcance realista del MVP.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Regla de Oro Inquebrantable:</strong> <em>Exactamente una X por columna de prioridad</em>. Si hay 7 dimensiones, solo una puede ser prioridad #1.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Tablero Real -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">⚖️ Tablero de Tradeoffs Consensuado</span>
-              <span class="inception-file-badge">2-tradeoffs.md</span>
-            </div>
-            <table class="inception-tradeoff-table">
-              <thead>
-                <tr>
-                  <th>Dimensión</th>
-                  <th>P1 (Máx)</th>
-                  <th>P2</th>
-                  <th>P3</th>
-                  <th>P4</th>
-                  <th>P5</th>
-                  <th>P6 (Mín)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>🔒 Privacidad &amp; Control Local</td>
-                  <td><span class="tradeoff-check">✕</span></td>
-                  <td></td><td></td><td></td><td></td><td></td>
-                </tr>
-                <tr>
-                  <td>⚡ Latencia de Inferencia</td>
-                  <td></td>
-                  <td><span class="tradeoff-check">✕</span></td>
-                  <td></td><td></td><td></td><td></td>
-                </tr>
-                <tr>
-                  <td>🛡️ Calidad Arquitectónica</td>
-                  <td></td><td></td>
-                  <td><span class="tradeoff-check">✕</span></td>
-                  <td></td><td></td><td></td>
-                </tr>
-                <tr>
-                  <td>🧩 Ergonomía &amp; DX</td>
-                  <td></td><td></td><td></td>
-                  <td><span class="tradeoff-check">✕</span></td>
-                  <td></td><td></td>
-                </tr>
-                <tr>
-                  <td>💰 Coste de Hardware</td>
-                  <td></td><td></td><td></td><td></td>
-                  <td><span class="tradeoff-check">✕</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>📦 Volumen de Features</td>
-                  <td></td><td></td><td></td><td></td><td></td>
-                  <td><span class="tradeoff-check">✕</span></td>
-                </tr>
-              </tbody>
-            </table>
-            <div style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.35; margin-top: 0.4rem;">
-              👉 <strong>Consenso:</strong> Sacrificamos volumen de features en favor de privacidad innegociable y latencia inmediata.
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">⚖️</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> Cuando el modelo afronta una encrucijada técnica, recurre al ranking de tradeoffs: la privacidad jamás se negocia para añadir más código.
             </div>
           </div>
         </div>
@@ -13543,104 +13655,94 @@ body.theme-dark .canvas-stamp {
 
 
     <!-- ====================================================================
-         SLIDE 45: INCEPTION PASO 3 - USER PERSONAS
+         SLIDE 45: INCEPTION PASO 3 - PERSONAS DE USUARIO
          ==================================================================== -->
     <section class="slide" id="slide-45">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 3 de 8 • /inception-workshop</div>
+        <h2>3. Personas de Usuario: <span class="serif-italic" style="color: #10b981;">Poner Rostro al Problema</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Arquetipos reales con restricciones de seguridad corporativa, hábitos de ingeniería y dolores cotidianos tangibles.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-green">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">👤 El Peligro del Usuario Genérico</div>
+                  <span class="yarn-badge green">Paso 3 • Arquetipos</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">👥</span>
+                    <div><strong>Arquetipos con Tensión Real:</strong> Se define el rol, el contexto de uso, las presiones organizativas y el nivel de tolerancia a fallos.</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">⚓</span>
+                    <div><strong>Anclaje Semántico de Historias:</strong> Toda User Story posterior comenzará citando textualmente a esta persona: <em>"Como Elena Torres quiero..."</em>.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box green">
+                  <strong>Por qué para la IA:</strong> Cuando la IA diseña para un "usuario cualquiera", genera soluciones impersonales y sobre-complejas. Con un perfil concreto, adapta interfaces y APIs a su flujo diario.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-green">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>👤</span>
+                  <span>Ficha de Persona Primaria</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">3-user-personas.md</span>
+                  <span class="yarn-badge green">Elena Torres</span>
+                </div>
+              </div>
+
+              <div class="inception-persona-box">
+                <div class="inception-persona-header">
+                  <div class="inception-persona-avatar">ET</div>
+                  <div class="inception-persona-meta">
+                    <div class="inception-persona-name">Elena Torres (36 años)</div>
+                    <div class="inception-persona-role">Tech Lead &amp; Software Crafter en FinTech</div>
+                  </div>
+                </div>
+
+                <div class="inception-persona-quote">
+                  “No puedo permitir que un copiloto mande nuestro código contable a la nube ajena, ni tolero tener que refactorizar 500 líneas de código generado sin tests.”
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div style="background: rgba(16, 185, 129, 0.08); padding: 0.75rem 0.9rem; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.25);">
+                    <strong style="color: #059669; font-size: 0.9rem;">🎯 Metas Innegociables:</strong>
+                    <ul style="margin: 0.35rem 0 0 0; padding-left: 1rem; color: var(--text-main); font-size: 0.86rem; line-height: 1.4;">
+                      <li>Inferencia 100% en local sin filtración de datos</li>
+                      <li>TDD estricto antes de cada commit</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(239, 68, 68, 0.08); padding: 0.75rem 0.9rem; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.25);">
+                    <strong style="color: #dc2626; font-size: 0.9rem;">💥 Dolores Reales:</strong>
+                    <ul style="margin: 0.35rem 0 0 0; padding-left: 1rem; color: var(--text-main); font-size: 0.86rem; line-height: 1.4;">
+                      <li>Facturas desorbitadas de APIs cloud</li>
+                      <li>Alucinaciones en DDD y máquinas de estado</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">3. Personas de Usuario: Poner Rostro al Problema</h2>
-        <div class="scbcn-subtitle">Paso 3 de 8 • Arquetipos reales, objetivos concretos y dolores cotidianos</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>El Peligro del "Usuario Genérico":</strong> La IA tiende a diseñar para un ente abstracto, produciendo soluciones sobre-complejas e impersonales.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Arquetipos con Tensión Real:</strong> Se define el rol, el contexto de uso, las presiones organizativas y el nivel de tolerancia a fallos.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Metas vs. Obstáculos:</strong> Qué intenta conseguir en su día a día y qué herramientas rotas se lo impiden actualmente.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Anclaje Semántico:</strong> Toda user story futura comenzará con <em>"Como [Persona] quiero..."</em> citando a este arquetipo real.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Ficha de Persona -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">👤 Ficha de Persona Primaria</span>
-              <span class="inception-file-badge">3-personas/elena-tech-lead.md</span>
-            </div>
-            <div class="inception-persona-box">
-              <div class="inception-persona-header">
-                <div class="inception-persona-avatar">ET</div>
-                <div class="inception-persona-meta">
-                  <div class="inception-persona-name">Elena Torres (36 años)</div>
-                  <div class="inception-persona-role">Tech Lead &amp; Software Crafter en FinTech</div>
-                </div>
-              </div>
-              <div class="inception-persona-quote">
-                “No puedo permitir que un copiloto mande nuestro código contable a servidores externos, ni tolero tener que refactorizar 500 líneas de código generado sin tests.”
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.78rem;">
-                <div style="background: rgba(16, 185, 129, 0.08); padding: 0.5rem; border-radius: 6px;">
-                  <strong style="color: #059669;">🎯 Objetivos:</strong>
-                  <ul style="margin: 0.2rem 0 0 0; padding-left: 0.8rem; color: var(--text-muted);">
-                    <li>Inferencia 100% en local sin leaks</li>
-                    <li>TDD estricto antes de cada commit</li>
-                  </ul>
-                </div>
-                <div style="background: rgba(239, 68, 68, 0.08); padding: 0.5rem; border-radius: 6px;">
-                  <strong style="color: #dc2626;">💥 Dolores:</strong>
-                  <ul style="margin: 0.2rem 0 0 0; padding-left: 0.8rem; color: var(--text-muted);">
-                    <li>Facturas imprevistas de APIs cloud</li>
-                    <li>Alucinaciones en DDD y estados</li>
-                  </ul>
-                </div>
-              </div>
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">👤</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> El modelo de lenguaje deja de generar "código de tutorial" cuando comprende el hardware, el stack y los dolores de su usuario real.
             </div>
           </div>
         </div>
@@ -13654,98 +13756,87 @@ body.theme-dark .canvas-stamp {
          ==================================================================== -->
     <section class="slide" id="slide-46">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 4 de 8 • /inception-workshop</div>
+        <h2>4. Mapa de Empatía: <span class="serif-italic" style="color: #f59e0b;">La Dimensión Humana</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Conectar con lo que el usuario piensa, oye, ve y hace para identificar las fricciones profundas y las victorias reales.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-amber">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">🧠 Más Allá de los Requisitos</div>
+                  <span class="yarn-badge amber">Paso 4 • Sensorial</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🧭</span>
+                    <div><strong>4 Dimensiones Perceptivas:</strong> Qué piensa/siente (lo íntimo), qué oye (presión social), qué ve (mercado) y qué dice/hace (conducta observable).</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">⚖️</span>
+                    <div><strong>Balance Pains vs. Gains:</strong> Qué fricciones drenan la energía del equipo frente a qué victorias rápidas disparan el entusiasmo.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box amber">
+                  <strong>Por qué para la IA:</strong> Dota al modelo del barómetro emocional para redactar explicaciones, diseñar flujos de error empáticos y evitar fricciones en el IDE.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-amber">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>🧭</span>
+                  <span>Brújula de Empatía Cuadridimensional</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">4-empathy-map.md</span>
+                  <span class="yarn-badge amber">4 Cuadrantes</span>
+                </div>
+              </div>
+
+              <div class="inception-empathy-grid">
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">🧠 ¿Qué piensa y siente?</div>
+                  <div style="color: var(--text-main); font-size: 0.88rem; line-height: 1.4;">"La IA es el futuro, pero si la adopto sin rigor ensucio el repositorio y pierdo el control."</div>
+                </div>
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">👂 ¿Qué oye en su entorno?</div>
+                  <div style="color: var(--text-main); font-size: 0.88rem; line-height: 1.4;">"El management exige métricas de adopción; los crafters advierten de la pérdida de habilidades."</div>
+                </div>
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">👀 ¿Qué ve en el mercado?</div>
+                  <div style="color: var(--text-main); font-size: 0.88rem; line-height: 1.4;">Herramientas cloud que cobran por token y suben precios arbitrariamente cada trimestre.</div>
+                </div>
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">🗣️ ¿Qué dice y hace?</div>
+                  <div style="color: var(--text-main); font-size: 0.88rem; line-height: 1.4;">Prueba modelos locales por las tardes en Ollama y busca flujos reproducibles para su equipo.</div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.75rem; margin-top: 0.2rem;">
+                <div style="flex: 1; background: rgba(239, 68, 68, 0.08); padding: 0.65rem 0.85rem; border-radius: 8px; font-size: 0.86rem; border: 1px solid rgba(239, 68, 68, 0.25);">
+                  <strong style="color: #dc2626;">💔 Pains:</strong> Pérdida de soberanía de datos, deuda técnica silenciosa.
+                </div>
+                <div style="flex: 1; background: rgba(16, 185, 129, 0.08); padding: 0.65rem 0.85rem; border-radius: 8px; font-size: 0.86rem; border: 1px solid rgba(16, 185, 129, 0.25);">
+                  <strong style="color: #059669;">✨ Gains:</strong> Autonomía de cómputo, código testeado en verde en local.
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">4. Mapa de Empatía: Sumergirse en la Mente del Usuario</h2>
-        <div class="scbcn-subtitle">Paso 4 de 8 • Conectar emociones, percepciones sensoriales y fricciones profundas</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>Más Allá de los Requisitos Funcionales:</strong> El software fracasa cuando no resuelve la ansiedad o frustración real de la persona.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Las 4 Percepciones Sensoriales:</strong> Qué piensa/siente (lo íntimo), qué oye (lo social), qué ve (su entorno) y qué dice/hace (lo público).</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Contraste Pains vs. Gains:</strong> Identificar qué fricciones drenan la energía del equipo y qué victorias rápidas disparan el entusiasmo.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Alineación del Modelo:</strong> Le da a la IA el barómetro emocional para redactar explicaciones y documentar errores con empatía.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Mapa de Empatía -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">🧭 Brújula de Empatía</span>
-              <span class="inception-file-badge">4-empathy-map.md</span>
-            </div>
-            <div class="inception-empathy-grid">
-              <div class="inception-empathy-box">
-                <div class="inception-empathy-title">🧠 ¿Qué piensa y siente?</div>
-                <div style="color: var(--text-muted); font-size: 0.74rem;">"La IA es el futuro, pero si la adopto sin rigor ensucio el repositorio y pierdo el control."</div>
-              </div>
-              <div class="inception-empathy-box">
-                <div class="inception-empathy-title">👂 ¿Qué oye en su entorno?</div>
-                <div style="color: var(--text-muted); font-size: 0.74rem;">"El management exige métricas de adopción; los crafters advierten de la pérdida de habilidades."</div>
-              </div>
-              <div class="inception-empathy-box">
-                <div class="inception-empathy-title">👀 ¿Qué ve en el mercado?</div>
-                <div style="color: var(--text-muted); font-size: 0.74rem;">Herramientas cloud que cobran por token y suben precios arbitrariamente cada trimestre.</div>
-              </div>
-              <div class="inception-empathy-box">
-                <div class="inception-empathy-title">🗣️ ¿Qué dice y hace?</div>
-                <div style="color: var(--text-muted); font-size: 0.74rem;">Prueba modelos locales por las tardes en Ollama y busca flujos reproducibles para su equipo.</div>
-              </div>
-            </div>
-            <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
-              <div style="flex: 1; background: rgba(239, 68, 68, 0.08); padding: 0.45rem 0.6rem; border-radius: 6px; font-size: 0.74rem;">
-                <strong style="color: #dc2626;">💔 Pains:</strong> Pérdida de privacidad, dependencias cloud opacas.
-              </div>
-              <div style="flex: 1; background: rgba(16, 185, 129, 0.08); padding: 0.45rem 0.6rem; border-radius: 6px; font-size: 0.74rem;">
-                <strong style="color: #059669;">✨ Gains:</strong> Autonomía de cómputo, código testeado en local.
-              </div>
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🧭</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> La IA que comprende la ansiedad técnica del desarrollador genera validaciones defensivas y mensajes de error orientados a la solución.
             </div>
           </div>
         </div>
@@ -13759,104 +13850,92 @@ body.theme-dark .canvas-stamp {
          ==================================================================== -->
     <section class="slide" id="slide-47">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 5 de 8 • /inception-workshop</div>
+        <h2>5. Brainstorming de Features: <span class="serif-italic" style="color: #8b5cf6;">Ideas Ancladas en Valor</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Divergencia controlada de funcionalidades orientadas a resolver dolores concretos, filtradas por las 4 fronteras.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-purple">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">💡 Divergencia Quirúrgica</div>
+                  <span class="yarn-badge purple">Paso 5 • Soluciones</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🎯</span>
+                    <div><strong>Justificación de Existencia:</strong> Ninguna feature entra en la pizarra sin declarar a qué Persona (Paso 3) y qué Dolor (Paso 4) resuelve.</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🛡️</span>
+                    <div><strong>Filtro Anti-Bloatware:</strong> Si una ocurrencia colisiona con el "NO ES" o "NO HACE" del Paso 1, queda descartada automáticamente.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box">
+                  <strong>Por qué para la IA:</strong> La IA tiende a sugerir decenas de features genéricas. Este filtro garantiza que solo se prioricen capacidades nucleares de alto valor artesanal.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-purple">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>💡</span>
+                  <span>Pizarra de Ideas Categorizadas</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">5-features-and-solutions.md</span>
+                  <span class="yarn-badge purple">6 Post-its</span>
+                </div>
+              </div>
+
+              <div class="inception-brainstorm-grid">
+                <div class="inception-postit yellow">
+                  <span class="postit-tag">Núcleo Local</span>
+                  <strong>Inferencia Ollama/vLLM</strong>
+                  <span>Cliente asíncrono con fallback automático entre Qwen 3.5 y 2.5-Coder.</span>
+                </div>
+                <div class="inception-postit blue">
+                  <span class="postit-tag">TDD &amp; DDD</span>
+                  <strong>Generador de Test E2E</strong>
+                  <span>Fuerza el escenario Given/When/Then antes de generar código.</span>
+                </div>
+                <div class="inception-postit purple">
+                  <span class="postit-tag">Living Docs</span>
+                  <strong>Mermaid Sync Automático</strong>
+                  <span>Sincronización de diagramas de secuencia con cada commit de git.</span>
+                </div>
+                <div class="inception-postit yellow">
+                  <span class="postit-tag">Núcleo Local</span>
+                  <strong>KV Cache Monitor</strong>
+                  <span>Alertas en tiempo real si el contexto supera los 32K tokens en VRAM.</span>
+                </div>
+                <div class="inception-postit blue">
+                  <span class="postit-tag">TDD &amp; DDD</span>
+                  <strong>Guards Validator</strong>
+                  <span>Verificación de precondiciones booleanas en máquinas de estado.</span>
+                </div>
+                <div class="inception-postit purple">
+                  <span class="postit-tag">Living Docs</span>
+                  <strong>Audit Drift Detector</strong>
+                  <span>Barrido estático que compara clases del código con ficheros markdown.</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">5. Brainstorming de Features: Ideas Ancladas en Valor</h2>
-        <div class="scbcn-subtitle">Paso 5 de 8 • Divergencia de funcionalidades orientadas a resolver dolores concretos</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>Divergencia Controlada:</strong> En este paso se generan libremente propuestas de funcionalidades, pero con una restricción férrea:</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Justificación de Existencia:</strong> Ninguna feature entra en la pizarra sin declarar a qué Persona (Paso 3) y qué Dolor (Paso 4) resuelve.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Clasificación por Objetivos:</strong> Se categorizan según los ejes estratégicos del producto (Núcleo, DX, Auditoría).</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Cero Bloatware:</strong> La IA propone decenas de ideas, pero el filtro de las 4 fronteras del Paso 1 descarta inmediatamente lo accesorio.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Pizarra de Features -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">💡 Pizarra de Ideas Categorizadas</span>
-              <span class="inception-file-badge">5-brainstorming.md</span>
-            </div>
-            <div class="inception-brainstorm-grid">
-              <div class="inception-postit yellow">
-                <span class="postit-tag">Núcleo Local</span>
-                <strong>Inferencia Ollama/vLLM</strong>
-                <span>Cliente HTTP asíncrono con fallback automático entre Qwen 3.5 y 2.5 Coder.</span>
-              </div>
-              <div class="inception-postit blue">
-                <span class="postit-tag">TDD &amp; DDD</span>
-                <strong>Generador de Test E2E</strong>
-                <span>Plantillas que fuerzan la especificación del escenario antes de la implementación.</span>
-              </div>
-              <div class="inception-postit purple">
-                <span class="postit-tag">Living Docs</span>
-                <strong>Mermaid Sync Automático</strong>
-                <span>Actualización bidireccional de diagramas de secuencia con cada commit.</span>
-              </div>
-              <div class="inception-postit yellow">
-                <span class="postit-tag">Núcleo Local</span>
-                <strong>KV Cache Monitor</strong>
-                <span>Alertas en tiempo real si el contexto supera los 32K tokens en VRAM.</span>
-              </div>
-              <div class="inception-postit blue">
-                <span class="postit-tag">TDD &amp; DDD</span>
-                <strong>Guards Validator</strong>
-                <span>Verificación de precondiciones booleanas en máquinas de estado de dominio.</span>
-              </div>
-              <div class="inception-postit purple">
-                <span class="postit-tag">Living Docs</span>
-                <strong>Audit Drift Detector</strong>
-                <span>Barrido estático que compara clases del código con ficheros markdown.</span>
-              </div>
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> La creatividad del modelo es infinita; la labor del artesano es filtrar sin contemplaciones para que solo sobreviva lo esencial.
             </div>
           </div>
         </div>
@@ -13866,105 +13945,90 @@ body.theme-dark .canvas-stamp {
 
 
     <!-- ====================================================================
-         SLIDE 48: INCEPTION PASO 6 - USER JOURNEY MAPPING
+         SLIDE 48: INCEPTION PASO 6 - USER JOURNEYS
          ==================================================================== -->
     <section class="slide" id="slide-48">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 6 de 8 • /inception-workshop</div>
+        <h2>6. User Journey Mapping: <span class="serif-italic" style="color: #06b6d4;">El Puente hacia la Ingeniería</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          La secuencia cronológica interactiva que alimentará directamente la especificación técnica de flujos en la Fase 2.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-cyan">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">🚶 La Secuencia Narrativa</div>
+                  <span class="yarn-badge cyan">Paso 6 • Journeys</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">⚡</span>
+                    <div><strong>El Eslabón Decisivo del SDLC:</strong> Aquí las ideas sueltas se convierten en una historia paso a paso con precondición, trigger y momento 'Wow'.</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">📐</span>
+                    <div><strong>Entrada Directa a Fase 2:</strong> Cada User Journey completado alimenta directamente al comando <code>/create-flow-documentation</code>.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box blue">
+                  <strong>Por qué para la IA:</strong> Si el LLM intenta generar diagramas Mermaid sin un User Journey previo, inventará bifurcaciones arbitrarias y pasará por alto los errores de validación.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-cyan">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>🚶</span>
+                  <span>Journey: Implementar Flujo en Local</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">6-user-journeys/journey-01.md</span>
+                  <span class="yarn-badge cyan">Flujo Crítico</span>
+                </div>
+              </div>
+
+              <div class="inception-journey-trail">
+                <div class="journey-step-node">
+                  <span class="journey-step-num">01</span>
+                  <div class="journey-step-desc">Elena invoca <code>/implement-flow</code> en su IDE con la especificación lista.</div>
+                  <span class="journey-step-emotion">😐</span>
+                </div>
+                <div class="journey-step-node">
+                  <span class="journey-step-num">02</span>
+                  <div class="journey-step-desc">El LLM local genera el test E2E rojo en su suite sin salir a internet.</div>
+                  <span class="journey-step-emotion">🙂</span>
+                </div>
+                <div class="journey-step-node">
+                  <span class="journey-step-num">03</span>
+                  <div class="journey-step-desc">Construye capa por capa: Dominio ➔ Casos de uso ➔ Adaptadores.</div>
+                  <span class="journey-step-emotion">⚡</span>
+                </div>
+                <div class="journey-step-node">
+                  <span class="journey-step-num">04</span>
+                  <div class="journey-step-desc">Ejecución automática de <code>mvn test</code>: ¡Suite en verde en 12 segundos!</div>
+                  <span class="journey-step-emotion">🤩</span>
+                </div>
+              </div>
+
+              <div class="sdlc-code-callout" style="font-size: 0.82rem; color: #059669;">
+                ➔ <strong>Salida lista para Fase 2:</strong> Este camino alimenta la generación de 3 diagramas Mermaid y criterios Gherkin.
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">6. User Journey Mapping: El Puente hacia la Ingeniería</h2>
-        <div class="scbcn-subtitle">Paso 6 de 8 • La secuencia cronológica que alimentará directamente los flujos técnicos</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>El Eslabón Decisivo del SDLC:</strong> Aquí las ideas sueltas del brainstorming se convierten en una historia cronológica interactiva.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Trigger Inicial:</strong> El evento desencadenante que pone en marcha la interacción.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Paso a Paso Interactivo:</strong> Acciones del usuario, respuestas del sistema y decisiones en bifurcación.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Momento Wow:</strong> El punto culminante donde el usuario percibe el valor diferencial del producto.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Entrada Directa a Fase 2:</strong> Cada journey terminado alimenta al comando <code>/create-flow-documentation</code> para escribir specs y tests.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: User Journey Trail -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">🚶 Journey: Implementar Flujo en Local</span>
-              <span class="inception-file-badge">6-user-journeys/journey-01-local-dev.md</span>
-            </div>
-            <div class="inception-journey-trail">
-              <div class="journey-step-node">
-                <span class="journey-step-num">01</span>
-                <div class="journey-step-desc">Elena ejecuta <code>/implement-flow</code> en su IDE con la spec lista.</div>
-                <span class="journey-step-emotion">😐</span>
-              </div>
-              <div class="journey-step-node">
-                <span class="journey-step-num">02</span>
-                <div class="journey-step-desc">El LLM genera el test E2E rojo en su suite local sin salir a la red.</div>
-                <span class="journey-step-emotion">🙂</span>
-              </div>
-              <div class="journey-step-node">
-                <span class="journey-step-num">03</span>
-                <div class="journey-step-desc">Crea capa por capa: Dominio ➔ Casos de uso ➔ Adaptadores.</div>
-                <span class="journey-step-emotion">⚡</span>
-              </div>
-              <div class="journey-step-node">
-                <span class="journey-step-num">04</span>
-                <div class="journey-step-desc">Ejecución automática de <code>mvn test</code>: ¡Todo en verde en 12s!</div>
-                <span class="journey-step-emotion">🤩</span>
-              </div>
-            </div>
-            <div style="font-size: 0.74rem; color: #059669; font-weight: 700; margin-top: 0.3rem;">
-              ➔ Salida lista: Transforma automáticamente este camino en un flow-spec con diagramas Mermaid.
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🚶</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> Si un flujo no puede explicarse en cuatro pasos claros, el caso de uso es excesivamente grande para que la IA lo construya con rigor.
             </div>
           </div>
         </div>
@@ -13974,113 +14038,97 @@ body.theme-dark .canvas-stamp {
 
 
     <!-- ====================================================================
-         SLIDE 49: INCEPTION PASO 7 - SECUENCIACIÓN & OLAS DE ENTREGA
+         SLIDE 49: INCEPTION PASO 7 - SECUENCIACIÓN EN OLAS
          ==================================================================== -->
     <section class="slide" id="slide-49">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 7 de 8 • /inception-workshop</div>
+        <h2>7. Secuenciación en Olas: <span class="serif-italic" style="color: #ec4899;">Separar el Trigo de la Paja</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Agrupar por valor y esfuerzo: definir con bisturí qué entra en el MVP (Ola 1) y qué se posterga a Olas futuras.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-pink">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">🌊 El Error de Construir Todo a la Vez</div>
+                  <span class="yarn-badge rose">Paso 7 • Olas</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🚀</span>
+                    <div><strong>Ola 1 (MVP Indispensable):</strong> Solo las piezas necesarias para validar el valor técnico central sin dependencias accesorias.</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">🔒</span>
+                    <div><strong>Compromiso del Equipo:</strong> Todo lo que no pertenezca a la Ola 1 queda estrictamente bloqueado para no dispersar el foco.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box">
+                  <strong>Por qué para la IA:</strong> Pedirle a un modelo "crea el sistema entero" satura su ventana de contexto y mezcla capas de abstracción. La Ola 1 acota los tokens al problema inmediato.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-pink">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>🌊</span>
+                  <span>Secuenciador de Entregas por Olas</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">7-sequencing-and-mvp.md</span>
+                  <span class="yarn-badge green">Ola 1 MVP</span>
+                </div>
+              </div>
+
+              <div class="inception-waves-stack">
+                <div class="inception-wave-card wave-1">
+                  <div class="wave-card-header">
+                    <span class="wave-title">🚀 OLA 1 — MVP (Foco Absoluto)</span>
+                    <span class="sdlc-phase-badge green">Prioridad Inmediata</span>
+                  </div>
+                  <div style="font-size: 0.86rem; color: var(--text-main); font-weight: 600; line-height: 1.45;">
+                    • Inferencia Ollama/vLLM en local con fallback<br>
+                    • Flujo TDD capa por capa para 1 caso de uso<br>
+                    • Validación de invariantes de dominio en memoria
+                  </div>
+                </div>
+                <div class="inception-wave-card wave-2">
+                  <div class="wave-card-header">
+                    <span class="wave-title">📈 OLA 2 — Incremento Funcional</span>
+                    <span class="sdlc-phase-badge blue">Siguiente Iteración</span>
+                  </div>
+                  <div style="font-size: 0.86rem; color: var(--text-main); font-weight: 600; line-height: 1.45;">
+                    • Auditoría periódica de deriva de documentación<br>
+                    • Integración con consumidores de eventos Kafka
+                  </div>
+                </div>
+                <div class="inception-wave-card wave-3">
+                  <div class="wave-card-header">
+                    <span class="wave-title">🔮 OLA 3 — Madurez &amp; Escala</span>
+                    <span class="sdlc-phase-badge rose">Roadmap Futuro</span>
+                  </div>
+                  <div style="font-size: 0.86rem; color: var(--text-dim); line-height: 1.45;">
+                    • Cuantización automática en NVFP4/AutoRound<br>
+                    • Orquestación multi-agente distribuida
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">7. Secuenciación en Olas: Separar el Trigo de la Paja</h2>
-        <div class="scbcn-subtitle">Paso 7 de 8 • Agrupar por valor y esfuerzo: qué entra en el MVP y qué se pospone</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>El Error de Construir Todo a la Vez:</strong> Un proyecto de IA fracasa si intenta resolver todos los casos de uso en la primera versión.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Ola 1 (El MVP Indispensable):</strong> Solo las piezas necesarias para validar el valor técnico central sin dependencias accesorias.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Ola 2 (Primer Incremento):</strong> Automatizaciones avanzadas, mayor soporte de modelos y telemetría interna.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Ola 3 (Futuro y Escala):</strong> Optimizaciones de compresión extrema y agentes multi-repo.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>Compromiso del Equipo:</strong> Todo lo que no esté en la Ola 1 queda estrictamente bloqueado para no dispersar el foco.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Olas de Entrega -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">🌊 Secuenciador de Entregas</span>
-              <span class="inception-file-badge">7-features-and-sequencing.md</span>
-            </div>
-            <div class="inception-waves-stack">
-              <div class="inception-wave-card wave-1">
-                <div class="wave-card-header">
-                  <span class="wave-title">🚀 OLA 1 — MVP (Foco Absoluto)</span>
-                  <span class="sdlc-phase-badge green">Prioridad Inmediata</span>
-                </div>
-                <div style="font-size: 0.76rem; color: var(--text-main); font-weight: 600;">
-                  • Inferencia Ollama/vLLM en local<br>
-                  • Flujo TDD capa por capa para 1 caso de uso<br>
-                  • Validación de invariantes en memoria
-                </div>
-              </div>
-              <div class="inception-wave-card wave-2">
-                <div class="wave-card-header">
-                  <span class="wave-title">📈 OLA 2 — Incremento Funcional</span>
-                  <span class="sdlc-phase-badge blue">Siguiente Iteración</span>
-                </div>
-                <div style="font-size: 0.76rem; color: var(--text-main); font-weight: 600;">
-                  • Auditoría periódica de deriva de documentación<br>
-                  • Integración con consumidores de eventos Kafka
-                </div>
-              </div>
-              <div class="inception-wave-card wave-3">
-                <div class="wave-card-header">
-                  <span class="wave-title">🔮 OLA 3 — Madurez &amp; Escala</span>
-                  <span class="sdlc-phase-badge rose">Roadmap Futuro</span>
-                </div>
-                <div style="font-size: 0.76rem; color: var(--text-dim);">
-                  • Cuantización automática en NVFP4/AutoRound<br>
-                  • Orquestación multi-agente distribuida
-                </div>
-              </div>
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🌊</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> La Ola 1 no es un prototipo desechable: es código de producción artesanal con un alcance estrictamente acotado.
             </div>
           </div>
         </div>
@@ -14094,102 +14142,91 @@ body.theme-dark .canvas-stamp {
          ==================================================================== -->
     <section class="slide" id="slide-50">
       <div class="slide-content">
-        <!-- Header Institucional Software Crafters Barcelona -->
-        <div class="scbcn-header-bar">
-          <div class="scbcn-brand-lockup">
-            <svg class="scbcn-unicorn-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="48,8 35,32 52,28" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="48,8 52,28 60,34" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 52,28 45,46" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 68,36 60,48" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,28 60,34 68,36" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 78,22 75,40" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="35,32 45,46 25,52" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 45,46 38,62" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="25,52 38,62 18,66" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 60,48 52,65" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="45,46 38,62 52,65" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="38,62 52,65 42,78" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="18,66 38,62 30,76" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="30,76 42,78 35,90" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,36 75,40 82,50" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="60,48 75,40 68,60" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="75,40 82,50 78,62" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 78,62 82,75" fill="#06b6d4" fill-opacity="0.25" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 68,60 62,80" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="52,65 42,78 55,88" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="42,78 55,88 48,94" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="68,60 62,80 76,86" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-              <polygon points="62,80 76,86 70,94" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <div class="scbcn-brand-text">
-              <div class="scbcn-brand-title">Software Crafters Barcelona</div>
-              <div class="scbcn-brand-meta">
-                <span class="scbcn-edition-pill">XIII EDITION</span>
-                <span class="scbcn-hashtag">#SCBCN26</span>
+        <div class="tag">Lean Inception • Paso 8 de 8 • /inception-workshop</div>
+        <h2>8. MVP Canvas: <span class="serif-italic" style="color: #059669;">El Contrato Definitivo</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          El lienzo que unifica visión, personas, alcance, métricas y coste en una sola página antes de tirar una línea de código.
+        </p>
+
+        <div class="inception-step-deck">
+          <div class="inception-step-grid">
+            <!-- Columna Izquierda: Concepto & Reglas -->
+            <div class="inception-concept-col">
+              <div class="inception-concept-card c-green">
+                <div class="inception-concept-header">
+                  <div class="inception-concept-title">📋 El Producto en una Sola Página</div>
+                  <span class="yarn-badge green">Paso 8 • Contrato</span>
+                </div>
+
+                <div class="inception-points-list">
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">📑</span>
+                    <div><strong>Consolidación Vinculante:</strong> Los 7 pasos anteriores confluyen en un contrato único: propuesta de valor, personas, journeys, features, resultado y métricas.</div>
+                  </div>
+                  <div class="inception-point-item">
+                    <span class="inception-point-icon">⚖️</span>
+                    <div><strong>Scoring de Validación Crafter:</strong> Exige una puntuación formal &gt;= 8/10 para autorizar el paso a desarrollo.</div>
+                  </div>
+                </div>
+
+                <div class="sdlc-detail-box green">
+                  <strong>¡Listos para Desarrollar!:</strong> Con este artefacto, el desarrollador y el LLM tienen un marco inequívoco. Se acabaron las alucinaciones y las sorpresas de alcance.
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Artefacto Visual Real -->
+            <div class="inception-artifact-card c-green">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title">
+                  <span>📋</span>
+                  <span>Lienzo MVP Canvas Final</span>
+                </div>
+                <div class="inception-artifact-badges">
+                  <span class="inception-file-badge">8-mvp-canvas.md</span>
+                  <span class="yarn-badge green">Score: 9.4/10</span>
+                </div>
+              </div>
+
+              <div class="inception-canvas-grid">
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">1. Propuesta de Valor</span>
+                  <span>Desarrollo con IA privada, rápida y guiada por TDD en hardware local.</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">2. Personas</span>
+                  <span>Tech Leads, Arquitectos y Crafters con exigencias de privacidad.</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">3. Journeys</span>
+                  <span>Creación y modificación de flujos DDD con suite de tests.</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">4. Features MVP</span>
+                  <span>Ollama Client + Generador TDD + Parser Mermaid.</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">5. Resultado</span>
+                  <span>Cero fugas de datos y código 100% testeado en local.</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">6. Métricas Éxito</span>
+                  <span>Latencia &lt; 20s/test y 0 incidentes de fuga de datos.</span>
+                </div>
+              </div>
+
+              <div class="canvas-stamp">
+                <span>✅ INCEPTION VALIDADA: Score 9.4 / 10</span>
+                <span style="font-size: 0.8rem; text-transform: uppercase;">Ready for Engineering</span>
               </div>
             </div>
           </div>
-        </div>
-        <h2 class="scbcn-title">8. MVP Canvas: El Contrato Definitivo de Producto</h2>
-        <div class="scbcn-subtitle">Paso 8 de 8 • El lienzo que unifica visión, alcance, métricas y coste antes de escribir código</div>
 
-        <div class="scbcn-split-grid">
-          <!-- Columna Izquierda: Concepto -->
-          <div class="scbcn-bullet-tree">
-            <div class="scbcn-level scbcn-level-1">
-              <span class="scbcn-marker">●</span>
-              <span><strong>El Producto en una Sola Página:</strong> Toda la investigación de los 7 pasos anteriores se consolida en un contrato vinculante.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Los 7 Bloques Esenciales:</strong> Propuesta de valor, personas atendidas, journeys cubiertos, features de la Ola 1, resultado esperado, métricas y coste.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-2">
-              <span class="scbcn-marker">○</span>
-              <span><strong>Criterio de Aprobación Crafter:</strong> El paso requiere una puntuación de validación formal >= 8/10 para ser aprobado.</span>
-            </div>
-            <div class="scbcn-level scbcn-level-3">
-              <span class="scbcn-marker">■</span>
-              <span><strong>¡Listos para Picar Código!:</strong> Con este artefacto, el desarrollador y el LLM tienen un marco inequívoco. Se acabaron las alucinaciones.</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: MVP Canvas Matrix -->
-          <div class="inception-artifact-card">
-            <div class="inception-artifact-header">
-              <span class="inception-artifact-title">📋 Lienzo MVP Canvas Final</span>
-              <span class="inception-file-badge">8-mvp-canvas.md</span>
-            </div>
-            <div class="inception-canvas-grid">
-              <div class="inception-canvas-block">
-                <span class="canvas-block-label">1. Propuesta de Valor</span>
-                <span>Desarrollo con IA privada, rápida y guiada por TDD en hardware local.</span>
-              </div>
-              <div class="inception-canvas-block">
-                <span class="canvas-block-label">2. Personas</span>
-                <span>Tech Leads, Arquitectos y Crafters con exigencias de privacidad.</span>
-              </div>
-              <div class="inception-canvas-block">
-                <span class="canvas-block-label">3. Journeys</span>
-                <span>Creación y modificación de flujos DDD con suite de tests.</span>
-              </div>
-              <div class="inception-canvas-block">
-                <span class="canvas-block-label">4. Features MVP</span>
-                <span>Ollama Client + Generador TDD + Parser Mermaid.</span>
-              </div>
-              <div class="inception-canvas-block">
-                <span class="canvas-block-label">5. Resultado</span>
-                <span>Cero fugas de datos y código 100% testeado en local.</span>
-              </div>
-              <div class="inception-canvas-block">
-                <span class="canvas-block-label">6. Métricas Éxito</span>
-                <span>Latencia &lt; 30s/test y 0 incidentes de fuga de datos.</span>
-              </div>
-            </div>
-            <div class="canvas-stamp">
-              <span>✅ INCEPTION VALIDADA: Score 9.4 / 10</span>
-              <span style="font-size: 0.72rem; text-transform: uppercase;">Ready for Dev</span>
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">📋</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> El MVP Canvas es el contrato de no agresión arquitectónica: si el scoring formal no supera 8/10, no se escribe una sola línea de código.
             </div>
           </div>
         </div>
