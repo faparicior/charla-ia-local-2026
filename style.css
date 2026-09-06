@@ -1844,6 +1844,16 @@ body.theme-dark .rect-bar-cap {
   gap: 1.5rem;
 }
 
+.rect-bar-segments.cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.85rem;
+}
+
+.rect-bar-segments.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+}
+
 .rect-bar-segment {
   height: 16px;
   border-radius: 4px;
@@ -1873,6 +1883,14 @@ body.theme-dark .rect-bar-cap {
   background-color: #e11d48;
 }
 
+.rect-bar-segment.c7 {
+  background-color: #10b981;
+}
+
+.rect-bar-segment.c8 {
+  background-color: #6366f1;
+}
+
 /* Grid de las columnas superpuesto */
 .rect-timeline-grid {
   display: grid;
@@ -1886,6 +1904,16 @@ body.theme-dark .rect-bar-cap {
 .rect-timeline-grid.cols-5 {
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
+}
+
+.rect-timeline-grid.cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.85rem;
+}
+
+.rect-timeline-grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
 }
 
 .rect-col {
@@ -2091,6 +2119,22 @@ body.theme-dark .rect-card-desc {
   color: #e11d48;
 }
 
+.c-green {
+  color: #10b981;
+}
+
+.c-indigo {
+  color: #4f46e5;
+}
+
+.c-pink {
+  color: #ec4899;
+}
+
+.c-cyan {
+  color: #06b6d4;
+}
+
 body.theme-dark .c-blue {
   color: #38bdf8;
 }
@@ -2113,6 +2157,104 @@ body.theme-dark .c-teal {
 
 body.theme-dark .c-crimson {
   color: #fb7185;
+}
+
+body.theme-dark .c-green {
+  color: #34d399;
+}
+
+body.theme-dark .c-indigo {
+  color: #818cf8;
+}
+
+body.theme-dark .c-pink {
+  color: #f472b6;
+}
+
+body.theme-dark .c-cyan {
+  color: #22d3ee;
+}
+
+/* Ajustes específicos para 8 columnas (Inception Timeline) */
+.rect-timeline-grid.cols-8 .rect-top-slot,
+.rect-timeline-grid.cols-8 .rect-bottom-slot {
+  height: 275px;
+}
+
+.rect-timeline-grid.cols-8 .rect-card {
+  padding: 0.75rem 0.8rem;
+  border-radius: 12px;
+  gap: 0.35rem;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-title {
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-tag {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.35rem;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-footer {
+  font-size: 0.72rem;
+  padding-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  line-height: 1.25;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-footer span {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+.rect-timeline-grid.cols-8 .rect-date-year {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.rect-timeline-grid.cols-8 .rect-date-label {
+  font-size: 0.72rem;
+}
+
+/* Ajustes específicos para 5 columnas (SDLC Pipeline) */
+.rect-timeline-grid.cols-5 .rect-top-slot,
+.rect-timeline-grid.cols-5 .rect-bottom-slot {
+  height: 285px;
+}
+
+.rect-timeline-grid.cols-5 .rect-card {
+  padding: 1.05rem 1.15rem;
+  border-radius: 14px;
+  gap: 0.45rem;
+}
+
+.rect-timeline-grid.cols-5 .rect-card-title {
+  font-size: 1.14rem;
+}
+
+.rect-timeline-grid.cols-5 .rect-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.rect-timeline-grid.cols-5 .rect-date-year {
+  font-size: 1.35rem;
+}
+
+.rect-timeline-grid.cols-5 .rect-date-label {
+  font-size: 0.78rem;
 }
 
 /* Cinta resumen de pie de slide */

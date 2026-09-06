@@ -1863,6 +1863,16 @@ body.theme-dark .rect-bar-cap {
   gap: 1.5rem;
 }
 
+.rect-bar-segments.cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.85rem;
+}
+
+.rect-bar-segments.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+}
+
 .rect-bar-segment {
   height: 16px;
   border-radius: 4px;
@@ -1892,6 +1902,14 @@ body.theme-dark .rect-bar-cap {
   background-color: #e11d48;
 }
 
+.rect-bar-segment.c7 {
+  background-color: #10b981;
+}
+
+.rect-bar-segment.c8 {
+  background-color: #6366f1;
+}
+
 /* Grid de las columnas superpuesto */
 .rect-timeline-grid {
   display: grid;
@@ -1905,6 +1923,16 @@ body.theme-dark .rect-bar-cap {
 .rect-timeline-grid.cols-5 {
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
+}
+
+.rect-timeline-grid.cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.85rem;
+}
+
+.rect-timeline-grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
 }
 
 .rect-col {
@@ -2110,6 +2138,22 @@ body.theme-dark .rect-card-desc {
   color: #e11d48;
 }
 
+.c-green {
+  color: #10b981;
+}
+
+.c-indigo {
+  color: #4f46e5;
+}
+
+.c-pink {
+  color: #ec4899;
+}
+
+.c-cyan {
+  color: #06b6d4;
+}
+
 body.theme-dark .c-blue {
   color: #38bdf8;
 }
@@ -2132,6 +2176,104 @@ body.theme-dark .c-teal {
 
 body.theme-dark .c-crimson {
   color: #fb7185;
+}
+
+body.theme-dark .c-green {
+  color: #34d399;
+}
+
+body.theme-dark .c-indigo {
+  color: #818cf8;
+}
+
+body.theme-dark .c-pink {
+  color: #f472b6;
+}
+
+body.theme-dark .c-cyan {
+  color: #22d3ee;
+}
+
+/* Ajustes específicos para 8 columnas (Inception Timeline) */
+.rect-timeline-grid.cols-8 .rect-top-slot,
+.rect-timeline-grid.cols-8 .rect-bottom-slot {
+  height: 275px;
+}
+
+.rect-timeline-grid.cols-8 .rect-card {
+  padding: 0.75rem 0.8rem;
+  border-radius: 12px;
+  gap: 0.35rem;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-title {
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-tag {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.35rem;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-footer {
+  font-size: 0.72rem;
+  padding-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  line-height: 1.25;
+}
+
+.rect-timeline-grid.cols-8 .rect-card-footer span {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+.rect-timeline-grid.cols-8 .rect-date-year {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.rect-timeline-grid.cols-8 .rect-date-label {
+  font-size: 0.72rem;
+}
+
+/* Ajustes específicos para 5 columnas (SDLC Pipeline) */
+.rect-timeline-grid.cols-5 .rect-top-slot,
+.rect-timeline-grid.cols-5 .rect-bottom-slot {
+  height: 285px;
+}
+
+.rect-timeline-grid.cols-5 .rect-card {
+  padding: 1.05rem 1.15rem;
+  border-radius: 14px;
+  gap: 0.45rem;
+}
+
+.rect-timeline-grid.cols-5 .rect-card-title {
+  font-size: 1.14rem;
+}
+
+.rect-timeline-grid.cols-5 .rect-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.rect-timeline-grid.cols-5 .rect-date-year {
+  font-size: 1.35rem;
+}
+
+.rect-timeline-grid.cols-5 .rect-date-label {
+  font-size: 0.78rem;
 }
 
 /* Cinta resumen de pie de slide */
@@ -13946,166 +14088,180 @@ body.theme-dark .dual-detail {
           La IA no sustituye el diseño ni el criterio artesanal: los potencia a través de un pipeline estructurado con habilidades especializadas (Skills).
         </p>
 
-        <div class="sdlc-pipeline-deck">
-
-          <!-- Fila Superior: 5 Fases del Pipeline -->
-          <div class="sdlc-pipeline-steps">
-
-            <!-- Fase 1 -->
-            <div class="sdlc-step-card c-blue">
-              <div class="sdlc-step-header">
-                <span class="sdlc-phase-num">Fase 1</span>
-                <span class="sdlc-phase-badge blue">Descubrimiento</span>
+        <div class="rect-timeline-deck">
+          <div class="rect-timeline-wrapper">
+            <div class="rect-timeline-bar-bg">
+              <div class="rect-bar-cap left"></div>
+              <div class="rect-bar-segments cols-5">
+                <div class="rect-bar-segment c1"></div>
+                <div class="rect-bar-segment c3"></div>
+                <div class="rect-bar-segment c7"></div>
+                <div class="rect-bar-segment c2"></div>
+                <div class="rect-bar-segment c6"></div>
               </div>
-              <div class="sdlc-skill-cmd">/inception-workshop</div>
-              <div class="sdlc-step-question">¿Qué construir?</div>
-              <ul class="sdlc-step-list">
-                <li>Lean Inception en 8 pasos</li>
-                <li>Debate asistido de tradeoffs</li>
-                <li>MVP Canvas y User Journeys</li>
-              </ul>
-              <div class="sdlc-step-output">📄 docs/inception/*.md</div>
+              <div class="rect-bar-cap right"></div>
             </div>
 
-            <!-- Fase 2 -->
-            <div class="sdlc-step-card c-purple">
-              <div class="sdlc-step-header">
-                <span class="sdlc-phase-num">Fase 2</span>
-                <span class="sdlc-phase-badge purple">Especificación</span>
-              </div>
-              <div class="sdlc-skill-cmd">/create-flow-doc</div>
-              <div class="sdlc-step-question">¿Cómo funciona?</div>
-              <ul class="sdlc-step-list">
-                <li>3 diagramas Mermaid (secuencia, flujo, estado)</li>
-                <li>Criterios de aceptación Gherkin</li>
-                <li>Reglas de negocio <code>BR-XXX</code></li>
-              </ul>
-              <div class="sdlc-step-output">📄 flows/flow-XX.md</div>
-            </div>
+            <div class="rect-timeline-grid cols-5">
 
-            <!-- Fase 3 -->
-            <div class="sdlc-step-card c-green">
-              <div class="sdlc-step-header">
-                <span class="sdlc-phase-num">Fase 3</span>
-                <span class="sdlc-phase-badge green">Modelo DDD</span>
+              <!-- Fase 1: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-blue">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Incepción Ágil</div>
+                      <span class="rect-card-tag">Fase 1</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Taller guiado en 8 pasos: visión de producto, fronteras innegociables, debate asistido de tradeoffs y mapa de empatía.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Ventaja Clave</span>
+                      <strong style="color: #0284c7;">Poda 90% de alucinaciones</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">FASE 1</div>
+                    <div class="rect-date-label">Descubrimiento</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #0284c7; margin-top: 0.25rem;">/inception-workshop</div>
+                  </div>
+                </div>
               </div>
-              <div class="sdlc-skill-cmd">/create-entity-lifecycle</div>
-              <div class="sdlc-step-question">¿Cuáles son las reglas?</div>
-              <ul class="sdlc-step-list">
-                <li>Máquinas de estados de entidades</li>
-                <li>Transiciones con guards y acciones</li>
-                <li>Invariantes de dominio <code>INV-XXX</code></li>
-              </ul>
-              <div class="sdlc-step-output">📄 entities/*.md</div>
-            </div>
 
-            <!-- Fase 4 -->
-            <div class="sdlc-step-card c-amber">
-              <div class="sdlc-step-header">
-                <span class="sdlc-phase-num">Fase 4</span>
-                <span class="sdlc-phase-badge amber">Construcción</span>
+              <!-- Fase 2: Titular Arriba, Card Abajo -->
+              <div class="rect-col c-purple">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">FASE 2</div>
+                    <div class="rect-date-label">Especificación</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7c3aed; margin-top: 0.25rem;">/create-flow-doc</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Especificación Viva</div>
+                      <span class="rect-card-tag">Fase 2</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      3 diagramas Mermaid (secuencia, flujo, estado) y criterios de aceptación Gherkin deterministas sin ambigüedad.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Ventaja Clave</span>
+                      <strong style="color: #7c3aed;">Living Docs sincronizados</strong>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="sdlc-skill-cmd">/implement-flow</div>
-              <div class="sdlc-step-question">¿Cómo se construye?</div>
-              <ul class="sdlc-step-list">
-                <li>TDD Híbrido guiado por tests que fallan</li>
-                <li>Desarrollo capa por capa hexagonal</li>
-                <li>Validación en suite de tests real</li>
-              </ul>
-              <div class="sdlc-step-output">💻 Código + Tests Unit/E2E</div>
-            </div>
 
-            <!-- Fase 5+ -->
-            <div class="sdlc-step-card c-rose">
-              <div class="sdlc-step-header">
-                <span class="sdlc-phase-num">Fase 5+</span>
-                <span class="sdlc-phase-badge rose">Evolución</span>
+              <!-- Fase 3: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-green">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Modelo DDD Rico</div>
+                      <span class="rect-card-tag">Fase 3</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Máquinas de estados finitas, transiciones legales protegidas por guards y Value Objects inmutables con validación propia.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Ventaja Clave</span>
+                      <strong style="color: #10b981;">Espacio de estados cerrado</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">FASE 3</div>
+                    <div class="rect-date-label">Modelo de Dominio</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #10b981; margin-top: 0.25rem;">/create-entity-lifecycle</div>
+                  </div>
+                </div>
               </div>
-              <div class="sdlc-skill-cmd">/modify-flow</div>
-              <div class="sdlc-step-question">¿Cómo cambia?</div>
-              <ul class="sdlc-step-list">
-                <li>Propuesta formal con código actual</li>
-                <li>Plan de implementación por capas DDD</li>
-                <li>Actualización in-place de specs vivas</li>
-              </ul>
-              <div class="sdlc-step-output">📝 proposal.md + plan.md</div>
-            </div>
 
+              <!-- Fase 4: Titular Arriba, Card Abajo -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">FASE 4</div>
+                    <div class="rect-date-label">Construcción</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #d97706; margin-top: 0.25rem;">/implement-flow</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">TDD Hexagonal</div>
+                      <span class="rect-card-tag">Fase 4</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Ciclo estricto Red-Green-Refactor capa por capa. La IA solo escribe código para pasar un test que previamente ha fallado.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Ventaja Clave</span>
+                      <strong style="color: #d97706;">Feedback en segundos</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fase 5+: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-crimson">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">Evolución &amp; Auditoría</div>
+                      <span class="rect-card-tag">Fase 5+</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Propuestas formales antes de tocar código existente, planes por capas DDD y auditoría de cero drift contra specs vivas.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Ventaja Clave</span>
+                      <strong style="color: #e11d48;">Cero drift en código</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">FASE 5+</div>
+                    <div class="rect-date-label">Evolución Continua</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #e11d48; margin-top: 0.25rem;">/modify-flow &amp; /audit-docs</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
+        </div>
 
-          <!-- Fila Inferior: Habilidades Transversales (En Todo Momento) -->
-          <div class="sdlc-transversal-row">
-
-            <!-- Card Explore Domain -->
-            <div class="sdlc-transversal-card">
-              <div class="sdlc-transversal-header">
-                <div class="sdlc-transversal-title">
-                  <span>🧭</span>
-                  <code>/explore-domain</code>
-                  <span>Comprensión del Sistema sin Modificar</span>
-                </div>
-                <span class="yarn-badge purple">Auditoría / Onboarding</span>
-              </div>
-              <div class="sdlc-modes-grid">
-                <div class="sdlc-mode-box">
-                  <div class="sdlc-mode-name">explain</div>
-                  <div>Narrativa clara + Mermaid adaptado a PO o Dev.</div>
-                </div>
-                <div class="sdlc-mode-box">
-                  <div class="sdlc-mode-name">list-events</div>
-                  <div>Catálogo de eventos Kafka consumidos y producidos.</div>
-                </div>
-                <div class="sdlc-mode-box">
-                  <div class="sdlc-mode-name">trace-flow</div>
-                  <div>Trazado paso a paso desde el endpoint al efecto lateral.</div>
-                </div>
-                <div class="sdlc-mode-box">
-                  <div class="sdlc-mode-name">find-rule</div>
-                  <div>Localiza qué clase hace cumplir cada regla <code>BR-XXX</code>.</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card Audit Docs -->
-            <div class="sdlc-transversal-card">
-              <div class="sdlc-transversal-header">
-                <div class="sdlc-transversal-title">
-                  <span>🛡️</span>
-                  <code>/audit-docs</code>
-                  <span>Guardián de la Verdad (Cero Drift)</span>
-                </div>
-                <span class="yarn-badge green">Salud de Living Docs</span>
-              </div>
-              <div class="sdlc-verdict-grid">
-                <div class="sdlc-verdict-card confirmed">
-                  <div class="sdlc-verdict-title">✅ Confirmed</div>
-                  <div>La documentación coincide con el código al 100%.</div>
-                </div>
-                <div class="sdlc-verdict-card stale">
-                  <div class="sdlc-verdict-title">⚠️ Stale</div>
-                  <div>Desfase en parámetros o reglas obsoletas.</div>
-                </div>
-                <div class="sdlc-verdict-card missing">
-                  <div class="sdlc-verdict-title">❌ Missing</div>
-                  <div>El doc apunta a código que ya no existe.</div>
-                </div>
-                <div class="sdlc-verdict-card undoc">
-                  <div class="sdlc-verdict-title">➕ Undocumented</div>
-                  <div>Comportamiento en código sin documentar.</div>
-                </div>
-              </div>
-            </div>
-
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla Crafter:</strong> Los modelos de lenguaje fallan cuando se les pide "crear una app entera de golpe". Triunfan cuando operan sobre fases acotadas, contratos vivos y TDD.
           </div>
-
-          <!-- Banner Inferior -->
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Regla Crafter:</strong> Los modelos de lenguaje fallan cuando se les pide "crear una app entera de golpe". Triunfan cuando operan sobre fases acotadas, contratos vivos y TDD.
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -14306,85 +14462,258 @@ body.theme-dark .dual-detail {
           Antes de tirar una sola línea de código, la IA y el equipo cruzan un embudo de 8 filtros secuenciales.
         </p>
 
-        <div class="inception-funnel-flow">
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 1</span>
-              <span>🗺️</span>
+        <div class="rect-timeline-deck">
+          <div class="rect-timeline-wrapper">
+            <div class="rect-timeline-bar-bg">
+              <div class="rect-bar-cap left"></div>
+              <div class="rect-bar-segments cols-8">
+                <div class="rect-bar-segment c1"></div>
+                <div class="rect-bar-segment c2"></div>
+                <div class="rect-bar-segment c3"></div>
+                <div class="rect-bar-segment c4"></div>
+                <div class="rect-bar-segment c5"></div>
+                <div class="rect-bar-segment c6"></div>
+                <div class="rect-bar-segment c7"></div>
+                <div class="rect-bar-segment c8"></div>
+              </div>
+              <div class="rect-bar-cap right"></div>
             </div>
-            <div class="funnel-step-name">Fronteras</div>
-            <div class="funnel-step-question">"¿Qué NO somos y qué NO hacemos?"</div>
-            <div class="funnel-step-output">📄 1-boundaries.md</div>
-          </div>
 
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 2</span>
-              <span>⚖️</span>
-            </div>
-            <div class="funnel-step-name">Tradeoffs</div>
-            <div class="funnel-step-question">"¿Qué sacrificamos por diseño?"</div>
-            <div class="funnel-step-output">📄 2-tradeoffs.md</div>
-          </div>
+            <div class="rect-timeline-grid cols-8">
 
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 3</span>
-              <span>👤</span>
-            </div>
-            <div class="funnel-step-name">Personas</div>
-            <div class="funnel-step-question">"¿Para qué artesano concreto?"</div>
-            <div class="funnel-step-output">📄 3-personas.md</div>
-          </div>
+              <!-- Paso 1: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-blue">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">1. Fronteras</div>
+                      <span class="rect-card-tag">Paso 1</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      4 cuadrantes innegociables: qué ES / NO ES y qué HACE / NO HACE el sistema.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #0284c7;">Poda 90% de alucinaciones</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">PASO 1</div>
+                    <div class="rect-date-label">Fronteras</div>
+                  </div>
+                </div>
+              </div>
 
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 4</span>
-              <span>🧭</span>
-            </div>
-            <div class="funnel-step-name">Empatía</div>
-            <div class="funnel-step-question">"¿Qué dolor y ansiedad aliviamos?"</div>
-            <div class="funnel-step-output">📄 4-empathy.md</div>
-          </div>
+              <!-- Paso 2: Titular Arriba, Card Abajo -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">PASO 2</div>
+                    <div class="rect-date-label">Tradeoffs</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">2. Tradeoffs</div>
+                      <span class="rect-card-tag">Paso 2</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Matriz con una sola X por columna: prioridades claras sin empates ni dudas.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #d97706;">Criterio ante dilemas</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 5</span>
-              <span>💡</span>
-            </div>
-            <div class="funnel-step-name">Features</div>
-            <div class="funnel-step-question">"¿Qué solución resuelve el dolor?"</div>
-            <div class="funnel-step-output">📄 5-features.md</div>
-          </div>
+              <!-- Paso 3: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-purple">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">3. Personas</div>
+                      <span class="rect-card-tag">Paso 3</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Perfil del usuario artesano real (Elena Torres) y sus límites de hardware local.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #7c3aed;">Diseño para dolor real</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">PASO 3</div>
+                    <div class="rect-date-label">Personas</div>
+                  </div>
+                </div>
+              </div>
 
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 6</span>
-              <span>🚶</span>
-            </div>
-            <div class="funnel-step-name">Journeys</div>
-            <div class="funnel-step-question">"¿Cuál es el recorrido paso a paso?"</div>
-            <div class="funnel-step-output">📄 6-journeys.md</div>
-          </div>
+              <!-- Paso 4: Titular Arriba, Card Abajo -->
+              <div class="rect-col c-orange">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">PASO 4</div>
+                    <div class="rect-date-label">Empatía</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">4. Empatía</div>
+                      <span class="rect-card-tag">Paso 4</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Mapa sensorial de dolores (Pains), frustraciones y ganancias esperadas (Gains).
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #ea580c;">Código defensivo</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <div class="funnel-step-card">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num">Paso 7</span>
-              <span>🌊</span>
-            </div>
-            <div class="funnel-step-name">Olas</div>
-            <div class="funnel-step-question">"¿Qué entra en el MVP y qué se bloquea?"</div>
-            <div class="funnel-step-output">📄 7-sequencing.md</div>
-          </div>
+              <!-- Paso 5: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-teal">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">5. Ideas</div>
+                      <span class="rect-card-tag">Paso 5</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Lluvia de funciones filtradas estrictamente por las fronteras del Paso 1.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #0d9488;">Semáforo de viabilidad</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">PASO 5</div>
+                    <div class="rect-date-label">Features</div>
+                  </div>
+                </div>
+              </div>
 
-          <div class="funnel-step-card" style="border: 2px solid #10b981;">
-            <div class="funnel-step-header">
-              <span class="funnel-step-num" style="background: #10b981; color: #fff;">Paso 8</span>
-              <span>📋</span>
+              <!-- Paso 6: Titular Arriba, Card Abajo -->
+              <div class="rect-col c-crimson">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">PASO 6</div>
+                    <div class="rect-date-label">Journeys</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">6. Journeys</div>
+                      <span class="rect-card-tag">Paso 6</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Recorrido del usuario en 4 nodos clave desde el punto de entrada al éxito.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #e11d48;">Base a Mermaid y tests</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Paso 7: Card Arriba, Titular Abajo -->
+              <div class="rect-col c-green">
+                <div class="rect-top-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">7. Olas</div>
+                      <span class="rect-card-tag">Paso 7</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Clasificación secuencial en Olas de entrega: Ola 1 (MVP), Ola 2 y Ola 3.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #10b981;">Foco: solo MVP a TDD</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">PASO 7</div>
+                    <div class="rect-date-label">Secuencia</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Paso 8: Titular Arriba, Card Abajo -->
+              <div class="rect-col c-indigo">
+                <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">PASO 8</div>
+                    <div class="rect-date-label">MVP Canvas</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+                <div class="rect-center-pin"><div class="rect-donut"></div></div>
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-card" style="margin-top: 0.5rem;">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">8. MVP Canvas</div>
+                      <span class="rect-card-tag">Paso 8</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Contrato de 1 página con propuesta, métricas y auditoría formal &ge; 8/10.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Aporte</span>
+                      <strong style="color: #6366f1;">Contrato vinculante IA</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div class="funnel-step-name">MVP Canvas</div>
-            <div class="funnel-step-question">"¿El contrato tiene score &ge; 8/10?"</div>
-            <div class="funnel-step-output" style="color: #059669; font-weight: 700;">✅ Listo para Dev</div>
           </div>
         </div>
 
@@ -14744,84 +15073,41 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">1-product-vision-and-boundaries.md</span>
-                  </div>
-                </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-blue">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>🗺️</span> 1-boundaries.md</div>
+                <span class="yarn-badge green">Fronteras Claras</span>
               </div>
-              <div class="template-console-body">
-                <h1># 1. Product Vision &amp; Boundaries</h1>
-                <p><em>Plantilla oficial de la skill /inception-workshop</em></p>
-
-                <h2>## 1.1 The Elevator Pitch</h2>
-                <p><em>The ultimate direction and differentiation.</em></p>
-                <table>
-                  <thead>
-                    <tr><th>For</th><th>Who</th><th>The Product</th><th>Is a</th><th>That</th><th>Unlike</th><th>Our Product</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Elena Torres</td>
-                      <td>necesita IA privada y determinista</td>
-                      <td><strong>AI Local Crafter</strong></td>
-                      <td>asistente local en IDE</td>
-                      <td>respeta TDD, DDD y privacidad total</td>
-                      <td>Copilot en la nube</td>
-                      <td>ejecuta 100% en GPU/Mac local con 0 fugas</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 1.2 Product Goals</h2>
-                <ol>
-                  <li><strong>Goal 1:</strong> Inferencia local autónoma con latencia &lt; 20s por flujo.</li>
-                  <li><strong>Goal 2:</strong> 100% determinismo arquitectónico (Zero drift en Living Docs).</li>
-                  <li><strong>Goal 3:</strong> Cumplimiento estricto de gobernanza sin telemetría externa.</li>
-                </ol>
-
-                <hr>
-
-                <h2>## 1.3 The Product Is/Is Not, Does/Does Not</h2>
-                <blockquote>
-                  <strong>Constraint de la Skill:</strong> Al menos 4 ítems obligatorios en cada cuadrante. Define límites innegociables para que el LLM no invente alcance.
-                </blockquote>
-
-                <table>
-                  <thead>
-                    <tr><th style="color:#3fb950;">The Product IS (✅)</th><th style="color:#f85149;">The Product IS NOT (❌)</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Motor de inferencia local autónomo</td><td>Generador ciego de código spaghetti</td></tr>
-                    <tr><td>Copiloto guiado por TDD estricto</td><td>Servicio SaaS alojado en nube ajena</td></tr>
-                    <tr><td>Generador de Living Documentation viva</td><td>Reemplazo del criterio del artesano</td></tr>
-                    <tr><td>Suite de arquitectura hexagonal &amp; DDD</td><td>Chatbot conversacional generalista</td></tr>
-                  </tbody>
-                </table>
-
-                <table>
-                  <thead>
-                    <tr><th style="color:#388bfd;">The Product DOES (⚡)</th><th style="color:#d29922;">The Product DOES NOT (🚫)</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Ejecuta modelos en tu GPU/Mac sin internet</td><td>Enviar telemetría o código a terceros</td></tr>
-                    <tr><td>Valida contratos contra tests Given/When/Then</td><td>Modificar código de producción sin propuesta</td></tr>
-                    <tr><td>Audita drift de arquitectura en cada commit</td><td>Ignorar tests fallidos para forzar el paso</td></tr>
-                    <tr><td>Sincroniza diagramas de secuencia Mermaid</td><td>Crear dependencias cloud no solicitadas</td></tr>
-                  </tbody>
-                </table>
+              <div class="inception-boundary-grid">
+                <div class="inception-boundary-box is">
+                  <span class="inception-box-title">✅ ES</span>
+                  <ul class="inception-box-list">
+                    <li>Motor de inferencia local autónomo</li>
+                    <li>Copiloto guiado por TDD estricto</li>
+                  </ul>
+                </div>
+                <div class="inception-boundary-box is-not">
+                  <span class="inception-box-title">❌ NO ES</span>
+                  <ul class="inception-box-list">
+                    <li>Generador ciego de código spaghetti</li>
+                    <li>Servicio SaaS en nube ajena</li>
+                  </ul>
+                </div>
+                <div class="inception-boundary-box does">
+                  <span class="inception-box-title">⚡ HACE</span>
+                  <ul class="inception-box-list">
+                    <li>Ejecuta modelos en tu GPU/Mac</li>
+                    <li>Valida capas contra tests reales</li>
+                  </ul>
+                </div>
+                <div class="inception-boundary-box does-not">
+                  <span class="inception-box-title">🚫 NO HACE</span>
+                  <ul class="inception-box-list">
+                    <li>Enviar telemetría a internet</li>
+                    <li>Modificar código sin propuesta</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -14863,68 +15149,49 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">2-tradeoffs.md</span>
-                  </div>
-                </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-purple">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>⚖️</span> 2-tradeoffs.md</div>
+                <span class="yarn-badge purple">Ranking 1..6</span>
               </div>
-              <div class="template-console-body">
-                <h1># ⚖️ Trade-off Board (Project Constraints)</h1>
-                <p><em>Construir un entendimiento común sobre la solución de compromiso antes de escribir código.</em></p>
-
-                <h2>## 1. Individual Perspectives</h2>
-                <p><em>Must-haves iniciales de cada stakeholder antes del consenso:</em></p>
-                <table>
-                  <thead>
-                    <tr><th>Role</th><th>Initial Priority #1</th><th>Reasoning</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Product Owner</strong></td><td>Time to Market</td><td>Necesitamos validar tracción cuanto antes</td></tr>
-                    <tr><td><strong>Tech Lead</strong></td><td>Privacidad Local &amp; TDD</td><td>Prohibido fugar código bancario o perder calidad</td></tr>
-                    <tr><td><strong>UX Advocate</strong></td><td>Latencia en Respuesta</td><td>Esperar 40s rompe el flujo mental del dev</td></tr>
-                    <tr><td><strong>Agile Coach</strong></td><td>Sostenibilidad de Entrega</td><td>Cero tolerancia a deuda técnica acumulada</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 2. Final Consensus Trade-off Board</h2>
-                <blockquote>
-                  <strong>The Golden Rule:</strong> Cada columna solo puede contener <strong>una sola cruz de consenso</strong>. Sin empates.
-                </blockquote>
-
-                <table>
-                  <thead>
-                    <tr><th>Dimensión</th><th>1 (Máx)</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6 (Mín)</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>🔒 <strong>Privacidad Local</strong></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>⚡ <strong>Latencia GPU</strong></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>🛡️ <strong>Calidad TDD / DDD</strong></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td><td></td></tr>
-                    <tr><td>🔌 <strong>Flexibilidad Plugins</strong></td><td></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td><td></td></tr>
-                    <tr><td>👥 <strong>Simplicidad de Adopción</strong></td><td></td><td></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td><td></td></tr>
-                    <tr><td>📦 <strong>Volumen de Features</strong></td><td></td><td></td><td></td><td></td><td></td><td style="color:#3fb950; text-align:center; font-weight:bold;">✕</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 3. Consensus Reasoning</h2>
-                <ul>
-                  <li><strong>¿Por qué Privacidad Local es #1?:</strong> En entornos corporativos regulados, una sola fuga de datos cierra el proyecto definitivamente.</li>
-                  <li><strong>¿Por qué Volumen de Features es #6 (sacrificado)?:</strong> Es infinitamente mejor un único flujo TDD impecable que veinte endpoints defectuosos.</li>
-                </ul>
+              <table class="inception-tradeoff-table">
+                <thead>
+                  <tr>
+                    <th>Dimensión</th>
+                    <th>P1 (Máx)</th>
+                    <th>P2</th>
+                    <th>P3</th>
+                    <th>P6 (Mín)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>🔒 Privacidad Local</td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>⚡ Latencia GPU</td>
+                    <td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>🛡️ Calidad TDD</td>
+                    <td></td><td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>📦 Volumen Features</td>
+                    <td></td><td></td><td></td>
+                    <td><span class="tradeoff-check">✕</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="sdlc-code-callout" style="font-size: 0.8rem;">
+                👉 <strong>Consenso:</strong> Privacidad y Latencia antes que Volumen de Features.
               </div>
             </div>
           </div>
@@ -14966,60 +15233,31 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">3-personas.md</span>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-green">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>👤</span> 3-personas/elena.md</div>
+                <span class="yarn-badge green">Tech Lead</span>
+              </div>
+              <div class="inception-persona-box">
+                <div class="inception-persona-header">
+                  <div class="inception-persona-avatar">ET</div>
+                  <div class="inception-persona-meta">
+                    <div class="inception-persona-name">Elena Torres (36a)</div>
+                    <div class="inception-persona-role">Tech Lead en FinTech • Stack Hexagonal</div>
                   </div>
                 </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
-              </div>
-              <div class="template-console-body">
-                <h1># Step 3: Personas</h1>
-                <p><em>Definir el artesano concreto para el que construimos el MVP.</em></p>
-
-                <h2>## Primary Persona: Elena Torres (Tech Lead)</h2>
-                <table>
-                  <thead>
-                    <tr><th>Attribute</th><th>Details</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Age &amp; Demographics</strong></td><td>36 años, Madrid, Senior Engineering Lead</td></tr>
-                    <tr><td><strong>Role / Job Title</strong></td><td>Tech Lead en FinTech • Core Banking Hexagonal</td></tr>
-                    <tr><td><strong>Experience Level</strong></td><td>14 años en arquitectura Java / Go / Rust, TDD estricto</td></tr>
-                    <tr><td><strong>Work Environment</strong></td><td>MacBook Pro M3 Max (64GB) / Linux RTX 4090, red aislada</td></tr>
-                    <tr><td><strong>Tech Savviness</strong></td><td>[x] Advanced (power user, automatización por CLI)</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h3>### Goals &amp; Motivations</h3>
-                <ul>
-                  <li><strong>Primary Goal:</strong> Acelerar el scaffolding de tests y casos de uso sin delegar el diseño en una caja negra.</li>
-                  <li><strong>Secondary Goal:</strong> Blindar la arquitectura contra deuda técnica y alucinaciones de frameworks.</li>
-                  <li><strong>What motivates her:</strong> Artesanía de software, código limpio y autonomía sin vendor lock-in.</li>
-                </ul>
-
-                <h3>### Pain Points &amp; Frustrations</h3>
-                <ul>
-                  <li>❌ <strong>Pain 1:</strong> Copilots cloud que sugieren código desactualizado, sin tipos o saltándose las capas hexagonales.</li>
-                  <li>❌ <strong>Pain 2:</strong> Prohibición estricta de compliance para subir código propietario a APIs externas.</li>
-                  <li>❌ <strong>Pain 3:</strong> Pérdida de tiempo limpiando código generado sin tests unitarios.</li>
-                </ul>
-
-                <h3>### Memorable Quote</h3>
-                <blockquote>
-                  "No tolero tener que refactorizar 500 líneas de código generado sin tests ni mandar datos contables a servidores ajenos."
-                </blockquote>
+                <div class="inception-persona-quote">
+                  "No tolero tener que refactorizar 500 líneas de código generado sin tests ni mandar datos contables a terceros."
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: 0.82rem;">
+                  <div style="background: rgba(16, 185, 129, 0.08); padding: 0.6rem; border-radius: 6px;">
+                    <strong style="color: #059669;">🎯 Meta:</strong> Inferencia local + TDD
+                  </div>
+                  <div style="background: rgba(239, 68, 68, 0.08); padding: 0.6rem; border-radius: 6px;">
+                    <strong style="color: #dc2626;">💥 Dolor:</strong> Alucinaciones en DDD
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -15061,81 +15299,29 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">4-empathy-map.md</span>
-                  </div>
-                </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-amber">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>🧭</span> 4-empathy.md</div>
+                <span class="yarn-badge amber">Sensorial</span>
               </div>
-              <div class="template-console-body">
-                <h1># 🗺️ Empathy Map: Elena Torres</h1>
-                <p><em>Persona: Tech Lead FinTech • Foco: Desarrollo asistido por IA local</em></p>
-
-                <h2>## 1. The Quadrants (What They Experience)</h2>
-                <table>
-                  <thead>
-                    <tr><th style="color:#79c0ff;">👀 SEES (El Entorno)</th><th style="color:#d2a8ff;">🗣️ SAYS (En Público)</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        • Equipos adoptando IA sin control y acumulando deuda técnica oculta.<br>
-                        • Facturas cloud y APIs SaaS que suben de precio con vendor lock-in.<br>
-                        • Modelos open-weights (Qwen 2.5 Coder) compitiendo con modelos cerrados.
-                      </td>
-                      <td>
-                        • "La IA debe ser una herramienta de soporte al artesano, no una fábrica de basura."<br>
-                        • "¿A dónde van a parar los datos contables de nuestros clientes?"
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <table>
-                  <thead>
-                    <tr><th style="color:#f0883e;">🧠 THINKS (Mundo Interior)</th><th style="color:#3fb950;">✍️ DOES (Comportamiento Real)</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        • <em>[Miedo:]</em> Si permito IA descuidada, destruiré la arquitectura del repo.<br>
-                        • <em>[Deseo:]</em> Un copiloto privado que trabaje como un artesano senior estricto.
-                      </td>
-                      <td>
-                        • Descarga y prueba Ollama / vLLM en su portátil por las tardes.<br>
-                        • Exige cobertura de tests &gt; 90% y rechaza PRs sin justificación arquitectónica.<br>
-                        • Escribe ADRs detallados para cada decisión estructural.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 2. Summary &amp; Outcome</h2>
-                <h3>😖 PAINS (Fears, Obstacles &amp; Frustrations)</h3>
-                <ul>
-                  <li><strong>Frustración 1:</strong> Alucinaciones de librerías obsoletas en el código generado.</li>
-                  <li><strong>Obstáculo 2:</strong> Brechas de seguridad por telemetría invisible.</li>
-                  <li><strong>Miedo 3:</strong> Pérdida de maestría artesanal en el equipo junior.</li>
-                </ul>
-
-                <h3>✨ GAINS (Wants, Needs &amp; Success)</h3>
-                <ul>
-                  <li><strong>Necesidad 1:</strong> Flujo Red-Green-Refactor determinista y local.</li>
-                  <li><strong>Deseo 2:</strong> Inferencia rápida sin depender de conexión a internet.</li>
-                  <li><strong>Métrica de Éxito 3:</strong> Suite completa en verde a la primera ejecución.</li>
-                </ul>
+              <div class="inception-empathy-grid">
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">🧠 Piensa &amp; Siente</div>
+                  <div style="font-size: 0.8rem; color: var(--text-main);">"Si adopto IA sin rigor, ensucio el repositorio y pierdo el control."</div>
+                </div>
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">👂 Oye en Entorno</div>
+                  <div style="font-size: 0.8rem; color: var(--text-main);">"El management pide velocidad; los crafters alertan del spaghetti."</div>
+                </div>
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">👀 Ve en Mercado</div>
+                  <div style="font-size: 0.8rem; color: var(--text-main);">APIs cloud que suben de precio y crean vendor lock-in.</div>
+                </div>
+                <div class="inception-empathy-box">
+                  <div class="inception-empathy-title">🗣️ Dice &amp; Hace</div>
+                  <div style="font-size: 0.8rem; color: var(--text-main);">Prueba modelos locales por las tardes en Ollama.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -15177,90 +15363,33 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">5-brainstorming.md</span>
-                  </div>
-                </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-purple">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>💡</span> 5-brainstorming.md</div>
+                <span class="yarn-badge purple">Post-its Clave</span>
               </div>
-              <div class="template-console-body">
-                <h1># Step 5: Features Brainstorming</h1>
-                <p><em>Divergencia creativa filtrada estrictamente por las 4 fronteras del Paso 1.</em></p>
-
-                <blockquote>
-                  <strong>Coach's Question:</strong> "Si solo pudieras desplegar tres features para validar la hipótesis de desarrollo local con TDD, ¿cuáles serían y por qué?"
-                </blockquote>
-
-                <h2>## 🟢 Core Features (Must-have para MVP)</h2>
-                <table>
-                  <thead>
-                    <tr><th>Feature</th><th>Descripción</th><th>Relacionado con</th><th>Biz Value</th><th>Tech Effort</th><th>Conf.</th><th>Prioridad</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>Inferencia Local Ollama</strong></td>
-                      <td>Servidor local Qwen 2.5 Coder con fallback GPU</td>
-                      <td>Elena's Privacy Pain</td>
-                      <td><strong>High</strong></td>
-                      <td>Medium</td>
-                      <td>🟢</td>
-                      <td><strong>Must-have</strong></td>
-                    </tr>
-                    <tr>
-                      <td><strong>Generador Test Rojo TDD</strong></td>
-                      <td>Fuerza Given/When/Then antes del código prod</td>
-                      <td>Elena's Quality Goal</td>
-                      <td><strong>High</strong></td>
-                      <td>Medium</td>
-                      <td>🟢</td>
-                      <td><strong>Must-have</strong></td>
-                    </tr>
-                    <tr>
-                      <td><strong>Mermaid Sync Automático</strong></td>
-                      <td>Actualiza diagramas de secuencia en cada commit</td>
-                      <td>Living Docs Principle</td>
-                      <td><strong>High</strong></td>
-                      <td>Low</td>
-                      <td>🟢</td>
-                      <td><strong>Must-have</strong></td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 🔵 Supporting Features (Should-have)</h2>
-                <table>
-                  <thead>
-                    <tr><th>Feature</th><th>Descripción</th><th>Biz Value</th><th>Tech Effort</th><th>Prioridad</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Guards &amp; Contracts Validator</strong></td><td>Validación de invariantes de dominio</td><td>Medium</td><td>Medium</td><td>Should-have</td></tr>
-                    <tr><td><strong>CLI Slash Commands</strong></td><td>Atajos directos <code>/implement-flow</code></td><td>Medium</td><td>Low</td><td>Should-have</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 🟠 Differentiating Features (Nice-to-have)</h2>
-                <table>
-                  <thead>
-                    <tr><th>Feature</th><th>Descripción</th><th>Biz Value</th><th>Tech Effort</th><th>Prioridad</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Cuantización NVFP4</strong></td><td>Optimización quirúrgica para RTX 4090/5090</td><td>Low</td><td>High</td><td><em>Nice-to-have</em></td></tr>
-                  </tbody>
-                </table>
+              <div class="inception-brainstorm-grid" style="grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+                <div class="inception-postit yellow">
+                  <span class="postit-tag">Núcleo Local</span>
+                  <strong>Inferencia Ollama</strong>
+                  <span>Fallback automático Qwen 3.5 &lt;=&gt; Coder.</span>
+                </div>
+                <div class="inception-postit blue">
+                  <span class="postit-tag">TDD &amp; DDD</span>
+                  <strong>Generador Test E2E</strong>
+                  <span>Fuerza Given/When/Then antes del código.</span>
+                </div>
+                <div class="inception-postit purple">
+                  <span class="postit-tag">Living Docs</span>
+                  <strong>Mermaid Sync</strong>
+                  <span>Sincronización en cada commit de git.</span>
+                </div>
+                <div class="inception-postit blue">
+                  <span class="postit-tag">TDD &amp; DDD</span>
+                  <strong>Guards Validator</strong>
+                  <span>Validación de precondiciones booleanas.</span>
+                </div>
               </div>
             </div>
           </div>
@@ -15302,84 +15431,29 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">6-user-journey-mapping.md</span>
-                  </div>
-                </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-cyan">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>🚶</span> 6-user-journeys/01.md</div>
+                <span class="yarn-badge cyan">4 Nodos</span>
               </div>
-              <div class="template-console-body">
-                <h1># Step 6: User Journey Mapping</h1>
-                <p><strong>Persona:</strong> Elena Torres • <strong>Main Goal:</strong> Implementar nuevo caso de uso con TDD local determinista</p>
-
-                <h2>## Overview Visualization</h2>
-                <pre><code>[Elena (Crafter)]            [Agente Local]                     [Suite de Tests]
-       │                             │                                  │
-       │─── /implement-flow ───────&gt; │ Stage 1: Parseo de Spec          │
-       │                             │  · Lee modelo de dominio         │
-       │                             │                                  │
-       │                             │─── Genera Test Rojo ────────────&gt;│
-       │                             │                                  │ (Falla 🔴)
-       │&lt;── Notifica Test Rojo ──────│ Stage 2: Validación Humana        │
-       │                             │                                  │
-       │─── Aprueba Implementación ─&gt;│ Stage 3: Código Hexagonal        │
-       │                             │  · Inferencia local Qwen (12s)   │
-       │                             │                                  │
-       │                             │─── Ejecuta mvn test ────────────&gt;│
-       │                             │                                  │ (Verde 🟢)
-       │&lt;── ¡Suite en Verde! ────────│ Stage 4: Sync Living Docs        │
-       │                             │  · Actualiza diagrama Mermaid    │</code></pre>
-
-                <hr>
-
-                <h2>## Lifecycle Overview</h2>
-                <table>
-                  <thead>
-                    <tr><th>Stage</th><th>Trigger</th><th>Persona's Action</th><th>System Response</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>1. Spec Ready</strong></td>
-                      <td>Elena define inputs</td>
-                      <td>Ejecuta <code>/implement-flow transfer.md</code></td>
-                      <td>Parsea tipos de dominio y precondiciones</td>
-                    </tr>
-                    <tr>
-                      <td><strong>2. Red Test</strong></td>
-                      <td>Spec validada</td>
-                      <td>Inspecciona el test unitario generado</td>
-                      <td>Ejecuta test y verifica que falle exactamente por la causa prevista</td>
-                    </tr>
-                    <tr>
-                      <td><strong>3. Hexagonal Code</strong></td>
-                      <td>Elena da el visto bueno</td>
-                      <td>Autoriza generación de capas</td>
-                      <td>Inferencia local genera Dominio ➔ Casos de uso ➔ Adaptadores</td>
-                    </tr>
-                    <tr>
-                      <td><strong>4. Green Test</strong></td>
-                      <td>Archivos escritos en disco</td>
-                      <td>Observa ejecución de test runner</td>
-                      <td>¡Suite en verde en 12 segundos! 🤩 Cero errores de compilación</td>
-                    </tr>
-                    <tr>
-                      <td><strong>5. Mermaid Sync</strong></td>
-                      <td>Commit en git</td>
-                      <td>Revisa el diff de documentación</td>
-                      <td>El agente actualiza el diagrama de secuencia vivo automáticamente</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="inception-journey-trail">
+                <div class="journey-step-node">
+                  <span class="journey-step-num">01</span>
+                  <div class="journey-step-desc">Elena ejecuta <code>/implement-flow</code> con la spec lista.</div>
+                </div>
+                <div class="journey-step-node">
+                  <span class="journey-step-num">02</span>
+                  <div class="journey-step-desc">El LLM genera el test E2E rojo en su suite local sin salir a internet.</div>
+                </div>
+                <div class="journey-step-node">
+                  <span class="journey-step-num">03</span>
+                  <div class="journey-step-desc">Construye capa por capa: Dominio ➔ Casos de uso ➔ Adaptadores.</div>
+                </div>
+                <div class="journey-step-node">
+                  <span class="journey-step-num">04</span>
+                  <div class="journey-step-desc">Ejecución de <code>mvn test</code>: ¡Suite en verde en 12 segundos! 🤩</div>
+                </div>
               </div>
             </div>
           </div>
@@ -15421,94 +15495,40 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-pink">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>🌊</span> 7-sequencing.md</div>
+                <span class="yarn-badge green">Ola 1 MVP</span>
+              </div>
+              <div class="inception-waves-stack">
+                <div class="inception-wave-card wave-1">
+                  <div class="wave-card-header">
+                    <span class="wave-title">🚀 OLA 1 — MVP (Foco Absoluto)</span>
+                    <span class="sdlc-phase-badge green">Prioridad 1</span>
                   </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">7-features-and-sequencing.md</span>
+                  <div style="font-size: 0.82rem; color: var(--text-main); font-weight: 600;">
+                    • Inferencia Ollama/vLLM local + Flujo TDD para 1 caso de uso
                   </div>
                 </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
-              </div>
-              <div class="template-console-body">
-                <h1># 3. Features &amp; Sequencing</h1>
-                <p><em>Release planning y secuenciación en olas para blindar el foco de la IA.</em></p>
-
-                <h2>## 🌊 Wave 1: The Minimum Viable Product (MVP)</h2>
-                <p><em>Foco absoluto: features indispensables para validar el flujo completo de inferencia local con TDD.</em></p>
-                <table>
-                  <thead>
-                    <tr><th>Feature</th><th>Effort</th><th>Business Value</th><th>UX Value</th><th>Tech Comfort</th><th>Owner</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>Inferencia Local Ollama (Qwen 2.5)</strong></td>
-                      <td>E</td>
-                      <td>$$$</td>
-                      <td>♥♥♥</td>
-                      <td>TTT</td>
-                      <td>@CoreTeam</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Motor de TDD Estricto (Red-Green)</strong></td>
-                      <td>EE</td>
-                      <td>$$$</td>
-                      <td>♥♥</td>
-                      <td>TT</td>
-                      <td>@CrafterLead</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Mermaid Sequence Living Docs Sync</strong></td>
-                      <td>E</td>
-                      <td>$$</td>
-                      <td>♥♥</td>
-                      <td>TTT</td>
-                      <td>@DocsLead</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 🌊 Wave 2: Next Increment</h2>
-                <p><em>Alto valor arquitectónico pospuesto para la siguiente iteración:</em></p>
-                <table>
-                  <thead>
-                    <tr><th>Feature</th><th>Effort</th><th>Business Value</th><th>UX Value</th><th>Tech Comfort</th><th>Owner</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Auditoría de drift en Git Hook</strong></td><td>EE</td><td>$$</td><td>♥</td><td>TT</td><td>@DevOps</td></tr>
-                    <tr><td><strong>Pipeline de eventos Kafka local</strong></td><td>EEE</td><td>$</td><td>♥</td><td>T</td><td>@DataTeam</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 🌊 Wave 3: Scale &amp; Ecosystem</h2>
-                <table>
-                  <thead>
-                    <tr><th>Feature</th><th>Effort</th><th>Business Value</th><th>UX Value</th><th>Tech Comfort</th><th>Owner</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Cuantización NVFP4 para modelos 32B+</strong></td><td>EEE</td><td>$$</td><td>♥</td><td>T</td><td>@MLOps</td></tr>
-                    <tr><td><strong>Coordinación de agentes multi-repo</strong></td><td>EEE</td><td>$$</td><td>♥♥</td><td>T</td><td>@ArchTeam</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 🗑️ Parking Lot (Out of Scope)</h2>
-                <ul>
-                  <li>[ ] Portal web con frontend SaaS alojado en servidor cloud externo.</li>
-                  <li>[ ] Telemetría de prompts o analytics enviados a terceros.</li>
-                </ul>
+                <div class="inception-wave-card wave-2">
+                  <div class="wave-card-header">
+                    <span class="wave-title">📈 OLA 2 — Incremento Funcional</span>
+                    <span class="sdlc-phase-badge blue">Siguiente</span>
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--text-muted);">
+                    • Auditoría de drift de docs + Eventos Kafka
+                  </div>
+                </div>
+                <div class="inception-wave-card wave-3">
+                  <div class="wave-card-header">
+                    <span class="wave-title">🔮 OLA 3 — Madurez &amp; Escala</span>
+                    <span class="sdlc-phase-badge rose">Roadmap</span>
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--text-dim);">
+                    • Cuantización NVFP4 + Agentes multi-repo
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -15550,70 +15570,33 @@ body.theme-dark .dual-detail {
               </div>
             </div>
 
-            <!-- Consola Markdown de la Plantilla -->
-            <div class="template-console-card">
-              <div class="template-console-header">
-                <div class="template-console-left">
-                  <div class="template-console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                  </div>
-                  <div class="template-console-file">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">8-mvp-canvas-definition.md</span>
-                  </div>
-                </div>
-                <div class="template-scroll-hint"><span>↕ Scroll para leer</span></div>
+            <!-- Artefacto Visual Compacto -->
+            <div class="inception-artifact-card c-green">
+              <div class="inception-artifact-header">
+                <div class="inception-artifact-title"><span>📋</span> 8-mvp-canvas.md</div>
+                <span class="yarn-badge green">Validado</span>
               </div>
-              <div class="template-console-body">
-                <h1># Step 8: MVP Canvas Definition</h1>
-                <p><em>El contrato vinculante de 1 página que sintetiza los Pasos 1 al 7.</em></p>
-
-                <h2>## 1. MVP Proposal</h2>
-                <blockquote>
-                  "Un entorno de desarrollo local asistido por IA privada que permite a Elena Torres (Tech Lead) implementar casos de uso de arquitectura limpia mediante TDD estricto sin enviar un solo byte fuera de su máquina."
-                </blockquote>
-
-                <hr>
-
-                <h2>## 2. Business Results &amp; Metrics</h2>
-                <table>
-                  <thead>
-                    <tr><th>Métrica (KPI)</th><th>Objetivo</th><th>Método de Medición</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td><strong>Privacidad de Código</strong></td><td>0 fugas (100% local)</td><td>Auditoría Wireshark / firewall</td></tr>
-                    <tr><td><strong>Tiempo por Flujo TDD</strong></td><td>&lt; 25 segundos</td><td>Benchmark Ollama local en GPU</td></tr>
-                    <tr><td><strong>Cobertura de Tests</strong></td><td>100% casos de uso</td><td>Reporte JaCoCo / pytest</td></tr>
-                    <tr><td><strong>Satisfacción Crafter</strong></td><td>Score &gt; 9 / 10</td><td>Auditoría del equipo técnico</td></tr>
-                  </tbody>
-                </table>
-
-                <hr>
-
-                <h2>## 3. Scope: Wave 1 Features</h2>
-                <ul>
-                  <li>✅ <strong>Inferencia en hardware propio</strong> (Mac/Linux con Qwen 2.5 Coder).</li>
-                  <li>✅ <strong>Flujo Red-Green-Refactor</strong> guiado por el asistente.</li>
-                  <li>✅ <strong>Living Documentation</strong> sincronizada automáticamente en Mermaid.</li>
-                </ul>
-
-                <hr>
-
-                <h2>## 4. Canvas Audit Score</h2>
-                <table>
-                  <thead>
-                    <tr><th>Criterio de Evaluación</th><th>Nota</th><th>Estado</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Claridad de Fronteras (Paso 1)</td><td>10 / 10</td><td>Excelente</td></tr>
-                    <tr><td>Sin empates en Tradeoffs (Paso 2)</td><td>10 / 10</td><td>Sin ambigüedad</td></tr>
-                    <tr><td>Definición de Usuario y Dolor (Pasos 3-4)</td><td>9 / 10</td><td>Muy sólido</td></tr>
-                    <tr><td>Secuenciación Quirúrgica en Olas (Paso 7)</td><td>9.5 / 10</td><td>MVP Acotado</td></tr>
-                    <tr><td><strong>Score Global Ponderado</strong></td><td><strong>9.4 / 10</strong></td><td><strong style="color:#3fb950;">✅ READY FOR DEV</strong></td></tr>
-                  </tbody>
-                </table>
+              <div class="inception-canvas-grid" style="grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">1. Propuesta</span>
+                  <span>IA privada rápida con TDD local</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">2. Persona</span>
+                  <span>Elena Torres • Tech Lead</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">3. Journeys</span>
+                  <span>Implementación DDD con tests</span>
+                </div>
+                <div class="inception-canvas-block">
+                  <span class="canvas-block-label">4. Métricas</span>
+                  <span>Latencia &lt; 20s/flujo y 0 leaks</span>
+                </div>
+              </div>
+              <div class="canvas-stamp">
+                <span>✅ VALIDADO: Score 9.4 / 10</span>
+                <span style="font-size: 0.78rem; text-transform: uppercase;">Ready for Dev</span>
               </div>
             </div>
           </div>
@@ -17151,11 +17134,6 @@ body.theme-dark .dual-detail {
         <div><kbd>Esc</kbd> / <kbd>?</kbd></div>
       </div>
     </div>
-  </div>
-
-  <!-- Lightbox Modal para zoom de plantillas -->
-  <div id="template-lightbox">
-    <img id="template-lightbox-img" src="" alt="Template Zoom">
   </div>
 
   <script>
