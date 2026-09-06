@@ -3476,9 +3476,447 @@
 
 
     <!-- ====================================================================
-         SLIDE 33: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 33: EL CICLO DE DESARROLLO CON IA (PIPELINE SDLC COMPLETO)
          ==================================================================== -->
     <section class="slide" id="slide-33">
+      <div class="slide-content">
+        <div class="tag">Artesanía de Software • Del Descubrimiento a la Producción</div>
+        <h2>El Ciclo de Desarrollo con IA: <span class="serif-italic" style="color: #6366f1;">Estructura, Disciplina y Contexto</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          La IA no sustituye el diseño ni el criterio artesanal: los potencia a través de un pipeline estructurado con habilidades especializadas (Skills).
+        </p>
+
+        <div class="sdlc-pipeline-deck">
+
+          <!-- Fila Superior: 5 Fases del Pipeline -->
+          <div class="sdlc-pipeline-steps">
+
+            <!-- Fase 1 -->
+            <div class="sdlc-step-card c-blue">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Fase 1</span>
+                <span class="sdlc-phase-badge blue">Descubrimiento</span>
+              </div>
+              <div class="sdlc-skill-cmd">/inception-workshop</div>
+              <div class="sdlc-step-question">¿Qué construir?</div>
+              <ul class="sdlc-step-list">
+                <li>Lean Inception en 8 pasos</li>
+                <li>Debate asistido de tradeoffs</li>
+                <li>MVP Canvas y User Journeys</li>
+              </ul>
+              <div class="sdlc-step-output">📄 docs/inception/*.md</div>
+            </div>
+
+            <!-- Fase 2 -->
+            <div class="sdlc-step-card c-purple">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Fase 2</span>
+                <span class="sdlc-phase-badge purple">Especificación</span>
+              </div>
+              <div class="sdlc-skill-cmd">/create-flow-doc</div>
+              <div class="sdlc-step-question">¿Cómo funciona?</div>
+              <ul class="sdlc-step-list">
+                <li>3 diagramas Mermaid (secuencia, flujo, estado)</li>
+                <li>Criterios de aceptación Gherkin</li>
+                <li>Reglas de negocio <code>BR-XXX</code></li>
+              </ul>
+              <div class="sdlc-step-output">📄 flows/flow-XX.md</div>
+            </div>
+
+            <!-- Fase 3 -->
+            <div class="sdlc-step-card c-green">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Fase 3</span>
+                <span class="sdlc-phase-badge green">Modelo DDD</span>
+              </div>
+              <div class="sdlc-skill-cmd">/create-entity-lifecycle</div>
+              <div class="sdlc-step-question">¿Cuáles son las reglas?</div>
+              <ul class="sdlc-step-list">
+                <li>Máquinas de estados de entidades</li>
+                <li>Transiciones con guards y acciones</li>
+                <li>Invariantes de dominio <code>INV-XXX</code></li>
+              </ul>
+              <div class="sdlc-step-output">📄 entities/*.md</div>
+            </div>
+
+            <!-- Fase 4 -->
+            <div class="sdlc-step-card c-amber">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Fase 4</span>
+                <span class="sdlc-phase-badge amber">Construcción</span>
+              </div>
+              <div class="sdlc-skill-cmd">/implement-flow</div>
+              <div class="sdlc-step-question">¿Cómo se construye?</div>
+              <ul class="sdlc-step-list">
+                <li>TDD Híbrido guiado por tests que fallan</li>
+                <li>Desarrollo capa por capa hexagonal</li>
+                <li>Validación en suite de tests real</li>
+              </ul>
+              <div class="sdlc-step-output">💻 Código + Tests Unit/E2E</div>
+            </div>
+
+            <!-- Fase 5+ -->
+            <div class="sdlc-step-card c-rose">
+              <div class="sdlc-step-header">
+                <span class="sdlc-phase-num">Fase 5+</span>
+                <span class="sdlc-phase-badge rose">Evolución</span>
+              </div>
+              <div class="sdlc-skill-cmd">/modify-flow</div>
+              <div class="sdlc-step-question">¿Cómo cambia?</div>
+              <ul class="sdlc-step-list">
+                <li>Propuesta formal con código actual</li>
+                <li>Plan de implementación por capas DDD</li>
+                <li>Actualización in-place de specs vivas</li>
+              </ul>
+              <div class="sdlc-step-output">📝 proposal.md + plan.md</div>
+            </div>
+
+          </div>
+
+          <!-- Fila Inferior: Habilidades Transversales (En Todo Momento) -->
+          <div class="sdlc-transversal-row">
+
+            <!-- Card Explore Domain -->
+            <div class="sdlc-transversal-card">
+              <div class="sdlc-transversal-header">
+                <div class="sdlc-transversal-title">
+                  <span>🧭</span>
+                  <code>/explore-domain</code>
+                  <span>Comprensión del Sistema sin Modificar</span>
+                </div>
+                <span class="yarn-badge purple">Auditoría / Onboarding</span>
+              </div>
+              <div class="sdlc-modes-grid">
+                <div class="sdlc-mode-box">
+                  <div class="sdlc-mode-name">explain</div>
+                  <div>Narrativa clara + Mermaid adaptado a PO o Dev.</div>
+                </div>
+                <div class="sdlc-mode-box">
+                  <div class="sdlc-mode-name">list-events</div>
+                  <div>Catálogo de eventos Kafka consumidos y producidos.</div>
+                </div>
+                <div class="sdlc-mode-box">
+                  <div class="sdlc-mode-name">trace-flow</div>
+                  <div>Trazado paso a paso desde el endpoint al efecto lateral.</div>
+                </div>
+                <div class="sdlc-mode-box">
+                  <div class="sdlc-mode-name">find-rule</div>
+                  <div>Localiza qué clase hace cumplir cada regla <code>BR-XXX</code>.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Audit Docs -->
+            <div class="sdlc-transversal-card">
+              <div class="sdlc-transversal-header">
+                <div class="sdlc-transversal-title">
+                  <span>🛡️</span>
+                  <code>/audit-docs</code>
+                  <span>Guardián de la Verdad (Cero Drift)</span>
+                </div>
+                <span class="yarn-badge green">Salud de Living Docs</span>
+              </div>
+              <div class="sdlc-verdict-grid">
+                <div class="sdlc-verdict-card confirmed">
+                  <div class="sdlc-verdict-title">✅ Confirmed</div>
+                  <div>La documentación coincide con el código al 100%.</div>
+                </div>
+                <div class="sdlc-verdict-card stale">
+                  <div class="sdlc-verdict-title">⚠️ Stale</div>
+                  <div>Desfase en parámetros o reglas obsoletas.</div>
+                </div>
+                <div class="sdlc-verdict-card missing">
+                  <div class="sdlc-verdict-title">❌ Missing</div>
+                  <div>El doc apunta a código que ya no existe.</div>
+                </div>
+                <div class="sdlc-verdict-card undoc">
+                  <div class="sdlc-verdict-title">➕ Undocumented</div>
+                  <div>Comportamiento en código sin documentar.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Regla Crafter:</strong> Los modelos de lenguaje fallan cuando se les pide "crear una app entera de golpe". Triunfan cuando operan sobre fases acotadas, contratos vivos y TDD.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 34: DE LA IDEA AL DOMINIO (FASES 1 A 3: DESCUBRIMIENTO Y MODELADO)
+         ==================================================================== -->
+    <section class="slide" id="slide-34">
+      <div class="slide-content">
+        <div class="tag">Fases 1 a 3 • Descubrimiento y Modelado DDD</div>
+        <h2>De la Idea al Dominio: <span class="serif-italic" style="color: #059669;">Diseñar antes de tirar una sola línea</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Cómo alimentar al LLM con restricciones precisas: talleres de producto, especificaciones vivas con Gherkin y máquinas de estado.
+        </p>
+
+        <div class="sdlc-discovery-deck">
+
+          <div class="sdlc-discovery-grid">
+
+            <!-- Columna 1: Inception Workshop -->
+            <div class="sdlc-discovery-col c-blue">
+              <div class="sdlc-col-header">
+                <div class="sdlc-col-title-row">
+                  <div class="sdlc-col-title">🧭 Lean Inception</div>
+                  <span class="sdlc-phase-badge blue">Fase 1</span>
+                </div>
+                <div class="sdlc-col-skill"><code>/inception-workshop</code> • Alineamiento de Negocio</div>
+              </div>
+
+              <div class="sdlc-feature-block">
+                <div class="sdlc-feature-label">8 Pasos Secuenciales:</div>
+                <div class="sdlc-steps-mini">
+                  <div class="sdlc-step-pill">1. Visión</div>
+                  <div class="sdlc-step-pill">2. Tradeoffs</div>
+                  <div class="sdlc-step-pill">3. Personas</div>
+                  <div class="sdlc-step-pill">4. Empatía</div>
+                  <div class="sdlc-step-pill">5. Ideas</div>
+                  <div class="sdlc-step-pill">6. Journeys</div>
+                  <div class="sdlc-step-pill">7. Secuencia</div>
+                  <div class="sdlc-step-pill">8. MVP</div>
+                </div>
+              </div>
+
+              <div class="sdlc-detail-box blue">
+                <strong>Simulador de Debate (Paso 2):</strong> La IA orquesta un debate socrático entre 4 roles (PO, User Advocate, Tech Lead y Agile Coach) para acordar qué priorizar y qué descartar.
+              </div>
+
+              <div class="sdlc-code-callout">
+                📊 <strong>Scoring de Validación Estricto:</strong><br>
+                • 9–10: Excelente (avanzar)<br>
+                • 8–8.9: Bueno (avanzar)<br>
+                • &lt; 6: Pobre (bloqueo hasta revisar)
+              </div>
+            </div>
+
+            <!-- Columna 2: Flow Documentation -->
+            <div class="sdlc-discovery-col c-purple">
+              <div class="sdlc-col-header">
+                <div class="sdlc-col-title-row">
+                  <div class="sdlc-col-title">📐 Especificación de Flujos</div>
+                  <span class="sdlc-phase-badge purple">Fase 2</span>
+                </div>
+                <div class="sdlc-col-skill"><code>/create-flow-documentation</code> • Especificación Viva</div>
+              </div>
+
+              <div class="sdlc-feature-block">
+                <div class="sdlc-feature-label">Cada User Journey genera:</div>
+                <ul class="sdlc-step-list">
+                  <li><strong>3 Diagramas Mermaid:</strong> Secuencia, Flowchart de bifurcaciones y Ciclo de vida.</li>
+                  <li><strong>Tabla Walkthrough:</strong> Paso a paso con precondición, actor y resultado.</li>
+                  <li><strong>Criterios de Aceptación Gherkin:</strong> Escenarios <em>Given / When / Then</em> inequívocos.</li>
+                  <li><strong>Edge Cases:</strong> Errores de validación, degradación de red y fallos de negocio.</li>
+                </ul>
+              </div>
+
+              <div class="sdlc-detail-box">
+                <strong>Reglas Formales:</strong> Se declaran identificadores únicos <code>BR-001</code> (Business Rules) e <code>INV-001</code> (Invariants) que se rastrean directamente en el código fuente.
+              </div>
+            </div>
+
+            <!-- Columna 3: Entity Lifecycle -->
+            <div class="sdlc-discovery-col c-green">
+              <div class="sdlc-col-header">
+                <div class="sdlc-col-title-row">
+                  <div class="sdlc-col-title">🏛️ Ciclo de Vida de Entidades</div>
+                  <span class="sdlc-phase-badge green">Fase 3</span>
+                </div>
+                <div class="sdlc-col-skill"><code>/create-entity-lifecycle</code> • Modelado DDD</div>
+              </div>
+
+              <div class="sdlc-feature-block">
+                <div class="sdlc-feature-label">Modelo de Dominio Rico:</div>
+                <ul class="sdlc-step-list">
+                  <li><strong>Máquinas de Estados Finitas:</strong> Estados posibles, transiciones legales y eventos gatillo.</li>
+                  <li><strong>Guards &amp; Actions:</strong> Condiciones booleanas innegociables antes de cambiar de estado.</li>
+                  <li><strong>Value Objects Inmutables:</strong> Encapsulan validación y evitan tipos primitivos obsesivos.</li>
+                </ul>
+              </div>
+
+              <div class="sdlc-detail-box green">
+                <strong>Por qué elimina alucinaciones:</strong> El LLM no puede "inventar" estados intermedios ni reglas arbitrarias porque la máquina de estados define un espacio matemático cerrado.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🎯</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Crafter:</strong> Sin especificación formal, el modelo genera código plausible pero arquitectónicamente incoherente. Con estos 3 artefactos, la IA opera con precisión quirúrgica.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 35: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+         ==================================================================== -->
+    <section class="slide" id="slide-35">
+      <div class="slide-content">
+        <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
+        <h2>Implementación y Evolución: <span class="serif-italic" style="color: #d97706;">TDD Híbrido y Living Docs sin Drift</span></h2>
+        <p class="subtitle" style="margin-top: -1rem;">
+          Escribir código capa por capa guiado por tests que fallan y sincronizar la documentación en el mismo commit.
+        </p>
+
+        <div class="sdlc-build-deck">
+
+          <div class="sdlc-build-split">
+
+            <!-- Columna Izquierda: TDD Híbrido por Capas DDD -->
+            <div class="sdlc-tdd-card">
+              <div class="sdlc-step-header">
+                <div class="sdlc-col-title">🧪 TDD Híbrido Capa por Capa</div>
+                <span class="sdlc-phase-badge amber">Fase 4 • /implement-flow</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+                El código de producción no se genera de golpe: se construye en capas estrictas donde cada capa valida a la anterior.
+              </p>
+
+              <div class="sdlc-tdd-timeline">
+
+                <!-- Paso 1 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">1. E2E Test (Falla) <code>Goal Post</code></div>
+                    <div class="sdlc-tdd-desc">Define el criterio de aceptación del flujo completo antes de tocar nada.</div>
+                  </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">2. Dominio Puro <code>domain/</code></div>
+                    <div class="sdlc-tdd-desc">Tests de unidad sobre Entidades, Value Objects e Invariantes sin dependencias externas.</div>
+                  </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">3. Casos de Uso <code>application/</code></div>
+                    <div class="sdlc-tdd-desc">Orquestación del flujo, puertos de salida y servicios de aplicación.</div>
+                  </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">4. Infraestructura &amp; Eventos <code>infrastructure/</code></div>
+                    <div class="sdlc-tdd-desc">Tests de integración con Kafka consumers/producers, repositorios y Feign clients.</div>
+                  </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🚀 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">5. API &amp; Controllers <code>api/</code></div>
+                    <div class="sdlc-tdd-desc">Endpoints HTTP, serialización y validación. <strong>¡El test E2E pasa a verde!</strong></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Modify Flow & Living Docs -->
+            <div class="sdlc-right-stack">
+
+              <!-- Panel 1: Modify Flow -->
+              <div class="sdlc-mini-panel c-rose">
+                <div class="sdlc-mini-title">
+                  <span>🔄 Gestión del Cambio</span>
+                  <span class="sdlc-phase-badge rose">Fase 5+ • /modify-flow</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                  Protocolo estricto para modificar comportamiento existente:
+                </p>
+                <div class="sdlc-workflow-steps">
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">1.</span>
+                    <span><strong>Leer docs y código real:</strong> Verifica contra el repositorio antes de proponer cambios.</span>
+                  </div>
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">2.</span>
+                    <span><strong>Redactar <code>proposal.md</code>:</strong> Rationale (As a / I want / So that) + Contraste código actual vs deseado.</span>
+                  </div>
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">3.</span>
+                    <span><strong>Plan por fases DDD:</strong> Tareas acotadas con tests ejecutados con herramientas reales (Maven, pytest).</span>
+                  </div>
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">4.</span>
+                    <span><strong>Actualización in-place:</strong> Modifica los diagramas y docs existentes en el mismo commit.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2: Anti-Drift Audit -->
+              <div class="sdlc-mini-panel c-cyan">
+                <div class="sdlc-mini-title">
+                  <span>🛡️ Cero Drift de Documentación</span>
+                  <span class="yarn-badge green">/audit-docs</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                  El mayor problema de la documentación tradicional es que envejece. La IA audita el código real periódicamente y clasifica:
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                  <span class="sdlc-phase-badge green">✅ Confirmed</span>
+                  <span class="sdlc-phase-badge amber">⚠️ Stale</span>
+                  <span class="sdlc-phase-badge rose">❌ Missing</span>
+                  <span class="sdlc-phase-badge purple">➕ Undocumented</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
+                  Permite hacer barridos pre-release o auditorías por bounded context para garantizar que el modelo siempre lee especificaciones veraces.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🛡️</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>El Círculo Virtuoso:</strong> El test define la intención, la IA escribe la solución, el compilador valida la realidad y la auditoría garantiza que la documentación nunca envejece.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE 36: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         ==================================================================== -->
+    <section class="slide" id="slide-36">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -3683,9 +4121,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 34: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 37: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-37">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -3771,9 +4209,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 35: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 38: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-35">
+    <section class="slide" id="slide-38">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -4010,9 +4448,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 36: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 39: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-36">
+    <section class="slide" id="slide-39">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -4127,9 +4565,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 37: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 40: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-37">
+    <section class="slide" id="slide-40">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -4249,9 +4687,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 38: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 41: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-38">
+    <section class="slide" id="slide-41">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -4388,9 +4826,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 39: CÓDIGO Y CONTROL EN LOCAL
+         SLIDE 42: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-39">
+    <section class="slide" id="slide-42">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -4425,9 +4863,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 40: CITA EDITORIAL
+         SLIDE 43: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-40">
+    <section class="slide" id="slide-43">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -4442,9 +4880,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 41: CIERRE & Q&A
+         SLIDE 44: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-41">
+    <section class="slide" id="slide-44">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
