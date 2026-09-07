@@ -1901,6 +1901,228 @@ stateDiagram-v2
 
 
     <!-- ====================================================================
+         SLIDE 15: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
+         ==================================================================== -->
+    <section class="slide" id="slide-phase2-br-template">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Fase 2 • Especificación de Negocio (BR-XXX)</span>
+        </div>
+        <div class="tag" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #3b82f6;">Plantilla de Regla de Negocio (BR)</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Definir políticas comerciales, cuotas y flujos flexibles con fallbacks controlados y degradación elegante.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box indigo">
+              <div class="sdlc-hero-quote">
+                “Una Regla de Negocio (BR) define <u>cómo debe comportarse</u> el sistema sin poner en riesgo la integridad de la base de datos.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Las reglas de negocio cambian con el mercado o la estrategia comercial. La IA debe implementarlas en Application Services o Domain Services para que admitan excepciones, avisos y fallbacks sin abortar transacciones de golpe.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🎯</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #60a5fa;">1. Ámbito &amp; Flexibilidad Estratégica</div>
+                  <div class="sdlc-point-desc">Formulado como política: <em>"Cuando X ocurre, aplicar Y, de lo contrario fallback Z"</em>. Admite flujos asíncronos y eventos de dominio (ej: notificar a contabilidad).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">⚙️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #60a5fa;">2. Manejo de Excepciones sin Rollback</div>
+                  <div class="sdlc-point-desc">Si la regla no se cumple (ej: cupón caducado o límite free tier alcanzado), el sistema NO lanza un error 500: ofrece un camino alternativo (downgrade o prompt de pago).</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill indigo">
+              <span>⚡ Comando SDLC:</span>
+              <code>/create-flow-documentation</code>
+              <span>• Template: business-rules.md</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Plantilla Markdown de Regla de Negocio -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/bounded-contexts/billing/rules/BR-004-free-tier-limit.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(99, 102, 241, 0.18); color: #818cf8; border-color: rgba(99, 102, 241, 0.3);">TEMPLATE: BUSINESS RULE</span>
+            </div>
+
+            <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.55rem;">
+              <div class="md-line md-h1"><span class="md-hash">#</span> BR-004: Free Tier Event Creation Limit</div>
+              
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                <div><span class="md-bold" style="width: auto;">* Status:</span> <span style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Rule Type:</span> Business Rule (Flexible)</div>
+                <div><span class="md-bold" style="width: auto;">* Domain Context:</span> Billing Bounded Context / Quotas Subdomain</div>
+                <div><span class="md-bold" style="width: auto;">* Business Owner:</span> Product Strategy Memo Q2 (Growth)</div>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 1. Summary (Política de Negocio)</div>
+              <div style="background: rgba(99, 102, 241, 0.08); border-left: 3px solid #6366f1; padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.74rem; color: #f1f5f9;">
+                <strong>Rule:</strong> When a free-tier organizer attempts to create an event, check if they already have 5 active events. If limit is reached, trigger an upgrade prompt without aborting existing workflows.
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 3. Detailed Logic &amp; Fallbacks</div>
+              <div style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                • <strong style="color: #60a5fa;">If</strong> User Tier == 'Free' &amp;&amp; ActiveEvents &gt;= 5 ➔ Return <code style="color: #fca5a5;">Result.err(UpgradeRequired)</code><br/>
+                • <strong style="color: #60a5fa;">Else</strong> ➔ Permit creation &amp; emit <code style="color: #86efac;">EventCreatedDomainEvent</code><br/>
+                • <strong style="color: #fcd34d;">Fallback:</strong> No rollback en BD. Mostrar modal de suscripción y conservar borrador.
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 4. System Enforcement (Capa de Aplicación)</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
+                <div style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #93c5fd;">Capa de Ejecución:</strong><br/>
+                  <code>CreateEventUseCase</code> (Application Layer / Policy)
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #fca5a5;">Manejo de Excepción:</strong><br/>
+                  Degradación elegante + telemetría (Cero rollback)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> La regla de negocio vive en la orquestación. Si la IA la acopla al Aggregate Root, congelará el modelo ante cualquier cambio comercial de la empresa.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SLIDE 16: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
+         ==================================================================== -->
+    <section class="slide" id="slide-phase2-inv-template">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">Fase 2 • Invariante de Dominio (INV-XXX)</span>
+        </div>
+        <div class="tag" style="background: rgba(239, 68, 68, 0.12); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #ef4444;">Plantilla de Invariante (INV)</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Blindar la consistencia matemática del modelo: cero tolerancia, verificación síncrona y rollback obligatorio.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box rose">
+              <div class="sdlc-hero-quote">
+                “Una Invariante (INV) es una verdad absoluta: si se viola, <u>el sistema entra en estado ilegal</u> y la transacción debe morir.”
+              </div>
+              <div class="sdlc-hero-sub">
+                No existen fallbacks, ni avisos de 'intentar más tarde'. Una invariante protege la consistencia transaccional dentro del Aggregate Root y Value Objects. La IA jamás puede debilitarla.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🛡️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #f87171;">1. Frontera Transaccional Estricta</div>
+                  <div class="sdlc-point-desc">Vigila campos atómicos del Aggregate (ej: TicketsConfirmados &le; CapacidadTotal, o Transición Legal en FSM). Si el comando la vulnera, se aborta síncronamente.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🔒</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #f87171;">2. Excepción de Dominio &amp; Cero Persistencia</div>
+                  <div class="sdlc-point-desc">Lanza un error tipado de dominio (ej: <code>InvalidStateTransitionError</code>). El ORM o Unit of Work aborta el commit y la base de datos queda inmaculada.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill rose">
+              <span>⚡ Comando SDLC:</span>
+              <code>/create-flow-documentation</code>
+              <span>• Template: invariants.md</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Plantilla Markdown de Invariante -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/bounded-contexts/events/invariants/INV-001-fsm-transitions.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(239, 68, 68, 0.18); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">TEMPLATE: INVARIANT</span>
+            </div>
+
+            <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.55rem;">
+              <div class="md-line md-h1"><span class="md-hash">#</span> INV-001: Event State Transitions Must Follow State Machine</div>
+              
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                <div><span class="md-bold" style="width: auto;">* Status:</span> <span style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Invariant Type:</span> Strict Constraint (Cero Fallbacks)</div>
+                <div><span class="md-bold" style="width: auto;">* Bounded Context:</span> Event Management | <span class="md-bold" style="width: auto;">Aggregate Root:</span> <code>Event</code></div>
+                <div><span class="md-bold" style="width: auto;">* Data Integrity Risk:</span> <span style="color: #f87171;">Corrupt State / Illegal State Mutations</span></div>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 1. Statement of Invariant (Verdad Absoluta)</div>
+              <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.74rem; color: #f1f5f9;">
+                <strong>Invariant:</strong> An Event entity can NEVER transition to a state not authorized by its FSM. Attempting an illegal transition leaves the system in an illegal state and must abort immediately.
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 3. Enforcement Logic &amp; Gherkin Scenarios</div>
+              <div style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                <span style="color: #818cf8;">Scenario:</span> Attempting illegal transition directly to COMMITTED<br/>
+                &nbsp;&nbsp;<span style="color: #60a5fa;">Given</span> Event is in state <code style="color: #fcd34d;">DRAFT</code><br/>
+                &nbsp;&nbsp;<span style="color: #60a5fa;">When</span> Command requests transition to <code style="color: #fcd34d;">COMMITTED</code> without <code style="color: #86efac;">VERIFYING</code><br/>
+                &nbsp;&nbsp;<span style="color: #f87171;">Then</span> System throws <code style="color: #fca5a5;">InvalidStateTransitionError("INV-001")</code><br/>
+                &nbsp;&nbsp;<span style="color: #f87171;">And</span> Database transaction is rolled back with zero persisted changes
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 4. Failure Response &amp; Rollback</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
+                <div style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #f87171;">Excepción de Dominio:</strong><br/>
+                  <code>InvalidStateTransitionError</code> (HTTP 409 Conflict)
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #f87171;">Rollback Obligatorio:</strong><br/>
+                  Abort de Unit of Work. Cero persistencia en DB.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🛡️</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> La invariante es el candado de oro del artesano. Nunca dejes que la IA sustituya una invariante de dominio por una validación cosmética en el frontend.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
          SLIDE: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
          ==================================================================== -->
     <section class="slide" id="slide-21">
