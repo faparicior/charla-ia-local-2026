@@ -11241,7 +11241,7 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
    ========================================================================== */
 .boundaries-console-deck {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1.8rem;
   align-items: stretch;
   width: 100%;
@@ -11259,7 +11259,7 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
   border: 1px solid var(--border-subtle);
   border-left: 5px solid #0284c7;
   border-radius: 14px;
-  padding: 1.1rem 1.35rem;
+  padding: 1.25rem 1.6rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
@@ -11272,11 +11272,11 @@ body.theme-dark .boundaries-hero-box {
 
 .boundaries-hero-quote {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.85rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.32;
   color: var(--text-main);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .boundaries-hero-quote u {
@@ -11285,19 +11285,19 @@ body.theme-dark .boundaries-hero-box {
 }
 
 .boundaries-hero-sub {
-  font-size: 0.92rem;
+  font-size: 1.18rem;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.42;
 }
 
 .boundaries-points-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 1.1rem 1.35rem;
+  padding: 1.3rem 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
@@ -11308,43 +11308,45 @@ body.theme-dark .boundaries-points-card {
 
 .boundaries-point-item {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   align-items: flex-start;
 }
 
 .boundaries-point-icon {
-  font-size: 1.25rem;
-  line-height: 1.2;
+  font-size: 2rem;
+  line-height: 1.15;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.05rem;
 }
 
 .boundaries-point-text {
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 1.16rem;
+  line-height: 1.45;
   color: var(--text-main);
 }
 
 .boundaries-point-title {
   font-weight: 700;
-  margin-bottom: 0.15rem;
+  font-size: 1.34rem;
+  margin-bottom: 0.25rem;
   color: var(--text-main);
 }
 
 .boundaries-point-desc {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 1.15rem;
+  line-height: 1.46;
 }
 
 .boundaries-skill-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0.9rem;
+  gap: 0.65rem;
+  padding: 0.65rem 1.15rem;
   background: rgba(2, 132, 199, 0.08);
   border: 1px solid rgba(2, 132, 199, 0.25);
   border-radius: 10px;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   color: #0284c7;
   width: fit-content;
 }
@@ -11358,8 +11360,9 @@ body.theme-dark .boundaries-skill-pill {
 .boundaries-skill-pill code {
   font-family: var(--font-mono);
   font-weight: 700;
+  font-size: 1.1rem;
   background: rgba(0, 0, 0, 0.06);
-  padding: 0.15rem 0.4rem;
+  padding: 0.15rem 0.45rem;
   border-radius: 4px;
 }
 
