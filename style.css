@@ -11237,8 +11237,10 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
 }
 
 /* ==========================================================================
-   PASO 1: BOUNDARIES MARKDOWN CONSOLE DECK
+   SDLC PIPELINE STEP: 2-COLUMN CONSOLE & CONCEPTUAL DECK
+   (Plantilla Oficial para los Pasos 1 a 8 del SDLC)
    ========================================================================== */
+.sdlc-console-deck,
 .boundaries-console-deck {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -11247,6 +11249,7 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
   width: 100%;
 }
 
+.sdlc-explain-col,
 .boundaries-explain-col {
   display: flex;
   flex-direction: column;
@@ -11254,6 +11257,7 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
   justify-content: space-between;
 }
 
+.sdlc-hero-box,
 .boundaries-hero-box {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -11263,6 +11267,7 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
+body.theme-dark .sdlc-hero-box,
 body.theme-dark .boundaries-hero-box {
   background: var(--bg-surface);
   border-color: var(--border-subtle);
@@ -11270,6 +11275,7 @@ body.theme-dark .boundaries-hero-box {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
+.sdlc-hero-quote,
 .boundaries-hero-quote {
   font-family: var(--font-serif);
   font-size: 1.85rem;
@@ -11279,17 +11285,20 @@ body.theme-dark .boundaries-hero-box {
   margin-bottom: 0.4rem;
 }
 
+.sdlc-hero-quote u,
 .boundaries-hero-quote u {
   text-decoration-color: #0284c7;
   text-underline-offset: 4px;
 }
 
+.sdlc-hero-sub,
 .boundaries-hero-sub {
   font-size: 1.18rem;
   color: var(--text-muted);
   line-height: 1.42;
 }
 
+.sdlc-points-card,
 .boundaries-points-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -11301,17 +11310,20 @@ body.theme-dark .boundaries-hero-box {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
+body.theme-dark .sdlc-points-card,
 body.theme-dark .boundaries-points-card {
   background: var(--bg-surface);
   border-color: var(--border-subtle);
 }
 
+.sdlc-point-item,
 .boundaries-point-item {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
 }
 
+.sdlc-point-icon,
 .boundaries-point-icon {
   font-size: 2rem;
   line-height: 1.15;
@@ -11319,12 +11331,14 @@ body.theme-dark .boundaries-points-card {
   margin-top: 0.05rem;
 }
 
+.sdlc-point-text,
 .boundaries-point-text {
   font-size: 1.16rem;
   line-height: 1.45;
   color: var(--text-main);
 }
 
+.sdlc-point-title,
 .boundaries-point-title {
   font-weight: 700;
   font-size: 1.34rem;
@@ -11332,12 +11346,14 @@ body.theme-dark .boundaries-points-card {
   color: var(--text-main);
 }
 
+.sdlc-point-desc,
 .boundaries-point-desc {
   color: var(--text-muted);
   font-size: 1.15rem;
   line-height: 1.46;
 }
 
+.sdlc-skill-pill,
 .boundaries-skill-pill {
   display: inline-flex;
   align-items: center;
@@ -11351,12 +11367,14 @@ body.theme-dark .boundaries-points-card {
   width: fit-content;
 }
 
+body.theme-dark .sdlc-skill-pill,
 body.theme-dark .boundaries-skill-pill {
   background: rgba(56, 189, 248, 0.12);
   border-color: rgba(56, 189, 248, 0.3);
   color: #38bdf8;
 }
 
+.sdlc-skill-pill code,
 .boundaries-skill-pill code {
   font-family: var(--font-mono);
   font-weight: 700;
@@ -11366,11 +11384,13 @@ body.theme-dark .boundaries-skill-pill {
   border-radius: 4px;
 }
 
+body.theme-dark .sdlc-skill-pill code,
 body.theme-dark .boundaries-skill-pill code {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Columna Derecha: Terminal */
+/* Columna Derecha: Terminal / Consola Markdown */
+.sdlc-terminal,
 .boundaries-terminal {
   display: flex;
   flex-direction: column;
@@ -11382,6 +11402,7 @@ body.theme-dark .boundaries-skill-pill code {
   overflow: hidden;
 }
 
+.sdlc-term-tag,
 .boundaries-term-tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -11394,6 +11415,7 @@ body.theme-dark .boundaries-skill-pill code {
   border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
+.sdlc-terminal-body,
 .boundaries-terminal-body {
   padding: 1rem 1.25rem;
   font-family: var(--font-mono);
