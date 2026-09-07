@@ -13684,7 +13684,137 @@ stateDiagram-v2
 
 
     <!-- ====================================================================
-         SLIDE 21: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+         SLIDE 14: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
+         ==================================================================== -->
+    <section class="slide" id="slide-phase2-invariants">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Modelado Formal &amp; Contratos</span>
+        </div>
+        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #8b5cf6;">Reglas de Negocio vs. Invariantes</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Diferenciar políticas comerciales flexibles (<code>BR-XXX</code>) de restricciones matemáticas de integridad (<code>INV-XXX</code>).
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box purple">
+              <div class="sdlc-hero-quote">
+                “Una Regla de Negocio guía el comportamiento; una Invariante protege la <u>existencia e integridad</u> del modelo.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Si la IA relaja una invariante para complacer un prompt o coloca lógica de negocio dentro de la entidad equivocada, corrompe la base de datos o rompe el dominio DDD.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📋</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #60a5fa;">Regla de Negocio (BR-XXX) — Flexible &amp; Estratégica</div>
+                  <div class="sdlc-point-desc">Ámbito: workflows, políticas comerciales, cuotas. Vive en la <strong>Capa de Aplicación</strong> o Domain Services. Si se viola: degradación elegante o aviso al usuario (ej: límite free tier superado).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🛡️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #f87171;">Invariante de Dominio (INV-XXX) — Cero Tolerancia</div>
+                  <div class="sdlc-point-desc">Ámbito: consistencia matemática del estado. Vive síncrona dentro del <strong>Aggregate Root</strong> o Value Object. Si se viola: excepción de dominio + <strong>Rollback transaccional inmediato</strong>.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill purple">
+              <span>⚡ Comando SDLC:</span>
+              <code>/create-flow-documentation</code>
+              <span>• Guidelines: business-rules-vs-invariants.md</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Consola Markdown de Contratos DDD -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/invariants/INV-001.md vs rules/BR-004.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">CONTRATOS DDD</span>
+            </div>
+
+            <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.6rem;">
+              <div class="md-line md-h2"><span class="md-hash">##</span> Matriz de Decisión Arquitectural</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th>Dimensión</th>
+                      <th style="color: #60a5fa;">📋 Regla de Negocio (BR)</th>
+                      <th style="color: #f87171;">🛡️ Invariante de Dominio (INV)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Estrictez</td>
+                      <td>Admite excepciones o fallbacks</td>
+                      <td class="md-good" style="color: #f87171; font-weight: 700;">Absoluta: Cero violaciones permitidas</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Ubicación</td>
+                      <td>Capa Aplicación, Workflows, UI</td>
+                      <td class="md-accent">Dentro del Aggregate Root / VO</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Si se viola</td>
+                      <td>Degradación elegante (alerta/upgrade)</td>
+                      <td class="td-neg" style="color: #f87171;">Excepción Dominio + Rollback DB</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2" style="margin-top: 0.2rem;"><span class="md-hash">##</span> Ejemplos en Código que la IA debe respetar</div>
+
+              <!-- Bloque INV-001 -->
+              <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 0.45rem 0.65rem; border-radius: 4px;">
+                <div style="color: #f87171; font-weight: 700; margin-bottom: 0.2rem;">🛡️ INV-001: Estado FSM estricto (Aggregate Root)</div>
+                <code style="color: #f1f5f9; display: block; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.35;">
+                  if (!this.fsm.canTransitionTo(nextState)) {<br/>
+                  &nbsp;&nbsp;throw new InvalidStateTransitionError("INV-001: Transición ilegal"); // Rollback inmediato<br/>
+                  }
+                </code>
+              </div>
+
+              <!-- Bloque BR-004 -->
+              <div style="background: rgba(59, 130, 246, 0.08); border-left: 3px solid #3b82f6; padding: 0.45rem 0.65rem; border-radius: 4px;">
+                <div style="color: #60a5fa; font-weight: 700; margin-bottom: 0.2rem;">📋 BR-004: Límite Free Tier (Application Service)</div>
+                <code style="color: #f1f5f9; display: block; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.35;">
+                  if (activeEventsCount >= 5 &amp;&amp; user.isFreeTier()) {<br/>
+                  &nbsp;&nbsp;return Result.err(new UpgradePromptRequired("BR-004")); // Fallback elegante sin romper<br/>
+                  }
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> La IA tiende a programar defensivamente en el lugar equivocado. Fija los IDs <code>INV-XXX</code> para blindar el Aggregate Root con rollback y <code>BR-XXX</code> para orquestar la capa de aplicación con fallbacks controlados.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SLIDE: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
          ==================================================================== -->
     <section class="slide" id="slide-21">
       <div class="slide-content">
