@@ -11114,6 +11114,147 @@ body.theme-dark .sdlc-linear-contract-box {
   margin-top: 0.2rem;
 }
 
+/* Halos de fondo envolventes (Zonas Negocio, Técnico, Mixto) */
+.rect-timeline-backdrop-zones {
+  position: absolute;
+  top: -16px;
+  bottom: -16px;
+  left: -14px;
+  right: -14px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  gap: 1.5rem;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.rect-backdrop-zone {
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0.85rem 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.rect-backdrop-zone.zone-negocio {
+  background: rgba(99, 102, 241, 0.035);
+  border: 1.5px dashed rgba(99, 102, 241, 0.32);
+}
+
+.rect-backdrop-zone.zone-tecnico {
+  background: rgba(16, 185, 129, 0.035);
+  border: 1.5px dashed rgba(16, 185, 129, 0.32);
+}
+
+.rect-backdrop-zone.zone-mixto {
+  background: rgba(225, 29, 72, 0.035);
+  border: 1.5px dashed rgba(225, 29, 72, 0.32);
+}
+
+body.theme-dark .rect-backdrop-zone.zone-negocio {
+  background: rgba(99, 102, 241, 0.07);
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+body.theme-dark .rect-backdrop-zone.zone-tecnico {
+  background: rgba(16, 185, 129, 0.07);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+body.theme-dark .rect-backdrop-zone.zone-mixto {
+  background: rgba(225, 29, 72, 0.07);
+  border-color: rgba(225, 29, 72, 0.35);
+}
+
+.rect-zone-watermark {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.zone-negocio .rect-zone-watermark {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+}
+
+body.theme-dark .zone-negocio .rect-zone-watermark {
+  background: rgba(99, 102, 241, 0.22);
+  color: #818cf8;
+}
+
+.zone-tecnico .rect-zone-watermark {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+body.theme-dark .zone-tecnico .rect-zone-watermark {
+  background: rgba(16, 185, 129, 0.22);
+  color: #34d399;
+}
+
+.zone-mixto .rect-zone-watermark {
+  background: rgba(225, 29, 72, 0.12);
+  color: #e11d48;
+}
+
+body.theme-dark .zone-mixto .rect-zone-watermark {
+  background: rgba(225, 29, 72, 0.22);
+  color: #fb7185;
+}
+
+/* Badges de categoría en cada tarjeta */
+.rect-card-cat-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+
+.rect-card-cat-badge.cat-negocio {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+}
+
+body.theme-dark .rect-card-cat-badge.cat-negocio {
+  background: rgba(99, 102, 241, 0.22);
+  color: #818cf8;
+}
+
+.rect-card-cat-badge.cat-tecnico {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+body.theme-dark .rect-card-cat-badge.cat-tecnico {
+  background: rgba(16, 185, 129, 0.22);
+  color: #34d399;
+}
+
+.rect-card-cat-badge.cat-mixto {
+  background: rgba(225, 29, 72, 0.12);
+  color: #e11d48;
+}
+
+body.theme-dark .rect-card-cat-badge.cat-mixto {
+  background: rgba(225, 29, 72, 0.22);
+  color: #fb7185;
+}
+
 @media print {
 
   html,
