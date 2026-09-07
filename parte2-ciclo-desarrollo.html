@@ -29,13 +29,72 @@
 
 
     <!-- ====================================================================
-         SLIDE 1: EL CICLO DE DESARROLLO CON IA (PIPELINE SDLC COMPLETO)
+         SLIDE 1: EL EMBUDO DEL SDLC CON IA (REDUCCIÓN DE VARIABILIDAD)
          ==================================================================== -->
     <section class="slide" id="slide-1">
+      <div class="slide-content" style="gap: 1.05rem;">
+        <div class="deck-back-bar">
+          <a href="index.html#last" class="deck-back-btn">← Volver a Parte 1: Hardware &amp; Modelos</a>
+          <span class="deck-part-badge">Parte 2 • Ciclo de Desarrollo</span>
+        </div>
+        <div class="tag">Artesanía de Software • Reducción de Variabilidad</div>
+        <h2>El Embudo del SDLC: <span class="serif-italic" style="color: #6366f1;">De la Alucinación a la Certeza</span></h2>
+        <p class="subtitle" style="margin-top: -0.75rem;">
+          No dejes que el modelo elija entre millones de caminos. Cada fase es un filtro que reduce la entropía hasta lograr una solución verificada.
+        </p>
+
+        <div class="visual-funnel-deck">
+
+          <!-- Viewport de la Imagen Limpia sin Overlays -->
+          <div class="visual-funnel-viewport">
+            <img src="script/img/funnel-chaos-to-order.jpg" alt="Embudo de reducción de variabilidad e incertidumbre con IA" class="visual-funnel-img">
+          </div>
+
+          <!-- Contraste Entrada vs Salida del Embudo -->
+          <div class="visual-funnel-io-strip">
+            <div class="v-io-card input">
+              <span class="v-io-icon">🌪️</span>
+              <div class="v-io-content">
+                <div class="v-io-title-row">
+                  <span class="v-io-tag bad">ENTRADA</span>
+                  <strong class="v-io-title">Prompting Libre &amp; Ambigüedad</strong>
+                </div>
+                <div class="v-io-desc">~10⁶ caminos posibles • Alucinaciones, tipos inventados y alcance infinito.</div>
+              </div>
+            </div>
+
+            <div class="v-io-card output">
+              <span class="v-io-icon">🎯</span>
+              <div class="v-io-content">
+                <div class="v-io-title-row">
+                  <span class="v-io-tag good">SALIDA</span>
+                  <strong class="v-io-title">Determinismo &amp; Certeza</strong>
+                </div>
+                <div class="v-io-desc">1 único camino verificado • Tests en verde, tipos estrictos y 0 drift.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Regla de Oro Crafter:</strong> El artesano no le pide a la IA que "adivine" la solución en un espacio infinito. Estrecha el embudo con contratos formales hasta que cometer un error sea matemáticamente imposible.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 1-B: EL CICLO DE DESARROLLO CON IA (PIPELINE SDLC COMPLETO)
+         ==================================================================== -->
+    <section class="slide" id="slide-1-pipeline">
       <div class="slide-content">
                 <div class="deck-back-bar">
           <a href="index.html#last" class="deck-back-btn">← Volver a Parte 1: Hardware &amp; Modelos</a>
-          <span class="deck-part-badge">Parte 2 • Ciclo de Desarrollo</span>
+          <span class="deck-part-badge">Parte 2 • Pipeline de 5 Fases</span>
         </div>
 <div class="tag">Artesanía de Software • Del Descubrimiento a la Producción</div>
         <h2>El Ciclo de Desarrollo con IA: <span class="serif-italic" style="color: #6366f1;">Estructura, Disciplina y Contexto</span></h2>
@@ -217,486 +276,6 @@
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
             <strong>Regla Crafter:</strong> Los modelos de lenguaje fallan cuando se les pide "crear una app entera de golpe". Triunfan cuando operan sobre fases acotadas, contratos vivos y TDD.
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 1-ALT: EL CICLO DE DESARROLLO CON IA (ALTERNATIVA: PIPELINE DE CONTRATOS)
-         ==================================================================== -->
-    <section class="slide" id="slide-1-alt">
-      <div class="slide-content" style="gap: 1.15rem;">
-        <div class="deck-back-bar">
-          <a href="index.html#last" class="deck-back-btn">← Volver a Parte 1: Hardware &amp; Modelos</a>
-          <span class="deck-part-badge">Parte 2 • Alternativa Visual</span>
-        </div>
-        <div class="tag">Artesanía de Software • Pipeline Contract-Driven</div>
-        <h2>El Ciclo de Desarrollo con IA: <span class="serif-italic" style="color: #6366f1;">5 Fases, 5 Contratos</span></h2>
-        <p class="subtitle" style="margin-top: -0.75rem;">
-          La IA no sustituye el diseño artesanal: transforma la incertidumbre en software robusto encadenando fases atómicas donde cada salida es la restricción de la siguiente.
-        </p>
-
-        <div class="pipeline-flow-deck">
-
-          <!-- Franja de Contraste de Enfoques -->
-          <div class="pipeline-flow-context-strip">
-            <div class="pipeline-flow-context-item">
-              <span class="pipeline-flow-badge-bad">❌ Vibe Coding</span>
-              <span><strong>Megaprompt único:</strong> "Crea una app con pagos y auth" → Alucinaciones, tipos inventados, 0 tests.</span>
-            </div>
-            <div class="pipeline-flow-context-item">
-              <span class="pipeline-flow-badge-good">✅ Pipeline Crafter</span>
-              <span><strong>Contratos encadenados:</strong> La salida formal de cada fase delimita matemáticamente el contexto de la siguiente.</span>
-            </div>
-          </div>
-
-          <!-- Cuadrícula de 5 Fases Conectadas -->
-          <div class="pipeline-flow-grid">
-
-            <!-- Fase 1: Incepción -->
-            <div class="pipeline-flow-card c-blue">
-              <div class="pipeline-flow-header">
-                <div class="pipeline-flow-phase-tag">
-                  <span class="pipeline-flow-step-num">01</span>
-                  <span>Incepción</span>
-                </div>
-                <code class="pipeline-flow-cmd">/inception</code>
-              </div>
-              <div class="pipeline-flow-title">Descubrimiento Ágil</div>
-              <div class="pipeline-flow-question">¿Qué construir y qué podar?</div>
-              <ul class="pipeline-flow-list">
-                <li>Taller estructurado en 8 pasos.</li>
-                <li>Debate socrático de tradeoffs (PO, Tech Lead, Agile, User).</li>
-              </ul>
-              <div class="pipeline-flow-contract">
-                <span class="pipeline-flow-contract-label">Contrato de Salida</span>
-                <span class="pipeline-flow-contract-val">📋 Fronteras &amp; Tradeoffs (MVP)</span>
-              </div>
-              <div class="pipeline-flow-superpower">
-                🛡️ -90% alucinaciones de alcance
-              </div>
-            </div>
-
-            <!-- Fase 2: Especificación -->
-            <div class="pipeline-flow-card c-purple">
-              <div class="pipeline-flow-header">
-                <div class="pipeline-flow-phase-tag">
-                  <span class="pipeline-flow-step-num">02</span>
-                  <span>Especificación</span>
-                </div>
-                <code class="pipeline-flow-cmd">/create-flow-doc</code>
-              </div>
-              <div class="pipeline-flow-title">Especificación Viva</div>
-              <div class="pipeline-flow-question">¿Cómo se comporta el flujo?</div>
-              <ul class="pipeline-flow-list">
-                <li>3 Diagramas Mermaid (Secuencia, Flujo, Ciclo).</li>
-                <li>Escenarios deterministas Given / When / Then (Gherkin).</li>
-              </ul>
-              <div class="pipeline-flow-contract">
-                <span class="pipeline-flow-contract-label">Contrato de Salida</span>
-                <span class="pipeline-flow-contract-val">📐 Gherkin + Diagramas Mermaid</span>
-              </div>
-              <div class="pipeline-flow-superpower">
-                🎯 Cero ambigüedad funcional
-              </div>
-            </div>
-
-            <!-- Fase 3: Modelo DDD -->
-            <div class="pipeline-flow-card c-green">
-              <div class="pipeline-flow-header">
-                <div class="pipeline-flow-phase-tag">
-                  <span class="pipeline-flow-step-num">03</span>
-                  <span>Dominio DDD</span>
-                </div>
-                <code class="pipeline-flow-cmd">/create-entity</code>
-              </div>
-              <div class="pipeline-flow-title">Modelo de Dominio</div>
-              <div class="pipeline-flow-question">¿Cuáles son las reglas de oro?</div>
-              <ul class="pipeline-flow-list">
-                <li>Máquinas de estados finitas (FSM) con guards innegociables.</li>
-                <li>Value Objects inmutables con auto-validación estricta.</li>
-              </ul>
-              <div class="pipeline-flow-contract">
-                <span class="pipeline-flow-contract-label">Contrato de Salida</span>
-                <span class="pipeline-flow-contract-val">🔒 FSM &amp; Value Objects Tipados</span>
-              </div>
-              <div class="pipeline-flow-superpower">
-                🛑 Espacio de estados cerrado
-              </div>
-            </div>
-
-            <!-- Fase 4: TDD Hexagonal -->
-            <div class="pipeline-flow-card c-amber">
-              <div class="pipeline-flow-header">
-                <div class="pipeline-flow-phase-tag">
-                  <span class="pipeline-flow-step-num">04</span>
-                  <span>Construcción</span>
-                </div>
-                <code class="pipeline-flow-cmd">/implement-flow</code>
-              </div>
-              <div class="pipeline-flow-title">TDD Hexagonal</div>
-              <div class="pipeline-flow-question">¿Cómo validar paso a paso?</div>
-              <ul class="pipeline-flow-list">
-                <li>Red-Green-Refactor estricto por capas arquitectónicas.</li>
-                <li>La IA solo codifica para pasar un test que ha fallado.</li>
-              </ul>
-              <div class="pipeline-flow-contract">
-                <span class="pipeline-flow-contract-label">Contrato de Salida</span>
-                <span class="pipeline-flow-contract-val">💻 Tests Verdes &amp; Código Hexagonal</span>
-              </div>
-              <div class="pipeline-flow-superpower">
-                ⚡ Feedback en bucle &lt; 3s
-              </div>
-            </div>
-
-            <!-- Fase 5+: Evolución & Auditoría -->
-            <div class="pipeline-flow-card c-rose">
-              <div class="pipeline-flow-header">
-                <div class="pipeline-flow-phase-tag">
-                  <span class="pipeline-flow-step-num">05+</span>
-                  <span>Evolución</span>
-                </div>
-                <code class="pipeline-flow-cmd">/modify &amp; /audit</code>
-              </div>
-              <div class="pipeline-flow-title">Auditoría &amp; Drift</div>
-              <div class="pipeline-flow-question">¿Cómo cambiar sin degradar?</div>
-              <ul class="pipeline-flow-list">
-                <li>Propuesta formal previa antes de tocar código existente.</li>
-                <li>Auditoría continua: sincronización forzosa spec vs código.</li>
-              </ul>
-              <div class="pipeline-flow-contract">
-                <span class="pipeline-flow-contract-label">Contrato de Salida</span>
-                <span class="pipeline-flow-contract-val">🛡️ Living Docs 100% Sincronizados</span>
-              </div>
-              <div class="pipeline-flow-superpower">
-                🚀 Cero drift arquitectura / código
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior Resumen -->
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Fundamental Crafter:</strong> La IA no falla por falta de potencia, sino por exceso de libertad. Reducir el espacio de probabilidad con contratos verificables es la clave para un código en producción impecable.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 1-FUNNEL: EL EMBUDO DE DESARROLLO CON IA (REDUCCIÓN DE VARIABILIDAD)
-         ==================================================================== -->
-    <section class="slide" id="slide-1-funnel">
-      <div class="slide-content" style="gap: 1.15rem;">
-        <div class="deck-back-bar">
-          <a href="index.html#last" class="deck-back-btn">← Volver a Parte 1: Hardware &amp; Modelos</a>
-          <span class="deck-part-badge">Parte 2 • Alternativa 2: Embudo de Entropía</span>
-        </div>
-        <div class="tag">Artesanía de Software • Reducción Progresiva de Variabilidad</div>
-        <h2>El Embudo del SDLC con IA: <span class="serif-italic" style="color: #6366f1;">De la Incertidumbre al Determinismo</span></h2>
-        <p class="subtitle" style="margin-top: -0.75rem;">
-          Los modelos fallan cuando tienen millones de caminos posibles. Cada fase actúa como un filtro reductor de entropía que elimina grados de libertad hasta garantizar código robusto.
-        </p>
-
-        <div class="entropy-funnel-deck">
-
-          <!-- Regla Superior de Entropía & Variabilidad -->
-          <div class="entropy-gauge-track">
-            <div class="entropy-gauge-header">
-              <div class="entropy-gauge-label-start">
-                <span>🌪️</span>
-                <span>Alta Variabilidad (Espacio Abierto • ~10⁶ Grados)</span>
-              </div>
-              <div class="entropy-gauge-label-mid">
-                <span>FILTROS SUCESIVOS DE CONTRASTE &amp; VERIFICACIÓN ➔</span>
-              </div>
-              <div class="entropy-gauge-label-end">
-                <span>Cero Variabilidad (Determinismo • 0 Drift)</span>
-                <span>🎯</span>
-              </div>
-            </div>
-            <div class="entropy-bar-funnel"></div>
-          </div>
-
-          <!-- Contenedor con fondo SVG del embudo y las 5 cámaras -->
-          <div class="entropy-chambers-wrapper">
-            
-            <svg class="entropy-funnel-svg-bg" viewBox="0 0 1700 440" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="funnelGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.08" />
-                  <stop offset="28%" stop-color="#f59e0b" stop-opacity="0.06" />
-                  <stop offset="60%" stop-color="#10b981" stop-opacity="0.06" />
-                  <stop offset="82%" stop-color="#06b6d4" stop-opacity="0.06" />
-                  <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1" />
-                </linearGradient>
-                <linearGradient id="funnelLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
-                  <stop offset="50%" stop-color="#10b981" stop-opacity="0.3" />
-                  <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.45" />
-                </linearGradient>
-              </defs>
-              <polygon points="5,5 1695,100 1695,340 5,435" fill="url(#funnelGradient)" />
-              <line x1="5" y1="5" x2="1695" y2="100" stroke="url(#funnelLineGradient)" stroke-width="2" stroke-dasharray="6 6" />
-              <line x1="5" y1="435" x2="1695" y2="340" stroke="url(#funnelLineGradient)" stroke-width="2" stroke-dasharray="6 6" />
-            </svg>
-
-            <div class="entropy-chambers-grid">
-
-              <!-- Cámara 1: Incepción -->
-              <div class="entropy-chamber-card f1">
-                <div class="entropy-filter-badge">
-                  <span>FILTRO 1 • ALCANCE</span>
-                  <span>100% ➔ 10%</span>
-                </div>
-                <div class="entropy-funnel-aperture">
-                  <div class="entropy-aperture-label">
-                    <span>Apertura de Búsqueda</span>
-                    <span>100% Libre</span>
-                  </div>
-                  <div class="entropy-aperture-meter">
-                    <div class="entropy-aperture-fill"></div>
-                  </div>
-                </div>
-                <div class="entropy-chamber-title">Incepción Ágil</div>
-                <div class="entropy-filter-role">Poda de ideas ambiguas y requisitos infinitos.</div>
-                <div class="entropy-eliminated-box">
-                  <span class="entropy-eliminated-tag">Variabilidad Eliminada</span>
-                  Poda <strong>90% de alucinaciones</strong> de producto mediante debate asistido de tradeoffs.
-                </div>
-                <div class="entropy-output-contract">
-                  <span class="entropy-output-label">Contrato Resultante</span>
-                  <span>📋 Fronteras Innegociables</span>
-                </div>
-              </div>
-
-              <!-- Cámara 2: Especificación -->
-              <div class="entropy-chamber-card f2">
-                <div class="entropy-filter-badge">
-                  <span>FILTRO 2 • COMPORTAMIENTO</span>
-                  <span>10% ➔ 3%</span>
-                </div>
-                <div class="entropy-funnel-aperture">
-                  <div class="entropy-aperture-label">
-                    <span>Apertura de Búsqueda</span>
-                    <span>45% Acotada</span>
-                  </div>
-                  <div class="entropy-aperture-meter">
-                    <div class="entropy-aperture-fill"></div>
-                  </div>
-                </div>
-                <div class="entropy-chamber-title">Especificación Viva</div>
-                <div class="entropy-filter-role">Elimina interpretaciones subjetivas del flujo.</div>
-                <div class="entropy-eliminated-box">
-                  <span class="entropy-eliminated-tag">Variabilidad Eliminada</span>
-                  Elimina <strong>ambigüedad de bifurcaciones</strong> con 3 Mermaid + escenarios Gherkin.
-                </div>
-                <div class="entropy-output-contract">
-                  <span class="entropy-output-label">Contrato Resultante</span>
-                  <span>📐 Flujos &amp; Criterios Given/When</span>
-                </div>
-              </div>
-
-              <!-- Cámara 3: Modelo DDD -->
-              <div class="entropy-chamber-card f3">
-                <div class="entropy-filter-badge">
-                  <span>FILTRO 3 • ESTADOS &amp; TIPOS</span>
-                  <span>3% ➔ 0.5%</span>
-                </div>
-                <div class="entropy-funnel-aperture">
-                  <div class="entropy-aperture-label">
-                    <span>Apertura de Búsqueda</span>
-                    <span>20% Cerrada</span>
-                  </div>
-                  <div class="entropy-aperture-meter">
-                    <div class="entropy-aperture-fill"></div>
-                  </div>
-                </div>
-                <div class="entropy-chamber-title">Modelo de Dominio</div>
-                <div class="entropy-filter-role">Espacio matemático cerrado e inviolable.</div>
-                <div class="entropy-eliminated-box">
-                  <span class="entropy-eliminated-tag">Variabilidad Eliminada</span>
-                  Hace <strong>imposibles los estados ilegales</strong> mediante FSM con guards y Value Objects.
-                </div>
-                <div class="entropy-output-contract">
-                  <span class="entropy-output-label">Contrato Resultante</span>
-                  <span>🔒 Máquina de Estados Finita</span>
-                </div>
-              </div>
-
-              <!-- Cámara 4: TDD Hexagonal -->
-              <div class="entropy-chamber-card f4">
-                <div class="entropy-filter-badge">
-                  <span>FILTRO 4 • IMPLEMENTACIÓN</span>
-                  <span>0.5% ➔ 0.05%</span>
-                </div>
-                <div class="entropy-funnel-aperture">
-                  <div class="entropy-aperture-label">
-                    <span>Apertura de Búsqueda</span>
-                    <span>7% Estricta</span>
-                  </div>
-                  <div class="entropy-aperture-meter">
-                    <div class="entropy-aperture-fill"></div>
-                  </div>
-                </div>
-                <div class="entropy-chamber-title">TDD Hexagonal</div>
-                <div class="entropy-filter-role">Verificación granular por tests que fallan.</div>
-                <div class="entropy-eliminated-box">
-                  <span class="entropy-eliminated-tag">Variabilidad Eliminada</span>
-                  Elimina <strong>código no verificado</strong>: la IA solo escribe para poner un test en verde.
-                </div>
-                <div class="entropy-output-contract">
-                  <span class="entropy-output-label">Contrato Resultante</span>
-                  <span>💻 Tests Verdes &amp; Código Limpio</span>
-                </div>
-              </div>
-
-              <!-- Cámara 5: Auditoría & Drift -->
-              <div class="entropy-chamber-card f5">
-                <div class="entropy-filter-badge">
-                  <span>FILTRO 5 • INTEGRIDAD</span>
-                  <span>&lt;0.01% ➔ 0 Drift</span>
-                </div>
-                <div class="entropy-funnel-aperture">
-                  <div class="entropy-aperture-label">
-                    <span>Apertura de Búsqueda</span>
-                    <span>1% Laser Focus</span>
-                  </div>
-                  <div class="entropy-aperture-meter">
-                    <div class="entropy-aperture-fill"></div>
-                  </div>
-                </div>
-                <div class="entropy-chamber-title">Auditoría de Drift</div>
-                <div class="entropy-filter-role">Blindaje continuo contra la degradación.</div>
-                <div class="entropy-eliminated-box">
-                  <span class="entropy-eliminated-tag">Variabilidad Eliminada</span>
-                  Elimina <strong>desincronización</strong> entre arquitectura, especificación viva y código.
-                </div>
-                <div class="entropy-output-contract">
-                  <span class="entropy-output-label">Salida del Embudo</span>
-                  <span>🎯 Software Robusto en Producción</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Banner Inferior Resumen -->
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🌪️ ➔ 🎯</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio del Embudo Crafter:</strong> No intentes que el modelo acierte en un espacio abierto de posibilidades infinitas. Estrecha el embudo con contratos formales hasta que cometer un error sea matemáticamente imposible.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 1-VISUAL: EL EMBUDO ULTRA-VISUAL (REDUCCIÓN DE VARIABILIDAD)
-         ==================================================================== -->
-    <section class="slide" id="slide-1-visual">
-      <div class="slide-content" style="gap: 1.05rem;">
-        <div class="deck-back-bar">
-          <a href="index.html#last" class="deck-back-btn">← Volver a Parte 1: Hardware &amp; Modelos</a>
-          <span class="deck-part-badge">Parte 2 • Alternativa 3: Embudo Ultra-Visual</span>
-        </div>
-        <div class="tag">Artesanía de Software • Reducción de Variabilidad</div>
-        <h2>El Embudo del SDLC: <span class="serif-italic" style="color: #6366f1;">De la Alucinación a la Certeza</span></h2>
-        <p class="subtitle" style="margin-top: -0.75rem;">
-          No dejes que el modelo elija entre millones de caminos. Cada fase es un filtro que reduce la entropía hasta lograr una solución verificada.
-        </p>
-
-        <div class="visual-funnel-deck">
-
-          <!-- Viewport de la Imagen con Badges de Entrada y Salida -->
-          <div class="visual-funnel-viewport">
-            <img src="script/img/funnel-chaos-to-order.jpg" alt="Embudo de reducción de variabilidad e incertidumbre con IA" class="visual-funnel-img">
-            
-            <!-- Badges flotantes en los extremos -->
-            <div class="visual-funnel-badge-input">
-              <span class="vfb-icon">🌪️</span>
-              <div class="vfb-text">
-                <span class="vfb-title">ENTRADA: PROMPTING LIBRE</span>
-                <span class="vfb-sub">~10⁶ caminos • Ambigüedad &amp; Caos</span>
-              </div>
-            </div>
-
-            <div class="visual-funnel-badge-output">
-              <span class="vfb-icon">🎯</span>
-              <div class="vfb-text">
-                <span class="vfb-title">SALIDA: DETERMINISMO</span>
-                <span class="vfb-sub">1 único camino • Tests en verde &amp; 0 Drift</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Fila de los 5 Filtros Visuales (Minimalista, sin parrafadas) -->
-          <div class="visual-funnel-stages">
-            
-            <div class="v-stage-pill c-blue">
-              <div class="v-stage-num">01</div>
-              <div class="v-stage-info">
-                <strong class="v-stage-name">Incepción</strong>
-                <span class="v-stage-action">Poda el alcance (–90% alucinaciones)</span>
-              </div>
-            </div>
-
-            <div class="v-stage-arrow">→</div>
-
-            <div class="v-stage-pill c-purple">
-              <div class="v-stage-num">02</div>
-              <div class="v-stage-info">
-                <strong class="v-stage-name">Especificación</strong>
-                <span class="v-stage-action">Poda la ambigüedad (Gherkin &amp; Flujos)</span>
-              </div>
-            </div>
-
-            <div class="v-stage-arrow">→</div>
-
-            <div class="v-stage-pill c-green">
-              <div class="v-stage-num">03</div>
-              <div class="v-stage-info">
-                <strong class="v-stage-name">Modelo DDD</strong>
-                <span class="v-stage-action">Poda estados ilegales (FSM &amp; Tipos)</span>
-              </div>
-            </div>
-
-            <div class="v-stage-arrow">→</div>
-
-            <div class="v-stage-pill c-amber">
-              <div class="v-stage-num">04</div>
-              <div class="v-stage-info">
-                <strong class="v-stage-name">TDD Hexagonal</strong>
-                <span class="v-stage-action">Poda bugs de código (Red-Green)</span>
-              </div>
-            </div>
-
-            <div class="v-stage-arrow">→</div>
-
-            <div class="v-stage-pill c-rose">
-              <div class="v-stage-num">05</div>
-              <div class="v-stage-info">
-                <strong class="v-stage-name">Auditoría Drift</strong>
-                <span class="v-stage-action">Poda la desincronización (0 Drift)</span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior Resumen -->
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Regla de Oro Crafter:</strong> El artesano no le pide a la IA que "adivine" la solución en un espacio infinito. Estrecha el embudo con contratos formales hasta que cometer un error sea matemáticamente imposible.
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
