@@ -11629,6 +11629,106 @@ body.theme-dark .sdlc-skill-pill.amber {
   color: #fbbf24;
 }
 
+/* Step 5: Indigo */
+.sdlc-hero-box.indigo {
+  border-left-color: #6366f1;
+}
+
+body.theme-dark .sdlc-hero-box.indigo {
+  border-left-color: #818cf8;
+}
+
+.sdlc-hero-box.indigo .sdlc-hero-quote u {
+  text-decoration-color: #6366f1;
+}
+
+.sdlc-skill-pill.indigo {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #4f46e5;
+}
+
+body.theme-dark .sdlc-skill-pill.indigo {
+  background: rgba(129, 140, 248, 0.12);
+  border-color: rgba(129, 140, 248, 0.3);
+  color: #818cf8;
+}
+
+/* Step 6: Cyan */
+.sdlc-hero-box.cyan {
+  border-left-color: #06b6d4;
+}
+
+body.theme-dark .sdlc-hero-box.cyan {
+  border-left-color: #22d3ee;
+}
+
+.sdlc-hero-box.cyan .sdlc-hero-quote u {
+  text-decoration-color: #06b6d4;
+}
+
+.sdlc-skill-pill.cyan {
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  color: #0891b2;
+}
+
+body.theme-dark .sdlc-skill-pill.cyan {
+  background: rgba(34, 211, 238, 0.12);
+  border-color: rgba(34, 211, 238, 0.3);
+  color: #22d3ee;
+}
+
+/* Step 7: Rose */
+.sdlc-hero-box.rose {
+  border-left-color: #ec4899;
+}
+
+body.theme-dark .sdlc-hero-box.rose {
+  border-left-color: #f472b6;
+}
+
+.sdlc-hero-box.rose .sdlc-hero-quote u {
+  text-decoration-color: #ec4899;
+}
+
+.sdlc-skill-pill.rose {
+  background: rgba(236, 72, 153, 0.08);
+  border: 1px solid rgba(236, 72, 153, 0.25);
+  color: #db2777;
+}
+
+body.theme-dark .sdlc-skill-pill.rose {
+  background: rgba(244, 114, 182, 0.12);
+  border-color: rgba(244, 114, 182, 0.3);
+  color: #f472b6;
+}
+
+/* Step 8: Emerald */
+.sdlc-hero-box.emerald {
+  border-left-color: #059669;
+}
+
+body.theme-dark .sdlc-hero-box.emerald {
+  border-left-color: #10b981;
+}
+
+.sdlc-hero-box.emerald .sdlc-hero-quote u {
+  text-decoration-color: #059669;
+}
+
+.sdlc-skill-pill.emerald {
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.25);
+  color: #059669;
+}
+
+body.theme-dark .sdlc-skill-pill.emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
 @media print {
 
   html,
@@ -12859,81 +12959,133 @@ body.theme-dark .sdlc-skill-pill.amber {
 
 
     <!-- ====================================================================
-         SLIDE 8: OPCIÓN B (BLOQUE 3 DE 3) - EL SALTO A LA INGENIERÍA
+         SLIDE: PASO 5 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-8">
-      <div class="slide-content">
-        <div class="tag">Opción B • Bloque 3 de 3 • Pasos 6, 7 y 8 • /inception-workshop</div>
-        <h2>Del User Journey al Contrato de Ingeniería: <span class="serif-italic" style="color: #ec4899;">Listos para el Código</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Paso 6 (Journeys), Paso 7 (Olas) y Paso 8 (MVP Canvas): cómo pasar de la estrategia a la especificación técnica.
+    <section class="slide" id="slide-step5-brainstorming">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1;">Fase 1 • Inception Workshop • Paso 5</span>
+        </div>
+        <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #6366f1; border-color: rgba(99, 102, 241, 0.3);">Fase 1 • Inception Workshop • Paso 5 de 8</div>
+        <h2>Paso 5: Features Brainstorming <span class="serif-italic" style="color: #6366f1;">¿Qué ideas concretas resuelven el dolor?</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Filtrado implacable: ninguna funcionalidad entra sin vincularse explícitamente a una Persona y a un Pain del Paso 4.
         </p>
 
-        <div class="inception-block-split-3">
-          <!-- Col 1: Journeys -->
-          <div class="inception-pillar-card c-cyan">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>🚶</span> Paso 6: Journeys</div>
-              <span class="yarn-badge cyan">E2E Flow</span>
-            </div>
-            <div style="font-size: 0.84rem; line-height: 1.4; color: var(--text-main);">
-              <strong>Secuencia de 4 pasos:</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">
-                1. Comando IDE ➔ 2. Test E2E rojo en local ➔ 3. Capas DDD ➔ 4. ¡Suite en verde!
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box indigo">
+              <div class="sdlc-hero-quote">
+                “Proponer features sin dolor previo es alucinar: <u>cada función debe curar una fricción probada</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Los LLMs tienden a sugerir 'login con Google', 'paneles SaaS' o 'exportar PDF'. El filtro bloquea cualquier adorno que no responda a Elena.
               </div>
             </div>
-            <div class="sdlc-detail-box blue" style="margin-top: auto; font-size: 0.82rem;">
-              <strong>Hacia Fase 2:</strong> Alimenta directamente los 3 diagramas Mermaid del comando <code>/create-flow-doc</code>.
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">💡</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Regla Verbo + Valor (Sin Implementación)</div>
+                  <div class="sdlc-point-desc">Describir qué gana el crafter, no la fontanería interna: <em>"Ejecutar suite local en &lt;15s"</em>, no <em>"Montar un pool de hilos"</em>.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🎯</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Trazabilidad Vinculante con Elena</div>
+                  <div class="sdlc-point-desc">Cada tarjeta declara su enlace obligatorio al Dolor: <code>Pain: Alucinaciones en DDD</code> ➔ <code>Feature: FSM &amp; Guards</code>.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🚦</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Semáforo de Certeza y Esfuerzo</div>
+                  <div class="sdlc-point-desc">Clasificación rápida: 🟢 Verde (bien entendida), 🟡 Amarilla (requiere spike técnico), 🔴 Roja (riesgo de alcance para el MVP).</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill indigo">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 5: Features Brainstorming</span>
             </div>
           </div>
 
-          <!-- Col 2: Olas -->
-          <div class="inception-pillar-card c-pink">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>🌊</span> Paso 7: Olas</div>
-              <span class="yarn-badge rose">Secuenciador</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem;">
-              <div style="background: rgba(16, 185, 129, 0.1); padding: 0.45rem 0.65rem; border-radius: 6px; font-weight: 700; color: #059669;">
-                🚀 Ola 1: MVP Único Caso de Uso
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
               </div>
-              <div style="background: rgba(2, 132, 199, 0.06); padding: 0.45rem 0.65rem; border-radius: 6px; color: var(--text-muted);">
-                📈 Ola 2: Auditoría y Drift
-              </div>
-              <div style="background: rgba(148, 163, 184, 0.06); padding: 0.45rem 0.65rem; border-radius: 6px; color: var(--text-dim);">
-                🔮 Ola 3: Agentes Multi-Repo
-              </div>
+              <div class="code-title">📄 docs/inception/5-brainstorming.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(99, 102, 241, 0.18); color: #818cf8; border-color: rgba(99, 102, 241, 0.3);">MARKDOWN</span>
             </div>
-            <div class="sdlc-detail-box" style="margin-top: auto; font-size: 0.82rem; border-left-color: #ec4899;">
-              <strong>Hacia Fase 2:</strong> Prohíbe a la IA dispersarse en Olas futuras hasta cerrar la Ola 1.
-            </div>
-          </div>
 
-          <!-- Col 3: MVP Canvas -->
-          <div class="inception-pillar-card c-green">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>📋</span> Paso 8: Contrato</div>
-              <span class="yarn-badge green">Validación</span>
-            </div>
-            <div style="font-size: 0.84rem; line-height: 1.4; color: var(--text-main);">
-              <strong>MVP Canvas Firmado:</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">
-                Propuesta de valor, personas, métricas (&lt; 20s) y resultado unificados en 1 página.
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 5. Features Brainstorming &amp; Assessment</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 5.1 Core Features (Filtradas para Elena)</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th>Feature</th>
+                      <th>Dolor de Elena que Resuelve</th>
+                      <th class="td-center">Valor / Esfuerzo</th>
+                      <th class="td-center">Prioridad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Inferencia Local Ollama</td>
+                      <td>Fuga de IP corporativa en cloud</td>
+                      <td class="td-center md-good">Alto / Bajo</td>
+                      <td class="td-center md-good"><strong>Must-have</strong> 🟢</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Validación FSM &amp; Guards</td>
+                      <td>Alucinaciones de código spaghetti</td>
+                      <td class="td-center md-accent">Alto / Medio</td>
+                      <td class="td-center md-good"><strong>Must-have</strong> 🟢</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Mermaid Sync Bidireccional</td>
+                      <td>Deuda técnica y drift de arquitectura</td>
+                      <td class="td-center">Medio / Medio</td>
+                      <td class="td-center">Should-have 🟡</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Panel Web SaaS Cloud</td>
+                      <td class="td-neg">Ninguno (Viola Paso 1 Fronteras)</td>
+                      <td class="td-center td-neg">Bajo / Alto</td>
+                      <td class="td-center td-neg"><strong>Rechazada ❌</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="canvas-stamp" style="margin-top: 0.5rem; padding: 0.45rem 0.65rem; font-size: 0.82rem;">
-                Score: 9.4/10 • Aprobado
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 5.2 Coach\'s Question (Desafío al Alcance)</div>
+              <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #6366f1; padding: 0.45rem 0.75rem; border-radius: 4px; font-style: italic; font-size: 0.76rem; color: #e6edf3; line-height: 1.4;">
+                “Si solo pudieras desplegar 2 features para validar que un crafter adopta la inferencia local offline, ¿cuáles serían y por qué?”
               </div>
-            </div>
-            <div class="sdlc-detail-box green" style="margin-top: auto; font-size: 0.82rem;">
-              <strong>Hacia Fase 2:</strong> Si el scoring no supera 8/10, no se escribe una sola línea de código.
             </div>
           </div>
         </div>
 
-        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🚀</div>
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Principio Crafter (Bloque 3):</strong> Con el Journey, la Ola 1 y el MVP Canvas validados, la IA deja de alucinar: tiene el mapa, el alcance y el contrato de éxito en la mano.
+            <strong>Regla de Oro Crafter:</strong> La complacencia de los LLMs se destruye en el Paso 5: si la IA no puede justificar qué dolor concreto mitiga una función, esa función no entra al proyecto.
           </div>
         </div>
       </div>
@@ -12942,74 +13094,133 @@ body.theme-dark .sdlc-skill-pill.amber {
 
 
     <!-- ====================================================================
-         SLIDE 9: OPCIÓN C (PASO 1 DE 8) - MATRIZ DE FRONTERAS
+         SLIDE: PASO 6 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-9">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 1 de 8 • /inception-workshop</div>
-        <h2>Paso 1: <span class="serif-italic" style="color: #0284c7;">¿Qué NO somos y qué NO hacemos?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Fronteras Negativas: la decisión más importante para evitar que el LLM invente alcance.
+    <section class="slide" id="slide-step6-journeys">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0891b2;">Fase 1 • Inception Workshop • Paso 6</span>
+        </div>
+        <div class="tag" style="background: rgba(6, 182, 212, 0.12); color: #0891b2; border-color: rgba(6, 182, 212, 0.3);">Fase 1 • Inception Workshop • Paso 6 de 8</div>
+        <h2>Paso 6: User Journey Mapping <span class="serif-italic" style="color: #06b6d4;">¿Cuál es el recorrido cronológico E2E?</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Mapear la experiencia de extremo a extremo: del primer comando en el IDE a la suite en verde sin salir de local.
         </p>
 
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "Definir qué NO ES tu producto es diez veces más potente que describir mil funciones abiertas."
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box cyan">
+              <div class="sdlc-hero-quote">
+                “El código no vive aislado: <u>el software es una cadena de eventos guiada por el flujo humano</u>.”
               </div>
-              <div class="lean-question-lead">
-                Los modelos tienden por defecto a añadir paneles web, bases de datos o servicios cloud. La matriz de 4 cuadrantes fija los límites innegociables.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 1:</strong> Crea un monstruo con dependencias SaaS y telemetría externa cuando solo pediste inferencia local.
+              <div class="sdlc-hero-sub">
+                Sin un journey claro, la IA genera funciones inconexas que no encajan entre sí. El mapeo E2E define el camino crítico de principio a fin.
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-blue">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🗺️</span> 1-boundaries.md</div>
-                <span class="yarn-badge green">Fronteras Claras</span>
-              </div>
-              <div class="inception-boundary-grid">
-                <div class="inception-boundary-box is">
-                  <span class="inception-box-title">✅ ES</span>
-                  <ul class="inception-box-list">
-                    <li>Motor de inferencia local autónomo</li>
-                    <li>Copiloto guiado por TDD estricto</li>
-                  </ul>
-                </div>
-                <div class="inception-boundary-box is-not">
-                  <span class="inception-box-title">❌ NO ES</span>
-                  <ul class="inception-box-list">
-                    <li>Generador ciego de código spaghetti</li>
-                    <li>Servicio SaaS en nube ajena</li>
-                  </ul>
-                </div>
-                <div class="inception-boundary-box does">
-                  <span class="inception-box-title">⚡ HACE</span>
-                  <ul class="inception-box-list">
-                    <li>Ejecuta modelos en tu GPU/Mac</li>
-                    <li>Valida capas contra tests reales</li>
-                  </ul>
-                </div>
-                <div class="inception-boundary-box does-not">
-                  <span class="inception-box-title">🚫 NO HACE</span>
-                  <ul class="inception-box-list">
-                    <li>Enviar telemetría a internet</li>
-                    <li>Modificar código sin propuesta</li>
-                  </ul>
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🚶</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">El 'Minimum Happy Path' de Elena</div>
+                  <div class="sdlc-point-desc">Cadena limpia: 1. Disparar comando IDE ➔ 2. Validar spec ➔ 3. Test rojo determinista ➔ 4. Refactor y suite en verde.</div>
                 </div>
               </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">⚙️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Trigger, Acción y Salida Verificable</div>
+                  <div class="sdlc-point-desc">Cada etapa explicita qué hace el crafter, qué computa el modelo y qué artefacto concreto produce el sistema en disco.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🌉</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Puente Directo a Fase 2 (Ingeniería)</div>
+                  <div class="sdlc-point-desc">Este journey alimenta directamente los 3 diagramas Mermaid del comando <code>/create-flow-doc</code> (Arquitectura Hexagonal).</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill cyan">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 6: User Journey Mapping</span>
             </div>
           </div>
 
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🎯</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> 4 ítems obligatorios en cada cuadrante. Prohibido avanzar si no se ha definido qué NO hace el sistema.
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/inception/6-user-journey-mapping.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(6, 182, 212, 0.18); color: #22d3ee; border-color: rgba(6, 182, 212, 0.3);">MARKDOWN</span>
             </div>
+
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 6. User Journey: Flujo E2E de Desarrollo</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 6.1 Lifecycle Overview (Elena's Happy Path)</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 25%;">Etapa</th>
+                      <th style="width: 35%;">Trigger del Crafter</th>
+                      <th>Respuesta del Sistema / IA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">1. Incepción</td>
+                      <td><code>/inception-workshop</code></td>
+                      <td class="md-accent">Genera 8 specs vivas en <code>docs/inception/</code></td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">2. Arquitectura</td>
+                      <td><code>/create-flow-doc</code></td>
+                      <td>Modela puertos, entidades y diagramas Mermaid</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">3. Ciclo TDD</td>
+                      <td><code>/implement-flow</code></td>
+                      <td class="md-good">Genera test unitario rojo (Rust/TS)</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">4. Inferencia</td>
+                      <td>Inferir con Qwen en local</td>
+                      <td class="md-good">Implementa código mínimo: suite verde en &lt;12s</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">5. Auditoría</td>
+                      <td><code>/audit-docs</code></td>
+                      <td>Verifica sincronía cero-drift entre spec y código</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 6.2 Camino Crítico E2E</div>
+              <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #06b6d4; padding: 0.45rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; color: #e6edf3; line-height: 1.5;">
+                [Terminal IDE] ➔ [Prompt TDD] ➔ [Ollama Local &lt;1s] ➔ [Suite Verde ✅] ➔ [Git Commit]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> La IA no puede programar un endpoint o un use case si no comprende qué ocurre antes y qué ocurre después. El Journey convierte funciones aisladas en una sinfonía coherente.
           </div>
         </div>
       </div>
@@ -13018,82 +13229,142 @@ body.theme-dark .sdlc-skill-pill.amber {
 
 
     <!-- ====================================================================
-         SLIDE 10: OPCIÓN C (PASO 2 DE 8) - TABLERO DE TRADEOFFS
+         SLIDE: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-10">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 2 de 8 • /inception-workshop</div>
-        <h2>Paso 2: <span class="serif-italic" style="color: #6366f1;">Si todo es prioridad, nada lo es</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Tablero de Tradeoffs: debate simulado entre 4 roles y exactamente una sola cruz por columna.
+    <section class="slide" id="slide-step7-sequencing">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <span class="deck-part-badge" style="background: rgba(236, 72, 153, 0.15); color: #db2777;">Fase 1 • Inception Workshop • Paso 7</span>
+        </div>
+        <div class="tag" style="background: rgba(236, 72, 153, 0.12); color: #db2777; border-color: rgba(236, 72, 153, 0.3);">Fase 1 • Inception Workshop • Paso 7 de 8</div>
+        <h2>Paso 7: Secuenciador de Olas <span class="serif-italic" style="color: #ec4899;">¿Qué entra en el MVP y qué se bloquea?</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Release Planning implacable: dividir el alcance en Olas para construir un 'cupcake' completo antes de soñar con la tarta entera.
         </p>
 
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "¿Qué sacrificamos conscientemente cuando surja un conflicto de arquitectura?"
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box rose">
+              <div class="sdlc-hero-quote">
+                “Entregar una tarta a medias es fracasar: <u>la Ola 1 debe ser un cupcake perfectamente comestible</u>.”
               </div>
-              <div class="lean-question-lead">
-                La IA enfrenta al Product Owner, Tech Lead, User Advocate y Agile Coach. Si hay 6 dimensiones, solo una puede ser Prioridad #1.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 2:</strong> Intenta dar máxima velocidad y máxima seguridad a la vez, produciendo código inconsistente.
+              <div class="sdlc-hero-sub">
+                La gran tentación de la IA es comenzar diez tareas a la vez y dejarlas a medio hacer. El secuenciador prohíbe tocar la Ola 2 hasta cerrar la Ola 1.
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-purple">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>⚖️</span> 2-tradeoffs.md</div>
-                <span class="yarn-badge purple">Ranking 1..6</span>
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🌊</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">La Anatomía de las 3 Olas</div>
+                  <div class="sdlc-point-desc">Ola 1 (MVP: un solo flujo vertical funcional con tests), Ola 2 (Auditoría de drift y telemetría), Ola 3 (Escalado multi-repo).</div>
+                </div>
               </div>
-              <table class="inception-tradeoff-table">
-                <thead>
-                  <tr>
-                    <th>Dimensión</th>
-                    <th>P1 (Máx)</th>
-                    <th>P2</th>
-                    <th>P3</th>
-                    <th>P6 (Mín)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>🔒 Privacidad Local</td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                    <td></td><td></td><td></td>
-                  </tr>
-                  <tr>
-                    <td>⚡ Latencia GPU</td>
-                    <td></td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                    <td></td><td></td>
-                  </tr>
-                  <tr>
-                    <td>🛡️ Calidad TDD</td>
-                    <td></td><td></td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>📦 Volumen Features</td>
-                    <td></td><td></td><td></td>
-                    <td><span class="tradeoff-check">✕</span></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="sdlc-code-callout" style="font-size: 0.8rem;">
-                👉 <strong>Consenso:</strong> Privacidad y Latencia antes que Volumen de Features.
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🧁</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Un Slice Vertical Completo (Cupcake)</div>
+                  <div class="sdlc-point-desc">No se construye la base de datos de todo el sistema: se implementa el camino crítico completo de extremo a extremo.</div>
+                </div>
               </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🗑️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">El 'Parking Lot' como Blindaje Cognitivo</div>
+                  <div class="sdlc-point-desc">Todas las ideas tentadoras pero secundarias quedan desterradas al Parking Lot: el modelo tiene prohibido codificarlas en el MVP.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill rose">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 7: Features &amp; Sequencing</span>
             </div>
           </div>
 
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">⚖️</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> Una sola 'X' por columna. Sin empates. Las leyes de la física para el modelo quedan formalizadas aquí.
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/inception/7-features-and-sequencing.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(236, 72, 153, 0.18); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">MARKDOWN</span>
             </div>
+
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 7. Release Sequencer: Plan de Olas</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 7.1 🌊 Ola 1: The Minimum Viable Product</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th>Feature de la Ola 1</th>
+                      <th class="td-center">Esfuerzo</th>
+                      <th class="td-center">Valor Negocio</th>
+                      <th class="td-center">Valor UX</th>
+                      <th class="td-center">Confort</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Motor Inferencia Local</td>
+                      <td class="td-center">EE</td>
+                      <td class="td-center md-good">$$$</td>
+                      <td class="td-center">♥♥♥</td>
+                      <td class="td-center md-accent">TT</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">TDD Capa por Capa</td>
+                      <td class="td-center">E</td>
+                      <td class="td-center md-good">$$$</td>
+                      <td class="td-center">♥♥♥</td>
+                      <td class="td-center md-accent">TTT</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Fronteras FSM &amp; Guards</td>
+                      <td class="td-center">E</td>
+                      <td class="td-center">$$</td>
+                      <td class="td-center">♥♥</td>
+                      <td class="td-center md-accent">TTT</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 7.2 🌊 Ola 2 (Siguiente) vs 🗑️ Parking Lot</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <tbody>
+                    <tr>
+                      <td class="md-bold" style="color: #79c0ff;">Ola 2 (Próxima)</td>
+                      <td>Auditoría de drift en CI • Soporte multi-modelo MoE dinámico</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold" style="color: #ff7b72;">Parking Lot</td>
+                      <td class="td-neg">[ ❌ ] Autenticación OAuth SaaS • Telemetría cloud (Descartadas)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> El artesano entrega software terminado, no esqueletos. La Ola 1 valida el valor real de inmediato; todo lo demás es distracción para el LLM.
           </div>
         </div>
       </div>
@@ -13102,403 +13373,129 @@ body.theme-dark .sdlc-skill-pill.amber {
 
 
     <!-- ====================================================================
-         SLIDE 11: OPCIÓN C (PASO 3 DE 8) - USER PERSONAS
+         SLIDE: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-11">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 3 de 8 • /inception-workshop</div>
-        <h2>Paso 3: <span class="serif-italic" style="color: #10b981;">¿Para qué artesano concreto diseñamos?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          User Personas: poner nombre, hardware y restricciones de seguridad a nuestro usuario.
+    <section class="slide" id="slide-step8-canvas">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <span class="deck-part-badge" style="background: rgba(5, 150, 105, 0.15); color: #059669;">Fase 1 • Inception Workshop • Paso 8</span>
+        </div>
+        <div class="tag" style="background: rgba(5, 150, 105, 0.12); color: #059669; border-color: rgba(5, 150, 105, 0.3);">Fase 1 • Inception Workshop • Paso 8 de 8</div>
+        <h2>Paso 8: Contrato MVP Canvas <span class="serif-italic" style="color: #059669;">El System Prompt Supremo</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Condensar las decisiones de los 7 pasos anteriores en una sola página vinculante con scoring de validación &ge; 8/10 antes de codificar.
         </p>
 
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "El peligro mortal de diseñar para un 'usuario genérico'."
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box emerald">
+              <div class="sdlc-hero-quote">
+                “El Inception no termina con un informe olvidado: <u>termina con un contrato vinculante para la IA</u>.”
               </div>
-              <div class="lean-question-lead">
-                Cuando la IA diseña para un ente abstracto, genera código de tutorial. Con Elena Torres (Tech Lead en FinTech), diseña para hardware local estricto.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 3:</strong> Asume que todo el mundo tiene servidores cloud infinitos y permisos de root permisivos.
+              <div class="sdlc-hero-sub">
+                El MVP Canvas sintetiza visión, fronteras, tradeoffs, persona, dolores y alcance de la Ola 1 en un único artefacto rector innegociable.
               </div>
             </div>
 
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-green">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>👤</span> 3-personas/elena.md</div>
-                <span class="yarn-badge green">Tech Lead</span>
-              </div>
-              <div class="inception-persona-box">
-                <div class="inception-persona-header">
-                  <div class="inception-persona-avatar">ET</div>
-                  <div class="inception-persona-meta">
-                    <div class="inception-persona-name">Elena Torres (36a)</div>
-                    <div class="inception-persona-role">Tech Lead en FinTech • Stack Hexagonal</div>
-                  </div>
-                </div>
-                <div class="inception-persona-quote">
-                  "No tolero tener que refactorizar 500 líneas de código generado sin tests ni mandar datos contables a terceros."
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: 0.82rem;">
-                  <div style="background: rgba(16, 185, 129, 0.08); padding: 0.6rem; border-radius: 6px;">
-                    <strong style="color: #059669;">🎯 Meta:</strong> Inferencia local + TDD
-                  </div>
-                  <div style="background: rgba(239, 68, 68, 0.08); padding: 0.6rem; border-radius: 6px;">
-                    <strong style="color: #dc2626;">💥 Dolor:</strong> Alucinaciones en DDD
-                  </div>
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📋</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">La Ficha Técnica Unificada en 1 Página</div>
+                  <div class="sdlc-point-desc">Propuesta de valor condensada, métricas de éxito numéricas (&lt;1s inferencia, &lt;15s test suite) y riesgos mitigados.</div>
                 </div>
               </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">⚖️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">El Gatekeeper de Calidad (Score &ge; 8/10)</div>
+                  <div class="sdlc-point-desc">El comando audita su propio canvas. Si la puntuación del modelo es menor a 8.0/10, se prohíbe escribir código.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🔒</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">System Prompt Vinculante para Todo el SDLC</div>
+                  <div class="sdlc-point-desc">En las Fases 2 a 5, cualquier sugerencia, prompt o cambio de código que viole este lienzo es bloqueado automáticamente.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill emerald">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 8: MVP Canvas Definition</span>
             </div>
           </div>
 
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">👤</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> Toda User Story posterior comenzará con: <em>"Como Elena Torres quiero..."</em>.
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/inception/8-mvp-canvas-definition.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(5, 150, 105, 0.18); color: #34d399; border-color: rgba(5, 150, 105, 0.3);">MARKDOWN</span>
+            </div>
+
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 8. MVP Canvas: Contrato de Ingeniería</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 8.1 Success Metrics &amp; KPIs Validados</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th>Métrica / KPI</th>
+                      <th class="td-center">Target</th>
+                      <th>Método de Validación</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Latencia Inferencia</td>
+                      <td class="td-center md-good">&lt; 1.0s</td>
+                      <td>Benchmark local Ollama en GPU/M3</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Velocidad Suite TDD</td>
+                      <td class="td-center md-good">&lt; 15s</td>
+                      <td>Runner de tests automáticos en local</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Privacidad / Fuga IP</td>
+                      <td class="td-center md-good">0 bytes</td>
+                      <td>Auditoría estricta de tráfico de red</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 8.2 Auditoría Final del Inception (Ready for Dev)</div>
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.6rem 0.85rem; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-weight: 800; color: #7ee787; font-size: 0.84rem;">✅ CHECKLIST COMPLETO (8/8 PASOS VALIDADOS)</div>
+                  <div style="font-size: 0.74rem; color: #c9d1d9; margin-top: 0.2rem;">Fronteras • Tradeoffs • Persona • Empatía • Features • Journey • Olas • MVP</div>
+                </div>
+                <div style="background: #059669; color: #fff; font-weight: 800; font-size: 0.82rem; padding: 0.35rem 0.65rem; border-radius: 6px; white-space: nowrap;">
+                  SCORE: 9.4 / 10
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-
-
-    <!-- ====================================================================
-         SLIDE 12: OPCIÓN C (PASO 4 DE 8) - MAPA DE EMPATÍA
-         ==================================================================== -->
-    <section class="slide" id="slide-12">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 4 de 8 • /inception-workshop</div>
-        <h2>Paso 4: <span class="serif-italic" style="color: #f59e0b;">¿Qué dolor y ansiedad aliviamos?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Mapa de Empatía: la dimensión sensorial y emocional del ingeniero de software.
-        </p>
-
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "El software fracasa si no alivia la frustración cotidiana del equipo."
-              </div>
-              <div class="lean-question-lead">
-                Exploramos qué piensa, qué oye en su empresa, qué ve en el mercado y qué dice/hace. El contraste Pains vs. Gains define la propuesta de valor real.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 4:</strong> Construye features técnicamente complejas que nadie usa porque no resuelven ningún dolor real.
-              </div>
-            </div>
-
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-amber">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🧭</span> 4-empathy.md</div>
-                <span class="yarn-badge amber">Sensorial</span>
-              </div>
-              <div class="inception-empathy-grid">
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">🧠 Piensa &amp; Siente</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">"Si adopto IA sin rigor, ensucio el repositorio y pierdo el control."</div>
-                </div>
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">👂 Oye en Entorno</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">"El management pide velocidad; los crafters alertan del spaghetti."</div>
-                </div>
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">👀 Ve en Mercado</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">APIs cloud que suben de precio y crean vendor lock-in.</div>
-                </div>
-                <div class="inception-empathy-box">
-                  <div class="inception-empathy-title">🗣️ Dice &amp; Hace</div>
-                  <div style="font-size: 0.8rem; color: var(--text-main);">Prueba modelos locales por las tardes en Ollama.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🧭</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> La empatía alinea el tono del modelo: entiende la ansiedad de la deuda técnica y genera código defensivo.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 13: OPCIÓN C (PASO 5 DE 8) - BRAINSTORMING DE FEATURES
-         ==================================================================== -->
-    <section class="slide" id="slide-13">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 5 de 8 • /inception-workshop</div>
-        <h2>Paso 5: <span class="serif-italic" style="color: #8b5cf6;">¿Qué idea concreta resuelve el dolor?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Brainstorming de Features: divergencia quirúrgica filtrada por las 4 fronteras del Paso 1.
-        </p>
-
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "Prohibido proponer features sin justificar a qué dolor responden."
-              </div>
-              <div class="lean-question-lead">
-                Las ideas se agrupan en 3 pilares estratégicos: Núcleo Local, Disciplina TDD y Living Docs. Todo lo que colisione con el "NO ES" del Paso 1 queda vetado.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 5:</strong> Añade dashboards gráficos, plugins irrelevantes y telemetría no solicitada.
-              </div>
-            </div>
-
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-purple">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>💡</span> 5-brainstorming.md</div>
-                <span class="yarn-badge purple">Post-its Clave</span>
-              </div>
-              <div class="inception-brainstorm-grid" style="grid-template-columns: 1fr 1fr; gap: 0.65rem;">
-                <div class="inception-postit yellow">
-                  <span class="postit-tag">Núcleo Local</span>
-                  <strong>Inferencia Ollama</strong>
-                  <span>Fallback automático Qwen 3.5 &lt;=&gt; Coder.</span>
-                </div>
-                <div class="inception-postit blue">
-                  <span class="postit-tag">TDD &amp; DDD</span>
-                  <strong>Generador Test E2E</strong>
-                  <span>Fuerza Given/When/Then antes del código.</span>
-                </div>
-                <div class="inception-postit purple">
-                  <span class="postit-tag">Living Docs</span>
-                  <strong>Mermaid Sync</strong>
-                  <span>Sincronización en cada commit de git.</span>
-                </div>
-                <div class="inception-postit blue">
-                  <span class="postit-tag">TDD &amp; DDD</span>
-                  <strong>Guards Validator</strong>
-                  <span>Validación de precondiciones booleanas.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> La creatividad del modelo es infinita; el rol del artesano es filtrar sin piedad para que solo sobreviva lo esencial.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 14: OPCIÓN C (PASO 6 DE 8) - USER JOURNEYS
-         ==================================================================== -->
-    <section class="slide" id="slide-14">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 6 de 8 • /inception-workshop</div>
-        <h2>Paso 6: <span class="serif-italic" style="color: #06b6d4;">¿Cuál es el recorrido cronológico e2e?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          User Journey Mapping: el puente directo hacia los diagramas Mermaid y las especificaciones de la Fase 2.
-        </p>
-
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "De la narrativa de negocio a los 3 diagramas Mermaid técnicos."
-              </div>
-              <div class="lean-question-lead">
-                Un Journey no es un deseo estático: es un recorrido en 4 pasos con trigger inicial, interacción del sistema, validaciones y momento 'Wow'.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 6:</strong> Genera endpoints desconectados sin saber cómo encajan en el flujo real del usuario.
-              </div>
-            </div>
-
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-cyan">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🚶</span> 6-user-journeys/01.md</div>
-                <span class="yarn-badge cyan">4 Nodos</span>
-              </div>
-              <div class="inception-journey-trail">
-                <div class="journey-step-node">
-                  <span class="journey-step-num">01</span>
-                  <div class="journey-step-desc">Elena ejecuta <code>/implement-flow</code> con la spec lista.</div>
-                </div>
-                <div class="journey-step-node">
-                  <span class="journey-step-num">02</span>
-                  <div class="journey-step-desc">El LLM genera el test E2E rojo en su suite local sin salir a internet.</div>
-                </div>
-                <div class="journey-step-node">
-                  <span class="journey-step-num">03</span>
-                  <div class="journey-step-desc">Construye capa por capa: Dominio ➔ Casos de uso ➔ Adaptadores.</div>
-                </div>
-                <div class="journey-step-node">
-                  <span class="journey-step-num">04</span>
-                  <div class="journey-step-desc">Ejecución de <code>mvn test</code>: ¡Suite en verde en 12 segundos! 🤩</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🚶</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> Si un Journey no cabe en 4 pasos claros, el caso de uso es demasiado grande para que el LLM lo implemente con fiabilidad.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 15: OPCIÓN C (PASO 7 DE 8) - SECUENCIACIÓN EN OLAS
-         ==================================================================== -->
-    <section class="slide" id="slide-15">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 7 de 8 • /inception-workshop</div>
-        <h2>Paso 7: <span class="serif-italic" style="color: #ec4899;">¿Qué entra en el MVP y qué se bloquea?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Secuenciación en Olas: blindar el foco de la IA en la primera entrega indispensable.
-        </p>
-
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "El error letal de intentar construir todo en el primer sprint."
-              </div>
-              <div class="lean-question-lead">
-                Separamos en 3 olas: Ola 1 (MVP indispensable), Ola 2 (Incremento funcional) y Ola 3 (Escala). La IA tiene terminantemente prohibido tocar la Ola 2 hasta cerrar la 1.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 7:</strong> Satura su ventana de contexto mezclando requerimientos inmediatos con arquitectura de escala futura.
-              </div>
-            </div>
-
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-pink">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>🌊</span> 7-sequencing.md</div>
-                <span class="yarn-badge green">Ola 1 MVP</span>
-              </div>
-              <div class="inception-waves-stack">
-                <div class="inception-wave-card wave-1">
-                  <div class="wave-card-header">
-                    <span class="wave-title">🚀 OLA 1 — MVP (Foco Absoluto)</span>
-                    <span class="sdlc-phase-badge green">Prioridad 1</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-main); font-weight: 600;">
-                    • Inferencia Ollama/vLLM local + Flujo TDD para 1 caso de uso
-                  </div>
-                </div>
-                <div class="inception-wave-card wave-2">
-                  <div class="wave-card-header">
-                    <span class="wave-title">📈 OLA 2 — Incremento Funcional</span>
-                    <span class="sdlc-phase-badge blue">Siguiente</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-muted);">
-                    • Auditoría de drift de docs + Eventos Kafka
-                  </div>
-                </div>
-                <div class="inception-wave-card wave-3">
-                  <div class="wave-card-header">
-                    <span class="wave-title">🔮 OLA 3 — Madurez &amp; Escala</span>
-                    <span class="sdlc-phase-badge rose">Roadmap</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-dim);">
-                    • Cuantización NVFP4 + Agentes multi-repo
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🌊</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> La Ola 1 no es un prototipo desechable: es código de producción artesanal con un alcance quirúrgico.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 16: OPCIÓN C (PASO 8 DE 8) - MVP CANVAS DEFINITIVO
-         ==================================================================== -->
-    <section class="slide" id="slide-16">
-      <div class="slide-content">
-        <div class="tag">Opción C • Paso 8 de 8 • /inception-workshop</div>
-        <h2>Paso 8: <span class="serif-italic" style="color: #059669;">¿El contrato tiene score &ge; 8/10?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          MVP Canvas: el contrato vinculante que une visión, alcance, métricas y coste en 1 página.
-        </p>
-
-        <div class="inception-lean-deck">
-          <div class="inception-lean-split">
-            <div class="lean-question-card">
-              <div class="lean-question-hero">
-                "Si la validación formal no supera 8/10, no se pica una sola línea."
-              </div>
-              <div class="lean-question-lead">
-                Condensamos los 7 pasos anteriores en los 6 bloques del lienzo. El modelo actúa como auditor socrático y otorga una nota objetiva.
-              </div>
-              <div class="lean-ai-danger">
-                ⚠️ <strong>Trampa de la IA sin Paso 8:</strong> Arranca el proyecto con suposiciones ambiguas y deuda de gobernanza oculta.
-              </div>
-            </div>
-
-            <!-- Artefacto Visual Compacto -->
-            <div class="inception-artifact-card c-green">
-              <div class="inception-artifact-header">
-                <div class="inception-artifact-title"><span>📋</span> 8-mvp-canvas.md</div>
-                <span class="yarn-badge green">Validado</span>
-              </div>
-              <div class="inception-canvas-grid" style="grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">1. Propuesta</span>
-                  <span>IA privada rápida con TDD local</span>
-                </div>
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">2. Persona</span>
-                  <span>Elena Torres • Tech Lead</span>
-                </div>
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">3. Journeys</span>
-                  <span>Implementación DDD con tests</span>
-                </div>
-                <div class="inception-canvas-block">
-                  <span class="canvas-block-label">4. Métricas</span>
-                  <span>Latencia &lt; 20s/flujo y 0 leaks</span>
-                </div>
-              </div>
-              <div class="canvas-stamp">
-                <span>✅ VALIDADO: Score 9.4 / 10</span>
-                <span style="font-size: 0.78rem; text-transform: uppercase;">Ready for Dev</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">📋</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> El MVP Canvas es el contrato de no agresión: con él aprobado, la IA y el artesano trabajan en perfecta sintonía.
-            </div>
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> El artesano nunca empieza a picar código a ciegas. El MVP Canvas es el sello de garantía: cuando la IA tiene el mapa completo y el contrato firmado, el desarrollo se vuelve determinista.
           </div>
         </div>
       </div>
