@@ -12053,278 +12053,12 @@ body.theme-dark .sdlc-skill-pill.emerald {
     </section>
 
     <!-- ====================================================================
-         SLIDE 2: DE LA IDEA AL DOMINIO (FASES 1 A 3: DESCUBRIMIENTO Y MODELADO)
-         ==================================================================== -->
-    <section class="slide" id="slide-2">
-      <div class="slide-content">
-        <div class="tag">Fases 1 a 3 • Descubrimiento y Modelado DDD</div>
-        <h2>De la Idea al Dominio: <span class="serif-italic" style="color: #059669;">Diseñar antes de tirar una sola línea</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Cómo alimentar al LLM con restricciones precisas: talleres de producto, especificaciones vivas con Gherkin y máquinas de estado.
-        </p>
-
-        <div class="sdlc-discovery-deck">
-
-          <div class="sdlc-discovery-grid">
-
-            <!-- Columna 1: Inception Workshop -->
-            <div class="sdlc-discovery-col c-blue">
-              <div class="sdlc-col-header">
-                <div class="sdlc-col-title-row">
-                  <div class="sdlc-col-title">🧭 Lean Inception</div>
-                  <span class="sdlc-phase-badge blue">Fase 1</span>
-                </div>
-                <div class="sdlc-col-skill"><code>/inception-workshop</code> • Alineamiento de Negocio</div>
-              </div>
-
-              <div class="sdlc-feature-block">
-                <div class="sdlc-feature-label">8 Pasos Secuenciales:</div>
-                <div class="sdlc-steps-mini">
-                  <div class="sdlc-step-pill">1. Visión</div>
-                  <div class="sdlc-step-pill">2. Tradeoffs</div>
-                  <div class="sdlc-step-pill">3. Personas</div>
-                  <div class="sdlc-step-pill">4. Empatía</div>
-                  <div class="sdlc-step-pill">5. Ideas</div>
-                  <div class="sdlc-step-pill">6. Journeys</div>
-                  <div class="sdlc-step-pill">7. Secuencia</div>
-                  <div class="sdlc-step-pill">8. MVP</div>
-                </div>
-              </div>
-
-              <div class="sdlc-detail-box blue">
-                <strong>Simulador de Debate (Paso 2):</strong> La IA orquesta un debate socrático entre 4 roles (PO, User Advocate, Tech Lead y Agile Coach) para acordar qué priorizar y qué descartar.
-              </div>
-
-              <div class="sdlc-code-callout">
-                📊 <strong>Scoring de Validación Estricto:</strong><br>
-                • 9–10: Excelente (avanzar)<br>
-                • 8–8.9: Bueno (avanzar)<br>
-                • &lt; 6: Pobre (bloqueo hasta revisar)
-              </div>
-            </div>
-
-            <!-- Columna 2: Flow Documentation -->
-            <div class="sdlc-discovery-col c-purple">
-              <div class="sdlc-col-header">
-                <div class="sdlc-col-title-row">
-                  <div class="sdlc-col-title">📐 Especificación de Flujos</div>
-                  <span class="sdlc-phase-badge purple">Fase 2</span>
-                </div>
-                <div class="sdlc-col-skill"><code>/create-flow-documentation</code> • Especificación Viva</div>
-              </div>
-
-              <div class="sdlc-feature-block">
-                <div class="sdlc-feature-label">Cada User Journey genera:</div>
-                <ul class="sdlc-step-list">
-                  <li><strong>3 Diagramas Mermaid:</strong> Secuencia, Flowchart de bifurcaciones y Ciclo de vida.</li>
-                  <li><strong>Tabla Walkthrough:</strong> Paso a paso con precondición, actor y resultado.</li>
-                  <li><strong>Criterios de Aceptación Gherkin:</strong> Escenarios <em>Given / When / Then</em> inequívocos.</li>
-                  <li><strong>Edge Cases:</strong> Errores de validación, degradación de red y fallos de negocio.</li>
-                </ul>
-              </div>
-
-              <div class="sdlc-detail-box">
-                <strong>Reglas Formales:</strong> Se declaran identificadores únicos <code>BR-001</code> (Business Rules) e <code>INV-001</code> (Invariants) que se rastrean directamente en el código fuente.
-              </div>
-            </div>
-
-            <!-- Columna 3: Entity Lifecycle -->
-            <div class="sdlc-discovery-col c-green">
-              <div class="sdlc-col-header">
-                <div class="sdlc-col-title-row">
-                  <div class="sdlc-col-title">🏛️ Ciclo de Vida de Entidades</div>
-                  <span class="sdlc-phase-badge green">Fase 3</span>
-                </div>
-                <div class="sdlc-col-skill"><code>/create-entity-lifecycle</code> • Modelado DDD</div>
-              </div>
-
-              <div class="sdlc-feature-block">
-                <div class="sdlc-feature-label">Modelo de Dominio Rico:</div>
-                <ul class="sdlc-step-list">
-                  <li><strong>Máquinas de Estados Finitas:</strong> Estados posibles, transiciones legales y eventos gatillo.</li>
-                  <li><strong>Guards &amp; Actions:</strong> Condiciones booleanas innegociables antes de cambiar de estado.</li>
-                  <li><strong>Value Objects Inmutables:</strong> Encapsulan validación y evitan tipos primitivos obsesivos.</li>
-                </ul>
-              </div>
-
-              <div class="sdlc-detail-box green">
-                <strong>Por qué elimina alucinaciones:</strong> El LLM no puede "inventar" estados intermedios ni reglas arbitrarias porque la máquina de estados define un espacio matemático cerrado.
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior -->
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🎯</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Crafter:</strong> Sin especificación formal, el modelo genera código plausible pero arquitectónicamente incoherente. Con estos 3 artefactos, la IA opera con precisión quirúrgica.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ====================================================================
-         SLIDE 3: HUB SELECTOR DE FORMATO LEAN INCEPTION
-         ==================================================================== -->
-    <section class="slide" id="slide-3">
-      <div class="slide-content">
-        <div class="tag">Fase 1 • Lean Inception • Selector de Formato</div>
-        <h2>4 Formas de Explicar Lean Inception: <span class="serif-italic" style="color: #6366f1;">¿Cuál encaja mejor con tu charla?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Compara en directo las 4 alternativas según el tiempo disponible y el nivel de familiaridad de tu audiencia:
-        </p>
-
-        <div class="inception-hub-grid">
-          <!-- Opción A -->
-          <a class="inception-hub-card opt-a" href="#5">
-            <span class="inception-hub-badge">Opción A • Ultra-Síntesis</span>
-            <div class="inception-hub-title">⚡ 2 Diapositivas</div>
-            <p class="inception-hub-desc">
-              <strong>Las 3 Decisiones Críticas + Consola de Fronteras.</strong><br>
-              Máxima fluidez. La audiencia ve las 3 restricciones que salvan al modelo de alucinar y la consola interactiva con el markdown del Paso 1.
-            </p>
-            <div class="inception-hub-btn" style="color: #0284c7;">👉 Probar Opción A (Decisiones + Consola) →</div>
-          </a>
-
-          <!-- Opción B -->
-          <a class="inception-hub-card opt-b" href="#7">
-            <span class="inception-hub-badge">Opción B • 3 Bloques Lógicos</span>
-            <div class="inception-hub-title">🧩 Narrativa en 3 Actos</div>
-            <p class="inception-hub-desc">
-              <strong>Fronteras ➔ Empatía ➔ Contrato de Código.</strong><br>
-              Equilibrio pedagógico. Agrupa los 8 pasos en 3 bloques digeribles (2 min por bloque): qué no hacemos, para quién y cómo se especifica.
-            </p>
-            <div class="inception-hub-btn" style="color: #8b5cf6;">👉 Probar Opción B (Slides 6 - 8) →</div>
-          </a>
-
-          <!-- Opción C -->
-          <a class="inception-hub-card opt-c" href="#10">
-            <span class="inception-hub-badge">Opción C • Paso a Paso Podado</span>
-            <div class="inception-hub-title">🎯 8 Slides Despejadas</div>
-            <p class="inception-hub-desc">
-              <strong>1 Pregunta Retórica Clave por Paso (70% menos texto).</strong><br>
-              Recorrido paso a paso sin saturación: tipografía grande, artefacto esencial y la trampa concreta de la IA que neutraliza cada paso.
-            </p>
-            <div class="inception-hub-btn" style="color: #059669;">👉 Probar Opción C (Slides 9 - 16) →</div>
-          </a>
-
-          <!-- Opción D -->
-          <a class="inception-hub-card opt-d" href="#18">
-            <span class="inception-hub-badge">Opción D • Edición Proyector</span>
-            <div class="inception-hub-title">📽️ 4 Slides de Gran Formato</div>
-            <p class="inception-hub-desc">
-              <strong>2 Pasos por Diapositiva: Tipografía grande y alto contraste.</strong><br>
-              Pensada para auditorio: letras grandes (+50% tamaño), sin saturación. Contraste simétrico Humanos (verde) vs IA (púrpura) legible desde el fondo de la sala.
-            </p>
-            <div class="inception-hub-btn" style="color: #d97706;">👉 Probar Opción D (Slides 17 - 20) →</div>
-          </a>
-        </div>
-
-        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Consejo para el Speaker:</strong> Haz clic en cualquiera de las 4 opciones para saltar directamente a ella, o avanza con las flechas del teclado para revisarlas secuencialmente.
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE: OPCIÓN A (1 DE 2) - LAS 3 DECISIONES CRÍTICAS
-         ==================================================================== -->
-    <section class="slide" id="slide-5">
-      <div class="slide-content">
-        <div class="tag">Opción A (1 de 2) • Síntesis Crítica • /inception-workshop</div>
-        <h2>Las 3 Decisiones que Blindan al LLM: <span class="serif-italic" style="color: #059669;">Cero Alucinaciones</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          De los 8 pasos, estos son los 3 artefactos que cambian radicalmente la calidad del código generado.
-        </p>
-
-        <div class="inception-triad-grid">
-          <!-- Triada 1 -->
-          <div class="inception-triad-card t-blue">
-            <div class="triad-header">
-              <div class="triad-title"><span>🚫</span> 1. Fronteras Negativas</div>
-              <span class="yarn-badge blue">Paso 1</span>
-            </div>
-            <div class="triad-artifact-preview">
-              <div style="font-weight: 800; font-size: 0.95rem; color: #dc2626;">❌ NO ES ni HACE:</div>
-              <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.45; color: var(--text-main);">
-                <li>Generador ciego de código spaghetti</li>
-                <li>Servicio SaaS que envía código a la nube</li>
-                <li>Modificar ficheros sin propuesta previa</li>
-              </ul>
-            </div>
-            <div class="triad-ai-shield">
-              <strong>El Blindaje IA:</strong> Destruye el 90% de las dependencias no deseadas. Si la IA intenta añadir un panel cloud, la frontera la frena en seco.
-            </div>
-          </div>
-
-          <!-- Triada 2 -->
-          <div class="inception-triad-card t-purple">
-            <div class="triad-header">
-              <div class="triad-title"><span>⚖️</span> 2. Ranking de Tradeoffs</div>
-              <span class="yarn-badge purple">Paso 2</span>
-            </div>
-            <div class="triad-artifact-preview">
-              <div style="font-weight: 800; font-size: 0.95rem; color: #6366f1;">Una sola X por columna:</div>
-              <div style="font-family: var(--font-mono); font-size: 0.86rem; line-height: 1.5; color: var(--text-main);">
-                <strong>P1:</strong> Privacidad Local Innegociable<br>
-                <strong>P2:</strong> Latencia de Inferencia<br>
-                <strong>P3:</strong> Calidad &amp; TDD<br>
-                <strong>P6:</strong> Volumen de Features (Mínimo)
-              </div>
-            </div>
-            <div class="triad-ai-shield">
-              <strong>El Blindaje IA:</strong> Los LLMs son complacientes y quieren darlo todo. Este ranking le prohíbe sacrificar privacidad por añadir más funciones.
-            </div>
-          </div>
-
-          <!-- Triada 3 -->
-          <div class="inception-triad-card t-green">
-            <div class="triad-header">
-              <div class="triad-title"><span>📋</span> 3. Contrato MVP Canvas</div>
-              <span class="yarn-badge green">Paso 8</span>
-            </div>
-            <div class="triad-artifact-preview">
-              <div style="font-weight: 800; font-size: 0.95rem; color: #059669;">El System Prompt Supremo:</div>
-              <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.45; color: var(--text-main);">
-                <li>Propuesta de valor condensada</li>
-                <li>Journeys cubiertos en la Ola 1</li>
-                <li>Métricas de éxito &lt; 20s/flujo</li>
-              </ul>
-              <div class="canvas-stamp" style="margin-top: 0.3rem; padding: 0.4rem 0.7rem; font-size: 0.8rem;">
-                <span>Score: 9.4/10 • Ready for Dev</span>
-              </div>
-            </div>
-            <div class="triad-ai-shield">
-              <strong>El Blindaje IA:</strong> Todo prompt posterior se evalúa contra este lienzo: si un cambio viola el contrato, el gatekeeper lo rechaza.
-            </div>
-          </div>
-        </div>
-
-        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">⚡</div>
-          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Principio Crafter:</strong> Fronteras, Tradeoffs y MVP Canvas: 3 documentos ligeros que convierten a un modelo probabilístico en un copiloto determinista.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
          SLIDE: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step1-boundaries">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0284c7;">Fase 1 • Inception Workshop • Paso 1</span>
         </div>
         <div class="tag">Fase 1 • Inception Workshop • Paso 1 de 8</div>
@@ -12492,7 +12226,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step2-tradeoffs">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Fase 1 • Inception Workshop • Paso 2</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">Fase 1 • Inception Workshop • Paso 2 de 8</div>
@@ -12685,7 +12419,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step3-personas">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #059669;">Fase 1 • Inception Workshop • Paso 3</span>
         </div>
         <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.3);">Fase 1 • Inception Workshop • Paso 3 de 8</div>
@@ -12828,7 +12562,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step4-empathy">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #d97706;">Fase 1 • Inception Workshop • Paso 4</span>
         </div>
         <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #d97706; border-color: rgba(245, 158, 11, 0.3);">Fase 1 • Inception Workshop • Paso 4 de 8</div>
@@ -12964,7 +12698,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step5-brainstorming">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1;">Fase 1 • Inception Workshop • Paso 5</span>
         </div>
         <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #6366f1; border-color: rgba(99, 102, 241, 0.3);">Fase 1 • Inception Workshop • Paso 5 de 8</div>
@@ -13099,7 +12833,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step6-journeys">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0891b2;">Fase 1 • Inception Workshop • Paso 6</span>
         </div>
         <div class="tag" style="background: rgba(6, 182, 212, 0.12); color: #0891b2; border-color: rgba(6, 182, 212, 0.3);">Fase 1 • Inception Workshop • Paso 6 de 8</div>
@@ -13234,7 +12968,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step7-sequencing">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(236, 72, 153, 0.15); color: #db2777;">Fase 1 • Inception Workshop • Paso 7</span>
         </div>
         <div class="tag" style="background: rgba(236, 72, 153, 0.12); color: #db2777; border-color: rgba(236, 72, 153, 0.3);">Fase 1 • Inception Workshop • Paso 7 de 8</div>
@@ -13378,7 +13112,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
     <section class="slide" id="slide-step8-canvas">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(5, 150, 105, 0.15); color: #059669;">Fase 1 • Inception Workshop • Paso 8</span>
         </div>
         <div class="tag" style="background: rgba(5, 150, 105, 0.12); color: #059669; border-color: rgba(5, 150, 105, 0.3);">Fase 1 • Inception Workshop • Paso 8 de 8</div>
