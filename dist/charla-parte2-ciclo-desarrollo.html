@@ -11581,6 +11581,30 @@ body.theme-dark .sdlc-skill-pill.purple {
   color: #a78bfa;
 }
 
+.sdlc-hero-box.green {
+  border-left-color: #10b981;
+}
+
+body.theme-dark .sdlc-hero-box.green {
+  border-left-color: #34d399;
+}
+
+.sdlc-hero-box.green .sdlc-hero-quote u {
+  text-decoration-color: #10b981;
+}
+
+.sdlc-skill-pill.green {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+}
+
+body.theme-dark .sdlc-skill-pill.green {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #34d399;
+}
+
 @media print {
 
   html,
@@ -12532,76 +12556,141 @@ body.theme-dark .sdlc-skill-pill.purple {
 
 
     <!-- ====================================================================
-         SLIDE 7: OPCIÓN B (BLOQUE 2 DE 3) - EMPATÍA & NECESIDAD REAL
+         SLIDE: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-7">
-      <div class="slide-content">
-        <div class="tag">Opción B • Bloque 2 de 3 • Pasos 3, 4 y 5 • /inception-workshop</div>
-        <h2>Diseñar para Personas con Restricciones: <span class="serif-italic" style="color: #10b981;">Empatía y Solución</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Paso 3 (Personas), Paso 4 (Empatía) y Paso 5 (Features): anclar el software a un artesano de carne y hueso.
+    <section class="slide" id="slide-step3-personas">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #059669;">Fase 1 • Inception Workshop • Paso 3</span>
+        </div>
+        <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.3);">Fase 1 • Inception Workshop • Paso 3 de 8</div>
+        <h2>Paso 3: User Personas <span class="serif-italic" style="color: #10b981;">¿Para qué artesano concreto diseñamos?</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Poner nombre, hardware, stack y dolores reales al usuario para evitar que el modelo genere soluciones abstractas de tutorial.
         </p>
 
-        <div class="inception-block-split-3">
-          <!-- Col 1: Persona -->
-          <div class="inception-pillar-card c-green">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>👤</span> Paso 3: Arquetipo</div>
-              <span class="yarn-badge green">Elena</span>
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box green">
+              <div class="sdlc-hero-quote">
+                “El peligro mortal de la IA es diseñar para un 'usuario genérico' y acabar generando <u>código de juguete</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Si no anclas el arquetipo, el LLM asume servidores infinitos, cloud permisivo y cero fricción de seguridad corporativa.
+              </div>
             </div>
-            <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">Elena Torres (36a)</div>
-            <div style="font-size: 0.82rem; color: #10b981; font-weight: 600;">Tech Lead &amp; Software Crafter</div>
-            <p style="font-size: 0.84rem; color: var(--text-muted); font-style: italic; margin: 0; line-height: 1.4;">
-              "No permito que un copiloto mande nuestro código contable a la nube ni genere código sin tests."
-            </p>
-            <div class="sdlc-detail-box green" style="margin-top: auto; font-size: 0.82rem;">
-              <strong>Efecto en la IA:</strong> Cero soluciones de tutorial para "usuarios abstractos".
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">👤</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Elena Torres: Arquetipo Crafter Real</div>
+                  <div class="sdlc-point-desc">Tech Lead (36a) en sector financiero. Arquitectura hexagonal estricta, hardware local contenido (Mac/Linux), cero tolerancia a fugas de datos.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">💥</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Pains &amp; Frustraciones Innegociables</div>
+                  <div class="sdlc-point-desc">Fatiga de refactorizar alucinaciones de código spaghetti y miedo a filtraciones de IP. Si el tooling tarda más de 15s o no pasa tests, lo desecha.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🎯</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Efecto Protector en la Generación de Código</div>
+                  <div class="sdlc-point-desc">El modelo adapta su contexto: no propone librerías SaaS innecesarias ni código no testeable porque sabe exactamente a quién le rinde cuentas.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill green">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 3: Primary &amp; Secondary Personas</span>
             </div>
           </div>
 
-          <!-- Col 2: Empatía -->
-          <div class="inception-pillar-card c-amber">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>🧭</span> Paso 4: Empatía</div>
-              <span class="yarn-badge amber">Pains &amp; Gains</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.84rem;">
-              <div style="background: rgba(239, 68, 68, 0.08); padding: 0.55rem 0.75rem; border-radius: 6px;">
-                <strong style="color: #dc2626;">💔 Pains:</strong> Miedo a filtraciones de datos, facturas cloud y deuda técnica.
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
               </div>
-              <div style="background: rgba(16, 185, 129, 0.08); padding: 0.55rem 0.75rem; border-radius: 6px;">
-                <strong style="color: #059669;">✨ Gains:</strong> Inferencia 100% en local y suite en verde en 12s.
-              </div>
+              <div class="code-title">📄 docs/inception/3-personas.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(16, 185, 129, 0.18); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">MARKDOWN</span>
             </div>
-            <div class="sdlc-detail-box amber" style="margin-top: auto; font-size: 0.82rem;">
-              <strong>Efecto en la IA:</strong> El modelo comunica errores y diseña interfaces con empatía técnica.
-            </div>
-          </div>
 
-          <!-- Col 3: Features Justificadas -->
-          <div class="inception-pillar-card c-purple">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>💡</span> Paso 5: Features</div>
-              <span class="yarn-badge purple">Filtradas</span>
-            </div>
-            <div style="font-size: 0.84rem; line-height: 1.45; color: var(--text-main);">
-              <strong>Regla inquebrantable:</strong> Ninguna feature entra sin declarar a qué Persona y Dolor responde:
-              <ul style="margin: 0.3rem 0 0 0; padding-left: 0.9rem; font-size: 0.8rem; color: var(--text-muted);">
-                <li>Inferencia asíncrona Ollama</li>
-                <li>Generador Given/When/Then</li>
-                <li>Mermaid sync bidireccional</li>
-              </ul>
-            </div>
-            <div class="sdlc-detail-box" style="margin-top: auto; font-size: 0.82rem; border-left-color: #8b5cf6;">
-              <strong>Efecto en la IA:</strong> Cero bloatware: solo se admiten capacidades nucleares.
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 3. Primary Persona: Elena the Crafter</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 3.1 Perfil y Entorno de Trabajo</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Nombre / Rol</td>
+                      <td class="md-accent">Elena Torres (36a) • Tech Lead &amp; Crafter</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Entorno</td>
+                      <td>Laptop corporativo aislado (Sin salida cloud externa)</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Stack Core</td>
+                      <td>Rust, TypeScript, Arquitectura Hexagonal, TDD</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Nivel Técnico</td>
+                      <td class="md-good">Avanzado (Power user: exige CLI, atajos y determinismo)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 3.2 Metas vs Pains (Restricciones del MVP)</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <tbody>
+                    <tr>
+                      <td class="md-bold" style="color: #7ee787;">🎯 Meta Primaria</td>
+                      <td>Inferencia local ultrarrápida guiada por tests automáticos</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold" style="color: #7ee787;">🎯 Meta Crafter</td>
+                      <td class="md-good">Garantizar cero deuda técnica generada por la IA</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold" style="color: #ff7b72;">❌ Pain Crítico</td>
+                      <td class="td-neg">Copilots en nube que filtran datos confidenciales a internet</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold" style="color: #ff7b72;">❌ Frustración</td>
+                      <td class="td-neg">Tener que limpiar 300 líneas de código autogenerado sin tests</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2" style="margin-top: 0.1rem;"><span class="md-hash">##</span> 3.3 Frase Testimonio (Mindset)</div>
+              <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #10b981; padding: 0.4rem 0.75rem; border-radius: 4px; font-style: italic; font-size: 0.76rem; color: #e6edf3; line-height: 1.4;">
+                “No tolero tener que refactorizar 500 líneas de código generado sin tests ni mandar datos contables a servidores de terceros.”
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">👤</div>
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Principio Crafter (Bloque 2):</strong> Cuando la IA entiende a la persona y sus dolores cotidianos, deja de proponer adornos y se centra en resolver el problema artesanal.
+            <strong>Regla de Oro Crafter:</strong> Cuando la IA conoce al artesano de carne y hueso, su hardware y sus dolores cotidianos, deja de proponer soluciones genéricas de tutorial y se convierte en un copiloto quirúrgico.
           </div>
         </div>
       </div>

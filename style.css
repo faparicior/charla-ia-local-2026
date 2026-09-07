@@ -11562,6 +11562,30 @@ body.theme-dark .sdlc-skill-pill.purple {
   color: #a78bfa;
 }
 
+.sdlc-hero-box.green {
+  border-left-color: #10b981;
+}
+
+body.theme-dark .sdlc-hero-box.green {
+  border-left-color: #34d399;
+}
+
+.sdlc-hero-box.green .sdlc-hero-quote u {
+  text-decoration-color: #10b981;
+}
+
+.sdlc-skill-pill.green {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+}
+
+body.theme-dark .sdlc-skill-pill.green {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #34d399;
+}
+
 @media print {
 
   html,
