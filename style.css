@@ -11519,6 +11519,49 @@ body.theme-dark .boundaries-skill-pill code {
   opacity: 0.9;
 }
 
+.td-center {
+  text-align: center !important;
+}
+
+.td-slider-hit {
+  text-align: center !important;
+  color: #38bdf8 !important;
+  font-weight: 800;
+  background: rgba(56, 189, 248, 0.15) !important;
+}
+
+.td-slider-low {
+  text-align: center !important;
+  color: #f87171 !important;
+  font-weight: 800;
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+/* Variantes temáticas para los pasos del SDLC */
+.sdlc-hero-box.purple {
+  border-left-color: #8b5cf6;
+}
+
+body.theme-dark .sdlc-hero-box.purple {
+  border-left-color: #a78bfa;
+}
+
+.sdlc-hero-box.purple .sdlc-hero-quote u {
+  text-decoration-color: #8b5cf6;
+}
+
+.sdlc-skill-pill.purple {
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: #8b5cf6;
+}
+
+body.theme-dark .sdlc-skill-pill.purple {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.3);
+  color: #a78bfa;
+}
+
 @media print {
 
   html,

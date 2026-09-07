@@ -694,72 +694,191 @@
 
 
     <!-- ====================================================================
-         SLIDE 6: OPCIÓN B (BLOQUE 1 DE 3) - DEFINICIÓN & FRONTERAS
+         SLIDE: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-6">
-      <div class="slide-content">
-        <div class="tag">Opción B • Bloque 1 de 3 • Pasos 1 y 2 • /inception-workshop</div>
-        <h2>Acotar el Terreno antes de Soñar: <span class="serif-italic" style="color: #0284c7;">Fronteras y Tradeoffs</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Paso 1 (Qué NO hacemos) y Paso 2 (Qué sacrificamos): las leyes físicas que gobernarán el proyecto.
+    <section class="slide" id="slide-step2-tradeoffs">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#3" class="deck-back-btn">← Volver al Selector</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Fase 1 • Inception Workshop • Paso 2</span>
+        </div>
+        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">Fase 1 • Inception Workshop • Paso 2 de 8</div>
+        <h2>Paso 2: Tablero de Tradeoffs <span class="serif-italic" style="color: #8b5cf6;">¿Qué sacrificamos para ser deterministas?</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          La regla de los Sliders: una sola prioridad por columna para forzar consenso y arbitrar los dilemas técnicos del modelo.
         </p>
 
-        <div class="inception-block-split-2">
-          <!-- Tarjeta 1: Fronteras -->
-          <div class="inception-pillar-card c-blue">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>🗺️</span> Paso 1: Matriz de 4 Fronteras</div>
-              <span class="inception-file-badge">1-boundaries.md</span>
-            </div>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0;">
-              Definir lo negativo antes que lo positivo:
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-top: 0.3rem;">
-              <div style="background: rgba(16, 185, 129, 0.08); padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.25);">
-                <strong style="color: #059669; font-size: 0.88rem;">✅ ES &amp; HACE</strong>
-                <ul style="margin: 0.25rem 0 0 0; padding-left: 0.9rem; font-size: 0.82rem; color: var(--text-main);">
-                  <li>Inferencia local autónoma</li>
-                  <li>TDD estricto capa por capa</li>
-                </ul>
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box purple">
+              <div class="sdlc-hero-quote">
+                “Quien intenta optimizarlo todo no optimiza nada: arbitrar a la IA exige fijar <u>qué sacrificamos</u>.”
               </div>
-              <div style="background: rgba(239, 68, 68, 0.08); padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.25);">
-                <strong style="color: #dc2626; font-size: 0.88rem;">❌ NO ES ni HACE</strong>
-                <ul style="margin: 0.25rem 0 0 0; padding-left: 0.9rem; font-size: 0.82rem; color: var(--text-main);">
-                  <li>Generador ciego spaghetti</li>
-                  <li>Enviar código a internet</li>
-                </ul>
+              <div class="sdlc-hero-sub">
+                Los LLMs intentan complacer prometiendo escalabilidad infinita, cloud y mil features. Los Sliders imponen restricciones matemáticas.
               </div>
             </div>
-            <div class="sdlc-detail-box blue" style="margin-top: auto;">
-              <strong>Freno a la IA:</strong> Evita que el modelo delire añadiendo paneles web, bases de datos o servicios cloud fuera de alcance.
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">⚖️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">La Regla de Oro: Una Sola X por Columna</div>
+                  <div class="sdlc-point-desc">Prioridades del 1 al 6 estrictamente ordinales. Si Privacidad y Latencia ocupan #1 y #2, el Volumen de Features cae obligatoriamente a #6.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🎭</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Debate Multi-Rol Simulado en Prompt</div>
+                  <div class="sdlc-point-desc">El agente simula las tensiones entre Tech Lead (seguridad offline), Product Owner (velocidad) y Crafter (calidad de código) antes del consenso.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🧭</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Árbitro Inapelable para Dilemas de Código</div>
+                  <div class="sdlc-point-desc">Cuando la IA duda entre añadir un SaaS externo o programar una solución local contenida, consulta este tablero: Privacidad (#1) vence a Facilidad.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill purple">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 2: Trade-off Board (Sliders)</span>
             </div>
           </div>
 
-          <!-- Tarjeta 2: Tradeoffs -->
-          <div class="inception-pillar-card c-purple">
-            <div class="pillar-header">
-              <div class="pillar-title"><span>⚖️</span> Paso 2: Tablero de Tradeoffs</div>
-              <span class="inception-file-badge">2-tradeoffs.md</span>
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/inception/2-tradeoffs.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">MARKDOWN</span>
             </div>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0;">
-              Debate simulado entre 4 roles (PO, Tech Lead, User, Agile Coach):
-            </p>
-            <div style="background: rgba(0, 0, 0, 0.02); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.75rem 0.9rem; margin-top: 0.3rem; font-size: 0.86rem; line-height: 1.5;">
-              <strong>Regla de oro:</strong> Exactamente <em>una sola X por columna</em>.<br>
-              • <strong>P1 (Máx):</strong> 🔒 Privacidad Local Innegociable<br>
-              • <strong>P2:</strong> ⚡ Latencia sub-segundo en GPU<br>
-              • <strong>P6 (Mín):</strong> 📦 Volumen de Features (Sacrificable)
-            </div>
-            <div class="sdlc-detail-box" style="margin-top: auto; border-left-color: #8b5cf6;">
-              <strong>Freno a la IA:</strong> Resuelve dilemas sin dudar: ante la duda, la IA prioriza siempre privacidad sobre número de funciones.
+
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 2. Trade-off Board: Project Sliders</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2.1 Individual Perspectives (Roles)</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 25%;">Rol</th>
+                      <th style="width: 35%;">Prioridad #1</th>
+                      <th>Motivación Clave</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Tech Lead</td>
+                      <td class="md-accent">Privacidad 100% Offline</td>
+                      <td>Cero fuga de propiedad intelectual o datos corporativos</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">PO</td>
+                      <td class="md-good">Latencia &lt; 1s en local</td>
+                      <td>El crafter abandona si el loop de inferencia es lento</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Crafter</td>
+                      <td>Determinismo &amp; TDD</td>
+                      <td>Eliminar alucinaciones con tests unitarios estrictos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2.2 Consensus Trade-off Board (Sliders)</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 32%;">Dimensión / Calidad</th>
+                      <th class="td-center">1 (Máx)</th>
+                      <th class="td-center">2</th>
+                      <th class="td-center">3</th>
+                      <th class="td-center">4</th>
+                      <th class="td-center">5</th>
+                      <th class="td-center">6 (Mín)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold">Privacidad (Offline)</td>
+                      <td class="td-slider-hit">❌</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Latencia Inferencia</td>
+                      <td class="td-center">·</td>
+                      <td class="td-slider-hit">❌</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">TDD / Calidad Código</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-slider-hit">❌</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Arquitectura Limpia</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-slider-hit">❌</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Consumo Hardware</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-slider-hit">❌</td>
+                      <td class="td-center">·</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Volumen Features</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-center">·</td>
+                      <td class="td-slider-low">❌ (Bajo)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🔒</div>
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Principio Crafter (Bloque 1):</strong> Los LLMs sufren de complacencia: quieren complacerte haciendo de todo. El Bloque 1 les enseña a qué decir que NO.
+            <strong>Regla de Oro Crafter:</strong> Un modelo generativo sin tradeoffs claros siempre optará por la solución más verbosa y acoplada. Los Sliders le enseñan qué es sagrado (#1 Privacidad) y qué es prescindible (#6 Features).
           </div>
         </div>
       </div>
