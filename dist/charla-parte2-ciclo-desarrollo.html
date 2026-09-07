@@ -13239,325 +13239,144 @@ body.theme-dark .sdlc-skill-pill.emerald {
 
 
     <!-- ====================================================================
-         SLIDE 17: OPCIÓN D (1 DE 4) - LISTA DUAL HUMANO VS IA (PASOS 1 Y 2)
+         SLIDE: FASE 2 - ESPECIFICACIÓN VIVA (/create-flow-documentation)
          ==================================================================== -->
-    <section class="slide" id="slide-17">
-      <div class="slide-content">
-        <div class="tag">Opción D (1 de 4) • Lista Vertical para Proyector • /inception-workshop</div>
-        <h2>Lean Inception: <span class="serif-italic" style="color: #d97706;">Humano vs IA (Pasos 1 y 2)</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          De arriba a abajo: alineación artesanal para el equipo y blindaje determinista contra alucinaciones.
+    <section class="slide" id="slide-phase2-flows">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Especificación Viva • /create-flow-documentation</span>
+        </div>
+        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #8b5cf6;">¿Cómo blindar la arquitectura antes de picar código?</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Del User Journey al contrato técnico innegociable: 3 diagramas Mermaid, tabla walkthrough y escenarios Gherkin para que la IA no improvise.
         </p>
 
-        <div class="inception-dual-deck">
-          <div class="dual-list-header">
-            <div>📍 Punto del Taller</div>
-            <div style="color: #10b981;">👨‍💻 Ventajas para Humanos (Craft &amp; Control)</div>
-            <div style="color: #6366f1;">🤖 Ventajas para la IA (Blindaje &amp; Precisión)</div>
-          </div>
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Concepto, Reglas y Comando -->
+          <div class="sdlc-explain-col">
+            <!-- Hero Statement Box (Purple Theme) -->
+            <div class="sdlc-hero-box purple">
+              <div class="sdlc-hero-quote">
+                “El código no se improvisa: si un flujo no tiene <u>diagrama con caminos de error</u>, la IA inventará su propia arquitectura.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Cada User Journey de la Fase 1 se transforma en una especificación viva que conecta la interacción humana con puertos, adaptadores y reglas de negocio.
+              </div>
+            </div>
 
-          <div class="dual-list-container">
-            <!-- Fila 1: Paso 1 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c1">Paso 1 de 8</span>
-                  <span style="font-size: 1.8rem;">🎯</span>
-                </div>
-                <div class="dual-step-title">Visión &amp; Fronteras</div>
-                <div class="dual-step-artifact"><code>1-boundaries.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Alineación de negocio sin debates eternos</div>
-                <div class="dual-detail">
-                  Define en 1 sola página qué <strong>ES</strong> y qué <strong>NO ES</strong> el producto. Prohíbe formalmente construir lo que no esté pactado en el cuadrante.
+            <!-- 3 Puntos Clave de la Fase 2 -->
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📐</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3 Diagramas Mermaid Obligatorios</div>
+                  <div class="sdlc-point-desc">Secuencia (con bloques <code>rect</code> de errores en rojo), Flowchart de bifurcaciones y Diagrama de Estados de la entidad.</div>
                 </div>
               </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Poda el 90% del espacio de búsqueda</div>
-                <div class="dual-detail">
-                  El "NO ES" y "NO HACE" evita que el LLM invente dependencias SaaS cloud, frameworks sobrediseñados o telemetría innecesaria.
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🥒</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Tabla Walkthrough &amp; Gherkin Determinista</div>
+                  <div class="sdlc-point-desc">Paso a paso con actor, precondición y resultado + escenarios <em>Given / When / Then</em> que se convertirán en tests TDD (Fase 4).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🛡️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Invariantes y Reglas Formales (BR e INV)</div>
+                  <div class="sdlc-point-desc">Códigos únicos (<code>INV-001: 0 fuga cloud</code>, <code>BR-002: Timeout &lt; 15s</code>) rastreados directamente en el código fuente.</div>
                 </div>
               </div>
             </div>
 
-            <!-- Fila 2: Paso 2 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c2">Paso 2 de 8</span>
-                  <span style="font-size: 1.8rem;">⚖️</span>
-                </div>
-                <div class="dual-step-title">Tablero de Tradeoffs</div>
-                <div class="dual-step-artifact"><code>2-tradeoffs.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Consenso sin trampas: 1 cruz por columna</div>
-                <div class="dual-detail">
-                  Si todo es prioritario, nada lo es. Obliga a Product Owner y Arquitectura a decidir qué se sacrifica explícitamente sin empates.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Leyes de la física para el modelo</div>
-                <div class="dual-detail">
-                  Ante un conflicto arquitectónico, el agente sabe resolver el dilema (ej. privacidad y latencia antes que volumen de features).
-                </div>
-              </div>
+            <!-- Skill / Command Pill -->
+            <div class="sdlc-skill-pill purple">
+              <span>⚡ Comando SDLC:</span>
+              <code>/create-flow-documentation</code>
+              <span>• Input: User Journey Elena ➔ Output: flows/journey-01.md</span>
             </div>
           </div>
 
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 1rem 1.6rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.6rem;">⚖️</div>
-            <div class="chosen-synergy-text" style="font-size: 1.08rem;">
-              <strong>Principio Dual:</strong> Cada frontera que reduce la ambigüedad para el equipo humano es exactamente una restricción que elimina las alucinaciones de la IA.
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/flows/flow-01-local-inference.md</div>
+              <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SPEC VIVA</span>
             </div>
+
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> Flow 01: Inferencia Local Offline y Guards DDD</div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2.1 Sequence Diagram &amp; Error Paths (Mermaid)</div>
+              <pre style="margin: 0.25rem 0 0.45rem 0; padding: 0.45rem 0.65rem; background: rgba(0,0,0,0.35); border-radius: 6px; font-size: 0.74rem; line-height: 1.38; color: #a5d6ff; font-family: var(--font-mono); border: 1px solid rgba(255,255,255,0.06);"><span style="color: #ff7b72;">sequenceDiagram</span>
+  <span style="color: #79c0ff;">actor</span> Crafter as Elena (User)
+  <span style="color: #79c0ff;">participant</span> API as Flow Controller
+  <span style="color: #79c0ff;">participant</span> FSM as Entity FSM
+  Crafter-&gt;&gt;API: POST /infer (Prompt, Context)
+  <span style="color: #7ee787;">rect rgb(16, 185, 129, 0.15)</span>
+    <span style="color: #7ee787;">note over API,FSM: Happy Path: Guard INV-001 Válido</span>
+    API-&gt;&gt;FSM: Transition(Draft -&gt; Inferring)
+    FSM--&gt;&gt;Crafter: 200 OK (Tokens deterministas &lt; 1s)
+  <span style="color: #7ee787;">end</span>
+  <span style="color: #f85149;">rect rgb(239, 68, 68, 0.15)</span>
+    <span style="color: #f85149;">note over API: Error Path: Violación de Frontera</span>
+    API--&gt;&gt;Crafter: 403 Forbidden (Fuga cloud bloqueada)
+  <span style="color: #f85149;">end</span></pre>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2.2 Criterios Gherkin (Spec Ejecutable)</div>
+              <div style="background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(124, 58, 237, 0.25); border-radius: 6px; padding: 0.45rem 0.7rem; font-family: var(--font-mono); font-size: 0.74rem; line-height: 1.4; color: #e2e8f0; margin-bottom: 0.45rem;">
+                <span style="color: #c084fc; font-weight: 700;">Scenario:</span> Inferencia en modo avión estricto<br>
+                &nbsp;&nbsp;<span style="color: #60a5fa;">Given</span> un modelo Qwen2.5 cargado en VRAM local<br>
+                &nbsp;&nbsp;<span style="color: #60a5fa;">When</span> Elena dispara el runner sin conexión de red<br>
+                &nbsp;&nbsp;<span style="color: #34d399;">Then</span> se emiten tokens en &lt;1.0s con 0 bytes a internet
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2.3 Reglas Formales (Trazabilidad TDD)</div>
+              <div class="md-table-wrap">
+                <table class="md-table" style="font-size: 0.73rem;">
+                  <thead>
+                    <tr>
+                      <th style="width: 25%;">ID Regla</th>
+                      <th style="width: 45%;">Definición Formal</th>
+                      <th>Validación</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="md-bold" style="color: #c084fc;">INV-001</td>
+                      <td>Tráfico externo estrictamente 0</td>
+                      <td class="md-good">Socket sandbox local</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold" style="color: #c084fc;">BR-002</td>
+                      <td>Latencia inferencia &lt; 1000ms</td>
+                      <td class="md-good">Benchmark P95 GPU</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">📐</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> El test de TDD no se inventa en el IDE: nace de la especificación viva. Cuando la IA recibe la secuencia formal y el Gherkin, codificar la solución deja de ser magia probabilística y pasa a ser ingeniería determinista.
           </div>
         </div>
       </div>
     </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 18: OPCIÓN D (2 DE 4) - LISTA DUAL HUMANO VS IA (PASOS 3 Y 4)
-         ==================================================================== -->
-    <section class="slide" id="slide-18">
-      <div class="slide-content">
-        <div class="tag">Opción D (2 de 4) • Lista Vertical para Proyector • /inception-workshop</div>
-        <h2>Lean Inception: <span class="serif-italic" style="color: #10b981;">Humano vs IA (Pasos 3 y 4)</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          De la empatía sensorial al código ultra-defensivo.
-        </p>
-
-        <div class="inception-dual-deck">
-          <div class="dual-list-header">
-            <div>📍 Punto del Taller</div>
-            <div style="color: #10b981;">👨‍💻 Ventajas para Humanos (Craft &amp; Control)</div>
-            <div style="color: #6366f1;">🤖 Ventajas para la IA (Blindaje &amp; Precisión)</div>
-          </div>
-
-          <div class="dual-list-container">
-            <!-- Fila 3: Paso 3 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c3">Paso 3 de 8</span>
-                  <span style="font-size: 1.8rem;">👤</span>
-                </div>
-                <div class="dual-step-title">Personas de Usuario</div>
-                <div class="dual-step-artifact"><code>3-personas/elena.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Diseño para un artesano real y tangible</div>
-                <div class="dual-detail">
-                  Elena Torres (Tech Lead FinTech, hardware local). Destierra el sesgo de diseñar para un usuario abstracto que no existe.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Anclaje a hardware y permisos reales</div>
-                <div class="dual-detail">
-                  Evita que el LLM asuma servidores cloud infinitos, accesos de root permisivos o dependencias incompatibles con local.
-                </div>
-              </div>
-            </div>
-
-            <!-- Fila 4: Paso 4 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c4">Paso 4 de 8</span>
-                  <span style="font-size: 1.8rem;">🧭</span>
-                </div>
-                <div class="dual-step-title">Mapa de Empatía</div>
-                <div class="dual-step-artifact"><code>4-empathy.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Conexión con el dolor y la frustración real</div>
-                <div class="dual-detail">
-                  Ataca el miedo del equipo a romper producción, al código spaghetti generado y a la deuda técnica silenciosa.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Modulación de tono: código ultra-defensivo</div>
-                <div class="dual-detail">
-                  Al entender la ansiedad del usuario, la IA genera invariantes, tipado estricto y precondiciones en lugar de código complaciente.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 1rem 1.6rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.6rem;">🧭</div>
-            <div class="chosen-synergy-text" style="font-size: 1.08rem;">
-              <strong>Principio Dual:</strong> La empatía no es poesía: define el hardware del usuario y fuerza al LLM a programar con paranoia defensiva.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 19: OPCIÓN D (3 DE 4) - LISTA DUAL HUMANO VS IA (PASOS 5 Y 6)
-         ==================================================================== -->
-    <section class="slide" id="slide-19">
-      <div class="slide-content">
-        <div class="tag">Opción D (3 de 4) • Lista Vertical para Proyector • /inception-workshop</div>
-        <h2>Lean Inception: <span class="serif-italic" style="color: #8b5cf6;">Humano vs IA (Pasos 5 y 6)</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          De la divergencia quirúrgica a los flujos e2e atómicos.
-        </p>
-
-        <div class="inception-dual-deck">
-          <div class="dual-list-header">
-            <div>📍 Punto del Taller</div>
-            <div style="color: #10b981;">👨‍💻 Ventajas para Humanos (Craft &amp; Control)</div>
-            <div style="color: #6366f1;">🤖 Ventajas para la IA (Blindaje &amp; Precisión)</div>
-          </div>
-
-          <div class="dual-list-container">
-            <!-- Fila 5: Paso 5 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c5">Paso 5 de 8</span>
-                  <span style="font-size: 1.8rem;">💡</span>
-                </div>
-                <div class="dual-step-title">Brainstorming Filtrado</div>
-                <div class="dual-step-artifact"><code>5-brainstorming.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Divergencia creativa con justificación</div>
-                <div class="dual-detail">
-                  Ninguna feature se acepta "porque molaría": cada post-it debe responder a un dolor de la Persona y encajar en un pilar estratégico.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Filtro anti-dispersión de funcionalidades</div>
-                <div class="dual-detail">
-                  Evita que el LLM invente dashboards auxiliares o plugins irrelevantes que engorden artificialmente el alcance del software.
-                </div>
-              </div>
-            </div>
-
-            <!-- Fila 6: Paso 6 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c6">Paso 6 de 8</span>
-                  <span style="font-size: 1.8rem;">🚶</span>
-                </div>
-                <div class="dual-step-title">User Journey Mapping</div>
-                <div class="dual-step-artifact"><code>6-user-journeys/</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Narrativa e2e clara: 4 nodos cronológicos</div>
-                <div class="dual-detail">
-                  De trigger a momento 'Wow'. Conecta directamente con los 3 diagramas Mermaid y especificaciones de la Fase 2 del SDLC.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Segmentación atómica en contexto</div>
-                <div class="dual-detail">
-                  El flujo cabe holgadamente en la ventana de contexto, permitiendo generar el test E2E rojo antes de codificar la lógica.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 1rem 1.6rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.6rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 1.08rem;">
-              <strong>Principio Dual:</strong> Si una funcionalidad no se puede describir en 4 nodos cronológicos, es demasiado ambigua para que la IA la programe bien.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE 20: OPCIÓN D (4 DE 4) - LISTA DUAL HUMANO VS IA (PASOS 7 Y 8)
-         ==================================================================== -->
-    <section class="slide" id="slide-20">
-      <div class="slide-content">
-        <div class="tag">Opción D (4 de 4) • Lista Vertical para Proyector • /inception-workshop</div>
-        <h2>Lean Inception: <span class="serif-italic" style="color: #059669;">Humano vs IA (Pasos 7 y 8)</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
-          Del alcance en Olas al contrato formal vinculante con score &ge; 8/10.
-        </p>
-
-        <div class="inception-dual-deck">
-          <div class="dual-list-header">
-            <div>📍 Punto del Taller</div>
-            <div style="color: #10b981;">👨‍💻 Ventajas para Humanos (Craft &amp; Control)</div>
-            <div style="color: #6366f1;">🤖 Ventajas para la IA (Blindaje &amp; Precisión)</div>
-          </div>
-
-          <div class="dual-list-container">
-            <!-- Fila 7: Paso 7 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c7">Paso 7 de 8</span>
-                  <span style="font-size: 1.8rem;">🌊</span>
-                </div>
-                <div class="dual-step-title">Secuenciación en Olas</div>
-                <div class="dual-step-artifact"><code>7-sequencing.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Foco radical en el MVP indispensable</div>
-                <div class="dual-detail">
-                  Aísla la Ola 1 (imprescindible) de las Olas 2 y 3. Elimina la parálisis por análisis y permite validar valor en días.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Guardrail de alcance infranqueable</div>
-                <div class="dual-detail">
-                  La IA tiene terminantemente prohibido mezclar código o arquitectura de Olas futuras hasta cerrar y testear la Ola 1.
-                </div>
-              </div>
-            </div>
-
-            <!-- Fila 8: Paso 8 -->
-            <div class="dual-list-row">
-              <div class="dual-step-col">
-                <div class="dual-step-badge-row">
-                  <span class="dual-step-tag c8">Paso 8 de 8</span>
-                  <span style="font-size: 1.8rem;">📋</span>
-                </div>
-                <div class="dual-step-title">MVP Canvas Validado</div>
-                <div class="dual-step-artifact"><code>8-mvp-canvas.md</code></div>
-              </div>
-              <div class="dual-human-col">
-                <div class="dual-lead">Contrato formal en 1 página: Score &ge; 8/10</div>
-                <div class="dual-detail">
-                  Criterio go/no-go inquebrantable: si la auditoría socrática no aprueba el lienzo con nota &ge; 8, nadie pica código.
-                </div>
-              </div>
-              <div class="dual-ai-col">
-                <div class="dual-lead">Prompt maestro determinista del SDLC</div>
-                <div class="dual-detail">
-                  Especificación de entrada unificada y sin contradicciones para alimentar las fases de diseño y generación TDD.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 1rem 1.6rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.6rem;">📋</div>
-            <div class="chosen-synergy-text" style="font-size: 1.08rem;">
-              <strong>El Cierre del Taller:</strong> Con el MVP Canvas sellado, el humano tiene el control arquitectónico absoluto y la IA dispone del contexto perfecto para no errar.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
 
     <!-- ====================================================================
          SLIDE 21: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
