@@ -13086,14 +13086,16 @@ body:not(.mode-document) .doc-only {
   display: none !important;
 }
 
-/* En Modo Charla, ocultar el banner inferior en las slides de Inception para ganar aire y verticalidad 16:9 */
-body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner {
+/* En Modo Charla, ocultar el banner inferior en las slides de Inception y Fase 2 para ganar aire y verticalidad 16:9 */
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .chosen-synergy-banner {
   display: none !important;
 }
 
 /* En Modo Charla, dotar de presencia y legibilidad a las terminales y tablas */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body {
   font-size: 0.90rem !important;
   line-height: 1.52 !important;
   padding: 1.35rem 1.6rem !important;
@@ -13101,23 +13103,37 @@ body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
   justify-content: center;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .md-table {
+body:not(.mode-document) .slide[id^="slide-step"] .md-table,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table {
   font-size: 0.88rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table td,
-body:not(.mode-document) .slide[id^="slide-step"] .md-table th {
+body:not(.mode-document) .slide[id^="slide-step"] .md-table th,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table td,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table th {
   padding: 0.52rem 0.8rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .md-h1 {
+body:not(.mode-document) .slide[id^="slide-step"] .md-h1,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h1 {
   font-size: 1.05rem !important;
   padding-bottom: 0.45rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .md-h2 {
+body:not(.mode-document) .slide[id^="slide-step"] .md-h2,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h2 {
   font-size: 0.94rem !important;
   margin-top: 0.35rem !important;
+}
+
+/* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 */
+body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap {
+  height: 640px !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap svg {
+  max-height: 610px !important;
 }
 
 /* Resalte visual de elementos con foco de charla */
@@ -13149,8 +13165,9 @@ body:not(.mode-document) .slide[id^="slide-step"] .md-h2 {
   border-radius: 6px !important;
 }
 
-/* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 en las slides de Inception */
-body:not(.mode-document) .slide[id^="slide-step"] p.subtitle {
+/* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 */
+body:not(.mode-document) .slide[id^="slide-step"] p.subtitle,
+body:not(.mode-document) .slide[id^="slide-phase2-"] p.subtitle {
   display: none !important;
 }
 
@@ -13158,49 +13175,58 @@ body:not(.mode-document) .slide[id^="slide-step"] p.subtitle {
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-desc {
   display: none !important;
 }
 
 /* En Modo Charla, columna izquierda cinematográfica: cita potente y 3 puntos telegráficos */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-explain-col {
   gap: 1.35rem;
   justify-content: space-between;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-box {
   padding: 1.6rem 2rem;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-quote,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-quote {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-quote,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-quote {
   font-size: 2.25rem !important;
   line-height: 1.25 !important;
   margin-bottom: 0 !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-points-card,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card {
   padding: 1.6rem 2rem !important;
   gap: 1.45rem !important;
   justify-content: space-around;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item {
   align-items: center !important;
   gap: 1.25rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-icon,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-icon {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-icon,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-icon {
   font-size: 2.35rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-title,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-title {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-title,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-title {
   font-size: 1.48rem !important;
   font-weight: 700 !important;
   margin-bottom: 0 !important;
@@ -13218,7 +13244,10 @@ body.mode-document .slide[id^="slide-step"] p.subtitle,
 body.mode-document .slide[id^="slide-step"] .sdlc-hero-sub,
 body.mode-document .slide[id^="slide-step"] .boundaries-hero-sub,
 body.mode-document .slide[id^="slide-step"] .sdlc-point-desc,
-body.mode-document .slide[id^="slide-step"] .boundaries-point-desc {
+body.mode-document .slide[id^="slide-step"] .boundaries-point-desc,
+body.mode-document .slide[id^="slide-phase2-"] p.subtitle,
+body.mode-document .slide[id^="slide-phase2-"] .sdlc-hero-sub,
+body.mode-document .slide[id^="slide-phase2-"] .sdlc-point-desc {
   display: block !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -13235,7 +13264,8 @@ body.mode-document span.doc-only {
   display: inline !important;
 }
 
-body.mode-document .slide[id^="slide-step"] .chosen-synergy-banner {
+body.mode-document .slide[id^="slide-step"] .chosen-synergy-banner,
+body.mode-document .slide[id^="slide-phase2-"] .chosen-synergy-banner {
   display: flex !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -15267,6 +15297,7 @@ gap: 0.3rem;
                 <div class="code-dot green"></div>
               </div>
               <div class="code-title">📊 Mermaid SVG • 1. Sequence Diagram (Setup Conference Flow)</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
               <span class="sdlc-term-tag"
                 style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SVG
                 INTERACTIVO</span>
@@ -15406,6 +15437,7 @@ gap: 0.3rem;
                 <div class="code-dot green"></div>
               </div>
               <div class="code-title">📊 Mermaid SVG • 2. Flowchart &amp; Decision Tree (Journey 01)</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
               <span class="sdlc-term-tag"
                 style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SVG
                 INTERACTIVO</span>
@@ -15550,6 +15582,7 @@ gap: 0.3rem;
                 <div class="code-dot green"></div>
               </div>
               <div class="code-title">📊 Mermaid SVG • 3. Conference Entity Lifecycle (FSM)</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
               <span class="sdlc-term-tag"
                 style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SVG
                 INTERACTIVO</span>
@@ -15677,6 +15710,7 @@ gap: 0.3rem;
                 <div class="code-dot green"></div>
               </div>
               <div class="code-title">📄 docs/product/guidelines/business-rules-vs-invariants.md</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
               <span class="sdlc-term-tag"
                 style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">CONTRATOS
                 DDD</span>
@@ -15694,23 +15728,22 @@ gap: 0.3rem;
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr class="talk-focus-purple">
                       <td class="md-bold">Estrictez</td>
                       <td>Admite excepciones o fallbacks</td>
-                      <td class="md-good" style="color: #f87171; font-weight: 700;">Absoluta: Cero violaciones
-                        permitidas</td>
+                      <td class="md-good" style="color: #f87171; font-weight: 700;">Absoluta: Cero violaciones permitidas</td>
                     </tr>
-                    <tr>
+                    <tr class="doc-only">
                       <td class="md-bold">Ubicación</td>
                       <td>Capa Aplicación, Workflows, UI</td>
                       <td class="md-accent">Dentro del Aggregate Root / VO</td>
                     </tr>
-                    <tr>
+                    <tr class="talk-focus">
                       <td class="md-bold">Si se viola</td>
                       <td>Degradación elegante (alerta/upgrade)</td>
                       <td class="td-neg" style="color: #f87171;">Excepción Dominio + Rollback DB</td>
                     </tr>
-                    <tr>
+                    <tr class="doc-only">
                       <td class="md-bold">Flexibilidad</td>
                       <td>Cambia con la estrategia de negocio</td>
                       <td class="md-accent">Define la verdad nuclear del dominio</td>
@@ -15835,6 +15868,7 @@ gap: 0.3rem;
               </div>
               <div class="code-title">📄
                 docs/product/bounded-contexts/conference/business-rules/BR-004-free-tier-conference-limit.md</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
               <span class="sdlc-term-tag"
                 style="background: rgba(99, 102, 241, 0.18); color: #818cf8; border-color: rgba(99, 102, 241, 0.3);">TEMPLATE:
                 BUSINESS RULE</span>
@@ -15844,7 +15878,7 @@ gap: 0.3rem;
               <div class="md-line md-h1"><span class="md-hash">#</span> BR-004: Free Tier Conference Creation Limit
               </div>
 
-              <div
+              <div class="doc-only"
                 style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
                 <div><span class="md-bold" style="width: auto;">* Status:</span> <span
                     style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Domain:</span>
@@ -15875,9 +15909,9 @@ gap: 0.3rem;
                 conservar borrador.
               </div>
 
-              <div class="md-line md-h2"><span class="md-hash">##</span> 4. System Enforcement (Capa de Aplicación)
+              <div class="md-line md-h2 doc-only"><span class="md-hash">##</span> 4. System Enforcement (Capa de Aplicación)
               </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
+              <div class="doc-only" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
                 <div
                   style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
                   <strong style="color: #93c5fd;">Capa de Ejecución:</strong><br />
@@ -15978,6 +16012,7 @@ gap: 0.3rem;
               </div>
               <div class="code-title">📄
                 docs/product/bounded-contexts/conference/invariants/INV-001-state-transition-validity.md</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
               <span class="sdlc-term-tag"
                 style="background: rgba(239, 68, 68, 0.18); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">TEMPLATE:
                 INVARIANT</span>
@@ -15987,7 +16022,7 @@ gap: 0.3rem;
               <div class="md-line md-h1"><span class="md-hash">#</span> INV-001: Conference State Transitions Must
                 Follow State Machine</div>
 
-              <div
+              <div class="doc-only"
                 style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
                 <div><span class="md-bold" style="width: auto;">* Status:</span> <span
                     style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Invariant
@@ -16022,8 +16057,8 @@ gap: 0.3rem;
                 transaction rollback
               </div>
 
-              <div class="md-line md-h2"><span class="md-hash">##</span> 4. Failure Response &amp; Rollback</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
+              <div class="md-line md-h2 doc-only"><span class="md-hash">##</span> 4. Failure Response &amp; Rollback</div>
+              <div class="doc-only" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
                 <div
                   style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
                   <strong style="color: #f87171;">Excepción de Dominio:</strong><br />

@@ -13086,14 +13086,16 @@ body:not(.mode-document) .doc-only {
   display: none !important;
 }
 
-/* En Modo Charla, ocultar el banner inferior en las slides de Inception para ganar aire y verticalidad 16:9 */
-body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner {
+/* En Modo Charla, ocultar el banner inferior en las slides de Inception y Fase 2 para ganar aire y verticalidad 16:9 */
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .chosen-synergy-banner {
   display: none !important;
 }
 
 /* En Modo Charla, dotar de presencia y legibilidad a las terminales y tablas */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body {
   font-size: 0.90rem !important;
   line-height: 1.52 !important;
   padding: 1.35rem 1.6rem !important;
@@ -13101,23 +13103,37 @@ body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
   justify-content: center;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .md-table {
+body:not(.mode-document) .slide[id^="slide-step"] .md-table,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table {
   font-size: 0.88rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table td,
-body:not(.mode-document) .slide[id^="slide-step"] .md-table th {
+body:not(.mode-document) .slide[id^="slide-step"] .md-table th,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table td,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table th {
   padding: 0.52rem 0.8rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .md-h1 {
+body:not(.mode-document) .slide[id^="slide-step"] .md-h1,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h1 {
   font-size: 1.05rem !important;
   padding-bottom: 0.45rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .md-h2 {
+body:not(.mode-document) .slide[id^="slide-step"] .md-h2,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h2 {
   font-size: 0.94rem !important;
   margin-top: 0.35rem !important;
+}
+
+/* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 */
+body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap {
+  height: 640px !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap svg {
+  max-height: 610px !important;
 }
 
 /* Resalte visual de elementos con foco de charla */
@@ -13149,8 +13165,9 @@ body:not(.mode-document) .slide[id^="slide-step"] .md-h2 {
   border-radius: 6px !important;
 }
 
-/* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 en las slides de Inception */
-body:not(.mode-document) .slide[id^="slide-step"] p.subtitle {
+/* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 */
+body:not(.mode-document) .slide[id^="slide-step"] p.subtitle,
+body:not(.mode-document) .slide[id^="slide-phase2-"] p.subtitle {
   display: none !important;
 }
 
@@ -13158,49 +13175,58 @@ body:not(.mode-document) .slide[id^="slide-step"] p.subtitle {
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-desc {
   display: none !important;
 }
 
 /* En Modo Charla, columna izquierda cinematográfica: cita potente y 3 puntos telegráficos */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-explain-col {
   gap: 1.35rem;
   justify-content: space-between;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-box {
   padding: 1.6rem 2rem;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-quote,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-quote {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-quote,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-quote {
   font-size: 2.25rem !important;
   line-height: 1.25 !important;
   margin-bottom: 0 !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-points-card,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card {
   padding: 1.6rem 2rem !important;
   gap: 1.45rem !important;
   justify-content: space-around;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item {
   align-items: center !important;
   gap: 1.25rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-icon,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-icon {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-icon,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-icon {
   font-size: 2.35rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-title,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-title {
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-title,
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-title {
   font-size: 1.48rem !important;
   font-weight: 700 !important;
   margin-bottom: 0 !important;
@@ -13218,7 +13244,10 @@ body.mode-document .slide[id^="slide-step"] p.subtitle,
 body.mode-document .slide[id^="slide-step"] .sdlc-hero-sub,
 body.mode-document .slide[id^="slide-step"] .boundaries-hero-sub,
 body.mode-document .slide[id^="slide-step"] .sdlc-point-desc,
-body.mode-document .slide[id^="slide-step"] .boundaries-point-desc {
+body.mode-document .slide[id^="slide-step"] .boundaries-point-desc,
+body.mode-document .slide[id^="slide-phase2-"] p.subtitle,
+body.mode-document .slide[id^="slide-phase2-"] .sdlc-hero-sub,
+body.mode-document .slide[id^="slide-phase2-"] .sdlc-point-desc {
   display: block !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -13235,7 +13264,8 @@ body.mode-document span.doc-only {
   display: inline !important;
 }
 
-body.mode-document .slide[id^="slide-step"] .chosen-synergy-banner {
+body.mode-document .slide[id^="slide-step"] .chosen-synergy-banner,
+body.mode-document .slide[id^="slide-phase2-"] .chosen-synergy-banner {
   display: flex !important;
   animation: fadeIn 0.25s ease-out;
 }
