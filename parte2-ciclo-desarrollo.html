@@ -1585,7 +1585,7 @@
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama 1 de 3: Secuencia E2E</span>
         </div>
-        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • docs/product/bounded-contexts/conference/flows/journey-01-setup-conference.md</div>
         <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #8b5cf6;">1. Diagrama de Secuencia E2E</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Mapear la interacción temporal completa: llamadas a puertos, verificación offline y caminos de error coloreados.
@@ -1599,7 +1599,7 @@
                 “Si un flujo no explicita el camino de error, la IA <u>inventará su propia arquitectura</u> complaciente.”
               </div>
               <div class="sdlc-hero-sub">
-                Cada User Journey de la Fase 1 define el intercambio atómico de mensajes, las precondiciones del crafter y los bloques de validación.
+                Journey 01 (Setup Conference): Define la creación del evento, la validación Zod perimetral, la comprobación de cuota Free Tier (BR-004) y la persistencia atómica en Outbox.
               </div>
             </div>
 
@@ -1607,8 +1607,8 @@
               <div class="sdlc-point-item active-point">
                 <div class="sdlc-point-icon">📐</div>
                 <div class="sdlc-point-text">
-                  <div class="sdlc-point-title" style="color: #a78bfa;">1. Secuencia con Bloques rect (Activo)</div>
-                  <div class="sdlc-point-desc">Happy Path en verde (&lt; 1000ms en GPU) frente a Error Path en rojo (violación de frontera INV-001 y rechazo perimetral).</div>
+                  <div class="sdlc-point-title" style="color: #a78bfa;">1. Secuencia E2E con Bloques rect (Activo)</div>
+                  <div class="sdlc-point-desc">Happy Path en verde (201 Created + enlace público CfP) frente a Error Path en rojo (Límite Free Tier BR-004 con 403 Forbidden).</div>
                 </div>
               </div>
 
@@ -1616,7 +1616,7 @@
                 <div class="sdlc-point-icon">🔀</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">2. Flowchart de Decisiones</div>
-                  <div class="sdlc-point-desc">Mapea bifurcaciones lógicas, checks pre-inferencia y loops de reflexión TDD en local.</div>
+                  <div class="sdlc-point-desc">Bifurcaciones deterministas: slug duplicado, validación de esquema y worker asíncrono.</div>
                 </div>
               </div>
 
@@ -1624,7 +1624,7 @@
                 <div class="sdlc-point-icon">🔄</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">3. Máquina de Estados FSM</div>
-                  <div class="sdlc-point-desc">Clausura el espacio de estados para que la entidad nunca alcance un estado ilegal.</div>
+                  <div class="sdlc-point-desc">Clausura el ciclo de vida del agregado Conference (DRAFT ➔ CFP_OPEN ➔ CFP_CLOSED).</div>
                 </div>
               </div>
             </div>
@@ -1644,7 +1644,7 @@
                 <div class="code-dot yellow"></div>
                 <div class="code-dot green"></div>
               </div>
-              <div class="code-title">📊 Mermaid SVG • 1. Sequence Diagram &amp; Error Paths</div>
+              <div class="code-title">📊 Mermaid SVG • 1. Sequence Diagram (Setup Conference Flow)</div>
               <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SVG INTERACTIVO</span>
             </div>
 
@@ -1652,31 +1652,40 @@
               <div class="mermaid">
 sequenceDiagram
     autonumber
-    actor Crafter as Elena (Crafter)
-    participant IDE as VSCode Ext
-    participant Daemon as Local Daemon (Rust)
-    participant Engine as Qwen2.5 (GPU Local)
-    participant Guard as FSM & Invariants
+    actor Organizer as Fernando (Organizador)
+    participant UI as Frontend (Next.js)
+    participant API as Application Service
+    participant Domain as Conference Aggregate
+    participant DB as Postgres & Outbox
+    participant Worker as Outbox Worker (Async)
 
-    Crafter->>IDE: Dispara /implement-flow
-    IDE->>Daemon: POST /infer (Prompt + Spec Viva)
-    Daemon->>Guard: Comprobar INV-001 (0 fuga cloud)
-    
+    Organizer->>UI: Click "Crear Conferencia"
+    UI->>API: GET /auth/me (organizerId)
+    Organizer->>UI: Rellena formulario (fechas, nombre)
+    UI->>UI: Validación Zod cliente
+
     rect rgb(16, 185, 129, 0.18)
-        note right of Daemon: Happy Path: Inferencia Local Offline
-        Daemon->>Engine: Inferencia en VRAM local
-        Engine-->>Daemon: Stream tokens (< 1000ms)
-        Daemon->>Guard: Validar tipos & compilar
-        Guard-->>Daemon: Estado: VALIDADO
-        Daemon-->>IDE: Diff de código propuesto
-        IDE-->>Crafter: Suite de tests ejecutada en verde
+        note right of UI: Happy Path: Creación & CfP Abierto
+        Organizer->>UI: Click "Publicar Conferencia"
+        UI->>API: POST /api/v1/conferences
+        API->>API: Validar payload con Zod
+        API->>DB: Comprobar slug único & límite Free Tier (BR-004)
+        DB-->>API: Válido (&lt; 5 activas)
+        API->>Domain: Conference.create(id, data)
+        API->>Domain: Conference.publishCfp()
+        Domain->>Domain: Emitir ConferenceCreated & CfpOpened
+        API->>DB: Guardar Agregado + Eventos Outbox (Tx)
+        DB-->>API: Transacción confirmada
+        API-->>UI: 201 Created + URL CfP
+        UI-->>Organizer: Redirección a Dashboard con enlace público
     end
 
     rect rgb(239, 68, 68, 0.18)
-        note right of Daemon: Error Path: Violación de Frontera
-        Daemon->>Guard: Intento de llamada externa
-        Guard-->>Daemon: 403 Forbidden (Frontera Violada)
-        Daemon-->>IDE: Bloqueo inmediato y alerta al crafter
+        note right of API: Error Path: Límite Free Tier Excedido (BR-004)
+        API->>DB: Comprobar conferencias activas
+        DB-->>API: &gt;= 5 conferencias activas
+        API-->>UI: 403 Forbidden (FREE_TIER_LIMIT_EXCEEDED)
+        UI-->>Organizer: Modal Upgrade (Cero mutación en BD)
     end
               </div>
             </div>
@@ -1686,7 +1695,7 @@ sequenceDiagram
         <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
           <div class="chosen-synergy-icon" style="font-size: 1.5rem;">📐</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Regla de Oro Crafter:</strong> El diagrama de secuencia no es decorativo: es el contrato temporal de interacción. Con los bloques de error explicitados, la IA está obligada a generar código defensivo con manejo exhaustivo de excepciones.
+            <strong>Regla de Oro Crafter:</strong> El diagrama de secuencia no es decorativo: es el contrato temporal de interacción. Con los bloques de excepción explicitados, la IA está obligada a generar código defensivo con manejo exhaustivo de errores.
           </div>
         </div>
       </div>
@@ -1702,10 +1711,10 @@ sequenceDiagram
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama 2 de 3: Flowchart &amp; Decisiones</span>
         </div>
-        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • docs/product/bounded-contexts/conference/flows/journey-01-setup-conference.md</div>
         <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #8b5cf6;">2. Flowchart de Decisiones</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
-          Mapear cada bifurcación lógica, los checks de precondición y los loops de corrección TDD.
+          Mapear cada bifurcación lógica, los checks de precondición y los loops de corrección.
         </p>
 
         <div class="sdlc-console-deck">
@@ -1716,7 +1725,7 @@ sequenceDiagram
                 “Un flowchart formal convierte las decisiones ambiguas en un <u>árbol determinista de ejecución</u>.”
               </div>
               <div class="sdlc-hero-sub">
-                Si no hay tests en rojo o se detecta tráfico cloud, el flujo se aborta de forma preventiva antes de consumir cómputo o generar código inválido.
+                Convierte el flujo de negocio en un árbol de decisión estricto donde la IA sabe qué hacer si el slug choca, si el formulario no valida o si se alcanza la cuota gratuita.
               </div>
             </div>
 
@@ -1733,7 +1742,7 @@ sequenceDiagram
                 <div class="sdlc-point-icon">🔀</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #a78bfa;">2. Flowchart de Decisiones (Activo)</div>
-                  <div class="sdlc-point-desc">Bifurcaciones estrictas: gates de entrada (test rojo? offline?) y loop de corrección iterativa sin intervención humana.</div>
+                  <div class="sdlc-point-desc">Bifurcaciones estrictas: gates de validación Zod, check de slug único, cuota BR-004 y worker asíncrono.</div>
                 </div>
               </div>
 
@@ -1761,33 +1770,50 @@ sequenceDiagram
                 <div class="code-dot yellow"></div>
                 <div class="code-dot green"></div>
               </div>
-              <div class="code-title">📊 Mermaid SVG • 2. Flowchart &amp; Decision Tree</div>
+              <div class="code-title">📊 Mermaid SVG • 2. Flowchart &amp; Decision Tree (Journey 01)</div>
               <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SVG INTERACTIVO</span>
             </div>
 
             <div class="mermaid-diagram-wrap">
               <div class="mermaid">
 flowchart TB
-    Start([🚀 Disparo /implement-flow]) --> InputCheck{¿Hay tests en rojo?}
-    
-    InputCheck -->|No| Reject1[❌ Bloqueo: Requiere Test Rojo Primero]
-    InputCheck -->|Sí| OfflineCheck{¿Modo 100% Offline?}
-    
-    OfflineCheck -->|No| Reject2[❌ Bloqueo INV-001: Red Prohibida]
-    OfflineCheck -->|Sí| PromptAssembly[📦 Contexto: FSM + Spec Gherkin]
-    
-    PromptAssembly --> RunLocal[⚡ Inferencia Qwen2.5 GPU Local]
-    RunLocal --> CompileCheck{¿Compila y pasan tests?}
-    
-    CompileCheck -->|Fallo| RetryLoop[🔄 Reflexión: Diff Mínimo]
-    RetryLoop --> RunLocal
-    
-    CompileCheck -->|Verde| Success([✅ Commit Atómico + Sync Spec])
+    Start([🚀 Fernando inicia]) --> Form[Rellenar Formulario Conferencia]
+    Form --> ValidateClient{¿Validación Zod Cliente?}
 
-    style Reject1 fill:#7f1d1d,stroke:#ef4444,color:#fff
-    style Reject2 fill:#7f1d1d,stroke:#ef4444,color:#fff
-    style Success fill:#064e3b,stroke:#10b981,color:#fff
-    style RunLocal fill:#1e1b4b,stroke:#6366f1,color:#fff
+    ValidateClient -->|Inválido| Error1[Mostrar errores inline] --> Form
+    ValidateClient -->|Válido| Submit[POST /api/v1/conferences]
+
+    Submit --> ServerValidate{¿Payload Zod Válido?}
+    ServerValidate -->|Inválido| Error2[HTTP 400 Bad Request] --> Form
+
+    ServerValidate -->|Válido| CheckSlug{¿Slug Único en BD?}
+    CheckSlug -->|No| Error3[Sugerir slug alternativo] --> Form
+
+    CheckSlug -->|Sí| CheckTier{¿Límite Free Tier BR-004?}
+    CheckTier -->|>= 5 Activas| Error4[HTTP 403: Modal Upgrade Pro] --> EndFail([Creación Abortada])
+
+    CheckTier -->|< 5 Activas| Create[Conference.create - DRAFT]
+    Create --> Publish[Conference.publishCfp - CFP_OPEN]
+
+    Publish --> RecordEvents[Registrar Eventos de Dominio]
+    RecordEvents --> SaveDB[(Commit Tx: Agregado + Outbox)]
+
+    SaveDB --> Success[201 Created + Redirección Dashboard]
+    Success --> EndSuccess([✅ CfP URL Activa])
+
+    SaveDB -.->|Polling Asíncrono| OutboxWorker[Outbox Worker]
+    OutboxWorker -.-> SendEmail[Email de bienvenida vía Resend]
+
+    style Create fill:#1e1b4b,stroke:#6366f1,color:#fff
+    style Publish fill:#064e3b,stroke:#10b981,color:#fff
+    style SaveDB fill:#064e3b,stroke:#10b981,color:#fff
+    style Success fill:#065f46,stroke:#34d399,color:#fff
+    style OutboxWorker fill:#312e81,stroke:#818cf8,color:#fff
+    style SendEmail fill:#312e81,stroke:#818cf8,color:#fff
+    style Error1 fill:#7f1d1d,stroke:#ef4444,color:#fff
+    style Error2 fill:#7f1d1d,stroke:#ef4444,color:#fff
+    style Error3 fill:#78350f,stroke:#f59e0b,color:#fff
+    style Error4 fill:#7f1d1d,stroke:#ef4444,color:#fff
               </div>
             </div>
           </div>
@@ -1796,7 +1822,7 @@ flowchart TB
         <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
           <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🔀</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Regla de Oro Crafter:</strong> El flowchart desacopla el razonamiento de la codificación: fija los puntos de bloqueo, la comprobación de invariantes y el ciclo cerrado de autocorrección local.
+            <strong>Regla de Oro Crafter:</strong> El flowchart desacopla el razonamiento de la codificación: fija los puntos de bloqueo, las bifurcaciones y la frontera entre persistencia síncrona y background workers.
           </div>
         </div>
       </div>
@@ -1812,7 +1838,7 @@ flowchart TB
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama 3 de 3: Máquina de Estados FSM</span>
         </div>
-        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • docs/product/bounded-contexts/conference/flows/journey-01-setup-conference.md</div>
         <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #8b5cf6;">3. Ciclo de Vida de la Entidad (FSM)</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Modelar las entidades como máquinas de estado finitas con invariantes y transiciones atómicas.
@@ -1826,7 +1852,7 @@ flowchart TB
                 “El espacio de estados debe ser finito: la IA <u>no puede inventar estados arbitrarios</u> ni mutaciones directas.”
               </div>
               <div class="sdlc-hero-sub">
-                Una FSM matemática impide que una entidad pase a producción sin haber transitado por verificación y tests en verde.
+                El agregado Conference no admite transiciones arbitrarias. Un organizador no puede publicar una agenda sin pasar por CFP_OPEN y CFP_CLOSED.
               </div>
             </div>
 
@@ -1851,7 +1877,7 @@ flowchart TB
                 <div class="sdlc-point-icon">🔄</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #a78bfa;">3. Máquina de Estados FSM (Activo)</div>
-                  <div class="sdlc-point-desc">Estados legales strictly typed: DRAFT ➔ INFERRING ➔ VERIFYING ➔ VALIDATED. Prohíbe mutaciones sin eventos de dominio.</div>
+                  <div class="sdlc-point-desc">Estados strictly typed: DRAFT ➔ CFP_OPEN ➔ CFP_CLOSED ➔ PUBLISHED. Prohíbe mutaciones sin invocar métodos protegidos.</div>
                 </div>
               </div>
             </div>
@@ -1871,21 +1897,42 @@ flowchart TB
                 <div class="code-dot yellow"></div>
                 <div class="code-dot green"></div>
               </div>
-              <div class="code-title">📊 Mermaid SVG • 3. Entity State Machine Lifecycle</div>
+              <div class="code-title">📊 Mermaid SVG • 3. Conference Entity Lifecycle (FSM)</div>
               <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">SVG INTERACTIVO</span>
             </div>
 
             <div class="mermaid-diagram-wrap">
               <div class="mermaid">
 stateDiagram-v2
-    [*] --> DRAFT: Disparo de Flow
-    DRAFT --> INFERRING: Prompt Validado (Guard: VRAM > 4GB)
-    INFERRING --> VERIFYING: Tokens Recibidos (< 1s)
-    VERIFYING --> VALIDATED: Tests en Verde (Cero Drift)
-    VERIFYING --> REJECTED: Tests Fallan o Violación INV-001
-    REJECTED --> DRAFT: Reintentar con Corrección
-    VALIDATED --> COMMITTED: Git Commit Atómico
-    COMMITTED --> [*]
+    [*] --> NotCreated
+    NotCreated --> Draft: Create Conference
+    Draft --> CfpOpen: publishCfp()
+    CfpOpen --> CfpClosed: closeCfp()
+    CfpClosed --> CfpOpen: reopenCfp()
+    CfpOpen --> Published: publishSchedule()
+    CfpClosed --> Published: publishSchedule()
+    Published --> Completed: conferenceDatePassed
+
+    note right of Draft
+        Conferencia creada con
+        datos iniciales (DRAFT)
+    end note
+
+    note right of CfpOpen
+        CfP activo, aceptando
+        propuestas de speakers
+    end note
+
+    note right of Published
+        Agenda publicada en web,
+        speakers confirmados
+    end note
+
+    style Draft fill:#1e293b,stroke:#64748b,color:#e2e8f0
+    style CfpOpen fill:#064e3b,stroke:#10b981,color:#a7f3d0
+    style CfpClosed fill:#78350f,stroke:#f59e0b,color:#fef3c7
+    style Published fill:#3b0764,stroke:#a855f7,color:#f3e8ff
+    style Completed fill:#1e1b4b,stroke:#6366f1,color:#e0e7ff
               </div>
             </div>
           </div>
@@ -1894,7 +1941,7 @@ stateDiagram-v2
         <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
           <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🔄</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Regla de Oro Crafter:</strong> Los bugs de estado son los más costosos del software. La máquina de estados FSM es el escudo matemático definitivo: la IA sólo puede implementar transiciones legales auditadas.
+            <strong>Regla de Oro Crafter:</strong> Cada flecha de la FSM es un método de dominio del Aggregate Root. Si un comando intenta mutar el estado sin llamar al método autorizado, INV-001 aborta la transacción.
           </div>
         </div>
       </div>
@@ -1910,7 +1957,7 @@ stateDiagram-v2
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Modelado Formal &amp; Contratos</span>
         </div>
-        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <div class="tag" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • docs/product/guidelines/business-rules-vs-invariants.md</div>
         <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #8b5cf6;">Reglas de Negocio vs. Invariantes</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Diferenciar políticas comerciales flexibles (<code>BR-XXX</code>) de restricciones matemáticas de integridad (<code>INV-XXX</code>).
@@ -1933,7 +1980,7 @@ stateDiagram-v2
                 <div class="sdlc-point-icon">📋</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #60a5fa;">Regla de Negocio (BR-XXX) — Flexible &amp; Estratégica</div>
-                  <div class="sdlc-point-desc">Ámbito: workflows, políticas comerciales, cuotas. Vive en la <strong>Capa de Aplicación</strong> o Domain Services. Si se viola: degradación elegante o aviso al usuario (ej: límite free tier superado).</div>
+                  <div class="sdlc-point-desc">Ámbito: workflows, políticas comerciales, cuotas. Vive en la <strong>Capa de Aplicación</strong> (<code>CreateConferenceService</code>). Si se viola: degradación elegante (ej: modal upgrade límite free tier <code>BR-004</code>).</div>
                 </div>
               </div>
 
@@ -1941,7 +1988,7 @@ stateDiagram-v2
                 <div class="sdlc-point-icon">🛡️</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #f87171;">Invariante de Dominio (INV-XXX) — Cero Tolerancia</div>
-                  <div class="sdlc-point-desc">Ámbito: consistencia matemática del estado. Vive síncrona dentro del <strong>Aggregate Root</strong> o Value Object. Si se viola: excepción de dominio + <strong>Rollback transaccional inmediato</strong>.</div>
+                  <div class="sdlc-point-desc">Ámbito: consistencia estricta del estado. Vive dentro del <strong>Aggregate Root</strong> (<code>Conference</code>). Si se viola: excepción tipada (<code>InvalidStateTransitionError</code>) + <strong>Rollback transaccional</strong>.</div>
                 </div>
               </div>
             </div>
@@ -1961,7 +2008,7 @@ stateDiagram-v2
                 <div class="code-dot yellow"></div>
                 <div class="code-dot green"></div>
               </div>
-              <div class="code-title">📄 docs/invariants/INV-001.md vs rules/BR-004.md</div>
+              <div class="code-title">📄 docs/product/guidelines/business-rules-vs-invariants.md</div>
               <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">CONTRATOS DDD</span>
             </div>
 
@@ -1992,6 +2039,11 @@ stateDiagram-v2
                       <td>Degradación elegante (alerta/upgrade)</td>
                       <td class="td-neg" style="color: #f87171;">Excepción Dominio + Rollback DB</td>
                     </tr>
+                    <tr>
+                      <td class="md-bold">Flexibilidad</td>
+                      <td>Cambia con la estrategia de negocio</td>
+                      <td class="md-accent">Define la verdad nuclear del dominio</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -2000,20 +2052,20 @@ stateDiagram-v2
 
               <!-- Bloque INV-001 -->
               <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 0.45rem 0.65rem; border-radius: 4px;">
-                <div style="color: #f87171; font-weight: 700; margin-bottom: 0.2rem;">🛡️ INV-001: Estado FSM estricto (Aggregate Root)</div>
+                <div style="color: #f87171; font-weight: 700; margin-bottom: 0.2rem;">🛡️ INV-001: Estado FSM estricto (Aggregate Root: Conference)</div>
                 <code style="color: #f1f5f9; display: block; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.35;">
-                  if (!this.fsm.canTransitionTo(nextState)) {<br/>
-                  &nbsp;&nbsp;throw new InvalidStateTransitionError("INV-001: Transición ilegal"); // Rollback inmediato<br/>
-                  }
+                  if (this.status !== ConferenceStatus.CFP_OPEN) {<br/>
+                  &nbsp;&nbsp;throw new InvalidStateTransitionError(this.id, this.status, ConferenceStatus.CFP_CLOSED);<br/>
+                  } // Rollback inmediato en BD
                 </code>
               </div>
 
               <!-- Bloque BR-004 -->
               <div style="background: rgba(59, 130, 246, 0.08); border-left: 3px solid #3b82f6; padding: 0.45rem 0.65rem; border-radius: 4px;">
-                <div style="color: #60a5fa; font-weight: 700; margin-bottom: 0.2rem;">📋 BR-004: Límite Free Tier (Application Service)</div>
+                <div style="color: #60a5fa; font-weight: 700; margin-bottom: 0.2rem;">📋 BR-004: Límite Free Tier (Application Service: CreateConference)</div>
                 <code style="color: #f1f5f9; display: block; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.35;">
-                  if (activeEventsCount >= 5 &amp;&amp; user.isFreeTier()) {<br/>
-                  &nbsp;&nbsp;return Result.err(new UpgradePromptRequired("BR-004")); // Fallback elegante sin romper<br/>
+                  if (cmd.tier === 'FREE' &amp;&amp; activeConferencesCount >= 5) {<br/>
+                  &nbsp;&nbsp;return Result.err(new FreeTierLimitExceededError("BR-004")); // 403 con Modal Upgrade sin rollback<br/>
                   }
                 </code>
               </div>
@@ -2040,7 +2092,7 @@ stateDiagram-v2
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Fase 2 • Especificación de Negocio (BR-XXX)</span>
         </div>
-        <div class="tag" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <div class="tag" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • docs/product/bounded-contexts/conference/business-rules/BR-004-free-tier-conference-limit.md</div>
         <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #3b82f6;">Plantilla de Regla de Negocio (BR)</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Definir políticas comerciales, cuotas y flujos flexibles con fallbacks controlados y degradación elegante.
@@ -2054,7 +2106,7 @@ stateDiagram-v2
                 “Una Regla de Negocio (BR) define <u>cómo debe comportarse</u> el sistema sin poner en riesgo la integridad de la base de datos.”
               </div>
               <div class="sdlc-hero-sub">
-                Las reglas de negocio cambian con el mercado o la estrategia comercial. La IA debe implementarlas en Application Services o Domain Services para que admitan excepciones, avisos y fallbacks sin abortar transacciones de golpe.
+                Las reglas de negocio cambian con el mercado o la estrategia comercial. La IA debe implementarlas en Application Services para que admitan excepciones, avisos y fallbacks sin abortar transacciones de golpe.
               </div>
             </div>
 
@@ -2063,7 +2115,7 @@ stateDiagram-v2
                 <div class="sdlc-point-icon">🎯</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #60a5fa;">1. Ámbito &amp; Flexibilidad Estratégica</div>
-                  <div class="sdlc-point-desc">Formulado como política: <em>"Cuando X ocurre, aplicar Y, de lo contrario fallback Z"</em>. Admite flujos asíncronos y eventos de dominio (ej: notificar a contabilidad).</div>
+                  <div class="sdlc-point-desc">Formulado como política: <em>"Cuando X ocurre, aplicar Y, de lo contrario fallback Z"</em>. Admite flujos asíncronos y eventos de dominio.</div>
                 </div>
               </div>
 
@@ -2071,7 +2123,7 @@ stateDiagram-v2
                 <div class="sdlc-point-icon">⚙️</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #60a5fa;">2. Manejo de Excepciones sin Rollback</div>
-                  <div class="sdlc-point-desc">Si la regla no se cumple (ej: cupón caducado o límite free tier alcanzado), el sistema NO lanza un error 500: ofrece un camino alternativo (downgrade o prompt de pago).</div>
+                  <div class="sdlc-point-desc">Si la regla no se cumple (límite free tier alcanzado), el sistema NO lanza un error 500: ofrece un camino alternativo (modal de upgrade a Pro).</div>
                 </div>
               </div>
             </div>
@@ -2091,28 +2143,29 @@ stateDiagram-v2
                 <div class="code-dot yellow"></div>
                 <div class="code-dot green"></div>
               </div>
-              <div class="code-title">📄 docs/bounded-contexts/billing/rules/BR-004-free-tier-limit.md</div>
+              <div class="code-title">📄 docs/product/bounded-contexts/conference/business-rules/BR-004-free-tier-conference-limit.md</div>
               <span class="sdlc-term-tag" style="background: rgba(99, 102, 241, 0.18); color: #818cf8; border-color: rgba(99, 102, 241, 0.3);">TEMPLATE: BUSINESS RULE</span>
             </div>
 
             <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.55rem;">
-              <div class="md-line md-h1"><span class="md-hash">#</span> BR-004: Free Tier Event Creation Limit</div>
+              <div class="md-line md-h1"><span class="md-hash">#</span> BR-004: Free Tier Conference Creation Limit</div>
               
               <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
-                <div><span class="md-bold" style="width: auto;">* Status:</span> <span style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Rule Type:</span> Business Rule (Flexible)</div>
-                <div><span class="md-bold" style="width: auto;">* Domain Context:</span> Billing Bounded Context / Quotas Subdomain</div>
-                <div><span class="md-bold" style="width: auto;">* Business Owner:</span> Product Strategy Memo Q2 (Growth)</div>
+                <div><span class="md-bold" style="width: auto;">* Status:</span> <span style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Domain:</span> Conference Management Bounded Context</div>
+                <div><span class="md-bold" style="width: auto;">* Business Owner:</span> Product Team (Monetization Model Q2 2026)</div>
+                <div><span class="md-bold" style="width: auto;">* Last Reviewed:</span> 2026-06-09</div>
               </div>
 
               <div class="md-line md-h2"><span class="md-hash">##</span> 1. Summary (Política de Negocio)</div>
               <div style="background: rgba(99, 102, 241, 0.08); border-left: 3px solid #6366f1; padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.74rem; color: #f1f5f9;">
-                <strong>Rule:</strong> When a free-tier organizer attempts to create an event, check if they already have 5 active events. If limit is reached, trigger an upgrade prompt without aborting existing workflows.
+                <strong>Rule:</strong> When a free tier organizer attempts to create a conference, check if they already have 5 active conferences, and if so, block creation and prompt for upgrade.
               </div>
 
-              <div class="md-line md-h2"><span class="md-hash">##</span> 3. Detailed Logic &amp; Fallbacks</div>
+              <div class="md-line md-h2"><span class="md-hash">##</span> 3. Detailed Logic &amp; Scenarios</div>
               <div style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
-                • <strong style="color: #60a5fa;">If</strong> User Tier == 'Free' &amp;&amp; ActiveEvents &gt;= 5 ➔ Return <code style="color: #fca5a5;">Result.err(UpgradeRequired)</code><br/>
-                • <strong style="color: #60a5fa;">Else</strong> ➔ Permit creation &amp; emit <code style="color: #86efac;">EventCreatedDomainEvent</code><br/>
+                • <strong style="color: #60a5fa;">Active Conference:</strong> Cualquier conferencia donde <code style="color: #a78bfa;">status != 'DELETED'</code> (DRAFT, CFP_OPEN, CFP_CLOSED, PUBLISHED)<br/>
+                • <strong style="color: #60a5fa;">If</strong> organizer.tier == 'FREE' &amp;&amp; count(activeConferences) &gt;= 5 ➔ Block (HTTP 403 <code style="color: #fca5a5;">FREE_TIER_LIMIT_EXCEEDED</code>)<br/>
+                • <strong style="color: #86efac;">If</strong> organizer.tier == 'FREE' &amp;&amp; count(activeConferences) &lt; 5 ➔ Allow creation<br/>
                 • <strong style="color: #fcd34d;">Fallback:</strong> No rollback en BD. Mostrar modal de suscripción y conservar borrador.
               </div>
 
@@ -2120,11 +2173,11 @@ stateDiagram-v2
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
                 <div style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
                   <strong style="color: #93c5fd;">Capa de Ejecución:</strong><br/>
-                  <code>CreateEventUseCase</code> (Application Layer / Policy)
+                  <code>CreateConferenceService</code> (Application Layer)
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
                   <strong style="color: #fca5a5;">Manejo de Excepción:</strong><br/>
-                  Degradación elegante + telemetría (Cero rollback)
+                  403 Forbidden / Modal Upgrade (Cero rollback BD)
                 </div>
               </div>
             </div>
@@ -2150,7 +2203,7 @@ stateDiagram-v2
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">Fase 2 • Invariante de Dominio (INV-XXX)</span>
         </div>
-        <div class="tag" style="background: rgba(239, 68, 68, 0.12); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • /create-flow-doc</div>
+        <div class="tag" style="background: rgba(239, 68, 68, 0.12); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">Fase 2 • Arquitectura &amp; Especificación Formal • docs/product/bounded-contexts/conference/invariants/INV-001-state-transition-validity.md</div>
         <h2>Fase 2: Especificación Viva <span class="serif-italic" style="color: #ef4444;">Plantilla de Invariante (INV)</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Blindar la consistencia matemática del modelo: cero tolerancia, verificación síncrona y rollback obligatorio.
@@ -2173,7 +2226,7 @@ stateDiagram-v2
                 <div class="sdlc-point-icon">🛡️</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #f87171;">1. Frontera Transaccional Estricta</div>
-                  <div class="sdlc-point-desc">Vigila campos atómicos del Aggregate (ej: TicketsConfirmados &le; CapacidadTotal, o Transición Legal en FSM). Si el comando la vulnera, se aborta síncronamente.</div>
+                  <div class="sdlc-point-desc">Vigila campos atómicos del Aggregate (<code>Conference.status</code>, <code>Conference.cfpConfig</code>). Si un comando intenta una transición ilegal, se aborta síncronamente.</div>
                 </div>
               </div>
 
@@ -2181,7 +2234,7 @@ stateDiagram-v2
                 <div class="sdlc-point-icon">🔒</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title" style="color: #f87171;">2. Excepción de Dominio &amp; Cero Persistencia</div>
-                  <div class="sdlc-point-desc">Lanza un error tipado de dominio (ej: <code>InvalidStateTransitionError</code>). El ORM o Unit of Work aborta el commit y la base de datos queda inmaculada.</div>
+                  <div class="sdlc-point-desc">Lanza un error tipado de dominio (<code>InvalidStateTransitionError</code>). La transacción de base de datos hace rollback completo y no queda rastro.</div>
                 </div>
               </div>
             </div>
@@ -2201,31 +2254,31 @@ stateDiagram-v2
                 <div class="code-dot yellow"></div>
                 <div class="code-dot green"></div>
               </div>
-              <div class="code-title">📄 docs/bounded-contexts/events/invariants/INV-001-fsm-transitions.md</div>
+              <div class="code-title">📄 docs/product/bounded-contexts/conference/invariants/INV-001-state-transition-validity.md</div>
               <span class="sdlc-term-tag" style="background: rgba(239, 68, 68, 0.18); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">TEMPLATE: INVARIANT</span>
             </div>
 
             <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.55rem;">
-              <div class="md-line md-h1"><span class="md-hash">#</span> INV-001: Event State Transitions Must Follow State Machine</div>
+              <div class="md-line md-h1"><span class="md-hash">#</span> INV-001: Conference State Transitions Must Follow State Machine</div>
               
               <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
                 <div><span class="md-bold" style="width: auto;">* Status:</span> <span style="color: #7ee787;">Active</span> | <span class="md-bold" style="width: auto;">Invariant Type:</span> Strict Constraint (Cero Fallbacks)</div>
-                <div><span class="md-bold" style="width: auto;">* Bounded Context:</span> Event Management | <span class="md-bold" style="width: auto;">Aggregate Root:</span> <code>Event</code></div>
-                <div><span class="md-bold" style="width: auto;">* Data Integrity Risk:</span> <span style="color: #f87171;">Corrupt State / Illegal State Mutations</span></div>
+                <div><span class="md-bold" style="width: auto;">* Bounded Context:</span> Conference Management | <span class="md-bold" style="width: auto;">Aggregate Root:</span> <code>Conference</code></div>
+                <div><span class="md-bold" style="width: auto;">* Data Integrity Risk:</span> <span style="color: #f87171;">Corrupt State / Invalid Workflow Progression</span></div>
               </div>
 
               <div class="md-line md-h2"><span class="md-hash">##</span> 1. Statement of Invariant (Verdad Absoluta)</div>
               <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.74rem; color: #f1f5f9;">
-                <strong>Invariant:</strong> An Event entity can NEVER transition to a state not authorized by its FSM. Attempting an illegal transition leaves the system in an illegal state and must abort immediately.
+                <strong>Invariant:</strong> Conference state transitions must follow the defined state machine diagram; no state can be changed except through valid domain methods that enforce allowed transitions.
               </div>
 
               <div class="md-line md-h2"><span class="md-hash">##</span> 3. Enforcement Logic &amp; Gherkin Scenarios</div>
               <div style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
-                <span style="color: #818cf8;">Scenario:</span> Attempting illegal transition directly to COMMITTED<br/>
-                &nbsp;&nbsp;<span style="color: #60a5fa;">Given</span> Event is in state <code style="color: #fcd34d;">DRAFT</code><br/>
-                &nbsp;&nbsp;<span style="color: #60a5fa;">When</span> Command requests transition to <code style="color: #fcd34d;">COMMITTED</code> without <code style="color: #86efac;">VERIFYING</code><br/>
-                &nbsp;&nbsp;<span style="color: #f87171;">Then</span> System throws <code style="color: #fca5a5;">InvalidStateTransitionError("INV-001")</code><br/>
-                &nbsp;&nbsp;<span style="color: #f87171;">And</span> Database transaction is rolled back with zero persisted changes
+                <span style="color: #818cf8;">Scenario:</span> Attempting invalid state transition directly to REVIEWING<br/>
+                &nbsp;&nbsp;<span style="color: #60a5fa;">Given</span> a Conference with status <code style="color: #fcd34d;">DRAFT</code><br/>
+                &nbsp;&nbsp;<span style="color: #60a5fa;">When</span> a command attempts to transition directly to <code style="color: #fca5a5;">REVIEWING</code><br/>
+                &nbsp;&nbsp;<span style="color: #f87171;">Then</span> the system throws <code style="color: #fca5a5;">InvalidStateTransitionError("INV-001")</code><br/>
+                &nbsp;&nbsp;<span style="color: #f87171;">And</span> the Conference status remains DRAFT with complete transaction rollback
               </div>
 
               <div class="md-line md-h2"><span class="md-hash">##</span> 4. Failure Response &amp; Rollback</div>
