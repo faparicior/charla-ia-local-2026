@@ -6715,16 +6715,16 @@ body.theme-dark .hybrid-block-stage {
 
 .hybrid-svg-viewport {
   width: 100%;
-  min-height: 200px;
-  height: 205px;
-  border-radius: 8px;
+  min-height: 275px;
+  height: 280px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   background: rgba(0, 0, 0, 0.015);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.6rem;
+  padding: 0.5rem 0.8rem;
 }
 
 body.theme-dark .hybrid-svg-viewport {
@@ -6734,22 +6734,22 @@ body.theme-dark .hybrid-svg-viewport {
 .hybrid-svg-viewport svg {
   width: 100%;
   height: 100%;
-  max-height: 205px;
+  max-height: 280px;
 }
 
 /* Gráfico de curva de memoria */
 .hybrid-chart-viewport {
   width: 100%;
-  min-height: 200px;
-  height: 205px;
-  border-radius: 8px;
+  min-height: 275px;
+  height: 280px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   background: rgba(0, 0, 0, 0.015);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.3rem 0.6rem;
+  padding: 0.5rem 0.8rem;
 }
 
 body.theme-dark .hybrid-chart-viewport {
@@ -6759,7 +6759,7 @@ body.theme-dark .hybrid-chart-viewport {
 .hybrid-chart-viewport svg {
   width: 100%;
   height: 100%;
-  max-height: 205px;
+  max-height: 280px;
 }
 
 /* Banner de impacto en KV Cache */
@@ -13393,8 +13393,8 @@ body.mode-document .btn-toggle-doc {
 .deck-hardware-part1 .hybrid-arch-deck {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.15rem;
+  justify-content: flex-start;
+  gap: 0.95rem;
 }
 
 .deck-hardware-part1 .hybrid-visuals-grid,
