@@ -60,13 +60,45 @@ function initDeck() {
     progressBar.style.width = `${progress}%`;
   }
 
-  function goToSlide(index, updateHistory = true) {
+  function updateStepsStatus(slide) {
+    if (!slide) return;
+    const steps = Array.from(slide.querySelectorAll('.step'));
+    steps.forEach(s => s.classList.remove('step-current'));
+    const activeSteps = steps.filter(s => s.classList.contains('step-active'));
+    if (activeSteps.length > 0) {
+      activeSteps[activeSteps.length - 1].classList.add('step-current');
+    }
+    slide.setAttribute('data-active-steps', activeSteps.length);
+
+    // Sincronizar segmentos visuales de barras si existen
+    const segments = slide.querySelectorAll('.rect-bar-segment[data-step]');
+    segments.forEach(seg => {
+      const sNum = parseInt(seg.getAttribute('data-step'), 10);
+      const colStep = slide.querySelector(`.rect-col[data-step="${sNum}"]`);
+      if (colStep && colStep.classList.contains('step-active')) {
+        seg.classList.add('segment-active');
+      } else {
+        seg.classList.remove('segment-active');
+      }
+    });
+  }
+
+  function goToSlide(index, updateHistory = true, direction = 'forward') {
     if (index < 0) index = 0;
     if (index >= slides.length) index = slides.length - 1;
 
     slides.forEach((slide, i) => {
       if (i === index) {
         slide.classList.add('active');
+        const steps = Array.from(slide.querySelectorAll('.step'));
+        if (steps.length > 0) {
+          if (direction === 'backward') {
+            steps.forEach(s => s.classList.add('step-active'));
+          } else {
+            steps.forEach(s => s.classList.remove('step-active'));
+          }
+          updateStepsStatus(slide);
+        }
       } else {
         slide.classList.remove('active');
       }
@@ -84,8 +116,17 @@ function initDeck() {
     if (isOverview) {
       toggleOverview(false);
     }
+    const activeSlide = slides[currentIndex];
+    if (activeSlide) {
+      const nextUnactiveStep = activeSlide.querySelector('.step:not(.step-active)');
+      if (nextUnactiveStep) {
+        nextUnactiveStep.classList.add('step-active');
+        updateStepsStatus(activeSlide);
+        return;
+      }
+    }
     if (currentIndex < slides.length - 1) {
-      goToSlide(currentIndex + 1);
+      goToSlide(currentIndex + 1, true, 'forward');
     } else if (document.body.dataset.nextDeck) {
       window.location.href = document.body.dataset.nextDeck;
     }
@@ -95,8 +136,17 @@ function initDeck() {
     if (isOverview) {
       toggleOverview(false);
     }
+    const activeSlide = slides[currentIndex];
+    if (activeSlide) {
+      const activeSteps = Array.from(activeSlide.querySelectorAll('.step.step-active'));
+      if (activeSteps.length > 0) {
+        activeSteps[activeSteps.length - 1].classList.remove('step-active');
+        updateStepsStatus(activeSlide);
+        return;
+      }
+    }
     if (currentIndex > 0) {
-      goToSlide(currentIndex - 1);
+      goToSlide(currentIndex - 1, true, 'backward');
     } else if (document.body.dataset.prevDeck) {
       window.location.href = document.body.dataset.prevDeck;
     }
@@ -277,8 +327,31 @@ function initDeck() {
   window.addEventListener('hashchange', () => {
     const target = getSlideIndexFromHash();
     if (target !== currentIndex) {
-      goToSlide(target, false);
+      const dir = target < currentIndex ? 'backward' : 'forward';
+      goToSlide(target, false, dir);
     }
+  });
+
+  // Click interactivo directo en cualquier elemento .step de la slide activa
+  document.querySelectorAll('.slide .step').forEach(step => {
+    step.addEventListener('click', (e) => {
+      if (isOverview) return;
+      const slide = step.closest('.slide');
+      if (!slide || !slide.classList.contains('active')) return;
+
+      const steps = Array.from(slide.querySelectorAll('.step'));
+      const targetIdx = steps.indexOf(step);
+      if (targetIdx !== -1) {
+        steps.forEach((s, idx) => {
+          if (idx <= targetIdx) {
+            s.classList.add('step-active');
+          } else {
+            s.classList.remove('step-active');
+          }
+        });
+        updateStepsStatus(slide);
+      }
+    });
   });
 
   // Lightbox interactivo para imágenes de plantillas
