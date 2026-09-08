@@ -137,7 +137,7 @@
                 <div class="rect-top-slot">
                   <div class="rect-card">
                     <div class="rect-card-title">Incepción Ágil</div>
-                    <code class="rect-col-skill-tag">/inception</code>
+                    <code class="rect-col-skill-tag">/inception-workshop</code>
                     <div class="rect-card-punchline" style="color: #0284c7;">
                       🛡️ Poda 90% de alucinaciones
                     </div>
@@ -388,6 +388,10 @@
                       <td>Arquitectura limpia y hexagonal</td>
                       <td class="td-neg">Un chat libre sin contratos formales</td>
                     </tr>
+                    <tr>
+                      <td>Orquestador determinista y auditable</td>
+                      <td class="td-neg">Un autocompletador pasivo o adivinador</td>
+                    </tr>
                   </tbody>
                   <thead>
                     <tr>
@@ -407,6 +411,10 @@
                     <tr>
                       <td>Sincronizar specs vivas con el código</td>
                       <td class="td-neg">Instalar dependencias npm/pip arbitrarias</td>
+                    </tr>
+                    <tr>
+                      <td>Verificar tipos y tests en sandbox</td>
+                      <td class="td-neg">Delegar decisiones arquitectónicas a la IA</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1046,7 +1054,7 @@
         <div class="tag" style="background: rgba(6, 182, 212, 0.12); color: #0891b2; border-color: rgba(6, 182, 212, 0.3);">Fase 1 • Inception Workshop • Paso 6 de 8</div>
         <h2>Paso 6: User Journey Mapping <span class="serif-italic" style="color: #06b6d4;">¿Cuál es el recorrido cronológico E2E?</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
-          Mapear la experiencia de extremo a extremo: del primer comando en el IDE a la suite en verde sin salir de local.
+          Mapear la experiencia funcional de Elena: del requerimiento de negocio al commit verificado sin salir de local.
         </p>
 
         <div class="sdlc-console-deck">
@@ -1057,7 +1065,7 @@
                 “El código no vive aislado: <u>el software es una cadena de eventos guiada por el flujo humano</u>.”
               </div>
               <div class="sdlc-hero-sub">
-                Sin un journey claro, la IA genera funciones inconexas que no encajan entre sí. El mapeo E2E define el camino crítico de principio a fin.
+                Sin un journey funcional, la IA genera funciones inconexas que no encajan entre sí. El mapeo E2E define el camino crítico de principio a fin.
               </div>
             </div>
 
@@ -1065,8 +1073,8 @@
               <div class="sdlc-point-item">
                 <div class="sdlc-point-icon">🚶</div>
                 <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">El 'Minimum Happy Path' de Elena</div>
-                  <div class="sdlc-point-desc">Cadena limpia: 1. Disparar comando IDE ➔ 2. Validar spec ➔ 3. Test rojo determinista ➔ 4. Refactor y suite en verde.</div>
+                  <div class="sdlc-point-title">El 'Happy Path' Funcional de Elena</div>
+                  <div class="sdlc-point-desc">Cadena limpia: 1. Disparar flujo en IDE ➔ 2. Validar spec &amp; contratos ➔ 3. Test rojo determinista ➔ 4. Inferencia local ➔ 5. Suite verde.</div>
                 </div>
               </div>
 
@@ -1074,7 +1082,7 @@
                 <div class="sdlc-point-icon">⚙️</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">Trigger, Acción y Salida Verificable</div>
-                  <div class="sdlc-point-desc">Cada etapa explicita qué hace el crafter, qué computa el modelo y qué artefacto concreto produce el sistema en disco.</div>
+                  <div class="sdlc-point-desc">Cada etapa del viaje explicita qué inicia Elena, qué computa el motor local y qué artefacto concreto se persiste en disco.</div>
                 </div>
               </div>
 
@@ -1082,7 +1090,7 @@
                 <div class="sdlc-point-icon">🌉</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">Puente Directo a Fase 2 (Ingeniería)</div>
-                  <div class="sdlc-point-desc">Este journey alimenta directamente los 3 diagramas Mermaid del comando <code>/create-flow-doc</code> (Arquitectura Hexagonal).</div>
+                  <div class="sdlc-point-desc">Este journey funcional alimenta directamente el diagrama de secuencia, el flowchart y la FSM de la Fase 2 (Arquitectura Hexagonal).</div>
                 </div>
               </div>
             </div>
@@ -1107,7 +1115,7 @@
             </div>
 
             <div class="sdlc-terminal-body">
-              <div class="md-line md-h1"><span class="md-hash">#</span> 6. User Journey: Flujo E2E de Desarrollo</div>
+              <div class="md-line md-h1"><span class="md-hash">#</span> 6. User Journey: Elena's Feature Implementation</div>
 
               <div class="md-line md-h2"><span class="md-hash">##</span> 6.1 Lifecycle Overview (Elena's Happy Path)</div>
               <div class="md-table-wrap">
@@ -1115,35 +1123,35 @@
                   <thead>
                     <tr>
                       <th style="width: 25%;">Etapa</th>
-                      <th style="width: 35%;">Trigger del Crafter</th>
+                      <th style="width: 35%;">Trigger de Elena</th>
                       <th>Respuesta del Sistema / IA</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="md-bold">1. Incepción</td>
-                      <td><code>/inception-workshop</code></td>
-                      <td class="md-accent">Genera 8 specs vivas en <code>docs/inception/</code></td>
+                      <td class="md-bold">1. Inicialización</td>
+                      <td>Abre tarea en el IDE</td>
+                      <td class="md-accent">Daemon indexa AST y carga modelo local offline</td>
                     </tr>
                     <tr>
-                      <td class="md-bold">2. Arquitectura</td>
-                      <td><code>/create-flow-doc</code></td>
-                      <td>Modela puertos, entidades y diagramas Mermaid</td>
+                      <td class="md-bold">2. Contrato &amp; Test</td>
+                      <td>Aprueba spec viva</td>
+                      <td>Genera test unitario rojo (Rust/TS) que falla</td>
                     </tr>
                     <tr>
-                      <td class="md-bold">3. Ciclo TDD</td>
-                      <td><code>/implement-flow</code></td>
-                      <td class="md-good">Genera test unitario rojo (Rust/TS)</td>
+                      <td class="md-bold">3. Inferencia Local</td>
+                      <td>Dispara implementación</td>
+                      <td class="md-good">Qwen2.5 genera código en sandbox local (&lt;1.2s)</td>
                     </tr>
                     <tr>
-                      <td class="md-bold">4. Inferencia</td>
-                      <td>Inferir con Qwen en local</td>
-                      <td class="md-good">Implementa código mínimo: suite verde en &lt;12s</td>
+                      <td class="md-bold">4. Verificación FSM</td>
+                      <td>Ejecuta test runner</td>
+                      <td class="md-good">Valida invariantes; suite verde en &lt;12s</td>
                     </tr>
                     <tr>
-                      <td class="md-bold">5. Auditoría</td>
-                      <td><code>/audit-docs</code></td>
-                      <td>Verifica sincronía cero-drift entre spec y código</td>
+                      <td class="md-bold">5. Sincronización</td>
+                      <td>Acepta diff verificado</td>
+                      <td>Git commit atómico con spec viva actualizada</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1151,7 +1159,7 @@
 
               <div class="md-line md-h2"><span class="md-hash">##</span> 6.2 Camino Crítico E2E</div>
               <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #06b6d4; padding: 0.45rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; color: #e6edf3; line-height: 1.5;">
-                [Terminal IDE] ➔ [Prompt TDD] ➔ [Ollama Local &lt;1s] ➔ [Suite Verde ✅] ➔ [Git Commit]
+                [Feature Spec] ➔ [Test Rojo en Sandbox] ➔ [Inferencia Local &lt;1s] ➔ [FSM Guard &amp; Suite Verde ✅] ➔ [Commit Sincronizado]
               </div>
             </div>
           </div>
