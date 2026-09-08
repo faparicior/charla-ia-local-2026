@@ -13328,6 +13328,61 @@ body.mode-document .btn-toggle-doc {
   flex-shrink: 0;
 }
 
+/* ==========================================================================
+   ESTABILIDAD VISUAL Y ANCLAJE FIJO DE CABECERA (PARTE 1 HARDWARE & MODELOS)
+   Elimina el salto visual (layout shift) de títulos entre diapositivas en Parte 1.
+   ========================================================================== */
+.deck-hardware-part1 .slide:not(.slide-hero) {
+  justify-content: flex-start !important;
+  padding-top: 3.5rem !important;
+  padding-bottom: 2.75rem !important;
+}
+
+.deck-hardware-part1 .slide:not(.slide-hero) .slide-content {
+  justify-content: flex-start !important;
+  height: 100% !important;
+  gap: 0.95rem !important;
+}
+
+.deck-hardware-part1 .slide:not(.slide-hero) .tag {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.15 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Permitir que los contenedores de contenido se expandan con solidez en Parte 1 */
+.deck-hardware-part1 .press-grid,
+.deck-hardware-part1 .versus-grid,
+.deck-hardware-part1 .gpu-grid,
+.deck-hardware-part1 .memory-pillars-grid,
+.deck-hardware-part1 .hospital-story-grid,
+.deck-hardware-part1 .quant-spectrum-grid,
+.deck-hardware-part1 .domino-comparison-grid,
+.deck-hardware-part1 .sensitivity-grid,
+.deck-hardware-part1 .nvfp4-flow-grid,
+.deck-hardware-part1 .autoround-grid-3col,
+.deck-hardware-part1 .hackers-grid,
+.deck-hardware-part1 .model-sizing-grid,
+.deck-hardware-part1 .chosen-models-grid,
+.deck-hardware-part1 .hybrid-split-grid,
+.deck-hardware-part1 .memory-story-grid,
+.deck-hardware-part1 .yarn-split-grid,
+.deck-hardware-part1 .rope-freq-grid,
+.deck-hardware-part1 .rope-comparison-grid,
+.deck-hardware-part1 .rope-dni-split-grid,
+.deck-hardware-part1 .rope-levels-split-grid,
+.deck-hardware-part1 .rope-iban-split-grid {
+  flex: 1;
+  min-height: 0;
+}
+
 @media print {
 
   html,
