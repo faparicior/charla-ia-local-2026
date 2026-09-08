@@ -19,6 +19,7 @@ function initDeck() {
   const btnTheme = document.getElementById('btn-theme');
   const btnPdf = document.getElementById('btn-pdf');
   const btnHelp = document.getElementById('btn-help');
+  const btnDualMode = document.getElementById('btn-dual-mode');
 
   let currentIndex = 0;
   let isOverview = false;
@@ -33,6 +34,34 @@ function initDeck() {
     const isDark = document.body.classList.toggle('theme-dark');
     localStorage.setItem('deck-theme', isDark ? 'dark' : 'light');
   }
+
+  // Cargar preferencia de Modo Dual (Charla por defecto / Documento opcional)
+  let isDocumentMode = localStorage.getItem('deck-doc-mode') === 'true';
+  if (isDocumentMode) {
+    document.body.classList.add('mode-document');
+  }
+
+  function updateDualModeUI() {
+    if (btnDualMode) {
+      btnDualMode.innerHTML = isDocumentMode ? '📖' : '⚡';
+      btnDualMode.title = isDocumentMode
+        ? 'Modo Documento activo (D para Modo Charla)'
+        : 'Modo Charla activo (D para Modo Documento)';
+    }
+    document.querySelectorAll('.btn-toggle-doc').forEach(btn => {
+      btn.innerHTML = isDocumentMode ? '⚡ Modo Charla' : '🔍 Ver Documento Completo';
+      btn.title = isDocumentMode ? 'Volver a vista simplificada de charla (D)' : 'Ver tabla y notas completas (D)';
+    });
+  }
+
+  function toggleDocumentMode(forceState) {
+    isDocumentMode = typeof forceState === 'boolean' ? forceState : !isDocumentMode;
+    document.body.classList.toggle('mode-document', isDocumentMode);
+    localStorage.setItem('deck-doc-mode', isDocumentMode ? 'true' : 'false');
+    updateDualModeUI();
+  }
+
+  updateDualModeUI();
 
   if (totalCounter) {
     totalCounter.textContent = slides.length;
@@ -208,11 +237,21 @@ function initDeck() {
   btnOverview?.addEventListener('click', () => toggleOverview());
   btnFullscreen?.addEventListener('click', toggleFullscreen);
   btnTheme?.addEventListener('click', toggleTheme);
+  btnDualMode?.addEventListener('click', () => toggleDocumentMode());
   btnPdf?.addEventListener('click', () => {
     if (isOverview) toggleOverview(false);
     window.print();
   });
   btnHelp?.addEventListener('click', () => toggleHelp());
+
+  // Delegación de clic para botones locales de cambio de modo en diapositivas
+  document.addEventListener('click', (e) => {
+    const toggleBtn = e.target.closest('.btn-toggle-doc');
+    if (toggleBtn) {
+      e.preventDefault();
+      toggleDocumentMode();
+    }
+  });
 
   helpModal?.addEventListener('click', (e) => {
     if (e.target === helpModal) toggleHelp(false);
@@ -281,6 +320,13 @@ function initDeck() {
       case 'T':
         e.preventDefault();
         toggleTheme();
+        break;
+      case 'd':
+      case 'D':
+        if (!e.ctrlKey && !e.metaKey) {
+          e.preventDefault();
+          toggleDocumentMode();
+        }
         break;
       case 'p':
       case 'P':
