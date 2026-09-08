@@ -1964,43 +1964,47 @@
             <div class="mermaid-diagram-wrap">
               <div class="mermaid">
                 flowchart TB
-                Start([🚀 Fernando inicia]) --> Form[Rellenar Formulario Conferencia]
-                Form --> ValidateClient{¿Validación Zod Cliente?}
+                Start([🚀 Fernando inicia]) --> Form["Rellenar Formulario Conferencia"]
+                Form --> ValidateClient{"¿Validación Zod Cliente?"}
 
-                ValidateClient -->|Inválido| Error1[Mostrar errores inline] --> Form
-                ValidateClient -->|Válido| Submit[POST /api/v1/conferences]
+                ValidateClient -->|Inválido| Error1["Mostrar errores inline"]
+                Error1 --> Form
+                ValidateClient -->|Válido| Submit["POST /api/v1/conferences"]
 
-                Submit --> ServerValidate{¿Payload Zod Válido?}
-                ServerValidate -->|Inválido| Error2[HTTP 400 Bad Request] --> Form
+                Submit --> ServerValidate{"¿Payload Zod Válido?"}
+                ServerValidate -->|Inválido| Error2["HTTP 400 Bad Request"]
+                Error2 --> Form
 
-                ServerValidate -->|Válido| CheckSlug{¿Slug Único en BD?}
-                CheckSlug -->|No| Error3[Sugerir slug alternativo] --> Form
+                ServerValidate -->|Válido| CheckSlug{"¿Slug Único en BD?"}
+                CheckSlug -->|No| Error3["Sugerir slug alternativo"]
+                Error3 --> Form
 
-                CheckSlug -->|Sí| CheckTier{¿Límite Free Tier BR-004?}
-                CheckTier -->|>= 5 Activas| Error4[HTTP 403: Modal Upgrade Pro] --> EndFail([Creación Abortada])
+                CheckSlug -->|Sí| CheckTier{"¿Límite Free Tier BR-004?"}
+                CheckTier -->|Activas >= 5| Error4["HTTP 403: Modal Upgrade Pro"]
+                Error4 --> EndFail([Creación Abortada])
 
-                CheckTier -->|< 5 Activas| Create[Conference.create - DRAFT] Create --> Publish[Conference.publishCfp -
-                  CFP_OPEN]
+                CheckTier -->|Activas < 5| Create["Conference.create (DRAFT)"]
+                Create --> Publish["Conference.publishCfp (CFP_OPEN)"]
 
-                  Publish --> RecordEvents[Registrar Eventos de Dominio]
-                  RecordEvents --> SaveDB[(Commit Tx: Agregado + Outbox)]
+                Publish --> RecordEvents["Registrar Eventos de Dominio"]
+                RecordEvents --> SaveDB[("Commit Tx: Agregado + Outbox")]
 
-                  SaveDB --> Success[201 Created + Redirección Dashboard]
-                  Success --> EndSuccess([✅ CfP URL Activa])
+                SaveDB --> Success["201 Created + Redirección Dashboard"]
+                Success --> EndSuccess([✅ CfP URL Activa])
 
-                  SaveDB -.->|Polling Asíncrono| OutboxWorker[Outbox Worker]
-                  OutboxWorker -.-> SendEmail[Email de bienvenida vía Resend]
+                SaveDB -.->|Polling Asíncrono| OutboxWorker["Outbox Worker"]
+                OutboxWorker -.-> SendEmail["Email de bienvenida vía Resend"]
 
-                  style Create fill:#1e1b4b,stroke:#6366f1,color:#fff
-                  style Publish fill:#064e3b,stroke:#10b981,color:#fff
-                  style SaveDB fill:#064e3b,stroke:#10b981,color:#fff
-                  style Success fill:#065f46,stroke:#34d399,color:#fff
-                  style OutboxWorker fill:#312e81,stroke:#818cf8,color:#fff
-                  style SendEmail fill:#312e81,stroke:#818cf8,color:#fff
-                  style Error1 fill:#7f1d1d,stroke:#ef4444,color:#fff
-                  style Error2 fill:#7f1d1d,stroke:#ef4444,color:#fff
-                  style Error3 fill:#78350f,stroke:#f59e0b,color:#fff
-                  style Error4 fill:#7f1d1d,stroke:#ef4444,color:#fff
+                style Create fill:#1e1b4b,stroke:#6366f1,color:#fff
+                style Publish fill:#064e3b,stroke:#10b981,color:#fff
+                style SaveDB fill:#064e3b,stroke:#10b981,color:#fff
+                style Success fill:#065f46,stroke:#34d399,color:#fff
+                style OutboxWorker fill:#312e81,stroke:#818cf8,color:#fff
+                style SendEmail fill:#312e81,stroke:#818cf8,color:#fff
+                style Error1 fill:#7f1d1d,stroke:#ef4444,color:#fff
+                style Error2 fill:#7f1d1d,stroke:#ef4444,color:#fff
+                style Error3 fill:#78350f,stroke:#f59e0b,color:#fff
+                style Error4 fill:#7f1d1d,stroke:#ef4444,color:#fff
               </div>
             </div>
           </div>
