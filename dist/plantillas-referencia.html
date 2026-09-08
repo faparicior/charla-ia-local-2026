@@ -13365,8 +13365,7 @@ body.mode-document .btn-toggle-doc {
 .deck-hardware-part1 .memory-pillars-grid,
 .deck-hardware-part1 .hospital-story-grid,
 .deck-hardware-part1 .quant-spectrum-grid,
-.deck-hardware-part1 .domino-comparison-grid,
-.deck-hardware-part1 .sensitivity-grid,
+.deck-hardware-part1 .domino-deck,
 .deck-hardware-part1 .nvfp4-flow-grid,
 .deck-hardware-part1 .autoround-grid-3col,
 .deck-hardware-part1 .hackers-grid,
@@ -13382,6 +13381,17 @@ body.mode-document .btn-toggle-doc {
 .deck-hardware-part1 .rope-iban-split-grid {
   flex: 1;
   min-height: 0;
+}
+
+.deck-hardware-part1 .domino-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.deck-hardware-part1 .domino-comparison-grid,
+.deck-hardware-part1 .sensitivity-grid {
+  flex: none;
 }
 
 @media print {
