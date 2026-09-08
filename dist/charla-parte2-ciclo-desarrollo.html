@@ -6527,32 +6527,34 @@ body.theme-dark .chosen-synergy-badge {
 .hybrid-arch-deck {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 0.85rem;
   width: 100%;
 }
 
-.hybrid-split-grid {
+/* Fila Superior: 2 Gráficos Visuales Panorámicos */
+.hybrid-visuals-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem;
   align-items: stretch;
 }
 
-.hybrid-cards-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  justify-content: space-between;
+/* Fila Inferior: 2 Tarjetas Conceptuales */
+.hybrid-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem;
+  align-items: stretch;
 }
 
 .hybrid-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 1.25rem 1.6rem;
+  padding: 0.95rem 1.35rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.45rem;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
   position: relative;
   transition: transform var(--transition-speed);
@@ -6585,7 +6587,7 @@ body.theme-dark .hybrid-card {
 
 .hybrid-card-title {
   font-family: var(--font-sans);
-  font-size: 1.26rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: var(--text-main);
 }
@@ -6625,8 +6627,8 @@ body.theme-dark .hybrid-badge.blue {
 .hybrid-vis-box {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 0.65rem 1rem;
+  border-radius: 9px;
+  padding: 0.5rem 0.9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6638,7 +6640,7 @@ body.theme-dark .hybrid-vis-box {
 
 .hybrid-vis-state {
   font-family: var(--font-mono);
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 800;
 }
 
@@ -6665,18 +6667,18 @@ body.theme-dark .hybrid-vis-state.blue {
 }
 
 .hybrid-desc {
-  font-size: 0.98rem;
-  line-height: 1.55;
+  font-size: 0.92rem;
+  line-height: 1.45;
   color: var(--text-muted);
 }
 
 .hybrid-formula-box {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   background: rgba(0, 0, 0, 0.03);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  padding: 0.45rem 0.8rem;
+  padding: 0.4rem 0.75rem;
   color: var(--text-main);
   text-align: center;
 }
@@ -6685,24 +6687,16 @@ body.theme-dark .hybrid-formula-box {
   background: rgba(255, 255, 255, 0.04);
 }
 
-/* Columna Derecha: Bloque 3:1 + Gráfico de Curva de Memoria */
-.hybrid-visual-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  justify-content: space-between;
-}
-
+/* Gráficos Visuales de Cabecera */
 .hybrid-block-stage {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 1rem 1.4rem;
+  padding: 0.85rem 1.35rem 0.95rem;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
-  flex: 1;
 }
 
 body.theme-dark .hybrid-block-stage {
@@ -6740,8 +6734,8 @@ body.theme-dark .hybrid-block-stage {
 
 .hybrid-svg-viewport {
   width: 100%;
-  flex: 1;
-  min-height: 125px;
+  min-height: 200px;
+  height: 205px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
@@ -6759,14 +6753,14 @@ body.theme-dark .hybrid-svg-viewport {
 .hybrid-svg-viewport svg {
   width: 100%;
   height: 100%;
-  max-height: 140px;
+  max-height: 205px;
 }
 
 /* Gráfico de curva de memoria */
 .hybrid-chart-viewport {
   width: 100%;
-  flex: 1;
-  min-height: 135px;
+  min-height: 200px;
+  height: 205px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
@@ -6784,7 +6778,7 @@ body.theme-dark .hybrid-chart-viewport {
 .hybrid-chart-viewport svg {
   width: 100%;
   height: 100%;
-  max-height: 155px;
+  max-height: 205px;
 }
 
 /* Banner de impacto en KV Cache */
@@ -13422,9 +13416,9 @@ body.mode-document .btn-toggle-doc {
   gap: 1.15rem;
 }
 
-.deck-hardware-part1 .hybrid-split-grid {
-  flex: 1;
-  min-height: 0;
+.deck-hardware-part1 .hybrid-visuals-grid,
+.deck-hardware-part1 .hybrid-cards-grid {
+  flex: none;
 }
 
 @media print {
