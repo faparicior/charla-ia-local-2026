@@ -184,11 +184,12 @@ h3 {
 }
 
 .subtitle {
-  font-size: 1.8rem;
-  color: #383c46;
+  font-size: 1.8rem !important;
+  color: var(--text-muted);
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.55 !important;
   max-width: 1100px;
+  margin-top: -0.85rem !important;
 }
 
 p {
@@ -272,14 +273,14 @@ body.theme-dark .tag {
 }
 
 .buffet-intro h2 {
-  font-size: 5rem;
-  line-height: 1.04;
+  font-size: 4.5rem;
+  line-height: 1.1;
 }
 
 .buffet-intro p {
-  font-size: 1.55rem;
-  line-height: 1.65;
-  color: var(--text-main);
+  font-size: 1.8rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
 
 .buffet-card {
@@ -13840,7 +13841,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Caso de Estudio • Rebelión Dev</div>
         <h2>Especial GitHub Copilot: <span class="serif-italic">La crisis de los Refunds</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           La eliminación unilateral de la tarifa plana ilimitada provocó acusaciones de <em>bait-and-switch</em>,
           cancelaciones masivas y disputas bancarias.
         </p>
@@ -13923,7 +13924,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Inferencia por API</div>
         <h2>Modelos Cloud: Occidentales vs. Asiáticos</h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Comparativa de proveedores SaaS: coste per-token, privacidad, cuotas y riesgo de bloqueo.
         </p>
 
@@ -14002,7 +14003,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Infraestructura Dedicada</div>
         <h2>Tu Infraestructura: GPUs Cloud vs. Local</h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Dos alternativas para ejecutar modelos abiertos con control total y sin peajes per-token.
         </p>
 
@@ -14081,7 +14082,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Análisis Pentagonal</div>
         <h2>Evaluación Radar de las 4 Alternativas</h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Comparativa en 5 dimensiones clave: Privacidad, Predecibilidad de Costes, Autonomía, Ergonomía y Potencia.
         </p>
 
@@ -14255,7 +14256,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">La Vía Intermedia</div>
         <h2>Alquilar GPUs a terceros para Open Weights</h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Para correr modelos masivos en servidores dedicados on-demand sin pagar peaje de token propietario.
         </p>
 
@@ -14312,7 +14313,7 @@ gap: 0.3rem;
         <div class="tag">Marco Mental • Las 3 Variables Clave</div>
         <h2>El Trilema de la IA Local: <span class="serif-italic" style="color: #0284c7;">Memoria, Calidad y
             Velocidad</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Toda decisión de hardware, arquitectura y cuantización busca el equilibrio perfecto entre estos tres pilares.
         </p>
 
@@ -14403,7 +14404,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Anatomía de la Memoria • VRAM &amp; Hardware</div>
         <h2>¿En qué se gasta la Memoria? <span class="serif-italic">Pesos vs. KV Cache</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           El tamaño del modelo es solo la base fija: cada conversación activa y documento devora memoria dinámica token
           a token.
         </p>
@@ -14554,7 +14555,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos (100% Activo)</div>
         <h2>Modelos Densos: <span class="serif-italic" style="color: #d97706;">La Junta Médica Completa</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Multiplicar 70 mil millones de parámetros en cada palabra generada para responder a una consulta simple.
         </p>
 
@@ -14618,7 +14619,7 @@ gap: 0.3rem;
         <div class="tag">Arquitectura de Modelos • Mixture of Experts (MoE)</div>
         <h2>Modelos MoE: <span class="serif-italic" style="color: #0284c7;">El Servicio de Triaje Inteligente</span>
         </h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           La sabiduría de una enciclopedia médica de 122B con la velocidad y coste de una consulta ágil de 10B.
         </p>
 
@@ -14681,7 +14682,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #16a34a;">La Zona Ricitos de Oro</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Consumo de VRAM según cuantización: el <em>sweet spot</em> para estaciones locales y chips de 128 GB (DGX
           Spark / GB10 / Mac).
         </p>
@@ -14842,7 +14843,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Impacto real de la cuantización en razonamiento y código: desde la fidelidad intacta de FP8 hasta el colapso
           en 3 bits.
         </p>
@@ -15016,7 +15017,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
         <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Por qué un "89% en MMLU" es engañoso: en cadenas de pensamiento largas (DeepSeek R1 / Qwen Thinking), el error
           se multiplica exponencialmente.
         </p>
@@ -15142,7 +15143,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           ¿Cómo meter un modelo gigante en 4 bits sin destruir su inteligencia? El flujo conectado en 3 pasos:
         </p>
 
@@ -15257,7 +15258,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           ¿Por qué Qwen 122B MoE no colapsa en 4 bits? El truco de Intel: optimizar el redondeo por bloques sin depender
           de chips propietarios.
         </p>
@@ -15355,7 +15356,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Con las matemáticas claras (VRAM, cuantización INT4/NVFP4 y el ahorro vs Cloud)... llega el momento de
           adquirir el aparato.
         </p>
@@ -15378,7 +15379,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
         <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           La fórmula de la soberanía: hardware propio + modelos abiertos punteros = alquimia artesanal en local.
         </p>
 
@@ -15442,7 +15443,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           De la desincronización de energía al vacío de kernels oficiales: la frustración técnica de los primeros
           compradores de GB10.
         </p>
@@ -15529,7 +15530,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           La promesa de ejecutar NVFP4 en hardware de consumo... "pero a finales de 2026".
         </p>
 
@@ -15552,7 +15553,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
-        <p class="subtitle" style="margin-top: -1rem; font-size: 1.05rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Cuando los drivers propietarios fallan o se retrasan, los artesanos y la comunidad abren el camino a base de
           kernels y parches.
         </p>
@@ -15905,7 +15906,7 @@ gap: 0.3rem;
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
         </h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Estrategia de doble motor para una estación de 128 GB: máxima lógica y arquitectura profunda + generación de
           código ultrarrápida.
         </p>
@@ -16057,7 +16058,7 @@ gap: 0.3rem;
         <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
         <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
             Estable</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Por qué el patrón híbrido 3:1 de Qwen permite 256K tokens de contexto sin devorar la VRAM: estado recurrente
           fijo vs. caché acumulativo.
         </p>
@@ -16237,7 +16238,7 @@ gap: 0.3rem;
         <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
         <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #10b981;">¿Dónde vive la
             memoria?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           La diferencia radical entre acumular folios en una estantería ($O(N)$) y sobreescribir una matriz asociativa
           ($O(1)$) en VRAM.
         </p>
@@ -16348,7 +16349,7 @@ gap: 0.3rem;
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
         <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #10b981;">Contexto Masivo en
             Local</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a
           YaRN y la arquitectura 3:1.
         </p>
@@ -16525,7 +16526,7 @@ gap: 0.3rem;
         <div class="tag">Intuición Visual • ¿Cómo entiende el orden un LLM?</div>
         <h2>El Reloj de la Memoria: <span class="serif-italic" style="color: #6366f1;">¿Por qué hablamos de
             Frecuencias?</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Un LLM no lee palabra a palabra: recibe todo a la vez. Para no confundir el orden, le asigna a cada palabra un
           <strong>reloj de 3 manecillas</strong>.
         </p>
@@ -16647,7 +16648,7 @@ gap: 0.3rem;
         <div class="tag">Pedagogía Visual • El DNI de la Palabra</div>
         <h2>El Sello de Tiempo en RoPE: <span class="serif-italic" style="color: #6366f1;">No son capas, es un
             DNI</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Las frecuencias no son capas separadas. Cada palabra lleva grabada su propia fecha completa:
           <code>[Día : Hora : Segundo]</code>.
         </p>
@@ -16793,7 +16794,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
         <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #10b981;">Juntas, Próximas y Alejadas</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           Un LLM resuelve la gramática inmediata sin perder la capacidad de recordar datos a 1 millón de palabras de distancia.
         </p>
 
@@ -16933,7 +16934,7 @@ gap: 0.3rem;
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
         <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
-        <p class="subtitle" style="margin-top: -1rem;">
+        <p class="subtitle" style="margin-top: -0.85rem;">
           No hay 3 vectores por token: hay UN SOLO vector de 4.096 dimensiones que empaqueta país, banco y cuenta.
         </p>
 
