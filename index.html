@@ -2492,13 +2492,13 @@
 
                 <div class="hybrid-vis-box">
                   <span class="hybrid-vis-state green">Estado Recurrente S<sub>t</sub> Fijo</span>
-                  <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong>0 MB extra</strong></span>
+                  <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong style="color: #16a34a;">0 MB extra</strong></span>
                 </div>
 
                 <p class="hybrid-desc">
-                  <strong>Comprime el contexto en una matriz fija:</strong> Actualiza un estado asociativo mediante la
-                  <em>Regla Delta</em> sin guardar vectores $K$ y $V$. El consumo de VRAM no crece durante la
-                  conversación.
+                  <strong>Comprime el contexto en una matriz asociativa fija:</strong> Actualiza sus pesos en cada paso mediante la
+                  <em>Regla Delta</em> sin almacenar vectores K y V. El consumo de memoria es <strong>100% plano</strong> e independiente
+                  de la duración de la conversación o el tamaño del repositorio.
                 </p>
 
                 <div class="hybrid-formula-box">
@@ -2515,12 +2515,13 @@
 
                 <div class="hybrid-vis-box">
                   <span class="hybrid-vis-state blue">KV Cache Dinámico Acumulativo</span>
-                  <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong>Crece token a token</strong></span>
+                  <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong style="color: #0284c7;">Crece token a token</strong></span>
                 </div>
 
                 <p class="hybrid-desc">
-                  <strong>Recuperación global exacta:</strong> Auto-atención completa Softmax para dependencias de
-                  código a larga distancia. <strong>Es la única capa que almacena KV Cache</strong>.
+                  <strong>Recuperación global de alta fidelidad:</strong> Auto-atención Softmax completa reservada para enlazar
+                  dependencias críticas a larga distancia. <strong>Es la única capa que almacena KV Cache</strong>, reduciendo el gasto de
+                  memoria global en un <strong>75%</strong>.
                 </p>
 
                 <div class="hybrid-formula-box">
@@ -2530,8 +2531,10 @@
 
             </div>
 
-            <!-- Columna Derecha: Ilustración 3D + Bloque Repetitivo 3:1 -->
+            <!-- Columna Derecha: Ilustración 3D + Bloque Repetitivo 3:1 + Curva de Memoria -->
             <div class="hybrid-visual-col">
+
+              <!-- Box 1: Anatomía del Bloque Repetitivo 3:1 -->
               <div class="hybrid-block-stage">
                 <div class="hybrid-block-title-row">
                   <span class="hybrid-block-heading">
@@ -2541,7 +2544,7 @@
                 </div>
 
                 <div class="hybrid-svg-viewport">
-                  <svg viewBox="0 0 520 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg viewBox="0 0 520 145" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <linearGradient id="gradDeltaNet" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stop-color="#22c55e" />
@@ -2557,71 +2560,126 @@
                     </defs>
 
                     <!-- Línea Base / Eje Inferior -->
-                    <line x1="20" y1="140" x2="500" y2="140" stroke="var(--border-medium)" stroke-width="1.5"
+                    <line x1="20" y1="110" x2="500" y2="110" stroke="var(--border-medium)" stroke-width="1.5"
                       stroke-linecap="round" opacity="0.6" />
 
                     <!-- BLOQUE 1 (3 DeltaNet + 1 Attention) -->
-                    <path d="M 28 28 L 28 20 L 126 20 L 126 28" fill="none" stroke="#ea580c" stroke-width="1.5"
+                    <path d="M 28 20 L 28 12 L 126 12 L 126 20" fill="none" stroke="#ea580c" stroke-width="1.5"
                       stroke-linecap="round" />
-                    <text x="77" y="13" text-anchor="middle" fill="#ea580c" font-family="var(--font-mono)" font-size="9"
+                    <text x="77" y="8" text-anchor="middle" fill="#ea580c" font-family="var(--font-mono)" font-size="9"
                       font-weight="800" letter-spacing="0.05em">BLOQUE 3:1 REPETITIVO</text>
 
-                    <rect x="28" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="28" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="53" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="53" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="78" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="78" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="108" y="30" width="18" height="110" rx="3.5" fill="url(#gradAttention)"
+                    <rect x="108" y="20" width="18" height="90" rx="3.5" fill="url(#gradAttention)"
                       filter="url(#subtleGlow)" />
 
                     <!-- BLOQUE 2 (3 DeltaNet + 1 Attention) -->
-                    <rect x="146" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="146" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="171" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="171" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="196" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="196" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="226" y="30" width="18" height="110" rx="3.5" fill="url(#gradAttention)"
+                    <rect x="226" y="20" width="18" height="90" rx="3.5" fill="url(#gradAttention)"
                       filter="url(#subtleGlow)" />
 
                     <!-- BLOQUE 3 (3 DeltaNet + 1 Attention) -->
-                    <rect x="264" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="264" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="289" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="289" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="314" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="314" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="344" y="30" width="18" height="110" rx="3.5" fill="url(#gradAttention)"
+                    <rect x="344" y="20" width="18" height="90" rx="3.5" fill="url(#gradAttention)"
                       filter="url(#subtleGlow)" />
 
                     <!-- BLOQUE 4 (3 DeltaNet + 1 Attention) -->
-                    <rect x="382" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="382" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="407" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="407" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="432" y="56" width="16" height="84" rx="3.5" fill="url(#gradDeltaNet)"
+                    <rect x="432" y="40" width="16" height="70" rx="3.5" fill="url(#gradDeltaNet)"
                       filter="url(#subtleGlow)" />
-                    <rect x="462" y="30" width="18" height="110" rx="3.5" fill="url(#gradAttention)"
+                    <rect x="462" y="20" width="18" height="90" rx="3.5" fill="url(#gradAttention)"
                       filter="url(#subtleGlow)" />
 
                     <!-- Indicador continuo -->
-                    <text x="495" y="100" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="14"
+                    <text x="495" y="75" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="14"
                       font-weight="700">···</text>
 
-                    <!-- Leyenda Minimalista Inferior -->
-                    <circle cx="140" cy="161" r="4.5" fill="#16a34a" />
-                    <text x="151" y="164" fill="var(--text-main)" font-family="var(--font-sans)" font-size="9"
-                      font-weight="700">Gated DeltaNet <tspan fill="var(--text-dim)" font-size="8">(75% • Memoria
-                        Constante O(1))</tspan></text>
+                    <!-- Leyenda Minimalista Inferior con Separación Óptima -->
+                    <circle cx="50" cy="132" r="5" fill="#16a34a" />
+                    <text x="62" y="136" fill="var(--text-main)" font-family="var(--font-sans)" font-size="10"
+                      font-weight="700">Gated DeltaNet <tspan fill="var(--text-dim)" font-size="9">(75% • Memoria Constante O(1))</tspan></text>
 
-                    <circle cx="340" cy="161" r="4.5" fill="#0284c7" />
-                    <text x="351" y="164" fill="var(--text-main)" font-family="var(--font-sans)" font-size="9"
-                      font-weight="700">Gated Attention <tspan fill="var(--text-dim)" font-size="8">(25% • KV Cache
-                        Dinámico O(N))</tspan></text>
+                    <circle cx="310" cy="132" r="5" fill="#0284c7" />
+                    <text x="322" y="136" fill="var(--text-main)" font-family="var(--font-sans)" font-size="10"
+                      font-weight="700">Gated Attention <tspan fill="var(--text-dim)" font-size="9">(25% • KV Cache O(N))</tspan></text>
                   </svg>
                 </div>
               </div>
+
+              <!-- Box 2: Gráfico de Curva de VRAM (Memoria Fija vs Creciente) -->
+              <div class="hybrid-block-stage">
+                <div class="hybrid-block-title-row">
+                  <span class="hybrid-block-heading">
+                    <span>📈</span> Curva de VRAM: Memoria Fija O(1) vs. Crecimiento O(N)
+                  </span>
+                  <span class="hybrid-block-pill" style="color: #0284c7; background: rgba(2, 132, 199, 0.1); border-color: rgba(2, 132, 199, 0.25);">
+                    Escala 0 ➔ 256K Tokens
+                  </span>
+                </div>
+
+                <div class="hybrid-chart-viewport">
+                  <svg viewBox="0 0 520 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Guías Horizontales -->
+                    <line x1="55" y1="18" x2="495" y2="18" stroke="var(--border-subtle)" stroke-dasharray="3 3" stroke-width="1" />
+                    <text x="45" y="22" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">45 GB</text>
+
+                    <line x1="55" y1="52" x2="495" y2="52" stroke="var(--border-subtle)" stroke-dasharray="3 3" stroke-width="1" />
+                    <text x="45" y="56" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">30 GB</text>
+
+                    <line x1="55" y1="86" x2="495" y2="86" stroke="var(--border-subtle)" stroke-dasharray="3 3" stroke-width="1" />
+                    <text x="45" y="90" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">15 GB</text>
+
+                    <line x1="55" y1="118" x2="495" y2="118" stroke="var(--border-medium)" stroke-width="1.6" />
+                    <text x="45" y="122" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">0 GB</text>
+
+                    <!-- Eje Y -->
+                    <line x1="55" y1="12" x2="55" y2="118" stroke="var(--border-medium)" stroke-width="1.6" />
+
+                    <!-- Etiquetas Eje X -->
+                    <text x="60" y="135" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">1 Token</text>
+                    <text x="185" y="135" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">64K</text>
+                    <text x="315" y="135" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">128K</text>
+                    <text x="455" y="135" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="9.5">256K</text>
+
+                    <!-- Curva 1: 100% Attention (Rampa descontrolada) -->
+                    <path d="M 60 117 Q 260 98 440 22" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4 3" />
+                    <circle cx="440" cy="22" r="4" fill="#ef4444" />
+                    <rect x="295" y="8" width="185" height="19" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="0.8" />
+                    <text x="387" y="21" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="9" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
+
+                    <!-- Curva 2: Híbrido 3:1 Qwen (Crecimiento suave amortiguado 4x) -->
+                    <path d="M 60 117 Q 270 112 465 94" fill="none" stroke="#0284c7" stroke-width="2.8" />
+                    <circle cx="465" cy="94" r="4.5" fill="#0284c7" />
+                    <rect x="315" y="68" width="170" height="19" rx="4" fill="rgba(2, 132, 199, 0.15)" stroke="#0284c7" stroke-width="0.8" />
+                    <text x="400" y="81" text-anchor="middle" fill="#0284c7" font-family="var(--font-sans)" font-size="9" font-weight="800">Híbrido 3:1: ~10 GB (4x Menos VRAM)</text>
+
+                    <!-- Curva 3: DeltaNet (100% Constante O(1)) -->
+                    <line x1="60" y1="116" x2="475" y2="116" stroke="#16a34a" stroke-width="3" />
+                    <circle cx="475" cy="116" r="4.5" fill="#16a34a" />
+                    <rect x="75" y="94" width="182" height="19" rx="4" fill="rgba(22, 163, 74, 0.15)" stroke="#16a34a" stroke-width="0.8" />
+                    <text x="166" y="107" text-anchor="middle" fill="#15803d" font-family="var(--font-sans)" font-size="9" font-weight="800">DeltaNet O(1): Fijo ~100 MB (0 extra)</text>
+                  </svg>
+                </div>
+              </div>
+
             </div>
 
           </div>
