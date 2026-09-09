@@ -40,8 +40,8 @@ At any time:
 | 2 | Tradeoffs Board | `etc/docs/inception/2-tradeoffs.md` |
 | 3 | User Personas | `etc/docs/inception/3-personas/` |
 | 4 | Empathy Map | `etc/docs/inception/4-empathy-map.md` |
-| 5 | Feature Brainstorming | `etc/docs/inception/5-brainstorming.md` |
-| 6 | User Journey Mapping | `etc/docs/inception/6-user-journeys/` |
+| 5 | User Journey Mapping | `etc/docs/inception/5-user-journeys/` |
+| 6 | Feature Brainstorming | `etc/docs/inception/6-brainstorming.md` |
 | 7 | Features & Sequencing | `etc/docs/inception/7-features-and-sequencing.md` |
 | 8 | MVP Canvas | `etc/docs/inception/8-mvp-canvas.md` |
 

@@ -1016,23 +1016,214 @@
 
 
     <!-- ====================================================================
-         SLIDE: PASO 5 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
+         SLIDE: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step5-brainstorming">
+    <section class="slide" id="slide-step5-journeys">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0891b2;">Fase 1 • Inception
+            Workshop • Paso 5</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(6, 182, 212, 0.12); color: #0891b2; border-color: rgba(6, 182, 212, 0.3);">Fase 1 •
+          Inception Workshop • Paso 5 de 8</div>
+        <h2>Paso 5: User Journey Mapping <span class="serif-italic" style="color: #06b6d4;">¿Cuál es el recorrido
+            cronológico E2E?</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Mapear el ciclo de vida de la conferencia: interacciones separadas por semanas coordinadas por el estado del
+          evento.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box cyan">
+              <div class="sdlc-hero-quote">
+                “El software no vive aislado en endpoints: <u>es una cadena temporal guiada por el ciclo de vida del
+                  evento</u>.”
+              </div>
+              <div class="sdlc-hero-sub doc-only">
+                Una conferencia no ocurre en 5 minutos: la llamada a ponentes se abre semanas antes de las votaciones.
+                El journey estructura el flujo en el tiempo.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">⏳</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">El Ciclo Temporal de la Conferencia</div>
+                  <div class="sdlc-point-desc doc-only">5 etapas separadas por días o semanas, unificadas por la máquina de
+                    estados: <code>Draft</code> ➔ <code>C4P Open</code> ➔ <code>Voting</code> ➔ <code>Published</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">👥</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Actores Coordinados en el Tiempo</div>
+                  <div class="sdlc-point-desc doc-only">Fernando en Día 1 (Setup), Andrea en Semanas 1-4 (Envío CfP), Fernando en
+                    Semana 5 (Votación), ambos en Semana 6 (Agenda).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📊</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">Del Journey a las Funcionalidades</div>
+                  <div class="sdlc-point-desc doc-only">Mapear la experiencia real antes de inventar pantallas: los puntos de
+                    fricción y vacíos descubiertos aquí alimentarán directamente el backlog del Paso 6.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill cyan">
+              <span>⚡ Comando Inception:</span>
+              <code>/inception-workshop</code>
+              <span>• Paso 5: User Journey Mapping</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Consola / Terminal Markdown -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/inception/5-user-journeys/README.md</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Charla / Documento (D)">🔍 Ver Documento Completo</button>
+              <span class="sdlc-term-tag"
+                style="background: rgba(6, 182, 212, 0.18); color: #22d3ee; border-color: rgba(6, 182, 212, 0.3);">~640
+                TOKENS</span>
+            </div>
+
+            <div class="sdlc-terminal-body">
+              <div class="md-line md-h1"><span class="md-hash">#</span> 5. User Journey Mapping: Conference Lifecycle
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 5.1 The Composite View (Línea Temporal por
+                Estados)</div>
+              <div class="md-table-wrap">
+                <table class="md-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 24%;">Plazo Temporal</th>
+                      <th style="width: 30%;">Estado Conferencia</th>
+                      <th style="width: 20%;">Actor Activo</th>
+                      <th>Flujo Funcional Clave</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="talk-focus">
+                      <td class="md-bold">Día 1</td>
+                      <td><code>Draft</code> ➔ <code>C4P Open</code></td>
+                      <td class="md-accent">Fernando</td>
+                      <td>Crear conferencia, fechas y publicar link del CfP</td>
+                    </tr>
+                    <tr class="talk-focus">
+                      <td class="md-bold">Semanas 1-4</td>
+                      <td><code>C4P Open</code></td>
+                      <td class="md-good">Andrea (Speaker)</td>
+                      <td>Crear cuenta, rellenar bio y enviar propuestas</td>
+                    </tr>
+                    <tr class="talk-focus">
+                      <td class="md-bold">Semana 5</td>
+                      <td><code>C4P Closed</code> ➔ <code>Voting</code></td>
+                      <td class="md-accent">Fernando</td>
+                      <td>Revisión, puntuación y selección de charlas</td>
+                    </tr>
+                    <tr>
+                      <td class="md-bold">Semana 6</td>
+                      <td><code>Published</code></td>
+                      <td>Fernando &amp; Andrea</td>
+                      <td>Asignación de slots, confirmación y agenda pública</td>
+                    </tr>
+                    <tr class="doc-only">
+                      <td class="md-bold">Operacional</td>
+                      <td><code>All States</code></td>
+                      <td>Fernando</td>
+                      <td>Despliegue Docker Compose en hosting $0/mes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="doc-only">
+                <div class="md-line md-h2"><span class="md-hash">##</span> 5.2 Matrix: Functional Journeys Overview</div>
+                <div class="md-table-wrap">
+                  <table class="md-table">
+                    <thead>
+                      <tr>
+                        <th>Journey Link</th>
+                        <th class="td-center">Actor Principal</th>
+                        <th class="td-center">Objetivo Clave</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="md-bold">Journey 1: Setup</td>
+                        <td class="td-center md-accent">Fernando</td>
+                        <td class="td-center md-good">Configurar evento y abrir CfP</td>
+                      </tr>
+                      <tr>
+                        <td class="md-bold">Journey 2: Submission</td>
+                        <td class="td-center md-good">Andrea</td>
+                        <td class="td-center md-good">Enviar propuesta y co-ponentes</td>
+                      </tr>
+                      <tr>
+                        <td class="md-bold">Journey 3: Selection</td>
+                        <td class="td-center md-accent">Fernando</td>
+                        <td class="td-center md-good">Puntuar y cerrar votación</td>
+                      </tr>
+                      <tr>
+                        <td class="md-bold">Journey 4: Acceptance</td>
+                        <td class="td-center">Ambos</td>
+                        <td class="td-center md-good">Confirmar ponencias y agenda</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Inferior Resumen -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> El User Journey le enseña a la IA el ciclo de vida del dominio. El
+            modelo comprende que Andrea envía su propuesta semanas antes de que Fernando abra las votaciones,
+            desacoplando la Ola 1 del resto.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SLIDE: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
+         ==================================================================== -->
+    <section class="slide" id="slide-step6-brainstorming">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1;">Fase 1 • Inception
-            Workshop • Paso 5</span>
+            Workshop • Paso 6</span>
         </div>
         <div class="tag"
           style="background: rgba(99, 102, 241, 0.12); color: #6366f1; border-color: rgba(99, 102, 241, 0.3);">Fase 1 •
-          Inception Workshop • Paso 5 de 8</div>
-        <h2>Paso 5: Features Brainstorming <span class="serif-italic" style="color: #6366f1;">¿Qué ideas concretas
-            resuelven el dolor?</span></h2>
+          Inception Workshop • Paso 6 de 8</div>
+        <h2>Paso 6: Features Brainstorming <span class="serif-italic" style="color: #6366f1;">¿Qué ideas concretas
+            resuelven los huecos del Journey?</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Filtrado implacable: ninguna funcionalidad entra sin vincularse explícitamente a Fernando o Andrea y a las
-          fronteras del producto.
+          Filtrado implacable: ninguna funcionalidad entra sin responder a una fricción real del Paso 5 y vincularse
+          a Fernando o Andrea dentro de las fronteras de SessioFlow.
         </p>
 
         <div class="sdlc-console-deck">
@@ -1040,12 +1231,12 @@
           <div class="sdlc-explain-col">
             <div class="sdlc-hero-box indigo">
               <div class="sdlc-hero-quote">
-                “Proponer features sin dolor previo es alucinar: <u>cada función debe curar una fricción probada de
-                  Fernando o Andrea</u>.”
+                “Proponer features sin dolor previo es alucinar: <u>cada función debe curar un hueco descubierto en el
+                  User Journey</u>.”
               </div>
               <div class="sdlc-hero-sub doc-only">
                 Los LLMs tienden a sugerir pasarelas de pago, paneles SaaS complejos o IA generativa. El brainstorming
-                filtra contra la Matriz de Fronteras.
+                filtra contra la Matriz de Fronteras y el Journey.
               </div>
             </div>
 
@@ -1062,18 +1253,18 @@
               <div class="sdlc-point-item">
                 <div class="sdlc-point-icon">🎯</div>
                 <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">Trazabilidad Vinculante con Personas</div>
+                  <div class="sdlc-point-title">Trazabilidad Vinculante con Personas y Journeys</div>
                   <div class="sdlc-point-desc doc-only">Cada feature declara su enlace obligatorio al dolor:
-                    <code>Fernando Pain 2 (Excels)</code> ➔ <code>Review &amp; Score Sessions</code>.</div>
+                    <code>Fernando Pain 2 (Excels) / Journey 3</code> ➔ <code>Review &amp; Score Sessions</code>.</div>
                 </div>
               </div>
 
               <div class="sdlc-point-item">
                 <div class="sdlc-point-icon">🚦</div>
                 <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">Semáforo de Certeza y Esfuerzo</div>
-                  <div class="sdlc-point-desc doc-only">Clasificación implacable: 🟢 Verde (bien entendida), 🟡 Amarilla
-                    (integración email a afinar), 🔴 Rechazada (viola el Paso 1).</div>
+                  <div class="sdlc-point-title">Semáforo de Certeza y Poda Implacable</div>
+                  <div class="sdlc-point-desc doc-only">Clasificación implacable: 🟢 Verde (bien entendida en el Journey), 🟡 Amarilla
+                    (integración email a afinar), 🔴 Rechazada (Stripe viola las fronteras del Paso 1).</div>
                 </div>
               </div>
             </div>
@@ -1081,7 +1272,7 @@
             <div class="sdlc-skill-pill indigo">
               <span>⚡ Comando Inception:</span>
               <code>/inception-workshop</code>
-              <span>• Paso 5: Features Brainstorming</span>
+              <span>• Paso 6: Features Brainstorming</span>
             </div>
           </div>
 
@@ -1171,200 +1362,9 @@
         <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
           <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Regla de Oro Crafter:</strong> La complacencia de los LLMs se destruye en el Paso 5: si una
+            <strong>Regla de Oro Crafter:</strong> La complacencia de los LLMs se destruye en el Paso 6: si una
             propuesta viola las fronteras de SessioFlow (como meter pasarela de pagos o analítica compleja), queda
             fulminada antes de llegar al backlog.
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ====================================================================
-         SLIDE: PASO 6 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
-         ==================================================================== -->
-    <section class="slide" id="slide-step6-journeys">
-      <div class="slide-content" style="gap: 1.15rem;">
-        <div class="deck-back-bar">
-          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
-          <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0891b2;">Fase 1 • Inception
-            Workshop • Paso 6</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(6, 182, 212, 0.12); color: #0891b2; border-color: rgba(6, 182, 212, 0.3);">Fase 1 •
-          Inception Workshop • Paso 6 de 8</div>
-        <h2>Paso 6: User Journey Mapping <span class="serif-italic" style="color: #06b6d4;">¿Cuál es el recorrido
-            cronológico E2E?</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Mapear el ciclo de vida de la conferencia: interacciones separadas por semanas coordinadas por el estado del
-          evento.
-        </p>
-
-        <div class="sdlc-console-deck">
-          <!-- Columna Izquierda: Explicación Conceptual -->
-          <div class="sdlc-explain-col">
-            <div class="sdlc-hero-box cyan">
-              <div class="sdlc-hero-quote">
-                “El software no vive aislado en endpoints: <u>es una cadena temporal guiada por el ciclo de vida del
-                  evento</u>.”
-              </div>
-              <div class="sdlc-hero-sub doc-only">
-                Una conferencia no ocurre en 5 minutos: la llamada a ponentes se abre semanas antes de las votaciones.
-                El journey estructura el flujo en el tiempo.
-              </div>
-            </div>
-
-            <div class="sdlc-points-card">
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">⏳</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">El Ciclo Temporal de la Conferencia</div>
-                  <div class="sdlc-point-desc doc-only">5 etapas separadas por días o semanas, unificadas por la máquina de
-                    estados: <code>Draft</code> ➔ <code>C4P Open</code> ➔ <code>Voting</code> ➔ <code>Published</code>.
-                  </div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">👥</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">Actores Coordinados en el Tiempo</div>
-                  <div class="sdlc-point-desc doc-only">Fernando en Día 1 (Setup), Andrea en Semanas 1-4 (Envío CfP), Fernando en
-                    Semana 5 (Votación), ambos en Semana 6 (Agenda).</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">📊</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">Feature Coverage Matrix (Auditoría)</div>
-                  <div class="sdlc-point-desc doc-only">Verificación rigurosa: cada funcionalidad Must-have del Paso 5 debe tener
-                    al menos un journey asociado antes de pasar a la Ola 1.</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="sdlc-skill-pill cyan">
-              <span>⚡ Comando Inception:</span>
-              <code>/inception-workshop</code>
-              <span>• Paso 6: User Journey Mapping</span>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Consola / Terminal Markdown -->
-          <div class="sdlc-terminal">
-            <div class="code-header">
-              <div class="code-dots">
-                <div class="code-dot red"></div>
-                <div class="code-dot yellow"></div>
-                <div class="code-dot green"></div>
-              </div>
-              <div class="code-title">📄 docs/inception/5-user-journeys/README.md</div>
-              <button class="btn-toggle-doc" type="button" title="Alternar Modo Charla / Documento (D)">🔍 Ver Documento Completo</button>
-              <span class="sdlc-term-tag"
-                style="background: rgba(6, 182, 212, 0.18); color: #22d3ee; border-color: rgba(6, 182, 212, 0.3);">~640
-                TOKENS</span>
-            </div>
-
-            <div class="sdlc-terminal-body">
-              <div class="md-line md-h1"><span class="md-hash">#</span> 5. User Journey Mapping: Conference Lifecycle
-              </div>
-
-              <div class="md-line md-h2"><span class="md-hash">##</span> 5.1 The Composite View (Línea Temporal por
-                Estados)</div>
-              <div class="md-table-wrap">
-                <table class="md-table">
-                  <thead>
-                    <tr>
-                      <th style="width: 24%;">Plazo Temporal</th>
-                      <th style="width: 30%;">Estado Conferencia</th>
-                      <th style="width: 20%;">Actor Activo</th>
-                      <th>Flujo Funcional Clave</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="talk-focus">
-                      <td class="md-bold">Día 1</td>
-                      <td><code>Draft</code> ➔ <code>C4P Open</code></td>
-                      <td class="md-accent">Fernando</td>
-                      <td>Crear conferencia, fechas y publicar link del CfP</td>
-                    </tr>
-                    <tr class="talk-focus">
-                      <td class="md-bold">Semanas 1-4</td>
-                      <td><code>C4P Open</code></td>
-                      <td class="md-good">Andrea (Speaker)</td>
-                      <td>Crear cuenta, rellenar bio y enviar propuestas</td>
-                    </tr>
-                    <tr class="talk-focus">
-                      <td class="md-bold">Semana 5</td>
-                      <td><code>C4P Closed</code> ➔ <code>Voting</code></td>
-                      <td class="md-accent">Fernando</td>
-                      <td>Revisión, puntuación y selección de charlas</td>
-                    </tr>
-                    <tr>
-                      <td class="md-bold">Semana 6</td>
-                      <td><code>Published</code></td>
-                      <td>Fernando &amp; Andrea</td>
-                      <td>Asignación de slots, confirmación y agenda pública</td>
-                    </tr>
-                    <tr class="doc-only">
-                      <td class="md-bold">Operacional</td>
-                      <td><code>All States</code></td>
-                      <td>Fernando</td>
-                      <td>Despliegue Docker Compose en hosting $0/mes</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="doc-only">
-                <div class="md-line md-h2"><span class="md-hash">##</span> 5.2 Matrix: Feature Coverage Check</div>
-                <div class="md-table-wrap">
-                  <table class="md-table">
-                    <thead>
-                      <tr>
-                        <th>Feature Name (del Paso 5)</th>
-                        <th class="td-center">Prioridad</th>
-                        <th class="td-center">¿Usado en Journey?</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="md-bold">Collect Proposals (CfP)</td>
-                        <td class="td-center md-good">Must-have</td>
-                        <td class="td-center md-good">✅ Journey 1, 2, 3</td>
-                      </tr>
-                      <tr>
-                        <td class="md-bold">Review &amp; Score Sessions</td>
-                        <td class="td-center md-good">Must-have</td>
-                        <td class="td-center md-good">✅ Journey 3</td>
-                      </tr>
-                      <tr>
-                        <td class="md-bold">Automate Speaker Comms</td>
-                        <td class="td-center md-good">Must-have</td>
-                        <td class="td-center md-good">✅ Journey 2, 4</td>
-                      </tr>
-                      <tr>
-                        <td class="md-bold">Deploy with Standard Tools</td>
-                        <td class="td-center md-accent">Must-have</td>
-                        <td class="td-center md-good">✅ Journey 5</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Banner Inferior Resumen -->
-        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
-          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Regla de Oro Crafter:</strong> El User Journey le enseña a la IA el ciclo de vida del dominio. El
-            modelo comprende que Andrea envía su propuesta semanas antes de que Fernando abra las votaciones,
-            desacoplando la Ola 1 del resto.
           </div>
         </div>
       </div>
