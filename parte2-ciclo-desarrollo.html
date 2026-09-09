@@ -1734,6 +1734,284 @@
       </div>
     </section>
 
+    <!-- ====================================================================
+         SLIDE: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
+         ==================================================================== -->
+    <section class="slide" id="slide-inception-greenfield-brownfield">
+      <div class="slide-content" style="gap: 0.85rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0284c7;">Fase 1 • Inception Workshop • Metodología</span>
+        </div>
+        <div class="tag" style="background: rgba(2, 132, 199, 0.12); color: #0284c7; border-color: rgba(2, 132, 199, 0.3);">Fase 1 • Estrategia de Facilitación • Greenfield vs. Brownfield</div>
+        <h2>Inception: Greenfield vs. Brownfield <span class="serif-italic" style="color: #0284c7;">¿Qué orden y qué mínimos usar?</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.75rem; font-size: 0.90rem;">
+          El taller canónico (1→8) asume lienzo en blanco. En sistemas vivos o extensiones, el orden muta (Swap 6➔5) y 4-5 artefactos mínimos bastan para sostener el desarrollo.
+        </p>
+
+        <div class="scenario-matrix-deck">
+          <!-- Barra Superior de Control Interactivo -->
+          <div class="scenario-ctrl-bar">
+            <div class="scenario-tabs-group">
+              <button type="button" class="scenario-tab-btn active" id="tab-scen-all" onclick="setScenarioMode('all')">
+                🔄 Comparativa Flujo Completo (1–8)
+              </button>
+              <button type="button" class="scenario-tab-btn" id="tab-scen-core" onclick="setScenarioMode('core')">
+                ⭐ Mínimos Imprescindibles Brownfield (5 Pasos Clave)
+              </button>
+              <button type="button" class="scenario-tab-btn" id="tab-scen-swap" onclick="setScenarioMode('swap')">
+                🔀 El Swap Crucial: Paso 6 ➔ Paso 5
+              </button>
+            </div>
+            <div class="scenario-legend doc-only">
+              <span class="scenario-legend-chip pill-core">⭐ Imprescindible</span>
+              <span class="scenario-legend-chip pill-swap">🔀 Swap 6➔5</span>
+              <span class="scenario-legend-chip pill-optional">⏳ Diferido / Opcional</span>
+            </div>
+          </div>
+
+          <!-- Banner Dinámico de Detalle / Explicación Interactiva en Cabecera -->
+          <div class="scenario-detail-banner" id="scenario-detail-banner">
+            <div class="scenario-detail-text">
+              <span id="scenario-banner-text"><strong>Comparativa Canónica vs Adaptada:</strong> Greenfield sigue el orden secuencial 1→8. En Brownfield, el código previo altera el orden (Brainstorming antes del Journey) y 4-5 artefactos mínimos bastan para sostener el desarrollo.</span>
+            </div>
+            <div class="scenario-detail-badge">
+              <span id="scenario-banner-badge">8 vs 8 PASOS</span>
+            </div>
+          </div>
+
+          <!-- Cuadrícula Comparativa 2 Columnas -->
+          <div class="scenario-columns-grid">
+            <!-- Columna Izquierda: GREENFIELD -->
+            <div class="scenario-col greenfield">
+              <div class="scenario-col-header">
+                <div class="scenario-col-title-box">
+                  <div class="scenario-col-title">🌱 Greenfield (Desde Cero)</div>
+                  <div class="scenario-col-sub">Lienzo en blanco: las features emergen del User Journey</div>
+                </div>
+                <span class="scenario-badge-rule scenario-badge-green">ORDEN CANÓNICO 1 ➔ 8</span>
+              </div>
+
+              <div class="scenario-steps-list">
+                <!-- Greenfield Step 1 -->
+                <div class="scenario-step-card" data-step="1" data-core="true">
+                  <div class="order-pill">1º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 1: Visión y Fronteras (IS / IS NOT)</span>
+                    </div>
+                    <div class="scenario-step-why">Ancla qué es y qué NO es el producto antes de cualquier debate.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 1</div>
+                </div>
+
+                <!-- Greenfield Step 2 -->
+                <div class="scenario-step-card" data-step="2" data-core="false">
+                  <div class="order-pill">2º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 2: Tablero de Tradeoffs</span>
+                    </div>
+                    <div class="scenario-step-why">Regla de Oro (1-7): prioridades relativas pactadas antes de descubrir.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 2</div>
+                </div>
+
+                <!-- Greenfield Step 3 -->
+                <div class="scenario-step-card" data-step="3" data-core="true">
+                  <div class="order-pill">3º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 3: Personas de Usuario</span>
+                    </div>
+                    <div class="scenario-step-why">Arquetipos y perfiles: define con precisión para quién construimos.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 3</div>
+                </div>
+
+                <!-- Greenfield Step 4 -->
+                <div class="scenario-step-card" data-step="4" data-core="false">
+                  <div class="order-pill">4º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 4: Mapa de Empatía</span>
+                    </div>
+                    <div class="scenario-step-why">Profundiza en dolores y alegrías antes de diseñar la experiencia.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 4</div>
+                </div>
+
+                <!-- Greenfield Step 5 -->
+                <div class="scenario-step-card" data-step="5" data-core="true" data-swap="true">
+                  <div class="order-pill">5º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 5: User Journey Mapping</span>
+                    </div>
+                    <div class="scenario-step-why">Mapear la experiencia primero: los dolores y fricciones guían la solución.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 5</div>
+                </div>
+
+                <!-- Greenfield Step 6 -->
+                <div class="scenario-step-card" data-step="6" data-core="true" data-swap="true">
+                  <div class="order-pill">6º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 6: Feature Brainstorming</span>
+                    </div>
+                    <div class="scenario-step-why">Las features brotan de los gaps del journey, no del vacío.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 6</div>
+                </div>
+
+                <!-- Greenfield Step 7 -->
+                <div class="scenario-step-card" data-step="7" data-core="true">
+                  <div class="order-pill">7º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 7: Secuenciación en Olas</span>
+                    </div>
+                    <div class="scenario-step-why">Priorizar por valor, esfuerzo y dependencias (Wave 1, 2, 3).</div>
+                  </div>
+                  <div class="canonical-pill">Paso 7</div>
+                </div>
+
+                <!-- Greenfield Step 8 -->
+                <div class="scenario-step-card" data-step="8" data-core="true">
+                  <div class="order-pill">8º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 8: MVP Canvas</span>
+                    </div>
+                    <div class="scenario-step-why">Cierra el contrato vinculante con hipótesis, alcance y falsación.</div>
+                  </div>
+                  <div class="canonical-pill">Paso 8</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: BROWNFIELD -->
+            <div class="scenario-col brownfield">
+              <div class="scenario-col-header">
+                <div class="scenario-col-title-box">
+                  <div class="scenario-col-title">🏭 Brownfield (Extensión o Sistema Vivo)</div>
+                  <div class="scenario-col-sub">Código preexistente: ingeniería inversa antes de mapear flujos</div>
+                </div>
+                <span class="scenario-badge-rule scenario-badge-blue">ORDEN ADAPTADO</span>
+              </div>
+
+              <div class="scenario-steps-list">
+                <!-- Brownfield Run 1 -> Step 1 -->
+                <div class="scenario-step-card" data-step="1" data-core="true">
+                  <div class="order-pill" style="color: #0284c7; font-weight: 800;">1º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 1: Fronteras Estrictas</span>
+                    </div>
+                    <div class="scenario-step-why">Realinear qué se toca y qué NO (evita romper módulos legacy).</div>
+                  </div>
+                  <div class="scenario-status-pill pill-core">⭐ IMPRESCINDIBLE</div>
+                </div>
+
+                <!-- Brownfield Run 2 -> Step 3 -->
+                <div class="scenario-step-card" data-step="3" data-core="true">
+                  <div class="order-pill" style="color: #0284c7; font-weight: 800;">2º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 3: Personas Afectadas</span>
+                    </div>
+                    <div class="scenario-step-why">Identificar a qué usuario o rol real impacta el nuevo incremento.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-core">⭐ IMPRESCINDIBLE</div>
+                </div>
+
+                <!-- Brownfield Run 3 -> Step 6 (SWAP CRÍTICO) -->
+                <div class="scenario-step-card" data-step="6" data-core="true" data-swap="true">
+                  <div class="order-pill swap-alert">3º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 6: Brainstorming Inverso</span>
+                    </div>
+                    <div class="scenario-step-why"><strong>Ingeniería inversa:</strong> inventariar lo ya construido antes del journey.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-swap">🔀 SWAP 6➔5</div>
+                </div>
+
+                <!-- Brownfield Run 4 -> Step 5 (SWAP CRÍTICO) -->
+                <div class="scenario-step-card" data-step="5" data-core="true" data-swap="true">
+                  <div class="order-pill swap-alert">4º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 5: User Journey E2E</span>
+                    </div>
+                    <div class="scenario-step-why">Conectar piezas existentes y exponer los gaps exactos a codificar.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-swap">🔀 SWAP 5</div>
+                </div>
+
+                <!-- Brownfield Run 5 -> Step 7 -->
+                <div class="scenario-step-card" data-step="7" data-core="true">
+                  <div class="order-pill" style="color: #0284c7; font-weight: 800;">5º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 7: Secuenciación / Alcance</span>
+                    </div>
+                    <div class="scenario-step-why">Acotar el incremento seguro (PR/Ola) sobre los gaps del viaje.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-core">⭐ IMPRESCINDIBLE</div>
+                </div>
+
+                <!-- Brownfield Run 6 -> Step 2 -->
+                <div class="scenario-step-card" data-step="2" data-core="false">
+                  <div class="order-pill">6º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 2: Tablero de Tradeoffs</span>
+                    </div>
+                    <div class="scenario-step-why">Retrospectivo: las restricciones técnicas ya vienen dadas por producción.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-optional">⏳ DIFERIDO</div>
+                </div>
+
+                <!-- Brownfield Run 7 -> Step 4 -->
+                <div class="scenario-step-card" data-step="4" data-core="false">
+                  <div class="order-pill">7º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 4: Mapa de Empatía</span>
+                    </div>
+                    <div class="scenario-step-why">Prescindible si el usuario ya es conocido; solo si hay dudas de rol.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-optional">⏳ OPCIONAL</div>
+                </div>
+
+                <!-- Brownfield Run 8 -> Step 8 -->
+                <div class="scenario-step-card" data-step="8" data-core="true">
+                  <div class="order-pill" style="color: #0284c7; font-weight: 800;">8º</div>
+                  <div class="scenario-step-info">
+                    <div class="scenario-step-name-row">
+                      <span class="scenario-step-name">Paso 8: MVP Canvas Incremental</span>
+                    </div>
+                    <div class="scenario-step-why">Formaliza el contrato del incremento para inyectar en Fase 2.</div>
+                  </div>
+                  <div class="scenario-status-pill pill-core">⭐ CONTRATO</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Inferior Resumen Crafter -->
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.65rem 1.2rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.35rem;">💡</div>
+          <div class="chosen-synergy-text" style="font-size: 0.92rem;">
+            <strong>Regla de Oro Crafter:</strong> En Brownfield nunca inventes sobre el vacío. Con solo <strong>4 o 5 artefactos clave</strong> (Fronteras, Personas, Brainstorming inverso, User Journey y Secuenciación/Canvas), la IA tiene el perímetro blindado para entrar directamente a Fase 2 (Diagramas y Specs) y programar con TDD sin alucinar.
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
 
@@ -3884,6 +4162,124 @@
         }
       });
     }
+  </script>
+
+  <!-- Script Interactivo: Greenfield vs Brownfield Inception -->
+  <script>
+    (function () {
+      const bannerText = document.getElementById('scenario-banner-text');
+      const bannerBadge = document.getElementById('scenario-banner-badge');
+      const cards = document.querySelectorAll('#slide-inception-greenfield-brownfield .scenario-step-card');
+      const tabAll = document.getElementById('tab-scen-all');
+      const tabCore = document.getElementById('tab-scen-core');
+      const tabSwap = document.getElementById('tab-scen-swap');
+
+      let currentMode = 'all';
+
+      const stepAdvice = {
+        '1': '<strong>Paso 1 (Fronteras IS / IS NOT):</strong> Imprescindible en ambos. Fija el perímetro defensivo para que la IA no alucine inventando módulos ni reescribiendo código ajeno.',
+        '2': '<strong>Paso 2 (Tradeoffs):</strong> En Greenfield se debate al inicio (1-7). En Brownfield cae al puesto 6 porque las restricciones técnicas ya están impuestas por producción.',
+        '3': '<strong>Paso 3 (Personas):</strong> Segundo paso en Brownfield. Concreta el actor o perfil real que interactúa con la nueva funcionalidad o módulo modificado.',
+        '4': '<strong>Paso 4 (Mapa de Empatía):</strong> En Brownfield es prescindible (puesto 7). El usuario ya está en producción; solo se ejecuta si hay desalineación grave sobre el rol.',
+        '5': '<strong>Paso 5 (User Journey):</strong> ¡En Brownfield va DESPUÉS del Brainstorming! Mapea el flujo real para conectar piezas existentes y destapar los gaps exactos.',
+        '6': '<strong>Paso 6 (Brainstorming Inverso):</strong> ¡El gran swap de Brownfield (pasa a puesto 3)! Primero se inventaría lo que YA está construido antes de mapear el viaje.',
+        '7': '<strong>Paso 7 (Secuenciación en Olas):</strong> Puesto 5 en Brownfield. Acota el incremento seguro (PR / Wave) sobre los gaps detectados en el journey.',
+        '8': '<strong>Paso 8 (MVP Canvas):</strong> En Brownfield formaliza el contrato del incremento para inyectar en Fase 2 (Diagramas, Specs y TDD).'
+      };
+
+      const stepBadges = {
+        '1': 'PASO 1 • FRONTERAS',
+        '2': 'PASO 2 • TRADEOFFS',
+        '3': 'PASO 3 • PERSONAS',
+        '4': 'PASO 4 • EMPATÍA',
+        '5': 'PASO 5 • JOURNEY',
+        '6': 'PASO 6 • BRAINSTORMING',
+        '7': 'PASO 7 • SEQUENCING',
+        '8': 'PASO 8 • CANVAS'
+      };
+
+      function updateModeUI(mode) {
+        currentMode = mode;
+        [tabAll, tabCore, tabSwap].forEach(t => t && t.classList.remove('active'));
+
+        cards.forEach(card => {
+          card.classList.remove('is-core-highlight', 'is-swap-highlight', 'is-dimmed');
+        });
+
+        if (mode === 'all') {
+          if (tabAll) tabAll.classList.add('active');
+          if (bannerText) {
+            bannerText.innerHTML = '<strong>Comparativa Canónica vs Adaptada:</strong> Greenfield sigue el orden secuencial 1→8. En Brownfield, el código preexistente altera el orden (Brainstorming antes del Journey) y 4-5 artefactos mínimos bastan para sostener el desarrollo.';
+          }
+          if (bannerBadge) bannerBadge.textContent = '8 vs 8 PASOS';
+        } else if (mode === 'core') {
+          if (tabCore) tabCore.classList.add('active');
+          cards.forEach(card => {
+            const isCore = card.getAttribute('data-core') === 'true';
+            if (isCore) {
+              card.classList.add('is-core-highlight');
+            } else {
+              card.classList.add('is-dimmed');
+            }
+          });
+          if (bannerText) {
+            bannerText.innerHTML = '⭐ <strong>Los 5 Mínimos Imprescindibles en Brownfield:</strong> 1. Fronteras (evita scope creep) → 2. Personas (actor real) → 3. Brainstorming inverso (inventario de código) → 4. User Journey (gaps E2E) → 5. Secuenciación/Canvas (corte atómico para Fase 2).';
+          }
+          if (bannerBadge) bannerBadge.textContent = '5 PASOS SOSTIENEN TODO';
+        } else if (mode === 'swap') {
+          if (tabSwap) tabSwap.classList.add('active');
+          cards.forEach(card => {
+            const isSwap = card.getAttribute('data-swap') === 'true';
+            if (isSwap) {
+              card.classList.add('is-swap-highlight');
+            } else {
+              card.classList.add('is-dimmed');
+            }
+          });
+          if (bannerText) {
+            bannerText.innerHTML = '🔀 <strong>¿Por qué el Swap Paso 6 antes de Paso 5?</strong> En Greenfield el Journey descubre la necesidad y genera features. En Brownfield el código ya existe: primero haces ingeniería inversa de lo construido (Paso 6) y luego trazas el Journey (Paso 5) para ver cómo encaja.';
+          }
+          if (bannerBadge) bannerBadge.textContent = 'SWAP 6 ➔ 5';
+        }
+      }
+
+      window.setScenarioMode = function (mode) {
+        updateModeUI(mode);
+      };
+
+      // Hover / Click en pasos para interconexión cruzada
+      cards.forEach(card => {
+        const step = card.getAttribute('data-step');
+        card.addEventListener('mouseenter', () => {
+          document.querySelectorAll(`#slide-inception-greenfield-brownfield .scenario-step-card[data-step="${step}"]`).forEach(c => {
+            c.classList.add('is-linked-hover');
+          });
+          if (stepAdvice[step] && bannerText) {
+            bannerText.innerHTML = stepAdvice[step];
+          }
+          if (stepBadges[step] && bannerBadge) {
+            bannerBadge.textContent = stepBadges[step];
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          document.querySelectorAll('#slide-inception-greenfield-brownfield .scenario-step-card').forEach(c => {
+            c.classList.remove('is-linked-hover');
+          });
+          updateModeUI(currentMode);
+        });
+
+        card.addEventListener('click', () => {
+          if (step === '5' || step === '6') {
+            updateModeUI('swap');
+          } else if (card.getAttribute('data-core') === 'true') {
+            updateModeUI('core');
+          } else {
+            updateModeUI('all');
+          }
+        });
+      });
+    })();
   </script>
   <script src="slides.js"></script>
 </body>
