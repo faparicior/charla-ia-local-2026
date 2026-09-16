@@ -14453,6 +14453,27 @@ gap: 0.3rem;
   opacity: 0.45;
 }
 
+.bridge-timeline-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  position: relative;
+  width: 100%;
+}
+
+.bridge-timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  background: linear-gradient(90deg, #8b5cf6 0%, #10b981 33%, #f59e0b 66%, #ec4899 100%);
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0.45;
+}
+
 .adr-step-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-subtle);

@@ -4785,113 +4785,129 @@
          SLIDE SPECIAL 4C: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
          ==================================================================== -->
     <section class="slide" id="slide-pillar-bridge-enlace">
-      <div class="slide-content" style="gap: 1.15rem;">
+      <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-sdlc-decision-tree" class="deck-back-btn">← Gobernanza de Producto</a>
-          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">La Conexión • Arquitectura Viva</span>
+          <a href="#slide-pillar-sdlc-decision-tree" class="deck-back-btn">← Matriz de Producto</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">La Conexión • Arquitectura Viva</span>
         </div>
-        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
-          La Conexión • docs/adr/ ⇄ docs/product/ ⇄ packages/ ⇄ ts-archunit
+        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">
+          La Conexión • docs/adr/ ➔ docs/product/ ➔ packages/modules/ ➔ ts-archunit
         </div>
-        <h2>La Conexión: <span class="serif-italic" style="color: #a78bfa;">Cómo Todo Enlaza en el Repositorio</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          El ADR define las reglas, el SDLC genera los módulos y los tests impiden el descarrilamiento.
+        <h2 style="margin-bottom: 0.1rem;">La Conexión: <span class="serif-italic" style="color: #a78bfa;">Cómo Todo Enlaza en el Repositorio</span></h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
+          El círculo virtuoso: los ADRs legislan, las specs vivas definen contratos, el código implementa en capas y CI arbitra sin drift.
         </p>
 
-        <div class="sdlc-console-deck">
-          <!-- Columna Izquierda: Explicación Técnica -->
-          <div class="sdlc-explain-col">
-            <div class="sdlc-hero-box purple">
-              <div class="sdlc-hero-quote">
-                “Los ADRs son la ley; las Specs son los contratos; <u>y ts-archunit es el juez en CI</u>.”
+        <div class="adr-timeline-container">
+          <div class="bridge-timeline-track">
+
+            <!-- Eslabón 1: ADR -->
+            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">01</div>
+                <span class="adr-step-state-tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Gobernanza</span>
               </div>
-              <div class="sdlc-hero-sub">
-                El ecosistema cierra el círculo: ningún modelo de IA ni desarrollador puede violar las decisiones arquitectónicas porque los tests automáticos rompen el build de inmediato.
+              <div class="adr-step-icon-box violet">🏛️</div>
+              <div class="adr-step-title">Raíles ADR</div>
+              <code class="adr-step-skill-chip" style="color: #a78bfa; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">docs/adr/ • ADR-001..016</code>
+              <div class="adr-step-body">
+                Establece la <strong>ley técnica inmutable</strong>: Modular DDD, boundaries estrictos entre módulos, factories para controllers y directrices de ergonomía para IA (AX).
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Artefacto:</strong> <code>docs/adr/ADR-XXX.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Foco:</strong> Acota cómo construir el sistema</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #a78bfa; background: rgba(139, 92, 246, 0.08);">
+                🏛️ La Ley Arquitectónica
               </div>
             </div>
 
-            <div class="sdlc-points-card">
-              <div class="sdlc-point-item active-point">
-                <div class="sdlc-point-icon">🏛️</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title" style="color: #a78bfa;">1. docs/adr/ ➔ Raíles Arquitectónicos</div>
-                  <div class="sdlc-point-desc">ADR-001 (Modular DDD), ADR-016 (Controller Factories) fijan patrones estandarizados y obligatorios en todo el repo.</div>
+            <!-- Eslabón 2: SDLC Specs -->
+            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">02</div>
+                <span class="adr-step-state-tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Living Specs</span>
+              </div>
+              <div class="adr-step-icon-box emerald">📋</div>
+              <div class="adr-step-title">Contratos de Dominio</div>
+              <code class="adr-step-skill-chip" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">docs/product/ • /create-flow</code>
+              <div class="adr-step-body">
+                Especifica los user journeys con <strong>3 diagramas Mermaid</strong>, reglas de negocio (BR), invariantes (INV) y BDD Gherkin que citan directamente los ADRs rectores.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Artefacto:</strong> <code>flows/ &amp; entities/*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Foco:</strong> Acota qué debe resolver el código</span>
                 </div>
               </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">📋</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">2. docs/product/ ➔ Specs Guiadas por ADRs</div>
-                  <div class="sdlc-point-desc">Los flujos e invariantes citan directamente los ADRs que los gobiernan (ej. persistencia Outbox, validación Zod).</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">📦</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">3. packages/modules/ ➔ Capas DDD Limpias</div>
-                  <div class="sdlc-point-desc">Domain puro (sin ORM ni HTTP) ➔ Application (CQRS) ➔ Infrastructure (Drizzle) ➔ Interfaces (Controllers).</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">🚨</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">4. tests/unit/architecture/ ➔ ts-archunit</div>
-                  <div class="sdlc-point-desc">Tests de arquitectura en CI: si la IA importa Express dentro del Domain, ¡el test falla de inmediato y rechaza el PR!</div>
-                </div>
+              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
+                📋 El Contrato sin ambigüedad
               </div>
             </div>
 
-            <div class="sdlc-skill-pill purple">
-              <span>⚡ Enlace Total:</span>
-              <code>ADR (Raíles)</code> ➔ <code>SDLC (Módulos)</code> ➔ <code>ts-archunit (CI Guardrail)</code>
+            <!-- Eslabón 3: Código DDD -->
+            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">03</div>
+                <span class="adr-step-state-tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25);">Código DDD</span>
+              </div>
+              <div class="adr-step-icon-box amber">📦</div>
+              <div class="adr-step-title">Capas Desacopladas</div>
+              <code class="adr-step-skill-chip" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">packages/modules/[ctx]/</code>
+              <div class="adr-step-body">
+                Construcción por capas limpias guiada por TDD: <strong>domain</strong> puro (zero-deps) ➔ <strong>application</strong> (casos de uso) ➔ <strong>infrastructure</strong> ➔ <strong>interfaces</strong>.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Artefacto:</strong> <code>src/{domain,app,infra,ui}/</code></span>
+                </div>
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Foco:</strong> Dominio aislado de frameworks</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
+                📦 Software puro y modular
+              </div>
             </div>
+
+            <!-- Eslabón 4: ts-archunit CI -->
+            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
+                <span class="adr-step-state-tag" style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">CI Guardrail</span>
+              </div>
+              <div class="adr-step-icon-box rose">🚨</div>
+              <div class="adr-step-title">El Juez en CI</div>
+              <code class="adr-step-skill-chip" style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">ts-archunit • CI Pipeline</code>
+              <div class="adr-step-body">
+                Tests de arquitectura estáticos: si la IA o un desarrollador <strong>importa Express en Domain o viola un ADR</strong>, ¡el test rompe el build al instante y rechaza el PR!
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Artefacto:</strong> <code>tests/unit/architecture/*.test.ts</code></span>
+                </div>
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Foco:</strong> Zero drift garantizado por máquina</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
+                🚨 El Guardrail Inquebrantable
+              </div>
+            </div>
+
           </div>
 
-          <!-- Columna Derecha: Render Mermaid Live -->
-          <div class="sdlc-terminal">
-            <div class="code-header">
-              <div class="code-dots">
-                <div class="code-dot red"></div>
-                <div class="code-dot yellow"></div>
-                <div class="code-dot green"></div>
-              </div>
-              <div class="code-title">📊 Mermaid Architecture • Mapa de Conexión del Repositorio</div>
-              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
-              <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #c084fc; border-color: rgba(139, 92, 246, 0.3);">SVG INTERACTIVO</span>
-            </div>
-
-            <div class="mermaid-diagram-wrap">
-              <div class="mermaid">
-flowchart TD
-    subgraph ADRS ["🏛️ docs/adr/ (Gobernanza Inmutable)"]
-        ADR["ADRs (Decisiones Técnicas)<br/>• Reglas DDD y CQRS<br/>• Restricciones de Capas<br/>• AI Ergonomics (AX)"]
-    end
-
-    subgraph SDLC ["📋 docs/product/ (Especificación Viva)"]
-        FLW["Specs de Flujo (Mermaid + Gherkin)"]
-        ENT["Modelo de Dominio (Entities, BRs, INVs)"]
-    end
-
-    subgraph CODE ["📦 packages/modules/[context]/ (Código DDD)"]
-        DOM["src/domain/ (Entidades puras sin deps)"]
-        APP["src/application/ (Casos de uso / CQRS)"]
-        INF["src/infrastructure/ (Drizzle & Repos)"]
-        INT["src/interfaces/ (HTTP Controller Factories)"]
-    end
-
-    subgraph CI ["🚨 Verificación en CI (ts-archunit)"]
-        TEST["tests/unit/architecture/<br/>¡Falla el build si el dev o la IA<br/>viola las reglas de los ADRs!"]
-    end
-
-    ADR -. "Gobierna reglas" .-> SDLC
-    ADR -. "Define invariantes" .-> CI
-    SDLC ==>|"Implementación TDD"| CODE
-    DOM --> APP --> INF --> INT
-    CI -. "Audita en cada PR" .-> CODE
-              </div>
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner" style="margin-top: 0.15rem; padding: 0.85rem 1.4rem; border-color: rgba(139, 92, 246, 0.35);">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>El Círculo Cerrado de la Artesanía:</strong> Los ADRs son la ley, las Specs son los contratos vivos, el código implementa y <code>ts-archunit</code> es el juez en CI. Ninguna IA alucina ni descarrila la arquitectura porque el build lo bloquea.
             </div>
           </div>
         </div>
