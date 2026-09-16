@@ -14440,6 +14440,345 @@ gap: 0.3rem;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
 }
 
+/* ==========================================================================
+   PILAR 1: TIMELINE HORIZONTAL DE ADRs (5 PASOS DE IZQUIERDA A DERECHA)
+   ========================================================================== */
+.adr-timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.adr-timeline-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+  position: relative;
+  width: 100%;
+}
+
+.adr-timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 6%;
+  right: 6%;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #38bdf8, #8b5cf6, #10b981, #059669);
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0.45;
+}
+
+.adr-step-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.2rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.adr-step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: #f59e0b;
+}
+
+body.theme-dark .adr-step-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.theme-dark .adr-step-card:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 8px 28px rgba(245, 158, 11, 0.15);
+}
+
+.adr-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.adr-step-node-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.95rem;
+  font-family: var(--font-mono);
+  background: var(--bg-surface);
+  border: 3px solid #f59e0b;
+  color: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+}
+
+body.theme-dark .adr-step-node-badge {
+  background: #111722;
+}
+
+.adr-step-state-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.adr-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.adr-step-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  width: fit-content;
+}
+
+.adr-step-body {
+  font-size: 0.94rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+  flex-grow: 1;
+}
+
+.adr-step-body strong {
+  color: var(--text-main);
+}
+
+.adr-step-punchline {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-subtle);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   PILAR 1: ESQUEMA DE DECISIÓN DE GOBERNANZA (DE IZQUIERDA A DERECHA)
+   ========================================================================== */
+.adr-decision-deck {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 0.2rem;
+}
+
+.adr-decision-origin-card {
+  background: var(--bg-surface);
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  border-radius: 14px;
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+body.theme-dark .adr-decision-origin-card {
+  background: #111722;
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.adr-decision-origin-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.adr-decision-origin-desc {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  line-height: 1.42;
+  margin-bottom: 1.1rem;
+}
+
+.adr-decision-question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.adr-decision-q-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.adr-decision-q-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.adr-decision-lanes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.15rem;
+  width: 100%;
+}
+
+.adr-lane-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  border-left: 5px solid #f59e0b;
+}
+
+.adr-lane-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-dark .adr-lane-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.adr-lane-card.lane-new {
+  border-left-color: #38bdf8;
+}
+
+.adr-lane-card.lane-amend {
+  border-left-color: #f59e0b;
+}
+
+.adr-lane-card.lane-supersede {
+  border-left-color: #ef4444;
+}
+
+.adr-lane-card.lane-radar {
+  border-left-color: #10b981;
+}
+
+.adr-lane-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.adr-lane-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.adr-lane-badge.blue {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.adr-lane-badge.amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.adr-lane-badge.red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.adr-lane-badge.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.adr-lane-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.adr-lane-trigger {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.adr-lane-trigger strong {
+  color: var(--text-main);
+}
+
+.adr-lane-action-box {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+body.theme-dark .adr-lane-action-box {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.adr-lane-action-box code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
 @media print {
 
   html,

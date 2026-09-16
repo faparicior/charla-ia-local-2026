@@ -14440,6 +14440,345 @@ gap: 0.3rem;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
 }
 
+/* ==========================================================================
+   PILAR 1: TIMELINE HORIZONTAL DE ADRs (5 PASOS DE IZQUIERDA A DERECHA)
+   ========================================================================== */
+.adr-timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.adr-timeline-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+  position: relative;
+  width: 100%;
+}
+
+.adr-timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 6%;
+  right: 6%;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #38bdf8, #8b5cf6, #10b981, #059669);
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0.45;
+}
+
+.adr-step-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.2rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.adr-step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: #f59e0b;
+}
+
+body.theme-dark .adr-step-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.theme-dark .adr-step-card:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 8px 28px rgba(245, 158, 11, 0.15);
+}
+
+.adr-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.adr-step-node-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.95rem;
+  font-family: var(--font-mono);
+  background: var(--bg-surface);
+  border: 3px solid #f59e0b;
+  color: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+}
+
+body.theme-dark .adr-step-node-badge {
+  background: #111722;
+}
+
+.adr-step-state-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.adr-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.adr-step-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  width: fit-content;
+}
+
+.adr-step-body {
+  font-size: 0.94rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+  flex-grow: 1;
+}
+
+.adr-step-body strong {
+  color: var(--text-main);
+}
+
+.adr-step-punchline {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-subtle);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   PILAR 1: ESQUEMA DE DECISIÓN DE GOBERNANZA (DE IZQUIERDA A DERECHA)
+   ========================================================================== */
+.adr-decision-deck {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 0.2rem;
+}
+
+.adr-decision-origin-card {
+  background: var(--bg-surface);
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  border-radius: 14px;
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+body.theme-dark .adr-decision-origin-card {
+  background: #111722;
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.adr-decision-origin-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.adr-decision-origin-desc {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  line-height: 1.42;
+  margin-bottom: 1.1rem;
+}
+
+.adr-decision-question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.adr-decision-q-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.adr-decision-q-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.adr-decision-lanes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.15rem;
+  width: 100%;
+}
+
+.adr-lane-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  border-left: 5px solid #f59e0b;
+}
+
+.adr-lane-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-dark .adr-lane-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.adr-lane-card.lane-new {
+  border-left-color: #38bdf8;
+}
+
+.adr-lane-card.lane-amend {
+  border-left-color: #f59e0b;
+}
+
+.adr-lane-card.lane-supersede {
+  border-left-color: #ef4444;
+}
+
+.adr-lane-card.lane-radar {
+  border-left-color: #10b981;
+}
+
+.adr-lane-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.adr-lane-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.adr-lane-badge.blue {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.adr-lane-badge.amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.adr-lane-badge.red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.adr-lane-badge.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.adr-lane-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.adr-lane-trigger {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.adr-lane-trigger strong {
+  color: var(--text-main);
+}
+
+.adr-lane-action-box {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+body.theme-dark .adr-lane-action-box {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.adr-lane-action-box code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
 @media print {
 
   html,
@@ -18784,6 +19123,244 @@ flowchart TD
     S5 --> Done(["6. Catálogo Inmutable<br/>(docs/adr/README.md ➔ Accepted ✅)"])
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 2C: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-timeline">
+      <div class="slide-content" style="gap: 1.1rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-steps" class="deck-back-btn">← Pasos del ADR</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Timeline Canónico</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Flujo Secuencial de Izquierda a Derecha
+        </div>
+        <h2>El Ciclo Natural de un ADR <span class="serif-italic" style="color: #f59e0b;">Timeline de Izquierda a Derecha</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          5 fases sin apreturas: cómo evoluciona una decisión desde la duda técnica inicial hasta su blindaje inmutable en el repositorio.
+        </p>
+
+        <div class="adr-timeline-container">
+          <div class="adr-timeline-track">
+
+            <!-- Paso 1 -->
+            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">01</div>
+                <span class="adr-step-state-tag">Proposed</span>
+              </div>
+              <div class="adr-step-title">Dilema &amp; Drivers</div>
+              <code class="adr-step-skill-chip">/adr-create</code>
+              <div class="adr-step-body">
+                Nace de una encrucijada técnica real o cambio de stack. El skill <strong>reserva el siguiente ID secuencial (0XX)</strong> y documenta las fuerzas impulsoras.
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b;">
+                🎯 Acota el problema
+              </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="adr-step-card" style="border-top: 4px solid #38bdf8;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #38bdf8; color: #38bdf8;">02</div>
+                <span class="adr-step-state-tag" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">2-3 Opciones</span>
+              </div>
+              <div class="adr-step-title">Exploración Real</div>
+              <code class="adr-step-skill-chip" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Matriz Pros / Cons</code>
+              <div class="adr-step-body">
+                Prohibido el sesgo de confirmación. Se evalúan <strong>2 o 3 alternativas viables</strong> contrastando pros, contras, mantenimiento y deuda técnica.
+              </div>
+              <div class="adr-step-punchline" style="color: #38bdf8;">
+                ⚖️ Criterio sin sesgos
+              </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
+                <span class="adr-step-state-tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Obligatorio</span>
+              </div>
+              <div class="adr-step-title">Ergonomía IA (AX)</div>
+              <code class="adr-step-skill-chip" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">Corpus &amp; Guardrails</code>
+              <div class="adr-step-body">
+                ¿Choca con el sesgo del LLM? Se evalúa el <strong>Corpus Alignment</strong>, el <strong>Guardrail Tax</strong> (coste en prompts y tests) y el riesgo de deriva.
+              </div>
+              <div class="adr-step-punchline" style="color: #8b5cf6;">
+                🤖 Mitiga la inercia LLM
+              </div>
+            </div>
+
+            <!-- Paso 4 -->
+            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
+                <span class="adr-step-state-tag" style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Compromiso</span>
+              </div>
+              <div class="adr-step-title">Decisión &amp; Reglas</div>
+              <code class="adr-step-skill-chip" style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">Contrato Firme</code>
+              <div class="adr-step-body">
+                Elección formal con honestidad intelectual: se explicitan los <strong>beneficios</strong>, los <strong>trade-offs asumidos</strong> y qué queda terminantemente prohibido.
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899;">
+                📌 Reglas innegociables
+              </div>
+            </div>
+
+            <!-- Paso 5 -->
+            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">05</div>
+                <span class="adr-step-state-tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Accepted ✅</span>
+              </div>
+              <div class="adr-step-title">Auditoría &amp; Sello</div>
+              <code class="adr-step-skill-chip" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/adr-validate</code>
+              <div class="adr-step-body">
+                Pasa la <strong>rúbrica automática (Score ≥ Medium)</strong> y se indexa en <code>docs/adr/README.md</code>. Queda blindado como constitución inmutable del código.
+              </div>
+              <div class="adr-step-punchline" style="color: #10b981;">
+                🏛️ Ley viva del repositorio
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner" style="margin-top: 0.15rem; padding: 0.85rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Artesano:</strong> Ninguna decisión de arquitectura se toma en un prompt efímero. Cada ADR es una ley verificada que convierte la ambigüedad en determinismo reproducible para agentes e ingenieros.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 2D: PILAR 1 - ÁRBOL DE DECISIÓN DE GOBERNANZA (DE IZQ A DER)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-decision-tree">
+      <div class="slide-content" style="gap: 1.1rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-timeline" class="deck-back-btn">← Timeline Canónico</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Matriz de Decisión</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Esquema de Decisión de Izquierda a Derecha
+        </div>
+        <h2>Gobernanza en Acción: <span class="serif-italic" style="color: #f59e0b;">De la Intención a la Ruta Óptima</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Un esquema de decisión claro y espacioso: identifica qué quieres hacer con la arquitectura y ejecuta el skill exacto sin fricción.
+        </p>
+
+        <div class="adr-decision-deck">
+
+          <!-- Columna Izquierda: El Punto de Partida / Intención -->
+          <div class="adr-decision-origin-card">
+            <div>
+              <span class="pillar-col-badge adr" style="margin-bottom: 0.75rem; display: inline-block;">Punto de Partida</span>
+              <div class="adr-decision-origin-title">¿Cuál es tu intención técnica?</div>
+              <div class="adr-decision-origin-desc">
+                Antes de tocar una sola línea de arquitectura, el artesano y el agente clasifican su necesidad en una de 4 intenciones bien delimitadas.
+              </div>
+
+              <div class="adr-decision-question-list">
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🆕</span>
+                  <span><strong>¿Nuevo patrón o stack?</strong> ➔ Ruta 1</span>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">📝</span>
+                  <span><strong>¿Ajustar decisión viva?</strong> ➔ Ruta 2</span>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">⚠️</span>
+                  <span><strong>¿Tecnología obsoleta?</strong> ➔ Ruta 3</span>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">📡</span>
+                  <span><strong>¿Auditar vigencia 2026?</strong> ➔ Ruta 4</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill amber" style="margin-top: 1rem; padding: 0.55rem 0.9rem; font-size: 0.88rem;">
+              <span>🛡️ Filtro Único:</span> Calidad auditada por <code>/adr-validate</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Las 4 Rutas de Decisión en Cuadrícula 2x2 -->
+          <div class="adr-decision-lanes-grid">
+
+            <!-- Ruta 1: Nueva Decisión -->
+            <div class="adr-lane-card lane-new">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge blue">Ruta 1 • Nueva Decisión</span>
+                <span style="font-size: 1.25rem;">🆕</span>
+              </div>
+              <div class="adr-lane-title">Crear Decisión desde Cero</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Nuevo framework, base de datos, patrón DDD o restricción fundamental del sistema.
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Comando:</strong> <code>/adr-create</code></div>
+                <div>📦 <strong>Entregable:</strong> <code>0XX-decision.md</code> con mínimo 2–3 alternativas y sección obligatoria AX.</div>
+              </div>
+            </div>
+
+            <!-- Ruta 2: Enmienda Delta -->
+            <div class="adr-lane-card lane-amend">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge amber">Ruta 2 • Enmienda Delta</span>
+                <span style="font-size: 1.25rem;">📝</span>
+              </div>
+              <div class="adr-lane-title">Modificar sin Reescribir</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Regla de Oro: Jamás se edita el texto histórico de un ADR aceptado; se enmienda el delta.
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Comando:</strong> <code>/adr-amend</code></div>
+                <div>🔗 <strong>Entregable:</strong> <code>0XX-01-amendment.md</code> con enlaces bidireccionales <code>Amends ⇄ Amended By</code>.</div>
+              </div>
+            </div>
+
+            <!-- Ruta 3: Supersede -->
+            <div class="adr-lane-card lane-supersede">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge red">Ruta 3 • Reemplazo Total</span>
+                <span style="font-size: 1.25rem;">⚠️</span>
+              </div>
+              <div class="adr-lane-title">Deprecar &amp; Sustituir</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Un paradigma es sustituido por completo (ej. REST a tRPC, o SQLite a PostgreSQL).
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Flujo:</strong> <code>/adr-create (0YY)</code> ➔ Marca <code>0XX</code> como <code>Superseded</code></div>
+                <div>📜 <strong>Entregable:</strong> Enlace <code>Supersedes: 0XX</code> en nuevo ADR y estado <code>Superseded</code> en el viejo.</div>
+              </div>
+            </div>
+
+            <!-- Ruta 4: Tech Radar -->
+            <div class="adr-lane-card lane-radar">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge green">Ruta 4 • Vigilancia Radar</span>
+                <span style="font-size: 1.25rem;">📡</span>
+              </div>
+              <div class="adr-lane-title">Auditoría de Alternativas</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Revisar si las tecnologías adoptadas siguen siendo líderes o han surgido alternativas mejores.
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Comando:</strong> <code>/adr-review-alternatives</code></div>
+                <div>📊 <strong>Entregable:</strong> <code>ADR_ALTERNATIVES_ANALYSIS.md</code> con clasificación (Adopt / Trial / Assess / Hold).</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
