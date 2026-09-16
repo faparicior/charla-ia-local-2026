@@ -4133,7 +4133,7 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE SPECIAL 1C: CASO REAL NEXT.JS - EL GUARDRAIL TAX EN LA VIDA REAL
+         SLIDE SPECIAL 1C: CASO REAL NEXT.JS - EL GUARDRAIL TAX EN LA PRENSA
          ==================================================================== -->
     <section class="slide" id="slide-pillar-adr-case-nextjs">
       <div class="slide-content" style="gap: 0.85rem;">
@@ -4142,46 +4142,95 @@
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Pilar 1 • Caso Real en Producción</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
-          Evidencia Real • Vercel / Next.js 15 • Cuando el Framework debe Gritarle al LLM
+          Evidencia Real • Vercel / Next.js 16.3+ • Prensa &amp; Repositorios
         </div>
-        <h2>El "Guardrail Tax" en la Vida Real: <span class="serif-italic" style="color: #8b5cf6;">Esto es lo que te va a pasar</span></h2>
+        <h2>El "Guardrail Tax" en la Prensa: <span class="serif-italic" style="color: #8b5cf6;">"This is NOT the Next.js you know"</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
-          ¿Crees que el sesgo del modelo es una exageración teórica? Mira cómo Vercel combate la inercia del LLM en cada monorepo:
+          Cómo la inercia destructiva de los LLMs obligó a Vercel a auto-inyectar reglas forzosas en cada proyecto local:
         </p>
 
-        <div class="nextjs-pof-stage">
-          <!-- Documento central que hace POF con rotación tipo sticker / portada -->
-          <div class="nextjs-stamp-wrapper">
-            <div class="nextjs-stamp-card">
-              <div class="nextjs-stamp-tape">
-                <span>🚨 INYECTADO POR <code>next dev</code> PARA LOS AGENTES</span>
+        <div class="press-grid">
+
+          <!-- 1. Next.js Official Docs -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Next.js Docs / Guides</span>
+                <span class="press-date">Next.js 16.3+</span>
               </div>
-              <img src="script/img/this-is-not-next-you-know.png"
-                   alt="This is NOT the Next.js you know - Inyección real de Vercel para agentes"
-                   class="nextjs-stamp-img">
+              <span class="tag">Guía Oficial</span>
+            </div>
+            <div class="press-headline">«Next.js adopta AGENTS.md: empaquetando documentación en node_modules»</div>
+            <p class="press-desc">
+              Vercel estandariza directrices para agentes de código. Para evitar dependencias de internet y alucinaciones por modelos desfasados, <mark class="highlighter">empaqueta documentación de versión exacta en <code>node_modules/next/dist/docs/</code></mark> accesible de inmediato.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://nextjs.org/docs/app/guides/ai-agents" target="_blank" rel="noopener noreferrer">
+                🔗 nextjs.org/docs/app/guides/ai-agents ↗
+              </a>
             </div>
           </div>
 
-          <!-- Franja explicativa de la lección para la charla -->
-          <div class="nextjs-explain-strip">
-            <div class="nextjs-explain-card tax">
-              <div class="nextjs-explain-card-title" style="color: #8b5cf6;">
-                <span>⚖️</span> ¿Por qué Vercel inyecta esto en el repo?
+          <!-- 2. GitHub Discussion #92197 -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">GitHub / vercel/next.js</span>
+                <span class="press-date">Discussion #92197</span>
               </div>
-              <div class="nextjs-explain-card-body">
-                El modelo fue entrenado con millones de repositorios antiguos. Por defecto <strong>alucina APIs obsoletas con total convicción</strong> (Pages Router, sintaxis vieja). Vercel se vio obligada a pagar el <strong>Guardrail Tax</strong> inyectando este archivo en local.
-              </div>
+              <span class="tag">Debate Comunitario</span>
             </div>
-
-            <div class="nextjs-explain-card crafter">
-              <div class="nextjs-explain-card-title" style="color: #f59e0b;">
-                <span>💡</span> La Moraleja para el Artesano de Software
-              </div>
-              <div class="nextjs-explain-card-body">
-                Si un framework mundial tiene que hackear sus propios archivos para frenar la inercia del LLM... <strong>¿cómo pretendes que el agente respete tu arquitectura sin ADRs inmutables ni contratos explícitos?</strong>
-              </div>
+            <div class="press-headline">«"This is NOT the Next.js you know": el grito desesperado de Vercel al LLM»</div>
+            <p class="press-desc">
+              Debate masivo en el repo de Vercel por la auto-generación de archivos: la comunidad analiza la redacción tajante. Vercel justifica la advertencia para <mark class="highlighter">obligar a la IA a detenerse y leer las reglas locales</mark> antes de escribir código obsoleto.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://github.com/vercel/next.js/discussions/92197" target="_blank" rel="noopener noreferrer">
+                🔗 github.com/vercel/next.js/discussions/92197 ↗
+              </a>
             </div>
           </div>
+
+          <!-- 3. Vercel Labs & Canary Monorepo -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Vercel Labs / Canary</span>
+                <span class="press-date">Monorepo Canary</span>
+              </div>
+              <span class="tag">Implementación Real</span>
+            </div>
+            <div class="press-headline">«Inyección automática vía next dev: bloques gestionados BEGIN:nextjs-agent-rules»</div>
+            <p class="press-desc">
+              El script <code>generate-agent-files.js</code> inyecta un <mark class="highlighter">bloque gestionado delimitado por comentarios</mark> al detectar un agente activo, preservando las reglas custom del dev y permitiendo desactivación con <code>--no-agents-md</code>.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank" rel="noopener noreferrer">
+                🔗 github.com/vercel/next.js (canary) ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- 4. Análisis Técnico / Scaffold Next.js -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Agent Skills / Blode.co</span>
+                <span class="press-date">Arquitectura IA</span>
+              </div>
+              <span class="tag">El Guardrail Tax</span>
+            </div>
+            <div class="press-headline">«El precio de la inercia del modelo: si el framework debe hackearse, tus ADRs son obligatorios»</div>
+            <p class="press-desc">
+              El análisis de <code>scaffold-nextjs</code> confirma la tesis artesana: los LLMs sufren una inercia destructiva. <mark class="highlighter">Si el framework más popular debe auto-inyectarse para disciplinar al agente</mark>, ningún proyecto sobrevive sin ADRs inmutables.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://blode.co/agent-skills/architecture/scaffold-nextjs" target="_blank" rel="noopener noreferrer">
+                🔗 blode.co/agent-skills/scaffold-nextjs ↗
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
