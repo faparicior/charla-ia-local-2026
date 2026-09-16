@@ -1169,6 +1169,164 @@ body.theme-dark .press-header {
 }
 
 /* ==========================================================================
+   OVERLAY PASO 2 EN SLIDE 28: TARJETA HERO DE PRENSA (AGENTS.MD)
+   ========================================================================== */
+.press-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 14, 22, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 4rem;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.96);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+}
+
+body:not(.theme-dark) .press-hero-overlay {
+  background: rgba(235, 238, 245, 0.86);
+}
+
+.press-hero-overlay.step-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.press-hero-card {
+  width: 100%;
+  max-width: 1320px;
+  padding: 2.2rem 3.2rem 2.2rem;
+  gap: 1.15rem;
+  transform: rotate(-0.35deg);
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.28)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.press-hero-card::before {
+  width: 180px;
+  height: 34px;
+  top: -16px;
+}
+
+body.theme-dark .press-hero-card {
+  filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 45px rgba(139, 92, 246, 0.25));
+}
+
+.press-hero-card .press-headline {
+  font-size: 2.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.press-hero-code-block {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #8b5cf6;
+  border-radius: 6px;
+  padding: 1.15rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+body.theme-dark .press-hero-code-block {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-left-color: #8b5cf6;
+}
+
+.press-comment-tag {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: #6e7781;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+body.theme-dark .press-comment-tag {
+  color: #8b949e;
+}
+
+.press-hero-text {
+  font-size: 1.18rem;
+  line-height: 1.58;
+  color: #1f2328;
+  margin: 0;
+}
+
+body.theme-dark .press-hero-text {
+  color: #e5e7eb;
+}
+
+.press-hero-text code {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  padding: 0.12em 0.38em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.06);
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+body.theme-dark .press-hero-text code {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c084fc;
+}
+
+.press-hero-takeaway-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem;
+  margin-top: 0.25rem;
+}
+
+.press-hero-takeaway-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  padding: 0.95rem 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: #374151;
+}
+
+body.theme-dark .press-hero-takeaway-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #9ca3af;
+}
+
+.press-hero-takeaway-item strong {
+  display: block;
+  color: #111827;
+  font-size: 1.04rem;
+  margin-bottom: 0.2rem;
+}
+
+body.theme-dark .press-hero-takeaway-item strong {
+  color: #f3f4f6;
+}
+
+.press-hero-takeaway-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+
+/* ==========================================================================
    TABLA EDITORIAL DE COSTES DE INFERENCIA (AMPLIADA PARA PROYECTOR)
    ========================================================================== */
 .table-container {
@@ -14746,6 +14904,8 @@ body.theme-dark .adr-step-bullet-item {
 /* ==========================================================================
    SLIDE ESPECIAL: CASO REAL NEXT.JS - STAMP / POF NEWSPAPER
    ========================================================================== */
+
+
 .nextjs-pof-stage {
   display: flex;
   flex-direction: column;
