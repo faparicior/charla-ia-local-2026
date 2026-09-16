@@ -1,99 +1,102 @@
-# El Caso Vercel / Next.js: La Inyección de AGENTS.md y el "Guardrail Tax"
+# El Caso Vercel / Next.js: Empaquetado de Documentación, AGENTS.md y Gobernanza de Agentes
 
 ## Resumen Ejecutivo
 
-En la evolución del desarrollo asistido por IA, **Next.js (Vercel)** protagonizó uno de los movimientos arquitectónicos más reveladores de la industria entre finales de 2024 y 2026 (con consolidación formal en Next.js 16.3+ y su rama *canary*).
+En las versiones **Next.js 16.2 y 16.3+ (2026)**, el equipo de Vercel introdujo cambios arquitectónicos específicos dirigidos a agentes de código (Claude Code, Cursor, GitHub Copilot, Codex, etc.).
 
-El problema fundamental era crítico: **la inercia estadística de los Modelos de Lenguaje (LLMs)**. Modelos como Claude, GPT-4 o Cursor habían sido preentrenados con terabytes de código histórico de Next.js (versiones 12 a 14), plagados del antiguo *Pages Router* (`pages/`), métodos sincrónicos obsoletos (`getServerSideProps`, `getStaticProps`), importaciones de `next/router` (en lugar de `next/navigation`) y acceso sincrónico a `params` (que a partir de Next.js 15 se convirtieron en promesas asíncronas `await params`).
+El motivo técnico es concreto: **el desfase temporal del entrenamiento de los modelos**. Los LLMs han sido entrenados con millones de repositorios que utilizan versiones anteriores de Next.js (Pages Router con `pages/`, métodos sincrónicos como `getServerSideProps` o `getStaticProps`, el paquete de enrutamiento legacy `next/router` en vez de `next/navigation`, o el acceso síncrono a `params`, que a partir de Next.js 15 pasó a ser una promesa asíncrona `await params`).
 
-Como consecuencia directa, cuando un desarrollador pedía a un agente de IA generar o modificar código en Next.js, el modelo **alucinaba patrones incompatibles con total convicción**, rompiendo el build y generando una enorme frustración en la comunidad.
+Debido a esto, los agentes tienden a generar código obsoleto con alta confianza estadística si dependen únicamente de sus pesos preentrenados.
 
-Para resolverlo, Vercel tomó una decisión drástica: **modificar localmente el entorno del desarrollador** mediante la inyección automatizada de archivos `AGENTS.md` y `CLAUDE.md` durante la ejecución de `next dev` y `create-next-app`, encabezados por una advertencia sin precedentes:
-
-> **«This is NOT the Next.js you know»**
-
-Este caso representa el ejemplo paradigmático del **"Guardrail Tax"** (el peaje de gobernanza que los creadores de software deben pagar para disciplinar la inercia de la IA).
+Para solventar este problema de forma determinista y sin requerir conexión a internet durante la codificación, Next.js implementó tres mecanismos:
+1. **Documentación empaquetada en local:** Cada instalación de Next.js incluye su documentación exacta dentro de `node_modules/next/dist/docs/`.
+2. **Inyección condicional de `AGENTS.md` / `CLAUDE.md`:** A partir de Next.js 16.3, el comando `next dev` detecta si se está ejecutando en el entorno de un agente y, si no existe el archivo, genera o actualiza un bloque gestionado delimitado.
+3. **El aviso de divergencia:** El encabezado del bloque advierte explícitamente al modelo: `# This is NOT the Next.js you know`, instruyéndole a leer la documentación local antes de generar código.
 
 ---
 
-## 1. Cronología Oficial y Evolución Técnica
+## 1. Cronología de la Funcionalidad en Next.js
 
-| Versión / Fecha | Hito Técnico | Detalle e Impacto |
+| Versión | Estado de la Documentación para Agentes | Mecanismo de Configuración |
 |---|---|---|
-| **Octubre 2024 (Next.js 15)** | **Breaking Changes Asíncronos** | `params`, `searchParams`, `cookies()` y `headers()` pasan a ser promesas asíncronas (`async/await`). Los LLMs alucinan código sincrónico en masa. |
-| **Principios 2025** | **Empaquetado de Docs en Local** | Vercel empieza a empaquetar documentación Markdown de la versión exacta dentro de `node_modules/next/dist/docs/` para evitar que los agentes dependan de internet o conocimiento congelado. |
-| **Canary / 2025-2026** | **GitHub Discussion #92197** | Debate comunitario intenso sobre la creación automática de `AGENTS.md`, la sincronización en upgrades y la redacción del aviso: *"This is NOT the Next.js you know"*. |
-| **Next.js 16.3+** | **Adopción Oficial de AGENTS.md** | `create-next-app` y `next dev` gestionan automáticamente el bloque `<!-- BEGIN:nextjs-agent-rules -->` cuando detectan un agente de código activo. Se incluye el flag `--no-agents-md` para desactivarlo. |
+| **≤ Next.js 16.1** | La documentación no venía empaquetada en el paquete npm. | Se requería ejecutar un codemod externo (`npx @next/codemod@canary agents-md`) que descargaba una copia a `.next-docs/`. |
+| **Next.js 16.2** | Se comienza a empaquetar la documentación en `node_modules/next/dist/docs/`. | El archivo `AGENTS.md` no se generaba automáticamente. El texto inicial propuesto era: `## Next.js: ALWAYS read docs before coding`. |
+| **Next.js 16.3+** | Documentación empaquetada por defecto en todos los proyectos. | `create-next-app` genera `AGENTS.md` (con opción `--no-agents-md`). `next dev` detecta agentes y auto-inyecta el bloque gestionado. El texto pasa a `# This is NOT the Next.js you know`. |
 
 ---
 
-## 2. Anatomía de la Solución de Vercel
+## 2. Detalles Técnicos de la Implementación
 
-### A. El Bloque Gestionado (`<!-- BEGIN:nextjs-agent-rules -->`)
-Para no sobreescribir las directrices personalizadas del desarrollador, Vercel implementó en `generate-agent-files.js` un sistema de bloques delimitados:
+### A. Estructura de la Documentación en `node_modules`
+La carpeta `node_modules/next/dist/docs/` replica exactamente la estructura del sitio oficial de documentación:
+```txt
+node_modules/next/dist/docs/
+├── 01-app/
+│   ├── 01-getting-started/
+│   ├── 02-guides/
+│   └── 03-api-reference/
+├── 02-pages/
+├── 03-architecture/
+└── index.mdx
+```
+Esto permite que cualquier agente con capacidad de lectura de ficheros locales acceda a las especificaciones exactas de la versión instalada sin realizar peticiones HTTP externas.
+
+### B. El Bloque Gestionado (`generate-agent-files.js`)
+El script responsable de esta gestión se localiza en `node_modules/next/dist/server/lib/generate-agent-files.js`. El bloque inyectado utiliza marcadores HTML para respetar las instrucciones propias del repositorio:
 
 ```markdown
 <!-- BEGIN:nextjs-agent-rules -->
-# Next.js Agent Rules
 
-> ## CRITICAL: This is NOT the Next.js you know.
-> Next.js has evolved significantly. Do NOT assume patterns from older versions.
-> Before writing code, YOU MUST READ the documentation bundled in this repository.
+# This is NOT the Next.js you know
 
-Documentation is available at:
-`node_modules/next/dist/docs/`
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-- App Router is required (do not use `pages/`).
-- `params` and `searchParams` are Promises: `const { id } = await params;`.
-- Use `next/navigation`, never `next/router`.
-- Follow Server and Client Component boundaries strictly.
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
 <!-- END:nextjs-agent-rules -->
-
-<!-- El desarrollador puede añadir sus propias reglas de negocio aquí abajo sin que se borren -->
 ```
 
-### B. Documentación "Air-Gapped" en `node_modules/next/dist/docs/`
-Los agentes a menudo no tienen acceso a internet en entornos locales aislados o consumen tokens innecesarios consultando webs externas. Vercel resolvió esto distribuyendo las especificaciones canónicas de cada release dentro del propio paquete npm, garantizando que el agente consulte **la verdad exacta de la versión instalada**.
+En el caso de Claude Code, se genera adicionalmente un archivo `CLAUDE.md` que apunta al archivo principal:
+```markdown
+@AGENTS.md
+```
 
-### C. Detección Inteligente del Agente
-En lugar de saturar a desarrolladores tradicionales, `next dev` analiza variables de entorno e inspectores de procesos para identificar si herramientas como Claude Code, Cursor, Windsurf, GitHub Copilot o Cline están operando en el workspace, activando la inyección sólo cuando es necesario.
+### C. Mecanismos de Exclusión (Opt-out)
+* Al inicializar: `npx create-next-app --no-agents-md`
+* En configuración de proyecto (`next.config.ts`):
+  ```typescript
+  import type { NextConfig } from 'next'
 
----
+  const nextConfig: NextConfig = {
+    agentRules: false,
+  }
 
-## 3. Debate Comunitario y Controversia (GitHub #92197)
-
-La discusión en GitHub #92197 reflejó las tensiones entre desarrolladores y el auge de los agentes:
-1. **Invasión del Workspace:** Desarrolladores cuestionaban que un comando de desarrollo (`next dev`) creara o modificara archivos rastreados por git sin autorización explícita.
-2. **Evolución del Mensaje:** La frase *"This is NOT the Next.js you know"* fue debatida frente a fórmulas más asépticas. Vercel mantuvo el tono enérgico porque los benchmarks demostraron que los LLMs ignoraban advertencias suaves o genéricas.
-3. **Drift entre Versiones:** Cuando un usuario actualizaba de versión (`npm update next`), `AGENTS.md` quedaba desincronizado si no se regeneraba, obligando a vincular la actualización del archivo al ciclo de vida del CLI.
-
----
-
-## 4. La Lección para el Artesano de Software (AI Local Crafters)
-
-El caso Next.js 16.3 / Vercel es la confirmación definitiva de la tesis de nuestra charla:
-
-> **«Si el framework web más popular del planeta tiene que hackear su CLI e inyectar archivos markdown para gritarle a la IA y evitar que destruya el código... ¿cómo pretendes que un modelo respete la arquitectura de tu empresa sin ADRs inmutables ni contratos explícitos?»**
-
-### Conclusiones Clave:
-1. **Los LLMs no tienen buen juicio arquitectónico espontáneo:** Operan por probabilidad estadística sobre datos antiguos.
-2. **El "Guardrail Tax" es real e inevitable:** Quien no invierte en gobernar el contexto del agente (ADRs, reglas de capas, invariantes) acaba pagando el impuesto en bugs y refactorizaciones infinitas.
-3. **Las Living Specs son el futuro:** Documentación estructurada dentro del repo (`docs/adr/`, `docs/product/`, `AGENTS.md`) es la única interfaz confiable para un agente autónomo.
+  export default nextConfig
+  ```
 
 ---
 
-## 5. Enlaces y Fuentes de Referencia
+## 3. Discusión Técnica en GitHub: Sincronización en Upgrades (#92197)
 
-### Documentación y Repositorios Oficiales
-- **Next.js Official Documentation**: [AI Coding Agents Guide](https://nextjs.org/docs/app/guides/ai-agents)  
-  *Explica la adopción de AGENTS.md / CLAUDE.md, node_modules/next/dist/docs/, la opción `--no-agents-md` y los marcadores de bloque.*
-- **GitHub Discussions (Vercel)**: [Discussion #92197: Next.js should update AGENTS.md on upgrade](https://github.com/vercel/next.js/discussions/92197)  
-  *Debate sobre el texto "This is NOT the Next.js you know", la sincronización en upgrades y la gestión del bloque.*
-- **Next.js Monorepo (Canary)**: [packages/next/AGENTS.md](https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md)  
-  *Archivo oficial de directrices que el equipo de Vercel mantiene para los agentes que colaboran en el monorepo.*
-- **Vercel Labs (Ejemplo en Producción)**: [openai-agents-api-v0-clone / AGENTS.md](https://github.com/vercel-labs/openai-agents-api-v0-clone/blob/main/AGENTS.md)  
-  *Repositorio oficial donde se aprecia el bloque inyectado por `generate-agent-files.js`.*
+En la discusión técnica [vercel/next.js Discussion #92197](https://github.com/vercel/next.js/discussions/92197), un desarrollador planteó el problema de la persistencia de reglas al actualizar dependencias:
+* **Problema reportado:** Al actualizar Next.js mediante `npm i next@latest`, el archivo `AGENTS.md` ya existente no se actualizaba, manteniendo versiones antiguas de las directrices o del texto preliminar (`## Next.js: ALWAYS read docs before coding`).
+* **Respuesta del equipo de Vercel:** Se aclaró que el texto definitivo `# This is NOT the Next.js you know` se consolidó en la release 16.2.0, y que el comando oficial de actualización del framework (`next upgrade`) es el encargado de refrescar el contenido del bloque gestionado para mantener la coherencia con la versión recién instalada.
 
-### Análisis Técnico Externo
-- **Blode.co Agent Skills**: [Análisis de arquitectura: scaffold-nextjs](https://blode.co/agent-skills/architecture/scaffold-nextjs)  
-  *Desglose de cómo `next dev` comprueba el entorno para inyectar este bloque gestionado únicamente ante agentes activos.*
+---
+
+## 4. Relevancia para la Arquitectura de Software
+
+El caso de Next.js ilustra con precisión la problemática de la **ergonomía para IA (AX - Agent Experience)**:
+1. **La inercia del modelo es un hecho objetivo:** Incluso en frameworks con millones de descargas, los modelos continúan proponiendo APIs obsoletas si no se acota su contexto con documentación local vinculada a la versión instalada.
+2. **Las directrices en el repositorio son necesarias:** La estrategia de Vercel confirma que delegar código en agentes requiere "raíles" explícitos (en su caso, `AGENTS.md` y `node_modules/next/dist/docs/`; en el ciclo artesano, **ADRs inmutables y contratos de dominio**).
+3. **Mantenimiento sin drift:** La sincronización de las reglas debe formar parte del ciclo de vida del proyecto para evitar que la documentación de gobierno diverja del código real.
+
+---
+
+## 5. Fuentes Primarias y Enlaces
+
+1. **Guía Oficial de Next.js:** [Next.js Documentation: AI Coding Agents](https://nextjs.org/docs/app/guides/ai-agents) (versión 16.3.5, septiembre 2026).
+2. **Discusión en GitHub:** [vercel/next.js Discussion #92197: Next.js should update AGENTS.md on upgrade](https://github.com/vercel/next.js/discussions/92197).
+3. **Monorepo Oficial de Next.js:** [packages/next/AGENTS.md en rama canary](https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md).
+4. **Ejemplo en Repositorio Público:** [Vercel Labs: openai-agents-api-v0-clone / AGENTS.md](https://github.com/vercel-labs/openai-agents-api-v0-clone/blob/main/AGENTS.md).
+5. **Análisis de Arquitectura:** [Blode.co: scaffold-nextjs (Agent Skills)](https://blode.co/agent-skills/architecture/scaffold-nextjs).
