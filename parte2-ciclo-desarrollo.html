@@ -4289,7 +4289,7 @@ flowchart TD
          SLIDE SPECIAL 2C: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
          ==================================================================== -->
     <section class="slide" id="slide-pillar-adr-timeline">
-      <div class="slide-content" style="gap: 1.1rem;">
+      <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
           <a href="#slide-pillar-adr-steps" class="deck-back-btn">← Pasos del ADR</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Timeline Canónico</span>
@@ -4297,9 +4297,9 @@ flowchart TD
         <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
           Pilar 1 • docs/adr/ADR-WORKFLOW.md • Flujo Secuencial de Izquierda a Derecha
         </div>
-        <h2>El Ciclo Natural de un ADR <span class="serif-italic" style="color: #f59e0b;">Timeline de Izquierda a Derecha</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          5 fases sin apreturas: cómo evoluciona una decisión desde la duda técnica inicial hasta su blindaje inmutable en el repositorio.
+        <h2 style="margin-bottom: 0.1rem;">El Ciclo Canónico de un ADR <span class="serif-italic" style="color: #f59e0b;">de la Duda a la Ley</span></h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
+          5 fases sin apreturas: cómo evoluciona una decisión desde la encrucijada técnica hasta su blindaje inmutable en el repositorio.
         </p>
 
         <div class="adr-timeline-container">
@@ -4311,12 +4311,21 @@ flowchart TD
                 <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">01</div>
                 <span class="adr-step-state-tag">Proposed</span>
               </div>
+              <div class="adr-step-icon-box amber">🎯</div>
               <div class="adr-step-title">Dilema &amp; Drivers</div>
               <code class="adr-step-skill-chip">/adr-create</code>
               <div class="adr-step-body">
                 Nace de una encrucijada técnica real o cambio de stack. El skill <strong>reserva el siguiente ID secuencial (0XX)</strong> y documenta las fuerzas impulsoras.
               </div>
-              <div class="adr-step-punchline" style="color: #f59e0b;">
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Artefacto:</strong> <code>docs/adr/0XX-*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Foco:</strong> Define drivers y problema real</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
                 🎯 Acota el problema
               </div>
             </div>
@@ -4327,12 +4336,21 @@ flowchart TD
                 <div class="adr-step-node-badge" style="border-color: #38bdf8; color: #38bdf8;">02</div>
                 <span class="adr-step-state-tag" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">2-3 Opciones</span>
               </div>
+              <div class="adr-step-icon-box sky">⚖️</div>
               <div class="adr-step-title">Exploración Real</div>
               <code class="adr-step-skill-chip" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Matriz Pros / Cons</code>
               <div class="adr-step-body">
                 Prohibido el sesgo de confirmación. Se evalúan <strong>2 o 3 alternativas viables</strong> contrastando pros, contras, mantenimiento y deuda técnica.
               </div>
-              <div class="adr-step-punchline" style="color: #38bdf8;">
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Matriz:</strong> Mínimo 2-3 opciones viables</span>
+                </div>
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Criterio:</strong> Pros, contras y trade-offs</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #38bdf8; background: rgba(56, 189, 248, 0.08);">
                 ⚖️ Criterio sin sesgos
               </div>
             </div>
@@ -4343,12 +4361,21 @@ flowchart TD
                 <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
                 <span class="adr-step-state-tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Obligatorio</span>
               </div>
+              <div class="adr-step-icon-box violet">🤖</div>
               <div class="adr-step-title">Ergonomía IA (AX)</div>
               <code class="adr-step-skill-chip" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">Corpus &amp; Guardrails</code>
               <div class="adr-step-body">
                 ¿Choca con el sesgo del LLM? Se evalúa el <strong>Corpus Alignment</strong>, el <strong>Guardrail Tax</strong> (coste en prompts y tests) y el riesgo de deriva.
               </div>
-              <div class="adr-step-punchline" style="color: #8b5cf6;">
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Corpus Bias:</strong> Hábitos previos del LLM</span>
+                </div>
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Guardrail Tax:</strong> Coste en prompts y tests</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.08);">
                 🤖 Mitiga la inercia LLM
               </div>
             </div>
@@ -4359,12 +4386,21 @@ flowchart TD
                 <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
                 <span class="adr-step-state-tag" style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Compromiso</span>
               </div>
+              <div class="adr-step-icon-box rose">📌</div>
               <div class="adr-step-title">Decisión &amp; Reglas</div>
               <code class="adr-step-skill-chip" style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">Contrato Firme</code>
               <div class="adr-step-body">
                 Elección formal con honestidad intelectual: se explicitan los <strong>beneficios</strong>, los <strong>trade-offs asumidos</strong> y qué queda terminantemente prohibido.
               </div>
-              <div class="adr-step-punchline" style="color: #ec4899;">
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Contrato:</strong> Elección formal e inmutable</span>
+                </div>
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Invariante:</strong> Qué queda prohibido</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
                 📌 Reglas innegociables
               </div>
             </div>
@@ -4375,12 +4411,21 @@ flowchart TD
                 <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">05</div>
                 <span class="adr-step-state-tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Accepted ✅</span>
               </div>
+              <div class="adr-step-icon-box emerald">🛡️</div>
               <div class="adr-step-title">Auditoría &amp; Sello</div>
               <code class="adr-step-skill-chip" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/adr-validate</code>
               <div class="adr-step-body">
                 Pasa la <strong>rúbrica automática (Score ≥ Medium)</strong> y se indexa en <code>docs/adr/README.md</code>. Queda blindado como constitución inmutable del código.
               </div>
-              <div class="adr-step-punchline" style="color: #10b981;">
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Rúbrica:</strong> Score ≥ Medium para aceptar</span>
+                </div>
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Catálogo:</strong> <code>docs/adr/README.md</code></span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
                 🏛️ Ley viva del repositorio
               </div>
             </div>
