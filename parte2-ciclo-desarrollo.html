@@ -4372,36 +4372,43 @@
 
         <div class="agents-case-grid">
 
-          <!-- Columna Izquierda: El Archivo Real (Visor GitHub) -->
-          <div class="agents-github-card">
-            <div class="agents-github-header">
-              <div class="agents-github-tab">
-                <span style="font-size: 1.15rem;">📄</span>
-                <span>AGENTS.md</span>
-                <span class="agents-github-tag">MANAGED BLOCK</span>
+          <!-- Columna Izquierda: El Archivo Real (Visor GitHub) + Superposición ZASCA (Step) -->
+          <div class="agents-left-column">
+            <div class="agents-github-card">
+              <div class="agents-github-header">
+                <div class="agents-github-tab">
+                  <span style="font-size: 1.15rem;">📄</span>
+                  <span>AGENTS.md</span>
+                  <span class="agents-github-tag">MANAGED BLOCK</span>
+                </div>
+                <div class="agents-github-path">
+                  <code>node_modules/next/dist/server/lib/generate-agent-files.js</code>
+                </div>
               </div>
-              <div class="agents-github-path">
-                <code>node_modules/next/dist/server/lib/generate-agent-files.js</code>
+
+              <div class="agents-github-body">
+                <div class="agents-github-comment">&lt;!-- BEGIN:nextjs-agent-rules --&gt;</div>
+                <h1 class="agents-github-title">This is NOT the Next.js you know</h1>
+                <p class="agents-github-text">
+                  This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in <code class="agents-github-code">node_modules/next/dist/docs/</code> (resolved from this file's directory; in monorepos the <code class="agents-github-code">next</code> package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+                </p>
+                <p class="agents-github-text" style="margin-bottom: 0.25rem;">
+                  This block is written and re-added by <code class="agents-github-code">next dev</code> — verify at <code class="agents-github-code">node_modules/next/dist/server/lib/generate-agent-files.js</code>. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+                </p>
+                <div class="agents-github-comment" style="margin-top: 0.75rem;">&lt;!-- END:nextjs-agent-rules --&gt;</div>
+              </div>
+
+              <div class="agents-github-footer">
+                <span style="color: var(--text-muted);">Inyectado y reescrito deterministamente en <code>next dev</code></span>
+                <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank" rel="noopener noreferrer">
+                  github.com/vercel/next.js (canary) ↗
+                </a>
               </div>
             </div>
 
-            <div class="agents-github-body">
-              <div class="agents-github-comment">&lt;!-- BEGIN:nextjs-agent-rules --&gt;</div>
-              <h1 class="agents-github-title">This is NOT the Next.js you know</h1>
-              <p class="agents-github-text">
-                This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in <code class="agents-github-code">node_modules/next/dist/docs/</code> (resolved from this file's directory; in monorepos the <code class="agents-github-code">next</code> package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-              </p>
-              <p class="agents-github-text" style="margin-bottom: 0.25rem;">
-                This block is written and re-added by <code class="agents-github-code">next dev</code> — verify at <code class="agents-github-code">node_modules/next/dist/server/lib/generate-agent-files.js</code>. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-              </p>
-              <div class="agents-github-comment" style="margin-top: 0.75rem;">&lt;!-- END:nextjs-agent-rules --&gt;</div>
-            </div>
-
-            <div class="agents-github-footer">
-              <span style="color: var(--text-muted);">Inyectado y reescrito deterministamente en <code>next dev</code></span>
-              <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank" rel="noopener noreferrer">
-                github.com/vercel/next.js (canary) ↗
-              </a>
+            <!-- Superposición ZASCA al pulsar Siguiente (Step) -->
+            <div class="zasca-overlay step">
+              <img src="script/img/zasca-berto.png" alt="¡ZASCA! Berto Romero" class="zasca-img">
             </div>
           </div>
 

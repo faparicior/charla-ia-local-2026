@@ -14756,6 +14756,66 @@ body.theme-dark .adr-step-bullet-item {
   margin-top: 0.25rem;
 }
 
+.agents-left-column {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.agents-left-column .agents-github-card {
+  height: 100%;
+  flex: 1;
+}
+
+/* Superposición ZASCA en Slide 29 (Interrupción de Patrón) */
+.zasca-overlay {
+  position: absolute;
+  inset: -6px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+  z-index: 30;
+}
+
+body:not(.theme-dark) .zasca-overlay {
+  background: rgba(240, 243, 248, 0.72);
+}
+
+.zasca-overlay.step-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.zasca-overlay .zasca-img {
+  max-height: 94%;
+  max-width: 90%;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  transform: scale(0.85) rotate(-6deg);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body.theme-dark .zasca-overlay .zasca-img {
+  border-color: #334155;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 45px rgba(225, 29, 72, 0.35);
+}
+
+.zasca-overlay.step-active .zasca-img {
+  transform: scale(1) rotate(-2.5deg);
+}
+
 .agents-github-card {
   background: #ffffff;
   border: 1.5px solid #d0d7de;
