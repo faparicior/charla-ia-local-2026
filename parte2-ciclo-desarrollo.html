@@ -4354,12 +4354,112 @@
     </section>
 
     <!-- ====================================================================
+         SLIDE SPECIAL 1D: CASO REAL NEXT.JS - EL DOCUMENTO INYECTADO (AGENTS.MD)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-case-file">
+      <div class="slide-content" style="gap: 0.75rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-case-nextjs" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Pilar 1 • El Documento Inyectado</span>
+        </div>
+        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
+          Artefacto Real • AGENTS.md • Parada Abrupta y Gobernanza Determinista
+        </div>
+        <h2 style="font-size: 3.3rem; margin-bottom: 0.05rem; line-height: 1.15;">El Artefacto Inyectado: <span class="serif-italic" style="color: #8b5cf6;">"This is NOT the Next.js you know"</span></h2>
+        <p class="subtitle" style="margin-top: -0.5rem; margin-bottom: 0.15rem;">
+          Por qué fracasan las advertencias suaves y cómo Next.js recurre a la interrupción de patrón para frenar al agente:
+        </p>
+
+        <div class="agents-case-grid">
+
+          <!-- Columna Izquierda: El Archivo Real (Visor GitHub) -->
+          <div class="agents-github-card">
+            <div class="agents-github-header">
+              <div class="agents-github-tab">
+                <span style="font-size: 1.15rem;">📄</span>
+                <span>AGENTS.md</span>
+                <span class="agents-github-tag">MANAGED BLOCK</span>
+              </div>
+              <div class="agents-github-path">
+                <code>node_modules/next/dist/server/lib/generate-agent-files.js</code>
+              </div>
+            </div>
+
+            <div class="agents-github-body">
+              <div class="agents-github-comment">&lt;!-- BEGIN:nextjs-agent-rules --&gt;</div>
+              <h1 class="agents-github-title">This is NOT the Next.js you know</h1>
+              <p class="agents-github-text">
+                This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in <code class="agents-github-code">node_modules/next/dist/docs/</code> (resolved from this file's directory; in monorepos the <code class="agents-github-code">next</code> package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+              </p>
+              <p class="agents-github-text" style="margin-bottom: 0.25rem;">
+                This block is written and re-added by <code class="agents-github-code">next dev</code> — verify at <code class="agents-github-code">node_modules/next/dist/server/lib/generate-agent-files.js</code>. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+              </p>
+              <div class="agents-github-comment" style="margin-top: 0.75rem;">&lt;!-- END:nextjs-agent-rules --&gt;</div>
+            </div>
+
+            <div class="agents-github-footer">
+              <span style="color: var(--text-muted);">Inyectado y reescrito deterministamente en <code>next dev</code></span>
+              <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank" rel="noopener noreferrer">
+                github.com/vercel/next.js (canary) ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Explicación Arquitectónica (Las 3 razones clave) -->
+          <div class="agents-insights-column">
+
+            <!-- 1. El fallo de las advertencias suaves -->
+            <div class="agents-insight-card">
+              <div class="agents-insight-icon">⚠️</div>
+              <div>
+                <div class="agents-insight-title">
+                  El fallo de las advertencias suaves
+                </div>
+                <p class="agents-insight-desc">
+                  Cuando las directrices usan frases amables o condicionales (<em>"Please check the docs"</em>), los LLMs tienden a tratarlas como <mark>sugerencias de baja prioridad</mark> frente a los millones de ejemplos de versiones anteriores que dominan sus pesos de entrenamiento.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2. Técnica de pattern interruption -->
+            <div class="agents-insight-card">
+              <div class="agents-insight-icon">🛑</div>
+              <div>
+                <div class="agents-insight-title">
+                  Técnica de <em>pattern interruption</em>
+                </div>
+                <p class="agents-insight-desc">
+                  El encabezado <code># This is NOT the Next.js you know</code> funciona como una <mark>instrucción de parada abrupta</mark>. Al contradecir categóricamente la premisa previa del modelo, eleva la probabilidad de que ejecute la llamada a herramienta (<em>tool use</em> en <code>node_modules/next/dist/docs/</code>) antes de alucinar código.
+                </p>
+              </div>
+            </div>
+
+            <!-- 3. El problema de Next.js en particular -->
+            <div class="agents-insight-card">
+              <div class="agents-insight-icon">🔄</div>
+              <div>
+                <div class="agents-insight-title">
+                  El problema de Next.js en particular
+                </div>
+                <p class="agents-insight-desc">
+                  Pocos frameworks acumularon tantas capas divergentes en tan poco tiempo: Pages Router (2021), App Router con fetch cacheado (2023), y Server Actions/Components asíncronos en 15 y 16. La única forma de <mark>evitar que mezcle 2021 con 2026</mark> era forzarla a ignorar su memoria base y consultar la versión empaquetada.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          SLIDE SPECIAL 2: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
          ==================================================================== -->
     <section class="slide" id="slide-pillar-adr-timeline">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-case-nextjs" class="deck-back-btn">← Caso Real Next.js</a>
+          <a href="#slide-pillar-adr-case-file" class="deck-back-btn">← Archivo AGENTS.md</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Timeline
             Canónico</span>
         </div>

@@ -1169,164 +1169,6 @@ body.theme-dark .press-header {
 }
 
 /* ==========================================================================
-   OVERLAY PASO 2 EN SLIDE 28: TARJETA HERO DE PRENSA (AGENTS.MD)
-   ========================================================================== */
-.press-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 14, 22, 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 4rem;
-  z-index: 50;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: scale(0.96);
-  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
-}
-
-body:not(.theme-dark) .press-hero-overlay {
-  background: rgba(235, 238, 245, 0.86);
-}
-
-.press-hero-overlay.step-active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: scale(1);
-}
-
-.press-hero-card {
-  width: 100%;
-  max-width: 1320px;
-  padding: 2.2rem 3.2rem 2.2rem;
-  gap: 1.15rem;
-  transform: rotate(-0.35deg);
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.28)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
-}
-
-.press-hero-card::before {
-  width: 180px;
-  height: 34px;
-  top: -16px;
-}
-
-body.theme-dark .press-hero-card {
-  filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 45px rgba(139, 92, 246, 0.25));
-}
-
-.press-hero-card .press-headline {
-  font-size: 2.35rem;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-
-.press-hero-code-block {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #8b5cf6;
-  border-radius: 6px;
-  padding: 1.15rem 1.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-body.theme-dark .press-hero-code-block {
-  background: rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.1);
-  border-left-color: #8b5cf6;
-}
-
-.press-comment-tag {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  color: #6e7781;
-  font-style: italic;
-  letter-spacing: 0.02em;
-}
-
-body.theme-dark .press-comment-tag {
-  color: #8b949e;
-}
-
-.press-hero-text {
-  font-size: 1.18rem;
-  line-height: 1.58;
-  color: #1f2328;
-  margin: 0;
-}
-
-body.theme-dark .press-hero-text {
-  color: #e5e7eb;
-}
-
-.press-hero-text code {
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  padding: 0.12em 0.38em;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.06);
-  color: #7c3aed;
-  font-weight: 600;
-}
-
-body.theme-dark .press-hero-text code {
-  background: rgba(255, 255, 255, 0.08);
-  color: #c084fc;
-}
-
-.press-hero-takeaway-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.35rem;
-  margin-top: 0.25rem;
-}
-
-.press-hero-takeaway-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  background: rgba(0, 0, 0, 0.025);
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 8px;
-  padding: 0.95rem 1.25rem;
-  font-size: 1.02rem;
-  line-height: 1.45;
-  color: #374151;
-}
-
-body.theme-dark .press-hero-takeaway-item {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #9ca3af;
-}
-
-.press-hero-takeaway-item strong {
-  display: block;
-  color: #111827;
-  font-size: 1.04rem;
-  margin-bottom: 0.2rem;
-}
-
-body.theme-dark .press-hero-takeaway-item strong {
-  color: #f3f4f6;
-}
-
-.press-hero-takeaway-icon {
-  font-size: 1.45rem;
-  line-height: 1;
-}
-
-
-/* ==========================================================================
    TABLA EDITORIAL DE COSTES DE INFERENCIA (AMPLIADA PARA PROYECTOR)
    ========================================================================== */
 .table-container {
@@ -12150,8 +11992,8 @@ body.theme-dark .rect-card-cat-badge.cat-mixto {
    ========================================================================== */
 .step {
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* En Modo Overview o Impresión, todos los pasos son siempre visibles al 100% */
@@ -12159,6 +12001,7 @@ body.overview-mode .step,
 body.overview-mode #slide-1-pipeline .rect-col.step,
 body.overview-mode #slide-1-pipeline .chosen-synergy-banner.step,
 @media print {
+
   .step,
   #slide-1-pipeline .rect-col.step,
   #slide-1-pipeline .chosen-synergy-banner.step {
@@ -12176,8 +12019,8 @@ body.overview-mode #slide-1-pipeline .chosen-synergy-banner.step,
   transform: translateY(8px);
   cursor: pointer;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #slide-1-pipeline .rect-col.step:hover {
@@ -12204,10 +12047,13 @@ body.overview-mode #slide-1-pipeline .chosen-synergy-banner.step,
 }
 
 @keyframes donutCurrentPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1.3);
     box-shadow: 0 0 14px currentColor;
   }
+
   50% {
     transform: scale(1.42);
     box-shadow: 0 0 24px currentColor, 0 0 36px currentColor;
@@ -12233,15 +12079,19 @@ body.overview-mode #slide-1-pipeline .rect-bar-segment {
 #slide-1-pipeline:has(.rect-col[data-step="1"].step-current) .rect-bar-segment[data-step="1"] {
   filter: drop-shadow(0 0 8px #0284c7);
 }
+
 #slide-1-pipeline:has(.rect-col[data-step="2"].step-current) .rect-bar-segment[data-step="2"] {
   filter: drop-shadow(0 0 8px #7c3aed);
 }
+
 #slide-1-pipeline:has(.rect-col[data-step="3"].step-current) .rect-bar-segment[data-step="3"] {
   filter: drop-shadow(0 0 8px #10b981);
 }
+
 #slide-1-pipeline:has(.rect-col[data-step="4"].step-current) .rect-bar-segment[data-step="4"] {
   filter: drop-shadow(0 0 8px #d97706);
 }
+
 #slide-1-pipeline:has(.rect-col[data-step="5"].step-current) .rect-bar-segment[data-step="5"] {
   filter: drop-shadow(0 0 8px #e11d48);
 }
@@ -12273,9 +12123,12 @@ body.overview-mode #slide-1-pipeline .rect-bar-segment {
 }
 
 @keyframes bannerGlowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.22);
   }
+
   50% {
     box-shadow: 0 0 34px rgba(99, 102, 241, 0.4);
   }
@@ -14017,7 +13870,7 @@ body.mode-document .btn-toggle-doc {
   flex-shrink: 0 !important;
 }
 
-.deck-sdlc-part2 .slide-content > h2 {
+.deck-sdlc-part2 .slide-content>h2 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   line-height: 1.15 !important;
@@ -14214,6 +14067,7 @@ body.theme-dark .scenario-col {
   color: #059669;
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
+
 body.theme-dark .scenario-badge-green {
   background: rgba(16, 185, 129, 0.2);
   color: #34d399;
@@ -14224,6 +14078,7 @@ body.theme-dark .scenario-badge-green {
   color: #0284c7;
   border: 1px solid rgba(2, 132, 199, 0.3);
 }
+
 body.theme-dark .scenario-badge-blue {
   background: rgba(2, 132, 199, 0.2);
   color: #38bdf8;
@@ -14274,6 +14129,7 @@ body.theme-dark .scenario-step-card.is-linked-hover {
   border-color: #10b981 !important;
   box-shadow: 0 0 6px rgba(16, 185, 129, 0.22);
 }
+
 body.theme-dark .scenario-step-card.is-core-highlight {
   background: rgba(16, 185, 129, 0.18) !important;
   border-color: #34d399 !important;
@@ -14284,6 +14140,7 @@ body.theme-dark .scenario-step-card.is-core-highlight {
   border-color: #f59e0b !important;
   box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
 }
+
 body.theme-dark .scenario-step-card.is-swap-highlight {
   background: rgba(245, 158, 11, 0.22) !important;
   border-color: #fbbf24 !important;
@@ -14328,6 +14185,7 @@ body.theme-dark .order-pill {
   border-radius: 3px;
   flex-shrink: 0;
 }
+
 body.theme-dark .canonical-pill {
   background: rgba(255, 255, 255, 0.06);
   color: #94a3b8;
@@ -14379,6 +14237,7 @@ body.theme-dark .canonical-pill {
   color: #059669;
   border: 1px solid rgba(16, 185, 129, 0.35);
 }
+
 body.theme-dark .pill-core {
   background: rgba(16, 185, 129, 0.25);
   color: #34d399;
@@ -14389,6 +14248,7 @@ body.theme-dark .pill-core {
   color: #d97706;
   border: 1px solid rgba(245, 158, 11, 0.35);
 }
+
 body.theme-dark .pill-swap {
   background: rgba(245, 158, 11, 0.25);
   color: #fbbf24;
@@ -14399,6 +14259,7 @@ body.theme-dark .pill-swap {
   color: #64748b;
   border: 1px solid rgba(148, 163, 184, 0.25);
 }
+
 body.theme-dark .pill-optional {
   color: #94a3b8;
 }
@@ -14437,6 +14298,7 @@ body.theme-dark .scenario-detail-banner {
   color: #0284c7;
   white-space: nowrap;
 }
+
 body.theme-dark .scenario-detail-badge {
   color: #38bdf8;
 }
@@ -14463,7 +14325,7 @@ body.theme-dark .scenario-detail-badge {
   flex-shrink: 0 !important;
 }
 
-.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > h2 {
+.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>h2 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   line-height: 1.15 !important;
@@ -14902,10 +14764,239 @@ body.theme-dark .adr-step-bullet-item {
 }
 
 /* ==========================================================================
+   SLIDE 29: EL CASO AGENTS.MD DE NEXT.JS (DOS COLUMNAS: FICHERO + ANÁLISIS)
+   ========================================================================== */
+.agents-case-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 2.2rem;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 0.25rem;
+}
+
+.agents-github-card {
+  background: #ffffff;
+  border: 1.5px solid #d0d7de;
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.theme-dark .agents-github-card {
+  background: #0d1117;
+  border-color: #30363d;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(139, 92, 246, 0.18);
+}
+
+.agents-github-header {
+  background: #f6f8fa;
+  border-bottom: 1px solid #d0d7de;
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.theme-dark .agents-github-header {
+  background: #161b22;
+  border-bottom-color: #30363d;
+}
+
+.agents-github-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #24292f;
+}
+
+body.theme-dark .agents-github-tab {
+  color: #e6edf3;
+}
+
+.agents-github-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.agents-github-path {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #57606a;
+}
+
+body.theme-dark .agents-github-path {
+  color: #8b949e;
+}
+
+.agents-github-body {
+  padding: 1.8rem 2.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  color: #1f2328;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-dark .agents-github-body {
+  color: #e6edf3;
+}
+
+.agents-github-comment {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: #6e7781;
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+
+body.theme-dark .agents-github-comment {
+  color: #7d8590;
+}
+
+.agents-github-title {
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #1f2328;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1.5px solid #d8dee4;
+  letter-spacing: -0.02em;
+}
+
+body.theme-dark .agents-github-title {
+  color: #f0f6fc;
+  border-bottom-color: #21262d;
+}
+
+.agents-github-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #24292f;
+  margin-bottom: 0.95rem;
+}
+
+body.theme-dark .agents-github-text {
+  color: #c9d1d9;
+}
+
+.agents-github-code {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+  background: rgba(175, 184, 193, 0.2);
+  color: #cf222e;
+}
+
+body.theme-dark .agents-github-code {
+  background: rgba(110, 118, 129, 0.35);
+  color: #ff7b72;
+}
+
+.agents-github-footer {
+  background: #f6f8fa;
+  border-top: 1px solid #d0d7de;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.theme-dark .agents-github-footer {
+  background: #161b22;
+  border-top-color: #30363d;
+}
+
+.agents-github-footer a {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.agents-github-footer a:hover {
+  text-decoration: underline;
+}
+
+.agents-insights-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  justify-content: space-between;
+}
+
+.agents-insight-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.35rem 1.65rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  flex: 1;
+}
+
+.agents-insight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+body.theme-dark .agents-insight-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.agents-insight-icon {
+  font-size: 2.1rem;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+.agents-insight-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agents-insight-desc {
+  font-size: 1.05rem;
+  line-height: 1.52;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.agents-insight-desc mark {
+  background: rgba(139, 92, 246, 0.15);
+  color: inherit;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* ==========================================================================
    SLIDE ESPECIAL: CASO REAL NEXT.JS - STAMP / POF NEWSPAPER
    ========================================================================== */
-
-
 .nextjs-pof-stage {
   display: flex;
   flex-direction: column;
@@ -14986,9 +15077,11 @@ body.theme-dark .nextjs-stamp-card {
     opacity: 0;
     transform: scale(1.4) rotate(8deg);
   }
+
   70% {
     transform: scale(0.96) rotate(-3.5deg);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) rotate(-2.2deg);

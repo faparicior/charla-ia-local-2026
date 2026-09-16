@@ -14745,6 +14745,237 @@ body.theme-dark .adr-step-bullet-item {
 }
 
 /* ==========================================================================
+   SLIDE 29: EL CASO AGENTS.MD DE NEXT.JS (DOS COLUMNAS: FICHERO + ANÁLISIS)
+   ========================================================================== */
+.agents-case-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 2.2rem;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 0.25rem;
+}
+
+.agents-github-card {
+  background: #ffffff;
+  border: 1.5px solid #d0d7de;
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.theme-dark .agents-github-card {
+  background: #0d1117;
+  border-color: #30363d;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(139, 92, 246, 0.18);
+}
+
+.agents-github-header {
+  background: #f6f8fa;
+  border-bottom: 1px solid #d0d7de;
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.theme-dark .agents-github-header {
+  background: #161b22;
+  border-bottom-color: #30363d;
+}
+
+.agents-github-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #24292f;
+}
+
+body.theme-dark .agents-github-tab {
+  color: #e6edf3;
+}
+
+.agents-github-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.agents-github-path {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #57606a;
+}
+
+body.theme-dark .agents-github-path {
+  color: #8b949e;
+}
+
+.agents-github-body {
+  padding: 1.8rem 2.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  color: #1f2328;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-dark .agents-github-body {
+  color: #e6edf3;
+}
+
+.agents-github-comment {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: #6e7781;
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+
+body.theme-dark .agents-github-comment {
+  color: #7d8590;
+}
+
+.agents-github-title {
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #1f2328;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1.5px solid #d8dee4;
+  letter-spacing: -0.02em;
+}
+
+body.theme-dark .agents-github-title {
+  color: #f0f6fc;
+  border-bottom-color: #21262d;
+}
+
+.agents-github-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #24292f;
+  margin-bottom: 0.95rem;
+}
+
+body.theme-dark .agents-github-text {
+  color: #c9d1d9;
+}
+
+.agents-github-code {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+  background: rgba(175, 184, 193, 0.2);
+  color: #cf222e;
+}
+
+body.theme-dark .agents-github-code {
+  background: rgba(110, 118, 129, 0.35);
+  color: #ff7b72;
+}
+
+.agents-github-footer {
+  background: #f6f8fa;
+  border-top: 1px solid #d0d7de;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.theme-dark .agents-github-footer {
+  background: #161b22;
+  border-top-color: #30363d;
+}
+
+.agents-github-footer a {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.agents-github-footer a:hover {
+  text-decoration: underline;
+}
+
+.agents-insights-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  justify-content: space-between;
+}
+
+.agents-insight-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.35rem 1.65rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  flex: 1;
+}
+
+.agents-insight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+body.theme-dark .agents-insight-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.agents-insight-icon {
+  font-size: 2.1rem;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+.agents-insight-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agents-insight-desc {
+  font-size: 1.05rem;
+  line-height: 1.52;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.agents-insight-desc mark {
+  background: rgba(139, 92, 246, 0.15);
+  color: inherit;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* ==========================================================================
    SLIDE ESPECIAL: CASO REAL NEXT.JS - STAMP / POF NEWSPAPER
    ========================================================================== */
 .nextjs-pof-stage {

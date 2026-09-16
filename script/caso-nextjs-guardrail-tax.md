@@ -84,9 +84,23 @@ En la discusión técnica [vercel/next.js Discussion #92197](https://github.com/
 
 ---
 
-## 4. Relevancia para la Arquitectura de Software
+## 4. Análisis Arquitectónico y Psicológico del Prompting
 
-El caso de Next.js ilustra con precisión la problemática de la **ergonomía para IA (AX - Agent Experience)**:
+### A. El fallo de las advertencias suaves
+Cuando las directrices usan frases amables o condicionales (*"Please make sure to check the latest docs"*, *"Be aware that some APIs might have changed"*), los LLMs tienden a tratarlas como sugerencias de baja prioridad frente a los millones de ejemplos de código de versiones anteriores que dominan sus pesos de entrenamiento.
+
+### B. Técnica de *pattern interruption*
+El encabezado `# This is NOT the Next.js you know` funciona como una instrucción de parada abrupta. Al contradecir de forma tan categórica la premisa previa del modelo, eleva la probabilidad de que el LLM ejecute la llamada a herramienta (*tool use* para leer `node_modules/next/dist/docs/`) antes de generar sintaxis obsoleta.
+
+### C. El problema de Next.js en particular
+Pocos frameworks han acumulado tantas capas de paradigmas divergentes en tan poco tiempo:
+* **Pages Router** (`getStaticProps`, `getServerSideProps`, `next/router`).
+* **App Router v13/v14** con `fetch` cacheado agresivo por defecto.
+* **Server Components y Server Actions en v15 y v16** (con `await params`, `connection()`, APIs asíncronas).
+
+La única forma de evitar que la IA mezcle 2021 con 2026 era forzarla a ignorar su memoria base y obligarla a consultar la documentación empaquetada.
+
+### D. Relevancia para la Arquitectura de Software
 1. **La inercia del modelo es un hecho objetivo:** Incluso en frameworks con millones de descargas, los modelos continúan proponiendo APIs obsoletas si no se acota su contexto con documentación local vinculada a la versión instalada.
 2. **Las directrices en el repositorio son necesarias:** La estrategia de Vercel confirma que delegar código en agentes requiere "raíles" explícitos (en su caso, `AGENTS.md` y `node_modules/next/dist/docs/`; en el ciclo artesano, **ADRs inmutables y contratos de dominio**).
 3. **Mantenimiento sin drift:** La sincronización de las reglas debe formar parte del ciclo de vida del proyecto para evitar que la documentación de gobierno diverja del código real.
