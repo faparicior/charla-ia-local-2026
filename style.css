@@ -14647,6 +14647,102 @@ body.theme-dark .adr-step-bullet-item {
 }
 
 /* ==========================================================================
+   PILAR 1: NOTA DE PRENSA / PEGATINA CASO REAL NEXT.JS (SLIDE 28)
+   ========================================================================== */
+.adr-press-sticker-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1.5px solid rgba(139, 92, 246, 0.35);
+  border-radius: 12px;
+  padding: 0.65rem 1.15rem;
+  margin-top: 0.15rem;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-dark .adr-press-sticker-bar {
+  background: #111722;
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.adr-sticker-thumb {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.adr-sticker-tape {
+  position: absolute;
+  top: -8px;
+  background: #8b5cf6;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.adr-sticker-img {
+  max-height: 88px;
+  width: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  transition: transform 0.2s ease;
+  margin-top: 4px;
+}
+
+.adr-sticker-img:hover {
+  transform: scale(1.03);
+}
+
+.adr-press-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.adr-press-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.adr-press-headline {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.22;
+}
+
+.adr-press-desc {
+  font-size: 0.90rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.adr-press-desc strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
    PILAR 1: ESQUEMA DE DECISIÓN DE GOBERNANZA (DE IZQUIERDA A DERECHA)
    ========================================================================== */
 .adr-decision-deck {

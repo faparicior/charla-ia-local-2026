@@ -34,7 +34,7 @@ Se ha dejado la **Fase 2 cerrada con máximo rigor artesanal** en `parte2-ciclo-
 3. **Sección Especial de los Tres Pilares (Slides 26 a 32):**
    - **Slide 26 (`#slide-pillar-intro`):** Los Tres Pilares del Código con IA (ADRs, Inception/USM, Tests).
    - **Slide 27 (`#slide-pillar-adr-friction`):** Pilar 1 - La Fricción: Tus ADRs vs. El Pre-entrenamiento del Modelo (Guardrail Tax).
-   - **Slide 28 (`#slide-pillar-adr-timeline`):** Pilar 1 - El Ciclo Canónico de un ADR (5 tarjetas horizontales de izquierda a derecha con iconos y viñetas).
+   - **Slide 28 (`#slide-pillar-adr-timeline`):** Pilar 1 - El Ciclo Canónico de un ADR (5 tarjetas horizontales con iconos y viñetas + recorte de prensa / pegatina caso real de Vercel/Next.js 15 inyectando advertencias contra el pre-entrenamiento del LLM en cada `next dev`).
    - **Slide 29 (`#slide-pillar-adr-decision-tree`):** Pilar 1 - Gobernanza en Acción (Matriz de 4 rutas: Nueva Decisión, Enmienda, Deprecación, Radar).
    - **Slide 30 (`#slide-pillar-sdlc-timeline`):** Pilar 2 - El Ciclo Canónico del SDLC (5 fases: Inception, Specs, Dominio, TDD, Living Docs).
    - **Slide 31 (`#slide-pillar-sdlc-decision-tree`):** Pilar 2 - Producto en Acción (Matriz de 4 rutas: Discovery, Flow Specs, Domain Model, Zero Drift).
