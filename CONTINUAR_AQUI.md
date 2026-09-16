@@ -28,13 +28,22 @@ Se ha dejado la **Fase 2 cerrada con máximo rigor artesanal** en `parte2-ciclo-
 
 2. **Matriz Conceptual y Plantillas de Contratos (Slides 14, 15 y 16):**
    - **Slide 14 (`#slide-phase2-invariants`):** Matriz comparativa entre **Reglas de Negocio (`BR-XXX`)** e **Invariantes de Dominio (`INV-XXX`)**.
-   - **Slide 15 (`#slide-phase2-br-template`):** Plantilla real de Regla de Negocio basada en `sdlc/skills/create-flow-documentation/templates/business-rules.md` (ejemplo `BR-004: Free Tier Event Creation Limit`, lógica en Application Service, degradación elegante, sin rollback transaccional).
-   - **Slide 16 (`#slide-phase2-inv-template`):** Plantilla real de Invariante de Dominio basada en `sdlc/skills/create-flow-documentation/templates/invariants.md` (ejemplo `INV-001: Event State Transitions Must Follow State Machine`, verdad absoluta en Aggregate Root, Gherkin y rollback transaccional obligatorio).
+   - **Slide 15 (`#slide-phase2-br-template`):** Plantilla real de Regla de Negocio basada en `sdlc/skills/create-flow-documentation/templates/business-rules.md`.
+   - **Slide 16 (`#slide-phase2-inv-template`):** Plantilla real de Invariante de Dominio basada en `sdlc/skills/create-flow-documentation/templates/invariants.md`.
 
-3. **Arquitectura limpia:**
+3. **Sección Especial de los Tres Pilares (Slides 26 a 32):**
+   - **Slide 26 (`#slide-pillar-intro`):** Los Tres Pilares del Código con IA (ADRs, Inception/USM, Tests).
+   - **Slide 27 (`#slide-pillar-adr-friction`):** Pilar 1 - La Fricción: Tus ADRs vs. El Pre-entrenamiento del Modelo (Guardrail Tax).
+   - **Slide 28 (`#slide-pillar-adr-timeline`):** Pilar 1 - El Ciclo Canónico de un ADR (5 tarjetas horizontales de izquierda a derecha con iconos y viñetas).
+   - **Slide 29 (`#slide-pillar-adr-decision-tree`):** Pilar 1 - Gobernanza en Acción (Matriz de 4 rutas: Nueva Decisión, Enmienda, Deprecación, Radar).
+   - **Slide 30 (`#slide-pillar-sdlc-timeline`):** Pilar 2 - El Ciclo Canónico del SDLC (5 fases: Inception, Specs, Dominio, TDD, Living Docs).
+   - **Slide 31 (`#slide-pillar-sdlc-decision-tree`):** Pilar 2 - Producto en Acción (Matriz de 4 rutas: Discovery, Flow Specs, Domain Model, Zero Drift).
+   - **Slide 32 (`#slide-pillar-bridge-enlace`):** La Conexión: Cómo todo enlaza en el repositorio.
+
+4. **Arquitectura limpia:**
    - Cero dependencias npm/node huérfanas en el repo.
    - Fondos opacos en `.slide` para evitar sangrado de texto/elementos durante el cambio de diapositivas.
-   - Código commiteado en git de forma limpia.
+   - Empaquetado 100% autónomo y offline en `dist/charla-parte2-ciclo-desarrollo.html`.
 
 ---
 

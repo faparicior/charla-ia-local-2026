@@ -14782,6 +14782,23 @@ body.theme-dark .adr-lane-card {
   border-left-color: #10b981;
 }
 
+.adr-lane-card.lane-purple {
+  border-left-color: #8b5cf6;
+}
+
+.adr-decision-origin-card.emerald {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.adr-decision-origin-card.emerald .adr-decision-q-item {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+body.theme-dark .adr-decision-origin-card.emerald {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
 .adr-lane-header {
   display: flex;
   align-items: center;
@@ -19337,117 +19354,157 @@ body.theme-dark .adr-lane-action-box {
     </section>
 
     <!-- ====================================================================
-         SLIDE SPECIAL 4: PILAR 2 - SDLC WORKFLOW DIRECTORY
+         SLIDE SPECIAL 4A: PILAR 2 - TIMELINE HORIZONTAL DEL SDLC (5 FASES)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-sdlc-workflow">
-      <div class="slide-content" style="gap: 1.15rem;">
+    <section class="slide" id="slide-pillar-sdlc-timeline">
+      <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
           <a href="#slide-pillar-adr-decision-tree" class="deck-back-btn">← Gobernanza ADR</a>
-          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • SDLC Workflow</span>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • Timeline de Producto</span>
         </div>
         <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
-          Pilar 2 • SDLC-WORKFLOW-DIRECTORY.md • De la Idea a las Capas DDD
+          Pilar 2 • SDLC-SKILLS-INDEX.md • Flujo Secuencial de Izquierda a Derecha
         </div>
-        <h2>Pilar 2: Definición de Producto &amp; Dominio <span class="serif-italic" style="color: #10b981;">Inception, USM y Capas DDD</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          5 fases deterministas con prompts especializados y mapeo 1:1 a código.
+        <h2 style="margin-bottom: 0.1rem;">El Ciclo Canónico del SDLC <span class="serif-italic" style="color: #10b981;">de la Idea al Dominio</span></h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
+          5 fases deterministas: cómo transformar la ambigüedad de negocio en código desacoplado y living documentation sin drift.
         </p>
 
-        <div class="sdlc-console-deck">
-          <!-- Columna Izquierda: Explicación Técnica -->
-          <div class="sdlc-explain-col">
-            <div class="sdlc-hero-box emerald">
-              <div class="sdlc-hero-quote">
-                “La IA no programa desde tickets vagos de Jira; <u>programa desde contratos formales de dominio</u>.”
+        <div class="adr-timeline-container">
+          <div class="adr-timeline-track">
+
+            <!-- Fase 1 -->
+            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">01</div>
+                <span class="adr-step-state-tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Discovery</span>
               </div>
-              <div class="sdlc-hero-sub">
-                Cada fase genera artefactos de verdad única en <code>docs/product/</code> que alimentan directamente a los generadores de código y reducen las alucinaciones a cero.
+              <div class="adr-step-icon-box emerald">🎯</div>
+              <div class="adr-step-title">Inception &amp; MVP</div>
+              <code class="adr-step-skill-chip" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/inception-workshop</code>
+              <div class="adr-step-body">
+                Lean Inception de 8 pasos para alinear negocio. Fija el <strong>perímetro defensivo (IS / IS NOT)</strong> y el tablero de tradeoffs antes de tirar una sola línea.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Artefacto:</strong> <code>etc/docs/inception/*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Foco:</strong> Elimina alucinación de scope</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
+                🎯 Acota el problema real
               </div>
             </div>
 
-            <div class="sdlc-points-card">
-              <div class="sdlc-point-item active-point">
-                <div class="sdlc-point-icon">🎯</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title" style="color: #10b981;">1. Discovery &amp; Fronteras Defensivas</div>
-                  <div class="sdlc-point-desc">Lean Inception o Story Mapping definen el perímetro: qué HACE y qué NO HACE el sistema, evitando inventar módulos.</div>
+            <!-- Fase 2 -->
+            <div class="adr-step-card" style="border-top: 4px solid #0ea5e9;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #0ea5e9; color: #0ea5e9;">02</div>
+                <span class="adr-step-state-tag" style="background: rgba(14, 165, 233, 0.12); color: #0ea5e9; border-color: rgba(14, 165, 233, 0.25);">Flow Specs</span>
+              </div>
+              <div class="adr-step-icon-box sky">📐</div>
+              <div class="adr-step-title">Flujos &amp; Diagramas</div>
+              <code class="adr-step-skill-chip" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.1); border-color: rgba(14, 165, 233, 0.25);">/create-flow-documentation</code>
+              <div class="adr-step-body">
+                Convierte los user journeys en specs formales con <strong>3 diagramas Mermaid</strong> (secuencia, flujo, FSM), criterios Gherkin y reglas de negocio (BR).
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Artefacto:</strong> <code>flows/journey-XX-*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Mermaid:</strong> Secuencia + Flow + Estados</span>
                 </div>
               </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">📐</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">2. Specs Técnicas con Diagramas Mermaid</div>
-                  <div class="sdlc-point-desc">Secuencia E2E (happy/error path), flowcharts de ramas y FSM de estados en <code>flows/journey-XX</code>.</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">🛡️</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">3. Modelado Rico: BRs, INVs y Value Objects</div>
-                  <div class="sdlc-point-desc">Reglas de negocio (BR), invariantes absolutas (INV con rollback) y tipos inmutables en el Aggregate Root.</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">📦</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">4. Capas DDD Puras &amp; TDD Híbrido</div>
-                  <div class="sdlc-point-desc">Mapeo directo a <code>packages/modules/[context]/src/domain</code> (cero dependencias), <code>application</code> e <code>infra</code>.</div>
-                </div>
+              <div class="adr-step-punchline" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.08);">
+                📐 Contrato visual ejecutable
               </div>
             </div>
 
-            <div class="sdlc-skill-pill emerald">
-              <span>⚡ Skills SDLC:</span>
-              <code>/inception-workshop</code> ➔ <code>/create-flow-documentation</code> ➔ <code>/create-entity-lifecycle</code> ➔ <code>/implement-flow</code>
+            <!-- Fase 3 -->
+            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
+                <span class="adr-step-state-tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Domain Model</span>
+              </div>
+              <div class="adr-step-icon-box violet">🧩</div>
+              <div class="adr-step-title">Dominio &amp; FSM</div>
+              <code class="adr-step-skill-chip" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">/create-entity-lifecycle</code>
+              <div class="adr-step-body">
+                Modelo DDD rico: <strong>Aggregate Root</strong>, Value Objects inmutables e <strong>invariantes (INV) con rollback</strong>. Sin getters anémicos: espacio cerrado de estados.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Artefacto:</strong> <code>entities/[Entity].md</code></span>
+                </div>
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Garantía:</strong> Transiciones cerradas FSM</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.08);">
+                🧩 Dominio puro zero-deps
+              </div>
             </div>
+
+            <!-- Fase 4 -->
+            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">04</div>
+                <span class="adr-step-state-tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25);">TDD Híbrido</span>
+              </div>
+              <div class="adr-step-icon-box amber">⚡</div>
+              <div class="adr-step-title">TDD por Capas</div>
+              <code class="adr-step-skill-chip" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">/implement-flow</code>
+              <div class="adr-step-body">
+                Test E2E primero (falla). Construcción capa a capa: <strong>domain</strong> (núcleo puro) ➔ <strong>application</strong> (casos de uso) ➔ <strong>infra</strong> ➔ <strong>API</strong>.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Código:</strong> <code>packages/modules/[ctx]/</code></span>
+                </div>
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Orden:</strong> Domain ➔ App ➔ Infra ➔ API</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
+                ⚡ Arquitectura limpia blindada
+              </div>
+            </div>
+
+            <!-- Fase 5 -->
+            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">05</div>
+                <span class="adr-step-state-tag" style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Living Docs</span>
+              </div>
+              <div class="adr-step-icon-box rose">🔄</div>
+              <div class="adr-step-title">Cambio sin Drift</div>
+              <code class="adr-step-skill-chip" style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">/modify-flow &amp; /audit-docs</code>
+              <div class="adr-step-body">
+                Toda modificación requiere una propuesta previa (<code>proposal.md</code>). <code>/audit-docs</code> verifica que código y especificaciones no diverjan en producción.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Artefacto:</strong> <code>working-on/[change]/</code></span>
+                </div>
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Control:</strong> Docs vivos siempre sincronizados</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
+                🔄 Repositorio siempre al día
+              </div>
+            </div>
+
           </div>
 
-          <!-- Columna Derecha: Render Mermaid Live -->
-          <div class="sdlc-terminal">
-            <div class="code-header">
-              <div class="code-dots">
-                <div class="code-dot red"></div>
-                <div class="code-dot yellow"></div>
-                <div class="code-dot green"></div>
-              </div>
-              <div class="code-title">📊 Mermaid Flowchart • Flujo de Ciclo de Vida SDLC (SessioFlow)</div>
-              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
-              <span class="sdlc-term-tag" style="background: rgba(16, 185, 129, 0.18); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">SVG INTERACTIVO</span>
-            </div>
-
-            <div class="mermaid-diagram-wrap">
-              <div class="mermaid">
-flowchart TD
-    subgraph Discovery ["Fase 1: Product Discovery"]
-        P1["Lean Inception / USM<br/>(Fronteras IS/IS NOT & MVP)"]
-    end
-
-    subgraph Specs ["Fase 2: Specs de Flujos"]
-        P2["Mermaid + Gherkin + Reglas<br/>(docs/product/.../flows/)"]
-    end
-
-    subgraph DomainModel ["Fase 3: Modelo de Dominio"]
-        P3["Entidades FSM, INVs & VOs<br/>(Pure Domain Zero-Deps)"]
-    end
-
-    subgraph Implementation ["Fase 4: Capas DDD en Código"]
-        P4["packages/modules/[context]/<br/>(domain • app • infra • http)"]
-    end
-
-    subgraph Evolution ["Fase 5+: Evolución sin Drift"]
-        P5["working-on/[change-name]/<br/>(In-place living updates)"]
-    end
-
-    Discovery --> Specs
-    Specs --> DomainModel
-    DomainModel --> Implementation
-    Implementation --> Evolution
-    Evolution -. Sincroniza docs .-> Specs
-    Evolution -. Sincroniza docs .-> DomainModel
-              </div>
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner" style="margin-top: 0.15rem; padding: 0.85rem 1.4rem; border-color: rgba(16, 185, 129, 0.3);">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Artesano:</strong> La IA no programa desde descripciones ambiguas. El pipeline de Producto convierte la incertidumbre de negocio en especificaciones matemáticas y capas DDD desacopladas.
             </div>
           </div>
         </div>
@@ -19455,12 +19512,166 @@ flowchart TD
     </section>
 
     <!-- ====================================================================
-         SLIDE SPECIAL 4: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
+         SLIDE SPECIAL 4B: PILAR 2 - MATRIZ DE DECISIÓN DE PRODUCTO (4 RUTAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-sdlc-decision-tree">
+      <div class="slide-content" style="gap: 1.1rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-sdlc-timeline" class="deck-back-btn">← Timeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • Matriz de Producto</span>
+        </div>
+        <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+          Pilar 2 • SDLC-SKILLS-INDEX.md • Esquema de Decisión de Izquierda a Derecha
+        </div>
+        <h2>Producto en Acción: <span class="serif-italic" style="color: #10b981;">De la Necesidad al Artefacto</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          No todos los requerimientos se abordan igual: 4 caminos ordenados según el nivel de madurez del problema.
+        </p>
+
+        <div class="adr-decision-deck">
+          <!-- Columna Izquierda: Punto de Partida -->
+          <div class="adr-decision-origin-card emerald">
+            <div>
+              <span class="adr-lane-badge green" style="margin-bottom: 0.8rem; display: inline-block;">PUNTO DE PARTIDA</span>
+              <div class="adr-decision-origin-title">¿Cuál es tu objetivo de producto?</div>
+              <div class="adr-decision-origin-desc">
+                Antes de escribir código o invocar un agente, el artesano clasifica su necesidad en una de las 4 rutas deterministas del SDLC.
+              </div>
+
+              <div class="adr-decision-question-list">
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🎯</span>
+                  <div><strong>¿Nuevo producto o módulo?</strong> ➔ Ruta 1</div>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">📐</span>
+                  <div><strong>¿Nuevo flujo o feature?</strong> ➔ Ruta 2</div>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🧩</span>
+                  <div><strong>¿Entidad con estados complejos?</strong> ➔ Ruta 3</div>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🔄</span>
+                  <div><strong>¿Modificar lógica existente?</strong> ➔ Ruta 4</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="adr-decision-badge-foot" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.65rem 0.85rem; display: flex; align-items: center; justify-content: space-between; margin-top: 1rem;">
+              <div style="font-size: 0.85rem; color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🛡️ Filtro Único:</span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">
+                Score de Calidad <strong style="color: #10b981;">≥ 8/10</strong> por fase
+              </div>
+              <code style="font-family: var(--font-mono); font-size: 0.82rem; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 0.15rem 0.45rem; border-radius: 4px;">/audit-docs</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Las 4 Rutas de Decisión (Grid 2x2) -->
+          <div class="adr-decision-lanes-grid">
+
+            <!-- Ruta 1: Discovery & Inception -->
+            <div class="adr-lane-card lane-radar">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge green">RUTA 1 • DISCOVERY GLOBAL</span>
+                <span style="font-size: 1.15rem;">🎯</span>
+              </div>
+              <div class="adr-lane-title">Lean Inception Workshop</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Nuevo producto, bounded context verde o módulo desde cero sin documentación previa.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #10b981;">/inception-workshop</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>etc/docs/inception/*.md</code> (8 pasos: Fronteras IS/IS NOT, Tradeoffs, Canvas MVP).</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ruta 2: Flow Specs -->
+            <div class="adr-lane-card lane-new">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge blue">RUTA 2 • ESPECIFICACIÓN TÉCNICA</span>
+                <span style="font-size: 1.15rem;">📐</span>
+              </div>
+              <div class="adr-lane-title">Especificación de Flujo</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Un user journey validado requiere definición técnica formal para poder ser implementado.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #38bdf8;">/create-flow-documentation</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>flows/journey-XX-name.md</code> con 3 diagramas Mermaid, Gherkin BDD, BRs e INVs.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ruta 3: Domain Model -->
+            <div class="adr-lane-card lane-purple">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge purple">RUTA 3 • MODELO DE DOMINIO</span>
+                <span style="font-size: 1.15rem;">🧩</span>
+              </div>
+              <div class="adr-lane-title">Ciclo de Vida de Entidad</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Una entidad clave emerge en los flujos con ciclo de vida rico, estados finitos o transiciones complejas.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #8b5cf6;">/create-entity-lifecycle</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>entities/[Entity].md</code> con máquina de estados FSM, invariantes y Value Objects.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ruta 4: Living Docs & Drift -->
+            <div class="adr-lane-card lane-supersede" style="border-left-color: #ec4899;">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">RUTA 4 • EVOLUCIÓN SIN DRIFT</span>
+                <span style="font-size: 1.15rem;">🔄</span>
+              </div>
+              <div class="adr-lane-title">Modificación Controlada</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Cualquier cambio de requerimiento sobre flujos, reglas o entidades ya en producción.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #ec4899;">/modify-flow</code> &amp; <code style="color: #ec4899;">/audit-docs</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>proposal.md</code> + <code>plan.md</code> por capas DDD con sincronización living in-place.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 4C: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
          ==================================================================== -->
     <section class="slide" id="slide-pillar-bridge-enlace">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Dos Pilares</a>
+          <a href="#slide-pillar-sdlc-decision-tree" class="deck-back-btn">← Gobernanza de Producto</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">La Conexión • Arquitectura Viva</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">

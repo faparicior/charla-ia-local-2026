@@ -14763,6 +14763,23 @@ body.theme-dark .adr-lane-card {
   border-left-color: #10b981;
 }
 
+.adr-lane-card.lane-purple {
+  border-left-color: #8b5cf6;
+}
+
+.adr-decision-origin-card.emerald {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.adr-decision-origin-card.emerald .adr-decision-q-item {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+body.theme-dark .adr-decision-origin-card.emerald {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
 .adr-lane-header {
   display: flex;
   align-items: center;
