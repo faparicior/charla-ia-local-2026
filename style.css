@@ -12274,6 +12274,10 @@ body.theme-dark .boundaries-skill-pill code {
   height: auto !important;
 }
 
+.mermaid-diagram-wrap svg foreignObject {
+  overflow: visible !important;
+}
+
 /* ==========================================================================
    ALTO CONTRASTE PARA MERMAID (FLOWCHART Y MÁQUINA DE ESTADOS)
    ========================================================================== */

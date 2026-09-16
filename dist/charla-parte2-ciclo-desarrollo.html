@@ -12293,6 +12293,10 @@ body.theme-dark .boundaries-skill-pill code {
   height: auto !important;
 }
 
+.mermaid-diagram-wrap svg foreignObject {
+  overflow: visible !important;
+}
+
 /* ==========================================================================
    ALTO CONTRASTE PARA MERMAID (FLOWCHART Y MÁQUINA DE ESTADOS)
    ========================================================================== */
@@ -18676,6 +18680,116 @@ flowchart TD
     </section>
 
     <!-- ====================================================================
+         SLIDE SPECIAL 2B: PILAR 1 - PASOS NATURALES PARA HACER UN ADR
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-steps">
+      <div class="slide-content" style="gap: 0.85rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-workflow" class="deck-back-btn">← ADR Workflow Global</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Pasos Canónicos</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Anatomía &amp; Paso a Paso de Creación
+        </div>
+        <h2>Pilar 1: Creación de un ADR <span class="serif-italic" style="color: #f59e0b;">Los Pasos Naturales</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Cómo se concibe, razona y blinda una decisión: el flujo paso a paso desde el dilema técnico hasta el contrato inmutable.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Técnica Paso a Paso -->
+          <div class="sdlc-explain-col" style="gap: 0.65rem;">
+            <div class="sdlc-hero-box amber" style="padding: 0.85rem 1.25rem;">
+              <div class="sdlc-hero-quote" style="font-size: 1.45rem; line-height: 1.28; margin-bottom: 0.2rem;">
+                “Un ADR no es una opinión: es un <u>contrato contrastado</u>, evaluado para agentes y sellado en el repo.”
+              </div>
+              <div class="sdlc-hero-sub" style="font-size: 0.98rem; line-height: 1.35;">
+                Nadie decide en solitario ni impone un patrón sin comparar alternativas y auditar el coste para el modelo (Guardrail Tax).
+              </div>
+            </div>
+
+            <div class="sdlc-points-card" style="padding: 0.85rem 1.25rem; gap: 0.55rem;">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">🎯</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #f59e0b; font-size: 1.05rem;">1. Contexto &amp; Drivers (/adr-create)</div>
+                  <div class="sdlc-point-desc" style="font-size: 0.92rem; line-height: 1.3;">Surge un dilema técnico. El skill auto-asigna el ID secuencial (0XX) e inicia el borrador (Proposed).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">⚖️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="font-size: 1.05rem;">2. Exploración de Opciones (2-3 mín.)</div>
+                  <div class="sdlc-point-desc" style="font-size: 0.92rem; line-height: 1.3;">Sin sesgo de opción única: se evalúan 2 o 3 alternativas viables con pros, contras y trade-offs.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🤖</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="font-size: 1.05rem;">3. Ergonomía para Agentes (AX)</div>
+                  <div class="sdlc-point-desc" style="font-size: 0.92rem; line-height: 1.3;">Obligatorio: mide alineación con el corpus del LLM, Guardrail Tax (coste de guiarlo) y riesgos de deriva.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📌</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="font-size: 1.05rem;">4. Decisión &amp; Consecuencias</div>
+                  <div class="sdlc-point-desc" style="font-size: 0.92rem; line-height: 1.3;">Elección argumentada: beneficios, compromisos, deuda técnica aceptada y lo que queda prohibido.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🛡️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="font-size: 1.05rem;">5. Auditoría &amp; Catálogo (/adr-validate)</div>
+                  <div class="sdlc-point-desc" style="font-size: 0.92rem; line-height: 1.3;">Pasa la rúbrica automática (Score ≥ Med), estado pasa a Accepted y se indexa en README.md.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill amber" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+              <span>⚡ Flujo Secuencial:</span>
+              <code>Contexto (0XX)</code> ➔ <code>2-3 Opciones</code> ➔ <code>AX (IA)</code> ➔ <code>Decisión</code> ➔ <code>/adr-validate</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Render Mermaid Live en SVG -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📊 Mermaid Flowchart • Pasos Naturales de un ADR</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
+              <span class="sdlc-term-tag" style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">FLUJO NATURAL</span>
+            </div>
+
+            <div class="mermaid-diagram-wrap">
+              <div class="mermaid">
+flowchart TD
+    Need(["Dilema Técnico o Decisión"]) --> S1["1. Disparar /adr-create<br/>(Asigna 0XX • Estado Proposed)"]
+
+    S1 --> S2["2. Comparar Opciones<br/>(2-3 alternativas con pros/cons)"]
+    S1 --> S3["3. Ergonomía IA (AX)<br/>(Corpus Bias &amp; Guardrail Tax)"]
+
+    S2 --> S4["4. Decisión &amp; Reglas<br/>(Contrato inmutable del repo)"]
+    S3 --> S4
+
+    S4 --> S5["5. Validar con Rúbrica<br/>(/adr-validate ➔ Score ≥ Med)"]
+    S5 --> Done(["6. Catálogo Inmutable<br/>(docs/adr/README.md ➔ Accepted ✅)"])
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          SLIDE SPECIAL 3: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
          ==================================================================== -->
     <section class="slide" id="slide-pillar-adr-friction">
@@ -22780,11 +22894,15 @@ globalThis["mermaid"] = globalThis.__esbuild_esm_mermaid_nm["mermaid"].default;
           useMaxWidth: true
         }
       });
-      window.addEventListener('load', () => {
+      const runMermaid = () => {
         if (typeof mermaid !== 'undefined' && mermaid.run) {
           mermaid.run();
         }
-      });
+      };
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(runMermaid);
+      }
+      window.addEventListener('load', runMermaid);
     }
   </script>
 
@@ -22904,6 +23022,17 @@ globalThis["mermaid"] = globalThis.__esbuild_esm_mermaid_nm["mermaid"].default;
         });
       });
     })();
+  </script>
+  <script>
+    // Interacción con items de la tarjeta de puntos en consolas SDLC y Pilares
+    document.querySelectorAll('.sdlc-points-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const item = e.target.closest('.sdlc-point-item');
+        if (!item) return;
+        card.querySelectorAll('.sdlc-point-item').forEach(i => i.classList.remove('active-point'));
+        item.classList.add('active-point');
+      });
+    });
   </script>
   <script>
 /* Inlined from slides.js */
