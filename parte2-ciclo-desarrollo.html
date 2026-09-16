@@ -2886,7 +2886,7 @@
     <!-- ====================================================================
          SLIDE: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-tdd-hybrid-evolution">
       <div class="slide-content">
         <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
         <h2>Implementación y Evolución: <span class="serif-italic" style="color: #d97706;">TDD Híbrido y Living Docs sin
@@ -3045,7 +3045,7 @@
     <!-- ====================================================================
          SLIDE 22: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-deepseek-case">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -3252,7 +3252,7 @@
     <!-- ====================================================================
          SLIDE 23: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-nvidia-hack">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De parches PTX a integración nativa</span></h2>
@@ -3340,7 +3340,7 @@
     <!-- ====================================================================
          SLIDE 24: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-timeline-2026">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -3579,7 +3579,7 @@
     <!-- ====================================================================
          SLIDE 25: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-mtp-explained">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -3696,7 +3696,7 @@
     <!-- ====================================================================
          SLIDE 26: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-dflash-explained">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + El Experto</span></h2>
@@ -3818,7 +3818,7 @@
     <!-- ====================================================================
          SLIDE 27: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-dspark-strategy">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -3957,7 +3957,7 @@
     <!-- ====================================================================
          SLIDE 28: CÓDIGO Y CONTROL EN LOCAL
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-local-inference-client">
       <div class="slide-content">
         <div class="tag">Inferencia Local</div>
         <h2>Invocación directa sin salir a internet</h2>
@@ -3992,9 +3992,448 @@
     </section>
 
     <!-- ====================================================================
+         SLIDE SPECIAL 1: INTRODUCCIÓN A LOS DOS PILARES DEL SDLC CON IA
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-intro">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7;">Sección Especial • Los Dos Pilares del SDLC</span>
+        </div>
+        <div class="tag" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3);">
+          Sección Especial • Arquitectura &amp; Gobernanza • Para Ingenieros Técnicos
+        </div>
+        <h2>Los Dos Pilares del SDLC <span class="serif-italic" style="color: #0284c7;">en la Era de los Agentes</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          ¿Por qué un desarrollador necesita especificaciones formales y decisiones inmutables si no es de Producto?
+        </p>
+
+        <div class="pillar-intro-deck">
+          <div class="sdlc-hero-box cyan" style="margin-bottom: 0.2rem;">
+            <div class="sdlc-hero-quote">
+              “Un LLM sin contexto <u>no falla por tonto, sino por complaciente</u>: inventará arquitectura y modelos anémicos si no tiene raíles.”
+            </div>
+            <div class="sdlc-hero-sub">
+              No es burocracia ágil de producto: son contratos matemáticos en Markdown para que los agentes y los humanos construyan software robusto, mantenible y con cero deuda técnica.
+            </div>
+          </div>
+
+          <div class="pillar-grid">
+            <!-- Tarjeta Pilar 1 -->
+            <div class="pillar-card pilar-1">
+              <div class="pillar-card-header">
+                <span class="pillar-badge emerald">Pilar 1 • El Motor del Dominio</span>
+                <span style="font-size: 1.5rem;">📋</span>
+              </div>
+              <div class="pillar-title">SDLC Workflow Directory</div>
+              <div class="pillar-subtitle">
+                Estructura viva que convierte necesidades en especificaciones técnicas formales y código limpio por capas.
+              </div>
+              <div class="pillar-features">
+                <div class="pillar-feature-item">
+                  <span class="pillar-feature-icon">🎯</span>
+                  <span><strong>Discovery Técnico:</strong> Define fronteras defensivas (IS / IS NOT) para bloquear alucinaciones de scope.</span>
+                </div>
+                <div class="pillar-feature-item">
+                  <span class="pillar-feature-icon">📐</span>
+                  <span><strong>Specs Vivas:</strong> Secuencias, flowcharts y FSM en Mermaid + Gherkin que sirven de prompt infalible.</span>
+                </div>
+                <div class="pillar-feature-item">
+                  <span class="pillar-feature-icon">📦</span>
+                  <span><strong>Capas DDD:</strong> Mapeo 1:1 a <code>src/domain</code>, <code>application</code>, <code>infrastructure</code> e <code>interfaces</code>.</span>
+                </div>
+              </div>
+              <div class="pillar-target-ref">
+                <span>📁 Directorio base:</span> <code>docs/SDLC-WORKFLOW-DIRECTORY.md</code>
+              </div>
+            </div>
+
+            <!-- Tarjeta Pilar 2 -->
+            <div class="pillar-card pilar-2">
+              <div class="pillar-card-header">
+                <span class="pillar-badge amber">Pilar 2 • La Constitución Técnica</span>
+                <span style="font-size: 1.5rem;">🏛️</span>
+              </div>
+              <div class="pillar-title">ADR Architecture Workflow</div>
+              <div class="pillar-subtitle">
+                Registro inmutable de decisiones técnicas, enmiendas delta y ergonomía para modelos de lenguaje (AX).
+              </div>
+              <div class="pillar-features">
+                <div class="pillar-feature-item">
+                  <span class="pillar-feature-icon">🔒</span>
+                  <span><strong>Inmutabilidad Sagrada:</strong> Jamás se edita un ADR aceptado; se crean enmiendas con enlaces bidireccionales.</span>
+                </div>
+                <div class="pillar-feature-item">
+                  <span class="pillar-feature-icon">🤖</span>
+                  <span><strong>AI Ergonomics (AX):</strong> Evalúa cómo de fácil es para la IA entender la decisión y el coste en guardarraíles.</span>
+                </div>
+                <div class="pillar-feature-item">
+                  <span class="pillar-feature-icon">🚨</span>
+                  <span><strong>Enforced en CI:</strong> Reglas protegidas por tests de arquitectura automáticos (<code>ts-archunit</code>).</span>
+                </div>
+              </div>
+              <div class="pillar-target-ref">
+                <span>📁 Directorio base:</span> <code>docs/adr/ADR-WORKFLOW.md</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar-synthesis-bar">
+            <span class="synthesis-icon">⚡</span>
+            <span><strong>La Regla de Oro Crafter:</strong> <em>El ADR define los raíles inmutables; el SDLC conduce el tren de las funcionalidades; y los tests de arquitectura ponen los sensores para que nadie descarrile.</em></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 2: PILAR 1 - SDLC WORKFLOW DIRECTORY
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-sdlc-workflow">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Dos Pilares</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 1 • SDLC Workflow</span>
+        </div>
+        <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+          Pilar 1 • SDLC-WORKFLOW-DIRECTORY.md • De la Idea a las Capas DDD
+        </div>
+        <h2>Pilar 1: El Directorio del SDLC <span class="serif-italic" style="color: #10b981;">Del Flujo a las Capas DDD</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          5 fases deterministas con prompts especializados y mapeo 1:1 a código.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Técnica -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box emerald">
+              <div class="sdlc-hero-quote">
+                “La IA no programa desde tickets vagos de Jira; <u>programa desde contratos formales de dominio</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Cada fase genera artefactos de verdad única en <code>docs/product/</code> que alimentan directamente a los generadores de código y reducen las alucinaciones a cero.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">🎯</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #10b981;">1. Discovery &amp; Fronteras Defensivas</div>
+                  <div class="sdlc-point-desc">Lean Inception o Story Mapping definen el perímetro: qué HACE y qué NO HACE el sistema, evitando inventar módulos.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📐</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">2. Specs Técnicas con Diagramas Mermaid</div>
+                  <div class="sdlc-point-desc">Secuencia E2E (happy/error path), flowcharts de ramas y FSM de estados en <code>flows/journey-XX</code>.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🛡️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3. Modelado Rico: BRs, INVs y Value Objects</div>
+                  <div class="sdlc-point-desc">Reglas de negocio (BR), invariantes absolutas (INV con rollback) y tipos inmutables en el Aggregate Root.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📦</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">4. Capas DDD Puras &amp; TDD Híbrido</div>
+                  <div class="sdlc-point-desc">Mapeo directo a <code>packages/modules/[context]/src/domain</code> (cero dependencias), <code>application</code> e <code>infra</code>.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill emerald">
+              <span>⚡ Skills SDLC:</span>
+              <code>/inception-workshop</code> ➔ <code>/create-flow-documentation</code> ➔ <code>/create-entity-lifecycle</code> ➔ <code>/implement-flow</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Render Mermaid Live -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📊 Mermaid Flowchart • Flujo de Ciclo de Vida SDLC (SessioFlow)</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
+              <span class="sdlc-term-tag" style="background: rgba(16, 185, 129, 0.18); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">SVG INTERACTIVO</span>
+            </div>
+
+            <div class="mermaid-diagram-wrap">
+              <div class="mermaid">
+flowchart TD
+    subgraph Discovery ["Fase 1: Product Discovery"]
+        P1["Lean Inception / USM<br/>(Fronteras IS/IS NOT & MVP)"]
+    end
+
+    subgraph Specs ["Fase 2: Specs de Flujos"]
+        P2["Mermaid + Gherkin + Reglas<br/>(docs/product/.../flows/)"]
+    end
+
+    subgraph DomainModel ["Fase 3: Modelo de Dominio"]
+        P3["Entidades FSM, INVs & VOs<br/>(Pure Domain Zero-Deps)"]
+    end
+
+    subgraph Implementation ["Fase 4: Capas DDD en Código"]
+        P4["packages/modules/[context]/<br/>(domain • app • infra • http)"]
+    end
+
+    subgraph Evolution ["Fase 5+: Evolución sin Drift"]
+        P5["working-on/[change-name]/<br/>(In-place living updates)"]
+    end
+
+    Discovery --> Specs
+    Specs --> DomainModel
+    DomainModel --> Implementation
+    Implementation --> Evolution
+    Evolution -. Sincroniza docs .-> Specs
+    Evolution -. Sincroniza docs .-> DomainModel
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 3: PILAR 2 - ADR ARCHITECTURE WORKFLOW
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-workflow">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Dos Pilares</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 2 • ADR Workflow</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 2 • docs/adr/ADR-WORKFLOW.md • Gobernanza Técnica &amp; AX
+        </div>
+        <h2>Pilar 2: Gobernanza Arquitectónica <span class="serif-italic" style="color: #f59e0b;">ADRs Inmutables &amp; AX</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Las decisiones técnicas son la constitución inmutable del repositorio.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Técnica -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box amber">
+              <div class="sdlc-hero-quote">
+                “Regla de Oro: Jamás se reescribe un ADR aceptado a traición; <u>se enmienda o se reemplaza</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Los ADRs no son notas olvidadas en un wiki: son registros versionados con calidad auditada y ergonomía probada para agentes.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">📜</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #f59e0b;">1. Inmutabilidad &amp; Enmiendas Delta</div>
+                  <div class="sdlc-point-desc">Cada ADR (0XX) es inmutable. Los cambios se registran como enmiendas (0XX-01-amendment) con enlaces obligatorios Amends ⇄ Amended By.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🤖</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">2. Ergonomía para IA (AX: Agentic Ergonomics)</div>
+                  <div class="sdlc-point-desc">Sección obligatoria: evalúa alineación de corpus del LLM, el coste en guardarraíles ("Guardrail Tax") y el riesgo de drift.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🔬</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3. Spikes y Análisis de Impacto</div>
+                  <div class="sdlc-point-desc">Si un cambio sacude varios ADRs (ej. cambiar DB u ORM), se emite un 0XX-04-impact-analysis para acotar la onda expansiva.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📡</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">4. Tech Radar &amp; Revisión Activa 2026</div>
+                  <div class="sdlc-point-desc">/adr-review-alternatives rastrea la web para verificar si la tecnología adoptada sigue vigente frente a las alternativas modernas.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill amber">
+              <span>⚡ Skills ADR:</span>
+              <code>/adr-create</code> ➔ <code>/adr-amend</code> ➔ <code>/adr-validate</code> ➔ <code>/adr-review-alternatives</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Render Mermaid Live -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📊 Mermaid Flowchart • Ciclo de Vida del ADR (docs/adr/)</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
+              <span class="sdlc-term-tag" style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">SVG INTERACTIVO</span>
+            </div>
+
+            <div class="mermaid-diagram-wrap">
+              <div class="mermaid">
+flowchart TD
+    Need(["Necesidad Técnica o Cambio"]) --> Intent{"¿Cuál es la intención?"}
+
+    Intent -->|"Nueva Decisión"| F1["1. Crear ADR<br/>(/adr-create)"]
+    F1 --> F1_Draft["Draft en docs/adr/0XX-*.md<br/>(Contexto, Opciones, AX)"]
+    F1_Draft --> F1_Val["2. Validar Calidad<br/>(/adr-validate)"]
+    F1_Val --> F1_Cat["3. Auto-Catalogar<br/>(docs/adr/README.md)"]
+
+    Intent -->|"Modificar Decisión"| F2["1. Enmendar ADR<br/>(/adr-amend)"]
+    F2 --> F2_Draft["Draft 0XX-01-amendment-*.md<br/>(Delta & Rationale)"]
+    F2_Draft --> F2_Link["2. Enlaces Bidireccionales<br/>(Amends <---> Amended By)"]
+    F2_Link --> F1_Val
+
+    Intent -->|"Reemplazo Total"| F3["1. Supersede ADR<br/>(0XX obsoleto ➔ Nuevo 0YY)"]
+    F3 --> F1_Cat
+
+    Intent -->|"Salud Tecnológica"| F4["Revisar Alternativas<br/>(/adr-review-alternatives)"]
+    F4 --> F4_Rep["Tech Radar 2026<br/>(Adopt / Trial / Assess / Hold)"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 4: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-bridge-enlace">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Dos Pilares</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">La Conexión • Arquitectura Viva</span>
+        </div>
+        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
+          La Conexión • docs/adr/ ⇄ docs/product/ ⇄ packages/ ⇄ ts-archunit
+        </div>
+        <h2>La Conexión: <span class="serif-italic" style="color: #a78bfa;">Cómo Todo Enlaza en el Repositorio</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          El ADR define las reglas, el SDLC genera los módulos y los tests impiden el descarrilamiento.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Técnica -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box purple">
+              <div class="sdlc-hero-quote">
+                “Los ADRs son la ley; las Specs son los contratos; <u>y ts-archunit es el juez en CI</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                El ecosistema cierra el círculo: ningún modelo de IA ni desarrollador puede violar las decisiones arquitectónicas porque los tests automáticos rompen el build de inmediato.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">🏛️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #a78bfa;">1. docs/adr/ ➔ Raíles Arquitectónicos</div>
+                  <div class="sdlc-point-desc">ADR-001 (Modular DDD), ADR-016 (Controller Factories) fijan patrones estandarizados y obligatorios en todo el repo.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📋</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">2. docs/product/ ➔ Specs Guiadas por ADRs</div>
+                  <div class="sdlc-point-desc">Los flujos e invariantes citan directamente los ADRs que los gobiernan (ej. persistencia Outbox, validación Zod).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📦</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3. packages/modules/ ➔ Capas DDD Limpias</div>
+                  <div class="sdlc-point-desc">Domain puro (sin ORM ni HTTP) ➔ Application (CQRS) ➔ Infrastructure (Drizzle) ➔ Interfaces (Controllers).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🚨</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">4. tests/unit/architecture/ ➔ ts-archunit</div>
+                  <div class="sdlc-point-desc">Tests de arquitectura en CI: si la IA importa Express dentro del Domain, ¡el test falla de inmediato y rechaza el PR!</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill purple">
+              <span>⚡ Enlace Total:</span>
+              <code>ADR (Raíles)</code> ➔ <code>SDLC (Módulos)</code> ➔ <code>ts-archunit (CI Guardrail)</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Render Mermaid Live -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📊 Mermaid Architecture • Mapa de Conexión del Repositorio</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
+              <span class="sdlc-term-tag" style="background: rgba(139, 92, 246, 0.18); color: #c084fc; border-color: rgba(139, 92, 246, 0.3);">SVG INTERACTIVO</span>
+            </div>
+
+            <div class="mermaid-diagram-wrap">
+              <div class="mermaid">
+flowchart TD
+    subgraph ADRS ["🏛️ docs/adr/ (Gobernanza Inmutable)"]
+        ADR["ADRs (Decisiones Técnicas)<br/>• Reglas DDD y CQRS<br/>• Restricciones de Capas<br/>• AI Ergonomics (AX)"]
+    end
+
+    subgraph SDLC ["📋 docs/product/ (Especificación Viva)"]
+        FLW["Specs de Flujo (Mermaid + Gherkin)"]
+        ENT["Modelo de Dominio (Entities, BRs, INVs)"]
+    end
+
+    subgraph CODE ["📦 packages/modules/[context]/ (Código DDD)"]
+        DOM["src/domain/ (Entidades puras sin deps)"]
+        APP["src/application/ (Casos de uso / CQRS)"]
+        INF["src/infrastructure/ (Drizzle & Repos)"]
+        INT["src/interfaces/ (HTTP Controller Factories)"]
+    end
+
+    subgraph CI ["🚨 Verificación en CI (ts-archunit)"]
+        TEST["tests/unit/architecture/<br/>¡Falla el build si el dev o la IA<br/>viola las reglas de los ADRs!"]
+    end
+
+    ADR -. "Gobierna reglas" .-> SDLC
+    ADR -. "Define invariantes" .-> CI
+    SDLC ==>|"Implementación TDD"| CODE
+    DOM --> APP --> INF --> INT
+    CI -. "Audita en cada PR" .-> CODE
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          SLIDE 29: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-editorial-quote">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -4011,7 +4450,7 @@
     <!-- ====================================================================
          SLIDE 30: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-qa-debate">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 

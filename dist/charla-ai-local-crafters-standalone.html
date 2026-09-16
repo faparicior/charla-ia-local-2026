@@ -12668,6 +12668,175 @@ body.theme-dark .sdlc-skill-pill.emerald {
 }
 
 /* ==========================================================================
+   SECCIÓN ESPECIAL: LOS DOS PILARES DEL SDLC CON IA
+   ========================================================================== */
+.pillar-intro-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  width: 100%;
+}
+
+.pillar-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.theme-dark .pillar-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
+}
+
+.pillar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-dark .pillar-card:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
+}
+
+.pillar-card.pilar-1 {
+  border-top: 5px solid #10b981;
+}
+
+.pillar-card.pilar-2 {
+  border-top: 5px solid #f59e0b;
+}
+
+.pillar-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pillar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.80rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pillar-badge.emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.theme-dark .pillar-badge.emerald {
+  color: #34d399;
+}
+
+.pillar-badge.amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+body.theme-dark .pillar-badge.amber {
+  color: #fbbf24;
+}
+
+.pillar-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.pillar-subtitle {
+  font-size: 1.10rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.pillar-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.pillar-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 1.10rem;
+  line-height: 1.42;
+  color: var(--text-main);
+}
+
+.pillar-feature-icon {
+  font-size: 1.30rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.10rem;
+}
+
+.pillar-target-ref {
+  margin-top: auto;
+  padding: 0.65rem 1rem;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+body.theme-dark .pillar-target-ref {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pillar-synthesis-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 14px;
+  padding: 0.9rem 1.4rem;
+  color: var(--text-main);
+  font-size: 1.14rem;
+}
+
+body.theme-dark .pillar-synthesis-bar {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+.pillar-synthesis-bar .synthesis-icon {
+  font-size: 1.7rem;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
    FASE 1: COMPONENTES VISUALES DINÁMICOS DE INCEPCIÓN (PUNTO 3)
    ========================================================================== */
 
@@ -13107,14 +13276,16 @@ body:not(.mode-document) .doc-only {
 
 /* En Modo Charla, ocultar el banner inferior en las slides de Inception y Fase 2 para ganar aire y verticalidad 16:9 */
 body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .chosen-synergy-banner {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .chosen-synergy-banner {
   display: none !important;
 }
 
 /* En Modo Charla, dotar de presencia y legibilidad a las terminales y tablas */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-terminal-body {
   font-size: 0.90rem !important;
   line-height: 1.52 !important;
   padding: 1.35rem 1.6rem !important;
@@ -13123,35 +13294,42 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body {
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .md-table {
   font-size: 0.88rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table td,
 body:not(.mode-document) .slide[id^="slide-step"] .md-table th,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table td,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table th {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table th,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .md-table td,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .md-table th {
   padding: 0.52rem 0.8rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-h1,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h1 {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h1,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .md-h1 {
   font-size: 1.05rem !important;
   padding-bottom: 0.45rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-h2,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h2 {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h2,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .md-h2 {
   font-size: 0.94rem !important;
   margin-top: 0.35rem !important;
 }
 
-/* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 */
-body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap {
+/* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
+body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .mermaid-diagram-wrap {
   height: 640px !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap svg {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap svg,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .mermaid-diagram-wrap svg {
   max-height: 610px !important;
 }
 
@@ -13186,7 +13364,8 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap svg {
 
 /* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 */
 body:not(.mode-document) .slide[id^="slide-step"] p.subtitle,
-body:not(.mode-document) .slide[id^="slide-phase2-"] p.subtitle {
+body:not(.mode-document) .slide[id^="slide-phase2-"] p.subtitle,
+body:not(.mode-document) .slide[id^="slide-pillar-"] p.subtitle {
   display: none !important;
 }
 
@@ -13196,27 +13375,32 @@ body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-sub,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-desc {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-desc,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-desc {
   display: none !important;
 }
 
 /* En Modo Charla, columna izquierda cinematográfica: cita potente y 3 puntos telegráficos */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-explain-col {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-explain-col,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-explain-col {
   gap: 1.35rem;
   justify-content: space-between;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-box {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-box,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-box {
   padding: 1.6rem 2rem;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-quote,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-quote,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-quote {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-quote,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-quote {
   font-size: 2.25rem !important;
   line-height: 1.25 !important;
   margin-bottom: 0 !important;
@@ -13224,7 +13408,8 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-quote {
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-points-card,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-points-card {
   padding: 1.6rem 2rem !important;
   gap: 1.45rem !important;
   justify-content: space-around;
@@ -13232,20 +13417,23 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card {
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-item {
   align-items: center !important;
   gap: 1.25rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-icon,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-icon,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-icon {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-icon,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-icon {
   font-size: 2.35rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-title,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-title,
-body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-title {
+body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-title,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-title {
   font-size: 1.48rem !important;
   font-weight: 700 !important;
   margin-bottom: 0 !important;
@@ -13266,7 +13454,10 @@ body.mode-document .slide[id^="slide-step"] .sdlc-point-desc,
 body.mode-document .slide[id^="slide-step"] .boundaries-point-desc,
 body.mode-document .slide[id^="slide-phase2-"] p.subtitle,
 body.mode-document .slide[id^="slide-phase2-"] .sdlc-hero-sub,
-body.mode-document .slide[id^="slide-phase2-"] .sdlc-point-desc {
+body.mode-document .slide[id^="slide-phase2-"] .sdlc-point-desc,
+body.mode-document .slide[id^="slide-pillar-"] p.subtitle,
+body.mode-document .slide[id^="slide-pillar-"] .sdlc-hero-sub,
+body.mode-document .slide[id^="slide-pillar-"] .sdlc-point-desc {
   display: block !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -13284,7 +13475,8 @@ body.mode-document span.doc-only {
 }
 
 body.mode-document .slide[id^="slide-step"] .chosen-synergy-banner,
-body.mode-document .slide[id^="slide-phase2-"] .chosen-synergy-banner {
+body.mode-document .slide[id^="slide-phase2-"] .chosen-synergy-banner,
+body.mode-document .slide[id^="slide-pillar-"] .chosen-synergy-banner {
   display: flex !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -17407,18 +17599,32 @@ function initDeck() {
     totalCounter.textContent = slides.length;
   }
 
-  // Leer slide desde URL Hash (#1 o #slide-1 = slide 0, o #last = última slide)
+  // Leer slide desde URL Hash (#1, #21, #slide-pillar-intro, o #last = última slide)
   function getSlideIndexFromHash() {
-    let hash = window.location.hash.replace('#', '').trim();
-    if (hash === 'last') {
+    let rawHash = window.location.hash.replace('#', '').trim();
+    if (!rawHash) return 0;
+    if (rawHash === 'last') {
       return slides.length - 1;
     }
-    if (hash.startsWith('slide-')) {
-      hash = hash.replace('slide-', '');
+    // 1. Si es numérico puro (#1, #21), SIEMPRE es el número de diapositiva (1-based)
+    if (/^\d+$/.test(rawHash)) {
+      const num = parseInt(rawHash, 10);
+      if (num >= 1 && num <= slides.length) {
+        return num - 1;
+      }
     }
-    const num = parseInt(hash, 10);
-    if (!isNaN(num) && num >= 1 && num <= slides.length) {
-      return num - 1;
+    // 2. Si tiene formato "slide-N" numérico (ej: #slide-21)
+    const numMatch = rawHash.match(/^slide-(\d+)$/);
+    if (numMatch) {
+      const num = parseInt(numMatch[1], 10);
+      if (num >= 1 && num <= slides.length) {
+        return num - 1;
+      }
+    }
+    // 3. Buscar coincidencia por ID semántico de slide (ej: slide-pillar-intro, slide-step1-boundaries)
+    const exactIndex = slides.findIndex(s => s.id === rawHash || s.id === `slide-${rawHash}`);
+    if (exactIndex !== -1) {
+      return exactIndex;
     }
     return 0;
   }

@@ -67,18 +67,32 @@ function initDeck() {
     totalCounter.textContent = slides.length;
   }
 
-  // Leer slide desde URL Hash (#1 o #slide-1 = slide 0, o #last = última slide)
+  // Leer slide desde URL Hash (#1, #21, #slide-pillar-intro, o #last = última slide)
   function getSlideIndexFromHash() {
-    let hash = window.location.hash.replace('#', '').trim();
-    if (hash === 'last') {
+    let rawHash = window.location.hash.replace('#', '').trim();
+    if (!rawHash) return 0;
+    if (rawHash === 'last') {
       return slides.length - 1;
     }
-    if (hash.startsWith('slide-')) {
-      hash = hash.replace('slide-', '');
+    // 1. Si es numérico puro (#1, #21), SIEMPRE es el número de diapositiva (1-based)
+    if (/^\d+$/.test(rawHash)) {
+      const num = parseInt(rawHash, 10);
+      if (num >= 1 && num <= slides.length) {
+        return num - 1;
+      }
     }
-    const num = parseInt(hash, 10);
-    if (!isNaN(num) && num >= 1 && num <= slides.length) {
-      return num - 1;
+    // 2. Si tiene formato "slide-N" numérico (ej: #slide-21)
+    const numMatch = rawHash.match(/^slide-(\d+)$/);
+    if (numMatch) {
+      const num = parseInt(numMatch[1], 10);
+      if (num >= 1 && num <= slides.length) {
+        return num - 1;
+      }
+    }
+    // 3. Buscar coincidencia por ID semántico de slide (ej: slide-pillar-intro, slide-step1-boundaries)
+    const exactIndex = slides.findIndex(s => s.id === rawHash || s.id === `slide-${rawHash}`);
+    if (exactIndex !== -1) {
+      return exactIndex;
     }
     return 0;
   }
