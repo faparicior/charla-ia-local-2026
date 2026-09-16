@@ -4067,18 +4067,193 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE SPECIAL 2: PILAR 1 - SDLC WORKFLOW DIRECTORY
+         SLIDE SPECIAL 2: PILAR 1 - ADR ARCHITECTURE WORKFLOW (4 FASES)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-workflow">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Tres Pilares</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • ADR Workflow</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Gobernanza Técnica &amp; AX
+        </div>
+        <h2>Pilar 1: Gobernanza Arquitectónica <span class="serif-italic" style="color: #f59e0b;">Las 4 Fases de los ADRs</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Las decisiones técnicas son la constitución inmutable del repositorio, ejecutadas en 4 fases ordenadas por skills.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Técnica en Orden de Skills -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box amber">
+              <div class="sdlc-hero-quote">
+                “Regla de Oro: Jamás se reescribe un ADR aceptado a traición; <u>se enmienda o se reemplaza</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Los ADRs no son notas en un wiki: son registros inmutables con calidad auditada y ergonomía probada para agentes.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">📜</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #f59e0b;">1. Creación con AX (/adr-create)</div>
+                  <div class="sdlc-point-desc">Draft secuencial en docs/adr/: contexto, opciones (pros/cons) y sección obligatoria de Ergonomía para IA (AX).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">✅</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">2. Auditoría &amp; Rúbrica (/adr-validate)</div>
+                  <div class="sdlc-point-desc">Verifica calidad (High/Med/Low) antes de aceptar la decisión y sincroniza el catálogo central (README.md).</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📝</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3. Enmiendas Delta (/adr-amend)</div>
+                  <div class="sdlc-point-desc">Si la arquitectura cambia, se emite una enmienda 0XX-01 con enlaces bidireccionales obligatorios Amends ⇄ Amended By.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📡</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">4. Tech Radar Activo (/adr-review-alternatives)</div>
+                  <div class="sdlc-point-desc">Búsqueda web activa para auditar si las tecnologías adoptadas siguen vigentes en 2026 (Adopt/Trial/Assess/Hold).</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill amber">
+              <span>⚡ Flujo Canónico:</span>
+              <code>/adr-create</code> ➔ <code>/adr-validate</code> ➔ <code>/adr-amend</code> ➔ <code>/adr-review-alternatives</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Render Mermaid Live -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📊 Mermaid Flowchart • Ciclo de Vida del ADR (docs/adr/)</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
+              <span class="sdlc-term-tag" style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">SVG INTERACTIVO</span>
+            </div>
+
+            <div class="mermaid-diagram-wrap">
+              <div class="mermaid">
+flowchart TD
+    Need(["Necesidad Técnica o Cambio"]) --> Intent{"¿Cuál es la intención?"}
+
+    Intent -->|"Nueva Decisión"| F1["1. Crear ADR<br/>(/adr-create)"]
+    F1 --> F1_Draft["Draft en docs/adr/0XX-*.md<br/>(Contexto, Opciones, AX)"]
+    F1_Draft --> F1_Val["2. Validar Calidad<br/>(/adr-validate)"]
+    F1_Val --> F1_Cat["3. Auto-Catalogar<br/>(docs/adr/README.md)"]
+
+    Intent -->|"Modificar Decisión"| F2["1. Enmendar ADR<br/>(/adr-amend)"]
+    F2 --> F2_Draft["Draft 0XX-01-amendment-*.md<br/>(Delta & Rationale)"]
+    F2_Draft --> F2_Link["2. Enlaces Bidireccionales<br/>(Amends <---> Amended By)"]
+    F2_Link --> F1_Val
+
+    Intent -->|"Reemplazo Total"| F3["1. Supersede ADR<br/>(0XX obsoleto ➔ Nuevo 0YY)"]
+    F3 --> F1_Cat
+
+    Intent -->|"Salud Tecnológica"| F4["Revisar Alternativas<br/>(/adr-review-alternatives)"]
+    F4 --> F4_Rep["Tech Radar 2026<br/>(Adopt / Trial / Assess / Hold)"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 3: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-friction">
+      <div class="slide-content" style="gap: 0.95rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Tres Pilares</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Ergonomía para IA (AX)</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • AI &amp; Agentic Ergonomics (AX) • Corpus Alignment vs. Inercia del LLM
+        </div>
+        <h2>La Fricción: <span class="serif-italic" style="color: #f59e0b;">Tus ADRs vs. El Pre-entrenamiento del Modelo</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Una cosa es lo que decide tu arquitectura; otra muy distinta es la inercia probabilística con la que fue entrenado el modelo.
+        </p>
+
+        <div class="adr-friction-deck">
+          <!-- Viewport con la imagen de colisión y canalización -->
+          <div class="adr-friction-viewport">
+            <img src="script/img/adr-vs-model-friction.jpg"
+              alt="La fricción entre el templo arquitectónico de los ADRs y la nebulosa de inercia y código salvaje del LLM" class="adr-friction-img">
+          </div>
+
+          <!-- Franja inferior de las 3 claves de la fricción -->
+          <div class="adr-friction-strip">
+            <!-- Card 1: La inercia del modelo -->
+            <div class="adr-friction-card inertia">
+              <div class="adr-friction-header">
+                <span class="adr-friction-badge inertia">1. Inercia del LLM</span>
+                <span style="font-size: 1.25rem;">🌌</span>
+              </div>
+              <div class="adr-friction-title">El Sesgo de Internet</div>
+              <div class="adr-friction-text">
+                El modelo ha visto millones de repositorios mediocres y tutoriales obsoletos. Por defecto tenderá a <strong>regresión a la media</strong>: modelos anémicos y patrones genéricos.
+              </div>
+            </div>
+
+            <!-- Card 2: El Guardrail Tax -->
+            <div class="adr-friction-card tax">
+              <div class="adr-friction-header">
+                <span class="adr-friction-badge tax">2. Guardrail Tax</span>
+                <span style="font-size: 1.25rem;">⚖️</span>
+              </div>
+              <div class="adr-friction-title">El Coste de Contención</div>
+              <div class="adr-friction-text">
+                Cuanto más choque tu ADR con los hábitos del modelo (ej. Controller Factories vs. NestJS), más <strong>contexto, tipado defensivo y prompts</strong> tendrás que pagar para mantenerlo en los raíles.
+              </div>
+            </div>
+
+            <!-- Card 3: La solución -->
+            <div class="adr-friction-card guardrail">
+              <div class="adr-friction-header">
+                <span class="adr-friction-badge guardrail">3. Solución Crafter</span>
+                <span style="font-size: 1.25rem;">🛡️</span>
+              </div>
+              <div class="adr-friction-title">Tipado &amp; ts-archunit</div>
+              <div class="adr-friction-text">
+                No confíes en convencer al modelo con prosa: <strong>blinda tus ADRs con contratos TypeScript estrictos y tests automáticos en CI</strong> que rechacen cualquier alucinación en el acto.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 4: PILAR 2 - SDLC WORKFLOW DIRECTORY
          ==================================================================== -->
     <section class="slide" id="slide-pillar-sdlc-workflow">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Dos Pilares</a>
-          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 1 • SDLC Workflow</span>
+          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Tres Pilares</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • SDLC Workflow</span>
         </div>
         <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
-          Pilar 1 • SDLC-WORKFLOW-DIRECTORY.md • De la Idea a las Capas DDD
+          Pilar 2 • SDLC-WORKFLOW-DIRECTORY.md • De la Idea a las Capas DDD
         </div>
-        <h2>Pilar 1: El Directorio del SDLC <span class="serif-italic" style="color: #10b981;">Del Flujo a las Capas DDD</span></h2>
+        <h2>Pilar 2: Definición de Producto &amp; Dominio <span class="serif-italic" style="color: #10b981;">Inception, USM y Capas DDD</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           5 fases deterministas con prompts especializados y mapeo 1:1 a código.
         </p>
@@ -4177,115 +4352,6 @@ flowchart TD
     Implementation --> Evolution
     Evolution -. Sincroniza docs .-> Specs
     Evolution -. Sincroniza docs .-> DomainModel
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 3: PILAR 2 - ADR ARCHITECTURE WORKFLOW
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-workflow">
-      <div class="slide-content" style="gap: 1.15rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Dos Pilares</a>
-          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 2 • ADR Workflow</span>
-        </div>
-        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
-          Pilar 2 • docs/adr/ADR-WORKFLOW.md • Gobernanza Técnica &amp; AX
-        </div>
-        <h2>Pilar 2: Gobernanza Arquitectónica <span class="serif-italic" style="color: #f59e0b;">ADRs Inmutables &amp; AX</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          Las decisiones técnicas son la constitución inmutable del repositorio.
-        </p>
-
-        <div class="sdlc-console-deck">
-          <!-- Columna Izquierda: Explicación Técnica -->
-          <div class="sdlc-explain-col">
-            <div class="sdlc-hero-box amber">
-              <div class="sdlc-hero-quote">
-                “Regla de Oro: Jamás se reescribe un ADR aceptado a traición; <u>se enmienda o se reemplaza</u>.”
-              </div>
-              <div class="sdlc-hero-sub">
-                Los ADRs no son notas olvidadas en un wiki: son registros versionados con calidad auditada y ergonomía probada para agentes.
-              </div>
-            </div>
-
-            <div class="sdlc-points-card">
-              <div class="sdlc-point-item active-point">
-                <div class="sdlc-point-icon">📜</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title" style="color: #f59e0b;">1. Inmutabilidad &amp; Enmiendas Delta</div>
-                  <div class="sdlc-point-desc">Cada ADR (0XX) es inmutable. Los cambios se registran como enmiendas (0XX-01-amendment) con enlaces obligatorios Amends ⇄ Amended By.</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">🤖</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">2. Ergonomía para IA (AX: Agentic Ergonomics)</div>
-                  <div class="sdlc-point-desc">Sección obligatoria: evalúa alineación de corpus del LLM, el coste en guardarraíles ("Guardrail Tax") y el riesgo de drift.</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">🔬</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">3. Spikes y Análisis de Impacto</div>
-                  <div class="sdlc-point-desc">Si un cambio sacude varios ADRs (ej. cambiar DB u ORM), se emite un 0XX-04-impact-analysis para acotar la onda expansiva.</div>
-                </div>
-              </div>
-
-              <div class="sdlc-point-item">
-                <div class="sdlc-point-icon">📡</div>
-                <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">4. Tech Radar &amp; Revisión Activa 2026</div>
-                  <div class="sdlc-point-desc">/adr-review-alternatives rastrea la web para verificar si la tecnología adoptada sigue vigente frente a las alternativas modernas.</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="sdlc-skill-pill amber">
-              <span>⚡ Skills ADR:</span>
-              <code>/adr-create</code> ➔ <code>/adr-amend</code> ➔ <code>/adr-validate</code> ➔ <code>/adr-review-alternatives</code>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Render Mermaid Live -->
-          <div class="sdlc-terminal">
-            <div class="code-header">
-              <div class="code-dots">
-                <div class="code-dot red"></div>
-                <div class="code-dot yellow"></div>
-                <div class="code-dot green"></div>
-              </div>
-              <div class="code-title">📊 Mermaid Flowchart • Ciclo de Vida del ADR (docs/adr/)</div>
-              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver Documento</button>
-              <span class="sdlc-term-tag" style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">SVG INTERACTIVO</span>
-            </div>
-
-            <div class="mermaid-diagram-wrap">
-              <div class="mermaid">
-flowchart TD
-    Need(["Necesidad Técnica o Cambio"]) --> Intent{"¿Cuál es la intención?"}
-
-    Intent -->|"Nueva Decisión"| F1["1. Crear ADR<br/>(/adr-create)"]
-    F1 --> F1_Draft["Draft en docs/adr/0XX-*.md<br/>(Contexto, Opciones, AX)"]
-    F1_Draft --> F1_Val["2. Validar Calidad<br/>(/adr-validate)"]
-    F1_Val --> F1_Cat["3. Auto-Catalogar<br/>(docs/adr/README.md)"]
-
-    Intent -->|"Modificar Decisión"| F2["1. Enmendar ADR<br/>(/adr-amend)"]
-    F2 --> F2_Draft["Draft 0XX-01-amendment-*.md<br/>(Delta & Rationale)"]
-    F2_Draft --> F2_Link["2. Enlaces Bidireccionales<br/>(Amends <---> Amended By)"]
-    F2_Link --> F1_Val
-
-    Intent -->|"Reemplazo Total"| F3["1. Supersede ADR<br/>(0XX obsoleto ➔ Nuevo 0YY)"]
-    F3 --> F1_Cat
-
-    Intent -->|"Salud Tecnológica"| F4["Revisar Alternativas<br/>(/adr-review-alternatives)"]
-    F4 --> F4_Rep["Tech Radar 2026<br/>(Adopt / Trial / Assess / Hold)"]
               </div>
             </div>
           </div>
