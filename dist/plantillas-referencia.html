@@ -12668,8 +12668,166 @@ body.theme-dark .sdlc-skill-pill.emerald {
 }
 
 /* ==========================================================================
-   SECCIÓN ESPECIAL: LOS DOS PILARES DEL SDLC CON IA
+   SECCIÓN ESPECIAL: LOS TRES PILARES DEL CÓDIGO CON IA
    ========================================================================== */
+.three-pillars-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  width: 100%;
+}
+
+.three-pillars-viewport {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-subtle);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+  background: #06090e;
+}
+
+body.theme-dark .three-pillars-viewport {
+  border-color: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.three-pillars-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+}
+
+.three-pillars-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.pillar-col-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.15rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.pillar-col-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-dark .pillar-col-card {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+body.theme-dark .pillar-col-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.pillar-col-card.pilar-adr {
+  border-top: 4px solid #38bdf8;
+}
+
+.pillar-col-card.pilar-inception {
+  border-top: 4px solid #f59e0b;
+}
+
+.pillar-col-card.pilar-tests {
+  border-top: 4px solid #10b981;
+}
+
+.pillar-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.pillar-col-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.pillar-col-badge.adr {
+  background: rgba(56, 189, 248, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+body.theme-dark .pillar-col-badge.adr {
+  color: #38bdf8;
+}
+
+.pillar-col-badge.inception {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+body.theme-dark .pillar-col-badge.inception {
+  color: #fbbf24;
+}
+
+.pillar-col-badge.tests {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.theme-dark .pillar-col-badge.tests {
+  color: #34d399;
+}
+
+.pillar-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.22;
+}
+
+.pillar-col-motto {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.38;
+}
+
+.pillar-col-motto strong {
+  color: var(--text-main);
+}
+
+.pillar-col-risk {
+  margin-top: auto;
+  font-size: 0.86rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+  line-height: 1.32;
+}
+
+body.theme-dark .pillar-col-risk {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
 .pillar-intro-deck {
   display: flex;
   flex-direction: column;

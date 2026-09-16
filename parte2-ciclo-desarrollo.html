@@ -3992,95 +3992,75 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE SPECIAL 1: INTRODUCCIÓN A LOS DOS PILARES DEL SDLC CON IA
+         SLIDE SPECIAL 1: LOS TRES PILARES DEL CÓDIGO CON IA
          ==================================================================== -->
     <section class="slide" id="slide-pillar-intro">
-      <div class="slide-content" style="gap: 1.15rem;">
+      <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
           <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
-          <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7;">Sección Especial • Los Dos Pilares del SDLC</span>
+          <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7;">Sección Especial • Los Tres Pilares de la Calidad</span>
         </div>
         <div class="tag" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3);">
-          Sección Especial • Arquitectura &amp; Gobernanza • Para Ingenieros Técnicos
+          Artesanía de Software • Arquitectura &amp; Gobernanza • Generación Determinista
         </div>
-        <h2>Los Dos Pilares del SDLC <span class="serif-italic" style="color: #0284c7;">en la Era de los Agentes</span></h2>
+        <h2>Los Tres Pilares: <span class="serif-italic" style="color: #0284c7;">Cómo Garantizar Código de Calidad</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
-          ¿Por qué un desarrollador necesita especificaciones formales y decisiones inmutables si no es de Producto?
+          La IA no genera buen código por azar: el software de producción descansa sobre tres apoyos innegociables.
         </p>
 
-        <div class="pillar-intro-deck">
-          <div class="sdlc-hero-box cyan" style="margin-bottom: 0.2rem;">
-            <div class="sdlc-hero-quote">
-              “Un LLM sin contexto <u>no falla por tonto, sino por complaciente</u>: inventará arquitectura y modelos anémicos si no tiene raíles.”
-            </div>
-            <div class="sdlc-hero-sub">
-              No es burocracia ágil de producto: son contratos matemáticos en Markdown para que los agentes y los humanos construyan software robusto, mantenible y con cero deuda técnica.
-            </div>
+        <div class="three-pillars-deck">
+          <!-- Viewport con la imagen conceptual generada -->
+          <div class="three-pillars-viewport">
+            <img src="script/img/three-pillars-code-quality.jpg"
+              alt="Los Tres Pilares del Código con IA: ADRs (Tecnología), Inception (Producto) y Tests (Verificación)" class="three-pillars-img">
           </div>
 
-          <div class="pillar-grid">
-            <!-- Tarjeta Pilar 1 -->
-            <div class="pillar-card pilar-1">
-              <div class="pillar-card-header">
-                <span class="pillar-badge emerald">Pilar 1 • El Motor del Dominio</span>
-                <span style="font-size: 1.5rem;">📋</span>
+          <!-- Franja de los 3 Pilares -->
+          <div class="three-pillars-strip">
+            <!-- Pilar 1: ADRs -->
+            <div class="pillar-col-card pilar-adr">
+              <div class="pillar-col-header">
+                <span class="pillar-col-badge adr">Pilar 1 • Tecnología</span>
+                <span style="font-size: 1.35rem;">🏛️</span>
               </div>
-              <div class="pillar-title">SDLC Workflow Directory</div>
-              <div class="pillar-subtitle">
-                Estructura viva que convierte necesidades en especificaciones técnicas formales y código limpio por capas.
+              <div class="pillar-col-title">ADRs &amp; Arquitectura</div>
+              <div class="pillar-col-motto">
+                <strong>Decide:</strong> Stack, reglas DDD, CQRS, ORM, puertos y adaptadores, y ergonomía para IA (AX).
               </div>
-              <div class="pillar-features">
-                <div class="pillar-feature-item">
-                  <span class="pillar-feature-icon">🎯</span>
-                  <span><strong>Discovery Técnico:</strong> Define fronteras defensivas (IS / IS NOT) para bloquear alucinaciones de scope.</span>
-                </div>
-                <div class="pillar-feature-item">
-                  <span class="pillar-feature-icon">📐</span>
-                  <span><strong>Specs Vivas:</strong> Secuencias, flowcharts y FSM en Mermaid + Gherkin que sirven de prompt infalible.</span>
-                </div>
-                <div class="pillar-feature-item">
-                  <span class="pillar-feature-icon">📦</span>
-                  <span><strong>Capas DDD:</strong> Mapeo 1:1 a <code>src/domain</code>, <code>application</code>, <code>infrastructure</code> e <code>interfaces</code>.</span>
-                </div>
-              </div>
-              <div class="pillar-target-ref">
-                <span>📁 Directorio base:</span> <code>docs/SDLC-WORKFLOW-DIRECTORY.md</code>
+              <div class="pillar-col-risk">
+                ⚠️ <strong>Sin ADRs:</strong> La IA improvisa librerías, inventa dependencias y crea modelos anémicos acoplados.
               </div>
             </div>
 
-            <!-- Tarjeta Pilar 2 -->
-            <div class="pillar-card pilar-2">
-              <div class="pillar-card-header">
-                <span class="pillar-badge amber">Pilar 2 • La Constitución Técnica</span>
-                <span style="font-size: 1.5rem;">🏛️</span>
+            <!-- Pilar 2: Inception / USM -->
+            <div class="pillar-col-card pilar-inception">
+              <div class="pillar-col-header">
+                <span class="pillar-col-badge inception">Pilar 2 • Producto</span>
+                <span style="font-size: 1.35rem;">📋</span>
               </div>
-              <div class="pillar-title">ADR Architecture Workflow</div>
-              <div class="pillar-subtitle">
-                Registro inmutable de decisiones técnicas, enmiendas delta y ergonomía para modelos de lenguaje (AX).
+              <div class="pillar-col-title">Inception &amp; Story Mapping</div>
+              <div class="pillar-col-motto">
+                <strong>Decide:</strong> El problema real, fronteras defensivas (IS / IS NOT), user journeys y valor MVP.
               </div>
-              <div class="pillar-features">
-                <div class="pillar-feature-item">
-                  <span class="pillar-feature-icon">🔒</span>
-                  <span><strong>Inmutabilidad Sagrada:</strong> Jamás se edita un ADR aceptado; se crean enmiendas con enlaces bidireccionales.</span>
-                </div>
-                <div class="pillar-feature-item">
-                  <span class="pillar-feature-icon">🤖</span>
-                  <span><strong>AI Ergonomics (AX):</strong> Evalúa cómo de fácil es para la IA entender la decisión y el coste en guardarraíles.</span>
-                </div>
-                <div class="pillar-feature-item">
-                  <span class="pillar-feature-icon">🚨</span>
-                  <span><strong>Enforced en CI:</strong> Reglas protegidas por tests de arquitectura automáticos (<code>ts-archunit</code>).</span>
-                </div>
-              </div>
-              <div class="pillar-target-ref">
-                <span>📁 Directorio base:</span> <code>docs/adr/ADR-WORKFLOW.md</code>
+              <div class="pillar-col-risk">
+                ⚠️ <strong>Sin Inception:</strong> La IA alucina el scope, resuelve el problema equivocado y dispersa el esfuerzo.
               </div>
             </div>
-          </div>
 
-          <div class="pillar-synthesis-bar">
-            <span class="synthesis-icon">⚡</span>
-            <span><strong>La Regla de Oro Crafter:</strong> <em>El ADR define los raíles inmutables; el SDLC conduce el tren de las funcionalidades; y los tests de arquitectura ponen los sensores para que nadie descarrile.</em></span>
+            <!-- Pilar 3: Tests -->
+            <div class="pillar-col-card pilar-tests">
+              <div class="pillar-col-header">
+                <span class="pillar-col-badge tests">Pilar 3 • Verificación</span>
+                <span style="font-size: 1.35rem;">🛡️</span>
+              </div>
+              <div class="pillar-col-title">Tests &amp; Red de Seguridad</div>
+              <div class="pillar-col-motto">
+                <strong>Decide:</strong> Invariantes ejecutables, TDD por capas y <code>ts-archunit</code> bloqueando en CI.
+              </div>
+              <div class="pillar-col-risk">
+                ⚠️ <strong>Sin Tests:</strong> El código parece funcionar pero carece de garantías; nadie audita las alucinaciones.
+              </div>
+            </div>
           </div>
         </div>
       </div>
