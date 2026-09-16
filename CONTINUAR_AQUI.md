@@ -31,14 +31,15 @@ Se ha dejado la **Fase 2 cerrada con máximo rigor artesanal** en `parte2-ciclo-
    - **Slide 15 (`#slide-phase2-br-template`):** Plantilla real de Regla de Negocio basada en `sdlc/skills/create-flow-documentation/templates/business-rules.md`.
    - **Slide 16 (`#slide-phase2-inv-template`):** Plantilla real de Invariante de Dominio basada en `sdlc/skills/create-flow-documentation/templates/invariants.md`.
 
-3. **Sección Especial de los Tres Pilares (Slides 26 a 32):**
+3. **Sección Especial de los Tres Pilares (Slides 26 a 33):**
    - **Slide 26 (`#slide-pillar-intro`):** Los Tres Pilares del Código con IA (ADRs, Inception/USM, Tests).
    - **Slide 27 (`#slide-pillar-adr-friction`):** Pilar 1 - La Fricción: Tus ADRs vs. El Pre-entrenamiento del Modelo (Guardrail Tax).
-   - **Slide 28 (`#slide-pillar-adr-timeline`):** Pilar 1 - El Ciclo Canónico de un ADR (5 tarjetas horizontales con iconos y viñetas + recorte de prensa / pegatina caso real de Vercel/Next.js 15 inyectando advertencias contra el pre-entrenamiento del LLM en cada `next dev`).
-   - **Slide 29 (`#slide-pillar-adr-decision-tree`):** Pilar 1 - Gobernanza en Acción (Matriz de 4 rutas: Nueva Decisión, Enmienda, Deprecación, Radar).
-   - **Slide 30 (`#slide-pillar-sdlc-timeline`):** Pilar 2 - El Ciclo Canónico del SDLC (5 fases: Inception, Specs, Dominio, TDD, Living Docs).
-   - **Slide 31 (`#slide-pillar-sdlc-decision-tree`):** Pilar 2 - Producto en Acción (Matriz de 4 rutas: Discovery, Flow Specs, Domain Model, Zero Drift).
-   - **Slide 32 (`#slide-pillar-bridge-enlace`):** La Conexión: Cómo todo enlaza en el repositorio.
+   - **Slide 28 (`#slide-pillar-adr-case-nextjs`):** Pilar 1 - Caso Real "POF!": *This is NOT the Next.js you know* (estampa gigante inclinada con la inyección de Vercel en `next dev` y la moraleja para el artesano).
+   - **Slide 29 (`#slide-pillar-adr-timeline`):** Pilar 1 - El Ciclo Canónico de un ADR (5 tarjetas horizontales de izquierda a derecha con iconos luminosos y viñetas).
+   - **Slide 30 (`#slide-pillar-adr-decision-tree`):** Pilar 1 - Gobernanza en Acción (Matriz de 4 rutas: Nueva Decisión, Enmienda, Deprecación, Radar).
+   - **Slide 31 (`#slide-pillar-sdlc-timeline`):** Pilar 2 - El Ciclo Canónico del SDLC (5 fases: Inception, Specs, Dominio, TDD, Living Docs).
+   - **Slide 32 (`#slide-pillar-sdlc-decision-tree`):** Pilar 2 - Producto en Acción (Matriz de 4 rutas: Discovery, Flow Specs, Domain Model, Zero Drift).
+   - **Slide 33 (`#slide-pillar-bridge-enlace`):** La Conexión: Cómo todo enlaza en el repositorio.
 
 4. **Arquitectura limpia:**
    - Cero dependencias npm/node huérfanas en el repo.

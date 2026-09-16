@@ -14666,98 +14666,146 @@ body.theme-dark .adr-step-bullet-item {
 }
 
 /* ==========================================================================
-   PILAR 1: NOTA DE PRENSA / PEGATINA CASO REAL NEXT.JS (SLIDE 28)
+   SLIDE ESPECIAL: CASO REAL NEXT.JS - STAMP / POF NEWSPAPER
    ========================================================================== */
-.adr-press-sticker-bar {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.25rem;
-  align-items: center;
-  background: var(--bg-surface);
-  border: 1.5px solid rgba(139, 92, 246, 0.35);
-  border-radius: 12px;
-  padding: 0.65rem 1.15rem;
-  margin-top: 0.15rem;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-body.theme-dark .adr-press-sticker-bar {
-  background: #111722;
-  border-color: rgba(139, 92, 246, 0.45);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-}
-
-.adr-sticker-thumb {
-  position: relative;
+.nextjs-pof-stage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0.6rem auto 0;
+  position: relative;
 }
 
-.adr-sticker-tape {
+.nextjs-stamp-wrapper {
+  position: relative;
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.nextjs-stamp-card {
+  background: #fbfbfd;
+  border: 3px solid rgba(139, 92, 246, 0.6);
+  border-radius: 18px;
+  padding: 1.3rem 1.65rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22), 0 0 40px rgba(139, 92, 246, 0.2);
+  transform: rotate(-2.2deg);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  position: relative;
+}
+
+body.theme-dark .nextjs-stamp-card {
+  background: #182030;
+  border-color: rgba(139, 92, 246, 0.75);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65), 0 0 55px rgba(139, 92, 246, 0.35);
+}
+
+.nextjs-stamp-card:hover {
+  transform: rotate(-0.5deg) scale(1.02);
+}
+
+.nextjs-stamp-tape {
   position: absolute;
-  top: -8px;
-  background: #8b5cf6;
-  color: #fff;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  color: #ffffff;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.15rem 0.55rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-}
-
-.adr-sticker-img {
-  max-height: 88px;
-  width: auto;
-  border-radius: 8px;
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  background: #fff;
-  transition: transform 0.2s ease;
-  margin-top: 4px;
-}
-
-.adr-sticker-img:hover {
-  transform: scale(1.03);
-}
-
-.adr-press-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  min-width: 0;
-}
-
-.adr-press-header {
+  padding: 0.38rem 1.35rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.45);
+  z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.nextjs-stamp-img {
+  max-width: 100%;
+  width: 980px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Animación POF cuando se entra en la slide */
+.slide.active .nextjs-stamp-card {
+  animation: stampPof 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes stampPof {
+  0% {
+    opacity: 0;
+    transform: scale(1.4) rotate(8deg);
+  }
+  70% {
+    transform: scale(0.96) rotate(-3.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-2.2deg);
+  }
+}
+
+.nextjs-explain-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1150px;
+}
+
+.nextjs-explain-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.15rem 1.45rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+body.theme-dark .nextjs-explain-card {
+  background: #111722;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.nextjs-explain-card.tax {
+  border-left: 5px solid #8b5cf6;
+}
+
+.nextjs-explain-card.crafter {
+  border-left: 5px solid #f59e0b;
+}
+
+.nextjs-explain-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
-.adr-press-headline {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-main);
-  line-height: 1.22;
-}
-
-.adr-press-desc {
-  font-size: 0.90rem;
+.nextjs-explain-card-body {
+  font-size: 0.98rem;
   color: var(--text-muted);
-  line-height: 1.35;
-  margin: 0;
+  line-height: 1.45;
 }
 
-.adr-press-desc strong {
+.nextjs-explain-card-body strong {
   color: var(--text-main);
 }
 
