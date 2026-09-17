@@ -2332,14 +2332,14 @@
                 Error3 --> Form
 
                 CheckSlug -->|Sí| CheckTier{"¿Límite Free Tier BR-004?"}
-                CheckTier -->|Activas >= 5| Error4["HTTP 403: Modal Upgrade Pro"]
+                CheckTier -->|Activas &gt;= 5| Error4["HTTP 403: Modal Upgrade Pro"]
                 Error4 --> EndFail([Creación Abortada])
 
-                CheckTier -->|Activas < 5| Create["Conference.create (DRAFT)"] Create --> Publish["Conference.publishCfp
-                  (CFP_OPEN)"]
+                CheckTier -->|Activas &lt; 5| Create["Conference.create (DRAFT)"]
+                Create --> Publish["Conference.publishCfp (CFP_OPEN)"]
 
-                  Publish --> RecordEvents["Registrar Eventos de Dominio"]
-                  RecordEvents --> SaveDB[("Commit Tx: Agregado + Outbox")]
+                Publish --> RecordEvents["Registrar Eventos de Dominio"]
+                RecordEvents --> SaveDB[("Commit Tx: Agregado + Outbox")]
 
                   SaveDB --> Success["201 Created + Redirección Dashboard"]
                   Success --> EndSuccess([✅ CfP URL Activa])
