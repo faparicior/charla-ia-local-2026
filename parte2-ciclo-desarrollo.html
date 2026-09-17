@@ -29,6 +29,90 @@
 
 
     <!-- ====================================================================
+         SLIDE SPECIAL 1: LOS TRES PILARES DEL CÓDIGO CON IA
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-intro">
+      <div class="slide-content" style="gap: 0.95rem;">
+        <div class="deck-back-bar">
+          <a href="index.html#last" class="deck-back-btn">← Volver a Parte 1: Hardware &amp; Modelos</a>
+          <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7;">Parte 2 •
+            Los Tres Pilares de la Calidad</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3);">
+          Artesanía de Software • Arquitectura &amp; Gobernanza • Generación Determinista
+        </div>
+        <h2>Los Tres Pilares: <span class="serif-italic" style="color: #0284c7;">Cómo Garantizar Código de
+            Calidad</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          La IA no genera buen código por azar: el software de producción descansa sobre tres apoyos innegociables.
+        </p>
+
+        <div class="three-pillars-deck">
+          <!-- Viewport con la imagen conceptual generada -->
+          <div class="three-pillars-viewport">
+            <img src="script/img/three-pillars-code-quality.jpg"
+              alt="Los Tres Pilares del Código con IA: Inception (Producto), ADRs (Tecnología) y Tests (Verificación)"
+              class="three-pillars-img">
+          </div>
+
+          <!-- Franja de los 3 Pilares -->
+          <div class="three-pillars-strip">
+            <!-- Pilar 1: Inception / USM -->
+            <div class="pillar-col-card pilar-inception">
+              <div class="pillar-col-header">
+                <span class="pillar-col-badge inception">Pilar 1 • Producto</span>
+                <span style="font-size: 1.35rem;">📋</span>
+              </div>
+              <div class="pillar-col-title">Inception &amp; Story Mapping</div>
+              <div class="pillar-col-motto">
+                <strong>Decide:</strong> El problema real, fronteras defensivas (IS / IS NOT), user journeys y valor
+                MVP.
+              </div>
+              <div class="pillar-col-risk">
+                ⚠️ <strong>Sin Inception:</strong> La IA alucina el scope, resuelve el problema equivocado y dispersa el
+                esfuerzo.
+              </div>
+            </div>
+
+            <!-- Pilar 2: ADRs -->
+            <div class="pillar-col-card pilar-adr">
+              <div class="pillar-col-header">
+                <span class="pillar-col-badge adr">Pilar 2 • Tecnología</span>
+                <span style="font-size: 1.35rem;">🏛️</span>
+              </div>
+              <div class="pillar-col-title">ADRs &amp; Arquitectura</div>
+              <div class="pillar-col-motto">
+                <strong>Decide:</strong> Stack, reglas DDD, CQRS, ORM, puertos y adaptadores, y ergonomía para IA (AX).
+              </div>
+              <div class="pillar-col-risk">
+                ⚠️ <strong>Sin ADRs:</strong> La IA improvisa librerías, inventa dependencias y crea modelos anémicos
+                acoplados.
+              </div>
+            </div>
+
+            <!-- Pilar 3: Tests -->
+            <div class="pillar-col-card pilar-tests">
+              <div class="pillar-col-header">
+                <span class="pillar-col-badge tests">Pilar 3 • Verificación</span>
+                <span style="font-size: 1.35rem;">🛡️</span>
+              </div>
+              <div class="pillar-col-title">Tests &amp; Red de Seguridad</div>
+              <div class="pillar-col-motto">
+                <strong>Decide:</strong> Invariantes ejecutables, TDD por capas y <code>ts-archunit</code> bloqueando en
+                CI.
+              </div>
+              <div class="pillar-col-risk">
+                ⚠️ <strong>Sin Tests:</strong> El código parece funcionar pero carece de garantías; nadie audita las
+                alucinaciones.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          SLIDE 1: EL EMBUDO DEL SDLC CON IA (REDUCCIÓN DE VARIABILIDAD)
          ==================================================================== -->
     <section class="slide" id="slide-1">
@@ -2965,6 +3049,1140 @@
       </div>
     </section>
 
+    <!-- ====================================================================
+         SLIDE SPECIAL 1B: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-friction">
+      <div class="slide-content" style="gap: 0.95rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-phase2-inv-template" class="deck-back-btn">← Fase 2: Invariantes</a>
+          <span class="deck-part-badge" style="background: rgba(56, 189, 248, 0.15); color: #0284c7;">Pilar 2 •
+            Ergonomía para IA (AX)</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(56, 189, 248, 0.12); color: #0284c7; border-color: rgba(56, 189, 248, 0.3);">
+          Pilar 2 • AI &amp; Agentic Ergonomics (AX) • Corpus Alignment vs. Inercia del LLM
+        </div>
+        <h2>La Fricción: <span class="serif-italic" style="color: #f59e0b;">Tus ADRs vs. El Pre-entrenamiento del
+            Modelo</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Una cosa es lo que decide tu arquitectura; otra muy distinta es la inercia probabilística con la que fue
+          entrenado el modelo.
+        </p>
+
+        <div class="adr-friction-deck">
+          <!-- Viewport con la imagen de colisión y canalización -->
+          <div class="adr-friction-viewport">
+            <img src="script/img/adr-vs-model-friction.jpg"
+              alt="La fricción entre el templo arquitectónico de los ADRs y la nebulosa de inercia y código salvaje del LLM"
+              class="adr-friction-img">
+          </div>
+
+          <!-- Franja inferior de las 3 claves de la fricción -->
+          <div class="adr-friction-strip">
+            <!-- Card 1: La inercia del modelo -->
+            <div class="adr-friction-card inertia">
+              <div class="adr-friction-header">
+                <span class="adr-friction-badge inertia">1. Inercia del LLM</span>
+                <span style="font-size: 1.25rem;">🌌</span>
+              </div>
+              <div class="adr-friction-title">El Sesgo de Internet</div>
+              <div class="adr-friction-text">
+                El modelo ha visto millones de repositorios mediocres y tutoriales obsoletos. Por defecto tenderá a
+                <strong>regresión a la media</strong>: modelos anémicos y patrones genéricos.
+              </div>
+            </div>
+
+            <!-- Card 2: El Guardrail Tax -->
+            <div class="adr-friction-card tax">
+              <div class="adr-friction-header">
+                <span class="adr-friction-badge tax">2. Guardrail Tax</span>
+                <span style="font-size: 1.25rem;">⚖️</span>
+              </div>
+              <div class="adr-friction-title">El Coste de Contención</div>
+              <div class="adr-friction-text">
+                Cuanto más choque tu ADR con los hábitos del modelo (ej. Controller Factories vs. NestJS), más
+                <strong>contexto, tipado defensivo y prompts</strong> tendrás que pagar para mantenerlo en los raíles.
+              </div>
+            </div>
+
+            <!-- Card 3: La solución -->
+            <div class="adr-friction-card guardrail">
+              <div class="adr-friction-header">
+                <span class="adr-friction-badge guardrail">3. Solución Crafter</span>
+                <span style="font-size: 1.25rem;">🛡️</span>
+              </div>
+              <div class="adr-friction-title">Tipado &amp; ts-archunit</div>
+              <div class="adr-friction-text">
+                No confíes en convencer al modelo con prosa: <strong>blinda tus ADRs con contratos TypeScript estrictos
+                  y tests automáticos en CI</strong> que rechacen cualquier alucinación en el acto.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 1C: CASO REAL NEXT.JS - EL GUARDRAIL TAX EN LA PRENSA
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-case-nextjs">
+      <div class="slide-content" style="gap: 0.85rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-friction" class="deck-back-btn">← La Fricción (AX)</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Pilar 1 • Caso
+            Real en Producción</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
+          Evidencia Técnica • Vercel / Next.js 16.3+ • Documentación &amp; Repositorios
+        </div>
+        <h2>El "Guardrail Tax" en la Práctica: <span class="serif-italic" style="color: #8b5cf6;">"This is NOT the
+            Next.js you know"</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Cómo Vercel disciplina a los agentes mediante documentación local en node_modules y bloques gestionados:
+        </p>
+
+        <div class="press-grid">
+
+          <!-- 1. Next.js Official Docs -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Next.js Docs / Guides</span>
+                <span class="press-date">Next.js 16.3+</span>
+              </div>
+              <span class="tag">Documentación Oficial</span>
+            </div>
+            <div class="press-headline">«Next.js empaqueta su documentación en node_modules para evitar el drift de los
+              agentes»</div>
+            <p class="press-desc">
+              A partir de Next.js 16.3+, Vercel incluye especificaciones completas dentro de <mark
+                class="highlighter"><code>node_modules/next/dist/docs/</code></mark>. Así los agentes consultan la
+              versión exacta instalada sin peticiones externas y sin depender de datos de entrenamiento desfasados.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://nextjs.org/docs/app/guides/ai-agents" target="_blank" rel="noopener noreferrer">
+                🔗 nextjs.org/docs/app/guides/ai-agents ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. GitHub Discussion #92197 -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">GitHub / vercel/next.js</span>
+                <span class="press-date">Discussion #92197</span>
+              </div>
+              <span class="tag">Evolución del Texto</span>
+            </div>
+            <div class="press-headline">«De "ALWAYS read docs" a "This is NOT the Next.js you know": sincronización en
+              upgrades»</div>
+            <p class="press-desc">
+              La discusión técnica #92197 documenta la transición hacia el aviso explícito de incompatibilidad. Al
+              actualizar dependencias con npm las reglas podían desfasarse, lo que motivó a <mark
+                class="highlighter">integrar la actualización de <code>AGENTS.md</code> en
+                <code>next upgrade</code></mark>.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://github.com/vercel/next.js/discussions/92197" target="_blank" rel="noopener noreferrer">
+                🔗 github.com/vercel/next.js/discussions/92197 ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. Vercel Labs & Canary Monorepo -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Vercel Labs / Canary</span>
+                <span class="press-date">Monorepo &amp; Labs</span>
+              </div>
+              <span class="tag">Implementación Técnica</span>
+            </div>
+            <div class="press-headline">«Detección de agentes y bloques delimitados: generate-agent-files.js en next
+              dev»</div>
+            <p class="press-desc">
+              Al arrancar <code>next dev</code>, el entorno detecta si hay un agente activo e inyecta la sección
+              delimitada <mark class="highlighter"><code>&lt;!-- BEGIN:nextjs-agent-rules --&gt;</code></mark>. Esto
+              respeta las reglas custom del desarrollador y permite exclusión limpia con <code>agentRules: false</code>.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank"
+                rel="noopener noreferrer">
+                🔗 github.com/vercel/next.js (canary) ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- 4. Análisis Técnico / Scaffold Next.js -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Agent Skills / Blode.co</span>
+                <span class="press-date">Arquitectura IA</span>
+              </div>
+              <span class="tag">Análisis de Ecosistema</span>
+            </div>
+            <div class="press-headline">«Scaffold Next.js: la documentación local como estándar de verdad frente a la
+              inercia del modelo»</div>
+            <p class="press-desc">
+              El análisis de <code>scaffold-nextjs</code> confirma que <mark class="highlighter">los LLMs arrastran
+                patrones obsoletos si no se acota su contexto</mark>. Que un framework deba gobernar activamente a los
+              agentes refuerza la necesidad de ADRs y especificaciones deterministas en el repositorio.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://blode.co/agent-skills/architecture/scaffold-nextjs" target="_blank"
+                rel="noopener noreferrer">
+                🔗 blode.co/agent-skills/scaffold-nextjs ↗
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 1D: CASO REAL NEXT.JS - EL DOCUMENTO INYECTADO (AGENTS.MD)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-case-file">
+      <div class="slide-content" style="gap: 0.75rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-case-nextjs" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Pilar 1 • El Documento Inyectado</span>
+        </div>
+        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
+          Artefacto Real • AGENTS.md • Parada Abrupta y Gobernanza Determinista
+        </div>
+        <h2 style="font-size: 3.3rem; margin-bottom: 0.05rem; line-height: 1.15;">El Artefacto Inyectado: <span class="serif-italic" style="color: #8b5cf6;">"This is NOT the Next.js you know"</span></h2>
+        <p class="subtitle" style="margin-top: -0.5rem; margin-bottom: 0.15rem;">
+          Por qué fracasan las advertencias suaves y cómo Next.js recurre a la interrupción de patrón para frenar al agente:
+        </p>
+
+        <div class="agents-case-grid">
+
+          <!-- Columna Izquierda: El Archivo Real (Visor GitHub) + Superposición ZASCA (Step) -->
+          <div class="agents-left-column">
+            <div class="agents-github-card">
+              <div class="agents-github-header">
+                <div class="agents-github-tab">
+                  <span style="font-size: 1.15rem;">📄</span>
+                  <span>AGENTS.md</span>
+                  <span class="agents-github-tag">MANAGED BLOCK</span>
+                </div>
+                <div class="agents-github-path">
+                  <code>node_modules/next/dist/server/lib/generate-agent-files.js</code>
+                </div>
+              </div>
+
+              <div class="agents-github-body">
+                <div class="agents-github-comment">&lt;!-- BEGIN:nextjs-agent-rules --&gt;</div>
+                <h1 class="agents-github-title">This is NOT the Next.js you know</h1>
+                <p class="agents-github-text">
+                  This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in <code class="agents-github-code">node_modules/next/dist/docs/</code> (resolved from this file's directory; in monorepos the <code class="agents-github-code">next</code> package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+                </p>
+                <p class="agents-github-text" style="margin-bottom: 0.25rem;">
+                  This block is written and re-added by <code class="agents-github-code">next dev</code> — verify at <code class="agents-github-code">node_modules/next/dist/server/lib/generate-agent-files.js</code>. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+                </p>
+                <div class="agents-github-comment" style="margin-top: 0.75rem;">&lt;!-- END:nextjs-agent-rules --&gt;</div>
+              </div>
+
+              <div class="agents-github-footer">
+                <span style="color: var(--text-muted);">Inyectado y reescrito deterministamente en <code>next dev</code></span>
+                <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank" rel="noopener noreferrer">
+                  github.com/vercel/next.js (canary) ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Superposición ZASCA al pulsar Siguiente (Step) -->
+            <div class="zasca-overlay step">
+              <img src="script/img/zasca-berto.png" alt="¡ZASCA! Berto Romero" class="zasca-img">
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Explicación Arquitectónica (Las 3 razones clave) -->
+          <div class="agents-insights-column">
+
+            <!-- 1. El fallo de las advertencias suaves -->
+            <div class="agents-insight-card">
+              <div class="agents-insight-icon">⚠️</div>
+              <div>
+                <div class="agents-insight-title">
+                  El fallo de las advertencias suaves
+                </div>
+                <p class="agents-insight-desc">
+                  Cuando las directrices usan frases amables o condicionales (<em>"Please check the docs"</em>), los LLMs tienden a tratarlas como <mark>sugerencias de baja prioridad</mark> frente a los millones de ejemplos de versiones anteriores que dominan sus pesos de entrenamiento.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2. Técnica de pattern interruption -->
+            <div class="agents-insight-card">
+              <div class="agents-insight-icon">🛑</div>
+              <div>
+                <div class="agents-insight-title">
+                  Técnica de <em>pattern interruption</em>
+                </div>
+                <p class="agents-insight-desc">
+                  El encabezado <code># This is NOT the Next.js you know</code> funciona como una <mark>instrucción de parada abrupta</mark>. Al contradecir categóricamente la premisa previa del modelo, eleva la probabilidad de que ejecute la llamada a herramienta (<em>tool use</em> en <code>node_modules/next/dist/docs/</code>) antes de alucinar código.
+                </p>
+              </div>
+            </div>
+
+            <!-- 3. El problema de Next.js en particular -->
+            <div class="agents-insight-card">
+              <div class="agents-insight-icon">🔄</div>
+              <div>
+                <div class="agents-insight-title">
+                  El problema de Next.js en particular
+                </div>
+                <p class="agents-insight-desc">
+                  Pocos frameworks acumularon tantas capas divergentes en tan poco tiempo: Pages Router (2021), App Router con fetch cacheado (2023), y Server Actions/Components asíncronos en 15 y 16. La única forma de <mark>evitar que mezcle 2021 con 2026</mark> era forzarla a ignorar su memoria base y consultar la versión empaquetada.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 2: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-timeline">
+      <div class="slide-content" style="gap: 0.65rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-case-file" class="deck-back-btn">← Archivo AGENTS.md</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Timeline
+            Canónico</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Flujo Secuencial de Izquierda a Derecha
+        </div>
+        <h2 style="margin-bottom: 0.1rem;">El Ciclo Canónico de un ADR <span class="serif-italic"
+            style="color: #f59e0b;">de la Duda a la Ley</span></h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
+          5 fases sin apreturas: cómo evoluciona una decisión desde la encrucijada técnica hasta su blindaje inmutable
+          en el repositorio.
+        </p>
+
+        <div class="adr-timeline-container">
+          <div class="adr-timeline-track">
+
+            <!-- Paso 1 -->
+            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">01</div>
+                <span class="adr-step-state-tag">Proposed</span>
+              </div>
+              <div class="adr-step-icon-box amber">🎯</div>
+              <div class="adr-step-title">Dilema &amp; Drivers</div>
+              <code class="adr-step-skill-chip">/adr-create</code>
+              <div class="adr-step-body">
+                Nace de una encrucijada técnica real o cambio de stack. El skill <strong>reserva el siguiente ID
+                  secuencial (0XX)</strong> y documenta las fuerzas impulsoras.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Artefacto:</strong> <code>docs/adr/0XX-*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Foco:</strong> Define drivers y problema real</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
+                🎯 Acota el problema
+              </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="adr-step-card" style="border-top: 4px solid #38bdf8;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #38bdf8; color: #38bdf8;">02</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">2-3
+                  Opciones</span>
+              </div>
+              <div class="adr-step-icon-box sky">⚖️</div>
+              <div class="adr-step-title">Exploración Real</div>
+              <code class="adr-step-skill-chip"
+                style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Matriz Pros / Cons</code>
+              <div class="adr-step-body">
+                Prohibido el sesgo de confirmación. Se evalúan <strong>2 o 3 alternativas viables</strong> contrastando
+                pros, contras, mantenimiento y deuda técnica.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Matriz:</strong> Mínimo 2-3 opciones viables</span>
+                </div>
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Criterio:</strong> Pros, contras y trade-offs</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #38bdf8; background: rgba(56, 189, 248, 0.08);">
+                ⚖️ Criterio sin sesgos
+              </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Obligatorio</span>
+              </div>
+              <div class="adr-step-icon-box violet">🤖</div>
+              <div class="adr-step-title">Ergonomía IA (AX)</div>
+              <code class="adr-step-skill-chip"
+                style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">Corpus &amp; Guardrails</code>
+              <div class="adr-step-body">
+                ¿Choca con el sesgo del LLM? Se evalúa el <strong>Corpus Alignment</strong>, el <strong>Guardrail
+                  Tax</strong> (coste en prompts y tests) y el riesgo de deriva.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Corpus Bias:</strong> Hábitos previos del LLM</span>
+                </div>
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Guardrail Tax:</strong> Coste en prompts y tests</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.08);">
+                🤖 Mitiga la inercia LLM
+              </div>
+            </div>
+
+            <!-- Paso 4 -->
+            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Compromiso</span>
+              </div>
+              <div class="adr-step-icon-box rose">📌</div>
+              <div class="adr-step-title">Decisión &amp; Reglas</div>
+              <code class="adr-step-skill-chip"
+                style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">Contrato Firme</code>
+              <div class="adr-step-body">
+                Elección formal con honestidad intelectual: se explicitan los <strong>beneficios</strong>, los
+                <strong>trade-offs asumidos</strong> y qué queda terminantemente prohibido.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Contrato:</strong> Elección formal e inmutable</span>
+                </div>
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Invariante:</strong> Qué queda prohibido</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
+                📌 Reglas innegociables
+              </div>
+            </div>
+
+            <!-- Paso 5 -->
+            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">05</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Accepted
+                  ✅</span>
+              </div>
+              <div class="adr-step-icon-box emerald">🛡️</div>
+              <div class="adr-step-title">Auditoría &amp; Sello</div>
+              <code class="adr-step-skill-chip"
+                style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/adr-validate</code>
+              <div class="adr-step-body">
+                Pasa la <strong>rúbrica automática (Score ≥ Medium)</strong> y se indexa en
+                <code>docs/adr/README.md</code>. Queda blindado como constitución inmutable del código.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Rúbrica:</strong> Score ≥ Medium para aceptar</span>
+                </div>
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Catálogo:</strong> <code>docs/adr/README.md</code></span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
+                🏛️ Ley viva del repositorio
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner" style="margin-top: 0.15rem; padding: 0.85rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Artesano:</strong> Ninguna decisión de arquitectura se toma en un prompt efímero. Cada
+              ADR es una ley verificada que convierte la ambigüedad en determinismo reproducible para agentes e
+              ingenieros.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 2D: PILAR 1 - ÁRBOL DE DECISIÓN DE GOBERNANZA (DE IZQ A DER)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-adr-decision-tree">
+      <div class="slide-content" style="gap: 1.1rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-timeline" class="deck-back-btn">← Timeline Canónico</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Matriz
+            de Decisión</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
+          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Esquema de Decisión de Izquierda a Derecha
+        </div>
+        <h2>Gobernanza en Acción: <span class="serif-italic" style="color: #f59e0b;">De la Intención a la Ruta
+            Óptima</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Un esquema de decisión claro y espacioso: identifica qué quieres hacer con la arquitectura y ejecuta el skill
+          exacto sin fricción.
+        </p>
+
+        <div class="adr-decision-deck">
+
+          <!-- Columna Izquierda: El Punto de Partida / Intención -->
+          <div class="adr-decision-origin-card">
+            <div>
+              <span class="pillar-col-badge adr" style="margin-bottom: 0.75rem; display: inline-block;">Punto de
+                Partida</span>
+              <div class="adr-decision-origin-title">¿Cuál es tu intención técnica?</div>
+              <div class="adr-decision-origin-desc">
+                Antes de tocar una sola línea de arquitectura, el artesano y el agente clasifican su necesidad en una de
+                4 intenciones bien delimitadas.
+              </div>
+
+              <div class="adr-decision-question-list">
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🆕</span>
+                  <span><strong>¿Nuevo patrón o stack?</strong> ➔ Ruta 1</span>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">📝</span>
+                  <span><strong>¿Ajustar decisión viva?</strong> ➔ Ruta 2</span>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">⚠️</span>
+                  <span><strong>¿Tecnología obsoleta?</strong> ➔ Ruta 3</span>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">📡</span>
+                  <span><strong>¿Auditar vigencia 2026?</strong> ➔ Ruta 4</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill amber" style="margin-top: 1rem; padding: 0.55rem 0.9rem; font-size: 0.88rem;">
+              <span>🛡️ Filtro Único:</span> Calidad auditada por <code>/adr-validate</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Las 4 Rutas de Decisión en Cuadrícula 2x2 -->
+          <div class="adr-decision-lanes-grid">
+
+            <!-- Ruta 1: Nueva Decisión -->
+            <div class="adr-lane-card lane-new">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge blue">Ruta 1 • Nueva Decisión</span>
+                <span style="font-size: 1.25rem;">🆕</span>
+              </div>
+              <div class="adr-lane-title">Crear Decisión desde Cero</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Nuevo framework, base de datos, patrón DDD o restricción fundamental del
+                sistema.
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Comando:</strong> <code>/adr-create</code></div>
+                <div>📦 <strong>Entregable:</strong> <code>0XX-decision.md</code> con mínimo 2–3 alternativas y sección
+                  obligatoria AX.</div>
+              </div>
+            </div>
+
+            <!-- Ruta 2: Enmienda Delta -->
+            <div class="adr-lane-card lane-amend">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge amber">Ruta 2 • Enmienda Delta</span>
+                <span style="font-size: 1.25rem;">📝</span>
+              </div>
+              <div class="adr-lane-title">Modificar sin Reescribir</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Regla de Oro: Jamás se edita el texto histórico de un ADR aceptado; se
+                enmienda el delta.
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Comando:</strong> <code>/adr-amend</code></div>
+                <div>🔗 <strong>Entregable:</strong> <code>0XX-01-amendment.md</code> con enlaces bidireccionales
+                  <code>Amends ⇄ Amended By</code>.</div>
+              </div>
+            </div>
+
+            <!-- Ruta 3: Supersede -->
+            <div class="adr-lane-card lane-supersede">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge red">Ruta 3 • Reemplazo Total</span>
+                <span style="font-size: 1.25rem;">⚠️</span>
+              </div>
+              <div class="adr-lane-title">Deprecar &amp; Sustituir</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Un paradigma es sustituido por completo (ej. REST a tRPC, o SQLite a
+                PostgreSQL).
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Flujo:</strong> <code>/adr-create (0YY)</code> ➔ Marca <code>0XX</code> como
+                  <code>Superseded</code></div>
+                <div>📜 <strong>Entregable:</strong> Enlace <code>Supersedes: 0XX</code> en nuevo ADR y estado
+                  <code>Superseded</code> en el viejo.</div>
+              </div>
+            </div>
+
+            <!-- Ruta 4: Tech Radar -->
+            <div class="adr-lane-card lane-radar">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge green">Ruta 4 • Vigilancia Radar</span>
+                <span style="font-size: 1.25rem;">📡</span>
+              </div>
+              <div class="adr-lane-title">Auditoría de Alternativas</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Revisar si las tecnologías adoptadas siguen siendo líderes o han surgido
+                alternativas mejores.
+              </div>
+              <div class="adr-lane-action-box">
+                <div>⚡ <strong>Comando:</strong> <code>/adr-review-alternatives</code></div>
+                <div>📊 <strong>Entregable:</strong> <code>ADR_ALTERNATIVES_ANALYSIS.md</code> con clasificación (Adopt
+                  / Trial / Assess / Hold).</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 4A: PILAR 2 - TIMELINE HORIZONTAL DEL SDLC (5 FASES)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-sdlc-timeline">
+      <div class="slide-content" style="gap: 0.65rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-adr-decision-tree" class="deck-back-btn">← Gobernanza ADR</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • Timeline
+            de Producto</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+          Pilar 2 • SDLC-SKILLS-INDEX.md • Flujo Secuencial de Izquierda a Derecha
+        </div>
+        <h2 style="margin-bottom: 0.1rem;">El Ciclo Canónico del SDLC <span class="serif-italic"
+            style="color: #10b981;">de la Idea al Dominio</span></h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
+          5 fases deterministas: cómo transformar la ambigüedad de negocio en código desacoplado y living documentation
+          sin drift.
+        </p>
+
+        <div class="adr-timeline-container">
+          <div class="adr-timeline-track">
+
+            <!-- Fase 1 -->
+            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">01</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Discovery</span>
+              </div>
+              <div class="adr-step-icon-box emerald">🎯</div>
+              <div class="adr-step-title">Inception &amp; MVP</div>
+              <code class="adr-step-skill-chip"
+                style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/inception-workshop</code>
+              <div class="adr-step-body">
+                Lean Inception de 8 pasos para alinear negocio. Fija el <strong>perímetro defensivo (IS / IS
+                  NOT)</strong> y el tablero de tradeoffs antes de tirar una sola línea.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Artefacto:</strong> <code>etc/docs/inception/*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Foco:</strong> Elimina alucinación de scope</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
+                🎯 Acota el problema real
+              </div>
+            </div>
+
+            <!-- Fase 2 -->
+            <div class="adr-step-card" style="border-top: 4px solid #0ea5e9;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #0ea5e9; color: #0ea5e9;">02</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(14, 165, 233, 0.12); color: #0ea5e9; border-color: rgba(14, 165, 233, 0.25);">Flow
+                  Specs</span>
+              </div>
+              <div class="adr-step-icon-box sky">📐</div>
+              <div class="adr-step-title">Flujos &amp; Diagramas</div>
+              <code class="adr-step-skill-chip"
+                style="color: #0ea5e9; background: rgba(14, 165, 233, 0.1); border-color: rgba(14, 165, 233, 0.25);">/create-flow-documentation</code>
+              <div class="adr-step-body">
+                Convierte los user journeys en specs formales con <strong>3 diagramas Mermaid</strong> (secuencia,
+                flujo, FSM), criterios Gherkin y reglas de negocio (BR).
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Artefacto:</strong> <code>flows/journey-XX-*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item sky">
+                  <span><strong>Mermaid:</strong> Secuencia + Flow + Estados</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.08);">
+                📐 Contrato visual ejecutable
+              </div>
+            </div>
+
+            <!-- Fase 3 -->
+            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Domain
+                  Model</span>
+              </div>
+              <div class="adr-step-icon-box violet">🧩</div>
+              <div class="adr-step-title">Dominio &amp; FSM</div>
+              <code class="adr-step-skill-chip"
+                style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">/create-entity-lifecycle</code>
+              <div class="adr-step-body">
+                Modelo DDD rico: <strong>Aggregate Root</strong>, Value Objects inmutables e <strong>invariantes (INV)
+                  con rollback</strong>. Sin getters anémicos: espacio cerrado de estados.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Artefacto:</strong> <code>entities/[Entity].md</code></span>
+                </div>
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Garantía:</strong> Transiciones cerradas FSM</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.08);">
+                🧩 Dominio puro zero-deps
+              </div>
+            </div>
+
+            <!-- Fase 4 -->
+            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">04</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25);">TDD
+                  Híbrido</span>
+              </div>
+              <div class="adr-step-icon-box amber">⚡</div>
+              <div class="adr-step-title">TDD por Capas</div>
+              <code class="adr-step-skill-chip"
+                style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">/implement-flow</code>
+              <div class="adr-step-body">
+                Test E2E primero (falla). Construcción capa a capa: <strong>domain</strong> (núcleo puro) ➔
+                <strong>application</strong> (casos de uso) ➔ <strong>infra</strong> ➔ <strong>API</strong>.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Código:</strong> <code>packages/modules/[ctx]/</code></span>
+                </div>
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Orden:</strong> Domain ➔ App ➔ Infra ➔ API</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
+                ⚡ Arquitectura limpia blindada
+              </div>
+            </div>
+
+            <!-- Fase 5 -->
+            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">05</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Living
+                  Docs</span>
+              </div>
+              <div class="adr-step-icon-box rose">🔄</div>
+              <div class="adr-step-title">Cambio sin Drift</div>
+              <code class="adr-step-skill-chip"
+                style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">/modify-flow &amp; /audit-docs</code>
+              <div class="adr-step-body">
+                Toda modificación requiere una propuesta previa (<code>proposal.md</code>). <code>/audit-docs</code>
+                verifica que código y especificaciones no diverjan en producción.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Artefacto:</strong> <code>working-on/[change]/</code></span>
+                </div>
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Control:</strong> Docs vivos siempre sincronizados</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
+                🔄 Repositorio siempre al día
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner"
+            style="margin-top: 0.15rem; padding: 0.85rem 1.4rem; border-color: rgba(16, 185, 129, 0.3);">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>Principio Artesano:</strong> La IA no programa desde descripciones ambiguas. El pipeline de
+              Producto convierte la incertidumbre de negocio en especificaciones matemáticas y capas DDD desacopladas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 4B: PILAR 2 - MATRIZ DE DECISIÓN DE PRODUCTO (4 RUTAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-sdlc-decision-tree">
+      <div class="slide-content" style="gap: 1.1rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-sdlc-timeline" class="deck-back-btn">← Timeline SDLC</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • Matriz
+            de Producto</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+          Pilar 2 • SDLC-SKILLS-INDEX.md • Esquema de Decisión de Izquierda a Derecha
+        </div>
+        <h2>Producto en Acción: <span class="serif-italic" style="color: #10b981;">De la Necesidad al Artefacto</span>
+        </h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          No todos los requerimientos se abordan igual: 4 caminos ordenados según el nivel de madurez del problema.
+        </p>
+
+        <div class="adr-decision-deck">
+          <!-- Columna Izquierda: Punto de Partida -->
+          <div class="adr-decision-origin-card emerald">
+            <div>
+              <span class="adr-lane-badge green" style="margin-bottom: 0.8rem; display: inline-block;">PUNTO DE
+                PARTIDA</span>
+              <div class="adr-decision-origin-title">¿Cuál es tu objetivo de producto?</div>
+              <div class="adr-decision-origin-desc">
+                Antes de escribir código o invocar un agente, el artesano clasifica su necesidad en una de las 4 rutas
+                deterministas del SDLC.
+              </div>
+
+              <div class="adr-decision-question-list">
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🎯</span>
+                  <div><strong>¿Nuevo producto o módulo?</strong> ➔ Ruta 1</div>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">📐</span>
+                  <div><strong>¿Nuevo flujo o feature?</strong> ➔ Ruta 2</div>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🧩</span>
+                  <div><strong>¿Entidad con estados complejos?</strong> ➔ Ruta 3</div>
+                </div>
+                <div class="adr-decision-q-item">
+                  <span class="adr-decision-q-icon">🔄</span>
+                  <div><strong>¿Modificar lógica existente?</strong> ➔ Ruta 4</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="adr-decision-badge-foot"
+              style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.65rem 0.85rem; display: flex; align-items: center; justify-content: space-between; margin-top: 1rem;">
+              <div
+                style="font-size: 0.85rem; color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🛡️ Filtro Único:</span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">
+                Score de Calidad <strong style="color: #10b981;">≥ 8/10</strong> por fase
+              </div>
+              <code
+                style="font-family: var(--font-mono); font-size: 0.82rem; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 0.15rem 0.45rem; border-radius: 4px;">/audit-docs</code>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Las 4 Rutas de Decisión (Grid 2x2) -->
+          <div class="adr-decision-lanes-grid">
+
+            <!-- Ruta 1: Discovery & Inception -->
+            <div class="adr-lane-card lane-radar">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge green">RUTA 1 • DISCOVERY GLOBAL</span>
+                <span style="font-size: 1.15rem;">🎯</span>
+              </div>
+              <div class="adr-lane-title">Lean Inception Workshop</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Nuevo producto, bounded context verde o módulo desde cero sin documentación
+                previa.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #10b981;">/inception-workshop</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>etc/docs/inception/*.md</code> (8 pasos: Fronteras IS/IS NOT,
+                    Tradeoffs, Canvas MVP).</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ruta 2: Flow Specs -->
+            <div class="adr-lane-card lane-new">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge blue">RUTA 2 • ESPECIFICACIÓN TÉCNICA</span>
+                <span style="font-size: 1.15rem;">📐</span>
+              </div>
+              <div class="adr-lane-title">Especificación de Flujo</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Un user journey validado requiere definición técnica formal para poder ser
+                implementado.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #38bdf8;">/create-flow-documentation</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>flows/journey-XX-name.md</code> con 3 diagramas Mermaid,
+                    Gherkin BDD, BRs e INVs.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ruta 3: Domain Model -->
+            <div class="adr-lane-card lane-purple">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge purple">RUTA 3 • MODELO DE DOMINIO</span>
+                <span style="font-size: 1.15rem;">🧩</span>
+              </div>
+              <div class="adr-lane-title">Ciclo de Vida de Entidad</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Una entidad clave emerge en los flujos con ciclo de vida rico, estados
+                finitos o transiciones complejas.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #8b5cf6;">/create-entity-lifecycle</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>entities/[Entity].md</code> con máquina de estados FSM,
+                    invariantes y Value Objects.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ruta 4: Living Docs & Drift -->
+            <div class="adr-lane-card lane-supersede" style="border-left-color: #ec4899;">
+              <div class="adr-lane-header">
+                <span class="adr-lane-badge" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">RUTA 4 •
+                  EVOLUCIÓN SIN DRIFT</span>
+                <span style="font-size: 1.15rem;">🔄</span>
+              </div>
+              <div class="adr-lane-title">Modificación Controlada</div>
+              <div class="adr-lane-trigger">
+                <strong>Disparador:</strong> Cualquier cambio de requerimiento sobre flujos, reglas o entidades ya en
+                producción.
+              </div>
+              <div class="adr-lane-actions">
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">⚡</span>
+                  <div><strong>Comando:</strong> <code style="color: #ec4899;">/modify-flow</code> &amp; <code
+                      style="color: #ec4899;">/audit-docs</code></div>
+                </div>
+                <div class="adr-lane-action-item">
+                  <span class="adr-lane-act-icon">📦</span>
+                  <div><strong>Entregables:</strong> <code>proposal.md</code> + <code>plan.md</code> por capas DDD con
+                    sincronización living in-place.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE SPECIAL 4C: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
+         ==================================================================== -->
+    <section class="slide" id="slide-pillar-bridge-enlace">
+      <div class="slide-content" style="gap: 0.65rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-pillar-sdlc-decision-tree" class="deck-back-btn">← Matriz de Producto</a>
+          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">La Conexión •
+            Arquitectura Viva</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(139, 92, 246, 0.12); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">
+          La Conexión • docs/adr/ ➔ docs/product/ ➔ packages/modules/ ➔ ts-archunit
+        </div>
+        <h2 style="margin-bottom: 0.1rem;">La Conexión: <span class="serif-italic" style="color: #a78bfa;">Cómo Todo
+            Enlaza en el Repositorio</span></h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
+          El círculo virtuoso: los ADRs legislan, las specs vivas definen contratos, el código implementa en capas y CI
+          arbitra sin drift.
+        </p>
+
+        <div class="adr-timeline-container">
+          <div class="bridge-timeline-track">
+
+            <!-- Eslabón 1: ADR -->
+            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">01</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Gobernanza</span>
+              </div>
+              <div class="adr-step-icon-box violet">🏛️</div>
+              <div class="adr-step-title">Raíles ADR</div>
+              <code class="adr-step-skill-chip"
+                style="color: #a78bfa; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">docs/adr/ • ADR-001..016</code>
+              <div class="adr-step-body">
+                Establece la <strong>ley técnica inmutable</strong>: Modular DDD, boundaries estrictos entre módulos,
+                factories para controllers y directrices de ergonomía para IA (AX).
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Artefacto:</strong> <code>docs/adr/ADR-XXX.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item violet">
+                  <span><strong>Foco:</strong> Acota cómo construir el sistema</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #a78bfa; background: rgba(139, 92, 246, 0.08);">
+                🏛️ La Ley Arquitectónica
+              </div>
+            </div>
+
+            <!-- Eslabón 2: SDLC Specs -->
+            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">02</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Living
+                  Specs</span>
+              </div>
+              <div class="adr-step-icon-box emerald">📋</div>
+              <div class="adr-step-title">Contratos de Dominio</div>
+              <code class="adr-step-skill-chip"
+                style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">docs/product/ • /create-flow</code>
+              <div class="adr-step-body">
+                Especifica los user journeys con <strong>3 diagramas Mermaid</strong>, reglas de negocio (BR),
+                invariantes (INV) y BDD Gherkin que citan directamente los ADRs rectores.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Artefacto:</strong> <code>flows/ &amp; entities/*.md</code></span>
+                </div>
+                <div class="adr-step-bullet-item emerald">
+                  <span><strong>Foco:</strong> Acota qué debe resolver el código</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
+                📋 El Contrato sin ambigüedad
+              </div>
+            </div>
+
+            <!-- Eslabón 3: Código DDD -->
+            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">03</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25);">Código
+                  DDD</span>
+              </div>
+              <div class="adr-step-icon-box amber">📦</div>
+              <div class="adr-step-title">Capas Desacopladas</div>
+              <code class="adr-step-skill-chip"
+                style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">packages/modules/[ctx]/</code>
+              <div class="adr-step-body">
+                Construcción por capas limpias guiada por TDD: <strong>domain</strong> puro (zero-deps) ➔
+                <strong>application</strong> (casos de uso) ➔ <strong>infrastructure</strong> ➔
+                <strong>interfaces</strong>.
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Artefacto:</strong> <code>src/{domain,app,infra,ui}/</code></span>
+                </div>
+                <div class="adr-step-bullet-item amber">
+                  <span><strong>Foco:</strong> Dominio aislado de frameworks</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
+                📦 Software puro y modular
+              </div>
+            </div>
+
+            <!-- Eslabón 4: ts-archunit CI -->
+            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
+              <div class="adr-step-header">
+                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
+                <span class="adr-step-state-tag"
+                  style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">CI
+                  Guardrail</span>
+              </div>
+              <div class="adr-step-icon-box rose">🚨</div>
+              <div class="adr-step-title">El Juez en CI</div>
+              <code class="adr-step-skill-chip"
+                style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">ts-archunit • CI Pipeline</code>
+              <div class="adr-step-body">
+                Tests de arquitectura estáticos: si la IA o un desarrollador <strong>importa Express en Domain o viola
+                  un ADR</strong>, ¡el test rompe el build al instante y rechaza el PR!
+              </div>
+              <div class="adr-step-bullets">
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Artefacto:</strong> <code>tests/unit/architecture/*.test.ts</code></span>
+                </div>
+                <div class="adr-step-bullet-item rose">
+                  <span><strong>Foco:</strong> Zero drift garantizado por máquina</span>
+                </div>
+              </div>
+              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
+                🚨 El Guardrail Inquebrantable
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior Resumen -->
+          <div class="chosen-synergy-banner"
+            style="margin-top: 0.15rem; padding: 0.85rem 1.4rem; border-color: rgba(139, 92, 246, 0.35);">
+            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>El Círculo Cerrado de la Artesanía:</strong> Los ADRs son la ley, las Specs son los contratos
+              vivos, el código implementa y <code>ts-archunit</code> es el juez en CI. Ninguna IA alucina ni descarrila
+              la arquitectura porque el build lo bloquea.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
     <!-- ====================================================================
          SLIDE: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
@@ -4074,1221 +5292,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SLIDE SPECIAL 1: LOS TRES PILARES DEL CÓDIGO CON IA
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-intro">
-      <div class="slide-content" style="gap: 0.95rem;">
-        <div class="deck-back-bar">
-          <a href="#2" class="deck-back-btn">← Pipeline SDLC</a>
-          <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7;">Sección Especial •
-            Los Tres Pilares de la Calidad</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3);">
-          Artesanía de Software • Arquitectura &amp; Gobernanza • Generación Determinista
-        </div>
-        <h2>Los Tres Pilares: <span class="serif-italic" style="color: #0284c7;">Cómo Garantizar Código de
-            Calidad</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          La IA no genera buen código por azar: el software de producción descansa sobre tres apoyos innegociables.
-        </p>
 
-        <div class="three-pillars-deck">
-          <!-- Viewport con la imagen conceptual generada -->
-          <div class="three-pillars-viewport">
-            <img src="script/img/three-pillars-code-quality.jpg"
-              alt="Los Tres Pilares del Código con IA: Inception (Producto), ADRs (Tecnología) y Tests (Verificación)"
-              class="three-pillars-img">
-          </div>
-
-          <!-- Franja de los 3 Pilares -->
-          <div class="three-pillars-strip">
-            <!-- Pilar 1: Inception / USM -->
-            <div class="pillar-col-card pilar-inception">
-              <div class="pillar-col-header">
-                <span class="pillar-col-badge inception">Pilar 1 • Producto</span>
-                <span style="font-size: 1.35rem;">📋</span>
-              </div>
-              <div class="pillar-col-title">Inception &amp; Story Mapping</div>
-              <div class="pillar-col-motto">
-                <strong>Decide:</strong> El problema real, fronteras defensivas (IS / IS NOT), user journeys y valor
-                MVP.
-              </div>
-              <div class="pillar-col-risk">
-                ⚠️ <strong>Sin Inception:</strong> La IA alucina el scope, resuelve el problema equivocado y dispersa el
-                esfuerzo.
-              </div>
-            </div>
-
-            <!-- Pilar 2: ADRs -->
-            <div class="pillar-col-card pilar-adr">
-              <div class="pillar-col-header">
-                <span class="pillar-col-badge adr">Pilar 2 • Tecnología</span>
-                <span style="font-size: 1.35rem;">🏛️</span>
-              </div>
-              <div class="pillar-col-title">ADRs &amp; Arquitectura</div>
-              <div class="pillar-col-motto">
-                <strong>Decide:</strong> Stack, reglas DDD, CQRS, ORM, puertos y adaptadores, y ergonomía para IA (AX).
-              </div>
-              <div class="pillar-col-risk">
-                ⚠️ <strong>Sin ADRs:</strong> La IA improvisa librerías, inventa dependencias y crea modelos anémicos
-                acoplados.
-              </div>
-            </div>
-
-            <!-- Pilar 3: Tests -->
-            <div class="pillar-col-card pilar-tests">
-              <div class="pillar-col-header">
-                <span class="pillar-col-badge tests">Pilar 3 • Verificación</span>
-                <span style="font-size: 1.35rem;">🛡️</span>
-              </div>
-              <div class="pillar-col-title">Tests &amp; Red de Seguridad</div>
-              <div class="pillar-col-motto">
-                <strong>Decide:</strong> Invariantes ejecutables, TDD por capas y <code>ts-archunit</code> bloqueando en
-                CI.
-              </div>
-              <div class="pillar-col-risk">
-                ⚠️ <strong>Sin Tests:</strong> El código parece funcionar pero carece de garantías; nadie audita las
-                alucinaciones.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 1B: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-friction">
-      <div class="slide-content" style="gap: 0.95rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Tres Pilares</a>
-          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 •
-            Ergonomía para IA (AX)</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
-          Pilar 1 • AI &amp; Agentic Ergonomics (AX) • Corpus Alignment vs. Inercia del LLM
-        </div>
-        <h2>La Fricción: <span class="serif-italic" style="color: #f59e0b;">Tus ADRs vs. El Pre-entrenamiento del
-            Modelo</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          Una cosa es lo que decide tu arquitectura; otra muy distinta es la inercia probabilística con la que fue
-          entrenado el modelo.
-        </p>
-
-        <div class="adr-friction-deck">
-          <!-- Viewport con la imagen de colisión y canalización -->
-          <div class="adr-friction-viewport">
-            <img src="script/img/adr-vs-model-friction.jpg"
-              alt="La fricción entre el templo arquitectónico de los ADRs y la nebulosa de inercia y código salvaje del LLM"
-              class="adr-friction-img">
-          </div>
-
-          <!-- Franja inferior de las 3 claves de la fricción -->
-          <div class="adr-friction-strip">
-            <!-- Card 1: La inercia del modelo -->
-            <div class="adr-friction-card inertia">
-              <div class="adr-friction-header">
-                <span class="adr-friction-badge inertia">1. Inercia del LLM</span>
-                <span style="font-size: 1.25rem;">🌌</span>
-              </div>
-              <div class="adr-friction-title">El Sesgo de Internet</div>
-              <div class="adr-friction-text">
-                El modelo ha visto millones de repositorios mediocres y tutoriales obsoletos. Por defecto tenderá a
-                <strong>regresión a la media</strong>: modelos anémicos y patrones genéricos.
-              </div>
-            </div>
-
-            <!-- Card 2: El Guardrail Tax -->
-            <div class="adr-friction-card tax">
-              <div class="adr-friction-header">
-                <span class="adr-friction-badge tax">2. Guardrail Tax</span>
-                <span style="font-size: 1.25rem;">⚖️</span>
-              </div>
-              <div class="adr-friction-title">El Coste de Contención</div>
-              <div class="adr-friction-text">
-                Cuanto más choque tu ADR con los hábitos del modelo (ej. Controller Factories vs. NestJS), más
-                <strong>contexto, tipado defensivo y prompts</strong> tendrás que pagar para mantenerlo en los raíles.
-              </div>
-            </div>
-
-            <!-- Card 3: La solución -->
-            <div class="adr-friction-card guardrail">
-              <div class="adr-friction-header">
-                <span class="adr-friction-badge guardrail">3. Solución Crafter</span>
-                <span style="font-size: 1.25rem;">🛡️</span>
-              </div>
-              <div class="adr-friction-title">Tipado &amp; ts-archunit</div>
-              <div class="adr-friction-text">
-                No confíes en convencer al modelo con prosa: <strong>blinda tus ADRs con contratos TypeScript estrictos
-                  y tests automáticos en CI</strong> que rechacen cualquier alucinación en el acto.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 1C: CASO REAL NEXT.JS - EL GUARDRAIL TAX EN LA PRENSA
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-case-nextjs">
-      <div class="slide-content" style="gap: 0.85rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-friction" class="deck-back-btn">← La Fricción (AX)</a>
-          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Pilar 1 • Caso
-            Real en Producción</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
-          Evidencia Técnica • Vercel / Next.js 16.3+ • Documentación &amp; Repositorios
-        </div>
-        <h2>El "Guardrail Tax" en la Práctica: <span class="serif-italic" style="color: #8b5cf6;">"This is NOT the
-            Next.js you know"</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          Cómo Vercel disciplina a los agentes mediante documentación local en node_modules y bloques gestionados:
-        </p>
-
-        <div class="press-grid">
-
-          <!-- 1. Next.js Official Docs -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Next.js Docs / Guides</span>
-                <span class="press-date">Next.js 16.3+</span>
-              </div>
-              <span class="tag">Documentación Oficial</span>
-            </div>
-            <div class="press-headline">«Next.js empaqueta su documentación en node_modules para evitar el drift de los
-              agentes»</div>
-            <p class="press-desc">
-              A partir de Next.js 16.3+, Vercel incluye especificaciones completas dentro de <mark
-                class="highlighter"><code>node_modules/next/dist/docs/</code></mark>. Así los agentes consultan la
-              versión exacta instalada sin peticiones externas y sin depender de datos de entrenamiento desfasados.
-            </p>
-            <div class="press-footer-link">
-              <a href="https://nextjs.org/docs/app/guides/ai-agents" target="_blank" rel="noopener noreferrer">
-                🔗 nextjs.org/docs/app/guides/ai-agents ↗
-              </a>
-            </div>
-          </div>
-
-          <!-- 2. GitHub Discussion #92197 -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">GitHub / vercel/next.js</span>
-                <span class="press-date">Discussion #92197</span>
-              </div>
-              <span class="tag">Evolución del Texto</span>
-            </div>
-            <div class="press-headline">«De "ALWAYS read docs" a "This is NOT the Next.js you know": sincronización en
-              upgrades»</div>
-            <p class="press-desc">
-              La discusión técnica #92197 documenta la transición hacia el aviso explícito de incompatibilidad. Al
-              actualizar dependencias con npm las reglas podían desfasarse, lo que motivó a <mark
-                class="highlighter">integrar la actualización de <code>AGENTS.md</code> en
-                <code>next upgrade</code></mark>.
-            </p>
-            <div class="press-footer-link">
-              <a href="https://github.com/vercel/next.js/discussions/92197" target="_blank" rel="noopener noreferrer">
-                🔗 github.com/vercel/next.js/discussions/92197 ↗
-              </a>
-            </div>
-          </div>
-
-          <!-- 3. Vercel Labs & Canary Monorepo -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Vercel Labs / Canary</span>
-                <span class="press-date">Monorepo &amp; Labs</span>
-              </div>
-              <span class="tag">Implementación Técnica</span>
-            </div>
-            <div class="press-headline">«Detección de agentes y bloques delimitados: generate-agent-files.js en next
-              dev»</div>
-            <p class="press-desc">
-              Al arrancar <code>next dev</code>, el entorno detecta si hay un agente activo e inyecta la sección
-              delimitada <mark class="highlighter"><code>&lt;!-- BEGIN:nextjs-agent-rules --&gt;</code></mark>. Esto
-              respeta las reglas custom del desarrollador y permite exclusión limpia con <code>agentRules: false</code>.
-            </p>
-            <div class="press-footer-link">
-              <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank"
-                rel="noopener noreferrer">
-                🔗 github.com/vercel/next.js (canary) ↗
-              </a>
-            </div>
-          </div>
-
-          <!-- 4. Análisis Técnico / Scaffold Next.js -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Agent Skills / Blode.co</span>
-                <span class="press-date">Arquitectura IA</span>
-              </div>
-              <span class="tag">Análisis de Ecosistema</span>
-            </div>
-            <div class="press-headline">«Scaffold Next.js: la documentación local como estándar de verdad frente a la
-              inercia del modelo»</div>
-            <p class="press-desc">
-              El análisis de <code>scaffold-nextjs</code> confirma que <mark class="highlighter">los LLMs arrastran
-                patrones obsoletos si no se acota su contexto</mark>. Que un framework deba gobernar activamente a los
-              agentes refuerza la necesidad de ADRs y especificaciones deterministas en el repositorio.
-            </p>
-            <div class="press-footer-link">
-              <a href="https://blode.co/agent-skills/architecture/scaffold-nextjs" target="_blank"
-                rel="noopener noreferrer">
-                🔗 blode.co/agent-skills/scaffold-nextjs ↗
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 1D: CASO REAL NEXT.JS - EL DOCUMENTO INYECTADO (AGENTS.MD)
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-case-file">
-      <div class="slide-content" style="gap: 0.75rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-case-nextjs" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
-          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">Pilar 1 • El Documento Inyectado</span>
-        </div>
-        <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
-          Artefacto Real • AGENTS.md • Parada Abrupta y Gobernanza Determinista
-        </div>
-        <h2 style="font-size: 3.3rem; margin-bottom: 0.05rem; line-height: 1.15;">El Artefacto Inyectado: <span class="serif-italic" style="color: #8b5cf6;">"This is NOT the Next.js you know"</span></h2>
-        <p class="subtitle" style="margin-top: -0.5rem; margin-bottom: 0.15rem;">
-          Por qué fracasan las advertencias suaves y cómo Next.js recurre a la interrupción de patrón para frenar al agente:
-        </p>
-
-        <div class="agents-case-grid">
-
-          <!-- Columna Izquierda: El Archivo Real (Visor GitHub) + Superposición ZASCA (Step) -->
-          <div class="agents-left-column">
-            <div class="agents-github-card">
-              <div class="agents-github-header">
-                <div class="agents-github-tab">
-                  <span style="font-size: 1.15rem;">📄</span>
-                  <span>AGENTS.md</span>
-                  <span class="agents-github-tag">MANAGED BLOCK</span>
-                </div>
-                <div class="agents-github-path">
-                  <code>node_modules/next/dist/server/lib/generate-agent-files.js</code>
-                </div>
-              </div>
-
-              <div class="agents-github-body">
-                <div class="agents-github-comment">&lt;!-- BEGIN:nextjs-agent-rules --&gt;</div>
-                <h1 class="agents-github-title">This is NOT the Next.js you know</h1>
-                <p class="agents-github-text">
-                  This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in <code class="agents-github-code">node_modules/next/dist/docs/</code> (resolved from this file's directory; in monorepos the <code class="agents-github-code">next</code> package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-                </p>
-                <p class="agents-github-text" style="margin-bottom: 0.25rem;">
-                  This block is written and re-added by <code class="agents-github-code">next dev</code> — verify at <code class="agents-github-code">node_modules/next/dist/server/lib/generate-agent-files.js</code>. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-                </p>
-                <div class="agents-github-comment" style="margin-top: 0.75rem;">&lt;!-- END:nextjs-agent-rules --&gt;</div>
-              </div>
-
-              <div class="agents-github-footer">
-                <span style="color: var(--text-muted);">Inyectado y reescrito deterministamente en <code>next dev</code></span>
-                <a href="https://github.com/vercel/next.js/blob/canary/packages/next/AGENTS.md" target="_blank" rel="noopener noreferrer">
-                  github.com/vercel/next.js (canary) ↗
-                </a>
-              </div>
-            </div>
-
-            <!-- Superposición ZASCA al pulsar Siguiente (Step) -->
-            <div class="zasca-overlay step">
-              <img src="script/img/zasca-berto.png" alt="¡ZASCA! Berto Romero" class="zasca-img">
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Explicación Arquitectónica (Las 3 razones clave) -->
-          <div class="agents-insights-column">
-
-            <!-- 1. El fallo de las advertencias suaves -->
-            <div class="agents-insight-card">
-              <div class="agents-insight-icon">⚠️</div>
-              <div>
-                <div class="agents-insight-title">
-                  El fallo de las advertencias suaves
-                </div>
-                <p class="agents-insight-desc">
-                  Cuando las directrices usan frases amables o condicionales (<em>"Please check the docs"</em>), los LLMs tienden a tratarlas como <mark>sugerencias de baja prioridad</mark> frente a los millones de ejemplos de versiones anteriores que dominan sus pesos de entrenamiento.
-                </p>
-              </div>
-            </div>
-
-            <!-- 2. Técnica de pattern interruption -->
-            <div class="agents-insight-card">
-              <div class="agents-insight-icon">🛑</div>
-              <div>
-                <div class="agents-insight-title">
-                  Técnica de <em>pattern interruption</em>
-                </div>
-                <p class="agents-insight-desc">
-                  El encabezado <code># This is NOT the Next.js you know</code> funciona como una <mark>instrucción de parada abrupta</mark>. Al contradecir categóricamente la premisa previa del modelo, eleva la probabilidad de que ejecute la llamada a herramienta (<em>tool use</em> en <code>node_modules/next/dist/docs/</code>) antes de alucinar código.
-                </p>
-              </div>
-            </div>
-
-            <!-- 3. El problema de Next.js en particular -->
-            <div class="agents-insight-card">
-              <div class="agents-insight-icon">🔄</div>
-              <div>
-                <div class="agents-insight-title">
-                  El problema de Next.js en particular
-                </div>
-                <p class="agents-insight-desc">
-                  Pocos frameworks acumularon tantas capas divergentes en tan poco tiempo: Pages Router (2021), App Router con fetch cacheado (2023), y Server Actions/Components asíncronos en 15 y 16. La única forma de <mark>evitar que mezcle 2021 con 2026</mark> era forzarla a ignorar su memoria base y consultar la versión empaquetada.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 2: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-timeline">
-      <div class="slide-content" style="gap: 0.65rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-case-file" class="deck-back-btn">← Archivo AGENTS.md</a>
-          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Timeline
-            Canónico</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
-          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Flujo Secuencial de Izquierda a Derecha
-        </div>
-        <h2 style="margin-bottom: 0.1rem;">El Ciclo Canónico de un ADR <span class="serif-italic"
-            style="color: #f59e0b;">de la Duda a la Ley</span></h2>
-        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
-          5 fases sin apreturas: cómo evoluciona una decisión desde la encrucijada técnica hasta su blindaje inmutable
-          en el repositorio.
-        </p>
-
-        <div class="adr-timeline-container">
-          <div class="adr-timeline-track">
-
-            <!-- Paso 1 -->
-            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">01</div>
-                <span class="adr-step-state-tag">Proposed</span>
-              </div>
-              <div class="adr-step-icon-box amber">🎯</div>
-              <div class="adr-step-title">Dilema &amp; Drivers</div>
-              <code class="adr-step-skill-chip">/adr-create</code>
-              <div class="adr-step-body">
-                Nace de una encrucijada técnica real o cambio de stack. El skill <strong>reserva el siguiente ID
-                  secuencial (0XX)</strong> y documenta las fuerzas impulsoras.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item amber">
-                  <span><strong>Artefacto:</strong> <code>docs/adr/0XX-*.md</code></span>
-                </div>
-                <div class="adr-step-bullet-item amber">
-                  <span><strong>Foco:</strong> Define drivers y problema real</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
-                🎯 Acota el problema
-              </div>
-            </div>
-
-            <!-- Paso 2 -->
-            <div class="adr-step-card" style="border-top: 4px solid #38bdf8;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #38bdf8; color: #38bdf8;">02</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25);">2-3
-                  Opciones</span>
-              </div>
-              <div class="adr-step-icon-box sky">⚖️</div>
-              <div class="adr-step-title">Exploración Real</div>
-              <code class="adr-step-skill-chip"
-                style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Matriz Pros / Cons</code>
-              <div class="adr-step-body">
-                Prohibido el sesgo de confirmación. Se evalúan <strong>2 o 3 alternativas viables</strong> contrastando
-                pros, contras, mantenimiento y deuda técnica.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item sky">
-                  <span><strong>Matriz:</strong> Mínimo 2-3 opciones viables</span>
-                </div>
-                <div class="adr-step-bullet-item sky">
-                  <span><strong>Criterio:</strong> Pros, contras y trade-offs</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #38bdf8; background: rgba(56, 189, 248, 0.08);">
-                ⚖️ Criterio sin sesgos
-              </div>
-            </div>
-
-            <!-- Paso 3 -->
-            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Obligatorio</span>
-              </div>
-              <div class="adr-step-icon-box violet">🤖</div>
-              <div class="adr-step-title">Ergonomía IA (AX)</div>
-              <code class="adr-step-skill-chip"
-                style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">Corpus &amp; Guardrails</code>
-              <div class="adr-step-body">
-                ¿Choca con el sesgo del LLM? Se evalúa el <strong>Corpus Alignment</strong>, el <strong>Guardrail
-                  Tax</strong> (coste en prompts y tests) y el riesgo de deriva.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item violet">
-                  <span><strong>Corpus Bias:</strong> Hábitos previos del LLM</span>
-                </div>
-                <div class="adr-step-bullet-item violet">
-                  <span><strong>Guardrail Tax:</strong> Coste en prompts y tests</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.08);">
-                🤖 Mitiga la inercia LLM
-              </div>
-            </div>
-
-            <!-- Paso 4 -->
-            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Compromiso</span>
-              </div>
-              <div class="adr-step-icon-box rose">📌</div>
-              <div class="adr-step-title">Decisión &amp; Reglas</div>
-              <code class="adr-step-skill-chip"
-                style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">Contrato Firme</code>
-              <div class="adr-step-body">
-                Elección formal con honestidad intelectual: se explicitan los <strong>beneficios</strong>, los
-                <strong>trade-offs asumidos</strong> y qué queda terminantemente prohibido.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item rose">
-                  <span><strong>Contrato:</strong> Elección formal e inmutable</span>
-                </div>
-                <div class="adr-step-bullet-item rose">
-                  <span><strong>Invariante:</strong> Qué queda prohibido</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
-                📌 Reglas innegociables
-              </div>
-            </div>
-
-            <!-- Paso 5 -->
-            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">05</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Accepted
-                  ✅</span>
-              </div>
-              <div class="adr-step-icon-box emerald">🛡️</div>
-              <div class="adr-step-title">Auditoría &amp; Sello</div>
-              <code class="adr-step-skill-chip"
-                style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/adr-validate</code>
-              <div class="adr-step-body">
-                Pasa la <strong>rúbrica automática (Score ≥ Medium)</strong> y se indexa en
-                <code>docs/adr/README.md</code>. Queda blindado como constitución inmutable del código.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item emerald">
-                  <span><strong>Rúbrica:</strong> Score ≥ Medium para aceptar</span>
-                </div>
-                <div class="adr-step-bullet-item emerald">
-                  <span><strong>Catálogo:</strong> <code>docs/adr/README.md</code></span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
-                🏛️ Ley viva del repositorio
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior Resumen -->
-          <div class="chosen-synergy-banner" style="margin-top: 0.15rem; padding: 0.85rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Artesano:</strong> Ninguna decisión de arquitectura se toma en un prompt efímero. Cada
-              ADR es una ley verificada que convierte la ambigüedad en determinismo reproducible para agentes e
-              ingenieros.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 2D: PILAR 1 - ÁRBOL DE DECISIÓN DE GOBERNANZA (DE IZQ A DER)
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-decision-tree">
-      <div class="slide-content" style="gap: 1.1rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-timeline" class="deck-back-btn">← Timeline Canónico</a>
-          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Pilar 1 • Matriz
-            de Decisión</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">
-          Pilar 1 • docs/adr/ADR-WORKFLOW.md • Esquema de Decisión de Izquierda a Derecha
-        </div>
-        <h2>Gobernanza en Acción: <span class="serif-italic" style="color: #f59e0b;">De la Intención a la Ruta
-            Óptima</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          Un esquema de decisión claro y espacioso: identifica qué quieres hacer con la arquitectura y ejecuta el skill
-          exacto sin fricción.
-        </p>
-
-        <div class="adr-decision-deck">
-
-          <!-- Columna Izquierda: El Punto de Partida / Intención -->
-          <div class="adr-decision-origin-card">
-            <div>
-              <span class="pillar-col-badge adr" style="margin-bottom: 0.75rem; display: inline-block;">Punto de
-                Partida</span>
-              <div class="adr-decision-origin-title">¿Cuál es tu intención técnica?</div>
-              <div class="adr-decision-origin-desc">
-                Antes de tocar una sola línea de arquitectura, el artesano y el agente clasifican su necesidad en una de
-                4 intenciones bien delimitadas.
-              </div>
-
-              <div class="adr-decision-question-list">
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">🆕</span>
-                  <span><strong>¿Nuevo patrón o stack?</strong> ➔ Ruta 1</span>
-                </div>
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">📝</span>
-                  <span><strong>¿Ajustar decisión viva?</strong> ➔ Ruta 2</span>
-                </div>
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">⚠️</span>
-                  <span><strong>¿Tecnología obsoleta?</strong> ➔ Ruta 3</span>
-                </div>
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">📡</span>
-                  <span><strong>¿Auditar vigencia 2026?</strong> ➔ Ruta 4</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="sdlc-skill-pill amber" style="margin-top: 1rem; padding: 0.55rem 0.9rem; font-size: 0.88rem;">
-              <span>🛡️ Filtro Único:</span> Calidad auditada por <code>/adr-validate</code>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Las 4 Rutas de Decisión en Cuadrícula 2x2 -->
-          <div class="adr-decision-lanes-grid">
-
-            <!-- Ruta 1: Nueva Decisión -->
-            <div class="adr-lane-card lane-new">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge blue">Ruta 1 • Nueva Decisión</span>
-                <span style="font-size: 1.25rem;">🆕</span>
-              </div>
-              <div class="adr-lane-title">Crear Decisión desde Cero</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Nuevo framework, base de datos, patrón DDD o restricción fundamental del
-                sistema.
-              </div>
-              <div class="adr-lane-action-box">
-                <div>⚡ <strong>Comando:</strong> <code>/adr-create</code></div>
-                <div>📦 <strong>Entregable:</strong> <code>0XX-decision.md</code> con mínimo 2–3 alternativas y sección
-                  obligatoria AX.</div>
-              </div>
-            </div>
-
-            <!-- Ruta 2: Enmienda Delta -->
-            <div class="adr-lane-card lane-amend">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge amber">Ruta 2 • Enmienda Delta</span>
-                <span style="font-size: 1.25rem;">📝</span>
-              </div>
-              <div class="adr-lane-title">Modificar sin Reescribir</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Regla de Oro: Jamás se edita el texto histórico de un ADR aceptado; se
-                enmienda el delta.
-              </div>
-              <div class="adr-lane-action-box">
-                <div>⚡ <strong>Comando:</strong> <code>/adr-amend</code></div>
-                <div>🔗 <strong>Entregable:</strong> <code>0XX-01-amendment.md</code> con enlaces bidireccionales
-                  <code>Amends ⇄ Amended By</code>.</div>
-              </div>
-            </div>
-
-            <!-- Ruta 3: Supersede -->
-            <div class="adr-lane-card lane-supersede">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge red">Ruta 3 • Reemplazo Total</span>
-                <span style="font-size: 1.25rem;">⚠️</span>
-              </div>
-              <div class="adr-lane-title">Deprecar &amp; Sustituir</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Un paradigma es sustituido por completo (ej. REST a tRPC, o SQLite a
-                PostgreSQL).
-              </div>
-              <div class="adr-lane-action-box">
-                <div>⚡ <strong>Flujo:</strong> <code>/adr-create (0YY)</code> ➔ Marca <code>0XX</code> como
-                  <code>Superseded</code></div>
-                <div>📜 <strong>Entregable:</strong> Enlace <code>Supersedes: 0XX</code> en nuevo ADR y estado
-                  <code>Superseded</code> en el viejo.</div>
-              </div>
-            </div>
-
-            <!-- Ruta 4: Tech Radar -->
-            <div class="adr-lane-card lane-radar">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge green">Ruta 4 • Vigilancia Radar</span>
-                <span style="font-size: 1.25rem;">📡</span>
-              </div>
-              <div class="adr-lane-title">Auditoría de Alternativas</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Revisar si las tecnologías adoptadas siguen siendo líderes o han surgido
-                alternativas mejores.
-              </div>
-              <div class="adr-lane-action-box">
-                <div>⚡ <strong>Comando:</strong> <code>/adr-review-alternatives</code></div>
-                <div>📊 <strong>Entregable:</strong> <code>ADR_ALTERNATIVES_ANALYSIS.md</code> con clasificación (Adopt
-                  / Trial / Assess / Hold).</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 4A: PILAR 2 - TIMELINE HORIZONTAL DEL SDLC (5 FASES)
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-sdlc-timeline">
-      <div class="slide-content" style="gap: 0.65rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-decision-tree" class="deck-back-btn">← Gobernanza ADR</a>
-          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • Timeline
-            de Producto</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
-          Pilar 2 • SDLC-SKILLS-INDEX.md • Flujo Secuencial de Izquierda a Derecha
-        </div>
-        <h2 style="margin-bottom: 0.1rem;">El Ciclo Canónico del SDLC <span class="serif-italic"
-            style="color: #10b981;">de la Idea al Dominio</span></h2>
-        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
-          5 fases deterministas: cómo transformar la ambigüedad de negocio en código desacoplado y living documentation
-          sin drift.
-        </p>
-
-        <div class="adr-timeline-container">
-          <div class="adr-timeline-track">
-
-            <!-- Fase 1 -->
-            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">01</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Discovery</span>
-              </div>
-              <div class="adr-step-icon-box emerald">🎯</div>
-              <div class="adr-step-title">Inception &amp; MVP</div>
-              <code class="adr-step-skill-chip"
-                style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">/inception-workshop</code>
-              <div class="adr-step-body">
-                Lean Inception de 8 pasos para alinear negocio. Fija el <strong>perímetro defensivo (IS / IS
-                  NOT)</strong> y el tablero de tradeoffs antes de tirar una sola línea.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item emerald">
-                  <span><strong>Artefacto:</strong> <code>etc/docs/inception/*.md</code></span>
-                </div>
-                <div class="adr-step-bullet-item emerald">
-                  <span><strong>Foco:</strong> Elimina alucinación de scope</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
-                🎯 Acota el problema real
-              </div>
-            </div>
-
-            <!-- Fase 2 -->
-            <div class="adr-step-card" style="border-top: 4px solid #0ea5e9;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #0ea5e9; color: #0ea5e9;">02</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(14, 165, 233, 0.12); color: #0ea5e9; border-color: rgba(14, 165, 233, 0.25);">Flow
-                  Specs</span>
-              </div>
-              <div class="adr-step-icon-box sky">📐</div>
-              <div class="adr-step-title">Flujos &amp; Diagramas</div>
-              <code class="adr-step-skill-chip"
-                style="color: #0ea5e9; background: rgba(14, 165, 233, 0.1); border-color: rgba(14, 165, 233, 0.25);">/create-flow-documentation</code>
-              <div class="adr-step-body">
-                Convierte los user journeys en specs formales con <strong>3 diagramas Mermaid</strong> (secuencia,
-                flujo, FSM), criterios Gherkin y reglas de negocio (BR).
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item sky">
-                  <span><strong>Artefacto:</strong> <code>flows/journey-XX-*.md</code></span>
-                </div>
-                <div class="adr-step-bullet-item sky">
-                  <span><strong>Mermaid:</strong> Secuencia + Flow + Estados</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.08);">
-                📐 Contrato visual ejecutable
-              </div>
-            </div>
-
-            <!-- Fase 3 -->
-            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">03</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Domain
-                  Model</span>
-              </div>
-              <div class="adr-step-icon-box violet">🧩</div>
-              <div class="adr-step-title">Dominio &amp; FSM</div>
-              <code class="adr-step-skill-chip"
-                style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">/create-entity-lifecycle</code>
-              <div class="adr-step-body">
-                Modelo DDD rico: <strong>Aggregate Root</strong>, Value Objects inmutables e <strong>invariantes (INV)
-                  con rollback</strong>. Sin getters anémicos: espacio cerrado de estados.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item violet">
-                  <span><strong>Artefacto:</strong> <code>entities/[Entity].md</code></span>
-                </div>
-                <div class="adr-step-bullet-item violet">
-                  <span><strong>Garantía:</strong> Transiciones cerradas FSM</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.08);">
-                🧩 Dominio puro zero-deps
-              </div>
-            </div>
-
-            <!-- Fase 4 -->
-            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">04</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25);">TDD
-                  Híbrido</span>
-              </div>
-              <div class="adr-step-icon-box amber">⚡</div>
-              <div class="adr-step-title">TDD por Capas</div>
-              <code class="adr-step-skill-chip"
-                style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">/implement-flow</code>
-              <div class="adr-step-body">
-                Test E2E primero (falla). Construcción capa a capa: <strong>domain</strong> (núcleo puro) ➔
-                <strong>application</strong> (casos de uso) ➔ <strong>infra</strong> ➔ <strong>API</strong>.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item amber">
-                  <span><strong>Código:</strong> <code>packages/modules/[ctx]/</code></span>
-                </div>
-                <div class="adr-step-bullet-item amber">
-                  <span><strong>Orden:</strong> Domain ➔ App ➔ Infra ➔ API</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
-                ⚡ Arquitectura limpia blindada
-              </div>
-            </div>
-
-            <!-- Fase 5 -->
-            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">05</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">Living
-                  Docs</span>
-              </div>
-              <div class="adr-step-icon-box rose">🔄</div>
-              <div class="adr-step-title">Cambio sin Drift</div>
-              <code class="adr-step-skill-chip"
-                style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">/modify-flow &amp; /audit-docs</code>
-              <div class="adr-step-body">
-                Toda modificación requiere una propuesta previa (<code>proposal.md</code>). <code>/audit-docs</code>
-                verifica que código y especificaciones no diverjan en producción.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item rose">
-                  <span><strong>Artefacto:</strong> <code>working-on/[change]/</code></span>
-                </div>
-                <div class="adr-step-bullet-item rose">
-                  <span><strong>Control:</strong> Docs vivos siempre sincronizados</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
-                🔄 Repositorio siempre al día
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior Resumen -->
-          <div class="chosen-synergy-banner"
-            style="margin-top: 0.15rem; padding: 0.85rem 1.4rem; border-color: rgba(16, 185, 129, 0.3);">
-            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>Principio Artesano:</strong> La IA no programa desde descripciones ambiguas. El pipeline de
-              Producto convierte la incertidumbre de negocio en especificaciones matemáticas y capas DDD desacopladas.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 4B: PILAR 2 - MATRIZ DE DECISIÓN DE PRODUCTO (4 RUTAS)
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-sdlc-decision-tree">
-      <div class="slide-content" style="gap: 1.1rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-sdlc-timeline" class="deck-back-btn">← Timeline SDLC</a>
-          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Pilar 2 • Matriz
-            de Producto</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
-          Pilar 2 • SDLC-SKILLS-INDEX.md • Esquema de Decisión de Izquierda a Derecha
-        </div>
-        <h2>Producto en Acción: <span class="serif-italic" style="color: #10b981;">De la Necesidad al Artefacto</span>
-        </h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          No todos los requerimientos se abordan igual: 4 caminos ordenados según el nivel de madurez del problema.
-        </p>
-
-        <div class="adr-decision-deck">
-          <!-- Columna Izquierda: Punto de Partida -->
-          <div class="adr-decision-origin-card emerald">
-            <div>
-              <span class="adr-lane-badge green" style="margin-bottom: 0.8rem; display: inline-block;">PUNTO DE
-                PARTIDA</span>
-              <div class="adr-decision-origin-title">¿Cuál es tu objetivo de producto?</div>
-              <div class="adr-decision-origin-desc">
-                Antes de escribir código o invocar un agente, el artesano clasifica su necesidad en una de las 4 rutas
-                deterministas del SDLC.
-              </div>
-
-              <div class="adr-decision-question-list">
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">🎯</span>
-                  <div><strong>¿Nuevo producto o módulo?</strong> ➔ Ruta 1</div>
-                </div>
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">📐</span>
-                  <div><strong>¿Nuevo flujo o feature?</strong> ➔ Ruta 2</div>
-                </div>
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">🧩</span>
-                  <div><strong>¿Entidad con estados complejos?</strong> ➔ Ruta 3</div>
-                </div>
-                <div class="adr-decision-q-item">
-                  <span class="adr-decision-q-icon">🔄</span>
-                  <div><strong>¿Modificar lógica existente?</strong> ➔ Ruta 4</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="adr-decision-badge-foot"
-              style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.65rem 0.85rem; display: flex; align-items: center; justify-content: space-between; margin-top: 1rem;">
-              <div
-                style="font-size: 0.85rem; color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-                <span>🛡️ Filtro Único:</span>
-              </div>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">
-                Score de Calidad <strong style="color: #10b981;">≥ 8/10</strong> por fase
-              </div>
-              <code
-                style="font-family: var(--font-mono); font-size: 0.82rem; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 0.15rem 0.45rem; border-radius: 4px;">/audit-docs</code>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Las 4 Rutas de Decisión (Grid 2x2) -->
-          <div class="adr-decision-lanes-grid">
-
-            <!-- Ruta 1: Discovery & Inception -->
-            <div class="adr-lane-card lane-radar">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge green">RUTA 1 • DISCOVERY GLOBAL</span>
-                <span style="font-size: 1.15rem;">🎯</span>
-              </div>
-              <div class="adr-lane-title">Lean Inception Workshop</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Nuevo producto, bounded context verde o módulo desde cero sin documentación
-                previa.
-              </div>
-              <div class="adr-lane-actions">
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">⚡</span>
-                  <div><strong>Comando:</strong> <code style="color: #10b981;">/inception-workshop</code></div>
-                </div>
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">📦</span>
-                  <div><strong>Entregables:</strong> <code>etc/docs/inception/*.md</code> (8 pasos: Fronteras IS/IS NOT,
-                    Tradeoffs, Canvas MVP).</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Ruta 2: Flow Specs -->
-            <div class="adr-lane-card lane-new">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge blue">RUTA 2 • ESPECIFICACIÓN TÉCNICA</span>
-                <span style="font-size: 1.15rem;">📐</span>
-              </div>
-              <div class="adr-lane-title">Especificación de Flujo</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Un user journey validado requiere definición técnica formal para poder ser
-                implementado.
-              </div>
-              <div class="adr-lane-actions">
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">⚡</span>
-                  <div><strong>Comando:</strong> <code style="color: #38bdf8;">/create-flow-documentation</code></div>
-                </div>
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">📦</span>
-                  <div><strong>Entregables:</strong> <code>flows/journey-XX-name.md</code> con 3 diagramas Mermaid,
-                    Gherkin BDD, BRs e INVs.</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Ruta 3: Domain Model -->
-            <div class="adr-lane-card lane-purple">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge purple">RUTA 3 • MODELO DE DOMINIO</span>
-                <span style="font-size: 1.15rem;">🧩</span>
-              </div>
-              <div class="adr-lane-title">Ciclo de Vida de Entidad</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Una entidad clave emerge en los flujos con ciclo de vida rico, estados
-                finitos o transiciones complejas.
-              </div>
-              <div class="adr-lane-actions">
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">⚡</span>
-                  <div><strong>Comando:</strong> <code style="color: #8b5cf6;">/create-entity-lifecycle</code></div>
-                </div>
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">📦</span>
-                  <div><strong>Entregables:</strong> <code>entities/[Entity].md</code> con máquina de estados FSM,
-                    invariantes y Value Objects.</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Ruta 4: Living Docs & Drift -->
-            <div class="adr-lane-card lane-supersede" style="border-left-color: #ec4899;">
-              <div class="adr-lane-header">
-                <span class="adr-lane-badge" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">RUTA 4 •
-                  EVOLUCIÓN SIN DRIFT</span>
-                <span style="font-size: 1.15rem;">🔄</span>
-              </div>
-              <div class="adr-lane-title">Modificación Controlada</div>
-              <div class="adr-lane-trigger">
-                <strong>Disparador:</strong> Cualquier cambio de requerimiento sobre flujos, reglas o entidades ya en
-                producción.
-              </div>
-              <div class="adr-lane-actions">
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">⚡</span>
-                  <div><strong>Comando:</strong> <code style="color: #ec4899;">/modify-flow</code> &amp; <code
-                      style="color: #ec4899;">/audit-docs</code></div>
-                </div>
-                <div class="adr-lane-action-item">
-                  <span class="adr-lane-act-icon">📦</span>
-                  <div><strong>Entregables:</strong> <code>proposal.md</code> + <code>plan.md</code> por capas DDD con
-                    sincronización living in-place.</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE SPECIAL 4C: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
-         ==================================================================== -->
-    <section class="slide" id="slide-pillar-bridge-enlace">
-      <div class="slide-content" style="gap: 0.65rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-sdlc-decision-tree" class="deck-back-btn">← Matriz de Producto</a>
-          <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">La Conexión •
-            Arquitectura Viva</span>
-        </div>
-        <div class="tag"
-          style="background: rgba(139, 92, 246, 0.12); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">
-          La Conexión • docs/adr/ ➔ docs/product/ ➔ packages/modules/ ➔ ts-archunit
-        </div>
-        <h2 style="margin-bottom: 0.1rem;">La Conexión: <span class="serif-italic" style="color: #a78bfa;">Cómo Todo
-            Enlaza en el Repositorio</span></h2>
-        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.2rem;">
-          El círculo virtuoso: los ADRs legislan, las specs vivas definen contratos, el código implementa en capas y CI
-          arbitra sin drift.
-        </p>
-
-        <div class="adr-timeline-container">
-          <div class="bridge-timeline-track">
-
-            <!-- Eslabón 1: ADR -->
-            <div class="adr-step-card" style="border-top: 4px solid #8b5cf6;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #8b5cf6; color: #8b5cf6;">01</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">Gobernanza</span>
-              </div>
-              <div class="adr-step-icon-box violet">🏛️</div>
-              <div class="adr-step-title">Raíles ADR</div>
-              <code class="adr-step-skill-chip"
-                style="color: #a78bfa; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25);">docs/adr/ • ADR-001..016</code>
-              <div class="adr-step-body">
-                Establece la <strong>ley técnica inmutable</strong>: Modular DDD, boundaries estrictos entre módulos,
-                factories para controllers y directrices de ergonomía para IA (AX).
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item violet">
-                  <span><strong>Artefacto:</strong> <code>docs/adr/ADR-XXX.md</code></span>
-                </div>
-                <div class="adr-step-bullet-item violet">
-                  <span><strong>Foco:</strong> Acota cómo construir el sistema</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #a78bfa; background: rgba(139, 92, 246, 0.08);">
-                🏛️ La Ley Arquitectónica
-              </div>
-            </div>
-
-            <!-- Eslabón 2: SDLC Specs -->
-            <div class="adr-step-card" style="border-top: 4px solid #10b981;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #10b981; color: #10b981;">02</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">Living
-                  Specs</span>
-              </div>
-              <div class="adr-step-icon-box emerald">📋</div>
-              <div class="adr-step-title">Contratos de Dominio</div>
-              <code class="adr-step-skill-chip"
-                style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">docs/product/ • /create-flow</code>
-              <div class="adr-step-body">
-                Especifica los user journeys con <strong>3 diagramas Mermaid</strong>, reglas de negocio (BR),
-                invariantes (INV) y BDD Gherkin que citan directamente los ADRs rectores.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item emerald">
-                  <span><strong>Artefacto:</strong> <code>flows/ &amp; entities/*.md</code></span>
-                </div>
-                <div class="adr-step-bullet-item emerald">
-                  <span><strong>Foco:</strong> Acota qué debe resolver el código</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #10b981; background: rgba(16, 185, 129, 0.08);">
-                📋 El Contrato sin ambigüedad
-              </div>
-            </div>
-
-            <!-- Eslabón 3: Código DDD -->
-            <div class="adr-step-card" style="border-top: 4px solid #f59e0b;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #f59e0b; color: #f59e0b;">03</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25);">Código
-                  DDD</span>
-              </div>
-              <div class="adr-step-icon-box amber">📦</div>
-              <div class="adr-step-title">Capas Desacopladas</div>
-              <code class="adr-step-skill-chip"
-                style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">packages/modules/[ctx]/</code>
-              <div class="adr-step-body">
-                Construcción por capas limpias guiada por TDD: <strong>domain</strong> puro (zero-deps) ➔
-                <strong>application</strong> (casos de uso) ➔ <strong>infrastructure</strong> ➔
-                <strong>interfaces</strong>.
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item amber">
-                  <span><strong>Artefacto:</strong> <code>src/{domain,app,infra,ui}/</code></span>
-                </div>
-                <div class="adr-step-bullet-item amber">
-                  <span><strong>Foco:</strong> Dominio aislado de frameworks</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
-                📦 Software puro y modular
-              </div>
-            </div>
-
-            <!-- Eslabón 4: ts-archunit CI -->
-            <div class="adr-step-card" style="border-top: 4px solid #ec4899;">
-              <div class="adr-step-header">
-                <div class="adr-step-node-badge" style="border-color: #ec4899; color: #ec4899;">04</div>
-                <span class="adr-step-state-tag"
-                  style="background: rgba(236, 72, 153, 0.12); color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">CI
-                  Guardrail</span>
-              </div>
-              <div class="adr-step-icon-box rose">🚨</div>
-              <div class="adr-step-title">El Juez en CI</div>
-              <code class="adr-step-skill-chip"
-                style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.25);">ts-archunit • CI Pipeline</code>
-              <div class="adr-step-body">
-                Tests de arquitectura estáticos: si la IA o un desarrollador <strong>importa Express en Domain o viola
-                  un ADR</strong>, ¡el test rompe el build al instante y rechaza el PR!
-              </div>
-              <div class="adr-step-bullets">
-                <div class="adr-step-bullet-item rose">
-                  <span><strong>Artefacto:</strong> <code>tests/unit/architecture/*.test.ts</code></span>
-                </div>
-                <div class="adr-step-bullet-item rose">
-                  <span><strong>Foco:</strong> Zero drift garantizado por máquina</span>
-                </div>
-              </div>
-              <div class="adr-step-punchline" style="color: #ec4899; background: rgba(236, 72, 153, 0.08);">
-                🚨 El Guardrail Inquebrantable
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior Resumen -->
-          <div class="chosen-synergy-banner"
-            style="margin-top: 0.15rem; padding: 0.85rem 1.4rem; border-color: rgba(139, 92, 246, 0.35);">
-            <div class="chosen-synergy-icon" style="font-size: 1.4rem;">💡</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>El Círculo Cerrado de la Artesanía:</strong> Los ADRs son la ley, las Specs son los contratos
-              vivos, el código implementa y <code>ts-archunit</code> es el juez en CI. Ninguna IA alucina ni descarrila
-              la arquitectura porque el build lo bloquea.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ====================================================================
          SLIDE 29: CITA EDITORIAL
