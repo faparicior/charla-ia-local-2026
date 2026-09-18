@@ -13683,6 +13683,56 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] .md-h2 {
   margin-top: 0.35rem !important;
 }
 
+/* [Composición] Modo Charla: las columnas consola ajustan su altura al contenido y
+   se centran verticalmente en el área restante, evitando el panel negro vacío */
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-console-deck,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-console-deck {
+  align-items: center;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal {
+  height: auto;
+  max-height: 100%;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
+  max-height: calc(1080px - 19rem);
+  overflow-y: auto;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col {
+  justify-content: center;
+  gap: 1.05rem;
+}
+
+/* Sesgo óptico: centrar el cluster un poco más cerca del título que del pie */
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-console-deck,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-console-deck {
+  padding-bottom: 4rem;
+}
+
+/* Tipografía de terminal algo mayor para proyección en Modo Charla */
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
+  font-size: 1rem !important;
+  gap: 1.05rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .md-table {
+  font-size: 0.95rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .md-h1 {
+  font-size: 1.15rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .md-h2 {
+  font-size: 1.02rem !important;
+}
+
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
 body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .mermaid-diagram-wrap {
@@ -16110,11 +16160,8 @@ body.theme-dark .adr-lane-action-box {
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #059669;">Fase 1 • Inception
             Workshop • Paso 3</span>
         </div>
-        <div class="tag"
-          style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.3);">Fase 1 •
-          Inception Workshop • Paso 3 de 8</div>
-        <h2>Paso 3: User Personas <span class="serif-italic" style="color: #10b981;">¿Para qué artesano concreto
-            diseñamos?</span></h2>
+        <h2>Paso 3: User Personas <span class="serif-italic" style="color: #10b981;">(¿Para qué artesano
+            diseñamos?)</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Poner nombre, hardware, stack y dolores reales al usuario para evitar que el modelo genere soluciones
           abstractas de tutorial.
@@ -16277,11 +16324,8 @@ body.theme-dark .adr-lane-action-box {
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #d97706;">Fase 1 • Inception
             Workshop • Paso 4</span>
         </div>
-        <div class="tag"
-          style="background: rgba(245, 158, 11, 0.12); color: #d97706; border-color: rgba(245, 158, 11, 0.3);">Fase 1 •
-          Inception Workshop • Paso 4 de 8</div>
-        <h2>Paso 4: Mapa de Empatía <span class="serif-italic" style="color: #f59e0b;">¿Qué dolor y ansiedad
-            aliviamos?</span></h2>
+        <h2>Paso 4: Mapa de Empatía <span class="serif-italic" style="color: #f59e0b;">(¿Qué dolor
+            aliviamos?)</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Explorar qué piensa, siente, oye y hace el artesano para que el copiloto resuelva fricciones reales en lugar
           de inventar complejidad.
@@ -16438,11 +16482,8 @@ body.theme-dark .adr-lane-action-box {
           <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0891b2;">Fase 1 • Inception
             Workshop • Paso 5</span>
         </div>
-        <div class="tag"
-          style="background: rgba(6, 182, 212, 0.12); color: #0891b2; border-color: rgba(6, 182, 212, 0.3);">Fase 1 •
-          Inception Workshop • Paso 5 de 8</div>
-        <h2>Paso 5: User Journey Mapping <span class="serif-italic" style="color: #06b6d4;">¿Cuál es el recorrido
-            cronológico E2E?</span></h2>
+        <h2>Paso 5: User Journey Mapping <span class="serif-italic" style="color: #06b6d4;">(¿Recorrido
+            E2E?)</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Mapear el ciclo de vida de la conferencia: interacciones separadas por semanas coordinadas por el estado del
           evento.
@@ -16634,11 +16675,8 @@ body.theme-dark .adr-lane-action-box {
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #6366f1;">Fase 1 • Inception
             Workshop • Paso 6</span>
         </div>
-        <div class="tag"
-          style="background: rgba(99, 102, 241, 0.12); color: #6366f1; border-color: rgba(99, 102, 241, 0.3);">Fase 1 •
-          Inception Workshop • Paso 6 de 8</div>
-        <h2>Paso 6: Features Brainstorming <span class="serif-italic" style="color: #6366f1;">¿Qué ideas concretas
-            resuelven los huecos del Journey?</span></h2>
+        <h2>Paso 6: Features Brainstorming <span class="serif-italic" style="color: #6366f1;">(¿Ideas para los
+            huecos?)</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Filtrado implacable: ninguna funcionalidad entra sin responder a una fricción real del Paso 5 y vincularse
           a Fernando o Andrea dentro de las fronteras de SessioFlow.
@@ -16808,11 +16846,8 @@ body.theme-dark .adr-lane-action-box {
           <span class="deck-part-badge" style="background: rgba(236, 72, 153, 0.15); color: #db2777;">Fase 1 • Inception
             Workshop • Paso 7</span>
         </div>
-        <div class="tag"
-          style="background: rgba(236, 72, 153, 0.12); color: #db2777; border-color: rgba(236, 72, 153, 0.3);">Fase 1 •
-          Inception Workshop • Paso 7 de 8</div>
-        <h2>Paso 7: Secuenciador de Olas <span class="serif-italic" style="color: #ec4899;">¿Qué entra en el MVP y qué
-            se bloquea?</span></h2>
+        <h2>Paso 7: Secuenciador de Olas <span class="serif-italic" style="color: #ec4899;">(¿Qué entra en el
+            MVP?)</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Release Planning implacable: dividir el alcance en Olas para construir un 'cupcake' completo antes de soñar
           con la tarta entera.

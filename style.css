@@ -13664,6 +13664,56 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] .md-h2 {
   margin-top: 0.35rem !important;
 }
 
+/* [Composición] Modo Charla: las columnas consola ajustan su altura al contenido y
+   se centran verticalmente en el área restante, evitando el panel negro vacío */
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-console-deck,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-console-deck {
+  align-items: center;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal {
+  height: auto;
+  max-height: 100%;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
+  max-height: calc(1080px - 19rem);
+  overflow-y: auto;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col {
+  justify-content: center;
+  gap: 1.05rem;
+}
+
+/* Sesgo óptico: centrar el cluster un poco más cerca del título que del pie */
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-console-deck,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-console-deck {
+  padding-bottom: 4rem;
+}
+
+/* Tipografía de terminal algo mayor para proyección en Modo Charla */
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body {
+  font-size: 1rem !important;
+  gap: 1.05rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .md-table {
+  font-size: 0.95rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .md-h1 {
+  font-size: 1.15rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .md-h2 {
+  font-size: 1.02rem !important;
+}
+
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
 body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .mermaid-diagram-wrap {
