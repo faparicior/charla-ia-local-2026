@@ -61,3 +61,28 @@ Dentro de tarjetas hay badges pequeños (~10px) con colores 500 no capturados po
 - Capturas: `/tmp/sweep-p2-s1.png … s36.png` (temporales; regenerables con `/tmp/sweep.js`)
 - Script reutilizable: `/tmp/sweep.js` (métricas + captura; incluye cálculo WCAG con bg compuesto)
 - Fix ya propagado a `dist/` vía `python3 bundle.py` (sep 19, 00:15)
+
+---
+
+# FIXES APLICADOS (segunda pasada, verificados con 3 sondeos WCAG)
+
+**Scripts:** `/tmp/fix_contrast2.py` (107 ediciones) + `/tmp/fix_contrast3.py` (14 ediciones de corrección de dirección). Ambos con asserts: abortan sin escribir si un patrón no encaja.
+
+**Resultado:** los 3 sondeos (≤14.5px ≥4.5:1 · 14.6-18.5px ≥4.5:1 · grande ≥3:1) salen **limpios en las 36 slides** (solo quedan falsos positivos del texto interno de `<style>` de mermaid, no renderizado). Overflow: 0. Contraste del primer badge/h2/pill por slide: ninguno <4.5.
+
+## Qué se cambió
+
+**HTML (parte2):** 13 badges de slide (s2, s7, s12, s17-26), 15 tags/chip, 7 h2-spans, 3 punchlines de s3, 8 títulos de puntos (phase2/pilar, 400s→600s), RUTA 4 inline, 10 STRONGs + 4 títulos/fechas de s28-31 (600s sobre tarjetas blancas), 9 líneas de acentos inline en s25 (CODEs de las 5 rutas).
+
+**CSS (style.css):** press-source/date/links (naranja→`#c2410c`, gris→`#4b5563`), dflash role-badges (fondo `#c2410c`/`#15803d`), bridge-pill (`#c2410c`), sample-tokens (`#9a3412`/`#166534`), mtp-badge bg (`#b45309`), dspark-badge bg (`#0369a1`), scenario-tab activo (`#0369a1` + sombra), order-pill swap-alert (`#b45309`), adr-step node-badge/state-tag (`#92400e`/border `#b45309`), skill-chip (`#0369a1`), bullet-item borders (amber/sky/emerald), lane-badges blue/amber/red/green → 700s, lane-radar border, `code-content .comment` (`#94a3b8`), agents-github-footer link (`#7c3aed`), chip violeta, variantes rect-date-year, **font-size del CODE de los pills 1.1→1.2rem** (19.2px bold = texto grande → sus 3.7-4.45 sobre tinte pasan el umbral 3:1) y **bloque nuevo con scope `body.deck-sdlc-part2`**: `--text-dim: #4b5563` y `.deck-part-badge { color: #4f46e5 }` — sin tocar los valores globales que comparten parte1/plantillas.
+
+## Lección de dirección de color
+
+Los STRONGs de s28-31 están sobre **tarjetas blancas dentro de la slide** (el ratio 16.97 del h2 era texto casi-negro sobre crema, no "blanco sobre oscuro"). Primera pasada aplicó 400s (dirección de fondo oscuro) y empeoró; fix3 revirtió a 700s. Los sondeos reportan ratio y fondo real por elemento — siempre verificar el bg antes de elegir dirección.
+
+## Pendiente
+
+- Banners de s16-18, s22, s24, s26: ocultos por diseño, tienen hueco (244-277 palabras). Decisión de diseño pendiente.
+- Terminal 16→18px en charla (requiere re-verificación de fit; S5 la crítica).
+- theme-dark de todo lo anterior (badges, tabs, pills): skin alternativo, sin auditar.
+- `bundle.py` prints "32 slides" hardcodeado (cosmético).
