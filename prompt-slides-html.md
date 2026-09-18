@@ -142,12 +142,53 @@ Ritmo y momentos hero:
 
 ## Fuentes que alimentan este prompt
 
-- **reveal.js slide skills** (smallpower/slides-revealjs, bluedusk/html-slides): tokens CSS, arquetipos de slide, límites de densidad, variedad compositiva, checklist QA, Mermaid/SVG para arquitectura.
-- **Variant — "Use Codex to Generate Editable Presentation Decks"**: HTML como formato fuente, brief con audiencia+restricciones, plantilla→batches, texto real y CSS variables, export HTML/PDF/PPTX.
-- **Made Good — Slide Design Principles**: una idea por slide, tipografía grande (títulos 36-44pt+, cuerpo ≥24pt), texto mínimo, alto contraste, plantilla consistente, 16:9.
-- **Deckary — 12-slide pitch framework** (Y Combinator / Sequoia): orden narrativo problema→solución→tracción→ask; problema cuantificado; traction con gráfico; ≤30 palabras por slide.
-- **htmlslides.com**: tips para prompts (nº de slides explícito, nombrar componentes, audiencia, contenido real).
-- **Tosea — 14 patrones de layout** (relación→layout): comparación→columnas, secuencia→timeline/proceso, 3-6 iguales→card grid, conclusión→hero/big number, reglas timeline vs proceso vs ciclo vs Gantt, columnas paralelas, errores comunes de diagramas.
-- **Made Good — 15 slide layout ideas**: split 50/50 imagen/texto como layout más versátil (alternar lado), hero number, chart+takeaway, screenshot anotado, divisoria, cierre, librería de 6-7 layouts reutilizados.
-- **Deckary — 15 slide types profesionales**: titulares de acción vs descriptivos (+40% retención), regla 3 segundos, tabla ≤5col×7filas, timeline con "hoy", cierre con CTA específico, screenshot anotado.
-- **Promptslide — slide design guide**: densidad por tipo de slide, anti-patrones de decks generados por IA, hero moments, ritmo denso/aireado, test inolvidable de 10 segundos.
+> Investigación web en dos rondas: (1) generación técnica de slides HTML y prompting para agentes, (2) catálogo de layouts y qué contenido va en cada uno. Debajo de cada fuente se indica qué reglas concretas del prompt salen de ella.
+
+### Ronda 1 — formato técnico, prompting y estructura narrativa
+
+1. **smallpower / slides-revealjs SKILL.md** — skill open source para agentes que generan decks
+   https://github.com/jeasonstudio/smallpower/blob/main/skills/slides-revealjs/SKILL.md
+   → Tokens CSS en `:root`, dirección estética única declarada antes de codificar, paleta dominante+acento, arquetipos de slide, límites de densidad (5-6 bullets, ~10 líneas de código, 8-10 nodos por diagrama, ~8 filas por tabla), variedad compositiva (nunca 3 slides iguales seguidos), tipografía display+cuerpo con Google Fonts, atmósfera con gradientes/paneles, motion como coreografía, Mermaid/SVG para arquitectura, checklist QA de 30 segundos, export PDF, reglas de cobertura del contenido fuente.
+
+2. **Variant — "Use Codex to Generate Editable Presentation Decks"**
+   https://www.variant.art/blog/use-codex-to-generate-editable-presentation-decks
+   → HTML como formato fuente (no binarios tipo PPTX), brief de 6 líneas (audiencia, objetivo, secciones, tono, look, restricciones 16:9/single-file), workflow plantilla→batches, CSS custom properties para re-tematizar, texto real seleccionable, revisar en navegador a pantalla completa, editar sin regenerar, export HTML/PDF/PPTX, patrón eyebrow+titular+dek+footer.
+
+3. **HTMLSlides — "How to Generate HTML Slides with AI"** (+ skill open source `html-slides` de bluedusk)
+   https://htmlslides.com/blog/how-to-generate-html-slides-with-ai/
+   https://github.com/bluedusk/html-slides
+   → Tips de prompting (nº de slides explícito, nombrar componentes concretos como stats cards/timeline/tabla comparativa, describir audiencia, incluir contenido y datos reales en el prompt), archivo único autocontenido, notas del orador, navegación con teclado, export a PDF y deploy.
+
+4. **Made Good — "Slide Design Principles That Work"**
+   https://madegooddesigns.com/slide-design-principles/
+   → Una idea por slide (test: resumible en una frase), cuerpo ≥24pt y titulares 36-44pt+, texto mínimo, alto contraste (los proyectores lavan los colores), plantilla consistente, 16:9 estándar, jerarquía visual clara, errores comunes (párrafos, encoger fuente, fondos ruidosos, fuentes inconsistentes).
+
+5. **Deckary — "Pitch Deck Template: The 12-Slide Framework"** (sintetiza guías de Y Combinator y Sequoia)
+   https://deckary.com/blog/pitch-deck-template
+   → Orden narrativo portada→problema→solución→mercado→modelo→tracción→competencia→equipo→financials→ask, problema cuantificado y no abstracto (ejemplo Airbnb), tracción con gráfico de trayectoria y métricas por etapa (pre-revenue/early/scaling), ask específico atado a hitos (ejemplo Uber), ≤30 palabras por slide, 3-4 colores, alineación a la izquierda, test de lectura en móvil, 15-35 s de atención por slide (DocSend).
+
+### Ronda 2 — catálogo de layouts y qué contenido va en cada uno
+
+6. **Tosea — "How to Choose a PowerPoint Layout: 14 Patterns That Cover 90% of Slides"**
+   https://tosea.ai/blog/powerpoint-layout-patterns-complete-guide
+   → Tabla relación→layout (comparación→columnas, secuencia→proceso/timeline, 3-6 iguales→card grid, conclusión→hero/big number, estrechamiento→funnel, solapamiento→Gantt, 2 variables→quadrant, ramas iguales→hub&spoke), gramática de diagramas (flecha=causalidad real, ciclo solo si vuelve al inicio, timeline espaciado proporcional al tiempo, Gantt para concurrencia), columnas de comparación paralelas, títulos de insight, card grid de 3-6 items, errores comunes de layout, default "hero + visual" cuando hay dudas, contraste W3C 4.5:1/3:1, "encoger la fuente nunca es la solución".
+
+7. **Made Good — "15 Slide Layout Ideas for Clean Presentations"**
+   https://madegooddesigns.com/slide-layout-ideas/
+   → Split 50/50 imagen/texto como layout de contenido más versátil (alternando el lado de la imagen entre slides), hero number (el 92% a 200pt pega más que el mismo número en un gráfico), one big statement, quote corta, divisoria de sección, tres columnas idénticas, icon row, timeline horizontal, chart+takeaway (nunca hacer interpretar los datos), chart full-width sin gridlines/leyendas con el punto clave en el acento, screenshot anotado con callouts y resto atenuado, slide de pausa, cierre deliberado, librería de 6-7 layouts reutilizados, "consistencia > variedad".
+
+8. **Deckary — "Presentation Design: The Complete Guide to Professional Slide Types"** (15 tipos)
+   https://deckary.com/blog/pillar-slide-types-guide
+   → Titulares de acción vs descriptivos (+40% de retención; estudio assertion-evidence de Penn State), regla de los 3 segundos, regla 6x6, tabla ≤5 col × ≤7 filas con ganador resaltado y números alineados a la derecha, timeline con "hoy" marcado y flujo izq→der, case study liderado por resultado cuantificado, testimonial con atribución completa y ≤2-3 frases, cierre con next steps específicos (acción+propietario+fecha, nunca "Thank you" genérico), anexos numerados, whitespace y carga cognitiva, jerarquía visual (título 28-32pt, cuerpo 14-16pt en su escala).
+
+9. **Promptslide — "Slide Design Guide"** — skill open source, referencia interna para agentes
+   https://github.com/prompticeu/promptslide/blob/HEAD/skills/promptslide/references/slide-design-guide.md
+   → Densidad por tipo de slide (título: heading+subtítulo ≤10 palabras; contenido: 4-6 bullets o 2 párrafos o 2-4 tarjetas; datos: 1 gráfico/tabla, ≤6 filas, ≤4 puntos comparados; quote ≤30 palabras), "el contenido moldea el layout", ritmo denso/aireado, 1-2 hero moments por deck, anti-patrones de deck generado por IA (misma tarjeta en todas las slides, grids icono-título-descripción repetidos, todo centrado, acento morado/índigo por defecto, contraste apagado), contraste de pesos 800-900 vs 400, splits asimétricos 60/40, bloques de color deliberados, "test inolvidable de 10 segundos".
+
+### Fuentes secundarias (citadas dentro de las anteriores, no consultadas directamente)
+
+- Penn State, estudio assertion-evidence (títulos-conclusión y comprensión): https://writing.engr.psu.edu/ae_comprehension.pdf
+- Microsoft, guía SmartArt (gramática de diagramas: qué implica cada forma): https://support.microsoft.com/en-us/office/choose-a-smartart-graphic-13846dd8-4d55-46b9-9a25-8fce2864d592
+- W3C WCAG 2.1, contraste mínimo (4.5:1 texto normal, 3:1 texto grande): https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+- Y Combinator, "How to Build Your Seed Round Pitch Deck": https://www.ycombinator.com/library/2u-how-to-build-your-seed-round-pitch-deck
+- DocSend, datos de atención por slide (~3 min 44 s por deck): citado en deckary.com vía seedblink.com
