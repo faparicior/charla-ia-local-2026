@@ -13730,11 +13730,9 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] p.subtitle {
   display: none !important;
 }
 
-/* En Modo Charla, ocultar los textos descriptivos secundarios de la columna izquierda */
+/* En Modo Charla, ocultar subtítulos y textos largos no esenciales */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-sub,
-body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-desc,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-sub,
@@ -13742,28 +13740,28 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-desc {
   display: none !important;
 }
 
-/* En Modo Charla, columna izquierda cinematográfica: cita potente y 3 puntos telegráficos */
+/* En Modo Charla, columna izquierda equilibrada: flujo natural sin abismos vacíos */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-explain-col,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-explain-col {
-  gap: 1.35rem;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: flex-start;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-box,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-box {
-  padding: 1.6rem 2rem;
+  padding: 1.25rem 1.6rem;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-quote,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-quote,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-quote,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-quote {
-  font-size: 2.25rem !important;
-  line-height: 1.25 !important;
+  font-size: 1.75rem !important;
+  line-height: 1.3 !important;
   margin-bottom: 0 !important;
 }
 
@@ -13771,34 +13769,44 @@ body:not(.mode-document) .slide[id^="slide-step"] .sdlc-points-card,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-points-card {
-  padding: 1.6rem 2rem !important;
-  gap: 1.45rem !important;
-  justify-content: space-around;
+  padding: 1.2rem 1.5rem !important;
+  gap: 0.95rem !important;
+  justify-content: flex-start;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-item {
-  align-items: center !important;
-  gap: 1.25rem !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-icon,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-icon,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-icon,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-icon {
-  font-size: 2.35rem !important;
+  font-size: 1.85rem !important;
+  line-height: 1.1 !important;
+  margin-top: 0.15rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-title,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-title,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-title,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-title {
-  font-size: 1.48rem !important;
+  font-size: 1.22rem !important;
   font-weight: 700 !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0.15rem !important;
+  line-height: 1.3 !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc {
+  display: block !important;
+  font-size: 0.95rem !important;
   line-height: 1.35 !important;
+  color: var(--text-muted) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -13877,7 +13885,7 @@ body.mode-document .btn-toggle-doc {
 
 .deck-sdlc-part2 .slide-content>h2 {
   margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0.85rem !important;
   line-height: 1.15 !important;
   flex-shrink: 0 !important;
 }
@@ -15717,7 +15725,7 @@ body.theme-dark .adr-lane-action-box {
                 <div class="boundaries-point-icon">🚫</div>
                 <div class="boundaries-point-text">
                   <div class="boundaries-point-title">Blindaje contra Scope Creep</div>
-                  <div class="boundaries-point-desc doc-only">Evita que la IA invente microservicios, bases remotas o infra compleja.</div>
+                  <div class="boundaries-point-desc">Evita que la IA invente microservicios, bases remotas o infra compleja.</div>
                 </div>
               </div>
 
@@ -15725,7 +15733,7 @@ body.theme-dark .adr-lane-action-box {
                 <div class="boundaries-point-icon">📐</div>
                 <div class="boundaries-point-text">
                   <div class="boundaries-point-title">4 Cuadrantes Innegociables</div>
-                  <div class="boundaries-point-desc doc-only">ES / NO ES fija la identidad; HACE / NO HACE fija el alcance MVP.</div>
+                  <div class="boundaries-point-desc">ES / NO ES fija la identidad; HACE / NO HACE fija el alcance MVP.</div>
                 </div>
               </div>
 
@@ -15733,7 +15741,7 @@ body.theme-dark .adr-lane-action-box {
                 <div class="boundaries-point-icon">⚡</div>
                 <div class="boundaries-point-text">
                   <div class="boundaries-point-title">Context Budgeting: &lt;800 Tokens</div>
-                  <div class="boundaries-point-desc doc-only">Tablas Markdown compactas con máxima densidad semántica en mínima VRAM.</div>
+                  <div class="boundaries-point-desc">Tablas Markdown compactas con máxima densidad semántica en mínima VRAM.</div>
                 </div>
               </div>
             </div>
@@ -15899,7 +15907,7 @@ body.theme-dark .adr-lane-action-box {
                 <div class="sdlc-point-icon">⚖️</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">Una Sola X por Columna</div>
-                  <div class="sdlc-point-desc doc-only">Prioridades del 1 al 7 estrictamente ordinales: #1 Usabilidad, #2 Coste $0.</div>
+                  <div class="sdlc-point-desc">Prioridades del 1 al 7 estrictamente ordinales: #1 Usabilidad, #2 Coste $0.</div>
                 </div>
               </div>
 
@@ -15907,7 +15915,7 @@ body.theme-dark .adr-lane-action-box {
                 <div class="sdlc-point-icon">🤺</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">Debate Adversarial (No pasante)</div>
-                  <div class="sdlc-point-desc doc-only">El agente confronta roles (PO vs UX vs Tech Lead) para podar caprichos.</div>
+                  <div class="sdlc-point-desc">El agente confronta roles (PO vs UX vs Tech Lead) para podar caprichos.</div>
                 </div>
               </div>
 
@@ -15915,7 +15923,7 @@ body.theme-dark .adr-lane-action-box {
                 <div class="sdlc-point-icon">🧭</div>
                 <div class="sdlc-point-text">
                   <div class="sdlc-point-title">Árbitro Técnico Inapelable</div>
-                  <div class="sdlc-point-desc doc-only">Ante cualquier dilema de código, Simplicidad y Coste $0 vencen a Escalabilidad.</div>
+                  <div class="sdlc-point-desc">Ante cualquier dilema de código, Simplicidad y Coste $0 vencen a Escalabilidad.</div>
                 </div>
               </div>
             </div>
