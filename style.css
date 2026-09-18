@@ -13729,6 +13729,21 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .md-h2 {
   font-size: 1.02rem !important;
 }
 
+/* Tableros de pilares: centrar verticalmente en el aire libre (Modo Charla) */
+body:not(.mode-document) .slide[id^="slide-pillar-"] .adr-timeline-container,
+body:not(.mode-document) .slide[id^="slide-pillar-"] .adr-decision-deck {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 2.5rem;
+}
+
+body:not(.mode-document) .slide[id^="slide-tdd-hybrid-evolution"] .sdlc-build-deck {
+  flex: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 2rem;
+}
+
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
 body:not(.mode-document) .slide[id^="slide-phase2-"] .mermaid-diagram-wrap,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .mermaid-diagram-wrap {
