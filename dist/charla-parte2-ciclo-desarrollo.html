@@ -51,9 +51,11 @@
   --gradient-badge-amber: linear-gradient(135deg, #fde047 0%, #eab308 100%);
 
   /* Tipografías */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-editorial-legacy: 'Playfair Display', Georgia, 'Times New Roman', serif;
 
   /* Transición */
   --transition-speed: 0.32s;
@@ -159,27 +161,28 @@ body {
    TIPOGRAFÍA EDITORIAL (OPTIMIZADA PARA PROYECCIÓN DE ALTO CONTRASTE)
    ========================================================================== */
 h1 {
-  font-family: var(--font-serif);
-  font-size: 5.8rem;
-  font-weight: 600;
-  line-height: 1.04;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   color: var(--text-main);
 }
 
 h2 {
-  font-family: var(--font-serif);
-  font-size: 4.5rem;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-family: var(--font-heading);
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--text-main);
 }
 
 h3 {
-  font-family: var(--font-serif);
-  font-size: 2.8rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text-main);
 }
 
@@ -204,9 +207,10 @@ strong {
 }
 
 .serif-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 /* ==========================================================================
