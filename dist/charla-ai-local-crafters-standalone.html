@@ -12266,7 +12266,7 @@ body.theme-dark .boundaries-points-card {
   border: 1px solid rgba(2, 132, 199, 0.25);
   border-radius: 10px;
   font-size: 1.05rem;
-  color: #0284c7;
+  color: #0369a1;
   width: fit-content;
 }
 
@@ -12587,7 +12587,7 @@ body.theme-dark .sdlc-hero-box.purple {
 .sdlc-skill-pill.purple {
   background: rgba(139, 92, 246, 0.08);
   border: 1px solid rgba(139, 92, 246, 0.25);
-  color: #8b5cf6;
+  color: #7c3aed;
 }
 
 body.theme-dark .sdlc-skill-pill.purple {
@@ -12597,7 +12597,7 @@ body.theme-dark .sdlc-skill-pill.purple {
 }
 
 .sdlc-hero-box.green {
-  border-left-color: #10b981;
+  border-left-color: #059669;
 }
 
 body.theme-dark .sdlc-hero-box.green {
@@ -12605,13 +12605,13 @@ body.theme-dark .sdlc-hero-box.green {
 }
 
 .sdlc-hero-box.green .sdlc-hero-quote u {
-  text-decoration-color: #10b981;
+  text-decoration-color: #059669;
 }
 
 .sdlc-skill-pill.green {
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
-  color: #059669;
+  color: #047857;
 }
 
 body.theme-dark .sdlc-skill-pill.green {
@@ -12621,7 +12621,7 @@ body.theme-dark .sdlc-skill-pill.green {
 }
 
 .sdlc-hero-box.amber {
-  border-left-color: #f59e0b;
+  border-left-color: #b45309;
 }
 
 body.theme-dark .sdlc-hero-box.amber {
@@ -12629,13 +12629,13 @@ body.theme-dark .sdlc-hero-box.amber {
 }
 
 .sdlc-hero-box.amber .sdlc-hero-quote u {
-  text-decoration-color: #f59e0b;
+  text-decoration-color: #b45309;
 }
 
 .sdlc-skill-pill.amber {
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  color: #d97706;
+  color: #b45309;
 }
 
 body.theme-dark .sdlc-skill-pill.amber {
@@ -12671,7 +12671,7 @@ body.theme-dark .sdlc-skill-pill.indigo {
 
 /* Step 6: Cyan */
 .sdlc-hero-box.cyan {
-  border-left-color: #06b6d4;
+  border-left-color: #0e7490;
 }
 
 body.theme-dark .sdlc-hero-box.cyan {
@@ -12679,13 +12679,13 @@ body.theme-dark .sdlc-hero-box.cyan {
 }
 
 .sdlc-hero-box.cyan .sdlc-hero-quote u {
-  text-decoration-color: #06b6d4;
+  text-decoration-color: #0e7490;
 }
 
 .sdlc-skill-pill.cyan {
   background: rgba(6, 182, 212, 0.08);
   border: 1px solid rgba(6, 182, 212, 0.25);
-  color: #0891b2;
+  color: #0e7490;
 }
 
 body.theme-dark .sdlc-skill-pill.cyan {
@@ -12710,7 +12710,7 @@ body.theme-dark .sdlc-hero-box.rose {
 .sdlc-skill-pill.rose {
   background: rgba(236, 72, 153, 0.08);
   border: 1px solid rgba(236, 72, 153, 0.25);
-  color: #db2777;
+  color: #be185d;
 }
 
 body.theme-dark .sdlc-skill-pill.rose {
@@ -12735,7 +12735,7 @@ body.theme-dark .sdlc-hero-box.emerald {
 .sdlc-skill-pill.emerald {
   background: rgba(5, 150, 105, 0.08);
   border: 1px solid rgba(5, 150, 105, 0.25);
-  color: #059669;
+  color: #047857;
 }
 
 body.theme-dark .sdlc-skill-pill.emerald {
@@ -13635,11 +13635,23 @@ body:not(.mode-document) .doc-only {
   display: none !important;
 }
 
-/* En Modo Charla, ocultar el banner inferior en las slides de Inception y Fase 2 para ganar aire y verticalidad 16:9 */
-body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner,
+/* En Modo Charla: el banner "Regla de Oro" de las slides de Paso SE MUESTRA compacto (es el takeaway de cada paso; la consola flex:1 absorbe su altura). En Fase 2 y Pilares se sigue ocultando para ganar aire y verticalidad 16:9 */
 body:not(.mode-document) .slide[id^="slide-phase2-"] .chosen-synergy-banner,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .chosen-synergy-banner {
   display: none !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner {
+  padding: 0.55rem 1.2rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-icon {
+  font-size: 1.15rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-text {
+  font-size: 0.9rem !important;
+  line-height: 1.35 !important;
 }
 
 /* En Modo Charla, dotar de presencia y legibilidad a las terminales y tablas */
@@ -13838,7 +13850,7 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] p.subtitle {
   display: none !important;
 }
 
-/* En Modo Charla, ocultar subtítulos y textos largos no esenciales */
+/* En Modo Charla, ocultar subtítulos y hero-subs; los point-desc de las slides de Paso se muestran (los re-habilita la regla posterior). Phase2/Pillar ocultan descs */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-sub,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-sub,
