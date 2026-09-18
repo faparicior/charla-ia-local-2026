@@ -99,3 +99,52 @@ Medido contra el fondo del deck (~`#f5f5f4`, luminancia 0.913):
 - **✅ Relación→layout**: s9 tabla comparativa con ganador/perdedor resaltados ✓, s10 tabla de diferido + parking lot con ❌ visuales ✓, s11 dashboard de KPIs con score pill ✓ (catálogo: "resaltar el ganador", "big number con baseline").
 
 *Capturas adicionales: `/tmp/sdlc-parte2-slide{9,10,11}.png`. Medición con Playwright (steps: 0 en las tres; banner oculto en modo charla: las tres; palabras visibles: 147/130/121).*
+
+---
+
+# FIXES APLICADOS (verificados con Playwright post-cambio)
+
+**Backups previos:** `/tmp/backup-parte2.html`, `/tmp/backup-style.css`
+
+## 1. Contraste AA en acentos — texto sobre fondo claro
+
+Regla aplicada: **badge (12px) ≥4.5:1 · h2 span (67px) ≥3:1 con margen para proyector**. Los 500s se reservan para gráficos/bordes oscuros.
+
+| Slide | h2 span | badge | antes (h2/badge) |
+|---|---|---|---|
+| 4 | `#0284c7` (se mantiene, 3.8:1 ✓) | `#0284c7` → **`#0369a1`** (4.8:1) | 3.8/3.8 |
+| 5 | `#8b5cf6` (se mantiene, 3.9:1 ✓) | → **`#6d28d9`** (6.5:1) | 3.9/3.9 |
+| 6 | → **`#059669`** (3.5:1 ✓ antes 2.3 ✗) | → **`#047857`** (5.0:1) | 2.3/3.5 |
+| 7 | → **`#b45309`** (4.6:1 ✓ antes 2.0 ✗✗) | → **`#b45309`** | 2.0/2.9 |
+| 8 | → **`#0e7490`** (4.9:1 ✓ antes 2.2 ✗) | → **`#0e7490`** | 2.2/3.4 |
+| 9 | `#6366f1` (se mantiene, 4.1:1 ✓) | → **`#4f46e5`** (5.8:1) | 4.1/4.1 |
+| 10 | → **`#db2777`** (4.2:1 ✓ antes 3.2 límite) | → **`#be185d`** (5.5:1) | 3.2/4.2 |
+| 11 | `#059669` (se mantiene ✓) | → **`#047857`** | 3.5/3.5 |
+
+También en `style.css` (clases compartidas, beneficia a todo el deck): bordes hero-box y subrayados de quote de green/amber/cyan subidos a 600/700; texto de todos los skill-pills subido a shades AA (`#7c3aed`, `#047857`, `#b45309`, `#0e7490`, `#be185d`, `#0369a1`).
+
+## 2. Banner "Regla de Oro" visible en Modo Charla
+
+- Eliminado `slide-step` de la regla `display:none` (13620): el banner ahora aparece en las 8 slides de pasos en modo charla (Fase 2 y Pilares mantienen su ocultación).
+- Estilo compacto en charla: padding 0.55rem, texto 0.9rem, icono 1.15rem → **37px de altura, una línea**.
+- Sin overflow en ninguna slide (verificado: consola `flex:1` absorbe la altura; bottom del contenido en 967/1008 en las 8).
+- La tesis de la Parte 2 ("el contrato firmado → desarrollo determinista", slide 11) ya es visible en directo.
+
+## 3. Limpieza de `doc-only` muertos
+
+- 18 clases `doc-only` muertas eliminadas de `.sdlc-point-desc`/`.boundaries-point-desc` en el HTML (la regla 13893 las re-mostraba en charla con `!important`).
+- Bloque contradictorio 13826 recortado: ya no "oculta para luego mostrar" los descs de las slides de Paso (los hero-subs y phase2/pillar mantienen su comportamiento).
+- Comportamiento visual: idéntico al previo (charla muestra descs, documento igual) — ahora con cascada limpia y clases honestas.
+
+## Verificación post-fix
+
+- 8/8 slides: banner `display:flex`, contenido hasta y=967 (límite 1008), sin clipping.
+- Colores computados correctos en h2/badge de las 8 (ver tabla).
+- Capturas regeneradas: `/tmp/sdlc-parte2-slide{4..11}.png`.
+
+## Pendiente (no aprobado aún)
+
+- Terminal body 16→18px en modo charla (fix #4 del top-5).
+- Action-titles opcionales (fix #5).
+- Ritmo: alternar lado de terminal o divisoria entre fases (fix #3 — mayor esfuerzo, requiere decisión de diseño).
+- Slides fuera del alcance revisado (2, 12-36) tienen el mismo patrón de badges/acento: extender la regla si se quiere consistencia global.
