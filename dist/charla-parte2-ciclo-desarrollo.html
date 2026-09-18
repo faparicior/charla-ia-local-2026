@@ -127,7 +127,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3.5rem 5rem;
+  padding: 3rem 4.5rem 4.5rem 4.5rem;
   background: var(--bg-primary);
   opacity: 0;
   visibility: hidden;
@@ -13897,8 +13897,27 @@ body.mode-document .btn-toggle-doc {
   min-height: 0;
 }
 
+.deck-sdlc-part2 .rect-timeline-deck {
+  justify-content: center;
+}
+
+.deck-sdlc-part2 .rect-col {
+  height: 520px;
+}
+
+.deck-sdlc-part2 .rect-timeline-grid.cols-5 .rect-top-slot,
+.deck-sdlc-part2 .rect-timeline-grid.cols-5 .rect-bottom-slot {
+  height: 235px;
+}
+
+.deck-sdlc-part2 .rect-backdrop-zones {
+  top: -10px;
+  bottom: -10px;
+}
+
 .deck-sdlc-part2 .chosen-synergy-banner {
   flex-shrink: 0;
+  margin-top: 0.4rem !important;
 }
 
 /* ==========================================================================
@@ -14382,145 +14401,6 @@ body.theme-dark .scenario-detail-badge {
   flex: none;
 }
 
-@media print {
-
-  html,
-  body {
-    width: 100% !important;
-    height: auto !important;
-    overflow: visible !important;
-    background-color: var(--bg-primary) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  #progress-bar,
-  #hud,
-  #help-modal {
-    display: none !important;
-  }
-
-  #deck {
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    overflow: visible !important;
-  }
-
-  .slide {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 1920px !important;
-    height: 1080px !important;
-    max-height: 1080px !important;
-    min-height: 1080px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    page-break-after: always !important;
-    page-break-inside: avoid !important;
-    break-after: page !important;
-    break-inside: avoid !important;
-    padding: 3.5rem 5rem !important;
-    background-color: var(--bg-primary) !important;
-    box-sizing: border-box !important;
-  }
-
-  .slide-content {
-    max-height: 100% !important;
-    width: 100% !important;
-    max-width: 1760px !important;
-  }
-
-  .card,
-  .press-card,
-  .table-container,
-  .gpu-card,
-  .rect-card,
-  .rect-summary-ribbon,
-  .dflash-actor-card,
-  .dflash-novel-card,
-  .mtp-model-card,
-  .mtp-novel-card,
-  .dspark-card,
-  .dspark-novel-card,
-  .ds-stage-card {
-    background: #ffffff !important;
-    border: 1px solid #dbd9d2 !important;
-    box-shadow: none !important;
-  }
-
-  .code-window {
-    background: #111317 !important;
-    box-shadow: none !important;
-  }
-}
-
-margin-bottom: 0.25rem;
-display: flex;
-align-items: center;
-gap: 0.3rem;
-}
-
-.canvas-box-content {
-  font-size: 0.71rem;
-  line-height: 1.35;
-  color: #cbd5e1;
-}
-
-.canvas-kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.45rem;
-}
-
-.canvas-kpi-card {
-  background: rgba(16, 185, 129, 0.06);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  border-radius: 6px;
-  padding: 0.4rem 0.5rem;
-  text-align: center;
-}
-
-.canvas-kpi-target {
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  font-weight: 800;
-  color: #6ee7b7;
-}
-
-.canvas-kpi-label {
-  font-size: 0.63rem;
-  color: #94a3b8;
-  margin-top: 0.1rem;
-}
-
-.canvas-seal-row {
-  background: linear-gradient(90deg, rgba(16, 185, 129, 0.12), rgba(5, 150, 105, 0.22));
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  border-radius: 7px;
-  padding: 0.5rem 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.canvas-seal-badge {
-  background: #059669;
-  color: #ffffff;
-  font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 0.78rem;
-  padding: 0.28rem 0.6rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
-}
 
 /* ==========================================================================
    PILAR 1: TIMELINE HORIZONTAL DE ADRs (5 PASOS DE IZQUIERDA A DERECHA)
@@ -24910,8 +24790,9 @@ function initDeck() {
 
   function updateScale() {
     if (isOverview) return;
-    const availableWidth = window.innerWidth * 0.96;
-    const availableHeight = window.innerHeight * 0.92;
+    // Dejar margen de seguridad tanto horizontal como vertical para el HUD y posibles marcos
+    const availableWidth = window.innerWidth * 0.94;
+    const availableHeight = window.innerHeight * 0.86;
     const scale = Math.min(availableWidth / BASE_WIDTH, availableHeight / BASE_HEIGHT);
     document.documentElement.style.setProperty('--slide-scale', scale.toFixed(4));
   }

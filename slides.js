@@ -200,8 +200,9 @@ function initDeck() {
 
   function updateScale() {
     if (isOverview) return;
-    const availableWidth = window.innerWidth * 0.96;
-    const availableHeight = window.innerHeight * 0.92;
+    // Dejar margen de seguridad tanto horizontal como vertical para el HUD y posibles marcos
+    const availableWidth = window.innerWidth * 0.94;
+    const availableHeight = window.innerHeight * 0.86;
     const scale = Math.min(availableWidth / BASE_WIDTH, availableHeight / BASE_HEIGHT);
     document.documentElement.style.setProperty('--slide-scale', scale.toFixed(4));
   }
