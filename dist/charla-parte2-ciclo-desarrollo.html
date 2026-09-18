@@ -13753,14 +13753,23 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] .adr-timeline-container,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .adr-decision-deck {
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 2.5rem;
+  padding-bottom: 4rem;
 }
 
 body:not(.mode-document) .slide[id^="slide-tdd-hybrid-evolution"] .sdlc-build-deck {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 2rem;
+  padding-bottom: 3.25rem;
+}
+
+/* Texto pequeño del detalle TDD: bump legible (slack verificado: 27px en la card) */
+body:not(.mode-document) .slide[id^="slide-tdd-hybrid-evolution"] .sdlc-tdd-desc {
+  font-size: 0.84rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-tdd-hybrid-evolution"] .sdlc-tdd-layer {
+  font-size: 0.88rem !important;
 }
 
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
