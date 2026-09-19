@@ -224,3 +224,13 @@ Fernando pidió una visualización más grande para el reparto de la VRAM y desc
 - **s11 tamaños**: títulos de tarjeta «KV Cache»/«Pesos del Modelo» agrandados (1.85rem en charla, 1.38rem en documento).
 - **s11 documento rectangular**: las dos tarjetas vuelven a `flex: 1 1 0` (reparto igual de altura) mientras la fila de ilustración queda en flujo (`flex: 0 0 auto`), de modo que la columna derecha llena hasta el fondo igual que la tarjeta del tanque, sin solapes.
 - Barrido 30/30 limpio en charla y documento; capturas de s9 y s11 revisadas a ojo en ambos modos.
+
+## Slide 14 — nuevo modelo escogido: Qwen 3.8 Flash Next (29 sep 2026)
+Fernando pidió sustituir el Qwen 3.5 122B como modelo «escogido» por el Qwen 3.8 Flash Next (125B + 51B n-gram, 6B activos — la cifra inicial de 150B fue descartada tras verificar las fuentes). **Todas las cifras de la fila son reales, medidas sobre los checkpoints publicados** (safetensors oficiales, GGUF de Unsloth vía API de HF, y repos INT4/NVFP4 de terceros); no hay extrapolaciones. Detalle completo en `referencia-qwen38-flash-next-quantizaciones.md`.
+
+- **Fila nueva** (reemplaza a la 122B, que desaparece de la tabla): `★ Qwen 3.8 Flash Next | 125B + 51B / 6B (MoE híbrido) | BF16 ~360.0 | FP8 ~185.5 | GGUF Q5_K_M ~158.0 (pill amarilla, el checkpoint más ligero) | AWQ INT4 ~168.0 | INT4 AutoRound ~178.0 | NVFP4 ~183.0 | nota: «Frontera en 128 GB: solo 65–70 GB en GPU; el n-gram (102 GB) vive en RAM del host»`.
+- **Matiz del modelo híbrido**: los checkpoints INT4/NVFP4 de terceros llevan la tabla n-gram (PLE, 51B) en BF16 dentro (95–102 GB), por eso sus pesos totales (168–183 GB) no descienden como en modelos normales — pero **solo 65–70 GB residen en GPU** (los expertos MoE) y el resto se streamea desde disco/RAM del host. Es lo que lo hace viable en 128 GB unificados (DGX Spark).
+- Pill amarilla movida a **GGUF Q5_K_M (~158 GB)** siguiendo el patrón de las otras filas escogidas (pill en el menor GB real de la fila; la AutoRound/NVFP4 pesan más por el PLE en BF16).
+- **Banner inferior actualizado**: «Qwen 3.8 27B, 35B MoE, 122B MoE y el híbrido Flash Next (125B+51B: solo 65–70 GB en GPU)…» y «inasumibles (>200 GB en GPU)» en vez de «(>200 GB)».
+- Nota: AWQ pura no existe (falló la linearización en 256 GB de RAM); la celda AWQ refleja el W4A16 RTN de terceros (168 GB). NVFP4 es el build mixto de Inferact (experts NVFP4 + resto BF16/FP8, 182,8 GB medidos).
+- Barrido 30/30 limpio en charla y documento; capturas s14 revisadas en ambos modos.

@@ -887,8 +887,6 @@
                   </pattern>
                   <clipPath id="tankClip"><rect x="60" y="15" width="280" height="440" rx="14"/></clipPath>
                 </defs>
-
-                <!-- regla graduada 0-24 GB -->
                 <text x="30" y="8" text-anchor="end" font-size="11" font-weight="700" fill="#64748b">GB</text>
                 <line x1="44" y1="15" x2="44" y2="455" stroke="#94a3b8" stroke-width="1.5"/>
                 <g stroke="#94a3b8" stroke-width="1.5">
@@ -900,32 +898,21 @@
                   <text x="30" y="459">0</text><text x="30" y="349">6</text><text x="30" y="239">12</text>
                   <text x="30" y="129">18</text><text x="30" y="19">24</text>
                 </g>
-
-                <!-- tanque: contenido con esquinas recortadas -->
                 <g clip-path="url(#tankClip)">
-                  <!-- pesos (63%): bloque sólido abajo, la base fija -->
                   <rect x="60" y="176" width="280" height="279" fill="url(#gW)"/>
-                  <!-- KV cache (31%): líquido con superficie ondulada encima -->
                   <path d="M60,47 Q88,38 116,47 T172,47 T228,47 T284,47 T340,47 L340,176 L60,176 Z" fill="url(#gK)"/>
                   <path d="M60,47 Q88,38 116,47 T172,47 T228,47 T284,47 T340,47" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2.5"/>
                   <line x1="60" y1="176" x2="340" y2="176" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-                  <!-- buffer (6%): franja rayada arriba -->
                   <rect x="60" y="15" width="280" height="26" fill="url(#pBuf)"/>
                 </g>
                 <rect class="tk-frame" x="60" y="15" width="280" height="440" rx="14" fill="none" stroke-width="1.5"/>
-
-                <!-- rótulos dentro -->
                 <text x="200" y="303" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">🧠 Pesos del Modelo</text>
                 <text x="200" y="347" text-anchor="middle" font-size="40" font-weight="800" fill="#ffffff">15.2 GB</text>
                 <text x="200" y="376" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.85)">63% del tanque · INT4 · fijo</text>
-
                 <text x="200" y="100" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">💬 KV Cache</text>
                 <text x="200" y="144" text-anchor="middle" font-size="40" font-weight="800" fill="#ffffff">7.3 GB</text>
                 <text x="200" y="168" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)">31% · sube token a token</text>
-
                 <text x="200" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9">⚡ Buffer 1.5 GB · margen</text>
-
-                <!-- crecimiento del KV -->
                 <g stroke="#ea580c" stroke-width="4" stroke-linecap="round">
                   <line x1="356" y1="168" x2="356" y2="66"/><line x1="370" y1="168" x2="370" y2="52"/>
                 </g>
@@ -947,30 +934,24 @@
                 </div>
                 <div class="pillar-illustration-row">
                   <svg class="pillar-illustration-svg" viewBox="0 0 190 152" role="img" aria-label="Bloc de notas: la conversación gasta páginas que no vuelven">
-                  <!-- hojas apiladas detrás (crecen) -->
-                  <rect x="46" y="30" width="122" height="100" rx="8" fill="#94a3b8" opacity="0.28"/>
-                  <rect x="40" y="32" width="122" height="100" rx="8" fill="#cbd5e1" opacity="0.65"/>
-                  <!-- cuaderno -->
-                  <rect x="28" y="28" width="122" height="102" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="2.5"/>
-                  <!-- espiral -->
-                  <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round">
-                    <path d="M40,28 v-9"/><path d="M60,28 v-9"/><path d="M80,28 v-9"/><path d="M100,28 v-9"/>
-                    <path d="M120,28 v-9"/><path d="M140,28 v-9"/>
-                  </g>
-                  <!-- escritura: la conversación -->
-                  <g stroke-width="3.5" stroke-linecap="round" fill="none">
-                    <path d="M42,54 q12,-4 24,0 t24,0 t22,0" stroke="#3b82f6"/>
-                    <path d="M42,70 q12,-4 24,0 t20,0" stroke="#ea580c"/>
-                    <path d="M42,86 q12,-4 24,0 t24,0 t14,0" stroke="#94a3b8"/>
-                    <path d="M42,102 q12,-4 24,0 t18,0" stroke="#cbd5e1"/>
-                    <path d="M42,116 h34" stroke="#cbd5e1"/>
-                  </g>
-                  <!-- flecha de crecimiento -->
-                  <path d="M158,124 Q170,102 160,84" stroke="#ea580c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                  <polygon points="160,78 154,90 166,89" fill="#ea580c"/>
-                  <!-- pie -->
-                  <text x="95" y="146" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">+ tokens = + hojas gastadas</text>
-                </svg>
+                    <rect x="46" y="30" width="122" height="100" rx="8" fill="#94a3b8" opacity="0.28"/>
+                    <rect x="40" y="32" width="122" height="100" rx="8" fill="#cbd5e1" opacity="0.65"/>
+                    <rect x="28" y="28" width="122" height="102" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="2.5"/>
+                    <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round">
+                      <path d="M40,28 v-9"/><path d="M60,28 v-9"/><path d="M80,28 v-9"/><path d="M100,28 v-9"/>
+                      <path d="M120,28 v-9"/><path d="M140,28 v-9"/>
+                    </g>
+                    <g stroke-width="3.5" stroke-linecap="round" fill="none">
+                      <path d="M42,54 q12,-4 24,0 t24,0 t22,0" stroke="#3b82f6"/>
+                      <path d="M42,70 q12,-4 24,0 t20,0" stroke="#ea580c"/>
+                      <path d="M42,86 q12,-4 24,0 t24,0 t14,0" stroke="#94a3b8"/>
+                      <path d="M42,102 q12,-4 24,0 t18,0" stroke="#cbd5e1"/>
+                      <path d="M42,116 h34" stroke="#cbd5e1"/>
+                    </g>
+                    <path d="M158,124 Q170,102 160,84" stroke="#ea580c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                    <polygon points="160,78 154,90 166,89" fill="#ea580c"/>
+                    <text x="95" y="146" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">+ tokens = + hojas gastadas</text>
+                  </svg>
                   <div class="pillar-text-col">
                     <div class="memory-analogy-box doc-only">
                       📝 <strong>Analogía:</strong> como el <em>bloc de notas</em> de la conversación en directo.
@@ -983,6 +964,7 @@
                     </div>
                   </div>
                 </div>
+              </div>
 
               <div class="memory-pillar-card">
                 <div class="memory-pillar-header">
@@ -994,36 +976,32 @@
                 </div>
                 <div class="pillar-illustration-row">
                   <svg class="pillar-illustration-svg" viewBox="0 0 190 152" role="img" aria-label="Estantería de biblioteca: el libro de texto sigue en su sitio, lo lean 1 o 100 personas">
-                  <!-- estantería -->
-                  <rect x="6" y="14" width="178" height="130" rx="8" fill="none" stroke="#a16207" stroke-width="5"/>
-                  <rect x="10" y="58" width="170" height="7" rx="2" fill="#a16207"/>
-                  <rect x="10" y="102" width="170" height="7" rx="2" fill="#a16207"/>
-                  <!-- balda 1: lomos -->
-                  <rect x="17" y="24" width="13" height="34" rx="2" fill="#0d9488"/>
-                  <rect x="32" y="28" width="12" height="30" rx="2" fill="#94a3b8"/>
-                  <rect x="46" y="22" width="14" height="36" rx="2" fill="#f59e0b"/>
-                  <rect x="62" y="27" width="12" height="31" rx="2" fill="#64748b"/>
-                  <rect x="76" y="24" width="13" height="34" rx="2" fill="#0ea5e9"/>
-                  <g transform="rotate(-8 108 42)">
-                    <rect x="96" y="20" width="24" height="40" rx="3" fill="#1d4ed8" stroke="#1e40af" stroke-width="2"/>
-                    <rect x="101" y="26" width="14" height="4" rx="2" fill="#93c5fd"/>
-                    <rect x="101" y="34" width="14" height="3" rx="1.5" fill="#93c5fd" opacity="0.6"/>
-                  </g>
-                  <rect x="128" y="26" width="12" height="32" rx="2" fill="#94a3b8"/>
-                  <rect x="142" y="22" width="14" height="36" rx="2" fill="#10b981"/>
-                  <rect x="158" y="28" width="12" height="30" rx="2" fill="#f59e0b"/>
-                  <rect x="172" y="25" width="9" height="33" rx="2" fill="#0d9488"/>
-                  <!-- balda 2: pilas horizontales -->
-                  <rect x="20" y="94" width="52" height="8" rx="2" fill="#0ea5e9"/>
-                  <rect x="24" y="86" width="44" height="8" rx="2" fill="#10b981"/>
-                  <rect x="30" y="78" width="38" height="8" rx="2" fill="#f59e0b"/>
-                  <rect x="84" y="78" width="14" height="24" rx="2" fill="#1d4ed8"/>
-                  <rect x="104" y="94" width="58" height="8" rx="2" fill="#64748b"/>
-                  <rect x="108" y="86" width="50" height="8" rx="2" fill="#0d9488"/>
-                  <rect x="114" y="78" width="44" height="8" rx="2" fill="#0ea5e9"/>
-                  <!-- pie -->
-                  <text x="95" y="134" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a16207">🔒 1.000 lecturas · mismo sitio</text>
-                </svg>
+                    <rect x="6" y="14" width="178" height="130" rx="8" fill="none" stroke="#a16207" stroke-width="5"/>
+                    <rect x="10" y="58" width="170" height="7" rx="2" fill="#a16207"/>
+                    <rect x="10" y="102" width="170" height="7" rx="2" fill="#a16207"/>
+                    <rect x="17" y="24" width="13" height="34" rx="2" fill="#0d9488"/>
+                    <rect x="32" y="28" width="12" height="30" rx="2" fill="#94a3b8"/>
+                    <rect x="46" y="22" width="14" height="36" rx="2" fill="#f59e0b"/>
+                    <rect x="62" y="27" width="12" height="31" rx="2" fill="#64748b"/>
+                    <rect x="76" y="24" width="13" height="34" rx="2" fill="#0ea5e9"/>
+                    <g transform="rotate(-8 108 42)">
+                      <rect x="96" y="20" width="24" height="40" rx="3" fill="#1d4ed8" stroke="#1e40af" stroke-width="2"/>
+                      <rect x="101" y="26" width="14" height="4" rx="2" fill="#93c5fd"/>
+                      <rect x="101" y="34" width="14" height="3" rx="1.5" fill="#93c5fd" opacity="0.6"/>
+                    </g>
+                    <rect x="128" y="26" width="12" height="32" rx="2" fill="#94a3b8"/>
+                    <rect x="142" y="22" width="14" height="36" rx="2" fill="#10b981"/>
+                    <rect x="158" y="28" width="12" height="30" rx="2" fill="#f59e0b"/>
+                    <rect x="172" y="25" width="9" height="33" rx="2" fill="#0d9488"/>
+                    <rect x="20" y="94" width="52" height="8" rx="2" fill="#0ea5e9"/>
+                    <rect x="24" y="86" width="44" height="8" rx="2" fill="#10b981"/>
+                    <rect x="30" y="78" width="38" height="8" rx="2" fill="#f59e0b"/>
+                    <rect x="84" y="78" width="14" height="24" rx="2" fill="#1d4ed8"/>
+                    <rect x="104" y="94" width="58" height="8" rx="2" fill="#64748b"/>
+                    <rect x="108" y="86" width="50" height="8" rx="2" fill="#0d9488"/>
+                    <rect x="114" y="78" width="44" height="8" rx="2" fill="#0ea5e9"/>
+                    <text x="95" y="134" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a16207">🔒 1.000 lecturas · mismo sitio</text>
+                  </svg>
                   <div class="pillar-text-col">
                     <div class="memory-analogy-box doc-only">
                       📚 <strong>Analogía:</strong> como el <em>libro de texto</em> de la biblioteca. Ocupa su hueco en
@@ -1035,7 +1013,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
               </div>
 
               <!-- 3. Escenarios Prácticos de Concurrencia -->
@@ -1316,15 +1293,15 @@
                   <td class="col-note doc-only">MoE liviano: cálculo de 3B + KV Cache mínima</td>
                 </tr>
                 <tr class="row-goldilocks">
-                  <td class="col-name">★ Qwen 3.5 - 122B</td>
-                  <td class="col-params">122B / 10B (MoE)</td>
-                  <td>~244.0 GB</td>
-                  <td>~122.0 GB</td>
-                  <td>~84.0 GB</td>
-                  <td>~71.5 GB</td>
-                  <td><span class="goldilocks-pill-yellow">~69.0 GB</span></td>
-                  <td>~65.0 GB</td>
-                  <td class="col-note doc-only">Sweet Spot 128GB: Calidad frontera + >50GB libres</td>
+                  <td class="col-name">★ Qwen 3.8 Flash Next</td>
+                  <td class="col-params">125B + 51B / 6B (MoE híbrido)</td>
+                  <td>~360.0 GB</td>
+                  <td>~185.5 GB</td>
+                  <td><span class="goldilocks-pill-yellow">~158.0 GB</span></td>
+                  <td>~168.0 GB</td>
+                  <td>~178.0 GB</td>
+                  <td>~183.0 GB</td>
+                  <td class="col-note doc-only">Frontera en 128 GB: solo 65–70 GB en GPU; el n-gram (102 GB) vive en RAM del host</td>
                 </tr>
 
                 <!-- 4. Modelo Monstruo (Muted) -->
@@ -1350,9 +1327,9 @@
               <div>
                 <div class="goldilocks-banner-title">La "Zona Ricitos de Oro" (Goldilocks Zone)</div>
                 <div class="goldilocks-banner-desc">
-                  Ni demasiado pequeños (falta de razonamiento) ni inasumibles (>200 GB): <strong>Qwen 3.8 27B, 35B MoE
-                    y 122B MoE</strong> ofrecen la máxima velocidad e inteligencia dejando margen holgado para KV Cache
-                  en hardware de 128 GB.
+                  Ni demasiado pequeños (falta de razonamiento) ni inasumibles (>200 GB en GPU): <strong>Qwen 3.8 27B,
+                    35B MoE, 122B MoE y el híbrido Flash Next</strong> (125B+51B: solo 65–70 GB en GPU) ofrecen la
+                  máxima velocidad e inteligencia dejando margen holgado para KV Cache en hardware de 128 GB.
                 </div>
               </div>
             </div>
