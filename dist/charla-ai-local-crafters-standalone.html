@@ -16310,6 +16310,63 @@ body.deck-hardware-part1 #slide-8 .editorial-table th {
   padding: 0.8rem 1.2rem;
 }
 
+
+/* s8: grupos de precios — comerciales (azul) vs open-weight (verde);
+   barra vertical a la izquierda con color fuerte para diferenciarlos de un vistazo */
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-commercial td {
+  background: rgba(2, 132, 199, 0.085);
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-commercial td:first-child {
+  box-shadow: inset 4px 0 0 #0284c7;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-commercial td:last-child {
+  color: #0369a1;
+  font-weight: 600;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-openweight td {
+  background: rgba(5, 150, 105, 0.085);
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-openweight td:first-child {
+  box-shadow: inset 4px 0 0 #059669;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-openweight td:last-child {
+  color: #047857;
+  font-weight: 600;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.highlight-row td:first-child {
+  box-shadow: inset 4px 0 0 #ea580c;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-commercial td {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-commercial td:first-child {
+  box-shadow: inset 4px 0 0 #38bdf8;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-commercial td:last-child {
+  color: #7dd3fc;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight td {
+  background: rgba(52, 211, 153, 0.12);
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight td:first-child {
+  box-shadow: inset 4px 0 0 #34d399;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight td:last-child {
+  color: #6ee7b7;
+}
+
 </style>
 </head>
 
@@ -16932,49 +16989,49 @@ body.deck-hardware-part1 #slide-8 .editorial-table th {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="row-commercial">
                 <td>OpenAI</td>
                 <td class="model-name">GPT-5.6 Sol / o3</td>
                 <td class="mono-price">$4.00 / 3,68 €</td>
                 <td class="mono-price">$0.40 / 0,37 €</td>
                 <td>Frontier Flagship</td>
               </tr>
-              <tr>
+              <tr class="row-commercial">
                 <td>Anthropic</td>
                 <td class="model-name">Claude Sonnet 5</td>
                 <td class="mono-price">$3.00 / 2,76 €</td>
                 <td class="mono-price">$0.30 / 0,28 €</td>
                 <td>Gama Media / Agentes</td>
               </tr>
-              <tr>
+              <tr class="row-commercial">
                 <td>Google</td>
                 <td class="model-name">Gemini 3.6 Flash</td>
                 <td class="mono-price">$0.75 / 0,69 €</td>
                 <td class="mono-price">$0.075 / 0,07 €</td>
                 <td>Equilibrado Cloud</td>
               </tr>
-              <tr>
+              <tr class="row-openweight">
                 <td>DeepSeek</td>
                 <td class="model-name">DeepSeek V4 Flash / R1</td>
                 <td class="mono-price">$0.14 – $0.66</td>
                 <td class="mono-price">$0.003 / 0,003 €</td>
                 <td>Open-Weight MoE</td>
               </tr>
-              <tr>
+              <tr class="row-openweight">
                 <td>Alibaba Qwen</td>
                 <td class="model-name">Qwen 3.8 (27B / 72B)</td>
                 <td class="mono-price">$0.08 – $0.40</td>
                 <td class="mono-price">Hasta 90% desc.</td>
                 <td>Open-Weight Eficiente</td>
               </tr>
-              <tr>
+              <tr class="row-openweight">
                 <td>Alibaba Qwen</td>
                 <td class="model-name">Qwen 3.8 Flash Next</td>
                 <td class="mono-price">$0.15 / 0,14 €</td>
                 <td class="mono-price">$0.075 / 0,07 €</td>
                 <td>Open-Weight MoE Ligero</td>
               </tr>
-              <tr>
+              <tr class="row-openweight">
                 <td>Zhipu (Z.ai)</td>
                 <td class="model-name">GLM 5.3 Flash</td>
                 <td class="mono-price">$0.15 / 0,14 €</td>

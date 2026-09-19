@@ -16290,3 +16290,60 @@ body.deck-hardware-part1 #slide-8 .editorial-table td {
 body.deck-hardware-part1 #slide-8 .editorial-table th {
   padding: 0.8rem 1.2rem;
 }
+
+
+/* s8: grupos de precios — comerciales (azul) vs open-weight (verde);
+   barra vertical a la izquierda con color fuerte para diferenciarlos de un vistazo */
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-commercial td {
+  background: rgba(2, 132, 199, 0.085);
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-commercial td:first-child {
+  box-shadow: inset 4px 0 0 #0284c7;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-commercial td:last-child {
+  color: #0369a1;
+  font-weight: 600;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-openweight td {
+  background: rgba(5, 150, 105, 0.085);
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-openweight td:first-child {
+  box-shadow: inset 4px 0 0 #059669;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.row-openweight td:last-child {
+  color: #047857;
+  font-weight: 600;
+}
+
+body.deck-hardware-part1 #slide-8 .editorial-table tr.highlight-row td:first-child {
+  box-shadow: inset 4px 0 0 #ea580c;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-commercial td {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-commercial td:first-child {
+  box-shadow: inset 4px 0 0 #38bdf8;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-commercial td:last-child {
+  color: #7dd3fc;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight td {
+  background: rgba(52, 211, 153, 0.12);
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight td:first-child {
+  box-shadow: inset 4px 0 0 #34d399;
+}
+
+body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight td:last-child {
+  color: #6ee7b7;
+}
