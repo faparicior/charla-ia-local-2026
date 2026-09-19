@@ -15563,3 +15563,38 @@ body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-text strong {
 body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-icon {
   font-size: 1.4rem !important;
 }
+
+/* --- Extensión del des-cajado a Fase 2 (s13-18: mismas clases que los pasos) --- */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-box {
+  background: transparent !important;
+  border-top-width: 0 !important;
+  border-right-width: 0 !important;
+  border-bottom-width: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.3rem 0 0.3rem 1.4rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-points-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: 1.05rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item + .sdlc-point-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.05rem;
+}
+
+/* --- Diagramas mermaid (s13-15): panel más alto (banners ocultos → aire libre), diagrama y texto +19% --- */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-diagram"] .mermaid-diagram-wrap {
+  height: 620px;
+  padding: 0.8rem 1rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-diagram"] .mermaid-diagram-wrap svg {
+  max-height: 588px !important;
+}
