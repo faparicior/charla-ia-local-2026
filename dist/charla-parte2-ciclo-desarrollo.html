@@ -14524,7 +14524,7 @@ body.theme-dark .scenario-detail-badge {
 
 .deck-hardware-part1 .slide:not(.slide-hero) .slide-content>h2 {
   margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0.85rem !important;
   line-height: 1.15 !important;
   flex-shrink: 0 !important;
 }
@@ -16509,6 +16509,28 @@ body.deck-hardware-part1 #slide-4 .press-footer-link {
 body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td {
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
+}
+
+
+/* s10 en modo charla: sin texto secundario en las tarjetas, título más grande */
+body.deck-hardware-part1:not(.mode-document) #slide-10 .tri2-card-title {
+  font-size: 1.62rem;
+}
+body.deck-hardware-part1:not(.mode-document) #slide-10 .tri2-num {
+  width: 54px;
+  height: 54px;
+  font-size: 1.5rem;
+}
+
+/* s4 en modo documento: el subtítulo (2 líneas) empuja la parrilla de prensa;
+   se comprime el hueco y el subtítulo para que las tarjetas no desborden */
+body.deck-hardware-part1.mode-document #slide-4 .slide-content > .subtitle {
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+body.deck-hardware-part1.mode-document #slide-4 .press-grid {
+  margin-top: -0.75rem;
+  gap: 0.6rem;
 }
 
 </style>

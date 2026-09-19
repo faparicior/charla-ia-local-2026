@@ -181,6 +181,13 @@ Mismo mecanismo de parte 2 (`body.mode-document` + `.doc-only`, persistencia en 
 - **Sincronización p1↔p2**: bajo `file://` Chrome da a cada archivo su propio `localStorage` (p2 no hereda el modo de p1 y viceversa). Bajo HTTP sí comparte origen y funciona en los dos sentidos (verificado con `http.server`): p1 on → p2 on; p2 off → p1 off. Servido en producción (http), el modo viaja bien entre partes.
 - **Barrido doble 30/30**: modo charla y modo documento sin overflow, sin banner oculto, contraste OK. Capturas: `/tmp/sweep-p1-sN.png` (charla) y `/tmp/sweep-p1-docmode-sN.png` (documento).
 
+### Espaciado en modo charla (feedback Fernando, igual que parte 2)
+- **Comportamiento copiado de p2 (s18/s19)**: en charla el subtítulo es `display:none` SIN reservar hueco, y el aire pequeño entre título y contenido viene de `h2 margin-bottom: 0.85rem` (antes era 0 en p1) + gap flex 0.95rem (~27 px en total). En modo documento el subtítulo **aparece de golpe y empuja el contenido** hacia abajo.
+- Se probó antes una variante con `visibility:hidden` (subtítulo invisible que reservaba SIEMPRE su hueco completo): descartada — Fernando quiere hueco pequeño en charla, no el hueco del subtítulo esperando siempre.
+- **s4 en documento**: el subtítulo (2 líneas) empujaba la parrilla de prensa ~23 px fuera del lienzo (cards a 990 > límite 967). Comprimido solo en ese caso: subtítulo 0.92rem/lh 1.3, `press-grid` margin-top -0.75rem y gap 0.6rem en `body.mode-document #slide-4`.
+- **s10 en modo charla**: los 3 párrafos secundarios de las tarjetas (límite físico, lógica intacta, fluidez) son `doc-only` — solo se ven en modo documento. En charla las tarjetas muestran solo el título, agrandado a 1.62rem con chip 54px (gana legibilidad a distancia).
+- Barrido doble tras los cambios: 30/30 sin overflow, sin banner oculto, contraste OK en ambos modos.
+
 ### Verificación del flujo completo
 - Click en ⚡ → `mode-document` + `localStorage['deck-doc-mode']='true'`, subtítulos visibles.
 - Recarga → el modo se restaura.
