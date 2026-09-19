@@ -13756,7 +13756,7 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .boundaries-terminal-body {
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table {
-  font-size: 0.95rem !important;
+  font-size: 1.05rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-h1,
@@ -15509,4 +15509,57 @@ body.theme-dark .adr-lane-action-box {
     background: #111317 !important;
     box-shadow: none !important;
   }
+}
+/* ==========================================================================
+   PART2 · CHARLA — COLUMNA IZQUIERDA DES-CAJADA + BANNER "REGLA DE ORO" EN ORO
+   (limpieza visual: la terminal es la única caja sólida; la explicación respira;
+   el takeaway deja de ser la barra más discreta de la slide)
+   ========================================================================== */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box {
+  background: transparent !important;
+  border-top-width: 0 !important;
+  border-right-width: 0 !important;
+  border-bottom-width: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.3rem 0 0.3rem 1.4rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: 1.05rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item + .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item + .boundaries-point-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.05rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-banner {
+  background: rgba(180, 83, 9, 0.08) !important;
+  border: 1px solid rgba(180, 83, 9, 0.35) !important;
+  border-left: 4px solid #b45309 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  padding: 0.7rem 1.3rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-text {
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-text strong {
+  color: #92400e !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-icon {
+  font-size: 1.4rem !important;
 }

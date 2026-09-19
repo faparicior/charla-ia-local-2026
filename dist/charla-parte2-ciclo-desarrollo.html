@@ -13775,7 +13775,7 @@ body:not(.mode-document) .slide[id^="slide-phase2-"] .boundaries-terminal-body {
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .md-table {
-  font-size: 0.95rem !important;
+  font-size: 1.05rem !important;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-h1,
@@ -15529,6 +15529,60 @@ body.theme-dark .adr-lane-action-box {
     box-shadow: none !important;
   }
 }
+/* ==========================================================================
+   PART2 · CHARLA — COLUMNA IZQUIERDA DES-CAJADA + BANNER "REGLA DE ORO" EN ORO
+   (limpieza visual: la terminal es la única caja sólida; la explicación respira;
+   el takeaway deja de ser la barra más discreta de la slide)
+   ========================================================================== */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-box {
+  background: transparent !important;
+  border-top-width: 0 !important;
+  border-right-width: 0 !important;
+  border-bottom-width: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.3rem 0 0.3rem 1.4rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-points-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: 1.05rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item + .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item + .boundaries-point-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.05rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-banner {
+  background: rgba(180, 83, 9, 0.08) !important;
+  border: 1px solid rgba(180, 83, 9, 0.35) !important;
+  border-left: 4px solid #b45309 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  padding: 0.7rem 1.3rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-text {
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-text strong {
+  color: #92400e !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-icon {
+  font-size: 1.4rem !important;
+}
+
 </style>
 </head>
 
@@ -16016,7 +16070,7 @@ body.theme-dark .adr-lane-action-box {
         <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
           <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
           <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-            <strong>Regla de Oro Crafter:</strong> No negocies con la IA en cada prompt; fija fronteras por escrito en el Paso 1 para clausurar el error.
+            <strong>Regla de Oro Crafter:</strong> No negocies con la IA en cada prompt; fija fronteras por escrito en el Paso 1 para dejar el error fuera de juego.
           </div>
         </div>
       </div>
@@ -16062,7 +16116,7 @@ body.theme-dark .adr-lane-action-box {
               <div class="sdlc-point-item">
                 <div class="sdlc-point-icon">🤺</div>
                 <div class="sdlc-point-text">
-                  <div class="sdlc-point-title">Debate Adversarial (No pasante)</div>
+                  <div class="sdlc-point-title">Debate Adversarial (sin complacencia)</div>
                   <div class="sdlc-point-desc">El agente confronta roles (PO vs UX vs Tech Lead) para podar caprichos.</div>
                 </div>
               </div>
