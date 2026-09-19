@@ -15599,3 +15599,504 @@ body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal
 body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal {
   align-self: stretch;
 }
+
+/* ==========================================================================
+   PARTE 1 (deck-hardware-part1) — BANNERS ORO UNIFICADOS + RITMO VERTICAL +
+   TAMAÑOS/AA. Paquete A/B/C tras revisión visual (recomendaciones-parte1...).
+   Parte 1 es mono-modo (sin mode-document): reglas siempre activas.
+   Scope body.deck-hardware-part1 en todas las reglas (variante dark aparte).
+   ========================================================================== */
+
+/* ---- C. BANNERS ORO UNIFICADOS (receta parte 2, siempre activa aquí) ---- */
+body.deck-hardware-part1 .chosen-synergy-banner,
+body.deck-hardware-part1 .goldilocks-banner,
+body.deck-hardware-part1 .symptoms-banner,
+body.deck-hardware-part1 .nvfp4-summary-ribbon,
+body.deck-hardware-part1 .autoround-summary-ribbon {
+  background: rgba(180, 83, 9, 0.08) !important;
+  border: 1px solid rgba(180, 83, 9, 0.35) !important;
+  border-left: 4px solid #b45309 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  padding: 0.7rem 1.3rem !important;
+  margin-top: auto !important;
+  flex-shrink: 0 !important;
+}
+
+body.deck-hardware-part1 .chosen-synergy-text,
+body.deck-hardware-part1 .nvfp4-ribbon-text,
+body.deck-hardware-part1 .autoround-ribbon-text,
+body.deck-hardware-part1 .goldilocks-banner-desc {
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+}
+
+body.deck-hardware-part1 .chosen-synergy-text strong,
+body.deck-hardware-part1 .nvfp4-ribbon-text strong,
+body.deck-hardware-part1 .autoround-ribbon-text strong,
+body.deck-hardware-part1 .goldilocks-banner-desc strong {
+  color: #92400e !important;
+}
+
+body.deck-hardware-part1 .goldilocks-banner-title {
+  color: #92400e !important;
+}
+
+body.deck-hardware-part1 .symptoms-title {
+  color: #92400e !important;
+}
+
+/* badges/pills de los banners → tinte oro */
+body.deck-hardware-part1 .goldilocks-tag-pill,
+body.deck-hardware-part1 .nvfp4-ribbon-badge,
+body.deck-hardware-part1 .autoround-ribbon-badge,
+body.deck-hardware-part1 .chosen-synergy-badge {
+  background: rgba(180, 83, 9, 0.14) !important;
+  border: 1px solid rgba(180, 83, 9, 0.3) !important;
+  color: #92400e !important;
+  box-shadow: none !important;
+}
+
+/* ---- A. RITMO VERTICAL: decks verticales llenan la altura ---- */
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .goldilocks-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .quant-loss-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .domino-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .nvfp4-pipeline-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .autoround-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .chosen-models-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .memory-story-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .yarn-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .rope-levels-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .model-sizing-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .hackers-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .table-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+}
+
+/* wrappers horizontales que solo necesitan llenar la altura */
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .radar-slide-layout,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .buffet-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  align-items: stretch;
+}
+
+body.deck-hardware-part1 .buffet-grid {
+  align-content: center;
+}
+
+/* s10: el escenario del trilema gana altura y centra su triángulo */
+body.deck-hardware-part1 .tri-minimal-stage {
+  height: 610px;
+  margin: auto;
+  top: 0;
+}
+
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content > .trio-stage {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+/* banner queda anclado abajo dentro de su deck (margin-top:auto ya en oro) */
+
+/* ---- A.2 Distribución interna por plantilla ---- */
+/* s2 buffet: lista centrada, precio anclado abajo de la tarjeta */
+body.deck-hardware-part1 .buffet-card {
+  display: flex;
+  flex-direction: column;
+}
+
+body.deck-hardware-part1 .buffet-price-callout {
+  white-space: nowrap;
+}
+
+/* s7 radar: tarjeta del gráfico llena + svg más grande; leyenda reparte */
+body.deck-hardware-part1 .radar-chart-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.deck-hardware-part1 .radar-svg {
+  max-width: 700px;
+  height: 100%;
+}
+
+body.deck-hardware-part1 .radar-legend-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+}
+
+/* s8 tabla de precios centrada verticalmente en el hueco disponible */
+body.deck-hardware-part1 .table-container {
+  justify-content: center;
+}
+
+/* s9 tarjetas GPU: título arriba, specs centro, caso de uso abajo */
+body.deck-hardware-part1 .gpu-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* s15 pasos de cuantización centrados en tarjetas más altas */
+body.deck-hardware-part1 .quant-spectrum-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  align-content: center;
+}
+
+body.deck-hardware-part1 .quant-loss-deck > .quant-loss-table-card {
+  flex-shrink: 0;
+}
+
+/* s16 dominó: filas llenan la altura; canvas visual crece; sensitivity centrada */
+body.deck-hardware-part1 .domino-comparison-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  grid-auto-rows: 1fr;
+}
+
+body.deck-hardware-part1 .domino-visual-box {
+  flex: 1;
+  max-height: 200px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  font-size: 1.02rem;
+}
+
+body.deck-hardware-part1 .sensitivity-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* s16 dominó: cabecera arriba, visual centro, descripción abajo */
+body.deck-hardware-part1 .domino-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* s17/s18: el canvas del diagrama absorbe la altura (panel delimitado) */
+body.deck-hardware-part1 .nvfp4-diagram-box,
+body.deck-hardware-part1 .autoround-visual-box {
+  flex: 1;
+  max-height: 250px;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.deck-hardware-part1 .nvfp4-diagram-box {
+  padding: 1.2rem 1.4rem;
+  gap: 0.6rem;
+}
+
+body.deck-hardware-part1 .nvfp4-slot-chip {
+  font-size: 0.95rem;
+  padding: 0.35rem 0.6rem;
+}
+
+body.deck-hardware-part1 .nvfp4-slots-row {
+  gap: 0.4rem;
+}
+
+body.deck-hardware-part1 .nvfp4-diagram-box > div[style] {
+  font-size: 0.85rem !important;
+}
+
+body.deck-hardware-part1 .nvfp4-block-visual {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+}
+
+body.deck-hardware-part1 .nvfp4-block-elements {
+  font-size: 0.95rem;
+}
+
+body.deck-hardware-part1 .nvfp4-block-lens {
+  font-size: 0.9rem;
+}
+
+body.deck-hardware-part1 .nvfp4-hardware-flow {
+  font-size: 1.05rem;
+  gap: 0.6rem;
+}
+
+body.deck-hardware-part1 .autoround-visual-box {
+  padding: 1.2rem;
+  gap: 0.6rem;
+}
+
+body.deck-hardware-part1 .autoround-compensate-row {
+  font-size: 1rem;
+}
+
+body.deck-hardware-part1 .autoround-compensate-pill {
+  font-size: 1rem;
+  padding: 0.4rem 0.7rem;
+}
+
+body.deck-hardware-part1 .autoround-visual-box > div[style] {
+  font-size: 0.95rem !important;
+}
+
+/* s17/s18 pasos: cabecera arriba, diagrama centro, descripción abajo */
+body.deck-hardware-part1 .nvfp4-step-card,
+body.deck-hardware-part1 .autoround-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* s24 filas repartidas por la altura disponible */
+body.deck-hardware-part1 .model-sizing-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+/* s25 tarjeta escogida: tabla de specs anclada abajo */
+body.deck-hardware-part1 .chosen-card {
+  display: flex;
+  flex-direction: column;
+}
+
+body.deck-hardware-part1 .chosen-spec-table {
+  margin-top: auto;
+}
+
+/* s27 tarjetas de historia: cabecera arriba, meta abajo */
+body.deck-hardware-part1 .memory-story-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.deck-hardware-part1 .memory-deck {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+body.deck-hardware-part1 .memory-pillars-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  grid-auto-rows: 1fr;
+}
+
+body.deck-hardware-part1 .memory-pillar-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+body.deck-hardware-part1 .memory-scenario-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.deck-hardware-part1 .meme-stage-single {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+body.deck-hardware-part1 .hacker-card > .hacker-list {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+body.deck-hardware-part1 .memory-story-deck > .memory-table-card {
+  flex-shrink: 0;
+}
+
+/* s28: gráfico arriba-centro, tabla llena, config + banner abajo */
+body.deck-hardware-part1 .yarn-graphic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.deck-hardware-part1 .yarn-table-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* s29: columna derecha reparte las 3 tarjetas + regla; svg centrado */
+body.deck-hardware-part1 .rope-levels-info-col .chosen-synergy-banner {
+  margin-top: 0 !important;
+}
+
+body.deck-hardware-part1 .rope-levels-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+body.deck-hardware-part1 .rope-levels-svg-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* s14: tarjeta de tabla ocupa el hueco y la tabla se centra */
+body.deck-hardware-part1 .goldilocks-table-card {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ---- B. TAMAÑOS Y AA ---- */
+/* s14 matriz de pesos: legible en proyector; grises con datos a nivel AA */
+body.deck-hardware-part1 .goldilocks-table {
+  font-size: 1rem;
+}
+
+body.deck-hardware-part1 .goldilocks-table th {
+  font-size: 0.8rem;
+}
+
+body.deck-hardware-part1 .goldilocks-table td {
+  padding: 0.6rem 0.55rem;
+  font-size: 1rem;
+}
+
+body.deck-hardware-part1 .goldilocks-table td.col-params {
+  font-size: 0.9rem;
+  color: #525660;
+  opacity: 1;
+}
+
+body.deck-hardware-part1 .goldilocks-table tr.row-muted {
+  opacity: 1;
+}
+
+body.deck-hardware-part1 .goldilocks-table tr.row-muted td {
+  color: #525660;
+}
+
+body.deck-hardware-part1 .goldilocks-table tr.row-muted td.col-note {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* s15: tabla benchmark más grande; deltas grises a AA */
+body.deck-hardware-part1 .quant-loss-table {
+  font-size: 0.98rem;
+}
+
+body.deck-hardware-part1 .quant-loss-table th {
+  font-size: 0.84rem;
+}
+
+body.deck-hardware-part1 .quant-loss-table td {
+  padding: 0.62rem 0.6rem;
+  font-size: 0.98rem;
+}
+
+body.deck-hardware-part1 .editorial-table td {
+  padding: 1.35rem 1.4rem;
+}
+
+body.deck-hardware-part1 .quant-loss-table td small {
+  color: #6b7280 !important;
+}
+
+/* s25: filas de specs más grandes */
+body.deck-hardware-part1 .chosen-spec-row {
+  font-size: 0.92rem;
+  padding: 0.42rem 0.5rem;
+}
+
+body.deck-hardware-part1 .chosen-spec-row .spec-value {
+  font-size: 0.88rem;
+}
+
+/* s27: tabla de progresión de memoria */
+body.deck-hardware-part1 .memory-progression-table {
+  font-size: 0.95rem;
+}
+
+body.deck-hardware-part1 .memory-progression-table th {
+  font-size: 0.8rem;
+  color: #6b7280;
+  padding: 0.5rem 0.7rem;
+}
+
+body.deck-hardware-part1 .memory-progression-table td {
+  padding: 0.55rem 0.7rem;
+}
+
+body.deck-hardware-part1 .memory-progression-table td.tag-col {
+  font-size: 0.9rem;
+}
+
+/* s24: etiquetas y badges de velocidad más grandes */
+body.deck-hardware-part1 .model-sizing-row {
+  font-size: 0.92rem;
+}
+
+body.deck-hardware-part1 .speed-badge {
+  font-size: 0.9rem;
+}
+
+/* s10: etiquetas mono del trilema */
+body.deck-hardware-part1 .tri-node-pill {
+  font-size: 0.92rem;
+}
+
+/* ---- Variante theme-dark (mínima coherente con lo nuevo) ---- */
+body.theme-dark.deck-hardware-part1 .chosen-synergy-banner,
+body.theme-dark.deck-hardware-part1 .goldilocks-banner,
+body.theme-dark.deck-hardware-part1 .symptoms-banner,
+body.theme-dark.deck-hardware-part1 .nvfp4-summary-ribbon,
+body.theme-dark.deck-hardware-part1 .autoround-summary-ribbon {
+  background: rgba(217, 119, 6, 0.12) !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+  border-left-color: #f59e0b !important;
+}
+
+body.theme-dark.deck-hardware-part1 .goldilocks-banner-title,
+body.theme-dark.deck-hardware-part1 .symptoms-title,
+body.theme-dark.deck-hardware-part1 .chosen-synergy-text strong,
+body.theme-dark.deck-hardware-part1 .nvfp4-ribbon-text strong,
+body.theme-dark.deck-hardware-part1 .autoround-ribbon-text strong,
+body.theme-dark.deck-hardware-part1 .goldilocks-banner-desc strong {
+  color: #fcd34d !important;
+}
+
+body.theme-dark.deck-hardware-part1 .goldilocks-tag-pill,
+body.theme-dark.deck-hardware-part1 .nvfp4-ribbon-badge,
+body.theme-dark.deck-hardware-part1 .autoround-ribbon-badge,
+body.theme-dark.deck-hardware-part1 .chosen-synergy-badge {
+  background: rgba(251, 191, 36, 0.15) !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+  color: #fcd34d !important;
+}
+
+body.theme-dark.deck-hardware-part1 .goldilocks-table tr.row-muted td,
+body.theme-dark.deck-hardware-part1 .goldilocks-table td.col-params {
+  color: #9fa4b2;
+}
+
+body.theme-dark.deck-hardware-part1 .goldilocks-table tr.row-muted td.col-note,
+body.theme-dark.deck-hardware-part1 .quant-loss-table td small,
+body.theme-dark.deck-hardware-part1 .memory-progression-table th {
+  color: #9ca3af !important;
+}

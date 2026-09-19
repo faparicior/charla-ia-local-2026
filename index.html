@@ -82,7 +82,7 @@
             </div>
             <div class="buffet-card-title">La Era Dorada</div>
             <div class="buffet-price-callout">
-              10 $<span> / mes (o gratis)</span>
+              10&nbsp;$<span> / mes (o gratis)</span>
             </div>
 
             <div class="buffet-feature-list">
@@ -125,7 +125,7 @@
             </div>
             <div class="buffet-card-title">El Despertar</div>
             <div class="buffet-price-callout trap">
-              200 $ – 275 €<span> / mes + Credits</span>
+              200&nbsp;$ – 275&nbsp;€<span> / mes + Credits</span>
             </div>
 
             <div class="buffet-feature-list">
@@ -966,7 +966,7 @@
     <section class="slide" id="slide-12">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos (100% Activo)</div>
-        <h2>Modelos Densos: <span class="serif-italic" style="color: #d97706;">La Junta Médica Completa</span></h2>
+        <h2>Modelos Densos: <span class="serif-italic" style="color: #b45309;">La Junta Médica Completa</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Multiplicar 70 mil millones de parámetros en cada palabra generada para responder a una consulta simple.
         </p>
@@ -1093,7 +1093,7 @@
     <section class="slide" id="slide-14">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
-        <h2>Matriz de Pesos: <span class="serif-italic" style="color: #16a34a;">La Zona Ricitos de Oro</span></h2>
+        <h2>Matriz de Pesos: <span class="serif-italic" style="color: #15803d;">La Zona Ricitos de Oro</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Consumo de VRAM según cuantización: el <em>sweet spot</em> para estaciones locales y chips de 128 GB (DGX
           Spark / GB10 / Mac).
@@ -2681,11 +2681,11 @@
     <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
-        <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #10b981;">¿Dónde vive la
+        <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #047857;">¿Dónde vive la
             memoria?</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
-          La diferencia radical entre acumular folios en una estantería ($O(N)$) y sobreescribir una matriz asociativa
-          ($O(1)$) en VRAM.
+          La diferencia radical entre acumular folios en una estantería (<em>O(N)</em>) y sobreescribir una matriz asociativa
+          (<em>O(1)</em>) en VRAM.
         </p>
 
         <div class="memory-story-deck">
@@ -2700,7 +2700,7 @@
                 <span class="memory-story-badge blue">KV Cache Lineal O(N)</span>
               </div>
               <p class="memory-story-desc">
-                <strong>Guarda cada token en una carpeta:</strong> Cada palabra genera vectores $K$ y $V$ que se apilan
+                <strong>Guarda cada token en una carpeta:</strong> Cada palabra genera vectores <em>K</em> y <em>V</em> que se apilan
                 en la memoria. A los 256.000 tokens necesitas <strong>un almacén industrial entero (&gt;40 GB)</strong>.
               </p>
               <div class="memory-story-meta">
@@ -2716,7 +2716,7 @@
                 <span class="memory-story-badge green">Memoria Fija O(1)</span>
               </div>
               <p class="memory-story-desc">
-                <strong>Sobreescribe una matriz fija:</strong> Tiene una matriz asociativa $S_t$ fija (~100 MB). Cada
+                <strong>Sobreescribe una matriz fija:</strong> Tiene una matriz asociativa <em>S<sub>t</sub></em> fija (~100 MB). Cada
                 nuevo token borra y reescribe los números con la <em>Regla Delta</em>. <strong>Siempre mide lo
                   mismo.</strong>
               </p>
@@ -2792,7 +2792,7 @@
     <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
-        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #10b981;">Contexto Masivo en
+        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #047857;">Contexto Masivo en
             Local</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a
@@ -2969,7 +2969,7 @@
     <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
-        <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #10b981;">Juntas, Próximas y Alejadas</span></h2>
+        <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #047857;">Juntas, Próximas y Alejadas</span></h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Un LLM resuelve la gramática inmediata sin perder la capacidad de recordar datos a 1 millón de palabras de distancia.
         </p>
@@ -3150,7 +3150,7 @@
 
                   <!-- Bloque 2: Vector de 4.096 Dimensiones -->
                   <rect x="10" y="132" width="540" height="195" rx="10" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.4" />
-                  <text x="25" y="156" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14.5" font-weight="800">📦 Vector de 1 Token en Qwen / LLaMA ($d = 4.096$)</text>
+                  <text x="25" y="156" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14.5" font-weight="800">📦 Vector de 1 Token en Qwen / LLaMA (<tspan font-style="italic">d</tspan> = 4.096)</text>
 
                   <!-- Tramo Micro: Dims 1..128 -->
                   <rect x="25" y="170" width="160" height="90" rx="7" fill="rgba(99, 102, 241, 0.08)" stroke="#6366f1" stroke-width="1.4" />
