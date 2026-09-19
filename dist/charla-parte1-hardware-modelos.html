@@ -16709,6 +16709,17 @@ body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td.col-
   display: none;
 }
 
+/* Fix doc-only: dentro de tablas el display:block rompe el layout de celdas
+   (bordes horizontales desalineados en s14) -> restaurar el display natural */
+body.mode-document td.doc-only,
+body.mode-document th.doc-only { display: table-cell; }
+body.mode-document li.doc-only { display: list-item; }
+
+/* s14 charla: banner Zona Ricitos de Oro solo en modo documento */
+body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-banner {
+  display: none;
+}
+
 </style>
 </head>
 
