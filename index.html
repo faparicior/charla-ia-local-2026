@@ -1626,29 +1626,37 @@
                   <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: Inferact NVFP4 &middot; 182,8 GB en disco</text>
                   </svg>
               </div>
-              <div class="memory-card-highlight-pill">81 GB de pesos en GPU + la biblioteca de 102 GB en BF16 fuera: ni con offload cabe en los 128 unificados de un solo nodo.</div>
-              <p class="anat-detail doc-only">En una RTX 6000 Pro s&iacute; cabe, porque su VRAM dedicada va acompa&ntilde;ada de host RAM aparte para la PLE (&laquo;with PLE offload&raquo;). En GB10 la memoria es unificada: pesos + biblioteca + KV compiten en los mismos 128 GB.</p>
+              <div class="memory-card-highlight-pill">81 GB de pesos + 102 GB de biblioteca BF16: el checkpoint entero no cabe en los 128 unificados; solo en una RTX 6000 Pro, que acompa&ntilde;a la VRAM con host RAM aparte para la biblioteca.</div>
+              <p class="anat-detail doc-only">En una RTX 6000 Pro s&iacute; cabe, porque su VRAM dedicada va acompa&ntilde;ada de host RAM aparte para la PLE (&laquo;with PLE offload&raquo;). En GB10 la memoria es unificada y no hay host RAM aparte. La &uacute;nica v&iacute;a para servir un PTQ en el Spark es streamear el engram desde el SSD (receta tipo mmap de 0xBakeer con el RadixArk NVFP4: ~83 GiB de pesos residentes): entra, pero deja menos aire para KV &mdash; por eso el QAD es el checkpoint de referencia para la Spark: el &uacute;nico que cabe entero en memoria.</p>
             </div>
 
             <div class="qad-card qad-yes">
               <div class="qad-head"><div class="qad-name">NVFP4 QAD (destilado)</div><span class="qad-badge qad-badge-green">105 GB &lt; 128</span></div>
               <div class="qad-stage">
-                <svg viewBox="0 0 520 186" role="img" aria-label="Barra de 105 GB dentro del nodo de 128 GB con 23 GB libres para KV">
-                  <text x="20" y="22" font-size="15" font-weight="800" fill="#334155">Nodo: 128 GB unificados</text>
-                  <rect x="20" y="36" width="307" height="90" rx="10" class="qad-node"/>
-                  <rect x="20" y="36" width="252" height="90" fill="url(#egG)"/>
-                  <text x="146" y="74" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">105 GB</text>
-                  <text x="146" y="94" text-anchor="middle" font-size="11.5" fill="#dbeafe">pesos + biblioteca NVFP4</text>
-                  <rect x="272" y="42" width="50" height="78" rx="4" class="qad-free"/>
-                  <text x="417" y="70" text-anchor="middle" font-size="14" font-weight="800" fill="#15803d">+23 GB libres</text>
-                  <text x="417" y="90" text-anchor="middle" font-size="12" fill="#64748b">KV + buffers</text>
-                  <text x="478" y="92" text-anchor="middle" font-size="30" font-weight="800" fill="#15803d">&#10003;</text>
-                  <text x="417" y="116" text-anchor="middle" font-size="14" font-weight="800" fill="#15803d">cabe entero</text>
-                  <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: local-inference-lab QAD &middot; 98 GiB en disco</text>
+                <svg viewBox="0 0 520 186" role="img" aria-label="Receta de la Spark: 77 GB de pesos en memoria dentro del presupuesto de 102 GB, 25 GB libres para la KV FP8 y la biblioteca de 28,9 GB streameada desde el SSD">
+                  <defs><marker id="qd2Arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/></marker></defs>
+                  <text x="20" y="22" font-size="15" font-weight="800" fill="#334155">Presupuesto en memoria: ~102 GB (0,8 &#215; 128)</text>
+                  <rect x="20" y="36" width="245" height="90" rx="10" class="qad-node"/>
+                  <rect x="20" y="36" width="185" height="90" fill="url(#egG)"/>
+                  <text x="112" y="74" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">77 GB</text>
+                  <text x="112" y="94" text-anchor="middle" font-size="11.5" fill="#dbeafe">pesos NVFP4</text>
+                  <rect x="211" y="42" width="48" height="78" rx="4" class="qad-free"/>
+                  <text x="235" y="72" text-anchor="middle" font-size="13" font-weight="800" fill="#15803d">+25</text>
+                  <text x="235" y="86" text-anchor="middle" font-size="9.5" font-weight="700" fill="#15803d">GB KV FP8</text>
+                  <text x="235" y="99" text-anchor="middle" font-size="9.5" fill="#15803d">+ buffers</text>
+                  <line x1="306" y1="81" x2="273" y2="81" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#qd2Arrow)"/>
+                  <rect x="312" y="46" width="64" height="70" rx="8" fill="#1e293b"/>
+                  <text x="344" y="78" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">SSD</text>
+                  <text x="344" y="96" text-anchor="middle" font-size="10.5" fill="#94a3b8">28,9 GB</text>
+                  <text x="390" y="70" font-size="13" font-weight="800" fill="#b45309">engram streamea</text>
+                  <text x="390" y="89" font-size="11.5" fill="#64748b">lookup desde el disco,</text>
+                  <text x="390" y="106" font-size="11.5" fill="#64748b">16 filas por token</text>
+                  <text x="486" y="90" text-anchor="middle" font-size="30" font-weight="800" fill="#15803d">&#10003;</text>
+                  <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: local-inference-lab QAD &middot; 105,8 GB en disco (98,5 GiB)</text>
                   </svg>
               </div>
-              <div class="memory-card-highlight-pill">La biblioteca tambi&eacute;n se cuantiza (102 &rarr; ~26 GB): todo dentro del nodo, con aire para KV &mdash; con o sin offload.</div>
-              <p class="anat-detail doc-only">Destilaci&oacute;n consciente de cuantizaci&oacute;n contra el maestro BF16: 2.500 + 1.500 updates, 200M + 104M tokens; GPQA 89,9, mejor que el PTQ con menos tokens de destilaci&oacute;n. Receta GB10: vllm-node-b12x, PLE a disco, KV FP8, contexto 262k.</p>
+              <div class="memory-card-highlight-pill">El engram cuantizado (102 &rarr; 28,9 GB) se streamea desde el SSD: 77 GB de pesos en memoria y ~25 GB libres para la KV FP8. El checkpoint entero tambi&eacute;n cabe (105,8 &lt; 128) si lo prefieres todo residente.</div>
+              <p class="anat-detail doc-only">Destilaci&oacute;n consciente de cuantizaci&oacute;n contra el maestro BF16: 2.500 + 1.500 updates, 200M + 104M tokens; GPQA 89,9, mejor que el PTQ con menos tokens de destilaci&oacute;n. Receta verificada con los ficheros reales (vllm-node-b12x): VLLM_PLE_TABLE_MEMORY=disk, gpu-memory-utilization 0,8 (~102 GB), KV FP8, contexto 262k, 8 seqs, MTP 4. Pesado en la cach&eacute; HF de Chappie: PLE 28,87 GB &middot; pesos 76,97 GB &middot; total 105,8 GB (98,5 GiB). Los 198 GB que muestra du en blobs incluyen ~106 GB de duplicados de otra revisi&oacute;n de HF.</p>
             </div>
 
           </div>
