@@ -16601,3 +16601,12 @@ body.theme-dark .tk-frame {
   font-size: 0.9rem;
   white-space: nowrap;
 }
+
+/* s11 charla: sin analogías (doc-only); propiedad protagonista */
+body.deck-hardware-part1:not(.mode-document) .mem-tank-right .memory-card-highlight-pill {
+  font-size: 1.38rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) .mem-tank-right .pillar-illustration-row {
+  grid-template-columns: 232px 1fr;
+}

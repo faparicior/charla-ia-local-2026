@@ -197,3 +197,17 @@ Mismo mecanismo de parte 2 (`body.mode-document` + `.doc-only`, persistencia en 
 - Click en ⚡ → `mode-document` + `localStorage['deck-doc-mode']='true'`, subtítulos visibles.
 - Recarga → el modo se restaura.
 - Salto p1→p2 (HTTP) hereda el modo en ambos sentidos.
+
+## Slide 11 — «¿En qué se gasta la Memoria?» rediseñada como tanque vertical (29 sep 2026)
+Fernando pidió una visualización más grande para el reparto de la VRAM y descripciones con más presencia. Se eligió el **tanque de VRAM vertical** entre tres opciones (tanque / barra editorial gruesa / anillo).
+
+### Qué se hizo
+- **Tanque de VRAM (SVG inline, proporciones reales)** a la izquierda en una tarjeta propia: bloque azul sólido de **Pesos 15.2 GB (63%)** abajo («la base fija»), **KV Cache 7.3 GB (31%)** como líquido naranja con superficie ondulada encima, **Buffer 1.5 GB** rayado arriba, **regla graduada 0–24 GB** al lado y flechas naranjas con la etiqueta rotada «crece con el chat y usuarios». Los números GB van en grande dentro de cada segmento (40px).
+- **Derecha**: las dos tarjetas (Pesos / KV Cache) con **ilustraciones SVG dibujadas para la analogía** — estantería de biblioteca con libros y pie «🔒 1.000 lecturas · mismo sitio» para los pesos; bloc de notas con espiral, páginas apiladas que crecen y pie «+ tokens = + hojas gastadas» para el KV cache — y debajo, en fila, los tres escenarios (Chat breve, Contexto largo, FP8), que antes flotaban a todo lo ancho.
+- **Modo charla vs documento**: en charla se ocultan los textos de analogía (`doc-only`) y mandan las propiedades «Inmutable»/«Multiplicativa» a 1.38rem junto a la ilustración; en documento reaparecen las analogías con texto completo (1.32rem) y pill.
+- **Limpieza**: eliminados el gauge horizontal viejo (`vram-gauge-card`, `vram-bar-container`, `vram-segment-*`, leyenda `vram-legend-*`) y la rejilla `memory-pillars-grid` del CSS, ya sin uso.
+- Título del tanque a 0.9rem (`nowrap`) y badge reducido a «24 GB VRAM» para que la cabecera quede en una línea.
+
+### Verificación
+- Barrido 30/30 limpio en charla y en documento (overflow: ninguno, banner oculto: ninguno, contraste <4.5: ninguno).
+- Revisado en captura: charla, documento y modo oscuro (los SVG conservan colores vivos; marco del tanque pasa a blanco translúcido en oscuro).
