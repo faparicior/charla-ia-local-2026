@@ -16171,8 +16171,25 @@ body.deck-hardware-part1 #slide-9 .gpu-card {
 }
 
 body.deck-hardware-part1 #slide-9 .gpu-tier {
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   color: #525660;
+}
+
+/* s8/s9: sello de fecha de referencia, alineado con el tag (no afecta al layout) */
+body.deck-hardware-part1 #slide-8 .slide-content,
+body.deck-hardware-part1 #slide-9 .slide-content {
+  position: relative;
+}
+
+body.deck-hardware-part1 .src-stamp {
+  position: absolute;
+  top: 0.6rem;
+  right: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: right;
 }
 
 body.deck-hardware-part1 #slide-9 .gpu-title {
@@ -16974,7 +16991,8 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
          ==================================================================== -->
     <section class="slide" id="slide-8">
       <div class="slide-content">
-        <div class="tag">Economía de Inferencia</div>
+        <p class="src-stamp">Precios verificados el 19 sep 2026 · 1 USD ≈ 0,92 €</p>
+          <div class="tag">Economía de Inferencia</div>
         <h2>Costes de Inferencia por 1M de Tokens</h2>
 
         <div class="table-container">
@@ -17063,7 +17081,8 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
          ==================================================================== -->
     <section class="slide" id="slide-9">
       <div class="slide-content">
-        <div class="tag">La Vía Intermedia</div>
+        <p class="src-stamp">Tarifas H200 verificadas el 19 sep 2026 · DeepInfra · Vast.ai · Latitude.sh</p>
+          <div class="tag">La Vía Intermedia</div>
         <h2>Alquilar GPUs a terceros para Open Weights</h2>
         <p class="subtitle" style="margin-top: -0.85rem;">
           Para correr modelos masivos en servidores dedicados on-demand sin pagar peaje de token propietario.
@@ -17079,7 +17098,7 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
             </div>
             <div class="gpu-spec-row">
               <div class="gpu-vram">141 GB VRAM</div>
-              <div class="gpu-bandwidth">4,8 TB/s HBM3e</div>
+              <div class="gpu-bandwidth">4,8 TB/s por GPU</div>
             </div>
             <div class="gpu-price">3,22 – 4,22 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
@@ -17095,8 +17114,8 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
               <div class="gpu-chip"><span>H200</span></div>
             </div>
             <div class="gpu-spec-row">
-              <div class="gpu-vram">282 GB (NVLink)</div>
-              <div class="gpu-bandwidth">NVLink 900 GB/s</div>
+              <div class="gpu-vram">282 GB VRAM</div>
+              <div class="gpu-bandwidth">NVLink une las 2 GPUs</div>
             </div>
             <div class="gpu-price">6,44 – 8,45 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
@@ -17113,8 +17132,8 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
               <div class="gpu-chip"><span>H200</span></div>
             </div>
             <div class="gpu-spec-row">
-              <div class="gpu-vram">564 GB (SXM5)</div>
-              <div class="gpu-bandwidth">NVLink 4× 900 GB/s</div>
+              <div class="gpu-vram">564 GB VRAM</div>
+              <div class="gpu-bandwidth">NVLink: 4 GPUs fusionadas</div>
             </div>
             <div class="gpu-price">12,88 – 16,89 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
@@ -17136,8 +17155,8 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
               <div class="gpu-chip"><span>H200</span></div>
             </div>
             <div class="gpu-spec-row">
-              <div class="gpu-vram">1.128 GB (DGX)</div>
-              <div class="gpu-bandwidth">NVSwitch 8× 900 GB/s</div>
+              <div class="gpu-vram">1.128 GB VRAM</div>
+              <div class="gpu-bandwidth">NVSwitch conecta las 8</div>
             </div>
             <div class="gpu-price">25,76 – 33,12 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>

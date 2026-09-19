@@ -16152,8 +16152,25 @@ body.deck-hardware-part1 #slide-9 .gpu-card {
 }
 
 body.deck-hardware-part1 #slide-9 .gpu-tier {
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   color: #525660;
+}
+
+/* s8/s9: sello de fecha de referencia, alineado con el tag (no afecta al layout) */
+body.deck-hardware-part1 #slide-8 .slide-content,
+body.deck-hardware-part1 #slide-9 .slide-content {
+  position: relative;
+}
+
+body.deck-hardware-part1 .src-stamp {
+  position: absolute;
+  top: 0.6rem;
+  right: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: right;
 }
 
 body.deck-hardware-part1 #slide-9 .gpu-title {
