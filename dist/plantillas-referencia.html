@@ -5974,7 +5974,7 @@ body.theme-dark .tri-center-target {
 /* ==========================================================================
    SLIDE 24: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
    ========================================================================== */
-#slide-25 .slide-content {
+#slide-27 .slide-content {
   gap: 0.35rem;
   justify-content: flex-start;
 }
@@ -16926,6 +16926,274 @@ body.mode-document .engram-right .memory-analogy-box {
 /* s15 doc: el min-height base (170px) de las pillar-cards desborda la columna de 588px */
 body.mode-document .engram-right .memory-pillar-card {
   min-height: auto;
+}
+
+/* s15 doc: chips del pie con borde, en grid 2x2 compacto */
+body.mode-document .engram-right .engram-extras.doc-only {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.engram-extra {
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+body.mode-document .engram-extra {
+  font-size: 0.88rem;
+}
+
+/* ===== s16: anatomía (5 componentes) ===== */
+.anat-deck {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.anat-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.1rem;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.anat-card {
+  grid-column: span 2;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  background: rgba(0, 0, 0, 0.015);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-height: 0;
+}
+
+.anat-card.anat-wide {
+  grid-column: span 3;
+}
+
+.anat-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.anat-ico {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.anat-title {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.anat-phrase {
+  margin: 0;
+  font-size: 1.32rem;
+  line-height: 1.5;
+  flex: 1 1 0;
+}
+
+.anat-data {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: rgba(37, 99, 235, 0.07);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  align-self: flex-start;
+  color: #1d4ed8;
+}
+
+.anat-detail {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+body.theme-dark .anat-card {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+body.theme-dark .anat-data {
+  background: rgba(59, 130, 246, 0.14);
+  color: #93c5fd;
+}
+
+/* s16 doc: tarjetas compactas */
+body.mode-document .anat-card {
+  padding: 0.8rem 0.95rem;
+  gap: 0.4rem;
+}
+
+body.mode-document .anat-title {
+  font-size: 1.05rem;
+}
+
+body.mode-document .anat-phrase {
+  font-size: 0.98rem;
+}
+
+body.mode-document .anat-data {
+  font-size: 0.72rem;
+}
+
+/* ===== s17: PTQ vs QAD (fit 128 GB) ===== */
+.qad-deck {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.qad-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.qad-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  background: rgba(0, 0, 0, 0.015);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 0;
+}
+
+.qad-no {
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+.qad-yes {
+  border-color: rgba(22, 163, 74, 0.35);
+}
+
+.qad-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.qad-name {
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.qad-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  white-space: nowrap;
+}
+
+.qad-badge-red {
+  background: rgba(220, 38, 38, 0.1);
+  color: #b91c1c;
+}
+
+.qad-badge-green {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+}
+
+.qad-stage {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+.qad-stage svg {
+  width: 100%;
+  height: 100%;
+}
+
+.qad-node {
+  fill: rgba(0, 0, 0, 0.02);
+  stroke: #cbd5e1;
+  stroke-width: 1.5;
+}
+
+body.theme-dark .qad-node {
+  fill: rgba(255, 255, 255, 0.02);
+  stroke: #475569;
+}
+
+.qad-free {
+  fill: none;
+  stroke: #16a34a;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+body.theme-dark .qad-card {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+body.theme-dark .qad-badge-red {
+  background: rgba(220, 38, 38, 0.18);
+  color: #fca5a5;
+}
+
+body.theme-dark .qad-badge-green {
+  background: rgba(22, 163, 74, 0.18);
+  color: #86efac;
+}
+
+/* s17 doc: densidad */
+body.mode-document .qad-card {
+  padding: 0.85rem 1rem;
+  gap: 0.5rem;
+}
+
+body.mode-document .qad-name {
+  font-size: 1.05rem;
+}
+
+/* s16: visuales */
+.anat-visual {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.anat-visual svg {
+  width: 100%;
+  height: auto;
+}
+
+.ag-mute {
+  fill: #e2e8f0;
+}
+
+body.theme-dark .ag-mute {
+  fill: #334155;
+}
+
+body.deck-hardware-part1:not(.mode-document) .anat-phrase {
+  font-size: 1.45rem;
+}
+
+body.mode-document .anat-visual svg {
+  max-height: 96px;
+  width: auto;
+  max-width: 100%;
 }
 
 </style>
