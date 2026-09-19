@@ -701,8 +701,14 @@
           <div class="gpu-card">
             <span class="gpu-tier">Nivel 1</span>
             <div class="gpu-title">1× H200</div>
-            <div class="gpu-vram">141 GB VRAM</div>
-            <div class="gpu-price">3,22 € – 4,22 €<span
+            <div class="gpu-visual" aria-hidden="true">
+              <div class="gpu-chip"><span>H200</span></div>
+            </div>
+            <div class="gpu-spec-row">
+              <div class="gpu-vram">141 GB VRAM</div>
+              <div class="gpu-bandwidth">4,8 TB/s HBM3e</div>
+            </div>
+            <div class="gpu-price">3,22 – 4,22 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
             <div class="gpu-usecase">Modelos 70B–72B en FP16/FP8 sin sharding. Ideal para experimentación y testing.
             </div>
@@ -711,8 +717,15 @@
           <div class="gpu-card">
             <span class="gpu-tier">Nivel 2</span>
             <div class="gpu-title">2× H200</div>
-            <div class="gpu-vram">282 GB (NVLink)</div>
-            <div class="gpu-price">6,44 € – 8,45 €<span
+            <div class="gpu-visual" aria-hidden="true">
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+            </div>
+            <div class="gpu-spec-row">
+              <div class="gpu-vram">282 GB (NVLink)</div>
+              <div class="gpu-bandwidth">NVLink 900 GB/s</div>
+            </div>
+            <div class="gpu-price">6,44 – 8,45 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
             <div class="gpu-usecase">Modelos MoE densos (DeepSeek / Qwen 3.8 en FP8) con alto throughput.</div>
           </div>
@@ -720,8 +733,17 @@
           <div class="gpu-card">
             <span class="gpu-tier">Nivel 3</span>
             <div class="gpu-title">4× H200</div>
-            <div class="gpu-vram">564 GB (SXM5)</div>
-            <div class="gpu-price">12,88 € – 16,89 €<span
+            <div class="gpu-visual" aria-hidden="true">
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+            </div>
+            <div class="gpu-spec-row">
+              <div class="gpu-vram">564 GB (SXM5)</div>
+              <div class="gpu-bandwidth">NVLink 4× 900 GB/s</div>
+            </div>
+            <div class="gpu-price">12,88 – 16,89 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
             <div class="gpu-usecase">Inferencia de modelos frontera 230B–405B para equipos de desarrollo completos.
             </div>
@@ -730,8 +752,21 @@
           <div class="gpu-card">
             <span class="gpu-tier">Nivel 4</span>
             <div class="gpu-title">8× H200</div>
-            <div class="gpu-vram">1.128 GB (DGX)</div>
-            <div class="gpu-price">25,76 € – 33,12 €<span
+            <div class="gpu-visual gpu-visual-grid8" aria-hidden="true">
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+              <div class="gpu-chip"><span>H200</span></div>
+            </div>
+            <div class="gpu-spec-row">
+              <div class="gpu-vram">1.128 GB (DGX)</div>
+              <div class="gpu-bandwidth">NVSwitch 8× 900 GB/s</div>
+            </div>
+            <div class="gpu-price">25,76 – 33,12 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
             <div class="gpu-usecase">DeepSeek V3/V4 a precisión nativa con máxima concurrencia y razonamiento masivo.
             </div>
