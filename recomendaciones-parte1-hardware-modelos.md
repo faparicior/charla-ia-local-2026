@@ -188,6 +188,11 @@ Mismo mecanismo de parte 2 (`body.mode-document` + `.doc-only`, persistencia en 
 - **s10 en modo charla**: los 3 párrafos secundarios de las tarjetas (límite físico, lógica intacta, fluidez) son `doc-only` — solo se ven en modo documento. En charla las tarjetas muestran solo el título, agrandado a 1.62rem con chip 54px (gana legibilidad a distancia).
 - Barrido doble tras los cambios: 30/30 sin overflow, sin banner oculto, contraste OK en ambos modos.
 
+### Ajustes de equilibrio en modo charla (feedback Fernando)
+- **s5 y s6**: tipografía agrandada SOLO en modo charla para aprovechar el aire vertical de las tarjetas (items pros/contras 1.28→1.52rem con line-height 1.6 y gap de lista 0.75→1.15rem, línea de proveedores 1.15→1.32rem, títulos de sección 0.92rem con más aire). En documento no se aplican (el contenido ya llena).
+- **s9**: cada tarjeta lleva ahora una línea breve de modelos (`gpu-usecase-brief`, visible solo en charla): «Caben: Qwen 72B · Llama 70B en FP16», «Caben: DeepSeek V3 · Qwen 3.8 en FP8», «Caben: modelos frontera 230B–405B», «Caben: DeepSeek V3/V4 a precisión nativa». En documento se ocultan y aparece el texto completo `gpu-usecase`.
+- **s7** y **s10–s30**: sin cambios (buenas en charla, según revisión de Fernando).
+
 ### Verificación del flujo completo
 - Click en ⚡ → `mode-document` + `localStorage['deck-doc-mode']='true'`, subtítulos visibles.
 - Recarga → el modo se restaura.

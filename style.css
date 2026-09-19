@@ -16513,3 +16513,44 @@ body.deck-hardware-part1.mode-document #slide-4 .press-grid {
   margin-top: -0.75rem;
   gap: 0.6rem;
 }
+
+
+/* s5 y s6 en modo charla: tipografía más grande para aprovechar el aire vertical
+   (en documento el contenido ya llena; el cambio solo afecta al modo charla) */
+body.deck-hardware-part1:not(.mode-document) #slide-5 .pro-item,
+body.deck-hardware-part1:not(.mode-document) #slide-5 .con-item,
+body.deck-hardware-part1:not(.mode-document) #slide-6 .pro-item,
+body.deck-hardware-part1:not(.mode-document) #slide-6 .con-item {
+  font-size: 1.52rem;
+  line-height: 1.6;
+}
+body.deck-hardware-part1:not(.mode-document) #slide-5 .pro-list,
+body.deck-hardware-part1:not(.mode-document) #slide-5 .con-list,
+body.deck-hardware-part1:not(.mode-document) #slide-6 .pro-list,
+body.deck-hardware-part1:not(.mode-document) #slide-6 .con-list {
+  gap: 1.15rem;
+}
+body.deck-hardware-part1:not(.mode-document) #slide-5 .versus-providers,
+body.deck-hardware-part1:not(.mode-document) #slide-6 .versus-providers {
+  font-size: 1.32rem;
+}
+body.deck-hardware-part1:not(.mode-document) #slide-5 .versus-section-title,
+body.deck-hardware-part1:not(.mode-document) #slide-6 .versus-section-title {
+  font-size: 0.92rem;
+  margin-bottom: 0.9rem;
+}
+
+/* s9: línea breve de modelos por tarjeta, visible solo en modo charla
+   (en documento se ve el texto completo gpu-usecase) */
+#slide-9 .gpu-usecase-brief {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+#slide-9 .gpu-usecase-brief strong {
+  color: var(--text-main);
+  font-weight: 700;
+}
+body.mode-document #slide-9 .gpu-usecase-brief {
+  display: none;
+}
