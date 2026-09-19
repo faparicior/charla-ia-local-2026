@@ -217,3 +217,10 @@ Fernando pidió una visualización más grande para el reparto de la VRAM y desc
 - **Los 3 escenarios de concurrencia** → `doc-only`: solo aparecen en modo documento (en charla ocupaban mucho y no aportaban tanto).
 - **Ajuste de solape en documento**: el `pillar-illustration-row` con `flex: 1 1 0; min-height: 0` colapsaba dentro de tarjetas de altura natural y su contenido pisaba las tarjetas vecinas; en documento el row va a `flex: 0 0 auto`, ilustración reducida a 186px, tipografía compacta (analogía 1.1rem, pill 1.02rem, títulos 1.28rem) y los escenarios en 3 columnas con regla `!important` (la genérica `body.mode-document .doc-only { display: block }` pisa el grid).
 - Barrido 30/30 limpio en charla y documento; capturas revisadas a ojo en ambos modos (el barrido automático no detecta solapes internos: verificación visual obligatoria en s11).
+
+### Iteración de Fernando (feedback 3) — s9 alineada y s11 en orden del tanque
+- **s9**: las briefs «Caben: …» de las 4 cards quedaban desalineadas porque la primera ocupaba 2 líneas y el resto 1 (y empujaban los precios a alturas distintas). Ahora las cuatro llevan 2 líneas calibradas con detalle técnico real — «…en FP16, sin repartir», «…en FP8, repartido entre las 2», «…con tensor paralelismo», «…sin comprometer» — a **1.18rem** con `min-height: 2.9em` para blindar el hueco. Precios y briefs alineados en las 4 cards.
+- **s11 orden**: la derecha ahora sigue el orden vertical del tanque — **KV Cache arriba (líquido que crece) y Pesos del Modelo abajo (base fija)** — quitada la numeración «1./2.» para que no despiste al cruzar tarjeta con gráfico.
+- **s11 tamaños**: títulos de tarjeta «KV Cache»/«Pesos del Modelo» agrandados (1.85rem en charla, 1.38rem en documento).
+- **s11 documento rectangular**: las dos tarjetas vuelven a `flex: 1 1 0` (reparto igual de altura) mientras la fila de ilustración queda en flujo (`flex: 0 0 auto`), de modo que la columna derecha llena hasta el fondo igual que la tarjeta del tanque, sin solapes.
+- Barrido 30/30 limpio en charla y documento; capturas de s9 y s11 revisadas a ojo en ambos modos.

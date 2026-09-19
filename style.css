@@ -16444,9 +16444,11 @@ body.deck-hardware-part1:not(.mode-document) #slide-6 .versus-section-title {
 /* s9: línea breve de modelos por tarjeta, visible solo en modo charla
    (en documento se ve el texto completo gpu-usecase) */
 #slide-9 .gpu-usecase-brief {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
+  line-height: 1.45;
   color: var(--text-muted);
   margin-top: 0.3rem;
+  min-height: 2.9em;
 }
 #slide-9 .gpu-usecase-brief strong {
   color: var(--text-main);
@@ -16623,12 +16625,13 @@ body.deck-hardware-part1:not(.mode-document) .mem-tank-right .pillar-illustratio
 }
 
 body.deck-hardware-part1:not(.mode-document) .mem-tank-right .memory-pillar-title span:last-child {
-  font-size: 1.62rem;
+  font-size: 1.85rem;
 }
 
 /* s11 documento: tarjetas a altura natural (evita solapes), escala compacta */
 body.mode-document .mem-tank-right .memory-pillar-card {
-  flex: 0 1 auto;
+  flex: 1 1 0;
+  min-height: 0;
 }
 
 body.mode-document .mem-tank-right .pillar-illustration-row {
@@ -16636,7 +16639,7 @@ body.mode-document .mem-tank-right .pillar-illustration-row {
 }
 
 body.mode-document .mem-tank-right .memory-pillar-title span:last-child {
-  font-size: 1.28rem;
+  font-size: 1.38rem;
 }
 
 body.mode-document .mem-tank-right .memory-analogy-box {

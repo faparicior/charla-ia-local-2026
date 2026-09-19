@@ -16463,9 +16463,11 @@ body.deck-hardware-part1:not(.mode-document) #slide-6 .versus-section-title {
 /* s9: línea breve de modelos por tarjeta, visible solo en modo charla
    (en documento se ve el texto completo gpu-usecase) */
 #slide-9 .gpu-usecase-brief {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
+  line-height: 1.45;
   color: var(--text-muted);
   margin-top: 0.3rem;
+  min-height: 2.9em;
 }
 #slide-9 .gpu-usecase-brief strong {
   color: var(--text-main);
@@ -16642,12 +16644,13 @@ body.deck-hardware-part1:not(.mode-document) .mem-tank-right .pillar-illustratio
 }
 
 body.deck-hardware-part1:not(.mode-document) .mem-tank-right .memory-pillar-title span:last-child {
-  font-size: 1.62rem;
+  font-size: 1.85rem;
 }
 
 /* s11 documento: tarjetas a altura natural (evita solapes), escala compacta */
 body.mode-document .mem-tank-right .memory-pillar-card {
-  flex: 0 1 auto;
+  flex: 1 1 0;
+  min-height: 0;
 }
 
 body.mode-document .mem-tank-right .pillar-illustration-row {
@@ -16655,7 +16658,7 @@ body.mode-document .mem-tank-right .pillar-illustration-row {
 }
 
 body.mode-document .mem-tank-right .memory-pillar-title span:last-child {
-  font-size: 1.28rem;
+  font-size: 1.38rem;
 }
 
 body.mode-document .mem-tank-right .memory-analogy-box {
@@ -17436,7 +17439,7 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
             </div>
             <div class="gpu-price">6,44 – 8,45 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
-            <div class="gpu-usecase-brief">Caben: <strong>DeepSeek V3</strong> · <strong>Qwen 3.8</strong> en FP8</div>
+            <div class="gpu-usecase-brief">Caben: <strong>DeepSeek V3</strong> · <strong>Qwen 3.8</strong> en FP8, repartido entre las 2</div>
             <div class="gpu-usecase doc-only">Modelos <strong>MoE</strong> o <strong>densos</strong> (<strong>DeepSeek</strong> / <strong>Qwen 3.8</strong> en <strong>FP8</strong>) con alto throughput.</div>
           </div>
 
@@ -17455,7 +17458,7 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
             </div>
             <div class="gpu-price">12,88 – 16,89 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
-            <div class="gpu-usecase-brief">Caben: modelos frontera <strong>230B–405B</strong></div>
+            <div class="gpu-usecase-brief">Caben: modelos frontera <strong>230B–405B</strong> con tensor paralelismo</div>
             <div class="gpu-usecase doc-only">Inferencia de modelos frontera <strong>230B–405B</strong> para equipos de desarrollo completos.
             </div>
           </div>
@@ -17479,7 +17482,7 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
             </div>
             <div class="gpu-price">25,76 – 33,12 €<span
                 style="font-size: 0.8rem; font-weight: 400; color: var(--text-dim);">/h</span></div>
-            <div class="gpu-usecase-brief">Caben: <strong>DeepSeek V3/V4</strong> a precisión nativa</div>
+            <div class="gpu-usecase-brief">Caben: <strong>DeepSeek V3/V4</strong> a precisión nativa, sin comprometer</div>
             <div class="gpu-usecase doc-only"><strong>DeepSeek V3/V4</strong> a precisión nativa con máxima concurrencia y razonamiento masivo.
             </div>
           </div>
@@ -17622,11 +17625,58 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
             </div>
 
             <div class="mem-tank-right">
+              <div class="memory-pillar-card highlight">
+                <div class="memory-pillar-header">
+                  <div class="memory-pillar-title">
+                    <span style="color: #ea580c;">💬</span>
+                    <span>KV Cache</span>
+                  </div>
+                  <span class="memory-pillar-badge amber">Memoria Dinámica</span>
+                </div>
+                <div class="pillar-illustration-row">
+                  <svg class="pillar-illustration-svg" viewBox="0 0 190 152" role="img" aria-label="Bloc de notas: la conversación gasta páginas que no vuelven">
+                  <!-- hojas apiladas detrás (crecen) -->
+                  <rect x="46" y="30" width="122" height="100" rx="8" fill="#94a3b8" opacity="0.28"/>
+                  <rect x="40" y="32" width="122" height="100" rx="8" fill="#cbd5e1" opacity="0.65"/>
+                  <!-- cuaderno -->
+                  <rect x="28" y="28" width="122" height="102" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="2.5"/>
+                  <!-- espiral -->
+                  <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round">
+                    <path d="M40,28 v-9"/><path d="M60,28 v-9"/><path d="M80,28 v-9"/><path d="M100,28 v-9"/>
+                    <path d="M120,28 v-9"/><path d="M140,28 v-9"/>
+                  </g>
+                  <!-- escritura: la conversación -->
+                  <g stroke-width="3.5" stroke-linecap="round" fill="none">
+                    <path d="M42,54 q12,-4 24,0 t24,0 t22,0" stroke="#3b82f6"/>
+                    <path d="M42,70 q12,-4 24,0 t20,0" stroke="#ea580c"/>
+                    <path d="M42,86 q12,-4 24,0 t24,0 t14,0" stroke="#94a3b8"/>
+                    <path d="M42,102 q12,-4 24,0 t18,0" stroke="#cbd5e1"/>
+                    <path d="M42,116 h34" stroke="#cbd5e1"/>
+                  </g>
+                  <!-- flecha de crecimiento -->
+                  <path d="M158,124 Q170,102 160,84" stroke="#ea580c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                  <polygon points="160,78 154,90 166,89" fill="#ea580c"/>
+                  <!-- pie -->
+                  <text x="95" y="146" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">+ tokens = + hojas gastadas</text>
+                </svg>
+                  <div class="pillar-text-col">
+                    <div class="memory-analogy-box doc-only">
+                      📝 <strong>Analogía:</strong> como el <em>bloc de notas</em> de la conversación en directo.
+                      Cuanto más hablas, más hojas gastas.
+                    </div>
+                    <div class="memory-card-highlight-pill">
+                      📈 <strong>Multiplicativa:</strong> guarda preguntas, respuestas y PDFs para no recalcular
+                      desde cero. Crece token a token por cada usuario activo, y con contexto largo
+                      puede comerse el margen entero.
+                    </div>
+                  </div>
+                </div>
+
               <div class="memory-pillar-card">
                 <div class="memory-pillar-header">
                   <div class="memory-pillar-title">
                     <span style="color: #2563eb;">🧠</span>
-                    <span>1. Pesos del Modelo</span>
+                    <span>Pesos del Modelo</span>
                   </div>
                   <span class="memory-pillar-badge blue">Memoria Estática</span>
                 </div>
@@ -17674,53 +17724,6 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
                   </div>
                 </div>
               </div>
-
-              <div class="memory-pillar-card highlight">
-                <div class="memory-pillar-header">
-                  <div class="memory-pillar-title">
-                    <span style="color: #ea580c;">💬</span>
-                    <span>2. KV Cache</span>
-                  </div>
-                  <span class="memory-pillar-badge amber">Memoria Dinámica</span>
-                </div>
-                <div class="pillar-illustration-row">
-                  <svg class="pillar-illustration-svg" viewBox="0 0 190 152" role="img" aria-label="Bloc de notas: la conversación gasta páginas que no vuelven">
-                  <!-- hojas apiladas detrás (crecen) -->
-                  <rect x="46" y="30" width="122" height="100" rx="8" fill="#94a3b8" opacity="0.28"/>
-                  <rect x="40" y="32" width="122" height="100" rx="8" fill="#cbd5e1" opacity="0.65"/>
-                  <!-- cuaderno -->
-                  <rect x="28" y="28" width="122" height="102" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="2.5"/>
-                  <!-- espiral -->
-                  <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round">
-                    <path d="M40,28 v-9"/><path d="M60,28 v-9"/><path d="M80,28 v-9"/><path d="M100,28 v-9"/>
-                    <path d="M120,28 v-9"/><path d="M140,28 v-9"/>
-                  </g>
-                  <!-- escritura: la conversación -->
-                  <g stroke-width="3.5" stroke-linecap="round" fill="none">
-                    <path d="M42,54 q12,-4 24,0 t24,0 t22,0" stroke="#3b82f6"/>
-                    <path d="M42,70 q12,-4 24,0 t20,0" stroke="#ea580c"/>
-                    <path d="M42,86 q12,-4 24,0 t24,0 t14,0" stroke="#94a3b8"/>
-                    <path d="M42,102 q12,-4 24,0 t18,0" stroke="#cbd5e1"/>
-                    <path d="M42,116 h34" stroke="#cbd5e1"/>
-                  </g>
-                  <!-- flecha de crecimiento -->
-                  <path d="M158,124 Q170,102 160,84" stroke="#ea580c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                  <polygon points="160,78 154,90 166,89" fill="#ea580c"/>
-                  <!-- pie -->
-                  <text x="95" y="146" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">+ tokens = + hojas gastadas</text>
-                </svg>
-                  <div class="pillar-text-col">
-                    <div class="memory-analogy-box doc-only">
-                      📝 <strong>Analogía:</strong> como el <em>bloc de notas</em> de la conversación en directo.
-                      Cuanto más hablas, más hojas gastas.
-                    </div>
-                    <div class="memory-card-highlight-pill">
-                      📈 <strong>Multiplicativa:</strong> guarda preguntas, respuestas y PDFs para no recalcular
-                      desde cero. Crece token a token por cada usuario activo, y con contexto largo
-                      puede comerse el margen entero.
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <!-- 3. Escenarios Prácticos de Concurrencia -->
