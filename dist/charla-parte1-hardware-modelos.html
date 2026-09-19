@@ -13878,9 +13878,11 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] p.subtitle {
   display: none !important;
 }
 
-/* En Modo Charla, ocultar subtítulos y hero-subs; los point-desc de las slides de Paso se muestran (los re-habilita la regla posterior). Phase2/Pillar ocultan descs */
+/* En Modo Charla, ocultar subtítulos, hero-subs y descs de puntos (en TODAS las plantillas: pasos, fase2 y pilares — son texto secundario que genera ruido; reaparecen en modo documento) */
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-hero-sub,
+body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
+body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-hero-sub,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-desc,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-hero-sub,
@@ -13947,14 +13949,6 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-point-title {
   font-weight: 700 !important;
   margin-bottom: 0.15rem !important;
   line-height: 1.3 !important;
-}
-
-body:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-desc,
-body:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-desc {
-  display: block !important;
-  font-size: 0.95rem !important;
-  line-height: 1.35 !important;
-  color: var(--text-muted) !important;
 }
 
 /* --------------------------------------------------------------------------
