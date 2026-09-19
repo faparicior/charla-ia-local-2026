@@ -82,7 +82,7 @@ Los STRONGs de s28-31 están sobre **tarjetas blancas dentro de la slide** (el r
 
 ## Pendiente
 
-- Banners de s16-18, s22, s24, s26: ocultos por diseño, tienen hueco (244-277 palabras). Decisión de diseño pendiente.
-- Terminal 16→18px en charla (requiere re-verificación de fit; S5 la crítica).
-- theme-dark de todo lo anterior (badges, tabs, pills): skin alternativo, sin auditar.
+- ~~Banners de s16-18, s22, s24, s26~~ → **aplicado** (commit `8fb991b`): solo quedan ocultos los 3 diagramas mermaid (s13-15) y los 2 árboles de decisión (s23/s25, sin elemento banner y densos). Banners compactos (36-37px, 1 línea) verificados sin overflow; s27 ya los mostraba a tamaño completo.
+- ~~Terminal 16→18px en charla~~ → **aplicado** (mismo commit): `1.125rem` en el bloque talk-mode de terminales + `justify-content: safe center`; fit verificado: scrollH==clientH en las 11 terminales (cero contenido cortado), banners en bottom 966, doc mode intacto (0.78rem base sin tocar).
+- theme-dark de las clases tocadas (badges, tabs, pills): skin alternativo, sin auditar.
 - `bundle.py` prints "32 slides" hardcodeado (cosmético).
