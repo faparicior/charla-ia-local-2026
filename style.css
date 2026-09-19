@@ -13616,21 +13616,40 @@ body:not(.mode-document) .doc-only {
   display: none !important;
 }
 
-/* En Modo Charla: el banner "Regla de Oro" de las slides de Paso SE MUESTRA compacto (es el takeaway de cada paso; la consola flex:1 absorbe su altura). En Fase 2 y Pilares se sigue ocultando para ganar aire y verticalidad 16:9 */
-body:not(.mode-document) .slide[id^="slide-phase2-"] .chosen-synergy-banner,
-body:not(.mode-document) .slide[id^="slide-pillar-"] .chosen-synergy-banner {
+/* En Modo Charla: banner "Regla de Oro" de steps + invariants/templates/timelines/bridge SE MUESTRA compacto (takeaway; la consola flex:1 absorbe su altura). Solo se oculta en los 3 diagramas mermaid de Fase 2 y los 2 árboles de decisión (slides densas sin hueco) */
+body:not(.mode-document) .slide[id^="slide-phase2-diagram"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-pillar-adr-decision-tree"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-pillar-sdlc-decision-tree"] .chosen-synergy-banner {
   display: none !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner {
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase2-invariants"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase2-br-template"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase2-inv-template"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-pillar-adr-timeline"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-pillar-sdlc-timeline"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-pillar-bridge-enlace"] .chosen-synergy-banner {
   padding: 0.55rem 1.2rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-icon {
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-phase2-invariants"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-phase2-br-template"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-phase2-inv-template"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-pillar-adr-timeline"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-pillar-sdlc-timeline"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-pillar-bridge-enlace"] .chosen-synergy-icon {
   font-size: 1.15rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-text {
+body:not(.mode-document) .slide[id^="slide-step"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-phase2-invariants"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-phase2-br-template"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-phase2-inv-template"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-pillar-adr-timeline"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-pillar-sdlc-timeline"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-pillar-bridge-enlace"] .chosen-synergy-text {
   font-size: 0.9rem !important;
   line-height: 1.35 !important;
 }
@@ -13649,11 +13668,11 @@ body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-terminal-body {
-  font-size: 0.90rem !important;
+  font-size: 1.125rem !important; /* 18px: legible en proyector; was 0.90rem (14.4px) */
   line-height: 1.52 !important;
   padding: 1.35rem 1.6rem !important;
   gap: 0.95rem !important;
-  justify-content: center;
+  justify-content: safe center; /* al hacer scroll no corta el contenido inicial */
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .md-table,
@@ -13731,7 +13750,7 @@ body:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal-body,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-terminal-body,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal-body,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .boundaries-terminal-body {
-  font-size: 1rem !important;
+  font-size: 1.125rem !important;
   gap: 1.05rem !important;
 }
 
