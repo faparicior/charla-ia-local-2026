@@ -16610,3 +16610,57 @@ body.deck-hardware-part1:not(.mode-document) .mem-tank-right .memory-card-highli
 body.deck-hardware-part1:not(.mode-document) .mem-tank-right .pillar-illustration-row {
   grid-template-columns: 232px 1fr;
 }
+
+/* s11 charla: pill protagonista a gran tamaño (escenarios fuera en charla) */
+body.deck-hardware-part1:not(.mode-document) .mem-tank-right .memory-card-highlight-pill {
+  font-size: 1.62rem;
+  line-height: 1.6;
+  padding: 1.2rem 1.4rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) .mem-tank-right .pillar-illustration-row {
+  grid-template-columns: 262px 1fr;
+}
+
+body.deck-hardware-part1:not(.mode-document) .mem-tank-right .memory-pillar-title span:last-child {
+  font-size: 1.62rem;
+}
+
+/* s11 documento: tarjetas a altura natural (evita solapes), escala compacta */
+body.mode-document .mem-tank-right .memory-pillar-card {
+  flex: 0 1 auto;
+}
+
+body.mode-document .mem-tank-right .pillar-illustration-row {
+  grid-template-columns: 186px 1fr;
+}
+
+body.mode-document .mem-tank-right .memory-pillar-title span:last-child {
+  font-size: 1.28rem;
+}
+
+body.mode-document .mem-tank-right .memory-analogy-box {
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+body.mode-document .mem-tank-right .memory-card-highlight-pill {
+  font-size: 1.02rem;
+  line-height: 1.45;
+  padding: 0.85rem 1.05rem;
+}
+
+body.mode-document .mem-tank-right .memory-scenarios-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.9rem;
+}
+
+body.mode-document .mem-tank-right .scenario-desc {
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+body.mode-document .mem-tank-right .scenario-header {
+  font-size: 0.92rem;
+}
