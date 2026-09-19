@@ -811,35 +811,33 @@
           Toda decisión de hardware, arquitectura y cuantización busca el equilibrio perfecto entre estos tres pilares.
         </p>
 
-        <!-- Trilema: Diagrama 3D Editorial Equilibrado + Hub de Datos -->
-        <div class="trilema-visual-stage">
-          <img src="script/img/trilema-ia-local-light-editorial.jpg" alt="El Trilema de la IA Local: Memoria, Calidad y Velocidad" class="trilema-hero-img">
-          <div class="trilema-sweetspot-badge">
-            <span class="badge-icon">🎯</span>
-            <strong>Sweet Spot del Crafter:</strong> Qwen 2.5 72B / 122B MoE en 64–128 GB &bull; &gt;40 tok/s &bull; 98.4% precisión intacta
+        <!-- Trilema: Layout 2 Columnas (Visual Izquierda + Tarjetas Derecha) -->
+        <div class="trilema-layout-split">
+          <div class="trilema-visual-stage">
+            <img src="script/img/trilema-ia-local-light-editorial.jpg" alt="El Trilema de la IA Local: Memoria, Calidad y Velocidad" class="trilema-hero-img">
           </div>
-        </div>
 
-        <div class="tri2-bottom">
-          <div class="tri2-card">
-            <span class="tri2-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
-            <div>
-              <div class="tri2-card-title" style="color:#0284c7">Memoria · El límite</div>
-              <p>Si el modelo y el contexto no caben en VRAM, la velocidad cae un 90% por swap a CPU.</p>
+          <div class="trilema-cards-column">
+            <div class="tri2-card">
+              <span class="tri2-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
+              <div>
+                <div class="tri2-card-title" style="color:#0284c7">Memoria · El límite físico</div>
+                <p>Si el modelo y el contexto no caben en VRAM, la velocidad cae un 90% por swap a memoria de la CPU.</p>
+              </div>
             </div>
-          </div>
-          <div class="tri2-card">
-            <span class="tri2-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
-            <div>
-              <div class="tri2-card-title" style="color:#7c3aed">Calidad · La lógica</div>
-              <p>Comprimir a 4 bits ahorra VRAM; la clave es no romper cadenas de razonamiento largo.</p>
+            <div class="tri2-card">
+              <span class="tri2-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
+              <div>
+                <div class="tri2-card-title" style="color:#7c3aed">Calidad · La lógica intacta</div>
+                <p>Comprimir a 4 bits ahorra VRAM; la clave es preservar intactas las cadenas de razonamiento complejo.</p>
+              </div>
             </div>
-          </div>
-          <div class="tri2-card">
-            <span class="tri2-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
-            <div>
-              <div class="tri2-card-title" style="color:#ea580c">Velocidad · La fluidez</div>
-              <p>La arquitectura MoE activa solo a los expertos de guardia para responder al instante.</p>
+            <div class="tri2-card">
+              <span class="tri2-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
+              <div>
+                <div class="tri2-card-title" style="color:#ea580c">Velocidad · La fluidez interactiva</div>
+                <p>La arquitectura MoE activa solo a los expertos necesarios para responder en tiempo real.</p>
+              </div>
             </div>
           </div>
         </div>
