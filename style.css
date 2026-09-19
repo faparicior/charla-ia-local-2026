@@ -13876,8 +13876,9 @@ body:not(.mode-document) .slide[id^="slide-step"] .sdlc-explain-col,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-explain-col,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-explain-col,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .sdlc-explain-col {
-  gap: 1rem;
-  justify-content: flex-start;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-self: stretch;
 }
 
 body:not(.mode-document) .slide[id^="slide-step"] .sdlc-hero-box,
@@ -15527,13 +15528,13 @@ body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-po
   border-radius: 0 !important;
   box-shadow: none !important;
   padding: 0 !important;
-  gap: 1.05rem !important;
+  gap: 1.25rem !important;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-point-item + .sdlc-point-item,
 body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .boundaries-point-item + .boundaries-point-item {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding-top: 1.05rem;
+  padding-top: 1.2rem;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-banner {
@@ -15575,12 +15576,12 @@ body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point
   border-radius: 0 !important;
   box-shadow: none !important;
   padding: 0 !important;
-  gap: 1.05rem !important;
+  gap: 1.25rem !important;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-point-item + .sdlc-point-item {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding-top: 1.05rem;
+  padding-top: 1.2rem;
 }
 
 /* --- Diagramas mermaid (s13-15): panel más alto (banners ocultos → aire libre), diagrama y texto +19% --- */
@@ -15591,4 +15592,10 @@ body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-diagram"] .mer
 
 body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-diagram"] .mermaid-diagram-wrap svg {
   max-height: 588px !important;
+}
+
+/* --- Consola llena: terminal estirada al alto de la fila (misma caja que la columna des-cajada) --- */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-step"] .sdlc-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-terminal {
+  align-self: stretch;
 }
