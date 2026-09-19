@@ -16684,6 +16684,22 @@ body.mode-document .mem-tank-right .scenario-header {
   font-size: 0.92rem;
 }
 
+/* s11 documento: fila de ilustración en flujo normal (sin colapsar) y escenarios en 3 columnas */
+body.mode-document .mem-tank-right .pillar-illustration-row {
+  flex: 0 0 auto;
+  min-height: 0;
+}
+
+body.mode-document .mem-tank-right .pillar-illustration-svg {
+  max-height: none;
+}
+
+body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.9rem;
+}
+
 </style>
 </head>
 

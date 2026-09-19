@@ -211,3 +211,9 @@ Fernando pidió una visualización más grande para el reparto de la VRAM y desc
 ### Verificación
 - Barrido 30/30 limpio en charla y en documento (overflow: ninguno, banner oculto: ninguno, contraste <4.5: ninguno).
 - Revisado en captura: charla, documento y modo oscuro (los SVG conservan colores vivos; marco del tanque pasa a blanco translúcido en oscuro).
+
+### Iteración de Fernando (feedback 2) — texto protagonista y escenarios a documento
+- **Modo charla**: fuera los textos de analogía (pasan a `doc-only`); cada tarjeta queda con ilustración grande (262px) + propiedad protagonista — «Inmutable»/«Multiplicativa» a **1.62rem** con line-height 1.6 y contenido ampliado («Es tu precio de entrada fijo» / «con contexto largo puede comerse el margen entero»).
+- **Los 3 escenarios de concurrencia** → `doc-only`: solo aparecen en modo documento (en charla ocupaban mucho y no aportaban tanto).
+- **Ajuste de solape en documento**: el `pillar-illustration-row` con `flex: 1 1 0; min-height: 0` colapsaba dentro de tarjetas de altura natural y su contenido pisaba las tarjetas vecinas; en documento el row va a `flex: 0 0 auto`, ilustración reducida a 186px, tipografía compacta (analogía 1.1rem, pill 1.02rem, títulos 1.28rem) y los escenarios en 3 columnas con regla `!important` (la genérica `body.mode-document .doc-only { display: block }` pisa el grid).
+- Barrido 30/30 limpio en charla y documento; capturas revisadas a ojo en ambos modos (el barrido automático no detecta solapes internos: verificación visual obligatoria en s11).
