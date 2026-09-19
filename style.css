@@ -1130,19 +1130,41 @@ body.theme-dark .press-footer-link a:hover {
   padding-top: 0.15rem;
 }
 
+/* receta prensa (igual que s3/s4 de parte 1): titular grande, aire uniforme, link al pie
+   (en parte 2 la back-bar roba ~30px → padding/desc un pelín más compactos) */
 #slide-pillar-adr-case-nextjs .press-card {
-  padding: 1.35rem 1.85rem;
-  gap: 0.7rem;
+  padding: 1.25rem 2rem;
+  gap: 0.6rem;
+  justify-content: space-between;
 }
 
-#slide-pillar-adr-case-nextjs .press-headline {
-  font-size: 1.52rem;
-  line-height: 1.25;
+#slide-pillar-adr-case-nextjs .press-footer-link {
+  margin-top: 0;
 }
 
 #slide-pillar-adr-case-nextjs .press-desc {
-  font-size: 1.05rem;
-  line-height: 1.45;
+  font-size: 1.25rem;
+  line-height: 1.48;
+}
+
+#slide-nvidia-hack .press-grid {
+  gap: 1.15rem 2.0rem;
+  padding-top: 0.15rem;
+}
+
+#slide-nvidia-hack .press-card {
+  padding: 1.45rem 2.1rem;
+  gap: 0.65rem;
+  justify-content: space-between;
+}
+
+#slide-nvidia-hack .press-footer-link {
+  margin-top: 0;
+}
+
+#slide-nvidia-hack .press-desc {
+  font-size: 1.28rem;
+  line-height: 1.5;
 }
 
 body.theme-dark .press-desc {

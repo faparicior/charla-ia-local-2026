@@ -137,4 +137,6 @@ la identidad "periódico/recorte" es coherente.
 
 **Enlaces fuente en prensa (iteración posterior):** los 8 recortes de s3/s4 llevan ahora su URL al pie (`.press-footer-link`, patrón de parte 2, fuentes mapeadas desde `script/index.md` líneas 15-22 y 44-49); titulares restaurados a 2.05rem, desc 1.28rem, aire interior repartido con `space-between` (footer sin `margin-top:auto`). s21 (mismo formato) sin URLs: no existen en los markdowns del repo.
 
+**Parte 2 homogeneizada (s20 + s29):** la slide 20 (`slide-pillar-adr-case-nextjs`, 4 recortes Next.js) y la 29 (`slide-nvidia-hack`, 4 recortes DeepSeek/NVIDIA) adoptan la misma receta prensa que s3/s4 de parte 1: titular grande 2.05rem, desc 1.25-1.28rem, aire interior repartido con `space-between` y link al pie con línea punteada (s29 llevaba 4 enlaces nuevos: FlashMLA, Nikkei/FT-Jensen, TensorRT-LLM, DeepSpec). Nota: en parte 2 la back-bar roba ~30px, así que s20 usa padding 1.25/2rem para encajar (979, sin overflow).
+
 **Pendientes latentes (no de este paquete):** theme-dark completo de parte 2; print "32 slides" y warning `${e}` en bundle.py; CONTINUAR_AQUI.md desactualizada.
