@@ -86,3 +86,6 @@ Los STRONGs de s28-31 están sobre **tarjetas blancas dentro de la slide** (el r
 - ~~Terminal 16→18px en charla~~ → **aplicado** (mismo commit): `1.125rem` en el bloque talk-mode de terminales + `justify-content: safe center`; fit verificado: scrollH==clientH en las 11 terminales (cero contenido cortado), banners en bottom 966, doc mode intacto (0.78rem base sin tocar).
 - theme-dark de las clases tocadas (badges, tabs, pills): skin alternativo, sin auditar.
 - `bundle.py` prints "32 slides" hardcodeado (cosmético).
+
+## Fix s21 (29 sep tarde)
+El h2 llevaba `style="font-size: 3.3rem"` inline (recorte por longitud del título) — Fernando detectó el título más pequeño que en s20/s22. Eliminado el font-size (queda el estándar 4,2rem, 2 líneas con `line-height: 1.15`); verificado en charla (lowest 936) y documento (lowest 933), sin overflow en ninguno.
