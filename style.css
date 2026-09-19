@@ -16209,13 +16209,13 @@ body.deck-hardware-part1 #slide-9 .gpu-spec-row {
 }
 
 body.deck-hardware-part1 #slide-9 .gpu-vram {
-  font-size: 1.2rem;
-  padding: 0.45rem 0.9rem;
+  font-size: 1.35rem;
+  padding: 0.5rem 0.95rem;
 }
 
 body.deck-hardware-part1 #slide-9 .gpu-bandwidth {
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #525660;
   background: rgba(0, 0, 0, 0.05);
@@ -16242,6 +16242,10 @@ body.deck-hardware-part1 #slide-9 .gpu-usecase {
   font-size: 1.35rem;
   line-height: 1.5;
   margin-top: 0;
+}
+
+body.deck-hardware-part1 #slide-9 .gpu-usecase strong {
+  font-weight: 800;
 }
 
 body.deck-hardware-part1.theme-dark #slide-9 .gpu-vram {
