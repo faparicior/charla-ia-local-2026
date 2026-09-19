@@ -162,3 +162,26 @@ la identidad "periódico/recorte" es coherente.
 **Parte 2 homogeneizada (s20 + s29):** la slide 20 (`slide-pillar-adr-case-nextjs`, 4 recortes Next.js) y la 29 (`slide-nvidia-hack`, 4 recortes DeepSeek/NVIDIA) adoptan la misma receta prensa que s3/s4 de parte 1: titular grande 2.05rem, desc 1.25-1.28rem, aire interior repartido con `space-between` y link al pie con línea punteada (s29 llevaba 4 enlaces nuevos: FlashMLA, Nikkei/FT-Jensen, TensorRT-LLM, DeepSpec). Nota: en parte 2 la back-bar roba ~30px, así que s20 usa padding 1.25/2rem para encajar (979, sin overflow).
 
 **Pendientes latentes (no de este paquete):** theme-dark completo de parte 2; print "32 slides" y warning `${e}` en bundle.py; CONTINUAR_AQUI.md desactualizada.
+
+---
+
+## Modo charla / documento en parte 1 (29 sep 2026)
+
+### Qué se aplicó
+Mismo mecanismo de parte 2 (`body.mode-document` + `.doc-only`, persistencia en `localStorage['deck-doc-mode']`, botón ⚡ del HUD):
+
+1. **25 subtítulos** (slides 4–23 y 25–30) → `class="subtitle doc-only"`. El de la portada (s1) se queda: es la descripción de la charla. Todos los marcados eran contexto para leer, no mensaje central.
+2. **4 textos `gpu-usecase` de s9** (qué modelos caben en cada nivel de H200) → `doc-only`. Las tarjetas quedan escénicas en presentación (título, visual de GPUs, specs y precio).
+3. **9 notas `col-note` de s14** (todo en slide-14, bajo la matriz Goldilocks) → `doc-only`. En presentación la tabla sube el padding de fila a 1.05rem para llenar la caja (`body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td`) — sin este ajuste quedaban ~130 px de vacío dentro de la caja.
+4. **No tocado** (siempre visibles): enlaces de prensa s3/s4, sellos de fecha s8/s9, banner de conclusión de s14 y resto de contenido central.
+
+### Hallazgos técnicos
+- **s10 (Trilema)**: la fusión del rediseño — imagen editorial del prisma + tarjetas `tri2-card` — dejó un **duplicado en cascada**: la versión pequeña de mis tarjetas (chip 38px) iba después de la agrandada del deck (48px) y la pisaba. Eliminado el duplicado; el bloque oscuro se depuró de reglas huérfanas (`.tri2-node/.tri2-hub/.tri2-pill/…` ya no existen en el HTML).
+- **p1 no tenía el botón ⚡**: el icono 📄 del HUD de parte 1 es `btn-pdf` (exportar). Añadido `<button id="btn-dual-mode">⚡</button>` en la misma posición que parte 2 (antes de 🌓). `slides.js` lo ata solo (`getElementById` tolera ausencia).
+- **Sincronización p1↔p2**: bajo `file://` Chrome da a cada archivo su propio `localStorage` (p2 no hereda el modo de p1 y viceversa). Bajo HTTP sí comparte origen y funciona en los dos sentidos (verificado con `http.server`): p1 on → p2 on; p2 off → p1 off. Servido en producción (http), el modo viaja bien entre partes.
+- **Barrido doble 30/30**: modo charla y modo documento sin overflow, sin banner oculto, contraste OK. Capturas: `/tmp/sweep-p1-sN.png` (charla) y `/tmp/sweep-p1-docmode-sN.png` (documento).
+
+### Verificación del flujo completo
+- Click en ⚡ → `mode-document` + `localStorage['deck-doc-mode']='true'`, subtítulos visibles.
+- Recarga → el modo se restaura.
+- Salto p1→p2 (HTTP) hereda el modo en ambos sentidos.

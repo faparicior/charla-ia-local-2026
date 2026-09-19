@@ -16466,53 +16466,14 @@ body.deck-hardware-part1.theme-dark #slide-10 .trilema-hero-img {
   background: #1e2229;
 }
 
-body.deck-hardware-part1 #slide-10 .tri2-num {
-  flex: 0 0 auto;
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
-  background: var(--ct);
-  color: var(--c);
-  font-weight: 800;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-card-title {
-  font-weight: 800;
-  font-size: 1.08rem;
-  margin-bottom: 0.3rem;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-card p {
-  font-size: 1rem;
-  color: #525660;
-  line-height: 1.45;
-  margin: 0;
-}
-
-/* Trilema v2 — modo oscuro */
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-node,
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-hub,
+/* Trilema 3D — modo oscuro (tarjetas) */
 body.deck-hardware-part1.theme-dark #slide-10 .tri2-card {
   background: #23262c;
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-q,
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-card p,
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-hub-stats {
+body.deck-hardware-part1.theme-dark #slide-10 .tri2-card p {
   color: #b8bcc4;
-}
-
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-pill {
-  color: #d5d9df;
-}
-
-body.deck-hardware-part1.theme-dark #slide-10 .tri2-hub-kicker {
-  color: #e7eaee;
 }
 
 
@@ -16543,6 +16504,13 @@ body.deck-hardware-part1 #slide-3 .press-footer-link,
 body.deck-hardware-part1 #slide-4 .press-footer-link {
   font-size: 0.9rem;
 }
+
+/* s14 en modo presentación: col-note ocultas -> filas más altas para llenar la caja */
+body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td {
+  padding-top: 1.05rem;
+  padding-bottom: 1.05rem;
+}
+
 </style>
 </head>
 
