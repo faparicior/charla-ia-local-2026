@@ -16367,108 +16367,56 @@ body.deck-hardware-part1.theme-dark #slide-8 .editorial-table tr.row-openweight 
 
 
 /* ============================================================
-   s10 — Trilema v2 (rediseño grande y legible, unidades del lienzo real)
+/* ============================================================
+   s10 — Trilema 3D Editorial Equilibrado
    ============================================================ */
-body.deck-hardware-part1 #slide-10 .tri2-stage {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  margin-top: 0.4rem;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-node {
-  position: absolute;
-  width: 420px;
-  background: #ffffff;
-  border: 1px solid rgba(203, 213, 225, 0.65);
-  border-left: 6px solid var(--c);
-  border-radius: 16px;
-  padding: 0.9rem 1.1rem;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.07);
-}
-
-body.deck-hardware-part1 #slide-10 .node-top  { left: 670px; top: 12px; }
-body.deck-hardware-part1 #slide-10 .node-left { left: 0; bottom: 0; }
-body.deck-hardware-part1 #slide-10 .node-right{ right: 0; bottom: 0; }
-
-body.deck-hardware-part1 #slide-10 .tri2-head {
+body.deck-hardware-part1 #slide-10 .trilema-visual-stage {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: 0.02em;
-  color: var(--c);
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin: 0.2rem 0 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-10 .tri2-light {
-  font-weight: 600;
-  font-size: 1rem;
-  opacity: 0.75;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--c);
-  flex: 0 0 auto;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-q {
-  font-size: 1.02rem;
-  color: #525660;
-  margin: 0.3rem 0 0.55rem;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-pill {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  padding: 0.3rem 0.8rem;
-  background: var(--ct);
-  color: #334155;
-  border-radius: 999px;
-}
-
-body.deck-hardware-part1 #slide-10 .tri2-hub {
-  position: absolute;
-  left: 640px;
-  top: 274px;
-  width: 480px;
+body.deck-hardware-part1 #slide-10 .trilema-hero-img {
+  max-height: 480px;
+  width: auto;
+  max-width: 920px;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(203, 213, 225, 0.55);
   background: #ffffff;
-  border: 1.5px solid #94a3b8;
-  border-radius: 18px;
-  box-shadow: 0 0 0 6px rgba(2, 132, 199, 0.07), 0 14px 30px rgba(15, 23, 42, 0.09);
-  padding: 1rem 1.2rem;
-  text-align: center;
 }
 
-body.deck-hardware-part1 #slide-10 .tri2-hub-kicker {
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #1e293b;
+body.deck-hardware-part1 #slide-10 .trilema-sweetspot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  font-size: 0.96rem;
+  color: #334155;
 }
 
-body.deck-hardware-part1 #slide-10 .tri2-hub-model {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.35rem;
+body.deck-hardware-part1 #slide-10 .trilema-sweetspot-badge strong {
   color: #0284c7;
-  margin-top: 0.3rem;
 }
 
-body.deck-hardware-part1 #slide-10 .tri2-hub-stats {
-  font-size: 1rem;
-  color: #525660;
-  margin-top: 0.25rem;
+body.deck-hardware-part1.theme-dark #slide-10 .trilema-hero-img {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.deck-hardware-part1.theme-dark #slide-10 .trilema-sweetspot-badge {
+  background: #1e2229;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
 }
 
 body.deck-hardware-part1 #slide-10 .tri2-bottom {
@@ -16536,4 +16484,33 @@ body.deck-hardware-part1.theme-dark #slide-10 .tri2-pill {
 
 body.deck-hardware-part1.theme-dark #slide-10 .tri2-hub-kicker {
   color: #e7eaee;
+}
+
+
+/* s3/s4 (parte 1): prensa con letra más grande que la s29 de parte 2 (feedback Fernando) */
+body.deck-hardware-part1 #slide-3 .press-headline,
+body.deck-hardware-part1 #slide-4 .press-headline {
+  font-size: 2.3rem;
+  line-height: 1.18;
+}
+
+body.deck-hardware-part1 #slide-3 .press-desc,
+body.deck-hardware-part1 #slide-4 .press-desc {
+  font-size: 1.44rem;
+  line-height: 1.5;
+}
+
+body.deck-hardware-part1 #slide-3 .press-source,
+body.deck-hardware-part1 #slide-4 .press-source {
+  font-size: 0.98rem;
+}
+
+body.deck-hardware-part1 #slide-3 .press-date,
+body.deck-hardware-part1 #slide-4 .press-date {
+  font-size: 0.98rem;
+}
+
+body.deck-hardware-part1 #slide-3 .press-footer-link,
+body.deck-hardware-part1 #slide-4 .press-footer-link {
+  font-size: 0.9rem;
 }

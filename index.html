@@ -811,37 +811,12 @@
           Toda decisión de hardware, arquitectura y cuantización busca el equilibrio perfecto entre estos tres pilares.
         </p>
 
-        <!-- Trilema v2: triángulo con tarjetas de vértices grandes + hub central -->
-        <div class="tri2-stage">
-          <svg class="tri2-svg" viewBox="0 0 1760 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <polygon points="880,70 210,540 1550,540" fill="rgba(2, 132, 199, 0.035)" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 7" />
-            <line x1="880" y1="70" x2="880" y2="326" stroke="#7c3aed" stroke-width="3.5" opacity="0.5" stroke-linecap="round" />
-            <line x1="210" y1="540" x2="880" y2="326" stroke="#0284c7" stroke-width="3.5" opacity="0.5" stroke-linecap="round" />
-            <line x1="1550" y1="540" x2="880" y2="326" stroke="#ea580c" stroke-width="3.5" opacity="0.5" stroke-linecap="round" />
-          </svg>
-
-          <div class="tri2-node node-top" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.08)">
-            <div class="tri2-head"><span class="tri2-dot"></span>CALIDAD <span class="tri2-light">(Inteligencia)</span></div>
-            <div class="tri2-q">¿Es fiable o alucina?</div>
-            <div class="tri2-pill">FP8 ➔ INT4 (AutoRound / NVFP4)</div>
-          </div>
-
-          <div class="tri2-node node-left" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.08)">
-            <div class="tri2-head"><span class="tri2-dot"></span>MEMORIA <span class="tri2-light">(VRAM)</span></div>
-            <div class="tri2-q">¿Cabe en mi hardware?</div>
-            <div class="tri2-pill">Pesos Fijos + KV Cache Dinámico</div>
-          </div>
-
-          <div class="tri2-node node-right" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.08)">
-            <div class="tri2-head"><span class="tri2-dot"></span>VELOCIDAD <span class="tri2-light">(Throughput)</span></div>
-            <div class="tri2-q">¿A cuántos tokens/s responde?</div>
-            <div class="tri2-pill">Modelos MoE vs. Densos</div>
-          </div>
-
-          <div class="tri2-hub">
-            <div class="tri2-hub-kicker">🎯 El «Sweet Spot» del Crafter</div>
-            <div class="tri2-hub-model">Qwen 122B MoE en 128 GB</div>
-            <div class="tri2-hub-stats">&gt;40 tokens/s • 98.4% precisión intacta</div>
+        <!-- Trilema: Diagrama 3D Editorial Equilibrado + Hub de Datos -->
+        <div class="trilema-visual-stage">
+          <img src="script/img/trilema-ia-local-light-editorial.jpg" alt="El Trilema de la IA Local: Memoria, Calidad y Velocidad" class="trilema-hero-img">
+          <div class="trilema-sweetspot-badge">
+            <span class="badge-icon">🎯</span>
+            <strong>Sweet Spot del Crafter:</strong> Qwen 2.5 72B / 122B MoE en 64–128 GB &bull; &gt;40 tok/s &bull; 98.4% precisión intacta
           </div>
         </div>
 
