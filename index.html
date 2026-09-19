@@ -811,80 +811,61 @@
           Toda decisión de hardware, arquitectura y cuantización busca el equilibrio perfecto entre estos tres pilares.
         </p>
 
-        <!-- Contenedor del Triángulo Minimalista -->
-        <div class="tri-minimal-stage">
-
-          <!-- Gráfico SVG Limpio: Solo líneas de conexión y fondo -->
-          <svg class="tri-minimal-svg" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="500,80 180,370 820,370" fill="rgba(2, 132, 199, 0.02)" stroke="#cbd5e1" stroke-width="2"
-              stroke-dasharray="6 6" />
-
-            <line x1="500" y1="80" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5" />
-            <line x1="180" y1="370" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5" />
-            <line x1="820" y1="370" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5" />
+        <!-- Trilema v2: triángulo con tarjetas de vértices grandes + hub central -->
+        <div class="tri2-stage">
+          <svg class="tri2-svg" viewBox="0 0 1760 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <polygon points="880,70 210,540 1550,540" fill="rgba(2, 132, 199, 0.035)" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 7" />
+            <line x1="880" y1="70" x2="880" y2="326" stroke="#7c3aed" stroke-width="3.5" opacity="0.5" stroke-linecap="round" />
+            <line x1="210" y1="540" x2="880" y2="326" stroke="#0284c7" stroke-width="3.5" opacity="0.5" stroke-linecap="round" />
+            <line x1="1550" y1="540" x2="880" y2="326" stroke="#ea580c" stroke-width="3.5" opacity="0.5" stroke-linecap="round" />
           </svg>
 
-          <!-- 1. VÉRTICE SUPERIOR: CALIDAD -->
-          <div class="tri-node node-top">
-            <div class="tri-node-badge-clean purple">
-              <span class="tri-node-dot purple"></span>
-              <span>CALIDAD (Inteligencia)</span>
-            </div>
-            <div class="tri-node-sub">¿Es fiable o alucina?</div>
-            <div class="tri-node-pill">FP8 ➔ INT4 (AutoRound / NVFP4)</div>
+          <div class="tri2-node node-top" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.08)">
+            <div class="tri2-head"><span class="tri2-dot"></span>CALIDAD <span class="tri2-light">(Inteligencia)</span></div>
+            <div class="tri2-q">¿Es fiable o alucina?</div>
+            <div class="tri2-pill">FP8 ➔ INT4 (AutoRound / NVFP4)</div>
           </div>
 
-          <!-- 2. VÉRTICE INFERIOR IZQUIERDO: MEMORIA -->
-          <div class="tri-node node-left">
-            <div class="tri-node-badge-clean blue">
-              <span class="tri-node-dot blue"></span>
-              <span>MEMORIA (VRAM)</span>
-            </div>
-            <div class="tri-node-sub">¿Cabe en mi hardware?</div>
-            <div class="tri-node-pill">Pesos Fijos + KV Cache Dinámico</div>
+          <div class="tri2-node node-left" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.08)">
+            <div class="tri2-head"><span class="tri2-dot"></span>MEMORIA <span class="tri2-light">(VRAM)</span></div>
+            <div class="tri2-q">¿Cabe en mi hardware?</div>
+            <div class="tri2-pill">Pesos Fijos + KV Cache Dinámico</div>
           </div>
 
-          <!-- 3. VÉRTICE INFERIOR DERECHO: VELOCIDAD -->
-          <div class="tri-node node-right">
-            <div class="tri-node-badge-clean orange">
-              <span class="tri-node-dot orange"></span>
-              <span>VELOCIDAD (Throughput)</span>
-            </div>
-            <div class="tri-node-sub">¿A cuántos tokens/s responde?</div>
-            <div class="tri-node-pill">Modelos MoE vs. Densos</div>
+          <div class="tri2-node node-right" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.08)">
+            <div class="tri2-head"><span class="tri2-dot"></span>VELOCIDAD <span class="tri2-light">(Throughput)</span></div>
+            <div class="tri2-q">¿A cuántos tokens/s responde?</div>
+            <div class="tri2-pill">Modelos MoE vs. Densos</div>
           </div>
 
-          <!-- CENTRO: SWEET SPOT -->
-          <div class="tri-node node-center">
-            <div class="tri-center-icon">🎯</div>
-            <div class="tri-center-title">El "Sweet Spot" del Crafter</div>
-            <div class="tri-center-target">Qwen 122B MoE en 128 GB</div>
-            <div class="tri-center-stats">&gt;40 tokens/s • 98.4% precisión intacta</div>
+          <div class="tri2-hub">
+            <div class="tri2-hub-kicker">🎯 El «Sweet Spot» del Crafter</div>
+            <div class="tri2-hub-model">Qwen 122B MoE en 128 GB</div>
+            <div class="tri2-hub-stats">&gt;40 tokens/s • 98.4% precisión intacta</div>
           </div>
-
         </div>
 
-        <!-- 3 Tarjetas Inferiores Limpias y Explicativas -->
-        <div class="tri-bottom-cards">
-          <div class="tri-summary-card">
-            <div class="tri-summary-head" style="color: #0284c7;">
-              <span>💾</span> <strong>1. Memoria (El Límite)</strong>
+        <div class="tri2-bottom">
+          <div class="tri2-card">
+            <span class="tri2-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
+            <div>
+              <div class="tri2-card-title" style="color:#0284c7">Memoria · El límite</div>
+              <p>Si el modelo y el contexto no caben en VRAM, la velocidad cae un 90% por swap a CPU.</p>
             </div>
-            <p>Si el modelo y el contexto no caben en VRAM, la velocidad cae un 90% por swap a CPU.</p>
           </div>
-
-          <div class="tri-summary-card">
-            <div class="tri-summary-head" style="color: #7c3aed;">
-              <span>🧠</span> <strong>2. Calidad (La Lógica)</strong>
+          <div class="tri2-card">
+            <span class="tri2-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
+            <div>
+              <div class="tri2-card-title" style="color:#7c3aed">Calidad · La lógica</div>
+              <p>Comprimir a 4 bits ahorra VRAM; la clave es no romper cadenas de razonamiento largo.</p>
             </div>
-            <p>Comprimir a 4 bits ahorra VRAM; la clave es no romper cadenas de razonamiento largo.</p>
           </div>
-
-          <div class="tri-summary-card">
-            <div class="tri-summary-head" style="color: #ea580c;">
-              <span>⚡</span> <strong>3. Velocidad (La Fluidez)</strong>
+          <div class="tri2-card">
+            <span class="tri2-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
+            <div>
+              <div class="tri2-card-title" style="color:#ea580c">Velocidad · La fluidez</div>
+              <p>La arquitectura MoE activa solo a los expertos de guardia para responder al instante.</p>
             </div>
-            <p>La arquitectura MoE activa solo a los expertos de guardia para responder al instante.</p>
           </div>
         </div>
 
