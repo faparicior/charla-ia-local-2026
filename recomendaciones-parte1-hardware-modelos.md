@@ -135,4 +135,6 @@ la identidad "periódico/recorte" es coherente.
 
 **Verificación:** re-bundle OK (5.99 MB); barrido Playwright de las 30 slides: 0 overflow, 0 banners ocultos, 0 contrastes <AA; revisión visual slide a slide completa (capturas /tmp/sweep-p1-s*.png).
 
+**Enlaces fuente en prensa (iteración posterior):** los 8 recortes de s3/s4 llevan ahora su URL al pie (`.press-footer-link`, patrón de parte 2, fuentes mapeadas desde `script/index.md` líneas 15-22 y 44-49); titulares restaurados a 2.05rem, desc 1.28rem, aire interior repartido con `space-between` (footer sin `margin-top:auto`). s21 (mismo formato) sin URLs: no existen en los markdowns del repo.
+
 **Pendientes latentes (no de este paquete):** theme-dark completo de parte 2; print "32 slides" y warning `${e}` en bundle.py; CONTINUAR_AQUI.md desactualizada.

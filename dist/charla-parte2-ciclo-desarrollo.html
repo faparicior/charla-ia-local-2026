@@ -15925,6 +15925,24 @@ body.deck-hardware-part1 .memory-scenario-card {
   justify-content: center;
 }
 
+/* s3/s4: tamaños de noticia originales; el hueco se llena con contenido,
+   el ajuste fino va por padding/gap (la tarjeta ya ocupa toda la fila) */
+body.deck-hardware-part1 .slide-content > .press-grid .press-card {
+  padding: 1.45rem 2.1rem;
+  gap: 0.65rem;
+  justify-content: space-between;
+}
+
+/* anula el margin-top:auto global del footer-link: aquí el aire se reparte uniforme */
+body.deck-hardware-part1 .slide-content > .press-grid .press-footer-link {
+  margin-top: 0;
+}
+
+body.deck-hardware-part1 .slide-content > .press-grid .press-desc {
+  font-size: 1.28rem;
+  line-height: 1.5;
+}
+
 body.deck-hardware-part1 .meme-stage-single {
   margin-top: auto;
   margin-bottom: auto;
