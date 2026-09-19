@@ -1595,79 +1595,10 @@
       </div>
     </section>
 
-
-    <section class="slide" id="slide-17">
-      <div class="slide-content">
-        <div class="tag">Qwen 3.8 Flash Next &bull; El fit en un nodo de 128 GB</div>
-        <h2>Dos NVFP4: <span class="serif-italic">uno cabe, el otro no</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          El mismo formato NVFP4. La diferencia no est&aacute; en el backbone: es si la biblioteca n-gram (PLE) se cuantiza tambi&eacute;n o queda en BF16. Fuentes: Inferact (PTQ) y local-inference-lab (QAD) en HF.
-        </p>
-
-        <div class="qad-deck">
-          <div class="qad-layout">
-
-            <div class="qad-card qad-no">
-              <div class="qad-head"><div class="qad-name">NVFP4 habitual (PTQ)</div><span class="qad-badge qad-badge-red">183 GB &gt; 128</span></div>
-              <div class="qad-stage">
-                <svg viewBox="0 0 520 186" role="img" aria-label="Barra de 183 GB sobre un nodo de 128 GB: la biblioteca BF16 de 102 GB sobresale fuera del nodo">
-                  <text x="20" y="22" font-size="15" font-weight="800" fill="#334155">Nodo: 128 GB unificados</text>
-                  <rect x="20" y="36" width="307" height="90" rx="10" class="qad-node"/>
-                  <rect x="20" y="36" width="194" height="90" fill="url(#egB)"/>
-                  <text x="117" y="74" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">81 GB</text>
-                  <text x="117" y="94" text-anchor="middle" font-size="11.5" fill="#dbeafe">pesos NVFP4</text>
-                  <rect x="214" y="36" width="113" height="90" fill="url(#egG)" opacity="0.85"/>
-                  <rect x="327" y="36" width="132" height="90" fill="url(#egG)" opacity="0.4" stroke="#f59e0b" stroke-width="3" stroke-dasharray="7 5"/>
-                  <text x="336" y="74" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">102 GB</text>
-                  <text x="336" y="94" text-anchor="middle" font-size="11.5" fill="#dbeafe">PLE en BF16 &middot; fuera</text>
-                  <text x="412" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">host RAM</text>
-                  <text x="336" y="156" text-anchor="middle" font-size="14" font-weight="800" fill="#c2410c">falta 55 GB: no cabe en el nodo</text>
-                  <text x="478" y="92" text-anchor="middle" font-size="30" font-weight="800" fill="#dc2626">&#10007;</text>
-                  <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: Inferact NVFP4 &middot; 182,8 GB en disco</text>
-                  </svg>
-              </div>
-              <div class="memory-card-highlight-pill">81 GB de pesos + 102 GB de biblioteca BF16: el checkpoint entero no cabe en los 128 unificados; solo en una RTX 6000 Pro, que acompa&ntilde;a la VRAM con host RAM aparte para la biblioteca.</div>
-              <p class="anat-detail doc-only">En una RTX 6000 Pro s&iacute; cabe, porque su VRAM dedicada va acompa&ntilde;ada de host RAM aparte para la PLE (&laquo;with PLE offload&raquo;). En GB10 la memoria es unificada y no hay host RAM aparte. La &uacute;nica v&iacute;a para servir un PTQ en el Spark es streamear el engram desde el SSD (receta tipo mmap de 0xBakeer con el RadixArk NVFP4: ~83 GiB de pesos residentes): entra, pero deja menos aire para KV &mdash; por eso el QAD es el checkpoint de referencia para la Spark: el &uacute;nico que cabe entero en memoria.</p>
-            </div>
-
-            <div class="qad-card qad-yes">
-              <div class="qad-head"><div class="qad-name">NVFP4 QAD (destilado)</div><span class="qad-badge qad-badge-green">105 GB &lt; 128</span></div>
-              <div class="qad-stage">
-                <svg viewBox="0 0 520 186" role="img" aria-label="Receta de la Spark: 77 GB de pesos en memoria dentro del presupuesto de 102 GB, 25 GB libres para la KV FP8 y la biblioteca de 28,9 GB streameada desde el SSD">
-                  <defs><marker id="qd2Arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/></marker></defs>
-                  <text x="20" y="22" font-size="15" font-weight="800" fill="#334155">Presupuesto en memoria: ~102 GB (0,8 &#215; 128)</text>
-                  <rect x="20" y="36" width="245" height="90" rx="10" class="qad-node"/>
-                  <rect x="20" y="36" width="185" height="90" fill="url(#egG)"/>
-                  <text x="112" y="74" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">77 GB</text>
-                  <text x="112" y="94" text-anchor="middle" font-size="11.5" fill="#dbeafe">pesos NVFP4</text>
-                  <rect x="211" y="42" width="48" height="78" rx="4" class="qad-free"/>
-                  <text x="235" y="72" text-anchor="middle" font-size="13" font-weight="800" fill="#15803d">+25</text>
-                  <text x="235" y="86" text-anchor="middle" font-size="9.5" font-weight="700" fill="#15803d">GB KV FP8</text>
-                  <text x="235" y="99" text-anchor="middle" font-size="9.5" fill="#15803d">+ buffers</text>
-                  <line x1="306" y1="81" x2="273" y2="81" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#qd2Arrow)"/>
-                  <rect x="312" y="46" width="64" height="70" rx="8" fill="#1e293b"/>
-                  <text x="344" y="78" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">SSD</text>
-                  <text x="344" y="96" text-anchor="middle" font-size="10.5" fill="#94a3b8">28,9 GB</text>
-                  <text x="390" y="70" font-size="13" font-weight="800" fill="#b45309">engram streamea</text>
-                  <text x="390" y="89" font-size="11.5" fill="#64748b">lookup desde el disco,</text>
-                  <text x="390" y="106" font-size="11.5" fill="#64748b">16 filas por token</text>
-                  <text x="486" y="90" text-anchor="middle" font-size="30" font-weight="800" fill="#15803d">&#10003;</text>
-                  <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: local-inference-lab QAD &middot; 105,8 GB en disco (98,5 GiB)</text>
-                  </svg>
-              </div>
-              <div class="memory-card-highlight-pill">El engram cuantizado (102 &rarr; 28,9 GB) se streamea desde el SSD: 77 GB de pesos en memoria y ~25 GB libres para la KV FP8. El checkpoint entero tambi&eacute;n cabe (105,8 &lt; 128) si lo prefieres todo residente.</div>
-              <p class="anat-detail doc-only">Destilaci&oacute;n consciente de cuantizaci&oacute;n contra el maestro BF16: 2.500 + 1.500 updates, 200M + 104M tokens; GPQA 89,9, mejor que el PTQ con menos tokens de destilaci&oacute;n. Receta verificada con los ficheros reales (vllm-node-b12x): VLLM_PLE_TABLE_MEMORY=disk, gpu-memory-utilization 0,8 (~102 GB), KV FP8, contexto 262k, 8 seqs, MTP 4. Pesado en la cach&eacute; HF de Chappie: PLE 28,87 GB &middot; pesos 76,97 GB &middot; total 105,8 GB (98,5 GiB). Los 198 GB que muestra du en blobs incluyen ~106 GB de duplicados de otra revisi&oacute;n de HF.</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ====================================================================
          SLIDE 15: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
@@ -1841,7 +1772,7 @@
     <!-- ====================================================================
          SLIDE 16: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
         <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
@@ -1967,7 +1898,7 @@
     <!-- ====================================================================
          SLIDE 17: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
@@ -2082,7 +2013,7 @@
     <!-- ====================================================================
          SLIDE 18: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
@@ -2180,7 +2111,7 @@
     <!-- ====================================================================
          SLIDE 19: LA DECISIÓN: LAS "CALCULASIONES"
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
@@ -2203,7 +2134,7 @@
     <!-- ====================================================================
          SLIDE 20: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
         <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
@@ -2267,7 +2198,7 @@
     <!-- ====================================================================
          SLIDE 21: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -2354,7 +2285,7 @@
     <!-- ====================================================================
          SLIDE 22: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -2377,7 +2308,7 @@
     <!-- ====================================================================
          SLIDE 23: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -2501,7 +2432,7 @@
     <!-- ====================================================================
          SLIDE 24: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -2729,7 +2660,7 @@
     <!-- ====================================================================
          SLIDE 25: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
@@ -2881,7 +2812,7 @@
     <!-- ====================================================================
          SLIDE 26: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
         <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
@@ -3094,7 +3025,7 @@
     <!-- ====================================================================
          SLIDE 27: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
         <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #047857;">¿Dónde vive la
@@ -3205,7 +3136,7 @@
     <!-- ====================================================================
          SLIDE 28: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
         <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #047857;">Contexto Masivo en
@@ -3382,7 +3313,7 @@
     <!-- ====================================================================
          SLIDE 29: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
         <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #047857;">Juntas, Próximas y Alejadas</span></h2>
@@ -3522,7 +3453,7 @@
     <!-- ====================================================================
          SLIDE 30: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
         <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
@@ -3671,7 +3602,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">30</span>
+        <span id="slide-current">1</span> / <span id="slide-total">32</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
