@@ -192,3 +192,9 @@ Ritmo y momentos hero:
 - W3C WCAG 2.1, contraste mínimo (4.5:1 texto normal, 3:1 texto grande): https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
 - Y Combinator, "How to Build Your Seed Round Pitch Deck": https://www.ycombinator.com/library/2u-how-to-build-your-seed-round-pitch-deck
 - DocSend, datos de atención por slide (~3 min 44 s por deck): citado en deckary.com vía seedblink.com
+
+## Lección nueva (slide especial engram, s15)
+- **Clases base con min-height fijo + columnas con N tarjetas**: si reutilizas `.memory-pillar-card` (min-height 170px) en una columna que ahora lleva 3 tarjetas + extras, el total desborda y las tarjetas se tapan entre sí (el sweep NO detecta solapes internos). Diagnóstico: `scrollHeight`/`clientHeight` del elemento (clientH = min-height del base es la firma). Fix: `min-height: auto` con scope del modo/contenedor nuevo.
+- **Los extras/pies de columna en modo doc**: mejor notas planas en línea (strong mono + texto, display block, sin caja) que mini-tarjetas en grid: 3 notas ≈ 127px en vez de ~200.
+- **Pills de una idea**: los textos telegráficos («20M n-grams al vuelo: no computa — viven en RAM host o disco») funcionan a 1.62rem en charla Y a 1.02rem en doc sin reescribir. Si una pill necesita 2 frases, son 2 ideas.
+- **Una historia por slide**: el concepto (engram) va en una slide; su consecuencia de hardware (fit GB10, PTQ vs QAD) pide OTRA slide, aunque solo sea una remisión doc-only.

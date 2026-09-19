@@ -163,20 +163,22 @@ Pregunta abierta — buena gancho para cerrar la slide.
 
 ---
 
-## 11. Propuesta de slide especial
+## 11. Slide especial — IMPLEMENTADA (slide 15 del deck, tras la matriz s14)
 
-**Título candidato**: «El modelo que rompe la regla» / «Qwen 3.8 Flash Next: 125B + 51B que casi no tocan la GPU»
+**Título real**: «Qwen 3.8 Flash Next: *más cerebro, menos RAM*» (tag: Hardware Sizing • Caso Especial).
 
-**Estructura visual sugerida** (dos polos):
-- **Izquierda**: la «factura» — 6B activos, ~65–70 GB en GPU, KV diminuta (14,7 KB/token)
-- **Derecha**: la «biblioteca fuera de casa» — 51B de n-gram en NVFP4/BF16 (~26–102 GB) viviendo en RAM del host o streameando del disco (la analogía del engram: memoria asociativa externa, no en la CPU local)
-- **Chicha central**: «calidad de 176B con factura de 6B» + los 3 checkpoints del truco (PTQ 183 GB vs QAD 98 GiB vs GGUF Q4 111 GB)
-- **En modo documento**: el desglose completo (§2, §4, §6) y los benchmarks §8
+**Alcance decidido con Fernando**: la slide cuenta SOLO el concepto engram — la tabla n-gram (PLE) de 51B que se consulta, no computa, y por eso puede vivir fuera de la GPU. El fit en GB10 y las cuantizaciones (PTQ 183 GB vs QAD 98 GiB) es OTRA historia (remitido en una nota doc-only: «otra slide»). Así la slide no se sobrecarga.
 
-**Mensajes clave (máx. 3 en charla)**:
-1. La tabla n-gram no computa: se consulta → puede vivir fuera de la GPU
-2. 65–70 GB en GPU + biblioteca en RAM/disco = nodo de 128 GB
-3. El checkpoint QAD de 98 GiB lo demuestra: cabe entero (y con PLE a disco, sobra para KV)
+**Estructura real** (patrón s11, clases `.engram-*`):
+- **Izquierda — SVG «Dónde vive cada cosa (176B totales)»**: caja GPU azul (Backbone MoE 125B, 512 expertos · 10+1 activos = 6B por token, 65–70 GB residentes) ↔ caja Engram verde con estantería de fichas (tabla n-gram · 51B, BF16: 102 GB / NVFP4: ~26 GB, 20M bigramas/trigramas, 💾 RAM del host o desde disco), unidas por flechas naranjas bidireccionales «prefetch ⟷ consulta · en paralelo»; banda inferior: «La GPU carga lo que piensa; el engram se consulta cuando hace falta». Badge «6B activos».
+- **Derecha — 3 tarjetas pilares** (numeradas, con pill protagonista):
+  1. 📚 El engram: se consulta, no se multiplica — «20M n-grams al vuelo: no computa — viven en RAM host o disco.» (analogía doc-only: apuntes en la pared del taller)
+  2. 🖥️ La GPU solo guarda lo que piensa — «125B con 10+1 expertos activos = 6B por token: 65–70 GB en GPU.» (analogía doc-only: obrador/despensa)
+  3. 🎯 El resultado — «GPQA 91,7 · DeepSWE 58,7 vs 42,2 (27B): calidad de 176B.»
+- **Pie doc-only — 3 notas planas**: KV de chicle (14,7 KB/token · 8,2 GB ≈ 600k tokens) · Calidad medida (SWE-bench Pro 62,5 · LCB 91,9) · Otra historia (Fit GB10 y cuantizaciones: otra slide).
+- Subtítulo doc-only: «176B parámetros, 6B activos por token: la tabla n-gram (el engram) no computa — se consulta. Y lo que se consulta puede vivir fuera de la GPU: en la RAM del host o streameado desde disco.»
+
+**Verificado**: barrido charla + doc 31/31 sin overflow; capturas charla/doc/dark revisadas. Gotcha clave que mordió: `.memory-pillar-card` base tiene `min-height: 170px` — con 3 tarjetas + extras en la columna derecha del modo doc desbordaba (578+170×3 > 588px) y las tarjetas se tapaban; fix: `body.mode-document .engram-right .memory-pillar-card { min-height: auto }`. La slide especial del fit GB10/cuantizaciones queda como siguiente candidata (una sola historia por slide).
 
 ---
 

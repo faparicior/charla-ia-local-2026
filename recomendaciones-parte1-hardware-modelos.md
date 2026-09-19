@@ -1,3 +1,5 @@
+> **ACTUALIZACIÓN (post-informe):** se ha insertado la slide especial del Qwen 3.8 Flash Next (el engram) como **slide 15**, justo tras la matriz de pesos (s14). Las slides 15–30 del informe pasan a ser **16–31**. La slide nueva está verificada (charla/doc/dark, sin overflow) y su construcción se detalla en `dossier-qwen38-flash-next.md` §11. Pendiente: slide del fit GB10 y las cuantizaciones (PTQ 183 GB vs QAD 98 GiB), remitida desde la s15.
+
 # Parte 1 — Hardware, Modelos y Cuantización (`index.html`, 30 slides)
 ## Revisión visual + plan de recomendaciones (sin implementar, pendiente de OK)
 

@@ -1353,10 +1353,111 @@
       </div>
     </section>
 
+    <section class="slide" id="slide-15">
+      <div class="slide-content">
+        <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
+        <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          176B par&aacute;metros, 6B activos por token: la tabla n-gram (el engram) no computa &mdash; se consulta.
+          Y lo que se consulta puede vivir fuera de la GPU: en la RAM del host o streameado desde disco.
+        </p>
+
+        <div class="engram-deck">
+          <div class="engram-layout">
+
+            <div class="engram-stage-card">
+              <div class="vram-gauge-header">
+                <div class="vram-gauge-title"><span>&#129504; D&oacute;nde vive cada cosa (176B totales)</span></div>
+                <span class="vram-capacity-badge">6B activos</span>
+              </div>
+              <div class="engram-stage">
+                <svg class="engram-svg" viewBox="0 0 480 400" role="img" aria-label="El backbone MoE (65-70 GB) vive en la GPU; la tabla n-gram de 51B se consulta desde la RAM del host o desde disco">
+                  <defs>
+                    <linearGradient id="egB" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <linearGradient id="egG" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
+                    </linearGradient>
+                    <marker id="egArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                      <path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/>
+                    </marker>
+                  </defs>
+
+                  <rect x="16" y="40" width="250" height="298" rx="14" class="eg-frame"/>
+                  <text x="141" y="70" text-anchor="middle" font-size="15" font-weight="800" fill="#1d4ed8">&#128421;&#65039; GPU &middot; piensa aqu&iacute;</text>
+                  <rect x="36" y="86" width="210" height="186" rx="10" fill="url(#egB)"/>
+                  <text x="141" y="126" text-anchor="middle" font-size="21" font-weight="800" fill="#ffffff">Backbone MoE</text>
+                  <text x="141" y="158" text-anchor="middle" font-size="27" font-weight="800" fill="#ffffff">125B</text>
+                  <text x="141" y="188" text-anchor="middle" font-size="13" fill="#dbeafe">512 expertos &middot; 10+1 activos</text>
+                  <text x="141" y="208" text-anchor="middle" font-size="13" fill="#dbeafe">= 6B por token</text>
+                  <text x="141" y="306" text-anchor="middle" font-size="30" font-weight="800" fill="#1d4ed8">65&ndash;70 GB</text>
+                  <text x="141" y="328" text-anchor="middle" font-size="13" fill="#64748b">residentes en GPU</text>
+
+                  <line x1="276" y1="252" x2="276" y2="126" stroke="#f59e0b" stroke-width="3" marker-end="url(#egArrow)"/>
+                  <line x1="292" y1="126" x2="292" y2="252" stroke="#f59e0b" stroke-width="3" marker-end="url(#egArrow)"/>
+                  <text transform="rotate(-90 284 190)" x="284" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">prefetch &#8644; consulta &middot; en paralelo</text>
+
+                  <rect x="302" y="40" width="162" height="298" rx="14" class="eg-frame"/>
+                  <text x="383" y="68" text-anchor="middle" font-size="15" font-weight="800" fill="#15803d">&#128218; Engram</text>
+                  <text x="383" y="88" text-anchor="middle" font-size="12.5" fill="#64748b">tabla n-gram &middot; 51B</text>
+                  <g>
+                    <rect x="318" y="100" width="130" height="128" rx="8" fill="url(#egG)" opacity="0.14"/>
+                    <g fill="url(#egG)">
+                      <rect x="326" y="112" width="26" height="28" rx="3"/><rect x="358" y="112" width="18" height="28" rx="3" opacity="0.75"/>
+                      <rect x="382" y="112" width="30" height="28" rx="3"/><rect x="418" y="112" width="20" height="28" rx="3" opacity="0.65"/>
+                      <rect x="330" y="160" width="20" height="28" rx="3" opacity="0.7"/><rect x="356" y="160" width="28" height="28" rx="3"/>
+                      <rect x="390" y="160" width="16" height="28" rx="3" opacity="0.6"/><rect x="412" y="160" width="26" height="28" rx="3"/>
+                      <rect x="324" y="208" width="30" height="28" rx="3"/><rect x="360" y="208" width="16" height="28" rx="3" opacity="0.7"/>
+                      <rect x="382" y="208" width="24" height="28" rx="3" opacity="0.8"/><rect x="412" y="208" width="22" height="28" rx="3"/>
+                    </g>
+                  </g>
+                  <text x="383" y="256" text-anchor="middle" font-size="13" fill="#15803d" font-weight="700">BF16: 102 GB</text>
+                  <text x="383" y="276" text-anchor="middle" font-size="13" fill="#15803d" font-weight="700">NVFP4: ~26 GB</text>
+                  <text x="383" y="302" text-anchor="middle" font-size="12" fill="#64748b">20M bigramas/trigramas</text>
+                  <text x="383" y="326" text-anchor="middle" font-size="14" font-weight="800" fill="#334155">&#128190; RAM del host</text>
+                  <text x="383" y="348" text-anchor="middle" font-size="14" font-weight="800" fill="#334155">&#128190; o desde disco</text>
+
+                  <rect x="16" y="352" width="448" height="40" rx="10" class="eg-band"/>
+                  <text x="240" y="377" text-anchor="middle" font-size="14" font-weight="700" class="eg-band-text">La GPU carga lo que piensa; el engram se consulta cuando hace falta</text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="engram-right">
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>1.</span><span>&#128218; El engram: se consulta, no se multiplica</span></div>
+                <p class="memory-analogy-box doc-only">Analog&iacute;a: los apuntes en la pared del taller: no los piensas, los miras.</p>
+                <div class="memory-card-highlight-pill">20M n-grams al vuelo: no computa &mdash; viven en RAM host o disco.</div>
+              </div>
+
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>2.</span><span>&#128421;&#65039; La GPU solo guarda lo que piensa</span></div>
+                <p class="memory-analogy-box doc-only">Analog&iacute;a: el obrador con lo que se cocina; la despensa fuera.</p>
+                <div class="memory-card-highlight-pill">125B con 10+1 expertos activos = 6B por token: 65&ndash;70 GB en GPU.</div>
+              </div>
+
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>3.</span><span>&#127919; El resultado</span></div>
+                <div class="memory-card-highlight-pill">GPQA 91,7 &middot; DeepSWE 58,7 vs 42,2 (27B): calidad de 176B.</div>
+              </div>
+
+              <div class="engram-extras doc-only">
+                <div class="engram-extra"><strong>KV de chicle</strong><p>14,7 KB/token &middot; 8,2 GB &asymp; 600k tokens</p></div>
+                <div class="engram-extra"><strong>Calidad medida</strong><p>SWE-bench Pro 62,5 &middot; LCB 91,9</p></div>
+                <div class="engram-extra"><strong>Otra historia</strong><p>Fit GB10 y cuantizaciones: otra slide</p></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================================================================
          SLIDE 15: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-16">
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
@@ -1530,7 +1631,7 @@
     <!-- ====================================================================
          SLIDE 16: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
         <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
@@ -1656,7 +1757,7 @@
     <!-- ====================================================================
          SLIDE 17: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
@@ -1771,7 +1872,7 @@
     <!-- ====================================================================
          SLIDE 18: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
@@ -1869,7 +1970,7 @@
     <!-- ====================================================================
          SLIDE 19: LA DECISIÓN: LAS "CALCULASIONES"
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
@@ -1892,7 +1993,7 @@
     <!-- ====================================================================
          SLIDE 20: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
         <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
@@ -1956,7 +2057,7 @@
     <!-- ====================================================================
          SLIDE 21: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -2043,7 +2144,7 @@
     <!-- ====================================================================
          SLIDE 22: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -2066,7 +2167,7 @@
     <!-- ====================================================================
          SLIDE 23: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -2190,7 +2291,7 @@
     <!-- ====================================================================
          SLIDE 24: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -2418,7 +2519,7 @@
     <!-- ====================================================================
          SLIDE 25: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
@@ -2570,7 +2671,7 @@
     <!-- ====================================================================
          SLIDE 26: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
         <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
@@ -2783,7 +2884,7 @@
     <!-- ====================================================================
          SLIDE 27: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
         <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #047857;">¿Dónde vive la
@@ -2894,7 +2995,7 @@
     <!-- ====================================================================
          SLIDE 28: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
         <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #047857;">Contexto Masivo en
@@ -3071,7 +3172,7 @@
     <!-- ====================================================================
          SLIDE 29: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
         <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #047857;">Juntas, Próximas y Alejadas</span></h2>
@@ -3211,7 +3312,7 @@
     <!-- ====================================================================
          SLIDE 30: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
         <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
