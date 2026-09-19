@@ -11,8 +11,9 @@
 | OpenAI | GPT-5.6 Sol / o3 | $4.00 / 3,68 € | $0.40 / 0,37 € | Frontier Flagship |
 | Anthropic | Claude Sonnet 5 | $3.00 / 2,76 € | $0.30 / 0,28 € | Gama Media / Agentes |
 | Google | Gemini 3.6 Flash | $0.75 / 0,69 € | $0.075 / 0,07 € | Equilibrado Cloud |
+| xAI | Grok 4.6 | $2.00 / 1,84 € | $0.50 / 0,46 € | Frontier Multimodal |
 | DeepSeek | V4 Flash / R1 | $0.14 – $0.66 | $0.003 / 0,003 € | Open-Weight MoE |
-| Alibaba Qwen | Qwen 3.8 (27B / 72B) | $0.08 – $0.40 | Hasta 90% desc. | Open-Weight Eficiente |
+| Alibaba Qwen | Qwen 3.8 27B | $0.10 – $0.45 | ≈ $0.05 / 0,05 € | Open-Weight Eficiente |
 | Alibaba Qwen | Qwen 3.8 Flash Next | $0.15 / 0,14 € | $0.075 / 0,07 € | Open-Weight MoE Ligero |
 | Zhipu (Z.ai) | GLM 5.3 Flash | $0.15 / 0,14 € | $0.03 / 0,03 € | Open-Weight Agéntico |
 | AI Local Crafters | Hardware Propio (GGUF / vLLM) | 0,00 € / token | Ilimitado | 100% Privado & Autónomo |
@@ -25,7 +26,9 @@
 | Claude Sonnet 5 | $2.00 / caché $0.20 | **$3.00 / caché $0.30** | El precio introductorio ($2/$10) expiró el 31 ago 2026; desde 1 sep rige el estándar $3/$15. Caché hit = 10% del input ($0.30). |
 | Gemini 3.6 Flash | $1.50 / caché $0.15 | **$0.75 / caché $0.075** | Esquema con fecha de Google: $0.75/$3.75/$0.075 vigente hasta 31 dic 2026 (duplica el 1 ene 2027 a $1.50/$7.50/$0.15 — la tabla tenía el precio de 2027). |
 | DeepSeek V4 Flash/R1 | $0.14 – $0.55 | **$0.14 – $0.66** | V4-Flash $0.14 ✓ sin cambios; V4-Pro subió en la subida del 16 ago 2026 (~$0.435 → $0.66+). Caché hit V4-Flash $0.0028 ≈ $0.003 ✓. |
-| Qwen 3.8 (27B/72B) | $0.08 – $0.40 | sin cambios | Hosting comercial de terceros para tamaños abiertos pequeños, en rango. |
+| Qwen 3.8 27B | $0.08 – $0.40 + «Hasta 90% desc.» | **$0.10 – $0.45 + caché ≈$0.05** | OpenRouter (19 sep): input $0.10 (Darkbloom) – $0.45 (Cloudflare); caché read típica $0.05 (DeepInfra, Parasail, Akash, Cloudflare; Chutes $0.024; Alibaba $0.085). Se sustituyó «Hasta 90% desc.» por precio real. |
+| **Meta (descartada)** | Llama 4 Scout / Muse Spark | — | Evaluada y descartada el 19 sep 2026 por decisión de Fernando: Llama 4 Scout es de abr 2025 (demasiado vieja) y la API de primera parte de Meta ya no es Llama sino **Muse Spark 1.2/1.3** ($1.25 input / $0.15 caché / $4.25 output, pesos cerrados — comercial). Se eliminó la fila para no alargar la tabla; los datos quedan aquí por si se recuperan. |
+| **xAI Grok 4.6** | (nueva) | **$2.00 / caché $0.50** | docs.x.ai oficial (<200K prompt): $2.00 input / $0.50 caché / $6.00 output; ≥200K duplica ($4/$1/$12). |
 | **Qwen 3.8 Flash Next** | (nueva) | **$0.15 / caché $0.075** | Qwen3-Next-80B-A3B: oficial internacional $0.15/$1.20 (vigente desde 30 abr 2026); DeepInfra $0.09/$1.10; caché read ~$0.075. |
 | **GLM 5.3 Flash** | (nueva) | **$0.15 / caché $0.03** | Lista oficial Z.ai (docs.z.ai): $0.15 input / $0.03 caché / $0.50 output. La promo de lanzamiento (50%: $0.075/$0.015/$0.25) terminó el 9 sep 2026. |
 
@@ -47,6 +50,11 @@
 | GLM 5.3 Flash | Z.ai — Developer pricing | https://docs.z.ai/ |
 | GLM 5.3 Flash | TokenCost — GLM-5.3-Flash | https://tokencost.app/models/glm-5-3-flash |
 | GLM 5.3 Flash | eesel AI — promo y lista | https://www.eesel.ai/blog/glm-5-3-flash-pricing |
+| Grok 4.6 | xAI — Models & Pricing (oficial) | https://docs.x.ai/developers/models |
+| Llama 4 Scout | OpenRouter — pricing & providers | https://openrouter.ai/meta-llama/llama-4-scout |
+| Llama 4 Maverick | DeepInfra — Llama hosting | https://deepinfra.com/llama |
+| Qwen 3.8 27B | OpenRouter — providers & cache read | https://openrouter.ai/qwen/qwen3.8-27b |
+| Muse Spark (API Meta) | Meta — Developer pricing (oficial) | https://ai.developer.meta.com/docs/pricing-rate-limits/ |
 
 ## 4. Fechas que hay que vigilar (los precios caducan)
 
