@@ -17196,6 +17196,35 @@ body.mode-document .anat-visual svg {
   max-width: 100%;
 }
 
+/* s17 charla: pills grandes y legibles */
+body.deck-hardware-part1:not(.mode-document) .qad-card .memory-card-highlight-pill {
+  font-size: 1.62rem;
+  line-height: 1.6;
+  padding: 1.2rem 1.4rem;
+}
+
+/* s17 doc: los detalles con espacio de sobra, a tamano leible */
+body.mode-document .qad-card .anat-detail {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* s15/s16/s17 doc: subtitulo compacto (patron s4, especificidad ganadora) */
+body.deck-hardware-part1.mode-document #slide-15 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-16 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
+  font-size: 0.98rem !important;
+  line-height: 1.42 !important;
+}
+
+/* s17: checkpoint como texto HTML (grande, pegado al grafico) */
+.qad-ckpt {
+  flex: 0 0 auto;
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  margin-top: -0.25rem;
+}
+
 </style>
 </head>
 
@@ -18597,8 +18626,22 @@ body.mode-document .anat-visual svg {
                   <text x="383" y="256" text-anchor="middle" font-size="14" fill="#15803d" font-weight="700">BF16: 102 GB</text>
                   <text x="383" y="276" text-anchor="middle" font-size="14" fill="#15803d" font-weight="700">NVFP4: ~26 GB</text>
                   <text x="383" y="300" text-anchor="middle" font-size="13" fill="#64748b">20M &times; 2560 = 51B</text>
-                  <text x="383" y="326" text-anchor="middle" font-size="15" font-weight="800" fill="#334155">&#128190; RAM del host</text>
-                  <text x="383" y="350" text-anchor="middle" font-size="15" font-weight="800" fill="#334155">&#128192; o desde disco</text>
+                  <g>
+                    <rect x="312" y="316" width="26" height="16" rx="2" fill="#475569"/>
+                    <rect x="314" y="312" width="22" height="4" rx="1" fill="#64748b"/>
+                    <g fill="#94a3b8">
+                      <rect x="314" y="332" width="3" height="5"/><rect x="320" y="332" width="3" height="5"/>
+                      <rect x="326" y="332" width="3" height="5"/><rect x="332" y="332" width="3" height="5"/>
+                    </g>
+                  </g>
+                  <text x="346" y="329" font-size="14" font-weight="800" fill="#334155">RAM del host</text>
+                  <g>
+                    <rect x="312" y="344" width="26" height="14" rx="3" fill="#475569"/>
+                    <circle cx="325" cy="351" r="5" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                    <circle cx="325" cy="351" r="1.6" fill="#cbd5e1"/>
+                    <rect x="338" y="347" width="1.5" height="8" fill="#64748b"/>
+                  </g>
+                  <text x="346" y="356" font-size="14" font-weight="800" fill="#334155">o desde disco</text>
 
                   <!-- Banda inferior compacta (36..464 x 370..396) -->
                   <rect x="16" y="370" width="448" height="26" rx="8" class="eg-band"/>
@@ -18775,7 +18818,7 @@ body.mode-document .anat-visual svg {
             <div class="qad-card qad-no">
               <div class="qad-head"><div class="qad-name">NVFP4 habitual (PTQ)</div><span class="qad-badge qad-badge-red">183 GB &gt; 128</span></div>
               <div class="qad-stage">
-                <svg viewBox="0 0 520 210" role="img" aria-label="Barra de 183 GB sobre un nodo de 128 GB: la biblioteca BF16 de 102 GB sobresale fuera del nodo">
+                <svg viewBox="0 0 520 186" role="img" aria-label="Barra de 183 GB sobre un nodo de 128 GB: la biblioteca BF16 de 102 GB sobresale fuera del nodo">
                   <text x="20" y="22" font-size="15" font-weight="800" fill="#334155">Nodo: 128 GB unificados</text>
                   <rect x="20" y="36" width="307" height="90" rx="10" class="qad-node"/>
                   <rect x="20" y="36" width="194" height="90" fill="url(#egB)"/>
@@ -18788,8 +18831,8 @@ body.mode-document .anat-visual svg {
                   <text x="412" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">host RAM</text>
                   <text x="336" y="156" text-anchor="middle" font-size="14" font-weight="800" fill="#c2410c">falta 55 GB: no cabe en el nodo</text>
                   <text x="478" y="92" text-anchor="middle" font-size="30" font-weight="800" fill="#dc2626">&#10007;</text>
-                  <text x="20" y="200" font-size="12" fill="#64748b">Checkpoint: Inferact NVFP4 &middot; 182,8 GB en disco</text>
-                </svg>
+                  <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: Inferact NVFP4 &middot; 182,8 GB en disco</text>
+                  </svg>
               </div>
               <div class="memory-card-highlight-pill">81 GB de pesos en GPU + la biblioteca de 102 GB en BF16 fuera: ni con offload cabe en los 128 unificados de un solo nodo.</div>
               <p class="anat-detail doc-only">En una RTX 6000 Pro s&iacute; cabe, porque su VRAM dedicada va acompa&ntilde;ada de host RAM aparte para la PLE (&laquo;with PLE offload&raquo;). En GB10 la memoria es unificada: pesos + biblioteca + KV compiten en los mismos 128 GB.</p>
@@ -18798,7 +18841,7 @@ body.mode-document .anat-visual svg {
             <div class="qad-card qad-yes">
               <div class="qad-head"><div class="qad-name">NVFP4 QAD (destilado)</div><span class="qad-badge qad-badge-green">105 GB &lt; 128</span></div>
               <div class="qad-stage">
-                <svg viewBox="0 0 520 210" role="img" aria-label="Barra de 105 GB dentro del nodo de 128 GB con 23 GB libres para KV">
+                <svg viewBox="0 0 520 186" role="img" aria-label="Barra de 105 GB dentro del nodo de 128 GB con 23 GB libres para KV">
                   <text x="20" y="22" font-size="15" font-weight="800" fill="#334155">Nodo: 128 GB unificados</text>
                   <rect x="20" y="36" width="307" height="90" rx="10" class="qad-node"/>
                   <rect x="20" y="36" width="252" height="90" fill="url(#egG)"/>
@@ -18809,8 +18852,8 @@ body.mode-document .anat-visual svg {
                   <text x="417" y="90" text-anchor="middle" font-size="12" fill="#64748b">KV + buffers</text>
                   <text x="478" y="92" text-anchor="middle" font-size="30" font-weight="800" fill="#15803d">&#10003;</text>
                   <text x="417" y="116" text-anchor="middle" font-size="14" font-weight="800" fill="#15803d">cabe entero</text>
-                  <text x="20" y="200" font-size="12" fill="#64748b">Checkpoint: local-inference-lab QAD &middot; 98 GiB en disco</text>
-                </svg>
+                  <text x="20" y="178" font-size="14" font-weight="700" fill="#64748b">Checkpoint: local-inference-lab QAD &middot; 98 GiB en disco</text>
+                  </svg>
               </div>
               <div class="memory-card-highlight-pill">La biblioteca tambi&eacute;n se cuantiza (102 &rarr; ~26 GB): todo dentro del nodo, con aire para KV &mdash; con o sin offload.</div>
               <p class="anat-detail doc-only">Destilaci&oacute;n consciente de cuantizaci&oacute;n contra el maestro BF16: 2.500 + 1.500 updates, 200M + 104M tokens; GPQA 89,9, mejor que el PTQ con menos tokens de destilaci&oacute;n. Receta GB10: vllm-node-b12x, PLE a disco, KV FP8, contexto 262k.</p>

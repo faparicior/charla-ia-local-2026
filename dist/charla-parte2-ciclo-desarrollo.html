@@ -17196,6 +17196,35 @@ body.mode-document .anat-visual svg {
   max-width: 100%;
 }
 
+/* s17 charla: pills grandes y legibles */
+body.deck-hardware-part1:not(.mode-document) .qad-card .memory-card-highlight-pill {
+  font-size: 1.62rem;
+  line-height: 1.6;
+  padding: 1.2rem 1.4rem;
+}
+
+/* s17 doc: los detalles con espacio de sobra, a tamano leible */
+body.mode-document .qad-card .anat-detail {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* s15/s16/s17 doc: subtitulo compacto (patron s4, especificidad ganadora) */
+body.deck-hardware-part1.mode-document #slide-15 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-16 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
+  font-size: 0.98rem !important;
+  line-height: 1.42 !important;
+}
+
+/* s17: checkpoint como texto HTML (grande, pegado al grafico) */
+.qad-ckpt {
+  flex: 0 0 auto;
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  margin-top: -0.25rem;
+}
+
 </style>
 </head>
 
