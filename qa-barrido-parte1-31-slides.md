@@ -21,7 +21,12 @@ Fecha de la última pasada tras insertar la **slide 15** (Qwen 3.8 Flash Next �
 4. Extras convertidos de cajas-grid a notas planas en línea (strong mono + texto, display block) → columnas con aire de sobra.
 5. Capturas finales revisadas: charla (pills 1.62rem con aire), doc (todo dentro), dark (banda y engram legibles).
 
-### Ronda 14 (33 slides) — lecciones nuevas
+### Ronda 14b — bug de las flechas de la s16 (reportado por Fernando)
+- **Síntoma**: "las flechas salen un segundo y desaparecen, solo se quedan las líneas".
+- **Causa**: Chromium NO resuelve `marker-end="url(#id)"` cuando el `<marker>` vive en OTRO `<svg>` (los gradientes sí cruzan; los markers no). La s16 usaba `url(#egArrow)` definido en el SVG de s15 → líneas sin cabeza.
+- **Diagnóstico con dep**: los 2 paths/lines con marker-end tenían geometría correcta; el marker egArrow existía 1× en s15; el test A/B (s15 visible vs oculta) descartó el display; el crop con zoom (deviceScaleFactor 2) mostró la línea desnuda.
+- **Fix**: `<defs>` con marker local de id único (`an1Arrow`, `an4Arrow`) dentro de cada SVG de s16 + acortar la línea del Engram a x=210 para que la punta (12 unidades más allá del endpoint por refX=4) toque justo el borde de la caja azul (x=222) sin entrar debajo.
+- El visual GR+MTP (4 carriles + chip gates + rayo) estaba bien montado: revisado con captura.
 - **`.subtitle` base con `font-size: 1.8rem !important`** (style.css:171): la regla doc de s4 (0.92rem, sin !important) es INERTE y el subtítulo sigue grande. Fix con `!important` + especificidad para s15/s16/s17 (0.98rem ✓ verificado 15,68px con getComputedStyle).
 - **`<div>` dentro de `<svg>`** rompe el foreign content: el SVG se compacta sin error de sintaxis. Insertar siempre FUERA del cierre del svg.
 - **`replace(..., 1)` global con ancla genérica** (`</svg></div>`) insertó los checkpoints en el PRIMER svg del deck, no en la s17 — anclar con texto único del bloque y verificar con grep -B de contexto.
