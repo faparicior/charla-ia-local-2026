@@ -47,3 +47,26 @@
 - https://huggingface.co/Minachist/Qwen3.8-Flash-Next-INT4-Mixed-AutoRound (4,21 bpw mixto, PLE desde disco)
 - https://huggingface.co/Inferact/Qwen3.8-Flash-Next-NVFP4 (usedStorage 182,8 GB)
 - https://huggingface.co/api/models/unsloth/Qwen3.8-Flash-Next-GGUF/tree/main (sumas de shards GGUF)
+
+## ACTUALIZACIÓN (debate con Fernando): checkpoint NVFP4 QAD de 98 GiB
+La receta real de GB10/DGX Spark (modo solo, TP1) usa `local-inference-lab/Qwen3.8-Flash-Next-NVFP4`, un checkpoint **destilado con distilación consciente de cuantización (QAD)** — no un PTQ:
+
+- **98 GiB en disco** (frente a 182,8 GB del NVFP4 PTQ de Inferact). La PLE también va cuantizada a NVFP4 (~26 GB), por eso es mucho más ligero.
+- Cuantización: expertos ruta NVFP4 + PLE NVFP4 (destilados); shared experts MXFP8; atención/QSA MXFP8 (congelados); routers/mixing BF16.
+- Calidad: GPQA Diamond 89.9 (mejor que el PTQ NVFP4 con 9% menos tokens).
+- Ficha: «suitable for a single RTX 6000 (with PLE offload), or a DGX Spark (with or without PLE offload)» — **cabe entero en los 128 GB unificados**.
+- Receta GB10 (Fernando): `vllm serve ... --quantization modelopt_mixed --load-format b12x --dtype bfloat16 --kv-cache-dtype fp8 --mamba-cache-mode align` + `VLLM_PLE_TABLE_MEMORY: "disk"` + MTP depth 4 + `--gpu-memory-utilization 0.8` + max_len 262144 + max_num_seqs 8. Stack `vllm-node-b12x` (sm_121a), solo_only.
+
+## Aclaraciones del debate (cifras del Diagnóstico s14)
+- **65–70 GB en GPU**: correcto y doblemente verificado (W4A16 ~66 GiB; AutoRound 65,05 GiB) — son los pesos residentes (expertos MoE INT4 + resto).
+- **102 GB de n-gram en host**: correcto — 20M n-grams × 2560 dim = 51,2B params × 2 bytes BF16 = 102,4 GB (AutoRound mide 95,37 GiB de la misma tabla). En el QAD la PLE va en NVFP4 (~26 GB), de ahí el 98 GiB total.
+- **El «≥110 GB»** de la ficha W4A16 es *RAM del host libre requerida por el PLE*, no KV cache. KV real: solo 12/48 capas lo llevan (GDN tiene estado fijo), ~14,7 KB/token/GPU → 8,2 GB de pool ≈ 600k tokens.
+- **96B/56B vs 51B**: la cifra correcta es 51B (card oficial + cuenta interna 20M × 2560). 125+51 = 176B totales (sin MTP).
+- **30–40 tok/s en GB10**: no verificado en fuentes públicas (en 8×RTX 3090 miden 100–107 tok/s decode con MTP; en GB10 TP1+b12x es plausible que baje a ~30–40).
+- **Celda NVFP4 de s14**: se mantiene en ~183,0 GB (checkpoint PTQ global, criterio homogéneo de la tabla). El QAD de 98 GiB es material para la futura sección especial del modelo (n-gram/engram).
+
+## Versión FINAL de la fila s14 (pensada para el nodo GB10)
+`★ Qwen 3.8 Flash Next | 125B + 51B / 6B (MoE híbrido) | ~360.0 | ~185.5 | ~158.0 | ~168.0 | ~178.0 | ~105.0 (pill, NVFP4 QAD) | nota: «Cabe entero en 128 GB (QAD): PLE a disco deja aire para KV»`
+- La celda NVFP4 ya no es el PTQ de Inferact (182,8 GB) sino el **QAD de 98 GiB (~105 GB decimales)**, el checkpoint real que carga un solo nodo DGX Spark/GB10 (98/128 GiB < 0,8 de utilización).
+- La pill se queda en NVFP4 y recupera el patrón de las otras filas escogidas: pill = celda menor de la fila (105 < 158 < 168 < 178 < 185,5 < 360).
+- El detalle 65–70 GB en GPU / PLE 102 GB host / QAD / engram: material de la **slide especial** futura (dossier-qwen38-flash-next.md), no de la matriz.

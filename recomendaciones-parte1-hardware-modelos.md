@@ -234,3 +234,12 @@ Fernando pidió sustituir el Qwen 3.5 122B como modelo «escogido» por el Qwen 
 - **Banner inferior actualizado**: «Qwen 3.8 27B, 35B MoE, 122B MoE y el híbrido Flash Next (125B+51B: solo 65–70 GB en GPU)…» y «inasumibles (>200 GB en GPU)» en vez de «(>200 GB)».
 - Nota: AWQ pura no existe (falló la linearización en 256 GB de RAM); la celda AWQ refleja el W4A16 RTN de terceros (168 GB). NVFP4 es el build mixto de Inferact (experts NVFP4 + resto BF16/FP8, 182,8 GB medidos).
 - Barrido 30/30 limpio en charla y documento; capturas s14 revisadas en ambos modos.
+
+### Añadido post-debate (29 sep, tarde)
+- **Columna Diagnóstico en modo charla**: oculta por completo (th + celdas) — era `doc-only` y quedaba columna fantasma con cabecera vacía.
+- **Fila Qwen 3.5 122B restaurada**: verde (row-goldilocks) sin estrella ni pill — Goldilocks pero no escogida. La fila escogida es el Flash Next.
+- **Pill amarilla del Flash Next en NVFP4 (~183.0 GB)**, elección de Fernando para su modelo.
+- **Banner Zona Ricitos de Oro: solo modo documento** (oculto en charla).
+- **Bug alineación doc-only arreglado**: `body.mode-document .doc-only { display: block }` convertía los `<td class="col-note doc-only">` en block y rompía el layout de tabla (bordes horizontales desalineados 3–8 px). Fix: `body.mode-document td/th.doc-only { display: table-cell }` + li → list-item. Geometría verificada: 10/10 filas con bordes coincidentes.
+- **Checkpoint QAD NVFP4 de 98 GiB** (local-inference-lab, el que carga la receta real GB10): documentado en `referencia-qwen38-flash-next-quantizaciones.md`. La celda NVFP4 de s14 se mantiene en ~183,0 (PTQ global); el QAD va a la futura sección especial.
+- **Ajuste final NVFP4 → QAD**: la tabla apunta al nodo GB10 (Target: DGX Spark 128 GB), así que la celda NVFP4 ahora muestra el checkpoint **QAD de 98 GiB (~105,0 GB)** de `local-inference-lab` — el que se carga de verdad en un solo nodo (cabe entero en los 128 GB unificados). La pill se queda en NVFP4 y recupera el patrón «pill = celda menor». Nota de la fila: «Cabe entero en 128 GB (QAD): PLE a disco deja aire para KV». Banner: «cabe entero en 128 GB». El desglose 65–70 GB GPU / PLE 102 GB host queda para la slide especial del Flash Next (ver `dossier-qwen38-flash-next.md`).
