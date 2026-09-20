@@ -17225,6 +17225,67 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
   margin-top: -0.25rem;
 }
 
+/* =============================================================
+   Rediseño visual s17-s20 (gráficos SVG al estilo s11/s15/s16)
+   Scoped a Modo Charla: las cajas de diagrama crecen para
+   absorber el hueco de las tarjetas (justify: space-between)
+   ============================================================= */
+body:not(.mode-document) .slide[id="slide-19"] .nvfp4-diagram-box,
+body:not(.mode-document) .slide[id="slide-20"] .autoround-visual-box {
+  max-height: 470px;
+}
+
+body:not(.mode-document) .slide[id="slide-19"] .nvfp4-diagram-box svg,
+body:not(.mode-document) .slide[id="slide-20"] .autoround-visual-box svg {
+  max-height: 470px;
+}
+
+/* s17 Modo Documento: gráfico a la izquierda y tabla exacta a la derecha
+   (los veredictos-pill ya se muestran en Modo Charla) */
+body.mode-document .slide[id="slide-17"] .engram-deck {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-rows: 1fr;
+  gap: 1.2rem;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+body.mode-document .slide[id="slide-17"] .engram-layout {
+  display: contents;
+}
+
+body.mode-document .slide[id="slide-17"] .engram-stage-card {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 0;
+}
+
+body.mode-document .slide[id="slide-17"] .engram-right {
+  display: none;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table-card {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 0;
+  align-self: center;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table {
+  font-size: 0.78rem;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table th,
+body.mode-document .slide[id="slide-17"] .quant-loss-table td {
+  font-size: 0.78rem;
+  padding: 0.38rem 0.55rem;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
+  width: 150px !important;
+}
+
 </style>
 </head>
 

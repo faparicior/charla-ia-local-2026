@@ -17225,6 +17225,67 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
   margin-top: -0.25rem;
 }
 
+/* =============================================================
+   Rediseño visual s17-s20 (gráficos SVG al estilo s11/s15/s16)
+   Scoped a Modo Charla: las cajas de diagrama crecen para
+   absorber el hueco de las tarjetas (justify: space-between)
+   ============================================================= */
+body:not(.mode-document) .slide[id="slide-19"] .nvfp4-diagram-box,
+body:not(.mode-document) .slide[id="slide-20"] .autoround-visual-box {
+  max-height: 470px;
+}
+
+body:not(.mode-document) .slide[id="slide-19"] .nvfp4-diagram-box svg,
+body:not(.mode-document) .slide[id="slide-20"] .autoround-visual-box svg {
+  max-height: 470px;
+}
+
+/* s17 Modo Documento: gráfico a la izquierda y tabla exacta a la derecha
+   (los veredictos-pill ya se muestran en Modo Charla) */
+body.mode-document .slide[id="slide-17"] .engram-deck {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-rows: 1fr;
+  gap: 1.2rem;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+body.mode-document .slide[id="slide-17"] .engram-layout {
+  display: contents;
+}
+
+body.mode-document .slide[id="slide-17"] .engram-stage-card {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 0;
+}
+
+body.mode-document .slide[id="slide-17"] .engram-right {
+  display: none;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table-card {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 0;
+  align-self: center;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table {
+  font-size: 0.78rem;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table th,
+body.mode-document .slide[id="slide-17"] .quant-loss-table td {
+  font-size: 0.78rem;
+  padding: 0.38rem 0.55rem;
+}
+
+body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
+  width: 150px !important;
+}
+
 </style>
 </head>
 
@@ -18808,71 +18869,138 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
     <!-- ====================================================================
          SLIDE 15: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+        <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Impacto real de la cuantización en razonamiento y código: desde la fidelidad intacta de FP8 hasta el colapso
-          en 3 bits.
+          Impacto real de la cuantización en razonamiento y código: de FP8 (fidelidad intacta) al colapso sintáctico de
+          3 bits. Altura de barra = VRAM que ocupa; línea = calidad que sobrevive.
         </p>
 
-        <div class="quant-loss-deck">
+        <div class="engram-deck">
+          <div class="engram-layout">
 
-          <!-- 1. Los 4 Escalones del Espectro de Precisión -->
-          <div class="quant-spectrum-grid">
-            <div class="quant-spectrum-step step-fp8">
-              <div class="quant-step-header">
-                <span class="quant-step-title">FP8 (8-bit)</span>
-                <span class="quant-step-badge green">99.6% Calidad</span>
+            <div class="engram-stage-card">
+              <div class="vram-gauge-header">
+                <div class="vram-gauge-title"><span>&#128201; El peaje: VRAM (barras) vs. calidad (l&iacute;nea)</span></div>
+                <span class="vram-capacity-badge">Qwen 122B &middot; 65 puntos</span>
               </div>
-              <div class="quant-step-desc">
-                <strong>Cero pérdida perceptible.</strong> Razonamiento idéntico al original de laboratorio.
+              <div class="engram-stage">
+                <svg class="engram-svg" viewBox="0 0 480 400" role="img" aria-label="Chart: la calidad se mantiene por encima del 96% desde 244 GB hasta 69 GB, y se desploma al 89,5% al bajar a 52 GB en Q3">
+                  <defs>
+                    <linearGradient id="qzSlate" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#94a3b8"/><stop offset="1" stop-color="#64748b"/>
+                    </linearGradient>
+                    <linearGradient id="qzBlue" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <linearGradient id="qzGreen" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
+                    </linearGradient>
+                    <linearGradient id="qzAmber" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#d97706"/>
+                    </linearGradient>
+                    <linearGradient id="qzRed" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#f87171"/><stop offset="1" stop-color="#dc2626"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- leyenda (arriba derecha) -->
+                  <rect x="330" y="64" width="11" height="11" rx="2" fill="url(#qzBlue)"/>
+                  <text x="347" y="74" font-size="10.5" font-weight="700" fill="#475569">altura = VRAM (GB)</text>
+                  <line x1="330" y1="89" x2="352" y2="89" stroke="#f59e0b" stroke-width="3"/>
+                  <circle cx="341" cy="89" r="4" fill="#334155" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="358" y="93" font-size="10.5" font-weight="700" fill="#475569">l&iacute;nea = calidad retenida</text>
+
+                  <!-- zona sweet spot (AutoRound + NVFP4) -->
+                  <rect x="200" y="60" width="120" height="292" rx="10" fill="#22c55e" opacity="0.08"/>
+                  <text x="260" y="56" text-anchor="middle" font-size="11" font-weight="800" fill="#15803d">&#127942; cabe en 128 GB</text>
+
+                  <!-- umbral de colapso 90% -->
+                  <line x1="60" y1="292" x2="456" y2="292" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 4"/>
+                  <text x="456" y="305" text-anchor="end" font-size="10" font-weight="800" fill="#dc2626">90% &middot; zona de colapso</text>
+
+                  <!-- barras de VRAM -->
+                  <rect x="92"  y="96"  width="36" height="256" rx="6" fill="url(#qzSlate)"/>
+                  <rect x="152" y="224" width="36" height="128" rx="6" fill="url(#qzBlue)"/>
+                  <rect x="212" y="280" width="36" height="72"  rx="6" fill="url(#qzGreen)"/>
+                  <rect x="272" y="284" width="36" height="68"  rx="6" fill="url(#qzGreen)"/>
+                  <rect x="332" y="280" width="36" height="72"  rx="6" fill="url(#qzAmber)"/>
+                  <rect x="392" y="297" width="36" height="55"  rx="6" fill="url(#qzRed)"/>
+                  <g text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">
+                    <text x="110" y="116">244</text><text x="170" y="244">122</text>
+                    <text x="230" y="300">69</text><text x="290" y="304">65</text>
+                    <text x="350" y="300">69</text><text x="410" y="317">52</text>
+                  </g>
+
+                  <!-- linea de calidad -->
+                  <polyline points="110,90 170,98 230,120 290,126 350,151 410,289" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+                  <g stroke="#ffffff" stroke-width="1.5">
+                    <circle cx="110" cy="90"  r="5" fill="#64748b"/>
+                    <circle cx="170" cy="98"  r="5" fill="#1d4ed8"/>
+                    <circle cx="230" cy="120" r="5" fill="#15803d"/>
+                    <circle cx="290" cy="126" r="5" fill="#15803d"/>
+                    <circle cx="350" cy="151" r="5" fill="#d97706"/>
+                    <circle cx="410" cy="289" r="5" fill="#dc2626"/>
+                  </g>
+                  <g text-anchor="middle" font-size="11" font-weight="800">
+                    <text x="110" y="78"  fill="#475569">100%</text>
+                    <text x="170" y="86"  fill="#1d4ed8">99,6%</text>
+                    <text x="230" y="108" fill="#15803d">98,4%</text>
+                    <text x="290" y="114" fill="#15803d">98,1%</text>
+                    <text x="350" y="139" fill="#d97706">96,8%</text>
+                    <text x="410" y="277" fill="#dc2626">89,5%</text>
+                  </g>
+
+                  <!-- eje base -->
+                  <line x1="60" y1="352" x2="456" y2="352" stroke="#94a3b8" stroke-width="1.5"/>
+                  <g text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">
+                    <text x="110" y="368">BF16</text><text x="170" y="368">FP8</text>
+                    <text x="230" y="368">AutoRound</text><text x="290" y="368">NVFP4</text>
+                    <text x="350" y="368">Q4_K_M</text><text x="410" y="368">Q3</text>
+                  </g>
+                  <text x="258" y="392" text-anchor="middle" font-size="11" fill="#64748b">FP8: solo datacenter &middot; INT4/NVFP4: el punto dulce de 128 GB &middot; Q3: rompe el c&oacute;digo</text>
+                </svg>
               </div>
             </div>
 
-            <div class="quant-spectrum-step step-int4">
-              <div class="quant-step-header">
-                <span class="quant-step-title">AutoRound / NVFP4</span>
-                <span class="quant-step-badge blue">~98.2% Calidad</span>
+            <div class="engram-right">
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>1.</span><span>&#128142; FP8 &mdash; el clon exacto</span></div>
+                <div class="memory-card-highlight-pill">99,6% de calidad &middot; 122 GB: impecable, pero solo vive en un datacenter.</div>
               </div>
-              <div class="quant-step-desc">
-                <strong>Sweet Spot 128 GB.</strong> 3.5x más ligero manteniendo el 98% de lógica y código.
+
+              <div class="memory-pillar-card highlight">
+                <div class="memory-pillar-title"><span>2.</span><span>&#127775; INT4 &mdash; el punto dulce de 128 GB</span></div>
+                <div class="memory-card-highlight-pill">AutoRound 98,4% &middot; NVFP4 98,1% &middot; 65&ndash;69 GB (3,5&times; m&aacute;s ligero): cabe en 128 con aire para la KV.</div>
               </div>
+
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>3.</span><span>&#9881;&#65039; Q4 GGUF &mdash; el est&aacute;ndar local</span></div>
+                <div class="memory-card-highlight-pill">96,8% &middot; 69 GB &middot; el formato de Ollama/Mac: &minus;3,3% en c&oacute;digo.</div>
+              </div>
+
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>4.</span><span>&#9888;&#65039; Q3 &mdash; la zona roja</span></div>
+                <div class="memory-card-highlight-pill">&lt;90% &middot; 52 GB &middot; colapso: par&eacute;ntesis sin cerrar, imports inventados, bucles infinitos.</div>
+              </div>
+            
             </div>
 
-            <div class="quant-spectrum-step step-q4">
-              <div class="quant-step-header">
-                <span class="quant-step-title">GGUF Q4 / AWQ</span>
-                <span class="quant-step-badge amber">~97.0% Calidad</span>
-              </div>
-              <div class="quant-step-desc">
-                <strong>Estándar Local.</strong> Pequeña caída en matemáticas complejas y razonamiento multi-paso.
-              </div>
-            </div>
-
-            <div class="quant-spectrum-step step-int3">
-              <div class="quant-step-header">
-                <span class="quant-step-title">INT3 / Q3 (Extremo)</span>
-                <span class="quant-step-badge red">Inutilizable</span>
-              </div>
-              <div class="quant-step-desc">
-                <strong>⚠️ Zona de Peligro.</strong> Colapso sintáctico, bucles repetitivos y pérdida grave de código.
-              </div>
-            </div>
           </div>
 
-          <!-- 2. Tabla Comparativa Visual (Caso de Estudio Qwen 122B) -->
-          <div class="quant-loss-table-card">
+          <!-- Versión documento: tabla completa con los números exactos -->
+          <div class="quant-loss-table-card doc-only">
             <table class="quant-loss-table">
               <thead>
                 <tr>
                   <th>Formato</th>
                   <th>VRAM (122B)</th>
-                  <th style="width: 240px;">Retención Global</th>
+                  <th style="width: 240px;">Retenci&oacute;n Global</th>
                   <th>MMLU (Razonamiento)</th>
-                  <th>HumanEval (Código)</th>
-                  <th>Diagnóstico</th>
+                  <th>HumanEval (C&oacute;digo)</th>
+                  <th>Diagn&oacute;stico</th>
                 </tr>
               </thead>
               <tbody>
@@ -18889,9 +19017,8 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                   </td>
                   <td>88.4%</td>
                   <td>84.5%</td>
-                  <td>💎 Original (Inviable en 1 GPU)</td>
+                  <td>&#128142; Original (Inviable en 1 GPU)</td>
                 </tr>
-
                 <tr>
                   <td class="col-format">FP8 (Hopper / Blackwell)</td>
                   <td class="col-vram">~122 GB</td>
@@ -18905,9 +19032,8 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                   </td>
                   <td>88.2% <small style="color: var(--text-dim);">(-0.2%)</small></td>
                   <td>84.3% <small style="color: var(--text-dim);">(-0.2%)</small></td>
-                  <td>✨ Máxima Fidelidad (Datacenter)</td>
+                  <td>&#10024; M&aacute;xima Fidelidad (Datacenter)</td>
                 </tr>
-
                 <tr class="highlight-goldilocks">
                   <td class="col-format">AutoRound INT4 (Intel)</td>
                   <td class="col-vram" style="color: #15803d;">~69 GB</td>
@@ -18921,9 +19047,8 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                   </td>
                   <td>87.2% <small style="color: var(--text-dim);">(-1.2%)</small></td>
                   <td>83.1% <small style="color: var(--text-dim);">(-1.4%)</small></td>
-                  <td>🌟 <strong>Sweet Spot MoE (Estaciones 128GB)</strong></td>
+                  <td>&#127775; <strong>Sweet Spot MoE (Estaciones 128GB)</strong></td>
                 </tr>
-
                 <tr class="highlight-goldilocks">
                   <td class="col-format">NVFP4 (NVIDIA Blackwell)</td>
                   <td class="col-vram" style="color: #0284c7;">~65 GB</td>
@@ -18937,9 +19062,8 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                   </td>
                   <td>87.0% <small style="color: var(--text-dim);">(-1.4%)</small></td>
                   <td>82.8% <small style="color: var(--text-dim);">(-1.7%)</small></td>
-                  <td>🚀 <strong>Aceleración Nativa Tensor Core</strong></td>
+                  <td>&#128640; <strong>Aceleraci&oacute;n Nativa Tensor Core</strong></td>
                 </tr>
-
                 <tr>
                   <td class="col-format">GGUF Q4_K_M (imatrix)</td>
                   <td class="col-vram">~69 GB</td>
@@ -18953,9 +19077,8 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                   </td>
                   <td>85.9% <small style="color: var(--text-dim);">(-2.5%)</small></td>
                   <td>81.2% <small style="color: var(--text-dim);">(-3.3%)</small></td>
-                  <td>⚙️ Estándar Local en Ollama / Mac</td>
+                  <td>&#9881; Est&aacute;ndar Local en Ollama / Mac</td>
                 </tr>
-
                 <tr class="highlight-danger">
                   <td class="col-format">INT3 / Q3_K_M (Extremo)</td>
                   <td class="col-vram" style="color: #dc2626;">~52 GB</td>
@@ -18969,7 +19092,7 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                   </td>
                   <td>78.5% <small style="color: var(--text-dim);">(-9.9%)</small></td>
                   <td>71.0% <small style="color: var(--text-dim);">(-13.5%)</small></td>
-                  <td>❌ <strong>Inutilizable: Colapso en Código &amp; Lógica</strong></td>
+                  <td>&#10060; <strong>Inutilizable: Colapso en C&oacute;digo &amp; L&oacute;gica</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -18982,74 +19105,106 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
     <!-- ====================================================================
          SLIDE 16: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+        <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
-        <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Dominó</span></h2>
+        <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Domin&oacute;</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Por qué un "89% en MMLU" es engañoso: en cadenas de pensamiento largas (DeepSeek R1 / Qwen Thinking), el error
-          se multiplica exponencialmente.
+          Por qu&eacute; un "89% en MMLU" es enga&ntilde;oso: en cadenas de pensamiento largas (DeepSeek R1 / Qwen Thinking),
+          el error se multiplica exponencialmente: (0,98)&#8309;&#8304; &asymp; 36%.
         </p>
 
-        <div class="domino-deck">
+        <div class="engram-deck">
 
-          <!-- 1. Comparativa 1 Token vs. Cadena de Razonamiento -->
-          <div class="domino-comparison-grid">
-
-            <!-- Card 1: Benchmark Estático -->
-            <div class="domino-card static">
-              <div class="domino-card-header">
-                <div class="domino-card-title">
-                  <span>🎯 Benchmark Estático (MMLU)</span>
-                </div>
-                <span class="domino-score-badge blue">Test de 1-Token</span>
-              </div>
-
-              <div class="domino-visual-box">
-                <span>Decisión puntual: <code>P("B") &gt; P("A")</code></span>
-                <span style="font-weight: 700; color: #1d4ed8;">Score: 89.5%</span>
-              </div>
-
-              <div class="domino-card-desc">
-                <strong>Falsa sensación de seguridad.</strong> El modelo solo tiene que acertar una letra de opción
-                múltiple. Si se desvía un 2% de probabilidad, el test sigue marcando "aprobado".
-              </div>
+          <!-- Hero: 1 token vs. cadena de razonamiento -->
+          <div class="engram-stage-card" style="flex: 1 1 0; min-height: 0;">
+            <div class="vram-gauge-header">
+              <div class="vram-gauge-title"><span>&#128161; Un acierto suelto vs. 50 pasos encadenados</span></div>
+              <span class="vram-capacity-badge" style="color: #dc2626;">(0,98)&#8309;&#8304; &asymp; 36%</span>
             </div>
+            <div class="engram-stage">
+              <svg class="engram-svg" viewBox="0 0 960 260" role="img" aria-label="Izquierda: un benchmark de 1 token acierta una decisi&oacute;n y aprueba con 89,5%. Derecha: una cadena de 50 pasos de razonamiento acumula el error ficha a ficha hasta caer al 36%">
+                <defs>
+                  <linearGradient id="dmBlue" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+                  </linearGradient>
+                  <marker id="dmArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                    <path d="M0,1 L8,4 L0,7 Z" fill="#64748b"/>
+                  </marker>
+                  <marker id="dmArrowRed" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                    <path d="M0,1 L8,4 L0,7 Z" fill="#dc2626"/>
+                  </marker>
+                </defs>
 
-            <!-- Card 2: Cadena de Pensamiento Real -->
-            <div class="domino-card cascade">
-              <div class="domino-card-header">
-                <div class="domino-card-title">
-                  <span style="color: #dc2626;">💥 Razonamiento Real (Thinking 5.000 tokens)</span>
-                </div>
-                <span class="domino-score-badge red">Efecto Dominó</span>
-              </div>
+                <!-- ===== Panel izquierdo: benchmark de 1 token ===== -->
+                <text x="220" y="30" text-anchor="middle" font-size="15" font-weight="800" fill="#1d4ed8">&#127919; Benchmark est&aacute;tico &middot; 1 token</text>
+                <rect x="22" y="62" width="120" height="58" rx="10" class="eg-frame"/>
+                <text x="82" y="86" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Pregunta MMLU</text>
+                <text x="82" y="104" text-anchor="middle" font-size="10.5" fill="#64748b">elige A / B / C / D</text>
+                <line x1="146" y1="91" x2="182" y2="91" stroke="#64748b" stroke-width="2.5" marker-end="url(#dmArrow)"/>
+                <rect x="186" y="58" width="118" height="66" rx="10" fill="url(#dmBlue)"/>
+                <text x="245" y="86" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">Modelo</text>
+                <text x="245" y="104" text-anchor="middle" font-size="10.5" fill="#dbeafe">1 decisi&oacute;n puntual</text>
+                <line x1="308" y1="91" x2="344" y2="91" stroke="#64748b" stroke-width="2.5" marker-end="url(#dmArrow)"/>
+                <rect x="348" y="70" width="76" height="42" rx="21" fill="#15803d"/>
+                <text x="386" y="96" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">B &#10003;</text>
+                <text x="220" y="160" text-anchor="middle" font-size="24" font-weight="800" fill="#15803d">89,5% &#10003;</text>
+                <text x="220" y="184" text-anchor="middle" font-size="11.5" fill="#64748b">una tirada, un acierto: el test aprueba</text>
+                <text x="220" y="206" text-anchor="middle" font-size="11" font-weight="700" fill="#94a3b8">error tolerado: si se desv&iacute;a un 2%, nadie lo nota</text>
 
-              <div class="domino-visual-box">
-                <span>Acumulación de error: <code>(0.98)⁵⁰</code></span>
-                <span class="domino-math-callout">Éxito real: ≈ 36%</span>
-              </div>
+                <!-- divisor -->
+                <line x1="462" y1="34" x2="462" y2="226" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 5"/>
 
-              <div class="domino-card-desc">
-                <strong>Deriva acumulativa crítica.</strong> Cada paso depende del anterior. Un pequeño error de
-                cuantización en el paso 10 hace que el modelo alucine o pierda el hilo en el paso 50.
-              </div>
+                <!-- ===== Panel derecho: cadena de razonamiento ===== -->
+                <text x="710" y="30" text-anchor="middle" font-size="15" font-weight="800" fill="#dc2626">&#128165; Razonamiento real &middot; thinking 5.000 tokens</text>
+                <!-- fichas de dominó: caen progresivamente -->
+                <g>
+                  <rect x="498" y="128" width="26" height="62" rx="6" fill="url(#dmBlue)"/>
+                  <rect x="544" y="128" width="26" height="62" rx="6" fill="url(#dmBlue)" transform="rotate(8 570 190)"/>
+                  <rect x="590" y="128" width="26" height="62" rx="6" fill="#38bdf8" transform="rotate(18 616 190)"/>
+                  <rect x="636" y="128" width="26" height="62" rx="6" fill="#38bdf8" transform="rotate(30 662 190)"/>
+                  <rect x="682" y="128" width="26" height="62" rx="6" fill="#f59e0b" transform="rotate(44 708 190)"/>
+                  <rect x="728" y="128" width="26" height="62" rx="6" fill="#f59e0b" transform="rotate(58 754 190)"/>
+                  <rect x="774" y="128" width="26" height="62" rx="6" fill="#ef4444" transform="rotate(72 800 190)"/>
+                  <rect x="820" y="128" width="26" height="62" rx="6" fill="#dc2626" transform="rotate(84 846 190)"/>
+                </g>
+                <!-- línea de suelo -->
+                <line x1="490" y1="191" x2="936" y2="191" stroke="#94a3b8" stroke-width="1.5"/>
+                <!-- bola de error creciente -->
+                <circle cx="560" cy="120" r="5" fill="#dc2626" opacity="0.45"/>
+                <circle cx="662" cy="112" r="9" fill="#dc2626" opacity="0.6"/>
+                <circle cx="770" cy="102" r="14" fill="#dc2626" opacity="0.75"/>
+                <circle cx="856" cy="88" r="20" fill="#dc2626"/>
+                <line x1="566" y1="116" x2="655" y2="109" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <line x1="672" y1="106" x2="758" y2="98" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <line x1="786" y1="94" x2="840" y2="86" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <text x="700" y="62" text-anchor="middle" font-size="12" font-weight="800" fill="#dc2626">el error se acumula paso a paso &#8594;</text>
+                <!-- pasos -->
+                <g text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">
+                  <text x="511" y="212">paso 1</text>
+                  <text x="614" y="212">paso 15</text>
+                  <text x="712" y="212">paso 30</text>
+                  <text x="812" y="212">paso 45</text>
+                  <text x="880" y="212">paso 50</text>
+                </g>
+                <text x="880" y="238" text-anchor="middle" font-size="19" font-weight="800" fill="#dc2626">&#8776; 36%</text>
+                <text x="640" y="238" text-anchor="middle" font-size="11.5" fill="#64748b">cada paso hereda el error del anterior &#8594; al paso 50 pierde el hilo</text>
+              </svg>
             </div>
-
           </div>
 
-          <!-- 2. Semáforo de Sensibilidad -->
+          <!-- Semáforo de sensibilidad -->
           <div class="sensitivity-grid">
 
             <div class="sensitivity-card">
               <div class="sensitivity-header">
                 <div class="sensitivity-title">
-                  <span>🔴 Modelos de Razonamiento</span>
+                  <span>&#128308; Modelos de Razonamiento</span>
                 </div>
-                <span class="sensitivity-tag crit">Crítica</span>
+                <span class="sensitivity-tag crit">Cr&iacute;tica</span>
               </div>
               <div class="sensitivity-desc">
-                <strong>DeepSeek R1, Qwen-Thinking:</strong> Se desorientan con facilidad a menos de 4 bits; entran en
+                <strong>DeepSeek R1, Qwen-Thinking:</strong> se desorientan con facilidad a menos de 4 bits; entran en
                 bucle y no cierran la etiqueta <code>&lt;/think&gt;</code>.
               </div>
             </div>
@@ -19057,46 +19212,46 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
             <div class="sensitivity-card">
               <div class="sensitivity-header">
                 <div class="sensitivity-title">
-                  <span>🟠 Modelos Pequeños (&lt;9B)</span>
+                  <span>&#128992; Modelos Peque&ntilde;os (&lt;9B)</span>
                 </div>
                 <span class="sensitivity-tag high">Alta</span>
               </div>
               <div class="sensitivity-desc">
-                <strong>Poca redundancia:</strong> Cada sinapsis cuenta. Cuantizar a 4-bit les hace perder mucha más
-                lógica proporcional que a un modelo grande.
+                <strong>Poca redundancia:</strong> cada sinapsis cuenta. Cuantizar a 4-bit les hace perder mucha m&aacute;s
+                l&oacute;gica proporcional que a un modelo grande.
               </div>
             </div>
 
             <div class="sensitivity-card">
               <div class="sensitivity-header">
                 <div class="sensitivity-title">
-                  <span>🟢 Modelos MoE / Grandes (122B)</span>
+                  <span>&#128994; Modelos MoE / Grandes (122B)</span>
                 </div>
                 <span class="sensitivity-tag ok">Resistente</span>
               </div>
               <div class="sensitivity-desc">
-                <strong>Alta masa crítica:</strong> Con <em>AutoRound INT4</em> o <em>NVFP4</em> absorben el ruido y
+                <strong>Alta masa cr&iacute;tica:</strong> con <em>AutoRound INT4</em> o <em>NVFP4</em> absorben el ruido y
                 mantienen la coherencia en agentes complejos.
               </div>
             </div>
 
           </div>
 
-          <!-- 3. Síntomas Reales en Producción -->
-          <div class="symptoms-banner">
-            <div class="symptoms-title">⚠️ Síntomas en Producción:</div>
+          <!-- Síntomas reales (versión documento) -->
+          <div class="symptoms-banner doc-only">
+            <div class="symptoms-title">&#9888;&#65039; S&iacute;ntomas en Producci&oacute;n:</div>
             <div class="symptoms-items-row">
               <div class="symptom-item">
-                <span>🌀</span>
-                <span><strong>Bucle infinito:</strong> Piensa eternamente sin responder.</span>
+                <span>&#127744;</span>
+                <span><strong>Bucle infinito:</strong> piensa eternamente sin responder.</span>
               </div>
               <div class="symptom-item">
-                <span>💥</span>
-                <span><strong>Código roto:</strong> Paréntesis sin cerrar e imports inventados.</span>
+                <span>&#128165;</span>
+                <span><strong>C&oacute;digo roto:</strong> par&eacute;ntesis sin cerrar e imports inventados.</span>
               </div>
               <div class="symptom-item">
-                <span>📉</span>
-                <span><strong>Pérdida de objetivo:</strong> Olvida las reglas en el 3º turno.</span>
+                <span>&#128201;</span>
+                <span><strong>P&eacute;rdida de objetivo:</strong> olvida las reglas en el 3&ordm; turno.</span>
               </div>
             </div>
           </div>
@@ -19108,12 +19263,13 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
     <!-- ====================================================================
          SLIDE 17: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+        <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          ¿Cómo meter un modelo gigante en 4 bits sin destruir su inteligencia? El flujo conectado en 3 pasos:
+          &iquest;C&oacute;mo meter un modelo gigante en 4 bits sin destruir su inteligencia? El flujo conectado en 3
+          pasos: moldes fijos + micro-zoom por bloque + c&oacute;mputo nativo en silicio.
         </p>
 
         <div class="nvfp4-pipeline-deck">
@@ -19129,69 +19285,146 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
               </div>
 
               <div class="nvfp4-diagram-box">
-                <div style="font-size: 0.72rem; color: var(--text-dim); text-align: center; font-weight: 700;">Regla
-                  Fija FP4 (E2M1):</div>
-                <div class="nvfp4-slots-row">
-                  <span class="nvfp4-slot-chip">0</span>
-                  <span class="nvfp4-slot-chip">±0.5</span>
-                  <span class="nvfp4-slot-chip">±1</span>
-                  <span class="nvfp4-slot-chip">±1.5</span>
-                  <span class="nvfp4-slot-chip">±2</span>
-                  <span class="nvfp4-slot-chip">±3</span>
-                  <span class="nvfp4-slot-chip">±4</span>
-                  <span class="nvfp4-slot-chip">±6</span>
-                </div>
+                <svg viewBox="0 0 280 150" width="100%" height="100%" role="img" aria-label="Regla fija FP4: una recta de 16 valores fijos donde un peso de 0,0034 se redondea a cero y un peso de 12,8 se recorta a 6">
+                  <text x="140" y="22" text-anchor="middle" font-size="11" font-weight="800" fill="#334155">regla fija E2M1: 16 valores, ni uno m&aacute;s</text>
+                  <!-- eje de moldes -->
+                  <line x1="16" y1="100" x2="264" y2="100" stroke="#94a3b8" stroke-width="1.5"/>
+                  <g stroke="#94a3b8" stroke-width="1.5">
+                    <line x1="16" y1="94" x2="16" y2="106"/><line x1="32" y1="96" x2="32" y2="104"/><line x1="48" y1="96" x2="48" y2="104"/>
+                    <line x1="64" y1="96" x2="64" y2="104"/><line x1="80" y1="96" x2="80" y2="104"/><line x1="96" y1="96" x2="96" y2="104"/>
+                    <line x1="112" y1="96" x2="112" y2="104"/><line x1="128" y1="96" x2="128" y2="104"/><line x1="144" y1="96" x2="144" y2="104"/>
+                    <line x1="160" y1="96" x2="160" y2="104"/><line x1="176" y1="96" x2="176" y2="104"/><line x1="192" y1="96" x2="192" y2="104"/>
+                    <line x1="208" y1="96" x2="208" y2="104"/><line x1="224" y1="96" x2="224" y2="104"/><line x1="240" y1="96" x2="240" y2="104"/>
+                    <line x1="256" y1="94" x2="256" y2="106"/>
+                  </g>
+                  <g text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">
+                    <text x="16" y="120">0</text><text x="136" y="120">3</text><text x="256" y="120">6</text>
+                  </g>
+                  <!-- peso pequeno: se redondea a 0 -->
+                  <circle cx="17" cy="76" r="5" fill="#dc2626"/>
+                  <text x="17" y="62" text-anchor="start" font-size="10" font-weight="800" fill="#dc2626">peso real 0,0034</text>
+                  <line x1="17" y1="82" x2="17" y2="94" stroke="#dc2626" stroke-width="2" stroke-dasharray="3 2"/>
+                  <text x="30" y="138" font-size="10" font-weight="700" fill="#dc2626">0,0034 &#8594; 0 &#10007;</text>
+                  <!-- peso grande: se recorta -->
+                  <circle cx="272" cy="76" r="5" fill="#d97706"/>
+                  <text x="266" y="62" text-anchor="end" font-size="10" font-weight="800" fill="#d97706">peso real 12,8</text>
+                  <path d="M272,82 Q270,94 258,98" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 2"/>
+                  <text x="264" y="138" text-anchor="end" font-size="10" font-weight="700" fill="#b45309">12,8 &#8594; 6 &#10007; recorte</text>
+                </svg>
               </div>
 
               <div class="nvfp4-step-desc">
-                Un peso real vale <code>0.0034</code> o <code>12.8</code>. Con solo 16 números fijos, los decimales
-                pequeños se redondean a cero y el modelo <strong>pierde la memoria</strong>.
+                Un peso real vale <code>0.0034</code> o <code>12.8</code>. Con solo 16 n&uacute;meros fijos, los decimales
+                peque&ntilde;os se redondean a cero y el modelo <strong>pierde la memoria</strong>.
               </div>
+              <p class="anat-detail doc-only">E2M1 = 1 bit de signo, 2 de exponente y 1 de mantisa: 16 valores de -6 a +6. Un modelo que vive de matices peque&ntilde;os (atenci&oacute;n, gates) se queda sordo si cada peso cae al molde m&aacute;s pr&oacute;ximo sin compensaci&oacute;n.</p>
             </div>
 
             <!-- Flecha Conectora 1 -->
-            <div class="nvfp4-connector">➔</div>
+            <div class="nvfp4-connector">&#10132;</div>
 
             <!-- PASO 2: La Solución (La Lente de Aumento) -->
             <div class="nvfp4-step-card step-solution">
               <div class="nvfp4-step-header">
                 <span class="nvfp4-step-num blue">Paso 2</span>
-                <span class="nvfp4-step-title">La Solución: El Micro-Zoom</span>
+                <span class="nvfp4-step-title">La Soluci&oacute;n: El Micro-Zoom</span>
               </div>
 
               <div class="nvfp4-diagram-box">
-                <div class="nvfp4-block-visual">
-                  <span class="nvfp4-block-elements">16 pesos contiguos</span>
-                  <span class="nvfp4-block-lens">Zoom FP8 (×0.001)</span>
-                </div>
-                <div style="font-size: 0.72rem; color: #0284c7; text-align: center; font-weight: 700;">Ajuste
-                  milimétrico a las 16 ranuras</div>
+                <svg viewBox="0 0 280 150" width="100%" height="100%" role="img" aria-label="Un bloque de 16 pesos contiguos recibe su propia escala FP8: multiplicados por 0,001 los valores reales pasan a encajar en los 16 moldes">
+                  <text x="140" y="20" text-anchor="middle" font-size="11" font-weight="800" fill="#334155">bloque de 16 pesos contiguos</text>
+                  <!-- fila cruda: valores reales fuera de molde, un outlier naranja -->
+                  <g class="ag-mute">
+                    <rect x="16" y="30" width="12" height="18" rx="3"/><rect x="32" y="30" width="12" height="18" rx="3"/>
+                    <rect x="48" y="30" width="12" height="18" rx="3"/><rect x="64" y="30" width="12" height="18" rx="3"/>
+                    <rect x="80" y="30" width="12" height="18" rx="3"/>
+                    <rect x="112" y="30" width="12" height="18" rx="3"/><rect x="128" y="30" width="12" height="18" rx="3"/>
+                    <rect x="144" y="30" width="12" height="18" rx="3"/><rect x="160" y="30" width="12" height="18" rx="3"/>
+                    <rect x="176" y="30" width="12" height="18" rx="3"/><rect x="192" y="30" width="12" height="18" rx="3"/>
+                    <rect x="208" y="30" width="12" height="18" rx="3"/><rect x="224" y="30" width="12" height="18" rx="3"/>
+                    <rect x="240" y="30" width="12" height="18" rx="3"/>
+                  </g>
+                  <rect x="96" y="26" width="12" height="26" rx="3" fill="#f59e0b"/>
+                  <!-- escala por bloque -->
+                  <line x1="16" y1="66" x2="122" y2="66" stroke="#1d4ed8" stroke-width="1.5"/>
+                  <line x1="158" y1="66" x2="264" y2="66" stroke="#1d4ed8" stroke-width="1.5"/>
+                  <rect x="86" y="58" width="108" height="17" rx="8" fill="#1d4ed8"/>
+                  <text x="140" y="70" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">escala FP8: &times;0,001</text>
+                  <!-- flecha -->
+                  <line x1="140" y1="80" x2="140" y2="94" stroke="#64748b" stroke-width="2" marker-end="url(#fpArrow)"/>
+                  <!-- moldes + fila ajustada -->
+                  <g fill="none" stroke="#cbd5e1" stroke-width="1.2">
+                    <rect x="14.5" y="100" width="15" height="20" rx="3"/><rect x="30.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="46.5" y="100" width="15" height="20" rx="3"/><rect x="62.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="78.5" y="100" width="15" height="20" rx="3"/><rect x="94.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="110.5" y="100" width="15" height="20" rx="3"/><rect x="126.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="142.5" y="100" width="15" height="20" rx="3"/><rect x="158.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="174.5" y="100" width="15" height="20" rx="3"/><rect x="190.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="206.5" y="100" width="15" height="20" rx="3"/><rect x="222.5" y="100" width="15" height="20" rx="3"/>
+                    <rect x="238.5" y="100" width="15" height="20" rx="3"/><rect x="254.5" y="100" width="15" height="20" rx="3"/>
+                  </g>
+                  <g fill="#22c55e">
+                    <rect x="17" y="103" width="10" height="14" rx="2"/><rect x="33" y="103" width="10" height="14" rx="2"/>
+                    <rect x="49" y="103" width="10" height="14" rx="2"/><rect x="65" y="103" width="10" height="14" rx="2"/>
+                    <rect x="81" y="103" width="10" height="14" rx="2"/><rect x="97" y="103" width="10" height="14" rx="2"/>
+                    <rect x="113" y="103" width="10" height="14" rx="2"/><rect x="129" y="103" width="10" height="14" rx="2"/>
+                    <rect x="145" y="103" width="10" height="14" rx="2"/><rect x="161" y="103" width="10" height="14" rx="2"/>
+                    <rect x="177" y="103" width="10" height="14" rx="2"/><rect x="193" y="103" width="10" height="14" rx="2"/>
+                    <rect x="209" y="103" width="10" height="14" rx="2"/><rect x="225" y="103" width="10" height="14" rx="2"/>
+                    <rect x="241" y="103" width="10" height="14" rx="2"/><rect x="257" y="103" width="10" height="14" rx="2"/>
+                  </g>
+                  <text x="140" y="140" text-anchor="middle" font-size="10.5" font-weight="800" fill="#15803d">&#10003; re-escalados: los 16 caen en su molde</text>
+                  <defs><marker id="fpArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#64748b"/></marker></defs>
+                </svg>
               </div>
 
               <div class="nvfp4-step-desc">
                 Se agrupan los pesos de <strong>16 en 16</strong> y a cada grupo se le da su propio "zoom" (FP8). Si un
                 peso se desmadra, solo afecta a sus 16 vecinos.
               </div>
+              <p class="anat-detail doc-only">Cada bloque de 16 pesos comparte un factor de escala FP8: es el "micro-zoom" que hace que 0,0034 &times; 500 pase a ser un valor representable. El outlier (naranja) queda contenido dentro de su bloque y el error no se propaga m&aacute;s all&aacute; de sus 16 vecinos.</p>
             </div>
 
             <!-- Flecha Conectora 2 -->
-            <div class="nvfp4-connector">➔</div>
+            <div class="nvfp4-connector">&#10132;</div>
 
             <!-- PASO 3: El Silicio Blackwell -->
             <div class="nvfp4-step-card step-silicon">
               <div class="nvfp4-step-header">
                 <span class="nvfp4-step-num green">Paso 3</span>
-                <span class="nvfp4-step-title">El Silicio: Cómputo Directo</span>
+                <span class="nvfp4-step-title">El Silicio: C&oacute;mputo Directo</span>
               </div>
 
               <div class="nvfp4-diagram-box">
-                <div class="nvfp4-hardware-flow">
-                  <span style="color: var(--text-muted);">VRAM (4b)</span>
-                  <span style="color: #16a34a;">➔</span>
-                  <span style="color: #16a34a; font-weight: 900;">Tensor Core Gen 5</span>
-                </div>
-                <div style="font-size: 0.72rem; color: #16a34a; text-align: center; font-weight: 700;">Multiplica en
-                  4-bit sin descomprimir</div>
+                <svg viewBox="0 0 280 150" width="100%" height="100%" role="img" aria-label="La VRAM guarda pesos en 4 bits y el Tensor Core de quinta generacion multiplica directamente en 4 bits, acumulando en FP8, sin descomprimir nunca">
+                  <defs>
+                    <linearGradient id="fpGreen" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
+                    </linearGradient>
+                    <marker id="fpArrow2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#64748b"/></marker>
+                  </defs>
+                  <!-- VRAM 4b -->
+                  <rect x="10" y="52" width="64" height="46" rx="8" fill="#1e293b"/>
+                  <text x="42" y="72" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">VRAM</text>
+                  <text x="42" y="88" text-anchor="middle" font-size="10" fill="#94a3b8">4-bit</text>
+                  <line x1="78" y1="75" x2="100" y2="75" stroke="#64748b" stroke-width="2.5" marker-end="url(#fpArrow2)"/>
+                  <!-- chip -->
+                  <rect x="106" y="28" width="104" height="94" rx="12" fill="url(#fpGreen)"/>
+                  <g fill="#166534">
+                    <rect x="100" y="42" width="6" height="8" rx="1.5"/><rect x="100" y="58" width="6" height="8" rx="1.5"/>
+                    <rect x="100" y="74" width="6" height="8" rx="1.5"/><rect x="100" y="90" width="6" height="8" rx="1.5"/>
+                    <rect x="210" y="42" width="6" height="8" rx="1.5"/><rect x="210" y="58" width="6" height="8" rx="1.5"/>
+                    <rect x="210" y="74" width="6" height="8" rx="1.5"/><rect x="210" y="90" width="6" height="8" rx="1.5"/>
+                  </g>
+                  <text x="158" y="60" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">Tensor Core</text>
+                  <text x="158" y="76" text-anchor="middle" font-size="10.5" fill="#dcfce7">5&ordf; generaci&oacute;n</text>
+                  <text x="158" y="96" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">&#215; 4-bit</text>
+                  <line x1="216" y1="75" x2="240" y2="75" stroke="#64748b" stroke-width="2.5" marker-end="url(#fpArrow2)"/>
+                  <!-- salida FP8 -->
+                  <rect x="244" y="52" width="32" height="46" rx="6" fill="#0284c7"/>
+                  <text x="260" y="78" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">FP8</text>
+                  <text x="140" y="142" text-anchor="middle" font-size="10.5" font-weight="800" fill="#15803d">multiplica en 4 bits: sin descomprimir nunca</text>
+                </svg>
               </div>
 
               <div class="nvfp4-step-desc">
@@ -19199,6 +19432,7 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
                 <strong>3.5x menos VRAM</strong>, velocidad <strong>4x</strong> y <strong>&gt;98% de inteligencia
                   intacta</strong>.
               </div>
+              <p class="anat-detail doc-only">Los Tensor Core de 5.&ordf; generaci&oacute;n aceptan operandos NVFP4 nativos y acumulan el producto en FP8: nunca se descomprime a BF16. Resultado: 3,5&times; menos VRAM, ~4&times; de throughput y &gt;98% de calidad retenida.</p>
             </div>
 
           </div>
@@ -19206,10 +19440,10 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
           <!-- Ribbon explicativo de 10 segundos -->
           <div class="nvfp4-summary-ribbon">
             <div class="nvfp4-ribbon-left">
-              <div class="nvfp4-ribbon-icon">💡</div>
+              <div class="nvfp4-ribbon-icon">&#128161;</div>
               <div class="nvfp4-ribbon-text">
-                <strong>En 10 segundos:</strong> 16 moldes matemáticos (Paso 1) + una lupa de aumento cada 16 números
-                (Paso 2) + ejecución directa en el chip (Paso 3) = <strong>Modelos gigantes en 1 sola máquina de 128 GB
+                <strong>En 10 segundos:</strong> 16 moldes matem&aacute;ticos (Paso 1) + una lupa de aumento cada 16 n&uacute;meros
+                (Paso 2) + ejecuci&oacute;n directa en el chip (Paso 3) = <strong>Modelos gigantes en 1 sola m&aacute;quina de 128 GB
                   sin perder razonamiento.</strong>
               </div>
             </div>
@@ -19223,13 +19457,13 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
     <!-- ====================================================================
          SLIDE 18: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+        <section class="slide" id="slide-20">
       <div class="slide-content">
-        <div class="tag">Cuantización Abierta • Intel Labs &amp; Modelos MoE</div>
+        <div class="tag">Cuantizaci&oacute;n Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          ¿Por qué Qwen 122B MoE no colapsa en 4 bits? El truco de Intel: optimizar el redondeo por bloques sin depender
-          de chips propietarios.
+          &iquest;Por qu&eacute; Qwen 122B MoE no colapsa en 4 bits? El truco de Intel: optimizar el redondeo por bloques
+          (SignSGD) sin depender de chips propietarios.
         </p>
 
         <div class="autoround-deck">
@@ -19239,64 +19473,128 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
             <!-- Card 1: La Fragilidad del Router MoE -->
             <div class="autoround-card card-router">
               <div class="autoround-card-header">
-                <span class="autoround-card-icon">🔀</span>
+                <span class="autoround-card-icon">&#128256;</span>
                 <span class="autoround-card-title">1. El Reto del Router MoE</span>
               </div>
 
               <div class="autoround-visual-box">
-                <div
-                  style="font-family: var(--font-mono); font-size: 0.76rem; text-align: center; color: #dc2626; font-weight: 700;">
-                  Ruido INT4 clásico ➔ Token a experto erróneo
-                </div>
+                <svg viewBox="0 0 280 150" width="100%" height="100%" role="img" aria-label="El router recibe el token y debe elegir entre 10 expertos: el ruido del redondeo lo manda al experto equivocado y el modelo alucina">
+                  <defs>
+                    <linearGradient id="arBlue" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <marker id="arArrowG" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#15803d"/></marker>
+                    <marker id="arArrowR" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#dc2626"/></marker>
+                  </defs>
+                  <!-- token -->
+                  <rect x="6" y="52" width="58" height="26" rx="13" fill="url(#arBlue)"/>
+                  <text x="35" y="69" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">token</text>
+                  <line x1="68" y1="65" x2="86" y2="65" stroke="#64748b" stroke-width="2" marker-end="url(#arArrowG)"/>
+                  <!-- router -->
+                  <polygon points="112,44 138,65 112,86 86,65" fill="#f59e0b"/>
+                  <text x="112" y="69" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">router</text>
+                  <!-- expertos: 2 filas x 5 -->
+                  <g class="ag-mute">
+                    <rect x="164" y="26" width="18" height="20" rx="3"/><rect x="186" y="26" width="18" height="20" rx="3"/>
+                    <rect x="208" y="26" width="18" height="20" rx="3"/><rect x="230" y="26" width="18" height="20" rx="3"/>
+                    <rect x="252" y="26" width="18" height="20" rx="3"/>
+                    <rect x="164" y="94" width="18" height="20" rx="3"/><rect x="186" y="94" width="18" height="20" rx="3"/>
+                    <rect x="208" y="94" width="18" height="20" rx="3"/><rect x="230" y="94" width="18" height="20" rx="3"/>
+                    <rect x="252" y="94" width="18" height="20" rx="3"/>
+                  </g>
+                  <!-- experto correcto (verde) y equivocado (rojo) -->
+                  <rect x="186" y="26" width="18" height="20" rx="3" fill="#22c55e"/>
+                  <rect x="230" y="94" width="18" height="20" rx="3" fill="#dc2626"/>
+                  <path d="M138,60 C158,50 172,42 184,38" fill="none" stroke="#15803d" stroke-width="2.5" marker-end="url(#arArrowG)"/>
+                  <path d="M138,70 C170,82 200,92 226,99" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#arArrowR)"/>
+                  <text x="272" y="18" text-anchor="end" font-size="10" font-weight="800" fill="#15803d">&#10003; experto correcto</text>
+                  <text x="252" y="128" text-anchor="end" font-size="10" font-weight="800" fill="#dc2626">&#10007; equivocado: alucina</text>
+                  <text x="140" y="146" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b45309">ruido de redondeo &#8594; elecci&oacute;n equivocada</text>
+                </svg>
               </div>
 
               <div class="autoround-card-desc">
-                En un MoE (122B con solo 10B activos), la puerta de entrada (<em>Router</em>) decide qué experto atiende
+                En un MoE (122B con solo 10B activos), la puerta de entrada (<em>Router</em>) decide qu&eacute; experto atiende
                 cada palabra. Si redondeas a lo bruto, el Router se confunde y <strong>el modelo alucina</strong>.
               </div>
+              <p class="anat-detail doc-only">El MoE activa 10+1 expertos de 512 por token: la decisi&oacute;n del router depende de unos pocos logits muy finos. El ruido de un redondeo ingenuo desv&iacute;a la elecci&oacute;n y el token acaba en un especialista equivocado y la respuesta entera se contamina.</p>
             </div>
 
             <!-- Card 2: La Compensación entre Vecinos (Sign-SGD) -->
             <div class="autoround-card card-gradient">
               <div class="autoround-card-header">
-                <span class="autoround-card-icon">⚖️</span>
-                <span class="autoround-card-title">2. Compensación Inteligente</span>
+                <span class="autoround-card-icon">&#9878;&#65039;</span>
+                <span class="autoround-card-title">2. Compensaci&oacute;n Inteligente</span>
               </div>
 
               <div class="autoround-visual-box">
-                <div class="autoround-compensate-row">
-                  <span class="autoround-compensate-pill down">W₁: -0.01</span>
-                  <span>+</span>
-                  <span class="autoround-compensate-pill up">W₂: +0.01</span>
-                  <span>=</span>
-                  <span class="autoround-compensate-pill zero">Error 0</span>
-                </div>
+                <svg viewBox="0 0 280 150" width="100%" height="100%" role="img" aria-label="Si redondear W1 hacia abajo genera un error de -0,01, AutoRound redondea W2 hacia arriba para sumar +0,01: el error global del bloque queda en cero">
+                  <defs>
+                    <marker id="arArrowGray" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#64748b"/></marker>
+                  </defs>
+                  <!-- W1 -->
+                  <rect x="12" y="18" width="106" height="46" rx="9" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+                  <text x="65" y="37" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">W&#8321; redondea &#8595;</text>
+                  <text x="65" y="55" text-anchor="middle" font-size="11" font-weight="800" fill="#dc2626">error &minus;0,01</text>
+                  <!-- W2 -->
+                  <rect x="12" y="86" width="106" height="46" rx="9" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+                  <text x="65" y="105" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">W&#8322; redondea &#8593;</text>
+                  <text x="65" y="123" text-anchor="middle" font-size="11" font-weight="800" fill="#15803d">error +0,01</text>
+                  <!-- convergencia -->
+                  <line x1="124" y1="44" x2="172" y2="66" stroke="#64748b" stroke-width="2" marker-end="url(#arArrowGray)"/>
+                  <line x1="124" y1="106" x2="172" y2="84" stroke="#64748b" stroke-width="2" marker-end="url(#arArrowGray)"/>
+                  <!-- resultado -->
+                  <rect x="178" y="54" width="94" height="42" rx="21" fill="#15803d"/>
+                  <text x="225" y="80" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">error 0</text>
+                  <text x="140" y="146" text-anchor="middle" font-size="10.5" font-weight="700" fill="#15803d">SignSGD: el bloque cuadra, no el peso suelto</text>
+                </svg>
               </div>
 
               <div class="autoround-card-desc">
-                <strong>El truco de Intel:</strong> Si redondear un peso hacia abajo genera un pequeño error, AutoRound
+                <strong>El truco de Intel:</strong> si redondear un peso hacia abajo genera un peque&ntilde;o error, AutoRound
                 redondea el peso vecino hacia arriba para <strong>anular el error global del bloque</strong>.
               </div>
+              <p class="anat-detail doc-only">SignSGD aprende el redondeo &oacute;ptimo por bloque (~200&ndash;400 pasos de optimizaci&oacute;n con un dataset propio): los errores de pesos vecinos se cancelan entre s&iacute; y el bloque queda a error global ~0. El m&eacute;rito no es cuantizar mejor: es decidir qui&eacute;n absorbe cada error.</p>
             </div>
 
             <!-- Card 3: Universal y 128 GB Ready -->
             <div class="autoround-card card-universal">
               <div class="autoround-card-header">
-                <span class="autoround-card-icon">🌟</span>
-                <span class="autoround-card-title">3. El Campeón Universal</span>
+                <span class="autoround-card-icon">&#127757;</span>
+                <span class="autoround-card-title">3. El Campe&oacute;n Universal</span>
               </div>
 
               <div class="autoround-visual-box">
-                <div
-                  style="font-family: var(--font-mono); font-size: 0.76rem; text-align: center; color: #15803d; font-weight: 800;">
-                  ~69 GB VRAM • &gt;50 GB Libres • 98.4% Calidad
-                </div>
+                <svg viewBox="0 0 280 150" width="100%" height="100%" role="img" aria-label="Un mismo checkpoint INT4 de 69 GB funciona en vLLM con H100, en RTX 3090/4090, en Mac Studio y en Blackwell: sin depender del silicio NVIDIA">
+                  <defs>
+                    <linearGradient id="arBlue2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <marker id="arArrowG2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#15803d"/></marker>
+                  </defs>
+                  <rect x="8" y="10" width="86" height="26" rx="8" class="ag-mute"/>
+                  <text x="51" y="27" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">vLLM &middot; H100</text>
+                  <rect x="186" y="10" width="86" height="26" rx="8" class="ag-mute"/>
+                  <text x="229" y="27" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">RTX 3090/4090</text>
+                  <rect x="8" y="112" width="86" height="26" rx="8" class="ag-mute"/>
+                  <text x="51" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">Mac Studio</text>
+                  <rect x="186" y="112" width="86" height="26" rx="8" class="ag-mute"/>
+                  <text x="229" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">Blackwell</text>
+                  <rect x="96" y="58" width="88" height="34" rx="10" fill="url(#arBlue2)"/>
+                  <text x="140" y="80" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">INT4 &middot; 69 GB</text>
+                  <line x1="104" y1="56" x2="62" y2="38" stroke="#15803d" stroke-width="2" marker-end="url(#arArrowG2)"/>
+                  <line x1="176" y1="56" x2="218" y2="38" stroke="#15803d" stroke-width="2" marker-end="url(#arArrowG2)"/>
+                  <line x1="104" y1="94" x2="62" y2="110" stroke="#15803d" stroke-width="2" marker-end="url(#arArrowG2)"/>
+                  <line x1="176" y1="94" x2="218" y2="110" stroke="#15803d" stroke-width="2" marker-end="url(#arArrowG2)"/>
+                  <text x="140" y="148" text-anchor="middle" font-size="10.5" font-weight="700" fill="#15803d">un checkpoint, cualquier hardware</text>
+                </svg>
               </div>
 
               <div class="autoround-card-desc">
-                <strong>No necesita Blackwell:</strong> Funciona en vLLM, SGLang, RTX 3090/4090 y Mac Studio. Permite
-                correr <em>Qwen 122B</em> en 128 GB con <strong>fidelidad casi idéntica a FP16</strong>.
+                <strong>No necesita Blackwell:</strong> funciona en vLLM, SGLang, RTX 3090/4090 y Mac Studio. Permite
+                correr <em>Qwen 122B</em> en 128 GB con <strong>fidelidad casi id&eacute;ntica a FP16</strong>.
               </div>
+              <p class="anat-detail doc-only">El checkpoint resultante es un formato est&aacute;ndar (GGUF/AWQ compatible): vLLM, SGLang y llama.cpp lo sirven igual. Sin hardware propietario: el MoE de 122B corre en una estaci&oacute;n de 128 GB con 98,4% de calidad y &gt;50 GB libres para KV y contexto.</p>
             </div>
 
           </div>
@@ -19304,14 +19602,14 @@ body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
           <!-- Ribbon explicativo inferior horizontal -->
           <div class="autoround-summary-ribbon">
             <div class="autoround-ribbon-left">
-              <div class="autoround-ribbon-icon">💡</div>
+              <div class="autoround-ribbon-icon">&#128161;</div>
               <div class="autoround-ribbon-text">
-                <strong>La conclusión clave:</strong> NVFP4 es la solución de silicio de NVIDIA; <strong>AutoRound INT4
-                  es la solución matemática universal</strong> que permite a cualquier máquina de 128 GB correr gigantes
+                <strong>La conclusi&oacute;n clave:</strong> NVFP4 es la soluci&oacute;n de silicio de NVIDIA; <strong>AutoRound INT4
+                  es la soluci&oacute;n matem&aacute;tica universal</strong> que permite a cualquier m&aacute;quina de 128 GB correr gigantes
                 MoE sin perder inteligencia.
               </div>
             </div>
-            <div class="autoround-ribbon-badge">El Estándar Abierto</div>
+            <div class="autoround-ribbon-badge">El Est&aacute;ndar Abierto</div>
           </div>
 
         </div>
