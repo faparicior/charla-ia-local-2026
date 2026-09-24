@@ -12686,7 +12686,7 @@ body.theme-dark .sdlc-skill-pill.emerald {
 .three-pillars-viewport {
   position: relative;
   width: 100%;
-  height: 615px;
+  height: 660px;
   border-radius: 16px;
   overflow: hidden;
   border: 1.5px solid var(--border-subtle);
@@ -12762,8 +12762,8 @@ body.theme-dark .pillars-toggle-btn:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center 32%;
   display: none;
   opacity: 0;
   transition: opacity 0.35s ease;
@@ -16511,6 +16511,19 @@ body.deck-hardware-part1:not(.mode-document) #slide-10 .tri2-num {
   font-size: 1.5rem;
 }
 
+/* s10 en modo charla: la imagen del trilema gana tamaño (la columna de tarjetas
+   solo lleva chip + título, así que sobran ~190px de anchura y ~254px de altura) */
+body.deck-hardware-part1:not(.mode-document) #slide-10 .trilema-layout-split {
+  grid-template-columns: 1fr 540px;
+  gap: 1.75rem;
+}
+body.deck-hardware-part1:not(.mode-document) #slide-10 .tri2-card {
+  padding: 1.25rem 1.25rem;
+}
+body.deck-hardware-part1:not(.mode-document) #slide-10 .trilema-hero-img {
+  max-height: 668px;
+}
+
 /* s4 en modo documento: el subtítulo (2 líneas) empuja la parrilla de prensa;
    se comprime el hueco y el subtítulo para que las tarjetas no desborden */
 body.deck-hardware-part1.mode-document #slide-4 .slide-content > .subtitle {
@@ -17488,7 +17501,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
               <div class="pillar-col-motto">
                 <strong>Decide:</strong> Problema real, fronteras defensivas y valor MVP.
               </div>
-              <div class="pillar-col-risk">
+              <div class="pillar-col-risk doc-only">
                 ⚠️ <strong>Sin Inception:</strong> Resuelve el problema equivocado y dispersa el scope.
               </div>
             </div>
@@ -17503,7 +17516,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
               <div class="pillar-col-motto">
                 <strong>Decide:</strong> Stack, límites arquitectónicos y ergonomía para IA.
               </div>
-              <div class="pillar-col-risk">
+              <div class="pillar-col-risk doc-only">
                 ⚠️ <strong>Sin ADRs:</strong> Dependencias improvisadas y acoplamiento anémico.
               </div>
             </div>
@@ -17514,12 +17527,12 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
                 <span class="pillar-col-badge tests">Pilar 3 • Verificación</span>
                 <span style="font-size: 1.35rem;">🛡️</span>
               </div>
-              <div class="pillar-col-title">Tests &amp; Red de Seguridad</div>
+              <div class="pillar-col-title">Tests &amp; Tests de Arquitectura</div>
               <div class="pillar-col-motto">
-                <strong>Decide:</strong> Invariantes ejecutables y TDD como red de seguridad.
+                <strong>Decide:</strong> Invariantes ejecutables, TDD y reglas arquitectónicas (ArchUnit / fitness functions).
               </div>
-              <div class="pillar-col-risk">
-                ⚠️ <strong>Sin Tests:</strong> Código sin garantías donde nadie detecta alucinaciones.
+              <div class="pillar-col-risk doc-only">
+                ⚠️ <strong>Sin Tests:</strong> Código sin garantías donde nadie detecta alucinaciones ni drift.
               </div>
             </div>
           </div>
