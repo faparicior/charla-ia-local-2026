@@ -1,6 +1,6 @@
 # Guion y Estructura de la Charla (Parte 1: 32 diapositivas · deck completo: 68)
 
-> **Actualizado:** 24 sep 2026, tras la normalización de numeración.
+> **Actualizado:** 24 sep 2026, tras normalización de numeración y reposición del bloque de cuantización (antiguas 17-20 → nuevas 12-15, justo tras Pesos vs. KV Cache).
 > **Convención única:** en ambos decks, **posición = id = número de comentario** (`#slide-N` está en la posición N y su comentario HTML dice `SLIDE N`). La navegación por hash de `slides.js` (`#N`, `#slide-N`) usa posición, así que todo alinea.
 > La charla se reparte en dos decks: **Parte 1** (`index.html`, hardware y modelos, 32 slides) y **Parte 2** (`parte2-ciclo-desarrollo.html`, ciclo de desarrollo con IA, 36 slides). Los slides de ecosistema/geopolítica (DeepSeek, hackeo a NVIDIA, timeline 2026, MTP/DFlash/DSpark, código local, cita editorial y Q&A) viven hoy en la **Parte 2, slides 28–36**.
 
@@ -20,11 +20,11 @@
 │ ACTO 2: IA LOCAL 101 (Decido comprar hardware... ¿pero cómo funciona?)      │
 │ • EL MARCO MENTAL: El Trilema de la IA Local (Memoria, Calidad, Velocidad). │
 │ • Pilar 1 (Memoria): ¿En qué se gasta la VRAM? Pesos vs. KV Cache.          │
+│ • Pilar 2 (Calidad): El peaje de comprimir (FP8 vs INT4 vs INT3).           │
+│ • Pilar 2 (Peligro): La trampa del benchmark y el efecto dominó.            │
 │ • Pilar 3 (Velocidad/Arquitectura): Modelos Densos vs. MoE (El hospital).   │
 │ • Sizing en la práctica: Matriz de Pesos Qwen y Zona Ricitos de Oro.        │
 │ • Caso especial: Qwen 3.8 Flash Next (el engram: más cerebro, menos RAM).   │
-│ • Pilar 2 (Calidad): El peaje de comprimir (FP8 vs INT4 vs INT3).           │
-│ • Pilar 2 (Peligro): La trampa del benchmark y el efecto dominó.            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │ ACTO 3: LAS SOLUCIONES DE 4 BITS (Cómo meter gigantes en 128 GB)            │
 │ • NVIDIA NVFP4: El Secreto de los 4 bits (La solución en silicio Blackwell).│
@@ -44,6 +44,8 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+> **Nota de orden de exposición (Parte 1):** el bloque del ACTO 3 (4 bits: NVFP4 s14 y AutoRound s15) se expone **entre** la trampa del benchmark (s13) y las arquitecturas densos/MoE (s16-s17): primero se plantea el peaje de comprimir (s12) y su peligro (s13), se dan las dos soluciones de 4 bits (s14-s15), y solo entonces se dimensiona con densos/MoE/Goldilocks y el caso Qwen Flash Next (s16-s20).
+
 ---
 
 ## 📋 Inventario Oficial — Parte 1 (`index.html`, 32 slides)
@@ -61,15 +63,15 @@
 | **9** | `slide-9` | **Acto 1: Detonante** | Alquilar GPUs a terceros para Open Weights | La vía que no contemplé al inicio pero que hoy es una alternativa muy válida. |
 | **10** | `slide-10` | **Acto 2: IA 101** | El Trilema de la IA Local: Memoria, Calidad y Velocidad | **El marco mental:** Diagrama triangular minimalista con el Sweet Spot en el centro. |
 | **11** | `slide-11` | **Acto 2: IA 101** | ¿En qué se gasta la Memoria? Pesos vs. KV Cache | Anatomía de la VRAM: la fórmula Pesos + (KV Cache × Usuarios). |
-| **12** | `slide-12` | **Acto 2: IA 101** | Modelos Densos: La Junta Médica Completa | **Storytelling Visual 1:** Ilustración de 30 médicos debatiendo sobre una simple tos (100% activo). |
-| **13** | `slide-13` | **Acto 2: IA 101** | Modelos MoE: El Servicio de Triaje Inteligente | **Storytelling Visual 2:** Ilustración del Router derivando a 2 especialistas de guardia (10B activos). |
-| **14** | `slide-14` | **Acto 2: IA 101** | Matriz de Pesos: La Zona Ricitos de Oro | Aplicar números: tabla de Qwen (27B Dense, 35B MoE, 122B MoE en 128 GB). |
-| **15** | `slide-15` | **Acto 2: IA 101** | Qwen 3.8 Flash Next: más cerebro, menos RAM | **Caso especial (el engram):** 176B parámetros, 6B activos; el engram de n-grams se consulta, no computa, y vive en RAM host o disco. |
-| **16** | `slide-16` | **Acto 2: IA 101** | Por dentro: cinco piezas en 48 capas | Anatomía del Flash Next: 48 capas = 12 × (3×(GDN→MoE) → 1×(QSA→MoE)). Fuente: ficha oficial HF. |
-| **17** | `slide-17` | **Acto 2: IA 101** | El Peaje de Comprimir: ¿Cuánta Inteligencia se Pierde? | El espectro de cuantización (FP8 99.6%, AutoRound 98.2%, INT3 <90%). |
-| **18** | `slide-18` | **Acto 2: IA 101** | La Trampa del Benchmark: El Efecto Dominó | Por qué un 4-bit engaña en 1 token (MMLU) pero sufre en cadenas largas. |
-| **19** | `slide-19` | **Acto 3: 4-Bits** | NVIDIA NVFP4: El Secreto de los 4 Bits | Solución Silicio: 16 moldes (FP4) + micro-zoom + Tensor Cores Blackwell. |
-| **20** | `slide-20` | **Acto 3: 4-Bits** | AutoRound INT4: El Secreto en Modelos MoE | Solución Abierta: Intel Sign-SGD anulando errores para Qwen 122B en 128 GB. |
+| **12** | `slide-12` | **Acto 2: IA 101** | El Peaje de Comprimir: ¿Cuánta Inteligencia se Pierde? | El espectro de cuantización (FP8 99.6%, AutoRound 98.2%, INT3 <90%). |
+| **13** | `slide-13` | **Acto 2: IA 101** | La Trampa del Benchmark: El Efecto Dominó | Por qué un 4-bit engaña en 1 token (MMLU) pero sufre en cadenas largas. |
+| **14** | `slide-14` | **Acto 3: 4-Bits** | NVIDIA NVFP4: El Secreto de los 4 Bits | Solución Silicio: 16 moldes (FP4) + micro-zoom + Tensor Cores Blackwell. |
+| **15** | `slide-15` | **Acto 3: 4-Bits** | AutoRound INT4: El Secreto en Modelos MoE | Solución Abierta: Intel Sign-SGD anulando errores para Qwen 122B en 128 GB. |
+| **16** | `slide-16` | **Acto 2: IA 101** | Modelos Densos: La Junta Médica Completa | **Storytelling Visual 1:** Ilustración de 30 médicos debatiendo sobre una simple tos (100% activo). |
+| **17** | `slide-17` | **Acto 2: IA 101** | Modelos MoE: El Servicio de Triaje Inteligente | **Storytelling Visual 2:** Ilustración del Router derivando a 2 especialistas de guardia (10B activos). |
+| **18** | `slide-18` | **Acto 2: IA 101** | Matriz de Pesos: La Zona Ricitos de Oro | Aplicar números: tabla de Qwen (27B Dense, 35B MoE, 122B MoE en 128 GB). |
+| **19** | `slide-19` | **Acto 2: IA 101** | Qwen 3.8 Flash Next: más cerebro, menos RAM | **Caso especial (el engram):** 176B parámetros, 6B activos; el engram de n-grams se consulta, no computa, y vive en RAM host o disco. |
+| **20** | `slide-20` | **Acto 2: IA 101** | Por dentro: cinco piezas en 48 capas | Anatomía del Flash Next: 48 capas = 12 × (3×(GDN→MoE) → 1×(QSA→MoE)). Fuente: ficha oficial HF. |
 | **21** | `slide-21` | **Acto 4: Vivencia** | La Decisión: Las «Calculasiones» | **El Meme de la Compra:** "Conforme a todas las calculasiones que he hecho... me compro el aparato". |
 | **22** | `slide-22` | **Acto 4: Vivencia** | ¡Llegó el Aparato!: Alquimia de la buena | **El Meme de la Llegada:** "Me llega el aparato, estoy contento y ya me puedo poner a hacer alquimia de la buena". |
 | **23** | `slide-23` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |

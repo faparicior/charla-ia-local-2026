@@ -16388,7 +16388,7 @@ body.deck-hardware-part1 #slide-4 .press-footer-link {
 }
 
 /* s14 en modo presentación: col-note ocultas -> filas más altas para llenar la caja */
-body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .goldilocks-table td {
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
 }
@@ -16685,8 +16685,8 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
 }
 
 /* s14 charla: columna Diagnóstico/Fit entera fuera (th + celdas) */
-body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table th:last-child,
-body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td.col-note {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .goldilocks-table th:last-child,
+body.deck-hardware-part1:not(.mode-document) #slide-18 .goldilocks-table td.col-note {
   display: none;
 }
 
@@ -16697,7 +16697,7 @@ body.mode-document th.doc-only { display: table-cell; }
 body.mode-document li.doc-only { display: list-item; }
 
 /* s14 charla: banner Zona Ricitos de Oro solo en modo documento */
-body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-banner {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .goldilocks-banner {
   display: none;
 }
 
@@ -17191,9 +17191,9 @@ body.mode-document .qad-card .anat-detail {
 }
 
 /* s15/s16/s17 doc: subtitulo compacto (patron s4, especificidad ganadora) */
-body.deck-hardware-part1.mode-document #slide-15 .slide-content > .subtitle,
-body.deck-hardware-part1.mode-document #slide-16 .slide-content > .subtitle,
-body.deck-hardware-part1.mode-document #slide-17 .slide-content > .subtitle {
+body.deck-hardware-part1.mode-document #slide-19 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-20 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-12 .slide-content > .subtitle {
   font-size: 0.98rem !important;
   line-height: 1.42 !important;
 }
