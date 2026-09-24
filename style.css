@@ -5461,11 +5461,11 @@ body.theme-dark .moe-flow-node.highlight-green {
    ========================================================================== */
 .hospital-story-grid {
   display: grid;
-  grid-template-columns: 1.38fr 1fr;
+  grid-template-columns: 1.54fr 1fr;
   gap: 2.2rem;
   align-items: stretch;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
 }
 
 .hospital-visual-frame {
@@ -5477,7 +5477,11 @@ body.theme-dark .moe-flow-node.highlight-green {
   background: var(--bg-surface);
   display: flex;
   flex-direction: column;
-  height: 630px;
+  height: 730px;
+}
+
+body.mode-document .hospital-visual-frame {
+  height: 600px;
 }
 
 .hospital-visual-frame img {
@@ -5505,23 +5509,33 @@ body.theme-dark .moe-flow-node.highlight-green {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.15rem;
-  height: 630px;
+  gap: 1.25rem;
+  height: 730px;
+}
+
+body.mode-document .hospital-narrative-col {
+  height: 600px;
+  gap: 1rem;
 }
 
 .hospital-narrative-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-subtle);
   border-radius: 16px;
-  padding: 1.35rem 1.8rem;
+  padding: 1.6rem 2rem;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.65rem;
   flex: 1;
   min-height: 0;
   transition: transform var(--transition-speed);
+}
+
+body.mode-document .hospital-narrative-card {
+  padding: 1.2rem 1.6rem;
+  gap: 0.45rem;
 }
 
 .hospital-narrative-card:hover {
@@ -5537,7 +5551,7 @@ body.theme-dark .moe-flow-node.highlight-green {
 
 .hospital-narrative-title {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--text-main);
   display: flex;
@@ -5546,11 +5560,15 @@ body.theme-dark .moe-flow-node.highlight-green {
   letter-spacing: -0.015em;
 }
 
+body.mode-document .hospital-narrative-title {
+  font-size: 1.45rem;
+}
+
 .hospital-narrative-badge {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 800;
-  padding: 0.32rem 0.8rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 6px;
   text-transform: uppercase;
 }
@@ -5567,10 +5585,15 @@ body.theme-dark .moe-flow-node.highlight-green {
 
 .hospital-narrative-card p {
   font-family: var(--font-sans);
-  font-size: 1.18rem;
+  font-size: 1.22rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.6;
   margin: 0;
+}
+
+body.mode-document .hospital-narrative-card p {
+  font-size: 1.14rem;
+  line-height: 1.5;
 }
 
 .hospital-narrative-card p strong {
