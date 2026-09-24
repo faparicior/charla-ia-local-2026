@@ -1802,9 +1802,795 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: MODELOS DENSOS: LA JUNTA MÉDICA COMPLETA
+         SLIDE 16: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
          ==================================================================== -->
     <section class="slide" id="slide-16">
+      <div class="slide-content">
+        <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
+        <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
+            Estable</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Por qué el patrón híbrido 3:1 de Qwen permite 256K tokens de contexto sin devorar la VRAM: estado recurrente
+          fijo vs. caché acumulativo.
+        </p>
+
+        <div class="hybrid-arch-deck">
+
+    <!-- Fila Superior: 2 Gráficos Visuales Panorámicos -->
+          <div class="hybrid-visuals-grid">
+
+    <!-- Top-Left: Anatomía del Bloque Repetitivo 3:1 -->
+            <div class="hybrid-block-stage">
+              <div class="hybrid-block-title-row">
+                <span class="hybrid-block-heading">
+                  <span>🧱</span> Anatomía del Bloque Repetitivo 3:1
+                </span>
+                <span class="hybrid-block-pill">3 DeltaNet + 1 Attention</span>
+              </div>
+
+              <div class="hybrid-svg-viewport">
+                <svg viewBox="0 0 740 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="gradDeltaNet" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#22c55e" />
+                      <stop offset="100%" stop-color="#15803d" />
+                    </linearGradient>
+                    <linearGradient id="gradAttention" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#38bdf8" />
+                      <stop offset="100%" stop-color="#0284c7" />
+                    </linearGradient>
+                    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15" />
+                    </filter>
+                  </defs>
+
+    <!-- Línea Base / Eje Inferior -->
+                  <line x1="25" y1="218" x2="715" y2="218" stroke="var(--border-medium)" stroke-width="2"
+                    stroke-linecap="round" opacity="0.7" />
+
+    <!-- BLOQUE 1 (3 DeltaNet + 1 Attention) -->
+                  <path d="M 35 28 L 35 18 L 180 18 L 180 28" fill="none" stroke="#ea580c" stroke-width="1.8"
+                    stroke-linecap="round" />
+                  <text x="107" y="13" text-anchor="middle" fill="#ea580c" font-family="var(--font-mono)" font-size="11"
+                    font-weight="800" letter-spacing="0.06em">BLOQUE 3:1 REPETITIVO</text>
+
+                  <rect x="40" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="76" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="112" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="154" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+
+    <!-- BLOQUE 2 (3 DeltaNet + 1 Attention) -->
+                  <rect x="206" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="242" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="278" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="320" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+
+    <!-- BLOQUE 3 (3 DeltaNet + 1 Attention) -->
+                  <rect x="372" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="408" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="444" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="486" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+
+    <!-- BLOQUE 4 (3 DeltaNet + 1 Attention) -->
+                  <rect x="538" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="574" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="610" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                  <rect x="652" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+
+    <!-- Indicador continuo -->
+                  <text x="696" y="145" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="22"
+                    font-weight="700">···</text>
+
+    <!-- Leyenda Minimalista Inferior -->
+                  <circle cx="160" cy="254" r="7" fill="#16a34a" />
+                  <text x="178" y="259" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13"
+                    font-weight="700">Gated DeltaNet <tspan fill="var(--text-dim)" font-size="12">(75% • Memoria Constante O(1))</tspan></text>
+
+                  <circle cx="470" cy="254" r="7" fill="#0284c7" />
+                  <text x="488" y="259" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13"
+                    font-weight="700">Gated Attention <tspan fill="var(--text-dim)" font-size="12">(25% • KV Cache O(N))</tspan></text>
+                </svg>
+              </div>
+            </div>
+
+    <!-- Top-Right: Curva de VRAM: Memoria Fija vs Creciente -->
+            <div class="hybrid-block-stage">
+              <div class="hybrid-block-title-row">
+                <span class="hybrid-block-heading">
+                  <span>📈</span> Curva de VRAM: Memoria Fija O(1) vs. Crecimiento O(N)
+                </span>
+                <span class="hybrid-block-pill" style="color: #0284c7; background: rgba(2, 132, 199, 0.1); border-color: rgba(2, 132, 199, 0.25);">
+                  Escala 0 ➔ 256K Tokens
+                </span>
+              </div>
+
+              <div class="hybrid-chart-viewport">
+                <svg viewBox="0 0 740 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Guías Horizontales -->
+                  <line x1="65" y1="36" x2="710" y2="36" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
+                  <text x="55" y="41" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">45 GB</text>
+
+                  <line x1="65" y1="96" x2="710" y2="96" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
+                  <text x="55" y="101" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">30 GB</text>
+
+                  <line x1="65" y1="156" x2="710" y2="156" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
+                  <text x="55" y="161" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">15 GB</text>
+
+                  <line x1="65" y1="218" x2="710" y2="218" stroke="var(--border-medium)" stroke-width="2" />
+                  <text x="55" y="223" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">0 GB</text>
+
+    <!-- Eje Y -->
+                  <line x1="65" y1="22" x2="65" y2="218" stroke="var(--border-medium)" stroke-width="2" />
+
+    <!-- Etiquetas Eje X -->
+                  <text x="70" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">1 Token</text>
+                  <text x="230" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">64K</text>
+                  <text x="390" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">128K</text>
+                  <text x="550" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">192K</text>
+                  <text x="680" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">256K</text>
+
+    <!-- Curva 1: 100% Attention (Rampa empinada descontrolada) -->
+                  <path d="M 70 216 Q 360 210 650 34" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 4" />
+                  <circle cx="650" cy="34" r="6" fill="#ef4444" />
+                  <rect x="415" y="18" width="225" height="26" rx="6" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.4" />
+                  <rect x="415" y="18" width="225" height="26" rx="6" fill="rgba(239, 68, 68, 0.12)" />
+                  <text x="527" y="35" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="11.5" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
+
+    <!-- Curva 2: Híbrido 3:1 Qwen (Crecimiento suave amortiguado 4x) -->
+                  <path d="M 70 216 Q 400 208 680 170" fill="none" stroke="#0284c7" stroke-width="3.5" />
+                  <circle cx="680" cy="170" r="6" fill="#0284c7" />
+                  <rect x="455" y="128" width="220" height="26" rx="6" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="1.4" />
+                  <rect x="455" y="128" width="220" height="26" rx="6" fill="rgba(2, 132, 199, 0.12)" />
+                  <text x="565" y="145" text-anchor="middle" fill="#0284c7" font-family="var(--font-sans)" font-size="11.5" font-weight="800">Híbrido 3:1: ~10 GB (4x Menos VRAM)</text>
+
+    <!-- Curva 3: DeltaNet (100% Constante O(1)) -->
+                  <line x1="70" y1="215" x2="690" y2="215" stroke="#16a34a" stroke-width="4" />
+                  <circle cx="690" cy="215" r="6" fill="#16a34a" />
+                  <rect x="110" y="172" width="230" height="26" rx="6" fill="var(--bg-surface)" stroke="#16a34a" stroke-width="1.4" />
+                  <rect x="110" y="172" width="230" height="26" rx="6" fill="rgba(22, 163, 74, 0.12)" />
+                  <text x="225" y="189" text-anchor="middle" fill="#15803d" font-family="var(--font-sans)" font-size="11.5" font-weight="800">DeltaNet O(1): Fijo ~100 MB (0 extra)</text>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+
+    <!-- Fila Inferior: 2 Tarjetas Conceptuales (DeltaNet y Attention) -->
+          <div class="hybrid-cards-grid">
+
+    <!-- Card 1: Gated DeltaNet (Recurrencia O(1)) -->
+            <div class="hybrid-card card-deltanet">
+              <div class="hybrid-card-header">
+                <span class="hybrid-card-title">Gated DeltaNet (75% de las capas)</span>
+                <span class="hybrid-badge green">Memoria Constante O(1)</span>
+              </div>
+
+              <div class="hybrid-vis-box">
+                <span class="hybrid-vis-state green">Estado Recurrente S<sub>t</sub> Fijo</span>
+                <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong style="color: #16a34a;">0 MB extra</strong></span>
+              </div>
+
+              <p class="hybrid-desc">
+                <strong>Comprime el contexto en una matriz asociativa fija:</strong> Actualiza sus pesos en cada paso mediante la
+                <em>Regla Delta</em> sin almacenar vectores K y V. El consumo de memoria es <strong>100% plano</strong> e independiente
+                de la duración de la conversación o el tamaño del repositorio.
+              </p>
+            </div>
+
+    <!-- Card 2: Gated Attention (Softmax O(N)) -->
+            <div class="hybrid-card card-attention">
+              <div class="hybrid-card-header">
+                <span class="hybrid-card-title">Gated Attention (25% de las capas)</span>
+                <span class="hybrid-badge blue">KV Cache Lineal O(N)</span>
+              </div>
+
+              <div class="hybrid-vis-box">
+                <span class="hybrid-vis-state blue">KV Cache Dinámico Acumulativo</span>
+                <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong style="color: #0284c7;">Crece token a token</strong></span>
+              </div>
+
+              <p class="hybrid-desc">
+                <strong>Recuperación global de alta fidelidad:</strong> Auto-atención Softmax completa reservada para enlazar
+                dependencias críticas a larga distancia. <strong>Es la única capa que almacena KV Cache</strong>, reduciendo el gasto de
+                memoria global en un <strong>75%</strong>.
+              </p>
+            </div>
+
+          </div>
+
+    <!-- Banner Inferior de Impacto en Memoria -->
+          <div class="hybrid-summary-ribbon">
+            <div class="hybrid-ribbon-icon">💡</div>
+            <div class="hybrid-ribbon-text">
+              <strong>El Resultado Práctico (Reducción 4x en KV Cache):</strong> Al reservar el almacenamiento de tokens
+              solo para el <strong>25% de las capas</strong>, un contexto masivo de 256.000 tokens consume <strong>~10
+                GB de VRAM</strong> en lugar de los &gt;40 GB de un Transformer convencional, dejando espacio holgado en
+              los 128 GB del equipo.
+            </div>
+            <div class="hybrid-ribbon-badge">4x Menos Memoria</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 17: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
+         ==================================================================== -->
+    <section class="slide" id="slide-17">
+      <div class="slide-content">
+        <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
+        <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #047857;">¿Dónde vive la
+            memoria?</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          La diferencia radical entre acumular folios en una estantería (<em>O(N)</em>) y sobreescribir una matriz asociativa
+          (<em>O(1)</em>) en VRAM.
+        </p>
+
+        <div class="memory-story-deck">
+
+    <!-- Fila Superior: Las Dos Analogías Clave -->
+          <div class="memory-story-grid">
+
+    <!-- Card 1: El Archivador (Attention) -->
+            <div class="memory-story-card card-archivador">
+              <div class="memory-story-header">
+                <span class="memory-story-title">📁 Gated Attention: <em>El Archivador</em></span>
+                <span class="memory-story-badge blue">KV Cache Lineal O(N)</span>
+              </div>
+              <p class="memory-story-desc">
+                <strong>Guarda cada token en una carpeta:</strong> Cada palabra genera vectores <em>K</em> y <em>V</em> que se apilan
+                en la memoria. A los 256.000 tokens necesitas <strong>un almacén industrial entero (&gt;40 GB)</strong>.
+              </p>
+              <div class="memory-story-meta">
+                <span>🎯 <strong>Ventaja:</strong> Recuperación exacta (Token #4.521)</span>
+                <span class="memory-val-red">⚠️ Devora VRAM</span>
+              </div>
+            </div>
+
+    <!-- Card 2: La Pizarra (DeltaNet) -->
+            <div class="memory-story-card card-pizarra">
+              <div class="memory-story-header">
+                <span class="memory-story-title">📝 Gated DeltaNet: <em>La Pizarra</em></span>
+                <span class="memory-story-badge green">Memoria Fija O(1)</span>
+              </div>
+              <p class="memory-story-desc">
+                <strong>Sobreescribe una matriz fija:</strong> Tiene una matriz asociativa <em>S<sub>t</sub></em> fija (~100 MB). Cada
+                nuevo token borra y reescribe los números con la <em>Regla Delta</em>. <strong>Siempre mide lo
+                  mismo.</strong>
+              </p>
+              <div class="memory-story-meta">
+                <span>⚡ <strong>Ventaja:</strong> 0 MB de incremento a 256K</span>
+                <span class="memory-val-green">🔒 ~100 MB fijos</span>
+              </div>
+            </div>
+
+          </div>
+
+    <!-- Fila Inferior: Tabla de Progresión de VRAM en Producción -->
+          <div class="memory-table-card">
+            <table class="memory-progression-table">
+              <thead>
+                <tr>
+                  <th>Longitud de Contexto</th>
+                  <th>🔵 Attention Pura (100%)</th>
+                  <th>🟢 DeltaNet Puro (100%)</th>
+                  <th>⚡ Arquitectura Híbrida 3:1 (Qwen)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tag-col">Token 1 <small>(Prompt inicial)</small></td>
+                  <td>~0.15 MB</td>
+                  <td class="memory-val-green">~100 MB <small>(Matriz S₁ fija)</small></td>
+                  <td class="memory-val-highlight">~100 MB</td>
+                </tr>
+                <tr>
+                  <td class="tag-col">10.000 tokens <small>(1 archivo / clase)</small></td>
+                  <td>~1.5 GB</td>
+                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
+                  <td class="memory-val-highlight">~0.4 GB</td>
+                </tr>
+                <tr>
+                  <td class="tag-col">64.000 tokens <small>(Módulo de código)</small></td>
+                  <td>~10.2 GB</td>
+                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
+                  <td class="memory-val-highlight">~2.6 GB</td>
+                </tr>
+                <tr>
+                  <td class="tag-col">256.000 tokens <small>(Repo completo / Libro)</small></td>
+                  <td class="memory-val-red">&gt;40.0 GB <small>(Crash / OOM)</small></td>
+                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
+                  <td class="memory-val-highlight">~10.1 GB <small>(Espacio holgado en 128 GB)</small></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+    <!-- Banner Inferior de Conclusión en Hardware Local -->
+          <div class="chosen-synergy-banner" style="margin-top: 0;">
+            <div class="chosen-synergy-icon">🚀</div>
+            <div class="chosen-synergy-text">
+              <strong>El Enfoque Práctico Crafter:</strong> El modelo de <strong>122B (69 GB)</strong> o de <strong>35B
+                (19 GB)</strong> puede ingerir una base de código entera de <strong>256K tokens</strong> gastando solo
+              <strong>~10 GB de KV Cache</strong>, dejando <strong>&gt;45 GB de VRAM libres</strong> para agentes
+              paralelos y velocidad máxima.
+            </div>
+            <div class="chosen-synergy-badge"
+              style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">
+              Habilitador Local</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 18: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
+         ==================================================================== -->
+    <section class="slide" id="slide-18">
+      <div class="slide-content">
+        <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
+        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #047857;">Contexto Masivo en
+            Local</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a
+          YaRN y la arquitectura 3:1.
+        </p>
+
+        <div class="yarn-deck">
+
+    <!-- Rejilla Principal: Gráfico NTK-by-parts a la izquierda, Tabla 1M a la derecha -->
+          <div class="yarn-split-grid">
+
+    <!-- Columna Izquierda: Diagrama Gráfico de YaRN (Frecuencias + Temperatura) -->
+            <div class="yarn-graphic-card">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">🎛️ Modulación de Frecuencias + Temperatura</span>
+                <span class="yarn-badge purple">Algoritmo YaRN</span>
+              </div>
+
+              <div class="yarn-svg-viewport">
+                <svg viewBox="0 0 660 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="gradWaveHigh" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#818cf8" />
+                      <stop offset="100%" stop-color="#6366f1" />
+                    </linearGradient>
+                    <linearGradient id="gradWaveMid" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#fbbf24" />
+                      <stop offset="100%" stop-color="#f59e0b" />
+                    </linearGradient>
+                    <linearGradient id="gradWaveLow" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#34d399" />
+                      <stop offset="100%" stop-color="#10b981" />
+                    </linearGradient>
+                  </defs>
+
+    <!-- Zona 1: Altas Frecuencias (Dims Bajas) -->
+                  <rect x="15" y="15" width="195" height="265" rx="10" fill="rgba(99, 102, 241, 0.06)"
+                    stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
+                  <text x="112" y="44" text-anchor="middle" fill="#6366f1" font-family="var(--font-sans)"
+                    font-size="15.5" font-weight="800">Altas Frecuencias</text>
+                  <rect x="42" y="58" width="140" height="28" rx="6" fill="rgba(99, 102, 241, 0.15)" />
+                  <text x="112" y="77" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="12"
+                    font-weight="700">s = 1.0 (Intactas)</text>
+    <!-- Onda rápida -->
+                  <path d="M 28 150 Q 42 115 56 150 T 84 150 T 112 150 T 140 150 T 168 150 T 196 150" fill="none"
+                    stroke="url(#gradWaveHigh)" stroke-width="3.5" stroke-linecap="round" />
+                  <text x="112" y="215" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)"
+                    font-size="14" font-weight="700">Sintaxis Inmediata</text>
+                  <text x="112" y="240" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)"
+                    font-size="11.5">Palabras Contiguas (Zero Olvido)</text>
+
+    <!-- Zona 2: Rampa de Transición γ(r) -->
+                  <rect x="225" y="15" width="195" height="265" rx="10" fill="rgba(245, 158, 11, 0.06)"
+                    stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.4" />
+                  <text x="322" y="44" text-anchor="middle" fill="#d97706" font-family="var(--font-sans)"
+                    font-size="15.5" font-weight="800">Rampa Spline γ(r)</text>
+                  <rect x="252" y="58" width="140" height="28" rx="6" fill="rgba(245, 158, 11, 0.15)" />
+                  <text x="322" y="77" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="12"
+                    font-weight="700">Transición Suave</text>
+    <!-- Onda media -->
+                  <path d="M 240 150 Q 268 115 296 150 T 352 150 T 405 150" fill="none" stroke="url(#gradWaveMid)"
+                    stroke-width="3.5" stroke-linecap="round" />
+                  <text x="322" y="215" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)"
+                    font-size="14" font-weight="700">Ajuste Continuo</text>
+                  <text x="322" y="240" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)"
+                    font-size="11.5">Sin Ruptura de Fase</text>
+
+    <!-- Zona 3: Bajas Frecuencias (Dims Altas) -->
+                  <rect x="435" y="15" width="195" height="265" rx="10" fill="rgba(16, 185, 129, 0.06)"
+                    stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.4" />
+                  <text x="532" y="44" text-anchor="middle" fill="#059669" font-family="var(--font-sans)"
+                    font-size="15.5" font-weight="800">Bajas Frecuencias</text>
+                  <rect x="457" y="58" width="150" height="28" rx="6" fill="rgba(16, 185, 129, 0.15)" />
+                  <text x="532" y="77" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="12"
+                    font-weight="700">s = 4.0× (1M tokens)</text>
+    <!-- Onda larga -->
+                  <path d="M 450 150 Q 500 115 550 150 T 615 150" fill="none" stroke="url(#gradWaveLow)"
+                    stroke-width="3.5" stroke-linecap="round" />
+                  <text x="532" y="215" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)"
+                    font-size="14" font-weight="700">Horizonte Global</text>
+                  <text x="532" y="240" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)"
+                    font-size="11.5">256K ➔ 1.048.576 tokens</text>
+
+    <!-- Banner Inferior de Temperatura Softmax -->
+                  <rect x="15" y="295" width="615" height="110" rx="10" fill="var(--bg-surface)"
+                    stroke="var(--border-subtle)" stroke-width="1.4" />
+                  <text x="35" y="330" fill="#ea580c" font-family="var(--font-sans)" font-size="14.5"
+                    font-weight="800">🔥 Corrección de Temperatura:</text>
+                  <text x="260" y="330" fill="var(--text-main)" font-family="var(--font-mono)" font-size="14"
+                    font-weight="700">√t ≈ 0.1 · ln(s) + 1</text>
+                  <text x="35" y="360" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Afila la
+                    atención ante 1M de elementos para mantener 100% en Needle-in-a-Haystack.</text>
+                  <text x="35" y="385" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="11">(Evita que
+                    la función Softmax se aplane y disperse la atención entre millones de tokens).</text>
+                </svg>
+              </div>
+            </div>
+
+    <!-- Columna Derecha: Tabla Comparativa de Inferencia a 1 Mega (128 GB) -->
+            <div class="yarn-table-card">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">💾 Inferencia a 1 Mega en Local (128 GB)</span>
+                <span class="yarn-badge green">Silicio Viable</span>
+              </div>
+
+              <table class="yarn-table">
+                <thead>
+                  <tr>
+                    <th>Arquitectura / Modelo</th>
+                    <th>Capas KV</th>
+                    <th>KV Cache a 1M</th>
+                    <th>Pesos</th>
+                    <th>Total VRAM</th>
+                    <th>128 GB</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Transformer Puro</strong> <small>(100% Attn)</small></td>
+                    <td>48 / 48</td>
+                    <td>&gt;160 GB</td>
+                    <td>~70 GB</td>
+                    <td class="yarn-badge-fail">&gt;230 GB</td>
+                    <td class="yarn-badge-fail">❌</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen 3.5 - 122B</strong> <small>(3:1 Híbrido)</small></td>
+                    <td>12 / 48</td>
+                    <td>~40 GB</td>
+                    <td>69 GB</td>
+                    <td class="yarn-badge-ok">~109 GB</td>
+                    <td class="yarn-badge-ok">✅</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen 3.6 - 35B</strong> <small>(3:1 Híbrido)</small></td>
+                    <td>10 / 40</td>
+                    <td>~26 GB</td>
+                    <td>19 GB</td>
+                    <td class="yarn-badge-ok">~45 GB</td>
+                    <td class="yarn-badge-ok">✅</td>
+                  </tr>
+                </tbody>
+              </table>
+
+    <!-- Configuración en Motores -->
+              <div class="yarn-config-bar">
+                <span class="yarn-config-tag">vLLM / llama.cpp</span>
+                <code>"rope_scaling": {"type": "yarn", "factor": 4.0, "max_position_embeddings": 1048576}</code>
+              </div>
+            </div>
+
+          </div>
+
+    <!-- Banner Inferior de Conclusión en Hardware Local -->
+          <div class="chosen-synergy-banner" style="margin-top: 0;">
+            <div class="chosen-synergy-icon">🚀</div>
+            <div class="chosen-synergy-text">
+              <strong>El Hito Crafter (1 Mega de Contexto Real):</strong> Ingiere repositorios completos con miles de
+              archivos o el historial de un año en local sin colapso de atención y consumiendo <strong>4 veces menos
+                VRAM</strong> que un modelo tradicional.
+            </div>
+            <div class="chosen-synergy-badge"
+              style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">
+              1.048.576 Tokens</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 19: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-19">
+      <div class="slide-content">
+        <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
+        <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #047857;">Juntas, Próximas y Alejadas</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Un LLM resuelve la gramática inmediata sin perder la capacidad de recordar datos a 1 millón de palabras de distancia.
+        </p>
+
+        <div class="rope-levels-deck">
+
+    <!-- Rejilla Principal: SVG a la izquierda, 3 Tarjetas Pedagógicas a la derecha -->
+          <div class="rope-levels-split-grid">
+
+    <!-- Columna Izquierda: Gráfico SVG de los 3 Niveles Multiescala -->
+            <div class="rope-levels-svg-card">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">🔭 Telescopio Multiescala de Atención</span>
+                <span class="yarn-badge green">3 Zooms Simultáneos</span>
+              </div>
+
+              <div class="rope-levels-svg-viewport">
+                <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Nivel 1: Palabras Juntas (Micro-Sintaxis) -->
+                  <rect x="10" y="8" width="540" height="142" rx="10" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
+                  <text x="25" y="32" fill="#6366f1" font-family="var(--font-sans)" font-size="14.5" font-weight="800">🧩 1. JUNTAS (Inmediatas • Segundero)</text>
+                  
+                  <rect x="25" y="44" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="38" y="66" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 1: <tspan fill="#6366f1">"machine"</tspan></text>
+                  <text x="38" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | H 1 | <tspan fill="#6366f1" font-weight="800">Seg 12</tspan> ]</text>
+
+                  <rect x="315" y="44" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="328" y="66" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 2: <tspan fill="#6366f1">"learning"</tspan></text>
+                  <text x="328" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | H 1 | <tspan fill="#6366f1" font-weight="800">Seg 13</tspan> ]</text>
+
+                  <path d="M 245 70 L 315 70" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="4 4" />
+                  <circle cx="280" cy="70" r="12" fill="#6366f1" />
+                  <text x="280" y="74" text-anchor="middle" fill="#fff" font-family="var(--font-mono)" font-size="9.5" font-weight="800">Δ1</text>
+
+                  <rect x="25" y="105" width="510" height="34" rx="6" fill="rgba(99, 102, 241, 0.12)" />
+                  <text x="38" y="127" fill="#6366f1" font-family="var(--font-sans)" font-size="11.5" font-weight="700">👉 Giro de 90° ➔ Atención máxima obligatoria (Gramática perfecta e inmutable).</text>
+
+
+    <!-- Nivel 2: Palabras Próximas (Meso-Estructura) -->
+                  <rect x="10" y="162" width="540" height="142" rx="10" fill="rgba(245, 158, 11, 0.06)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.4" />
+                  <text x="25" y="186" fill="#d97706" font-family="var(--font-sans)" font-size="14.5" font-weight="800">⏳ 2. PRÓXIMAS (Párrafo / Código • Minutero)</text>
+                  
+                  <rect x="25" y="198" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="38" y="220" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Inicio: <tspan fill="#d97706">"def compute():"</tspan></text>
+                  <text x="38" y="240" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | <tspan fill="#d97706" font-weight="800">H 1</tspan> | Seg 05 ]</text>
+
+                  <rect x="315" y="198" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="328" y="220" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Cierre: <tspan fill="#d97706">"return total"</tspan></text>
+                  <text x="328" y="240" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | <tspan fill="#d97706" font-weight="800">H 2</tspan> | Seg 40 ]</text>
+
+                  <path d="M 245 224 L 315 224" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4 4" />
+                  <circle cx="280" cy="224" r="12" fill="#f59e0b" />
+                  <text x="280" y="228" text-anchor="middle" fill="#fff" font-family="var(--font-mono)" font-size="9.5" font-weight="800">ΔH</text>
+
+                  <rect x="25" y="259" width="510" height="34" rx="6" fill="rgba(245, 158, 11, 0.12)" />
+                  <text x="38" y="281" fill="#d97706" font-family="var(--font-sans)" font-size="11.5" font-weight="700">👉 Rampa Spline ➔ Conecta variables y funciones sin rupturas en el flujo.</text>
+
+
+    <!-- Nivel 3: Palabras Alejadas (Macro-Memoria 1M) -->
+                  <rect x="10" y="316" width="540" height="152" rx="10" fill="rgba(16, 185, 129, 0.06)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.4" />
+                  <text x="25" y="340" fill="#059669" font-family="var(--font-sans)" font-size="14.5" font-weight="800">🕰️ 3. ALEJADAS (Memoria 1 Millón • Horario / Días)</text>
+                  
+                  <rect x="25" y="352" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="38" y="374" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 5: <tspan fill="#059669">"API_KEY=..."</tspan></text>
+                  <text x="38" y="394" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ <tspan fill="#059669" font-weight="800">Día 1</tspan> | H 1 | Seg 05 ]</text>
+
+                  <rect x="315" y="352" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
+                  <text x="328" y="374" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 800K: <tspan fill="#059669">"fetch(key)"</tspan></text>
+                  <text x="328" y="394" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ <tspan fill="#059669" font-weight="800">Día 850</tspan> | H 14 | Seg 20 ]</text>
+
+                  <path d="M 245 378 L 315 378" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4 4" />
+                  <circle cx="280" cy="378" r="12" fill="#10b981" />
+                  <text x="280" y="382" text-anchor="middle" fill="#fff" font-family="var(--font-mono)" font-size="9" font-weight="800">Δ849D</text>
+
+                  <rect x="25" y="414" width="510" height="42" rx="6" fill="rgba(16, 185, 129, 0.12)" />
+                  <text x="38" y="433" fill="#059669" font-family="var(--font-sans)" font-size="11.2" font-weight="700">👉 Búsqueda Semántica ➔ Localiza datos exactos en repos enteros sin importar</text>
+                  <text x="38" y="449" fill="#059669" font-family="var(--font-sans)" font-size="11.2" font-weight="700">la distancia (Needle-in-a-Haystack al 100% de precisión).</text>
+                </svg>
+              </div>
+            </div>
+
+    <!-- Columna Derecha: 3 Tarjetas Explicativas Directas -->
+            <div class="rope-levels-info-col">
+
+    <!-- Card 1: Juntas -->
+              <div class="rope-level-card card-juntas">
+                <div class="rope-level-title">
+                  <span>🧩 1. Juntas (Micro-Sintaxis)</span>
+                  <span class="rope-level-badge purple">Inmutable (s=1.0)</span>
+                </div>
+                <p class="rope-level-desc">
+                  <strong>¿Por qué habla perfecto?</strong> El segundero gira 90° entre palabras vecinas. Si dices <em>"base"</em>, la atención sabe de forma tajante que la siguiente es <em>"de datos"</em>.
+                </p>
+              </div>
+
+    <!-- Card 2: Próximas -->
+              <div class="rope-level-card card-proximas">
+                <div class="rope-level-title">
+                  <span>⏳ 2. Próximas (Meso-Estructura)</span>
+                  <span class="rope-level-badge amber">Spline Elástico</span>
+                </div>
+                <p class="rope-level-desc">
+                  <strong>¿Por qué no pierde el hilo?</strong> El minutero conecta la cabecera de una función con su retorno 50 líneas más abajo sin saltos bruscos.
+                </p>
+              </div>
+
+    <!-- Card 3: Alejadas -->
+              <div class="rope-level-card card-alejadas">
+                <div class="rope-level-title">
+                  <span>🕰️ 3. Alejadas (Macro-Memoria 1M)</span>
+                  <span class="rope-level-badge green">YaRN 4.0×</span>
+                </div>
+                <p class="rope-level-desc">
+                  <strong>¿Cómo busca a 1 millón de palabras?</strong> La relación no es gramatical: es una <strong>búsqueda de archivo</strong>. El calendario de días localiza el token exacto en el pasado sin confusiones.
+                </p>
+              </div>
+
+    <!-- Banner Inferior de Síntesis -->
+              <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.95rem 1.4rem;">
+                <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+                <div class="chosen-synergy-text" style="font-size: 1rem;">
+                  <strong>Regla Crafter:</strong> Cada manecilla atiende a una distancia diferente. Nunca se estorban porque el modelo lee todo el sello a la vez.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 20: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-20">
+      <div class="slide-content">
+        <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
+        <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          No hay 3 vectores por token: hay UN SOLO vector de 4.096 dimensiones que empaqueta país, banco y cuenta.
+        </p>
+
+        <div class="rope-iban-deck">
+
+          <div class="rope-iban-split-grid">
+
+    <!-- Columna Izquierda: SVG del Desglose del IBAN y Vector de 4.096 Dims -->
+            <div class="rope-iban-svg-card">
+              <div class="yarn-card-header">
+                <span class="yarn-card-title">💳 Anatomía de 1 Solo Vector (4.096 floats)</span>
+                <span class="yarn-badge purple">Empaquetado IBAN</span>
+              </div>
+
+              <div class="rope-iban-svg-viewport">
+                <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Bloque 1: El Código IBAN Bancario -->
+                  <rect x="10" y="8" width="540" height="115" rx="10" fill="rgba(99, 102, 241, 0.05)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
+                  <text x="25" y="30" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="11.5" font-weight="700">CÓDIGO IBAN BANCARIO (1 SOLA CADENA):</text>
+
+    <!-- Segmento ES21 -->
+                  <rect x="25" y="42" width="110" height="48" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.4" />
+                  <text x="80" y="65" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="16" font-weight="800">ES21</text>
+                  <text x="80" y="82" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="10">País (Macro)</text>
+
+    <!-- Segmento 0049 -->
+                  <rect x="150" y="42" width="110" height="48" rx="6" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1.4" />
+                  <text x="205" y="65" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="16" font-weight="800">0049</text>
+                  <text x="205" y="82" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="10">Banco (Meso)</text>
+
+    <!-- Segmento Cuenta -->
+                  <rect x="275" y="42" width="260" height="48" rx="6" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="1.4" />
+                  <text x="405" y="65" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="16" font-weight="800">1500 1234567890</text>
+                  <text x="405" y="82" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="10">Cuenta Personal (Micro / Sintaxis)</text>
+
+                  <text x="280" y="112" text-anchor="middle" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="11.5">⬇️ Mapeo directo a las 4.096 casillas del Vector de Embedding ⬇️</text>
+
+    <!-- Bloque 2: Vector de 4.096 Dimensiones -->
+                  <rect x="10" y="132" width="540" height="195" rx="10" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.4" />
+                  <text x="25" y="156" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14.5" font-weight="800">📦 Vector de 1 Token en Qwen / LLaMA (<tspan font-style="italic">d</tspan> = 4.096)</text>
+
+    <!-- Tramo Micro: Dims 1..128 -->
+                  <rect x="25" y="170" width="160" height="90" rx="7" fill="rgba(99, 102, 241, 0.08)" stroke="#6366f1" stroke-width="1.4" />
+                  <text x="35" y="194" fill="#6366f1" font-family="var(--font-mono)" font-size="13" font-weight="800">Dims [1 .. 128]</text>
+                  <text x="35" y="216" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12" font-weight="700">⏱️ Segundero (Micro)</text>
+                  <text x="35" y="236" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="10.5">Sintaxis inmediata</text>
+                  <text x="35" y="250" fill="#6366f1" font-family="var(--font-mono)" font-size="10" font-weight="700">🔒 s = 1.0 (Intacto)</text>
+
+    <!-- Tramo Meso: Dims 129..512 -->
+                  <rect x="195" y="170" width="160" height="90" rx="7" fill="rgba(245, 158, 11, 0.08)" stroke="#f59e0b" stroke-width="1.4" />
+                  <text x="205" y="194" fill="#d97706" font-family="var(--font-mono)" font-size="13" font-weight="800">Dims [129 .. 512]</text>
+                  <text x="205" y="216" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12" font-weight="700">⏳ Minutero (Meso)</text>
+                  <text x="205" y="236" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="10.5">Párrafos y funciones</text>
+                  <text x="205" y="250" fill="#d97706" font-family="var(--font-mono)" font-size="10" font-weight="700">📌 Rampa Spline γ(r)</text>
+
+    <!-- Tramo Macro: Dims 513..4096 -->
+                  <rect x="365" y="170" width="170" height="90" rx="7" fill="rgba(16, 185, 129, 0.08)" stroke="#10b981" stroke-width="1.4" />
+                  <text x="375" y="194" fill="#059669" font-family="var(--font-mono)" font-size="13" font-weight="800">Dims [513 .. 4096]</text>
+                  <text x="375" y="216" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12" font-weight="700">🕰️ Calendario (Macro)</text>
+                  <text x="375" y="236" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="10.5">Memoria de 1M tokens</text>
+                  <text x="375" y="250" fill="#059669" font-family="var(--font-mono)" font-size="10" font-weight="700">🚀 YaRN s = 4.0×</text>
+
+                  <rect x="25" y="275" width="510" height="38" rx="6" fill="rgba(0, 0, 0, 0.03)" stroke="var(--border-subtle)" />
+                  <text x="40" y="299" fill="var(--text-main)" font-family="var(--font-mono)" font-size="12" font-weight="700">Vector Q = [ 0.84, -0.12, ... 128 micro | ... 512 meso | ... 4096 macro ]</text>
+
+    <!-- Bloque 3: Operación de Atención Matricial Única -->
+                  <rect x="10" y="337" width="540" height="130" rx="10" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
+                  <text x="25" y="362" fill="#6366f1" font-family="var(--font-sans)" font-size="14.5" font-weight="800">⚡ 1 Sola Multiplicación: Q · Kᵀ (Producto Escalar)</text>
+                  <text x="25" y="388" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12.5" font-weight="700">• Si están pegadas ➔ Resuenan las dims micro (Atención gramatical inmediata).</text>
+                  <text x="25" y="412" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12.5" font-weight="700">• Si busca en la pág. 800 ➔ Resuenan las dims macro (Recupera API_KEY a 1M tokens).</text>
+                  <text x="25" y="445" fill="#059669" font-family="var(--font-sans)" font-size="12" font-weight="800">👉 Conclusión: Todo ocurre en paralelo en un solo ciclo de los Tensor Cores.</text>
+                </svg>
+              </div>
+            </div>
+
+    <!-- Columna Derecha: 3 Tarjetas Explicativas Claras -->
+            <div class="rope-iban-info-col">
+
+    <!-- Card 1: Un solo vector -->
+              <div class="rope-iban-card card-single-vector">
+                <div class="rope-iban-title">
+                  <span>💳 1. Un Solo Vector por Token</span>
+                  <span class="rope-iban-badge purple">4.096 floats</span>
+                </div>
+                <p class="rope-iban-desc">
+                  <strong>Cero dispersión:</strong> No hay 3 vectores ni capas flotantes. Cada palabra es una única lista continua de 4.096 números donde cada tramo tiene su rol posicional.
+                </p>
+              </div>
+
+    <!-- Card 2: Multiplicación Única -->
+              <div class="rope-iban-card card-dot-product">
+                <div class="rope-iban-title">
+                  <span>⚡ 2. Cálculo Simultáneo (Q · Kᵀ)</span>
+                  <span class="rope-iban-badge amber">1 Pasada GPU</span>
+                </div>
+                <p class="rope-iban-desc">
+                  <strong>Todo a la vez:</strong> La GPU calcula la afinidad entre tokens en una sola operación. Las dimensiones micro resuelven la gramática y las macro resuelven la memoria lejana.
+                </p>
+              </div>
+
+    <!-- Card 3: Por qué YaRN solo estira el País -->
+              <div class="rope-iban-card card-yarn-country">
+                <div class="rope-iban-title">
+                  <span>🚀 3. YaRN solo estira el "País"</span>
+                  <span class="rope-iban-badge green">1M Tokens</span>
+                </div>
+                <p class="rope-iban-desc">
+                  <strong>El gran truco:</strong> Para meter 1 millón de palabras, YaRN solo multiplica las dimensiones macro (4×), dejando el número de cuenta (gramática local) <strong>100% inalterado</strong>.
+                </p>
+              </div>
+
+    <!-- Banner Inferior -->
+              <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.95rem 1.4rem;">
+                <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
+                <div class="chosen-synergy-text" style="font-size: 1rem;">
+                  <strong>Regla Crafter:</strong> El embedding es un IBAN: las primeras cifras garantizan la frase y las últimas navegan repositorios enteros.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+    <!-- Transición a Parte 2 -->
+        <div class="deck-transition-box">
+          <div class="deck-transition-text">
+            Fin de la Parte 1 • <strong>Hardware, Modelos y Cuantización</strong>
+          </div>
+          <a href="parte2-ciclo-desarrollo.html" class="deck-transition-btn">
+            <span>Continuar a Parte 2: El Ciclo de Desarrollo con IA</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 21: MODELOS DENSOS: LA JUNTA MÉDICA COMPLETA
+         ==================================================================== -->
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos (100% Activo)</div>
         <h2>Modelos Densos: <span class="serif-italic" style="color: #b45309;">La Junta Médica Completa</span></h2>
@@ -1865,9 +2651,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: MODELOS MOE: EL SERVICIO DE TRIAJE INTELIGENTE
+         SLIDE 22: MODELOS MOE: EL SERVICIO DE TRIAJE INTELIGENTE
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-22">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Mixture of Experts (MoE)</div>
         <h2>Modelos MoE: <span class="serif-italic" style="color: #0284c7;">El Servicio de Triaje Inteligente</span>
@@ -1929,9 +2715,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 23: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #15803d;">La Zona Ricitos de Oro</span></h2>
@@ -2103,9 +2889,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
+         SLIDE 24: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
          ==================================================================== -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-24">
       <div class="slide-content">
         <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
         <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
@@ -2224,9 +3010,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
+         SLIDE 25: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
          ==================================================================== -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Qwen 3.8 Flash Next &bull; Anatom&iacute;a</div>
         <h2>Por dentro: <span class="serif-italic">cinco piezas en 48 capas</span></h2>
@@ -2351,9 +3137,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: LA DECISIÓN: LAS "CALCULASIONES"
+         SLIDE 26: LA DECISIÓN: LAS "CALCULASIONES"
          ==================================================================== -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
@@ -2374,9 +3160,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
+         SLIDE 27: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
         <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
@@ -2438,9 +3224,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
+         SLIDE 28: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -2525,9 +3311,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
+         SLIDE 29: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -2548,9 +3334,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 30: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -2672,9 +3458,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
+         SLIDE 31: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -2900,9 +3686,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
+         SLIDE 32: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
@@ -3047,792 +3833,6 @@
             <div class="chosen-synergy-badge">Stack de Producción</div>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 28: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
-         ==================================================================== -->
-    <section class="slide" id="slide-28">
-      <div class="slide-content">
-        <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
-        <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
-            Estable</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Por qué el patrón híbrido 3:1 de Qwen permite 256K tokens de contexto sin devorar la VRAM: estado recurrente
-          fijo vs. caché acumulativo.
-        </p>
-
-        <div class="hybrid-arch-deck">
-
-    <!-- Fila Superior: 2 Gráficos Visuales Panorámicos -->
-          <div class="hybrid-visuals-grid">
-
-    <!-- Top-Left: Anatomía del Bloque Repetitivo 3:1 -->
-            <div class="hybrid-block-stage">
-              <div class="hybrid-block-title-row">
-                <span class="hybrid-block-heading">
-                  <span>🧱</span> Anatomía del Bloque Repetitivo 3:1
-                </span>
-                <span class="hybrid-block-pill">3 DeltaNet + 1 Attention</span>
-              </div>
-
-              <div class="hybrid-svg-viewport">
-                <svg viewBox="0 0 740 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="gradDeltaNet" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#22c55e" />
-                      <stop offset="100%" stop-color="#15803d" />
-                    </linearGradient>
-                    <linearGradient id="gradAttention" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#38bdf8" />
-                      <stop offset="100%" stop-color="#0284c7" />
-                    </linearGradient>
-                    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15" />
-                    </filter>
-                  </defs>
-
-    <!-- Línea Base / Eje Inferior -->
-                  <line x1="25" y1="218" x2="715" y2="218" stroke="var(--border-medium)" stroke-width="2"
-                    stroke-linecap="round" opacity="0.7" />
-
-    <!-- BLOQUE 1 (3 DeltaNet + 1 Attention) -->
-                  <path d="M 35 28 L 35 18 L 180 18 L 180 28" fill="none" stroke="#ea580c" stroke-width="1.8"
-                    stroke-linecap="round" />
-                  <text x="107" y="13" text-anchor="middle" fill="#ea580c" font-family="var(--font-mono)" font-size="11"
-                    font-weight="800" letter-spacing="0.06em">BLOQUE 3:1 REPETITIVO</text>
-
-                  <rect x="40" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="76" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="112" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="154" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-
-    <!-- BLOQUE 2 (3 DeltaNet + 1 Attention) -->
-                  <rect x="206" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="242" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="278" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="320" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-
-    <!-- BLOQUE 3 (3 DeltaNet + 1 Attention) -->
-                  <rect x="372" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="408" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="444" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="486" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-
-    <!-- BLOQUE 4 (3 DeltaNet + 1 Attention) -->
-                  <rect x="538" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="574" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="610" y="68" width="24" height="150" rx="5" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                  <rect x="652" y="34" width="28" height="184" rx="5" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-
-    <!-- Indicador continuo -->
-                  <text x="696" y="145" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="22"
-                    font-weight="700">···</text>
-
-    <!-- Leyenda Minimalista Inferior -->
-                  <circle cx="160" cy="254" r="7" fill="#16a34a" />
-                  <text x="178" y="259" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13"
-                    font-weight="700">Gated DeltaNet <tspan fill="var(--text-dim)" font-size="12">(75% • Memoria Constante O(1))</tspan></text>
-
-                  <circle cx="470" cy="254" r="7" fill="#0284c7" />
-                  <text x="488" y="259" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13"
-                    font-weight="700">Gated Attention <tspan fill="var(--text-dim)" font-size="12">(25% • KV Cache O(N))</tspan></text>
-                </svg>
-              </div>
-            </div>
-
-    <!-- Top-Right: Curva de VRAM: Memoria Fija vs Creciente -->
-            <div class="hybrid-block-stage">
-              <div class="hybrid-block-title-row">
-                <span class="hybrid-block-heading">
-                  <span>📈</span> Curva de VRAM: Memoria Fija O(1) vs. Crecimiento O(N)
-                </span>
-                <span class="hybrid-block-pill" style="color: #0284c7; background: rgba(2, 132, 199, 0.1); border-color: rgba(2, 132, 199, 0.25);">
-                  Escala 0 ➔ 256K Tokens
-                </span>
-              </div>
-
-              <div class="hybrid-chart-viewport">
-                <svg viewBox="0 0 740 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Guías Horizontales -->
-                  <line x1="65" y1="36" x2="710" y2="36" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
-                  <text x="55" y="41" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">45 GB</text>
-
-                  <line x1="65" y1="96" x2="710" y2="96" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
-                  <text x="55" y="101" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">30 GB</text>
-
-                  <line x1="65" y1="156" x2="710" y2="156" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
-                  <text x="55" y="161" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">15 GB</text>
-
-                  <line x1="65" y1="218" x2="710" y2="218" stroke="var(--border-medium)" stroke-width="2" />
-                  <text x="55" y="223" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12" font-weight="600">0 GB</text>
-
-    <!-- Eje Y -->
-                  <line x1="65" y1="22" x2="65" y2="218" stroke="var(--border-medium)" stroke-width="2" />
-
-    <!-- Etiquetas Eje X -->
-                  <text x="70" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">1 Token</text>
-                  <text x="230" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">64K</text>
-                  <text x="390" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">128K</text>
-                  <text x="550" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">192K</text>
-                  <text x="680" y="246" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="12">256K</text>
-
-    <!-- Curva 1: 100% Attention (Rampa empinada descontrolada) -->
-                  <path d="M 70 216 Q 360 210 650 34" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 4" />
-                  <circle cx="650" cy="34" r="6" fill="#ef4444" />
-                  <rect x="415" y="18" width="225" height="26" rx="6" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.4" />
-                  <rect x="415" y="18" width="225" height="26" rx="6" fill="rgba(239, 68, 68, 0.12)" />
-                  <text x="527" y="35" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="11.5" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
-
-    <!-- Curva 2: Híbrido 3:1 Qwen (Crecimiento suave amortiguado 4x) -->
-                  <path d="M 70 216 Q 400 208 680 170" fill="none" stroke="#0284c7" stroke-width="3.5" />
-                  <circle cx="680" cy="170" r="6" fill="#0284c7" />
-                  <rect x="455" y="128" width="220" height="26" rx="6" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="1.4" />
-                  <rect x="455" y="128" width="220" height="26" rx="6" fill="rgba(2, 132, 199, 0.12)" />
-                  <text x="565" y="145" text-anchor="middle" fill="#0284c7" font-family="var(--font-sans)" font-size="11.5" font-weight="800">Híbrido 3:1: ~10 GB (4x Menos VRAM)</text>
-
-    <!-- Curva 3: DeltaNet (100% Constante O(1)) -->
-                  <line x1="70" y1="215" x2="690" y2="215" stroke="#16a34a" stroke-width="4" />
-                  <circle cx="690" cy="215" r="6" fill="#16a34a" />
-                  <rect x="110" y="172" width="230" height="26" rx="6" fill="var(--bg-surface)" stroke="#16a34a" stroke-width="1.4" />
-                  <rect x="110" y="172" width="230" height="26" rx="6" fill="rgba(22, 163, 74, 0.12)" />
-                  <text x="225" y="189" text-anchor="middle" fill="#15803d" font-family="var(--font-sans)" font-size="11.5" font-weight="800">DeltaNet O(1): Fijo ~100 MB (0 extra)</text>
-                </svg>
-              </div>
-            </div>
-
-          </div>
-
-    <!-- Fila Inferior: 2 Tarjetas Conceptuales (DeltaNet y Attention) -->
-          <div class="hybrid-cards-grid">
-
-    <!-- Card 1: Gated DeltaNet (Recurrencia O(1)) -->
-            <div class="hybrid-card card-deltanet">
-              <div class="hybrid-card-header">
-                <span class="hybrid-card-title">Gated DeltaNet (75% de las capas)</span>
-                <span class="hybrid-badge green">Memoria Constante O(1)</span>
-              </div>
-
-              <div class="hybrid-vis-box">
-                <span class="hybrid-vis-state green">Estado Recurrente S<sub>t</sub> Fijo</span>
-                <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong style="color: #16a34a;">0 MB extra</strong></span>
-              </div>
-
-              <p class="hybrid-desc">
-                <strong>Comprime el contexto en una matriz asociativa fija:</strong> Actualiza sus pesos en cada paso mediante la
-                <em>Regla Delta</em> sin almacenar vectores K y V. El consumo de memoria es <strong>100% plano</strong> e independiente
-                de la duración de la conversación o el tamaño del repositorio.
-              </p>
-            </div>
-
-    <!-- Card 2: Gated Attention (Softmax O(N)) -->
-            <div class="hybrid-card card-attention">
-              <div class="hybrid-card-header">
-                <span class="hybrid-card-title">Gated Attention (25% de las capas)</span>
-                <span class="hybrid-badge blue">KV Cache Lineal O(N)</span>
-              </div>
-
-              <div class="hybrid-vis-box">
-                <span class="hybrid-vis-state blue">KV Cache Dinámico Acumulativo</span>
-                <span class="hybrid-vis-metric">Token 1 ➔ 256K: <strong style="color: #0284c7;">Crece token a token</strong></span>
-              </div>
-
-              <p class="hybrid-desc">
-                <strong>Recuperación global de alta fidelidad:</strong> Auto-atención Softmax completa reservada para enlazar
-                dependencias críticas a larga distancia. <strong>Es la única capa que almacena KV Cache</strong>, reduciendo el gasto de
-                memoria global en un <strong>75%</strong>.
-              </p>
-            </div>
-
-          </div>
-
-    <!-- Banner Inferior de Impacto en Memoria -->
-          <div class="hybrid-summary-ribbon">
-            <div class="hybrid-ribbon-icon">💡</div>
-            <div class="hybrid-ribbon-text">
-              <strong>El Resultado Práctico (Reducción 4x en KV Cache):</strong> Al reservar el almacenamiento de tokens
-              solo para el <strong>25% de las capas</strong>, un contexto masivo de 256.000 tokens consume <strong>~10
-                GB de VRAM</strong> en lugar de los &gt;40 GB de un Transformer convencional, dejando espacio holgado en
-              los 128 GB del equipo.
-            </div>
-            <div class="hybrid-ribbon-badge">4x Menos Memoria</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 29: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
-         ==================================================================== -->
-    <section class="slide" id="slide-29">
-      <div class="slide-content">
-        <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
-        <h2>El Archivador vs. La Pizarra: <span class="serif-italic" style="color: #047857;">¿Dónde vive la
-            memoria?</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          La diferencia radical entre acumular folios en una estantería (<em>O(N)</em>) y sobreescribir una matriz asociativa
-          (<em>O(1)</em>) en VRAM.
-        </p>
-
-        <div class="memory-story-deck">
-
-    <!-- Fila Superior: Las Dos Analogías Clave -->
-          <div class="memory-story-grid">
-
-    <!-- Card 1: El Archivador (Attention) -->
-            <div class="memory-story-card card-archivador">
-              <div class="memory-story-header">
-                <span class="memory-story-title">📁 Gated Attention: <em>El Archivador</em></span>
-                <span class="memory-story-badge blue">KV Cache Lineal O(N)</span>
-              </div>
-              <p class="memory-story-desc">
-                <strong>Guarda cada token en una carpeta:</strong> Cada palabra genera vectores <em>K</em> y <em>V</em> que se apilan
-                en la memoria. A los 256.000 tokens necesitas <strong>un almacén industrial entero (&gt;40 GB)</strong>.
-              </p>
-              <div class="memory-story-meta">
-                <span>🎯 <strong>Ventaja:</strong> Recuperación exacta (Token #4.521)</span>
-                <span class="memory-val-red">⚠️ Devora VRAM</span>
-              </div>
-            </div>
-
-    <!-- Card 2: La Pizarra (DeltaNet) -->
-            <div class="memory-story-card card-pizarra">
-              <div class="memory-story-header">
-                <span class="memory-story-title">📝 Gated DeltaNet: <em>La Pizarra</em></span>
-                <span class="memory-story-badge green">Memoria Fija O(1)</span>
-              </div>
-              <p class="memory-story-desc">
-                <strong>Sobreescribe una matriz fija:</strong> Tiene una matriz asociativa <em>S<sub>t</sub></em> fija (~100 MB). Cada
-                nuevo token borra y reescribe los números con la <em>Regla Delta</em>. <strong>Siempre mide lo
-                  mismo.</strong>
-              </p>
-              <div class="memory-story-meta">
-                <span>⚡ <strong>Ventaja:</strong> 0 MB de incremento a 256K</span>
-                <span class="memory-val-green">🔒 ~100 MB fijos</span>
-              </div>
-            </div>
-
-          </div>
-
-    <!-- Fila Inferior: Tabla de Progresión de VRAM en Producción -->
-          <div class="memory-table-card">
-            <table class="memory-progression-table">
-              <thead>
-                <tr>
-                  <th>Longitud de Contexto</th>
-                  <th>🔵 Attention Pura (100%)</th>
-                  <th>🟢 DeltaNet Puro (100%)</th>
-                  <th>⚡ Arquitectura Híbrida 3:1 (Qwen)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="tag-col">Token 1 <small>(Prompt inicial)</small></td>
-                  <td>~0.15 MB</td>
-                  <td class="memory-val-green">~100 MB <small>(Matriz S₁ fija)</small></td>
-                  <td class="memory-val-highlight">~100 MB</td>
-                </tr>
-                <tr>
-                  <td class="tag-col">10.000 tokens <small>(1 archivo / clase)</small></td>
-                  <td>~1.5 GB</td>
-                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
-                  <td class="memory-val-highlight">~0.4 GB</td>
-                </tr>
-                <tr>
-                  <td class="tag-col">64.000 tokens <small>(Módulo de código)</small></td>
-                  <td>~10.2 GB</td>
-                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
-                  <td class="memory-val-highlight">~2.6 GB</td>
-                </tr>
-                <tr>
-                  <td class="tag-col">256.000 tokens <small>(Repo completo / Libro)</small></td>
-                  <td class="memory-val-red">&gt;40.0 GB <small>(Crash / OOM)</small></td>
-                  <td class="memory-val-green">~100 MB <small>(Mismo tamaño)</small></td>
-                  <td class="memory-val-highlight">~10.1 GB <small>(Espacio holgado en 128 GB)</small></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-    <!-- Banner Inferior de Conclusión en Hardware Local -->
-          <div class="chosen-synergy-banner" style="margin-top: 0;">
-            <div class="chosen-synergy-icon">🚀</div>
-            <div class="chosen-synergy-text">
-              <strong>El Enfoque Práctico Crafter:</strong> El modelo de <strong>122B (69 GB)</strong> o de <strong>35B
-                (19 GB)</strong> puede ingerir una base de código entera de <strong>256K tokens</strong> gastando solo
-              <strong>~10 GB de KV Cache</strong>, dejando <strong>&gt;45 GB de VRAM libres</strong> para agentes
-              paralelos y velocidad máxima.
-            </div>
-            <div class="chosen-synergy-badge"
-              style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">
-              Habilitador Local</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 30: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
-         ==================================================================== -->
-    <section class="slide" id="slide-30">
-      <div class="slide-content">
-        <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
-        <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #047857;">Contexto Masivo en
-            Local</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Cómo extender la ventana de 256K a 1.048.576 tokens sin colapso de atención ni explosión de memoria, gracias a
-          YaRN y la arquitectura 3:1.
-        </p>
-
-        <div class="yarn-deck">
-
-    <!-- Rejilla Principal: Gráfico NTK-by-parts a la izquierda, Tabla 1M a la derecha -->
-          <div class="yarn-split-grid">
-
-    <!-- Columna Izquierda: Diagrama Gráfico de YaRN (Frecuencias + Temperatura) -->
-            <div class="yarn-graphic-card">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">🎛️ Modulación de Frecuencias + Temperatura</span>
-                <span class="yarn-badge purple">Algoritmo YaRN</span>
-              </div>
-
-              <div class="yarn-svg-viewport">
-                <svg viewBox="0 0 660 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="gradWaveHigh" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stop-color="#818cf8" />
-                      <stop offset="100%" stop-color="#6366f1" />
-                    </linearGradient>
-                    <linearGradient id="gradWaveMid" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stop-color="#fbbf24" />
-                      <stop offset="100%" stop-color="#f59e0b" />
-                    </linearGradient>
-                    <linearGradient id="gradWaveLow" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stop-color="#34d399" />
-                      <stop offset="100%" stop-color="#10b981" />
-                    </linearGradient>
-                  </defs>
-
-    <!-- Zona 1: Altas Frecuencias (Dims Bajas) -->
-                  <rect x="15" y="15" width="195" height="265" rx="10" fill="rgba(99, 102, 241, 0.06)"
-                    stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
-                  <text x="112" y="44" text-anchor="middle" fill="#6366f1" font-family="var(--font-sans)"
-                    font-size="15.5" font-weight="800">Altas Frecuencias</text>
-                  <rect x="42" y="58" width="140" height="28" rx="6" fill="rgba(99, 102, 241, 0.15)" />
-                  <text x="112" y="77" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="12"
-                    font-weight="700">s = 1.0 (Intactas)</text>
-    <!-- Onda rápida -->
-                  <path d="M 28 150 Q 42 115 56 150 T 84 150 T 112 150 T 140 150 T 168 150 T 196 150" fill="none"
-                    stroke="url(#gradWaveHigh)" stroke-width="3.5" stroke-linecap="round" />
-                  <text x="112" y="215" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)"
-                    font-size="14" font-weight="700">Sintaxis Inmediata</text>
-                  <text x="112" y="240" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)"
-                    font-size="11.5">Palabras Contiguas (Zero Olvido)</text>
-
-    <!-- Zona 2: Rampa de Transición γ(r) -->
-                  <rect x="225" y="15" width="195" height="265" rx="10" fill="rgba(245, 158, 11, 0.06)"
-                    stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.4" />
-                  <text x="322" y="44" text-anchor="middle" fill="#d97706" font-family="var(--font-sans)"
-                    font-size="15.5" font-weight="800">Rampa Spline γ(r)</text>
-                  <rect x="252" y="58" width="140" height="28" rx="6" fill="rgba(245, 158, 11, 0.15)" />
-                  <text x="322" y="77" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="12"
-                    font-weight="700">Transición Suave</text>
-    <!-- Onda media -->
-                  <path d="M 240 150 Q 268 115 296 150 T 352 150 T 405 150" fill="none" stroke="url(#gradWaveMid)"
-                    stroke-width="3.5" stroke-linecap="round" />
-                  <text x="322" y="215" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)"
-                    font-size="14" font-weight="700">Ajuste Continuo</text>
-                  <text x="322" y="240" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)"
-                    font-size="11.5">Sin Ruptura de Fase</text>
-
-    <!-- Zona 3: Bajas Frecuencias (Dims Altas) -->
-                  <rect x="435" y="15" width="195" height="265" rx="10" fill="rgba(16, 185, 129, 0.06)"
-                    stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.4" />
-                  <text x="532" y="44" text-anchor="middle" fill="#059669" font-family="var(--font-sans)"
-                    font-size="15.5" font-weight="800">Bajas Frecuencias</text>
-                  <rect x="457" y="58" width="150" height="28" rx="6" fill="rgba(16, 185, 129, 0.15)" />
-                  <text x="532" y="77" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="12"
-                    font-weight="700">s = 4.0× (1M tokens)</text>
-    <!-- Onda larga -->
-                  <path d="M 450 150 Q 500 115 550 150 T 615 150" fill="none" stroke="url(#gradWaveLow)"
-                    stroke-width="3.5" stroke-linecap="round" />
-                  <text x="532" y="215" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)"
-                    font-size="14" font-weight="700">Horizonte Global</text>
-                  <text x="532" y="240" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)"
-                    font-size="11.5">256K ➔ 1.048.576 tokens</text>
-
-    <!-- Banner Inferior de Temperatura Softmax -->
-                  <rect x="15" y="295" width="615" height="110" rx="10" fill="var(--bg-surface)"
-                    stroke="var(--border-subtle)" stroke-width="1.4" />
-                  <text x="35" y="330" fill="#ea580c" font-family="var(--font-sans)" font-size="14.5"
-                    font-weight="800">🔥 Corrección de Temperatura:</text>
-                  <text x="260" y="330" fill="var(--text-main)" font-family="var(--font-mono)" font-size="14"
-                    font-weight="700">√t ≈ 0.1 · ln(s) + 1</text>
-                  <text x="35" y="360" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Afila la
-                    atención ante 1M de elementos para mantener 100% en Needle-in-a-Haystack.</text>
-                  <text x="35" y="385" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="11">(Evita que
-                    la función Softmax se aplane y disperse la atención entre millones de tokens).</text>
-                </svg>
-              </div>
-            </div>
-
-    <!-- Columna Derecha: Tabla Comparativa de Inferencia a 1 Mega (128 GB) -->
-            <div class="yarn-table-card">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">💾 Inferencia a 1 Mega en Local (128 GB)</span>
-                <span class="yarn-badge green">Silicio Viable</span>
-              </div>
-
-              <table class="yarn-table">
-                <thead>
-                  <tr>
-                    <th>Arquitectura / Modelo</th>
-                    <th>Capas KV</th>
-                    <th>KV Cache a 1M</th>
-                    <th>Pesos</th>
-                    <th>Total VRAM</th>
-                    <th>128 GB</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Transformer Puro</strong> <small>(100% Attn)</small></td>
-                    <td>48 / 48</td>
-                    <td>&gt;160 GB</td>
-                    <td>~70 GB</td>
-                    <td class="yarn-badge-fail">&gt;230 GB</td>
-                    <td class="yarn-badge-fail">❌</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Qwen 3.5 - 122B</strong> <small>(3:1 Híbrido)</small></td>
-                    <td>12 / 48</td>
-                    <td>~40 GB</td>
-                    <td>69 GB</td>
-                    <td class="yarn-badge-ok">~109 GB</td>
-                    <td class="yarn-badge-ok">✅</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Qwen 3.6 - 35B</strong> <small>(3:1 Híbrido)</small></td>
-                    <td>10 / 40</td>
-                    <td>~26 GB</td>
-                    <td>19 GB</td>
-                    <td class="yarn-badge-ok">~45 GB</td>
-                    <td class="yarn-badge-ok">✅</td>
-                  </tr>
-                </tbody>
-              </table>
-
-    <!-- Configuración en Motores -->
-              <div class="yarn-config-bar">
-                <span class="yarn-config-tag">vLLM / llama.cpp</span>
-                <code>"rope_scaling": {"type": "yarn", "factor": 4.0, "max_position_embeddings": 1048576}</code>
-              </div>
-            </div>
-
-          </div>
-
-    <!-- Banner Inferior de Conclusión en Hardware Local -->
-          <div class="chosen-synergy-banner" style="margin-top: 0;">
-            <div class="chosen-synergy-icon">🚀</div>
-            <div class="chosen-synergy-text">
-              <strong>El Hito Crafter (1 Mega de Contexto Real):</strong> Ingiere repositorios completos con miles de
-              archivos o el historial de un año en local sin colapso de atención y consumiendo <strong>4 veces menos
-                VRAM</strong> que un modelo tradicional.
-            </div>
-            <div class="chosen-synergy-badge"
-              style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">
-              1.048.576 Tokens</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 31: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
-         ==================================================================== -->
-    <section class="slide" id="slide-31">
-      <div class="slide-content">
-        <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
-        <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #047857;">Juntas, Próximas y Alejadas</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Un LLM resuelve la gramática inmediata sin perder la capacidad de recordar datos a 1 millón de palabras de distancia.
-        </p>
-
-        <div class="rope-levels-deck">
-
-    <!-- Rejilla Principal: SVG a la izquierda, 3 Tarjetas Pedagógicas a la derecha -->
-          <div class="rope-levels-split-grid">
-
-    <!-- Columna Izquierda: Gráfico SVG de los 3 Niveles Multiescala -->
-            <div class="rope-levels-svg-card">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">🔭 Telescopio Multiescala de Atención</span>
-                <span class="yarn-badge green">3 Zooms Simultáneos</span>
-              </div>
-
-              <div class="rope-levels-svg-viewport">
-                <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Nivel 1: Palabras Juntas (Micro-Sintaxis) -->
-                  <rect x="10" y="8" width="540" height="142" rx="10" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
-                  <text x="25" y="32" fill="#6366f1" font-family="var(--font-sans)" font-size="14.5" font-weight="800">🧩 1. JUNTAS (Inmediatas • Segundero)</text>
-                  
-                  <rect x="25" y="44" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
-                  <text x="38" y="66" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 1: <tspan fill="#6366f1">"machine"</tspan></text>
-                  <text x="38" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | H 1 | <tspan fill="#6366f1" font-weight="800">Seg 12</tspan> ]</text>
-
-                  <rect x="315" y="44" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
-                  <text x="328" y="66" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 2: <tspan fill="#6366f1">"learning"</tspan></text>
-                  <text x="328" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | H 1 | <tspan fill="#6366f1" font-weight="800">Seg 13</tspan> ]</text>
-
-                  <path d="M 245 70 L 315 70" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="4 4" />
-                  <circle cx="280" cy="70" r="12" fill="#6366f1" />
-                  <text x="280" y="74" text-anchor="middle" fill="#fff" font-family="var(--font-mono)" font-size="9.5" font-weight="800">Δ1</text>
-
-                  <rect x="25" y="105" width="510" height="34" rx="6" fill="rgba(99, 102, 241, 0.12)" />
-                  <text x="38" y="127" fill="#6366f1" font-family="var(--font-sans)" font-size="11.5" font-weight="700">👉 Giro de 90° ➔ Atención máxima obligatoria (Gramática perfecta e inmutable).</text>
-
-
-    <!-- Nivel 2: Palabras Próximas (Meso-Estructura) -->
-                  <rect x="10" y="162" width="540" height="142" rx="10" fill="rgba(245, 158, 11, 0.06)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1.4" />
-                  <text x="25" y="186" fill="#d97706" font-family="var(--font-sans)" font-size="14.5" font-weight="800">⏳ 2. PRÓXIMAS (Párrafo / Código • Minutero)</text>
-                  
-                  <rect x="25" y="198" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
-                  <text x="38" y="220" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Inicio: <tspan fill="#d97706">"def compute():"</tspan></text>
-                  <text x="38" y="240" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | <tspan fill="#d97706" font-weight="800">H 1</tspan> | Seg 05 ]</text>
-
-                  <rect x="315" y="198" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
-                  <text x="328" y="220" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Cierre: <tspan fill="#d97706">"return total"</tspan></text>
-                  <text x="328" y="240" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ Día 1 | <tspan fill="#d97706" font-weight="800">H 2</tspan> | Seg 40 ]</text>
-
-                  <path d="M 245 224 L 315 224" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4 4" />
-                  <circle cx="280" cy="224" r="12" fill="#f59e0b" />
-                  <text x="280" y="228" text-anchor="middle" fill="#fff" font-family="var(--font-mono)" font-size="9.5" font-weight="800">ΔH</text>
-
-                  <rect x="25" y="259" width="510" height="34" rx="6" fill="rgba(245, 158, 11, 0.12)" />
-                  <text x="38" y="281" fill="#d97706" font-family="var(--font-sans)" font-size="11.5" font-weight="700">👉 Rampa Spline ➔ Conecta variables y funciones sin rupturas en el flujo.</text>
-
-
-    <!-- Nivel 3: Palabras Alejadas (Macro-Memoria 1M) -->
-                  <rect x="10" y="316" width="540" height="152" rx="10" fill="rgba(16, 185, 129, 0.06)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1.4" />
-                  <text x="25" y="340" fill="#059669" font-family="var(--font-sans)" font-size="14.5" font-weight="800">🕰️ 3. ALEJADAS (Memoria 1 Millón • Horario / Días)</text>
-                  
-                  <rect x="25" y="352" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
-                  <text x="38" y="374" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 5: <tspan fill="#059669">"API_KEY=..."</tspan></text>
-                  <text x="38" y="394" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ <tspan fill="#059669" font-weight="800">Día 1</tspan> | H 1 | Seg 05 ]</text>
-
-                  <rect x="315" y="352" width="220" height="52" rx="7" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.2" />
-                  <text x="328" y="374" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13" font-weight="800">Token 800K: <tspan fill="#059669">"fetch(key)"</tspan></text>
-                  <text x="328" y="394" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">[ <tspan fill="#059669" font-weight="800">Día 850</tspan> | H 14 | Seg 20 ]</text>
-
-                  <path d="M 245 378 L 315 378" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4 4" />
-                  <circle cx="280" cy="378" r="12" fill="#10b981" />
-                  <text x="280" y="382" text-anchor="middle" fill="#fff" font-family="var(--font-mono)" font-size="9" font-weight="800">Δ849D</text>
-
-                  <rect x="25" y="414" width="510" height="42" rx="6" fill="rgba(16, 185, 129, 0.12)" />
-                  <text x="38" y="433" fill="#059669" font-family="var(--font-sans)" font-size="11.2" font-weight="700">👉 Búsqueda Semántica ➔ Localiza datos exactos en repos enteros sin importar</text>
-                  <text x="38" y="449" fill="#059669" font-family="var(--font-sans)" font-size="11.2" font-weight="700">la distancia (Needle-in-a-Haystack al 100% de precisión).</text>
-                </svg>
-              </div>
-            </div>
-
-    <!-- Columna Derecha: 3 Tarjetas Explicativas Directas -->
-            <div class="rope-levels-info-col">
-
-    <!-- Card 1: Juntas -->
-              <div class="rope-level-card card-juntas">
-                <div class="rope-level-title">
-                  <span>🧩 1. Juntas (Micro-Sintaxis)</span>
-                  <span class="rope-level-badge purple">Inmutable (s=1.0)</span>
-                </div>
-                <p class="rope-level-desc">
-                  <strong>¿Por qué habla perfecto?</strong> El segundero gira 90° entre palabras vecinas. Si dices <em>"base"</em>, la atención sabe de forma tajante que la siguiente es <em>"de datos"</em>.
-                </p>
-              </div>
-
-    <!-- Card 2: Próximas -->
-              <div class="rope-level-card card-proximas">
-                <div class="rope-level-title">
-                  <span>⏳ 2. Próximas (Meso-Estructura)</span>
-                  <span class="rope-level-badge amber">Spline Elástico</span>
-                </div>
-                <p class="rope-level-desc">
-                  <strong>¿Por qué no pierde el hilo?</strong> El minutero conecta la cabecera de una función con su retorno 50 líneas más abajo sin saltos bruscos.
-                </p>
-              </div>
-
-    <!-- Card 3: Alejadas -->
-              <div class="rope-level-card card-alejadas">
-                <div class="rope-level-title">
-                  <span>🕰️ 3. Alejadas (Macro-Memoria 1M)</span>
-                  <span class="rope-level-badge green">YaRN 4.0×</span>
-                </div>
-                <p class="rope-level-desc">
-                  <strong>¿Cómo busca a 1 millón de palabras?</strong> La relación no es gramatical: es una <strong>búsqueda de archivo</strong>. El calendario de días localiza el token exacto en el pasado sin confusiones.
-                </p>
-              </div>
-
-    <!-- Banner Inferior de Síntesis -->
-              <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.95rem 1.4rem;">
-                <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-                <div class="chosen-synergy-text" style="font-size: 1rem;">
-                  <strong>Regla Crafter:</strong> Cada manecilla atiende a una distancia diferente. Nunca se estorban porque el modelo lee todo el sello a la vez.
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 32: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
-         ==================================================================== -->
-    <section class="slide" id="slide-32">
-      <div class="slide-content">
-        <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
-        <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          No hay 3 vectores por token: hay UN SOLO vector de 4.096 dimensiones que empaqueta país, banco y cuenta.
-        </p>
-
-        <div class="rope-iban-deck">
-
-          <div class="rope-iban-split-grid">
-
-    <!-- Columna Izquierda: SVG del Desglose del IBAN y Vector de 4.096 Dims -->
-            <div class="rope-iban-svg-card">
-              <div class="yarn-card-header">
-                <span class="yarn-card-title">💳 Anatomía de 1 Solo Vector (4.096 floats)</span>
-                <span class="yarn-badge purple">Empaquetado IBAN</span>
-              </div>
-
-              <div class="rope-iban-svg-viewport">
-                <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Bloque 1: El Código IBAN Bancario -->
-                  <rect x="10" y="8" width="540" height="115" rx="10" fill="rgba(99, 102, 241, 0.05)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
-                  <text x="25" y="30" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="11.5" font-weight="700">CÓDIGO IBAN BANCARIO (1 SOLA CADENA):</text>
-
-    <!-- Segmento ES21 -->
-                  <rect x="25" y="42" width="110" height="48" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.4" />
-                  <text x="80" y="65" text-anchor="middle" fill="#059669" font-family="var(--font-mono)" font-size="16" font-weight="800">ES21</text>
-                  <text x="80" y="82" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="10">País (Macro)</text>
-
-    <!-- Segmento 0049 -->
-                  <rect x="150" y="42" width="110" height="48" rx="6" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1.4" />
-                  <text x="205" y="65" text-anchor="middle" fill="#d97706" font-family="var(--font-mono)" font-size="16" font-weight="800">0049</text>
-                  <text x="205" y="82" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="10">Banco (Meso)</text>
-
-    <!-- Segmento Cuenta -->
-                  <rect x="275" y="42" width="260" height="48" rx="6" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="1.4" />
-                  <text x="405" y="65" text-anchor="middle" fill="#6366f1" font-family="var(--font-mono)" font-size="16" font-weight="800">1500 1234567890</text>
-                  <text x="405" y="82" text-anchor="middle" fill="var(--text-dim)" font-family="var(--font-sans)" font-size="10">Cuenta Personal (Micro / Sintaxis)</text>
-
-                  <text x="280" y="112" text-anchor="middle" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="11.5">⬇️ Mapeo directo a las 4.096 casillas del Vector de Embedding ⬇️</text>
-
-    <!-- Bloque 2: Vector de 4.096 Dimensiones -->
-                  <rect x="10" y="132" width="540" height="195" rx="10" fill="var(--bg-surface)" stroke="var(--border-subtle)" stroke-width="1.4" />
-                  <text x="25" y="156" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14.5" font-weight="800">📦 Vector de 1 Token en Qwen / LLaMA (<tspan font-style="italic">d</tspan> = 4.096)</text>
-
-    <!-- Tramo Micro: Dims 1..128 -->
-                  <rect x="25" y="170" width="160" height="90" rx="7" fill="rgba(99, 102, 241, 0.08)" stroke="#6366f1" stroke-width="1.4" />
-                  <text x="35" y="194" fill="#6366f1" font-family="var(--font-mono)" font-size="13" font-weight="800">Dims [1 .. 128]</text>
-                  <text x="35" y="216" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12" font-weight="700">⏱️ Segundero (Micro)</text>
-                  <text x="35" y="236" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="10.5">Sintaxis inmediata</text>
-                  <text x="35" y="250" fill="#6366f1" font-family="var(--font-mono)" font-size="10" font-weight="700">🔒 s = 1.0 (Intacto)</text>
-
-    <!-- Tramo Meso: Dims 129..512 -->
-                  <rect x="195" y="170" width="160" height="90" rx="7" fill="rgba(245, 158, 11, 0.08)" stroke="#f59e0b" stroke-width="1.4" />
-                  <text x="205" y="194" fill="#d97706" font-family="var(--font-mono)" font-size="13" font-weight="800">Dims [129 .. 512]</text>
-                  <text x="205" y="216" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12" font-weight="700">⏳ Minutero (Meso)</text>
-                  <text x="205" y="236" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="10.5">Párrafos y funciones</text>
-                  <text x="205" y="250" fill="#d97706" font-family="var(--font-mono)" font-size="10" font-weight="700">📌 Rampa Spline γ(r)</text>
-
-    <!-- Tramo Macro: Dims 513..4096 -->
-                  <rect x="365" y="170" width="170" height="90" rx="7" fill="rgba(16, 185, 129, 0.08)" stroke="#10b981" stroke-width="1.4" />
-                  <text x="375" y="194" fill="#059669" font-family="var(--font-mono)" font-size="13" font-weight="800">Dims [513 .. 4096]</text>
-                  <text x="375" y="216" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12" font-weight="700">🕰️ Calendario (Macro)</text>
-                  <text x="375" y="236" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="10.5">Memoria de 1M tokens</text>
-                  <text x="375" y="250" fill="#059669" font-family="var(--font-mono)" font-size="10" font-weight="700">🚀 YaRN s = 4.0×</text>
-
-                  <rect x="25" y="275" width="510" height="38" rx="6" fill="rgba(0, 0, 0, 0.03)" stroke="var(--border-subtle)" />
-                  <text x="40" y="299" fill="var(--text-main)" font-family="var(--font-mono)" font-size="12" font-weight="700">Vector Q = [ 0.84, -0.12, ... 128 micro | ... 512 meso | ... 4096 macro ]</text>
-
-    <!-- Bloque 3: Operación de Atención Matricial Única -->
-                  <rect x="10" y="337" width="540" height="130" rx="10" fill="rgba(99, 102, 241, 0.06)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1.4" />
-                  <text x="25" y="362" fill="#6366f1" font-family="var(--font-sans)" font-size="14.5" font-weight="800">⚡ 1 Sola Multiplicación: Q · Kᵀ (Producto Escalar)</text>
-                  <text x="25" y="388" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12.5" font-weight="700">• Si están pegadas ➔ Resuenan las dims micro (Atención gramatical inmediata).</text>
-                  <text x="25" y="412" fill="var(--text-main)" font-family="var(--font-sans)" font-size="12.5" font-weight="700">• Si busca en la pág. 800 ➔ Resuenan las dims macro (Recupera API_KEY a 1M tokens).</text>
-                  <text x="25" y="445" fill="#059669" font-family="var(--font-sans)" font-size="12" font-weight="800">👉 Conclusión: Todo ocurre en paralelo en un solo ciclo de los Tensor Cores.</text>
-                </svg>
-              </div>
-            </div>
-
-    <!-- Columna Derecha: 3 Tarjetas Explicativas Claras -->
-            <div class="rope-iban-info-col">
-
-    <!-- Card 1: Un solo vector -->
-              <div class="rope-iban-card card-single-vector">
-                <div class="rope-iban-title">
-                  <span>💳 1. Un Solo Vector por Token</span>
-                  <span class="rope-iban-badge purple">4.096 floats</span>
-                </div>
-                <p class="rope-iban-desc">
-                  <strong>Cero dispersión:</strong> No hay 3 vectores ni capas flotantes. Cada palabra es una única lista continua de 4.096 números donde cada tramo tiene su rol posicional.
-                </p>
-              </div>
-
-    <!-- Card 2: Multiplicación Única -->
-              <div class="rope-iban-card card-dot-product">
-                <div class="rope-iban-title">
-                  <span>⚡ 2. Cálculo Simultáneo (Q · Kᵀ)</span>
-                  <span class="rope-iban-badge amber">1 Pasada GPU</span>
-                </div>
-                <p class="rope-iban-desc">
-                  <strong>Todo a la vez:</strong> La GPU calcula la afinidad entre tokens en una sola operación. Las dimensiones micro resuelven la gramática y las macro resuelven la memoria lejana.
-                </p>
-              </div>
-
-    <!-- Card 3: Por qué YaRN solo estira el País -->
-              <div class="rope-iban-card card-yarn-country">
-                <div class="rope-iban-title">
-                  <span>🚀 3. YaRN solo estira el "País"</span>
-                  <span class="rope-iban-badge green">1M Tokens</span>
-                </div>
-                <p class="rope-iban-desc">
-                  <strong>El gran truco:</strong> Para meter 1 millón de palabras, YaRN solo multiplica las dimensiones macro (4×), dejando el número de cuenta (gramática local) <strong>100% inalterado</strong>.
-                </p>
-              </div>
-
-    <!-- Banner Inferior -->
-              <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.95rem 1.4rem;">
-                <div class="chosen-synergy-icon" style="font-size: 1.5rem;">💡</div>
-                <div class="chosen-synergy-text" style="font-size: 1rem;">
-                  <strong>Regla Crafter:</strong> El embedding es un IBAN: las primeras cifras garantizan la frase y las últimas navegan repositorios enteros.
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-    <!-- Transición a Parte 2 -->
-        <div class="deck-transition-box">
-          <div class="deck-transition-text">
-            Fin de la Parte 1 • <strong>Hardware, Modelos y Cuantización</strong>
-          </div>
-          <a href="parte2-ciclo-desarrollo.html" class="deck-transition-btn">
-            <span>Continuar a Parte 2: El Ciclo de Desarrollo con IA</span>
-            <span class="btn-arrow">→</span>
-          </a>
         </div>
       </div>
     </section>
