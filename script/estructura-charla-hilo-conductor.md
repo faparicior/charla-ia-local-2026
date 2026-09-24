@@ -1,6 +1,6 @@
 # Guion y Estructura de la Charla (Parte 1: 32 diapositivas · deck completo: 68)
 
-> **Actualizado:** 24 sep 2026, tras normalización de numeración y reposición del bloque de cuantización (antiguas 17-20 → nuevas 12-15, justo tras Pesos vs. KV Cache).
+> **Actualizado:** 24 sep 2026, tras dos reposiciones: (1) bloque de cuantización (antiguas 17-20 → 12-15) y (2) bloque de memoria/contexto (antiguas 28-32 → 16-20), ambos reindexados con id = posición = comentario.
 > **Convención única:** en ambos decks, **posición = id = número de comentario** (`#slide-N` está en la posición N y su comentario HTML dice `SLIDE N`). La navegación por hash de `slides.js` (`#N`, `#slide-N`) usa posición, así que todo alinea.
 > La charla se reparte en dos decks: **Parte 1** (`index.html`, hardware y modelos, 32 slides) y **Parte 2** (`parte2-ciclo-desarrollo.html`, ciclo de desarrollo con IA, 36 slides). Los slides de ecosistema/geopolítica (DeepSeek, hackeo a NVIDIA, timeline 2026, MTP/DFlash/DSpark, código local, cita editorial y Q&A) viven hoy en la **Parte 2, slides 28–36**.
 
@@ -44,7 +44,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-> **Nota de orden de exposición (Parte 1):** el bloque del ACTO 3 (4 bits: NVFP4 s14 y AutoRound s15) se expone **entre** la trampa del benchmark (s13) y las arquitecturas densos/MoE (s16-s17): primero se plantea el peaje de comprimir (s12) y su peligro (s13), se dan las dos soluciones de 4 bits (s14-s15), y solo entonces se dimensiona con densos/MoE/Goldilocks y el caso Qwen Flash Next (s16-s20).
+> **Nota de orden de exposición (Parte 1):** el bloque del ACTO 3 (4 bits: NVFP4 s14 y AutoRound s15) va tras el peaje de comprimir (s12) y la trampa del benchmark (s13). A continuación, el bloque de **arquitectura de memoria y contexto** de los escogidos (DeltaNet s16, Archivador s17, YaRN s18, 3 Niveles s19, IBAN s20), y solo entonces las arquitecturas densos/MoE y el sizing (Densos s21, MoE s22, Goldilocks s23, engram s24, anatomía s25). La vivencia del GB10 cierra el deck (s26-s32).
 
 ---
 
@@ -67,23 +67,23 @@
 | **13** | `slide-13` | **Acto 2: IA 101** | La Trampa del Benchmark: El Efecto Dominó | Por qué un 4-bit engaña en 1 token (MMLU) pero sufre en cadenas largas. |
 | **14** | `slide-14` | **Acto 3: 4-Bits** | NVIDIA NVFP4: El Secreto de los 4 Bits | Solución Silicio: 16 moldes (FP4) + micro-zoom + Tensor Cores Blackwell. |
 | **15** | `slide-15` | **Acto 3: 4-Bits** | AutoRound INT4: El Secreto en Modelos MoE | Solución Abierta: Intel Sign-SGD anulando errores para Qwen 122B en 128 GB. |
-| **16** | `slide-16` | **Acto 2: IA 101** | Modelos Densos: La Junta Médica Completa | **Storytelling Visual 1:** Ilustración de 30 médicos debatiendo sobre una simple tos (100% activo). |
-| **17** | `slide-17` | **Acto 2: IA 101** | Modelos MoE: El Servicio de Triaje Inteligente | **Storytelling Visual 2:** Ilustración del Router derivando a 2 especialistas de guardia (10B activos). |
-| **18** | `slide-18` | **Acto 2: IA 101** | Matriz de Pesos: La Zona Ricitos de Oro | Aplicar números: tabla de Qwen (27B Dense, 35B MoE, 122B MoE en 128 GB). |
-| **19** | `slide-19` | **Acto 2: IA 101** | Qwen 3.8 Flash Next: más cerebro, menos RAM | **Caso especial (el engram):** 176B parámetros, 6B activos; el engram de n-grams se consulta, no computa, y vive en RAM host o disco. |
-| **20** | `slide-20` | **Acto 2: IA 101** | Por dentro: cinco piezas en 48 capas | Anatomía del Flash Next: 48 capas = 12 × (3×(GDN→MoE) → 1×(QSA→MoE)). Fuente: ficha oficial HF. |
-| **21** | `slide-21` | **Acto 4: Vivencia** | La Decisión: Las «Calculasiones» | **El Meme de la Compra:** "Conforme a todas las calculasiones que he hecho... me compro el aparato". |
-| **22** | `slide-22` | **Acto 4: Vivencia** | ¡Llegó el Aparato!: Alquimia de la buena | **El Meme de la Llegada:** "Me llega el aparato, estoy contento y ya me puedo poner a hacer alquimia de la buena". |
-| **23** | `slide-23` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
-| **24** | `slide-24` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
-| **25** | `slide-25` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
-| **26** | `slide-26` | **Acto 4: Vivencia** | Escogiendo Modelos: Calidad, Memoria y Velocidad | Comparativa de ocupación en los 128 GB del GB10 y throughput (MTP / DFlash 2 / NVFP4 / INT4). |
-| **27** | `slide-27` | **Acto 4: Vivencia** | Los 2 Modelos Escogidos: Inteligencia & Código | La dupla final con fichas técnicas de Hugging Face (122B & 35B). |
-| **28** | `slide-28` | **Acto 4: Vivencia** | DeltaNet vs. Attention: El Secreto de la Memoria Estable | Arquitectura híbrida: por qué DeltaNet estabiliza la memoria frente a la atención clásica. |
-| **29** | `slide-29` | **Acto 4: Vivencia** | El Archivador vs. La Pizarra: ¿Dónde vive la memoria? | Física de la memoria: pesos comprimidos (archivador) vs. KV cache en fresco (pizarra). |
-| **30** | `slide-30` | **Acto 4: Vivencia** | Escalando a 1 Mega con YaRN: Contexto Masivo en Local | Extensión de contexto a 1M tokens sin reentrenar desde cero. |
-| **31** | `slide-31` | **Acto 4: Vivencia** | Los 3 Niveles de Atención: Juntas, Próximas y Alejadas | Geometría de la atención según la distancia entre tokens. |
-| **32** | `slide-32` | **Acto 4: Vivencia** | La Analogía del IBAN Bancario: Un Solo Vector, 3 Escalas | Cierre conceptual: un único vector que direcciona información a 3 escalas. |
+| **16** | `slide-16` | **Acto 4: Vivencia** | DeltaNet vs. Attention: El Secreto de la Memoria Estable | Arquitectura híbrida: por qué DeltaNet estabiliza la memoria frente a la atención clásica. |
+| **17** | `slide-17` | **Acto 4: Vivencia** | El Archivador vs. La Pizarra: ¿Dónde vive la memoria? | Física de la memoria: pesos comprimidos (archivador) vs. KV cache en fresco (pizarra). |
+| **18** | `slide-18` | **Acto 4: Vivencia** | Escalando a 1 Mega con YaRN: Contexto Masivo en Local | Extensión de contexto a 1M tokens sin reentrenar desde cero. |
+| **19** | `slide-19` | **Acto 4: Vivencia** | Los 3 Niveles de Atención: Juntas, Próximas y Alejadas | Geometría de la atención según la distancia entre tokens. |
+| **20** | `slide-20` | **Acto 4: Vivencia** | La Analogía del IBAN Bancario: Un Solo Vector, 3 Escalas | Cierre conceptual: un único vector que direcciona información a 3 escalas. |
+| **21** | `slide-21` | **Acto 2: IA 101** | Modelos Densos: La Junta Médica Completa | **Storytelling Visual 1:** Ilustración de 30 médicos debatiendo sobre una simple tos (100% activo). |
+| **22** | `slide-22` | **Acto 2: IA 101** | Modelos MoE: El Servicio de Triaje Inteligente | **Storytelling Visual 2:** Ilustración del Router derivando a 2 especialistas de guardia (10B activos). |
+| **23** | `slide-23` | **Acto 2: IA 101** | Matriz de Pesos: La Zona Ricitos de Oro | Aplicar números: tabla de Qwen (27B Dense, 35B MoE, 122B MoE y el híbrido Flash Next en 128 GB). |
+| **24** | `slide-24` | **Acto 2: IA 101** | Qwen 3.8 Flash Next: más cerebro, menos RAM | **Caso especial (el engram):** 176B parámetros, 6B activos; el engram de n-grams se consulta, no computa, y vive en RAM host o disco. |
+| **25** | `slide-25` | **Acto 2: IA 101** | Por dentro: cinco piezas en 48 capas | Anatomía del Flash Next: 48 capas = 12 × (3×(GDN→MoE) → 1×(QSA→MoE)). Fuente: ficha oficial HF. |
+| **26** | `slide-26` | **Acto 4: Vivencia** | La Decisión: Las «Calculasiones» | **El Meme de la Compra:** "Conforme a todas las calculasiones que he hecho... me compro el aparato". |
+| **27** | `slide-27` | **Acto 4: Vivencia** | ¡Llegó el Aparato!: Alquimia de la buena | **El Meme de la Llegada:** "Me llega el aparato, estoy contento y ya me puedo poner a hacer alquimia de la buena". |
+| **28** | `slide-28` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | Titulares de prensa técnica: bugs de energía, fallos de CUDA y promesas rotas. |
+| **29** | `slide-29` | **Acto 4: Vivencia** | El Drama de Blackwell GB10: La odisea en los foros | **El Meme de la Promesa:** "Me dijiste que podría ejecutar NVFP4... pero a finales de 2026". |
+| **30** | `slide-30` | **Acto 4: Vivencia** | Hackeando el Hierro: La Comunidad al Rescate | Eugr (`spark-vllm-docker`) y Thomas Braun (`avarok/vllm-nvfp4-gb10`) con parches upstream en vLLM/SGLang. |
+| **31** | `slide-31` | **Acto 4: Vivencia** | Escogiendo Modelos: Calidad, Memoria y Velocidad | Comparativa de ocupación en los 128 GB del GB10 y throughput (MTP / DFlash 2 / NVFP4 / INT4). |
+| **32** | `slide-32` | **Acto 4: Vivencia** | Los 2 Modelos Escogidos: Inteligencia & Código | La dupla final con fichas técnicas de Hugging Face (122B & 35B). |
 
 > **Nota (Acto 5 → Parte 2):** los slides de ecosistema y cierre que antes cerraban este deck viven ahora en `parte2-ciclo-desarrollo.html`:
 > Caso DeepSeek (s28), Hackeo a NVIDIA (s29), Timeline 2026 (s30), MTP (s31), DFlash (s32), DSpark (s33), Código local (s34), Cita editorial (s35) y Q&A (s36). Las slides 1–27 de la Parte 2 cubren el ciclo de desarrollo con IA (SDLC, Inception, Especificación, DDD, Pilares, TDD y Living Docs).

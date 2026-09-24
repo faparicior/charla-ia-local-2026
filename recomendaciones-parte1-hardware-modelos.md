@@ -1,6 +1,8 @@
 > **ACTUALIZACIÓN (post-informe):** se ha insertado la slide especial del Qwen 3.8 Flash Next (el engram) como **slide 15**, justo tras la matriz de pesos (s14). Las slides 15–30 del informe pasan a ser **16–31**. La slide nueva está verificada (charla/doc/dark, sin overflow) y su construcción se detalla en `dossier-qwen38-flash-next.md` §11. Pendiente: slide del fit GB10 y las cuantizaciones (PTQ 183 GB vs QAD 98 GiB), remitida desde la s15.
 
-# Parte 1 — Hardware, Modelos y Cuantización (`index.html`, 30 slides)
+
+> **ACTUALIZACIÓN (24 sep 2026):** cuerpo reindexado a la numeración vigente (32 slides, portada incluida: id = posición = comentario). Equivalencias desde la numeración original de este informe (30 slides): Junta Médica s12→**s21** · MoE s13→**s22** · Goldilocks s14→**s23** · Peaje s15→**s12** · Benchmark s16→**s13** · NVFP4 s17→**s14** · AutoRound s18→**s15** · Calculasiones s19→**s26** · Aparato s20→**s27** · Drama s21/s22→**s28/s29** · Hackeando s23→**s30** · Escogiendo s24→**s31** · Dupla s25→**s32** · DeltaNet s26→**s16** · Archivador s27→**s17** · YaRN s28→**s18** · 3 Niveles s29→**s19** · IBAN s30→**s20**. Las mediciones (px, barridos «30/30») corresponden a las capturas de su fecha. Las referencias de parte 2 (p. ej. s20/s29 de p2) no se tocan; la anotación «post-informe» de arriba se conserva como registro histórico.
+# Parte 1 — Hardware, Modelos y Cuantización (`index.html`, 32 slides (numeración actual, portada incluida))
 ## Revisión visual + plan de recomendaciones (sin implementar, pendiente de OK)
 
 Comparativa contra el estándar alcanzado en parte 2 (des-clutter, ritmo vertical,
@@ -32,9 +34,9 @@ la identidad "periódico/recorte" es coherente.
   → `justify-content: flex-start !important; height: 100% !important; gap: 0.95rem`.
   Los contenedores interiores ya se expanden (`flex: 1`) pero su **contenido
   interno queda empaquetado arriba**, dejando la panza abajo.
-- Vacíos medidos en capturas (aprox.): **s17/s18 ~460px**, **s16 ~430px**,
-  **s15 ~380px**, **s8 ~370px**, s2 ~320px, s27 ~270px, s20 ~280px, s7 ~230px,
-  s14 ~210px, s24 ~215px, s10 ~200px, s25 ~180px, s11/s12/s23 ~120-150px.
+- Vacíos medidos en capturas (aprox.): **s14/s15 ~460px**, **s13 ~430px**,
+  **s12 ~380px**, **s8 ~370px**, s2 ~320px, s17 ~270px, s27 ~280px, s7 ~230px,
+  s23 ~210px, s31 ~215px, s10 ~200px, s32 ~180px, s11/s21/s30 ~120-150px.
 - Caso especial **s9**: las 4 tarjetas de niveles H200 se estiran hasta abajo pero
   su contenido termina a ⅔ de altura → ~300px de panza **dentro** de cada tarjeta.
 - **Propuesta (paquete A)**: igual que en parte 2 — repartir el espacio con
@@ -45,28 +47,28 @@ la identidad "periódico/recorte" es coherente.
 ### 2.2 Contraste AA en acentos de título (5 slides)
 | Slide | Acento | Actual | Ratio | Propuesto |
 |---|---|---|---|---|
-| s12 | «La Junta Médica Completa» | `#d97706` | 2.82 | `#b45309` (3.9) |
-| s14 | «La Zona Ricitos de Oro» | `#16a34a` | 2.92 | `#15803d` (3.9) |
-| s27 | «¿Dónde vive la memoria?» | `#10b981` | 2.25 | `#047857` (4.7) |
-| s28 | «Contexto Masivo en Local» | `#10b981` | 2.25 | `#047857` |
-| s29 | «Juntas, Próximas y Alejadas» | `#10b981` | 2.25 | `#047857` |
+| s21 | «La Junta Médica Completa» | `#d97706` | 2.82 | `#b45309` (3.9) |
+| s23 | «La Zona Ricitos de Oro» | `#16a34a` | 2.92 | `#15803d` (3.9) |
+| s17 | «¿Dónde vive la memoria?» | `#10b981` | 2.25 | `#047857` (4.7) |
+| s18 | «Contexto Masivo en Local» | `#10b981` | 2.25 | `#047857` |
+| s19 | «Juntas, Próximas y Alejadas» | `#10b981` | 2.25 | `#047857` |
 
-(s18 ya usa `#15803d` y pasa; los azules/naranjas/indigo del resto pasan.)
+(s15 ya usa `#15803d` y pasa; los azules/naranjas/indigo del resto pasan.)
 
 ### 2.3 LaTeX crudo (feo en proyector)
-- **s27**: subtítulo «($O(N)$)… ($O(1)$)» y tarjetas «vectores $K$ y $V$»,
+- **s17**: subtítulo «($O(N)$)… ($O(1)$)» y tarjetas «vectores $K$ y $V$»,
   «matriz asociativa $S_t$ fija».
-- **s30**: título del vector «($d = 4.096$)» dentro del SVG.
+- **s20**: título del vector «($d = 4.096$)» dentro del SVG.
 - Propuesta: quitar los `$` y componer con cursiva (`O(N)`, *K* y *V*,
   *S*<sub>t</sub>, *d* = 4.096 en `tspan` itálica). Los `$2.00`, `€` etc. de
   precios de s2-s5 son dólares reales → **no tocar**.
 
 ### 2.4 Textos y datos diminutos (comparado con terminal 18px de parte2)
-- Tablas y specs a ~13px: s14 (matriz de pesos), s15 (benchmarks), s25 (specs),
-  s27 (tabla memoria). Etiquetas de ejes/gráficos a ~10-11px: s7 (radar),
-  s10 (vértices del trilema), s24 (chips de velocidad).
-- Celdas apagadas en gris claro con **datos reales** (s14 filas/celdas muted,
-  s15 deltas «(−0.2%)», s24 chips grises): ~2.8-3:1 → para datos informativos
+- Tablas y specs a ~13px: s23 (matriz de pesos), s12 (benchmarks), s32 (specs),
+  s17 (tabla memoria). Etiquetas de ejes/gráficos a ~10-11px: s7 (radar),
+  s10 (vértices del trilema), s31 (chips de velocidad).
+- Celdas apagadas en gris claro con **datos reales** (s23 filas/celdas muted,
+  s12 deltas «(−0.2%)», s31 chips grises): ~2.8-3:1 → para datos informativos
   conviene `#475569`/`#52525b` (≥4.5) manteniendo la jerarquía por tamaño.
 - **Propuesta (paquete B)**: subir en modo charla las cifras clave a ≥15-16px
   (filas de tabla, chips de tokens/seg, etiquetas de eje ~12-13px) y oscurecer
@@ -86,29 +88,29 @@ la identidad "periódico/recorte" es coherente.
 | s9 | Panza vacía dentro de las 4 tarjetas (~300px c/u) |
 | s10 | Trilema bonito; etiquetas mono de vértices ~11px; flancos vacíos (inherente al triángulo) |
 | s11 | Barra VRAM + analogías: excelente ✓ (vacío leve) |
-| s13 | Triaje hospitalario ✓ |
-| s16 | Contenido brillante amontonado arriba, vacío 430px |
-| s17/s18 | Flujo 3 pasos + banner «En 10 segundos/Conclusión clave»: mismo vacío 460px |
-| s19/s22 | Slides de humor (gato, meme) ✓ — vacío aceptable |
-| s21 | Drama Blackwell en recortes: bien montada ✓ |
-| s23 | Hackers Eugr/Braun ✓ (vacío leve) |
-| s24 | Bar-chart de modelos bien; chips ~13px; vacío 215px |
-| s25 | 2 modelos escogidos: muy buena ✓ |
-| s26 | DeltaNet vs Attention: bien ✓ |
-| s30 | IBAN: excelente cierre con CTA a parte 2 ✓ |
+| s22 | Triaje hospitalario ✓ |
+| s13 | Contenido brillante amontonado arriba, vacío 430px |
+| s14/s15 | Flujo 3 pasos + banner «En 10 segundos/Conclusión clave»: mismo vacío 460px |
+| s26/s29 | Slides de humor (gato, meme) ✓ — vacío aceptable |
+| s28 | Drama Blackwell en recortes: bien montada ✓ |
+| s30 | Hackers Eugr/Braun ✓ (vacío leve) |
+| s31 | Bar-chart de modelos bien; chips ~13px; vacío 215px |
+| s32 | 2 modelos escogidos: muy buena ✓ |
+| s16 | DeltaNet vs Attention: bien ✓ |
+| s20 | IBAN: excelente cierre con CTA a parte 2 ✓ |
 
 ---
 
 ## 4. Decisiones de diseño para ti (antes del paquete C)
 
 1. **Banners**: en parte 1 cada banner lleva el color del tema del slide
-   (teal s17, verde s18, azul s28…). En parte 2 unificamos a oro. ¿Mantengo la
+   (teal s14, verde s15, azul s18…). En parte 2 unificamos a oro. ¿Mantengo la
    paleta por tema de parte 1 (identidad "recorte de prensa") o unifico a oro
    como parte 2? *(mi recomendación: mantener colores por tema — le da identidad
    propia a la parte 1 — pero dejándolo a tu gusto)*
 2. **Densidad de tablas**: subir tamaños arriba de lo mínimo AA hará que las
-   tablas de s14/s15/s25 respiren más (reparto vertical las ensancha). ¿Ok?
-3. **s14**: filas apagadas (0.8B/4B/9B «No optimizado») — las dejo apagadas
+   tablas de s23/s12/s32 respiren más (reparto vertical las ensancha). ¿Ok?
+3. **s23**: filas apagadas (0.8B/4B/9B «No optimizado») — las dejo apagadas
    pero subo el gris a nivel AA (`#52525b`), ¿correcto?
 
 ## 5. Plan de ejecución propuesto (cuando des el OK)
@@ -128,16 +130,16 @@ la identidad "periódico/recorte" es coherente.
 
 ## Implementación aplicada (post-informe) — PENDIENTE DE COMMIT DEL USUARIO
 
-**HTML (`index.html`):** 5 h2 a tonos AA (s12 `#b45309`, s14 `#15803d`, s27/28/29 `#047857`); LaTeX crudo eliminado en s27 (O(N), O(1), K y V, S<sub>t</sub>) y s30 (SVG `d = 4.096`); precio s2 atómico con `&nbsp;` ("200 $ – 275 € / mes + Credits" ya no se parte).
+**HTML (`index.html`):** 5 h2 a tonos AA (s21 `#b45309`, s23 `#15803d`, s17/28/29 `#047857`); LaTeX crudo eliminado en s17 (O(N), O(1), K y V, S<sub>t</sub>) y s20 (SVG `d = 4.096`); precio s2 atómico con `&nbsp;` ("200 $ – 275 € / mes + Credits" ya no se parte).
 
 **CSS (`style.css`, bloque scoped `body.deck-hardware-part1` al final, ~500 líneas):**
-- **Banners oro unificados** (decisión del usuario): goldilocks-banner, symptoms-banner, chosen-synergy-banner ×5, nvfp4/autoround summary-ribbons → misma receta que parte 2 (bg ámbar 8%, borde izq. 4px `#b45309`, strongs `#92400e`, badges/pills tinte oro); anclados abajo con `margin-top:auto`. La caja de transición de s30 se queda indigo (es CTA de navegación).
-- **Ritmo vertical:** decks verticales estiran a `flex:1` + reparto interno; tarjetas de tabla/ancho completo llenan la altura; banners siempre abajo. Casos especiales: s2 grid natural centrado; s8 tabla centrada en tarjeta-panel; s10 escenario 480→610px; s11 tarjetas pilares repartidas; s15 tracks centrados; s16 filas dominó `1fr` + lienzos acotados (200px); s17/s18 lienzos de diagrama acotados (250px) con contenido agrandado (chips 0.95rem, flujos 1.05rem); s19/s22 memes centrados verticalmente; s23 logros hacker repartidos; s24 filas `space-evenly` (flex); s25 tabla specs anclada abajo; s29 columna derecha reparte 3 tarjetas + regla.
-- **Contraste/tamaños AA:** tablas s14 (16px, filas muted con color AA y jerarquía por peso), s15 deltas `#6b7280` (4.83:1), s24/s25/s27/s28 tamaños subidos; variante theme-dark incluida.
+- **Banners oro unificados** (decisión del usuario): goldilocks-banner, symptoms-banner, chosen-synergy-banner ×5, nvfp4/autoround summary-ribbons → misma receta que parte 2 (bg ámbar 8%, borde izq. 4px `#b45309`, strongs `#92400e`, badges/pills tinte oro); anclados abajo con `margin-top:auto`. La caja de transición de s20 se queda indigo (es CTA de navegación).
+- **Ritmo vertical:** decks verticales estiran a `flex:1` + reparto interno; tarjetas de tabla/ancho completo llenan la altura; banners siempre abajo. Casos especiales: s2 grid natural centrado; s8 tabla centrada en tarjeta-panel; s10 escenario 480→610px; s11 tarjetas pilares repartidas; s12 tracks centrados; s13 filas dominó `1fr` + lienzos acotados (200px); s14/s15 lienzos de diagrama acotados (250px) con contenido agrandado (chips 0.95rem, flujos 1.05rem); s26/s29 memes centrados verticalmente; s30 logros hacker repartidos; s31 filas `space-evenly` (flex); s32 tabla specs anclada abajo; s19 columna derecha reparte 3 tarjetas + regla.
+- **Contraste/tamaños AA:** tablas s23 (16px, filas muted con color AA y jerarquía por peso), s12 deltas `#6b7280` (4.83:1), s31/s32/s17/s18 tamaños subidos; variante theme-dark incluida.
 
 **Verificación:** re-bundle OK (5.99 MB); barrido Playwright de las 30 slides: 0 overflow, 0 banners ocultos, 0 contrastes <AA; revisión visual slide a slide completa (capturas /tmp/sweep-p1-s*.png).
 
-**Enlaces fuente en prensa (iteración posterior):** los 8 recortes de s3/s4 llevan ahora su URL al pie (`.press-footer-link`, patrón de parte 2, fuentes mapeadas desde `script/index.md` líneas 15-22 y 44-49); titulares restaurados a 2.05rem, desc 1.28rem, aire interior repartido con `space-between` (footer sin `margin-top:auto`). s21 (mismo formato) sin URLs: no existen en los markdowns del repo.
+**Enlaces fuente en prensa (iteración posterior):** los 8 recortes de s3/s4 llevan ahora su URL al pie (`.press-footer-link`, patrón de parte 2, fuentes mapeadas desde `script/index.md` líneas 15-22 y 44-49); titulares restaurados a 2.05rem, desc 1.28rem, aire interior repartido con `space-between` (footer sin `margin-top:auto`). s28 (mismo formato) sin URLs: no existen en los markdowns del repo.
 
 **s8 (Costes de inferencia) verificada y ampliada:** precios revisados contra fuentes oficiales a 19 sep 2026 (GPT-5.6 Sol $4.00/0,40 tras la rebaja del 30 jul; Claude Sonnet 5 $3.00/0,30 estándar desde 1 sep; Gemini 3.6 Flash $0.75/0,075 promo hasta 31 dic; DeepSeek rango $0.14–$0.66) + 2 filas nuevas (Qwen 3.8 Flash Next $0.15/0,075, GLM 5.3 Flash $0.15/0,03) → 8 filas que llenan la caja blanca (filas 69px, respiración simétrica ~60px, aire bajo el título). Referencia con links: `referencia-precios-inferencia-1m-tokens.md`. Grupos marcados con tinte suave: azul para comerciales (OpenAI/Anthropic/Google), verde para open-weight (DeepSeek/Qwen/Zhipu) con la etiqueta de categoría coloreada en cada grupo; la fila local mantiene su naranja; cada grupo lleva además una barra vertical de color fuerte a la izquierda (azul #0284c7 / verde #059669 / naranja #ea580c). +1 fila nueva: xAI Grok 4.6 ($2.00/1,84 €, caché $0.50/0,46 — docs.x.ai oficial, <200K). Meta evaluada y descartada (Llama 4 Scout de abr 2025 es vieja; la API propia de Meta hoy es Muse Spark, comercial y cerrada — queda anotada en la referencia por si se quiere recuperar). Qwen 3.8 pasa a precio real sin «Hasta 90% desc.» ($0.10–$0.45, caché ≈$0.05). 9 filas a 64px llenando la caja.
 
@@ -174,8 +176,8 @@ Mismo mecanismo de parte 2 (`body.mode-document` + `.doc-only`, persistencia en 
 
 1. **25 subtítulos** (slides 4–23 y 25–30) → `class="subtitle doc-only"`. El de la portada (s1) se queda: es la descripción de la charla. Todos los marcados eran contexto para leer, no mensaje central.
 2. **4 textos `gpu-usecase` de s9** (qué modelos caben en cada nivel de H200) → `doc-only`. Las tarjetas quedan escénicas en presentación (título, visual de GPUs, specs y precio).
-3. **9 notas `col-note` de s14** (todo en slide-14, bajo la matriz Goldilocks) → `doc-only`. En presentación la tabla sube el padding de fila a 1.05rem para llenar la caja (`body.deck-hardware-part1:not(.mode-document) #slide-14 .goldilocks-table td`) — sin este ajuste quedaban ~130 px de vacío dentro de la caja.
-4. **No tocado** (siempre visibles): enlaces de prensa s3/s4, sellos de fecha s8/s9, banner de conclusión de s14 y resto de contenido central.
+3. **9 notas `col-note` de s23** (todo en slide-23, bajo la matriz Goldilocks) → `doc-only`. En presentación la tabla sube el padding de fila a 1.05rem para llenar la caja (`body.deck-hardware-part1:not(.mode-document) #slide-23 .goldilocks-table td`) — sin este ajuste quedaban ~130 px de vacío dentro de la caja.
+4. **No tocado** (siempre visibles): enlaces de prensa s3/s4, sellos de fecha s8/s9, banner de conclusión de s23 y resto de contenido central.
 
 ### Hallazgos técnicos
 - **s10 (Trilema)**: la fusión del rediseño — imagen editorial del prisma + tarjetas `tri2-card` — dejó un **duplicado en cascada**: la versión pequeña de mis tarjetas (chip 38px) iba después de la agrandada del deck (48px) y la pisaba. Eliminado el duplicado; el bloque oscuro se depuró de reglas huérfanas (`.tri2-node/.tri2-hub/.tri2-pill/…` ya no existen en el HTML).
@@ -193,7 +195,7 @@ Mismo mecanismo de parte 2 (`body.mode-document` + `.doc-only`, persistencia en 
 ### Ajustes de equilibrio en modo charla (feedback Fernando)
 - **s5 y s6**: tipografía agrandada SOLO en modo charla para aprovechar el aire vertical de las tarjetas (items pros/contras 1.28→1.52rem con line-height 1.6 y gap de lista 0.75→1.15rem, línea de proveedores 1.15→1.32rem, títulos de sección 0.92rem con más aire). En documento no se aplican (el contenido ya llena).
 - **s9**: cada tarjeta lleva ahora una línea breve de modelos (`gpu-usecase-brief`, visible solo en charla): «Caben: Qwen 72B · Llama 70B en FP16», «Caben: DeepSeek V3 · Qwen 3.8 en FP8», «Caben: modelos frontera 230B–405B», «Caben: DeepSeek V3/V4 a precisión nativa». En documento se ocultan y aparece el texto completo `gpu-usecase`.
-- **s7** y **s10–s30**: sin cambios (buenas en charla, según revisión de Fernando).
+- **s7** y **s10–s20**: sin cambios (buenas en charla, según revisión de Fernando).
 
 ### Verificación del flujo completo
 - Click en ⚡ → `mode-document` + `localStorage['deck-doc-mode']='true'`, subtítulos visibles.
@@ -227,7 +229,7 @@ Fernando pidió una visualización más grande para el reparto de la VRAM y desc
 - **s11 documento rectangular**: las dos tarjetas vuelven a `flex: 1 1 0` (reparto igual de altura) mientras la fila de ilustración queda en flujo (`flex: 0 0 auto`), de modo que la columna derecha llena hasta el fondo igual que la tarjeta del tanque, sin solapes.
 - Barrido 30/30 limpio en charla y documento; capturas de s9 y s11 revisadas a ojo en ambos modos.
 
-## Slide 14 — nuevo modelo escogido: Qwen 3.8 Flash Next (29 sep 2026)
+## Slide 23 (Goldilocks) — nuevo modelo escogido: Qwen 3.8 Flash Next (29 sep 2026)
 Fernando pidió sustituir el Qwen 3.5 122B como modelo «escogido» por el Qwen 3.8 Flash Next (125B + 51B n-gram, 6B activos — la cifra inicial de 150B fue descartada tras verificar las fuentes). **Todas las cifras de la fila son reales, medidas sobre los checkpoints publicados** (safetensors oficiales, GGUF de Unsloth vía API de HF, y repos INT4/NVFP4 de terceros); no hay extrapolaciones. Detalle completo en `referencia-qwen38-flash-next-quantizaciones.md`.
 
 - **Fila nueva** (reemplaza a la 122B, que desaparece de la tabla): `★ Qwen 3.8 Flash Next | 125B + 51B / 6B (MoE híbrido) | BF16 ~360.0 | FP8 ~185.5 | GGUF Q5_K_M ~158.0 (pill amarilla, el checkpoint más ligero) | AWQ INT4 ~168.0 | INT4 AutoRound ~178.0 | NVFP4 ~183.0 | nota: «Frontera en 128 GB: solo 65–70 GB en GPU; el n-gram (102 GB) vive en RAM del host»`.
@@ -235,7 +237,7 @@ Fernando pidió sustituir el Qwen 3.5 122B como modelo «escogido» por el Qwen 
 - Pill amarilla movida a **GGUF Q5_K_M (~158 GB)** siguiendo el patrón de las otras filas escogidas (pill en el menor GB real de la fila; la AutoRound/NVFP4 pesan más por el PLE en BF16).
 - **Banner inferior actualizado**: «Qwen 3.8 27B, 35B MoE, 122B MoE y el híbrido Flash Next (125B+51B: solo 65–70 GB en GPU)…» y «inasumibles (>200 GB en GPU)» en vez de «(>200 GB)».
 - Nota: AWQ pura no existe (falló la linearización en 256 GB de RAM); la celda AWQ refleja el W4A16 RTN de terceros (168 GB). NVFP4 es el build mixto de Inferact (experts NVFP4 + resto BF16/FP8, 182,8 GB medidos).
-- Barrido 30/30 limpio en charla y documento; capturas s14 revisadas en ambos modos.
+- Barrido 30/30 limpio en charla y documento; capturas s23 revisadas en ambos modos.
 
 ### Añadido post-debate (29 sep, tarde)
 - **Columna Diagnóstico en modo charla**: oculta por completo (th + celdas) — era `doc-only` y quedaba columna fantasma con cabecera vacía.
@@ -243,5 +245,5 @@ Fernando pidió sustituir el Qwen 3.5 122B como modelo «escogido» por el Qwen 
 - **Pill amarilla del Flash Next en NVFP4 (~183.0 GB)**, elección de Fernando para su modelo.
 - **Banner Zona Ricitos de Oro: solo modo documento** (oculto en charla).
 - **Bug alineación doc-only arreglado**: `body.mode-document .doc-only { display: block }` convertía los `<td class="col-note doc-only">` en block y rompía el layout de tabla (bordes horizontales desalineados 3–8 px). Fix: `body.mode-document td/th.doc-only { display: table-cell }` + li → list-item. Geometría verificada: 10/10 filas con bordes coincidentes.
-- **Checkpoint QAD NVFP4 de 98 GiB** (local-inference-lab, el que carga la receta real GB10): documentado en `referencia-qwen38-flash-next-quantizaciones.md`. La celda NVFP4 de s14 se mantiene en ~183,0 (PTQ global); el QAD va a la futura sección especial.
+- **Checkpoint QAD NVFP4 de 98 GiB** (local-inference-lab, el que carga la receta real GB10): documentado en `referencia-qwen38-flash-next-quantizaciones.md`. La celda NVFP4 de s23 se mantiene en ~183,0 (PTQ global); el QAD va a la futura sección especial.
 - **Ajuste final NVFP4 → QAD**: la tabla apunta al nodo GB10 (Target: DGX Spark 128 GB), así que la celda NVFP4 ahora muestra el checkpoint **QAD de 98 GiB (~105,0 GB)** de `local-inference-lab` — el que se carga de verdad en un solo nodo (cabe entero en los 128 GB unificados). La pill se queda en NVFP4 y recupera el patrón «pill = celda menor». Nota de la fila: «Cabe entero en 128 GB (QAD): PLE a disco deja aire para KV». Banner: «cabe entero en 128 GB». El desglose 65–70 GB GPU / PLE 102 GB host queda para la slide especial del Flash Next (ver `dossier-qwen38-flash-next.md`).

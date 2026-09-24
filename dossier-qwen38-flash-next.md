@@ -2,7 +2,7 @@
 
 *Material completo para diseñar una slide especial (solo para este modelo). Toda cifra citada de fuente verificada — sin extrapolaciones. Actualizado: 29 sep 2026.*
 
-> **⚠️ Numeración actualizada (24 sep 2026):** este dossier se escribió con la numeración de esa fecha (s15 = engram, s16 = anatomía, s17 = el *fit* NVFP4). Desde entonces el bloque de cuantización se reubicó tras s11 y la numeración vigente es **engram = s19, anatomía = s20, peaje de comprimir = s12**. La antigua s17 «Dos NVFP4» fue **retirada** del deck (commit `945709b`): su contenido quedó implementado en la actual s12 y documentado en `ptq-vs-qad-qwen38-flash-next.md`. Los números del cuerpo ya están actualizados; las citas de línea de `style.css` siguen válidas.
+> **⚠️ Numeración actualizada (24 sep 2026):** este dossier se escribió con la numeración de esa fecha (s15 = engram, s16 = anatomía, s17 = el *fit* NVFP4). Tras las dos reposiciones del deck (bloque de cuantización tras s11 y bloque de memoria/contexto tras s15), la numeración vigente es **engram = s24, anatomía = s25, peaje de comprimir = s12**. La antigua s17 «Dos NVFP4» fue **retirada** del deck (commit `945709b`): su contenido quedó implementado en la actual s12 y documentado en `ptq-vs-qad-qwen38-flash-next.md`. Los números del cuerpo ya están actualizados; las citas de línea de `style.css` siguen válidas.
 
 ---
 
@@ -165,21 +165,21 @@ Pregunta abierta — buena gancho para cerrar la slide.
 
 ---
 
-## 11. Slides Qwen 3.8 Flash Next — IMPLEMENTADAS (hoy s19 y s20; la s17 original fue retirada)
+## 11. Slides Qwen 3.8 Flash Next — IMPLEMENTADAS (hoy s24 y s25; la s17 original fue retirada)
 
-El bloque Flash Next son DOS slides hoy: s19 (el engram) y s20 (anatomía). La tercera original (s17, el fit NVFP4) fue retirada y su análisis vive en `ptq-vs-qad-qwen38-flash-next.md`, implementado en la s12 actual. El deck queda en **32 slides**.
+El bloque Flash Next son DOS slides hoy: s24 (el engram) y s25 (anatomía). La tercera original (s17, el fit NVFP4) fue retirada y su análisis vive en `ptq-vs-qad-qwen38-flash-next.md`, implementado en la s12 actual. El deck queda en **32 slides**.
 
-### s19 — «Qwen 3.8 Flash Next: *más cerebro, menos RAM*» (tag: Hardware Sizing • Caso Especial)
+### s24 — «Qwen 3.8 Flash Next: *más cerebro, menos RAM*» (tag: Hardware Sizing • Caso Especial)
 
 **Alcance decidido con Fernando**: la slide cuenta SOLO el concepto engram — la tabla n-gram (PLE) de 51B que se consulta, no computa, y por eso puede vivir fuera de la GPU. El fit en GB10 y las cuantizaciones remitidos al bloque de cuantización (hoy s12-s15).
 
 **Estado ronda 3** (feedback de Fernando: subtítulo doc "extraño" grande→pequeño, disquete→chip RAM, disco→HDD):
 - **Iconos dibujados en el SVG**: chip de RAM (rect + pines, no emoji disquete) y disco duro (plato circular, no emoji). En light y dark legibles.
-- **Subtítulo doc compacto**: la base `.subtitle` lleva `font-size: 1.8rem !important` (style.css:171) — TODA regla doc de subtítulo necesita `!important` propio y más especificidad. Fix en vigor para s19/s20/s12 (0.98rem): `body.deck-hardware-part1.mode-document #slide-19 .slide-content > .subtitle { font-size: 0.98rem !important; line-height: 1.42 !important }`. **La regla de s4 (línea 16409, 0.92rem) es INERTE por este mismo !important** — el subtítulo de s4 en doc sigue a 1.8rem (se aprobó visualmente así, pero no funciona como se creía).
+- **Subtítulo doc compacto**: la base `.subtitle` lleva `font-size: 1.8rem !important` (style.css:171) — TODA regla doc de subtítulo necesita `!important` propio y más especificidad. Fix en vigor para s24/s25/s12 (0.98rem): `body.deck-hardware-part1.mode-document #slide-24 .slide-content > .subtitle { font-size: 0.98rem !important; line-height: 1.42 !important }`. **La regla de s4 (línea 16409, 0.92rem) es INERTE por este mismo !important** — el subtítulo de s4 en doc sigue a 1.8rem (se aprobó visualmente así, pero no funciona como se creía).
 - Pills telegráficas: «20M entradas × 2560 dim = 51B: se consulta, no se multiplica — vive en RAM host o disco.» / «125B con 10+1 expertos activos = 6B por token: 65–70 GB en GPU.» / «GPQA 91,7 · DeepSWE 58,7 vs 42,2 (27B): calidad de 176B.»
 - Chips doc-only (grid 2×2 con borde): KV de chicle · Calidad medida · Otra historia (remite al bloque de cuantización, hoy s12) · **Expertos (fuente): Ficha oficial HF: 512, 10+1, dim 640**.
 
-### s20 — «Por dentro: cinco piezas en 48 capas» (tras s19)
+### s25 — «Por dentro: cinco piezas en 48 capas» (tras s24)
 
 Tag: Qwen 3.8 Flash Next • Anatomía. Subtítulo: «48 capas = 12 × (3×(GDN→MoE) → 1×(QSA→MoE)): tres capas de memoria comprimida y una de atención precisa por grupo. Fuente: ficha oficial HF (Hidden Layout).»
 
@@ -190,7 +190,7 @@ Tag: Qwen 3.8 Flash Next • Anatomía. Subtítulo: «48 capas = 12 × (3×(GDN�
 4. **Engram — la biblioteca de frases** (20M entradas × 2560 dim = 51B en la capa 2: se consulta por dirección, sin multiplicaciones; BF16 102 GB / NVFP4 ~26 GB / host RAM o disco).
 5. **GR + MTP — fontanería y turbo** (residual en 4 carriles con gates; MTP predice varios tokens por paso: +57%, 2,25 tok/paso, 100–107 tok/s en 8×3090).
 
-Los SVG usan gradientes `url(#egB)`, `url(#egG)` y marker `egArrow` definidos en el SVG de s19 (válido: todas las slides permanecen en el DOM).
+Los SVG usan gradientes `url(#egB)`, `url(#egG)` y marker `egArrow` definidos en el SVG de s24 (válido: todas las slides permanecen en el DOM).
 
 ### s17 (RETIRADA) — «Dos NVFP4: *uno cabe, el otro no*»
 
@@ -241,17 +241,17 @@ Dos tarjetas comparadas (`.qad-*`) con SVG de barras 520×186:
 
 ---
 
-## 13. Guion de ponente (s19, s20; la s17 fue retirada)
+## 13. Guion de ponente (s24, s25; la s17 fue retirada)
 
 Guion para explicar las tres slides en voz alta, con las preguntas que suelen saltar.
 
-### s19 — «Qwen 3.8 Flash Next: más cerebro, menos RAM»
+### s24 — «Qwen 3.8 Flash Next: más cerebro, menos RAM»
 
 > "Este modelo tiene 176B de parámetros totales, pero por token solo piensa con 6B. ¿Cómo? La pieza clave es el *engram*: una biblioteca de 51B parámetros —20 millones de entradas de n-gramas de 2560 dimensiones— que **no computa, se consulta**. Como no participa en la multiplicación de matrices, no hace falta que viva en la GPU: puede estar en la RAM del host o incluso llegar en streaming desde el disco, en paralelo con el cómputo. La GPU carga solo lo que piensa —el backbone MoE de 125B, que con 10 de cada 512 expertos activos por token más uno compartido son unos 65–70 GB— y consulta la biblioteca cuando hace falta. Resultado: calidad de modelo de 176B (GPQA 91,7) con factura de 6B.
 
 **Si preguntan**: "¿Y el 51B qué es?" — 20 millones de entradas × 2560 de dimensión = 51,2B parámetros. Es memoria de n-gramas (bigramas/trigramas), no pesos de capas: se direcciona, no se multiplica. "¿512 expertos?" — la ficha oficial de Hugging Face lo dice literal: *Number of Experts: 512, Number of Activated Experts: 10 Routed + 1 Shared, Expert Intermediate Dimension: 640*. (No confundir con los 512 bloques del indexer QSA.)
 
-### s20 — «Por dentro: cinco piezas en 48 capas»
+### s25 — «Por dentro: cinco piezas en 48 capas»
 
 > "Por dentro son 48 capas, pero no todas iguales: grupos de 3 capas GDN más MoE, y cada cuarto grupo cambia GDN por QSA. GDN es el *cuaderno de campo*: condensa toda la conversación en un estado fijo —barato de mantener aunque el contexto crezca— y por eso no genera KV cache. QSA es la atención *con una lupa*: en lugar de mirar todo el contexto, un indexer ligero selecciona los bloques que importan (512 bloques de 2048 tokens) — la KV cae a 14,7 KB por token y el prefill se acelera ×7,6 con 1M de contexto. El MoE son 512 especialistas y por token solo despiertan 10 ruteados + 1 compartido: la factura no escala con lo que el modelo sabe. El engram ya lo vimos: la biblioteca de frases que se consulta. Y la fontanería: Gated Residual en 4 carriles para estabilizar el entrenamiento, y la capa MTP que predice varios tokens por paso — el +57% de throughput.
 
