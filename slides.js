@@ -436,6 +436,25 @@ function initDeck() {
     });
   }
 
+  // Toggle interactivo de vista Limpia vs Detallada en Los 3 Pilares
+  const pillarsViewport = document.querySelector('.three-pillars-viewport');
+  if (pillarsViewport) {
+    const toggleBtns = pillarsViewport.querySelectorAll('.pillars-toggle-btn');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const target = btn.dataset.target;
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (target === 'detailed') {
+          pillarsViewport.classList.add('show-detailed');
+        } else {
+          pillarsViewport.classList.remove('show-detailed');
+        }
+      });
+    });
+  }
+
   // Inicializar en la slide correspondiente y calcular escala
   updateScale();
   const initialIndex = getSlideIndexFromHash();

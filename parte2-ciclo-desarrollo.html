@@ -94,11 +94,18 @@
         </p>
 
         <div class="three-pillars-deck">
-          <!-- Viewport con la imagen conceptual generada -->
+          <!-- Viewport con la imagen conceptual generada (Toggle Limpia vs Detallada) -->
           <div class="three-pillars-viewport">
+            <div class="pillars-view-toggle">
+              <button type="button" class="pillars-toggle-btn active" data-target="clean" title="Versión limpia y minimalista sin distracciones">✨ Limpia</button>
+              <button type="button" class="pillars-toggle-btn" data-target="detailed" title="Versión detallada original">🔬 Detallada</button>
+            </div>
+            <img src="script/img/three-pillars-clean.jpg"
+              alt="Los Tres Pilares del Código con IA: Producto (Inception), Arquitectura (ADRs) y Verificación (Tests)"
+              class="three-pillars-img three-pillars-img-clean">
             <img src="script/img/three-pillars-code-quality.jpg"
               alt="Los Tres Pilares del Código con IA: Inception (Producto), ADRs (Tecnología) y Tests (Verificación)"
-              class="three-pillars-img">
+              class="three-pillars-img three-pillars-img-detailed">
           </div>
 
           <!-- Franja de los 3 Pilares -->
