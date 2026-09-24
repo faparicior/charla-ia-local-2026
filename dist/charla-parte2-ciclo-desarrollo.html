@@ -7626,28 +7626,31 @@ body.theme-dark .rope-level-badge.green {
 .rope-iban-deck {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
   width: 100%;
 }
 
 .rope-iban-split-grid {
   display: grid;
-  grid-template-columns: 1.22fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2.2rem;
   align-items: stretch;
+  flex: 1;
+  min-height: 0;
 }
 
 .rope-iban-svg-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-top: 5px solid #6366f1;
-  border-radius: 14px;
-  padding: 1.6rem 1.8rem;
+  border-radius: 16px;
+  padding: 1.6rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   justify-content: space-between;
+  height: 650px;
 }
 
 body.theme-dark .rope-iban-svg-card {
@@ -7658,7 +7661,7 @@ body.theme-dark .rope-iban-svg-card {
 
 .rope-iban-svg-viewport {
   width: 100%;
-  height: 520px;
+  height: 575px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7673,18 +7676,21 @@ body.theme-dark .rope-iban-svg-card {
 .rope-iban-info-col {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.15rem;
   justify-content: space-between;
+  height: 650px;
 }
 
 .rope-iban-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 1.25rem 1.6rem;
+  padding: 1.4rem 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
@@ -7720,7 +7726,7 @@ body.theme-dark .rope-iban-card.card-yarn-country {
 
 .rope-iban-title {
   font-family: var(--font-sans);
-  font-size: 1.32rem;
+  font-size: 1.48rem;
   font-weight: 800;
   color: var(--text-main);
   display: flex;
@@ -7730,9 +7736,9 @@ body.theme-dark .rope-iban-card.card-yarn-country {
 
 .rope-iban-badge {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 800;
-  padding: 0.2rem 0.6rem;
+  padding: 0.28rem 0.75rem;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -7772,8 +7778,8 @@ body.theme-dark .rope-iban-badge.green {
 }
 
 .rope-iban-desc {
-  font-size: 1.08rem;
-  line-height: 1.48;
+  font-size: 1.16rem;
+  line-height: 1.55;
   color: var(--text-muted);
 }
 
