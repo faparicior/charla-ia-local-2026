@@ -1513,6 +1513,20 @@ body.theme-dark .press-header {
   display: block;
 }
 
+.meme-hero-img {
+  max-width: 1140px;
+  max-height: 680px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 .meme-caption-spotlight {
   font-family: var(--font-mono);
   font-size: 1.05rem;
