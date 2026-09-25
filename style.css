@@ -17490,3 +17490,417 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table td {
 body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   width: 150px !important;
 }
+
+
+/* ================================================================
+   SLIDES 23 & 24: PANEL VISUAL — DENSO (48/48) vs MoE (ROUTER + 5)
+   Panel SVG de 48 cajitas animado con el motor de pasos (.step).
+   Paso 1: la petición llega · Paso 2: se encienden las cajitas.
+   ================================================================ */
+
+/* --- Marco visual compartido (espejo de .hospital-visual-frame) --- */
+.panel-visual-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-medium);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  height: 710px;
+}
+
+.panel-svg-viewport {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1rem 0.5rem;
+}
+
+.panel-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#slide-23 .step,
+#slide-24 .step {
+  cursor: pointer;
+}
+
+/* --- Tipografía y colores estáticos del SVG --- */
+#slide-23 .dp-label,
+#slide-24 .mp-label {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+#slide-23 .dp-panel,
+#slide-24 .mp-panel {
+  fill: var(--bg-surface);
+  stroke: var(--border-medium);
+  stroke-width: 1.6;
+  transition: stroke 0.5s ease;
+}
+
+#slide-23 .dp-mini,
+#slide-24 .mp-mini {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  fill: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+#slide-23 .dp-pill-title,
+#slide-24 .mp-pill-title {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  fill: #b45309;
+}
+
+#slide-23 .dp-pill-sub,
+#slide-24 .mp-pill-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+/* --- Cajitas apagadas (estado inicial) --- */
+#slide-23 .dp-cell,
+#slide-24 .mp-cell {
+  fill: var(--bg-surface-elevated);
+  stroke: var(--border-medium);
+  stroke-width: 1.4;
+  transition: fill 0.45s ease, stroke 0.45s ease, opacity 0.45s ease,
+    filter 0.45s ease, stroke-width 0.45s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+/* --- Franja inferior en espera --- */
+#slide-23 .dp-strip,
+#slide-24 .mp-strip {
+  fill: var(--bg-surface);
+  stroke: var(--border-subtle);
+  stroke-width: 1.5;
+}
+
+#slide-23 .dp-strip-static,
+#slide-24 .mp-strip-static {
+  stroke-dasharray: 7 6;
+  transition: opacity 0.4s ease;
+}
+
+#slide-23 .dp-strip-wait,
+#slide-24 .mp-strip-wait {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--text-dim);
+  letter-spacing: 0.06em;
+  transition: opacity 0.4s ease;
+}
+
+/* --- Router estático (MoE) --- */
+#slide-24 .mp-router {
+  fill: var(--bg-surface);
+  stroke: #0284c7;
+  stroke-width: 1.6;
+  transition: fill 0.45s ease, stroke 0.45s ease, filter 0.45s ease;
+}
+
+#slide-24 .mp-router-title {
+  font-family: var(--font-mono);
+  font-size: 14.5px;
+  font-weight: 800;
+  fill: #0284c7;
+}
+
+#slide-24 .mp-router-sub {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+/* --- PASO 1: la petición (oculta hasta activarse) --- */
+#slide-23 .dp-request,
+#slide-24 .mp-request {
+  opacity: 0;
+  transform: translateX(-46px);
+  transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
+}
+
+#slide-23 .dp-request.step-active,
+#slide-24 .mp-request.step-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#slide-23 .dp-pill,
+#slide-24 .mp-pill {
+  fill: rgba(245, 158, 11, 0.12);
+  stroke: #f59e0b;
+  stroke-width: 1.6;
+}
+
+#slide-23 .dp-arrow,
+#slide-24 .mp-arrow {
+  stroke: var(--text-muted);
+  stroke-width: 2.4;
+}
+
+#slide-23 .dp-arrowhead,
+#slide-24 .mp-arrowhead {
+  fill: var(--text-muted);
+}
+
+/* --- PASO 2: superposición luminosa (oculta hasta activarse) --- */
+#slide-23 .dp-lights,
+#slide-24 .mp-lights {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.15s;
+}
+
+#slide-23 .dp-lights.step-active,
+#slide-24 .mp-lights.step-active {
+  opacity: 1;
+}
+
+/* --- Franja inferior iluminada --- */
+#slide-23 .dp-strip-lit {
+  fill: rgba(245, 158, 11, 0.09);
+  stroke: #d97706;
+  stroke-width: 1.6;
+}
+
+#slide-24 .mp-strip-lit {
+  fill: rgba(16, 185, 129, 0.09);
+  stroke: #059669;
+  stroke-width: 1.6;
+}
+
+#slide-23 .dp-count {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  fill: #b45309;
+  letter-spacing: 0.03em;
+}
+
+#slide-24 .mp-count {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  fill: #059669;
+  letter-spacing: 0.03em;
+}
+
+#slide-23 .dp-strip-l1,
+#slide-24 .mp-strip-l1 {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  fill: var(--text-main);
+}
+
+#slide-23 .dp-strip-l2,
+#slide-24 .mp-strip-l2 {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+/* ================================================================
+   SLIDE 23 — DENSO: al activar el paso 2 se encienden las 48
+   ================================================================ */
+#slide-23:has(.dp-lights.step-active) .dp-cell {
+  fill: rgba(245, 158, 11, 0.2);
+  stroke: #d97706;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45));
+}
+
+#slide-23:has(.dp-lights.step-active) .dp-panel {
+  stroke: #d97706;
+}
+
+#slide-23:has(.dp-lights.step-active) .dp-strip-static,
+#slide-23:has(.dp-lights.step-active) .dp-strip-wait {
+  opacity: 0;
+}
+
+#slide-23 .dp-glow {
+  fill: rgba(245, 158, 11, 0.05);
+  stroke: #d97706;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+}
+
+#slide-23 .dp-cap-final {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+#slide-23:has(.dp-lights.step-active) .dp-cap-final {
+  opacity: 1;
+}
+
+/* ================================================================
+   SLIDE 24 — MoE: el router se activa y enciende 5 de 48
+   ================================================================ */
+#slide-24:has(.mp-lights.step-active) .mp-cell {
+  opacity: 0.42;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-cell.mp-on {
+  opacity: 1;
+  fill: rgba(16, 185, 129, 0.18);
+  stroke: #059669;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-router {
+  fill: rgba(2, 132, 199, 0.14);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.5));
+}
+
+#slide-24 .mp-fanline {
+  stroke: #059669;
+  stroke-width: 2;
+  stroke-dasharray: 7 6;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+#slide-24 .mp-fandot {
+  fill: #059669;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-fanline {
+  opacity: 0.7;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-fandot {
+  opacity: 0.9;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-strip-static,
+#slide-24:has(.mp-lights.step-active) .mp-strip-wait {
+  opacity: 0;
+}
+
+#slide-24 .mp-cap-final {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-cap-final {
+  opacity: 1;
+}
+
+/* ================================================================
+   SLIDES 23 & 24 — Overview e impresión: estado final encendido
+   ================================================================ */
+body.overview-mode #slide-23 .dp-request,
+body.overview-mode #slide-24 .mp-request {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  #slide-23 .dp-request,
+  #slide-24 .mp-request {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-lights,
+body.overview-mode #slide-24 .mp-lights {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  #slide-23 .dp-lights,
+  #slide-24 .mp-lights {
+    opacity: 1 !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-cell {
+  fill: rgba(245, 158, 11, 0.2) !important;
+  stroke: #d97706 !important;
+  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
+}
+
+@media print {
+
+  #slide-23 .dp-cell {
+    fill: rgba(245, 158, 11, 0.2) !important;
+    stroke: #d97706 !important;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
+  }
+}
+
+body.overview-mode #slide-24 .mp-cell.mp-on {
+  fill: rgba(16, 185, 129, 0.18) !important;
+  stroke: #059669 !important;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
+}
+
+@media print {
+
+  #slide-24 .mp-cell.mp-on {
+    fill: rgba(16, 185, 129, 0.18) !important;
+    stroke: #059669 !important;
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-strip-static,
+body.overview-mode #slide-23 .dp-strip-wait,
+body.overview-mode #slide-24 .mp-strip-static,
+body.overview-mode #slide-24 .mp-strip-wait {
+  opacity: 0 !important;
+}
+
+@media print {
+
+  #slide-23 .dp-strip-static,
+  #slide-23 .dp-strip-wait,
+  #slide-24 .mp-strip-static,
+  #slide-24 .mp-strip-wait {
+    opacity: 0 !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-cap-final,
+body.overview-mode #slide-24 .mp-cap-final {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  #slide-23 .dp-cap-final,
+  #slide-24 .mp-cap-final {
+    opacity: 1 !important;
+  }
+}

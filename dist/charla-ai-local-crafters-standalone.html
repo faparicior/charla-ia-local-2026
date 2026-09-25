@@ -17510,6 +17510,420 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   width: 150px !important;
 }
 
+
+/* ================================================================
+   SLIDES 23 & 24: PANEL VISUAL — DENSO (48/48) vs MoE (ROUTER + 5)
+   Panel SVG de 48 cajitas animado con el motor de pasos (.step).
+   Paso 1: la petición llega · Paso 2: se encienden las cajitas.
+   ================================================================ */
+
+/* --- Marco visual compartido (espejo de .hospital-visual-frame) --- */
+.panel-visual-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-medium);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  height: 710px;
+}
+
+.panel-svg-viewport {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1rem 0.5rem;
+}
+
+.panel-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#slide-23 .step,
+#slide-24 .step {
+  cursor: pointer;
+}
+
+/* --- Tipografía y colores estáticos del SVG --- */
+#slide-23 .dp-label,
+#slide-24 .mp-label {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+#slide-23 .dp-panel,
+#slide-24 .mp-panel {
+  fill: var(--bg-surface);
+  stroke: var(--border-medium);
+  stroke-width: 1.6;
+  transition: stroke 0.5s ease;
+}
+
+#slide-23 .dp-mini,
+#slide-24 .mp-mini {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  fill: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+#slide-23 .dp-pill-title,
+#slide-24 .mp-pill-title {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  fill: #b45309;
+}
+
+#slide-23 .dp-pill-sub,
+#slide-24 .mp-pill-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+/* --- Cajitas apagadas (estado inicial) --- */
+#slide-23 .dp-cell,
+#slide-24 .mp-cell {
+  fill: var(--bg-surface-elevated);
+  stroke: var(--border-medium);
+  stroke-width: 1.4;
+  transition: fill 0.45s ease, stroke 0.45s ease, opacity 0.45s ease,
+    filter 0.45s ease, stroke-width 0.45s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+/* --- Franja inferior en espera --- */
+#slide-23 .dp-strip,
+#slide-24 .mp-strip {
+  fill: var(--bg-surface);
+  stroke: var(--border-subtle);
+  stroke-width: 1.5;
+}
+
+#slide-23 .dp-strip-static,
+#slide-24 .mp-strip-static {
+  stroke-dasharray: 7 6;
+  transition: opacity 0.4s ease;
+}
+
+#slide-23 .dp-strip-wait,
+#slide-24 .mp-strip-wait {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--text-dim);
+  letter-spacing: 0.06em;
+  transition: opacity 0.4s ease;
+}
+
+/* --- Router estático (MoE) --- */
+#slide-24 .mp-router {
+  fill: var(--bg-surface);
+  stroke: #0284c7;
+  stroke-width: 1.6;
+  transition: fill 0.45s ease, stroke 0.45s ease, filter 0.45s ease;
+}
+
+#slide-24 .mp-router-title {
+  font-family: var(--font-mono);
+  font-size: 14.5px;
+  font-weight: 800;
+  fill: #0284c7;
+}
+
+#slide-24 .mp-router-sub {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+/* --- PASO 1: la petición (oculta hasta activarse) --- */
+#slide-23 .dp-request,
+#slide-24 .mp-request {
+  opacity: 0;
+  transform: translateX(-46px);
+  transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
+}
+
+#slide-23 .dp-request.step-active,
+#slide-24 .mp-request.step-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#slide-23 .dp-pill,
+#slide-24 .mp-pill {
+  fill: rgba(245, 158, 11, 0.12);
+  stroke: #f59e0b;
+  stroke-width: 1.6;
+}
+
+#slide-23 .dp-arrow,
+#slide-24 .mp-arrow {
+  stroke: var(--text-muted);
+  stroke-width: 2.4;
+}
+
+#slide-23 .dp-arrowhead,
+#slide-24 .mp-arrowhead {
+  fill: var(--text-muted);
+}
+
+/* --- PASO 2: superposición luminosa (oculta hasta activarse) --- */
+#slide-23 .dp-lights,
+#slide-24 .mp-lights {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.15s;
+}
+
+#slide-23 .dp-lights.step-active,
+#slide-24 .mp-lights.step-active {
+  opacity: 1;
+}
+
+/* --- Franja inferior iluminada --- */
+#slide-23 .dp-strip-lit {
+  fill: rgba(245, 158, 11, 0.09);
+  stroke: #d97706;
+  stroke-width: 1.6;
+}
+
+#slide-24 .mp-strip-lit {
+  fill: rgba(16, 185, 129, 0.09);
+  stroke: #059669;
+  stroke-width: 1.6;
+}
+
+#slide-23 .dp-count {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  fill: #b45309;
+  letter-spacing: 0.03em;
+}
+
+#slide-24 .mp-count {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  fill: #059669;
+  letter-spacing: 0.03em;
+}
+
+#slide-23 .dp-strip-l1,
+#slide-24 .mp-strip-l1 {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  fill: var(--text-main);
+}
+
+#slide-23 .dp-strip-l2,
+#slide-24 .mp-strip-l2 {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+/* ================================================================
+   SLIDE 23 — DENSO: al activar el paso 2 se encienden las 48
+   ================================================================ */
+#slide-23:has(.dp-lights.step-active) .dp-cell {
+  fill: rgba(245, 158, 11, 0.2);
+  stroke: #d97706;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45));
+}
+
+#slide-23:has(.dp-lights.step-active) .dp-panel {
+  stroke: #d97706;
+}
+
+#slide-23:has(.dp-lights.step-active) .dp-strip-static,
+#slide-23:has(.dp-lights.step-active) .dp-strip-wait {
+  opacity: 0;
+}
+
+#slide-23 .dp-glow {
+  fill: rgba(245, 158, 11, 0.05);
+  stroke: #d97706;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+}
+
+#slide-23 .dp-cap-final {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+#slide-23:has(.dp-lights.step-active) .dp-cap-final {
+  opacity: 1;
+}
+
+/* ================================================================
+   SLIDE 24 — MoE: el router se activa y enciende 5 de 48
+   ================================================================ */
+#slide-24:has(.mp-lights.step-active) .mp-cell {
+  opacity: 0.42;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-cell.mp-on {
+  opacity: 1;
+  fill: rgba(16, 185, 129, 0.18);
+  stroke: #059669;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-router {
+  fill: rgba(2, 132, 199, 0.14);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.5));
+}
+
+#slide-24 .mp-fanline {
+  stroke: #059669;
+  stroke-width: 2;
+  stroke-dasharray: 7 6;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+#slide-24 .mp-fandot {
+  fill: #059669;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-fanline {
+  opacity: 0.7;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-fandot {
+  opacity: 0.9;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-strip-static,
+#slide-24:has(.mp-lights.step-active) .mp-strip-wait {
+  opacity: 0;
+}
+
+#slide-24 .mp-cap-final {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+#slide-24:has(.mp-lights.step-active) .mp-cap-final {
+  opacity: 1;
+}
+
+/* ================================================================
+   SLIDES 23 & 24 — Overview e impresión: estado final encendido
+   ================================================================ */
+body.overview-mode #slide-23 .dp-request,
+body.overview-mode #slide-24 .mp-request {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  #slide-23 .dp-request,
+  #slide-24 .mp-request {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-lights,
+body.overview-mode #slide-24 .mp-lights {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  #slide-23 .dp-lights,
+  #slide-24 .mp-lights {
+    opacity: 1 !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-cell {
+  fill: rgba(245, 158, 11, 0.2) !important;
+  stroke: #d97706 !important;
+  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
+}
+
+@media print {
+
+  #slide-23 .dp-cell {
+    fill: rgba(245, 158, 11, 0.2) !important;
+    stroke: #d97706 !important;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
+  }
+}
+
+body.overview-mode #slide-24 .mp-cell.mp-on {
+  fill: rgba(16, 185, 129, 0.18) !important;
+  stroke: #059669 !important;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
+}
+
+@media print {
+
+  #slide-24 .mp-cell.mp-on {
+    fill: rgba(16, 185, 129, 0.18) !important;
+    stroke: #059669 !important;
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-strip-static,
+body.overview-mode #slide-23 .dp-strip-wait,
+body.overview-mode #slide-24 .mp-strip-static,
+body.overview-mode #slide-24 .mp-strip-wait {
+  opacity: 0 !important;
+}
+
+@media print {
+
+  #slide-23 .dp-strip-static,
+  #slide-23 .dp-strip-wait,
+  #slide-24 .mp-strip-static,
+  #slide-24 .mp-strip-wait {
+    opacity: 0 !important;
+  }
+}
+
+body.overview-mode #slide-23 .dp-cap-final,
+body.overview-mode #slide-24 .mp-cap-final {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  #slide-23 .dp-cap-final,
+  #slide-24 .mp-cap-final {
+    opacity: 1 !important;
+  }
+}
+
 </style>
 </head>
 
@@ -20218,9 +20632,249 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 23: MODELO DENSO COMO PANEL DE LUZ (TODAS LAS CAJITAS SE ENCIENDEN)
          ==================================================================== -->
     <section class="slide" id="slide-23">
+      <div class="slide-content">
+        <div class="tag">Arquitectura de Modelos • Panel Visual — Densos</div>
+        <h2>Modelos Densos: <span class="serif-italic" style="color: #b45309;">Una Petición Enciende las 48 Luces</span>
+        </h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          El modelo como un panel de 48 bloques: sin router ni filtro previo, cada token activa el 100% de las cajitas.
+        </p>
+
+        <div class="hospital-story-grid">
+          <!-- Columna Izquierda: Panel SVG del modelo denso -->
+          <div class="panel-visual-frame">
+            <div class="panel-svg-viewport">
+              <svg class="panel-svg" viewBox="0 0 1044 654" fill="none" xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Panel de un modelo denso: 48 bloques de parámetros; al llegar una petición se encienden los 48 a la vez, el 100% del cómputo en cada token">
+                <defs>
+                  <marker id="dp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+                    orient="auto-start-reverse">
+                    <path class="dp-arrowhead" d="M0,0 L10,5 L0,10 z" />
+                  </marker>
+                </defs>
+
+                <!-- Etiqueta y caja del modelo -->
+                <text class="dp-label" x="210" y="86">📦 MODELO DENSO — 48 BLOQUES DE PARÁMETROS (70B)</text>
+                <rect class="dp-panel" x="210" y="100" width="794" height="412" rx="18" />
+
+                <!-- Zona izquierda: sin router -->
+                <text class="dp-mini" x="88" y="262" text-anchor="middle">SIN ROUTER · SIN FILTRO</text>
+
+                <!-- Las 48 cajitas (todas apagadas al llegar) -->
+                <g>
+                  <rect class="dp-cell" x="236" y="124" width="84" height="54" rx="9" style="--d:0ms"/><rect class="dp-cell" x="330" y="124" width="84" height="54" rx="9" style="--d:14ms"/><rect class="dp-cell" x="424" y="124" width="84" height="54" rx="9" style="--d:28ms"/><rect class="dp-cell" x="518" y="124" width="84" height="54" rx="9" style="--d:42ms"/><rect class="dp-cell" x="612" y="124" width="84" height="54" rx="9" style="--d:56ms"/><rect class="dp-cell" x="706" y="124" width="84" height="54" rx="9" style="--d:70ms"/><rect class="dp-cell" x="800" y="124" width="84" height="54" rx="9" style="--d:84ms"/><rect class="dp-cell" x="894" y="124" width="84" height="54" rx="9" style="--d:98ms"/>
+          <rect class="dp-cell" x="236" y="186" width="84" height="54" rx="9" style="--d:112ms"/><rect class="dp-cell" x="330" y="186" width="84" height="54" rx="9" style="--d:126ms"/><rect class="dp-cell" x="424" y="186" width="84" height="54" rx="9" style="--d:140ms"/><rect class="dp-cell" x="518" y="186" width="84" height="54" rx="9" style="--d:154ms"/><rect class="dp-cell" x="612" y="186" width="84" height="54" rx="9" style="--d:168ms"/><rect class="dp-cell" x="706" y="186" width="84" height="54" rx="9" style="--d:182ms"/><rect class="dp-cell" x="800" y="186" width="84" height="54" rx="9" style="--d:196ms"/><rect class="dp-cell" x="894" y="186" width="84" height="54" rx="9" style="--d:210ms"/>
+          <rect class="dp-cell" x="236" y="248" width="84" height="54" rx="9" style="--d:224ms"/><rect class="dp-cell" x="330" y="248" width="84" height="54" rx="9" style="--d:238ms"/><rect class="dp-cell" x="424" y="248" width="84" height="54" rx="9" style="--d:252ms"/><rect class="dp-cell" x="518" y="248" width="84" height="54" rx="9" style="--d:266ms"/><rect class="dp-cell" x="612" y="248" width="84" height="54" rx="9" style="--d:280ms"/><rect class="dp-cell" x="706" y="248" width="84" height="54" rx="9" style="--d:294ms"/><rect class="dp-cell" x="800" y="248" width="84" height="54" rx="9" style="--d:308ms"/><rect class="dp-cell" x="894" y="248" width="84" height="54" rx="9" style="--d:322ms"/>
+          <rect class="dp-cell" x="236" y="310" width="84" height="54" rx="9" style="--d:336ms"/><rect class="dp-cell" x="330" y="310" width="84" height="54" rx="9" style="--d:350ms"/><rect class="dp-cell" x="424" y="310" width="84" height="54" rx="9" style="--d:364ms"/><rect class="dp-cell" x="518" y="310" width="84" height="54" rx="9" style="--d:378ms"/><rect class="dp-cell" x="612" y="310" width="84" height="54" rx="9" style="--d:392ms"/><rect class="dp-cell" x="706" y="310" width="84" height="54" rx="9" style="--d:406ms"/><rect class="dp-cell" x="800" y="310" width="84" height="54" rx="9" style="--d:420ms"/><rect class="dp-cell" x="894" y="310" width="84" height="54" rx="9" style="--d:434ms"/>
+          <rect class="dp-cell" x="236" y="372" width="84" height="54" rx="9" style="--d:448ms"/><rect class="dp-cell" x="330" y="372" width="84" height="54" rx="9" style="--d:462ms"/><rect class="dp-cell" x="424" y="372" width="84" height="54" rx="9" style="--d:476ms"/><rect class="dp-cell" x="518" y="372" width="84" height="54" rx="9" style="--d:490ms"/><rect class="dp-cell" x="612" y="372" width="84" height="54" rx="9" style="--d:504ms"/><rect class="dp-cell" x="706" y="372" width="84" height="54" rx="9" style="--d:518ms"/><rect class="dp-cell" x="800" y="372" width="84" height="54" rx="9" style="--d:532ms"/><rect class="dp-cell" x="894" y="372" width="84" height="54" rx="9" style="--d:546ms"/>
+          <rect class="dp-cell" x="236" y="434" width="84" height="54" rx="9" style="--d:560ms"/><rect class="dp-cell" x="330" y="434" width="84" height="54" rx="9" style="--d:574ms"/><rect class="dp-cell" x="424" y="434" width="84" height="54" rx="9" style="--d:588ms"/><rect class="dp-cell" x="518" y="434" width="84" height="54" rx="9" style="--d:602ms"/><rect class="dp-cell" x="612" y="434" width="84" height="54" rx="9" style="--d:616ms"/><rect class="dp-cell" x="706" y="434" width="84" height="54" rx="9" style="--d:630ms"/><rect class="dp-cell" x="800" y="434" width="84" height="54" rx="9" style="--d:644ms"/><rect class="dp-cell" x="894" y="434" width="84" height="54" rx="9" style="--d:658ms"/>
+                </g>
+
+                <!-- PASO 1: la petición llega al panel -->
+                <g class="dp-request step" data-step="1">
+                  <rect class="dp-pill" x="8" y="276" width="160" height="60" rx="12" />
+                  <text class="dp-pill-title" x="88" y="303" text-anchor="middle">💬 PETICIÓN</text>
+                  <text class="dp-pill-sub" x="88" y="323" text-anchor="middle">1 token de entrada</text>
+                  <line class="dp-arrow" x1="174" y1="306" x2="202" y2="306" marker-end="url(#dp-arrow)" />
+                </g>
+
+                <!-- Estado en espera (se apaga al encender las luces) -->
+                <rect class="dp-strip dp-strip-static" x="8" y="548" width="996" height="80" rx="14" />
+                <text class="dp-strip-wait" x="506" y="596" text-anchor="middle">ESTADO: EN ESPERA — PULSA SIGUIENTE ▶ PARA VER QUÉ CAJITAS SE ENCIENDEN</text>
+
+                <!-- PASO 2: se encienden TODAS las cajitas -->
+                <g class="dp-lights step" data-step="2">
+                  <rect class="dp-glow" x="210" y="100" width="794" height="412" rx="18" />
+                  <rect class="dp-strip-lit" x="8" y="548" width="996" height="80" rx="14" />
+                  <text class="dp-count" x="36" y="598">⚡ 48/48 ACTIVAS</text>
+                  <text class="dp-strip-l1" x="990" y="582" text-anchor="end">70B parámetros multiplicados en CADA token</text>
+                  <text class="dp-strip-l2" x="990" y="608" text-anchor="end">coste: VRAM al límite · energía · calor</text>
+                </g>
+              </svg>
+            </div>
+            <div class="hospital-caption-bar">
+              <span style="color: #b45309;">🟠 Modelo Denso — Panel de 48 Bloques</span>
+              <span class="dp-cap-final" style="color: #d97706;">48/48 encendidas · 100% cómputo</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Narrativa clave -->
+          <div class="hospital-narrative-col">
+            <div class="hospital-narrative-card">
+              <div class="hospital-narrative-header">
+                <span class="hospital-narrative-title"><span>🟠</span> Sin Gatekeeper: se Encienden Todas</span>
+                <span class="hospital-narrative-badge amber">48/48 · 100%</span>
+              </div>
+              <p>
+                La petición entra y <strong>no existe filtro previo</strong>: los 48 bloques que forman el modelo
+                participan en el cálculo de esa palabra. Es la junta médica completa de la slide anterior, vista como
+                un panel eléctrico.
+              </p>
+            </div>
+
+            <div class="hospital-narrative-card">
+              <div class="hospital-narrative-header">
+                <span class="hospital-narrative-title"><span>⚡</span> El Peaje: Fuerza Bruta Constante</span>
+                <span class="hospital-narrative-badge amber">70B ops/token</span>
+              </div>
+              <p>
+                La GPU <strong>multiplica los 70B parámetros en cada token</strong>, aunque la pregunta sea trivial.
+                VRAM llena, calor y consumo al máximo: el precio de la consistencia total.
+              </p>
+            </div>
+
+            <div class="hospital-narrative-card">
+              <div class="hospital-narrative-header">
+                <span class="hospital-narrative-title"><span>🧱</span> Cuándo Brillan los Densos</span>
+                <span class="hospital-narrative-badge" style="background: rgba(0,0,0,0.06); color: var(--text-main);">8B–32B locales</span>
+              </div>
+              <p>
+                <strong>LLaMA 3 y Qwen densos</strong>: predecibles, robustos y perfectos para fine-tuning
+                especializado. En tamaños pequeños y medianos siguen siendo la opción sólida por defecto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 24: MODELO MOE COMO PANEL DE LUZ (EL ROUTER ENCIENDE SOLO 4-5)
+         ==================================================================== -->
+    <section class="slide" id="slide-24">
+      <div class="slide-content">
+        <div class="tag">Arquitectura de Modelos • Panel Visual — Mixture of Experts</div>
+        <h2>Modelos MoE: <span class="serif-italic" style="color: #0284c7;">El Router Enciende solo 5 de 48 Luces</span>
+        </h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          El mismo panel de 48 cajitas, pero con triaje: el router puntúa a todos los expertos y despierta únicamente a los 5 mejores.
+        </p>
+
+        <div class="hospital-story-grid">
+          <!-- Columna Izquierda: Panel SVG del modelo MoE -->
+          <div class="panel-visual-frame">
+            <div class="panel-svg-viewport">
+              <svg class="panel-svg" viewBox="0 0 1044 654" fill="none" xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Panel de un modelo MoE: el router puntúa 48 expertos y enciende solo 5, en torno al 10% del cómputo; el resto permanece apagado">
+                <defs>
+                  <marker id="mp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+                    orient="auto-start-reverse">
+                    <path class="mp-arrowhead" d="M0,0 L10,5 L0,10 z" />
+                  </marker>
+                </defs>
+
+                <!-- Router (estático: existe desde el inicio) -->
+                <rect class="mp-router" x="507" y="20" width="200" height="52" rx="12" />
+                <text class="mp-router-title" x="607" y="41" text-anchor="middle">🔀 ROUTER · TRIAJE</text>
+                <text class="mp-router-sub" x="607" y="60" text-anchor="middle">puntúa los 48 → elige 5</text>
+
+                <!-- Etiqueta y caja del modelo -->
+                <text class="mp-label" x="210" y="94">📦 MODELO MoE — 48 EXPERTOS (122B EN VRAM)</text>
+                <rect class="mp-panel" x="210" y="104" width="794" height="412" rx="18" />
+
+                <!-- Zona izquierda -->
+                <text class="mp-mini" x="88" y="262" text-anchor="middle">EL TOKEN ENTRA AL ROUTER</text>
+
+                <!-- Conexiones router -> expertos encendidos (aparecen en el paso 2) -->
+                <g class="mp-fan">
+                  <line class="mp-fanline" x1="607" y1="72" x2="654" y2="128" style="--d:0ms"/>
+          <circle class="mp-fandot" cx="654" cy="128" r="4" style="--d:90ms"/>
+          <line class="mp-fanline" x1="607" y1="72" x2="372" y2="190" style="--d:140ms"/>
+          <circle class="mp-fandot" cx="372" cy="190" r="4" style="--d:230ms"/>
+          <line class="mp-fanline" x1="607" y1="72" x2="842" y2="252" style="--d:280ms"/>
+          <circle class="mp-fandot" cx="842" cy="252" r="4" style="--d:370ms"/>
+          <line class="mp-fanline" x1="607" y1="72" x2="466" y2="376" style="--d:420ms"/>
+          <circle class="mp-fandot" cx="466" cy="376" r="4" style="--d:510ms"/>
+          <line class="mp-fanline" x1="607" y1="72" x2="748" y2="438" style="--d:560ms"/>
+          <circle class="mp-fandot" cx="748" cy="438" r="4" style="--d:650ms"/>
+                </g>
+
+                <!-- Las 48 cajitas (todas apagadas al llegar) -->
+                <g>
+                  <rect class="mp-cell" x="236" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="330" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="424" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="518" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell mp-on" x="612" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="706" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="800" y="128" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="894" y="128" width="84" height="54" rx="9" style="--d:0ms"/>
+          <rect class="mp-cell" x="236" y="190" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell mp-on" x="330" y="190" width="84" height="54" rx="9" style="--d:140ms"/><rect class="mp-cell" x="424" y="190" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="518" y="190" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="612" y="190" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="706" y="190" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="800" y="190" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="894" y="190" width="84" height="54" rx="9" style="--d:0ms"/>
+          <rect class="mp-cell" x="236" y="252" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="330" y="252" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="424" y="252" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="518" y="252" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="612" y="252" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="706" y="252" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell mp-on" x="800" y="252" width="84" height="54" rx="9" style="--d:280ms"/><rect class="mp-cell" x="894" y="252" width="84" height="54" rx="9" style="--d:0ms"/>
+          <rect class="mp-cell" x="236" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="330" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="424" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="518" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="612" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="706" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="800" y="314" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="894" y="314" width="84" height="54" rx="9" style="--d:0ms"/>
+          <rect class="mp-cell" x="236" y="376" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="330" y="376" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell mp-on" x="424" y="376" width="84" height="54" rx="9" style="--d:420ms"/><rect class="mp-cell" x="518" y="376" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="612" y="376" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="706" y="376" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="800" y="376" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="894" y="376" width="84" height="54" rx="9" style="--d:0ms"/>
+          <rect class="mp-cell" x="236" y="438" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="330" y="438" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="424" y="438" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="518" y="438" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="612" y="438" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell mp-on" x="706" y="438" width="84" height="54" rx="9" style="--d:560ms"/><rect class="mp-cell" x="800" y="438" width="84" height="54" rx="9" style="--d:0ms"/><rect class="mp-cell" x="894" y="438" width="84" height="54" rx="9" style="--d:0ms"/>
+                </g>
+
+                <!-- PASO 1: la petición llega al router -->
+                <g class="mp-request step" data-step="1">
+                  <rect class="mp-pill" x="8" y="276" width="160" height="60" rx="12" />
+                  <text class="mp-pill-title" x="88" y="303" text-anchor="middle">💬 PETICIÓN</text>
+                  <text class="mp-pill-sub" x="88" y="323" text-anchor="middle">1 token de entrada</text>
+                  <line class="mp-arrow" x1="174" y1="300" x2="497" y2="50" marker-end="url(#mp-arrow)" />
+                </g>
+
+                <!-- Estado en espera (se apaga al encender las luces) -->
+                <rect class="mp-strip mp-strip-static" x="8" y="548" width="996" height="80" rx="14" />
+                <text class="mp-strip-wait" x="506" y="596" text-anchor="middle">ESTADO: EN ESPERA — PULSA SIGUIENTE ▶ PARA VER QUÉ CAJITAS SE ENCIENDEN</text>
+
+                <!-- PASO 2: el router decide y enciende 5 expertos -->
+                <g class="mp-lights step" data-step="2">
+                  <rect class="mp-router-lit" x="507" y="20" width="200" height="52" rx="12" />
+                  <rect class="mp-strip-lit" x="8" y="548" width="996" height="80" rx="14" />
+                  <text class="mp-count" x="36" y="598">🎯 5/48 ACTIVAS · ~10%</text>
+                  <text class="mp-strip-l1" x="990" y="582" text-anchor="end">122B en VRAM · solo ~10B en cómputo por token</text>
+                  <text class="mp-strip-l2" x="990" y="608" text-anchor="end">los 43 expertos dormidos no se calculan: velocidad + hueco para contexto</text>
+                </g>
+              </svg>
+            </div>
+            <div class="hospital-caption-bar">
+              <span style="color: #0284c7;">🟢 Modelo MoE — Router + 48 Expertos</span>
+              <span class="mp-cap-final" style="color: #059669;">5/48 encendidas · ~10% cómputo</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Narrativa clave -->
+          <div class="hospital-narrative-col">
+            <div class="hospital-narrative-card">
+              <div class="hospital-narrative-header">
+                <span class="hospital-narrative-title"><span>🎯</span> El Router Hace el Triaje</span>
+                <span class="hospital-narrative-badge blue">Top-K = 5</span>
+              </div>
+              <p>
+                Un <strong>gatekeeper ultrarrápido puntúa a los 48 expertos</strong> en milisegundos y despierta solo
+                a los 5 más afines al token. Los otros 43 ni se inmutan: <strong>su cálculo simplemente no ocurre</strong>.
+              </p>
+            </div>
+
+            <div class="hospital-narrative-card">
+              <div class="hospital-narrative-header">
+                <span class="hospital-narrative-title"><span>🚀</span> VRAM Llena, Cuenta Ligera</span>
+                <span class="hospital-narrative-badge blue">122B / 10B</span>
+              </div>
+              <p>
+                En memoria guardas <strong>la enciclopedia completa (122B)</strong>, pero por token solo se mueve
+                <strong>~10B de cómputo</strong>: velocidad relámpago y hueco libre para contexto largo en 128 GB.
+              </p>
+            </div>
+
+            <div class="hospital-narrative-card">
+              <div class="hospital-narrative-header">
+                <span class="hospital-narrative-title"><span>🌟</span> El Estándar de la Nueva Era</span>
+                <span class="hospital-narrative-badge" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;">Qwen · DeepSeek · Mixtral</span>
+              </div>
+              <p>
+                <strong>Qwen 3.5/3.8 MoE, DeepSeek V3/R1, Mixtral</strong>: la frontera corre en estaciones locales.
+                El panel con 5 luces encendidas de 48 es hoy la arquitectura dominante.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 25: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         ==================================================================== -->
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #15803d;">La Zona Ricitos de Oro</span></h2>
@@ -20392,9 +21046,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
+         SLIDE 26: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
          ==================================================================== -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
         <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
@@ -20513,9 +21167,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
+         SLIDE 27: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
          ==================================================================== -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="tag">Qwen 3.8 Flash Next &bull; Anatom&iacute;a</div>
         <h2>Por dentro: <span class="serif-italic">cinco piezas en 48 capas</span></h2>
@@ -20640,9 +21294,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: LA DECISIÓN: LAS "CALCULASIONES"
+         SLIDE 28: LA DECISIÓN: LAS "CALCULASIONES"
          ==================================================================== -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-28">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
@@ -20663,9 +21317,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
+         SLIDE 29: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
         <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
@@ -20727,9 +21381,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
+         SLIDE 30: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -20814,9 +21468,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
+         SLIDE 31: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -20837,9 +21491,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 32: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -20961,9 +21615,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
+         SLIDE 33: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -21189,9 +21843,9 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
+         SLIDE 34: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
