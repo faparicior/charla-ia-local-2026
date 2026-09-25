@@ -5977,7 +5977,7 @@ body.theme-dark .tri-center-target {
 /* ==========================================================================
    SLIDE 24: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
    ========================================================================== */
-#slide-34 .slide-content {
+#slide-35 .slide-content {
   gap: 0.35rem;
   justify-content: flex-start;
 }
@@ -16604,7 +16604,7 @@ body.deck-hardware-part1 #slide-4 .press-footer-link {
 }
 
 /* s14 en modo presentación: col-note ocultas -> filas más altas para llenar la caja */
-body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-table td {
+body.deck-hardware-part1:not(.mode-document) #slide-26 .goldilocks-table td {
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
 }
@@ -16923,8 +16923,8 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
 }
 
 /* s14 charla: columna Diagnóstico/Fit entera fuera (th + celdas) */
-body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-table th:last-child,
-body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-table td.col-note {
+body.deck-hardware-part1:not(.mode-document) #slide-26 .goldilocks-table th:last-child,
+body.deck-hardware-part1:not(.mode-document) #slide-26 .goldilocks-table td.col-note {
   display: none;
 }
 
@@ -16940,7 +16940,7 @@ body.mode-document li.doc-only {
 }
 
 /* s14 charla: banner Zona Ricitos de Oro solo en modo documento */
-body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-banner {
+body.deck-hardware-part1:not(.mode-document) #slide-26 .goldilocks-banner {
   display: none;
 }
 
@@ -17926,7 +17926,7 @@ body.overview-mode #slide-24 .mp-cap-final {
 /* ============================================================
    SLIDE 28: Layout Split (Meme Gato Cálculos a la Izquierda + Razonamiento a la Derecha)
    ============================================================ */
-body.deck-hardware-part1 #slide-28 .calculasiones-layout-split {
+body.deck-hardware-part1 #slide-29 .calculasiones-layout-split {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
   gap: 3rem;
@@ -17937,7 +17937,7 @@ body.deck-hardware-part1 #slide-28 .calculasiones-layout-split {
   margin-top: 0.8rem;
 }
 
-body.deck-hardware-part1 #slide-28 .calculasiones-visual-stage {
+body.deck-hardware-part1 #slide-29 .calculasiones-visual-stage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17945,11 +17945,11 @@ body.deck-hardware-part1 #slide-28 .calculasiones-visual-stage {
   height: 100%;
 }
 
-body.deck-hardware-part1 #slide-28 .calculasiones-card-spotlight {
+body.deck-hardware-part1 #slide-29 .calculasiones-card-spotlight {
   display: contents;
 }
 
-body.deck-hardware-part1 #slide-28 .gato-hero-img {
+body.deck-hardware-part1 #slide-29 .gato-hero-img {
   width: 100%;
   max-width: 680px;
   max-height: 660px;
@@ -17960,14 +17960,14 @@ body.deck-hardware-part1 #slide-28 .gato-hero-img {
   display: block;
 }
 
-body.deck-hardware-part1 #slide-28 .calculasiones-cards-column {
+body.deck-hardware-part1 #slide-29 .calculasiones-cards-column {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-28 .calc-reason-card {
+body.deck-hardware-part1 #slide-29 .calc-reason-card {
   display: flex;
   gap: 1.4rem;
   align-items: flex-start;
@@ -17979,17 +17979,17 @@ body.deck-hardware-part1 #slide-28 .calc-reason-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-body.deck-hardware-part1 #slide-28 .calc-reason-card:hover {
+body.deck-hardware-part1 #slide-29 .calc-reason-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
-body.deck-hardware-part1 #slide-28 .calc-reason-card.highlight {
+body.deck-hardware-part1 #slide-29 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.35);
   background: linear-gradient(145deg, #ffffff 0%, rgba(234, 88, 12, 0.03) 100%);
 }
 
-body.deck-hardware-part1 #slide-28 .calc-reason-num {
+body.deck-hardware-part1 #slide-29 .calc-reason-num {
   flex: 0 0 auto;
   width: 52px;
   height: 52px;
@@ -18004,13 +18004,13 @@ body.deck-hardware-part1 #slide-28 .calc-reason-num {
   font-family: var(--font-mono);
 }
 
-body.deck-hardware-part1 #slide-28 .calc-reason-title {
+body.deck-hardware-part1 #slide-29 .calc-reason-title {
   font-weight: 800;
   font-size: 1.28rem;
   margin-bottom: 0.45rem;
 }
 
-body.deck-hardware-part1 #slide-28 .calc-reason-card p {
+body.deck-hardware-part1 #slide-29 .calc-reason-card p {
   font-size: 1.1rem;
   color: #525660;
   line-height: 1.55;
@@ -18018,43 +18018,43 @@ body.deck-hardware-part1 #slide-28 .calc-reason-card p {
 }
 
 /* Modo oscuro Slide 28 */
-body.deck-hardware-part1.theme-dark #slide-28 .gato-hero-img {
+body.deck-hardware-part1.theme-dark #slide-29 .gato-hero-img {
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
 }
 
-body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card {
+body.deck-hardware-part1.theme-dark #slide-29 .calc-reason-card {
   background: #23262c;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card.highlight {
+body.deck-hardware-part1.theme-dark #slide-29 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.4);
   background: linear-gradient(145deg, #23262c 0%, rgba(234, 88, 12, 0.1) 100%);
 }
 
-body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card p {
+body.deck-hardware-part1.theme-dark #slide-29 .calc-reason-card p {
   color: #b8bcc4;
 }
 
 /* ============================================================
    SLIDE 29: Optimización de espacio (tarjetas e imágenes más grandes)
    ============================================================ */
-body.deck-hardware-part1 #slide-29 .trio-stage {
+body.deck-hardware-part1 #slide-30 .trio-stage {
   max-width: 1760px;
   gap: 2rem;
   margin-top: 1.2rem;
   margin-bottom: auto;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport {
+body.deck-hardware-part1 #slide-30 .trio-viewport {
   height: 520px;
   border-radius: 24px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1);
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.hardware {
+body.deck-hardware-part1 #slide-30 .trio-viewport.hardware {
   width: 500px;
   padding: 1rem;
   overflow: hidden;
@@ -18062,7 +18062,7 @@ body.deck-hardware-part1 #slide-29 .trio-viewport.hardware {
 }
 
 /* Estado inicial: Hardware 100% visible, entero sin recortes */
-body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img.gb10-img {
+body.deck-hardware-part1 #slide-30 .trio-viewport.hardware img.gb10-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -18072,54 +18072,54 @@ body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img.gb10-img {
 }
 
 /* Paso 1: Zoom hacia el hardware y el texto de la derecha */
-body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img.gb10-img.step-active {
+body.deck-hardware-part1 #slide-30 .trio-viewport.hardware img.gb10-img.step-active {
   object-fit: cover;
   object-position: 82% center;
   transform: scale(1.18);
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.hardware:has(img.gb10-img.step-active) {
+body.deck-hardware-part1 #slide-30 .trio-viewport.hardware:has(img.gb10-img.step-active) {
   padding: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.model {
+body.deck-hardware-part1 #slide-30 .trio-viewport.model {
   width: 440px;
   padding: 1.6rem 1.8rem;
   gap: 1.5rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.model img {
+body.deck-hardware-part1 #slide-30 .trio-viewport.model img {
   width: 250px;
   height: 250px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.model:hover img {
+body.deck-hardware-part1 #slide-30 .trio-viewport.model:hover img {
   transform: scale(1.05);
 }
 
-body.deck-hardware-part1 #slide-29 .trio-model-list {
+body.deck-hardware-part1 #slide-30 .trio-model-list {
   gap: 0.85rem;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-model-chip {
+body.deck-hardware-part1 #slide-30 .trio-model-chip {
   padding: 0.8rem 1.25rem;
   font-size: 1.05rem;
   border-radius: 12px;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.alchemy {
+body.deck-hardware-part1 #slide-30 .trio-viewport.alchemy {
   width: 480px;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-operator {
+body.deck-hardware-part1 #slide-30 .trio-operator {
   font-size: 3.6rem;
   margin-top: -3.2rem;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-caption {
+body.deck-hardware-part1 #slide-30 .trio-caption {
   font-size: 1.12rem;
   padding: 0.7rem 1.6rem;
 }
@@ -18127,13 +18127,13 @@ body.deck-hardware-part1 #slide-29 .trio-caption {
 /* ============================================================
    SLIDE 29: Efecto interactivo de Obsolescencia y Actualización a Qwen 3.8 FlashNext
    ============================================================ */
-body.deck-hardware-part1 #slide-29 .trio-viewport.model {
+body.deck-hardware-part1 #slide-30 .trio-viewport.model {
   position: relative;
   overflow: hidden;
 }
 
 /* Sello ¡OBSOLETO! (Step 2) */
-body.deck-hardware-part1 #slide-29 .model-obsolete-overlay {
+body.deck-hardware-part1 #slide-30 .model-obsolete-overlay {
   position: absolute;
   inset: 0;
   display: flex;
@@ -18149,13 +18149,13 @@ body.deck-hardware-part1 #slide-29 .model-obsolete-overlay {
   transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
 }
 
-body.deck-hardware-part1 #slide-29 .model-obsolete-overlay.step-active {
+body.deck-hardware-part1 #slide-30 .model-obsolete-overlay.step-active {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-body.deck-hardware-part1 #slide-29 .obsolete-stamp {
+body.deck-hardware-part1 #slide-30 .obsolete-stamp {
   font-family: var(--font-mono);
   font-size: 2.2rem;
   font-weight: 900;
@@ -18171,7 +18171,7 @@ body.deck-hardware-part1 #slide-29 .obsolete-stamp {
   user-select: none;
 }
 
-body.deck-hardware-part1.theme-dark #slide-29 .obsolete-stamp {
+body.deck-hardware-part1.theme-dark #slide-30 .obsolete-stamp {
   background: rgba(24, 24, 27, 0.95);
   color: #ef4444;
   border-color: #ef4444;
@@ -18179,7 +18179,7 @@ body.deck-hardware-part1.theme-dark #slide-29 .obsolete-stamp {
 }
 
 /* Al activarse el Step 3 (reemplazo por Qwen 3.8 FlashNext), quitamos por completo el sello */
-body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .model-obsolete-overlay {
+body.deck-hardware-part1 #slide-30:has(.updated-model.step-active) .model-obsolete-overlay {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -18188,14 +18188,14 @@ body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .model-obsole
 }
 
 /* Manejo de chips y transición de modelo en chip-model-122b */
-body.deck-hardware-part1 #slide-29 .chip-model-122b {
+body.deck-hardware-part1 #slide-30 .chip-model-122b {
   position: relative;
   overflow: hidden;
   min-height: 52px;
   transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
-body.deck-hardware-part1 #slide-29 .chip-content {
+body.deck-hardware-part1 #slide-30 .chip-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18203,12 +18203,12 @@ body.deck-hardware-part1 #slide-29 .chip-content {
   gap: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-29 .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-30 .chip-model-122b .original-model {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Step 3 inactivo: el nuevo modelo está oculto */
-body.deck-hardware-part1 #slide-29 .updated-model {
+body.deck-hardware-part1 #slide-30 .updated-model {
   position: absolute;
   inset: 0;
   padding: 0.75rem 1.2rem;
@@ -18224,25 +18224,25 @@ body.deck-hardware-part1 #slide-29 .updated-model {
 }
 
 /* Step 3 activo: el original se oculta y entra Qwen 3.8 FlashNext */
-body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-30:has(.updated-model.step-active) .chip-model-122b .original-model {
   opacity: 0;
   transform: translateY(-100%);
 }
 
-body.deck-hardware-part1 #slide-29 .updated-model.step-active {
+body.deck-hardware-part1 #slide-30 .updated-model.step-active {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0);
 }
 
-body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .chip-model-122b {
+body.deck-hardware-part1 #slide-30:has(.updated-model.step-active) .chip-model-122b {
   border-color: rgba(16, 185, 129, 0.6);
   background: rgba(16, 185, 129, 0.08);
   box-shadow: 0 4px 18px rgba(16, 185, 129, 0.25);
   transform: scale(1.02);
 }
 
-body.deck-hardware-part1 #slide-29 .updated-model-title {
+body.deck-hardware-part1 #slide-30 .updated-model-title {
   color: #047857;
   font-weight: 800;
   display: flex;
@@ -18251,13 +18251,13 @@ body.deck-hardware-part1 #slide-29 .updated-model-title {
   font-size: 1.05rem;
 }
 
-body.deck-hardware-part1 #slide-29 .updated-model-title small {
+body.deck-hardware-part1 #slide-30 .updated-model-title small {
   font-size: 0.82rem;
   color: #059669;
   font-weight: 700;
 }
 
-body.deck-hardware-part1 #slide-29 .quant-tag.next-gen {
+body.deck-hardware-part1 #slide-30 .quant-tag.next-gen {
   background: #059669;
   color: #ffffff;
   font-weight: 800;
@@ -18267,12 +18267,444 @@ body.deck-hardware-part1 #slide-29 .quant-tag.next-gen {
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
 }
 
-body.deck-hardware-part1.theme-dark #slide-29 .updated-model-title {
+body.deck-hardware-part1.theme-dark #slide-30 .updated-model-title {
   color: #34d399;
 }
 
-body.deck-hardware-part1.theme-dark #slide-29:has(.updated-model.step-active) .chip-model-122b {
+body.deck-hardware-part1.theme-dark #slide-30:has(.updated-model.step-active) .chip-model-122b {
   border-color: rgba(52, 211, 153, 0.6);
   background: rgba(16, 185, 129, 0.15);
   box-shadow: 0 4px 22px rgba(16, 185, 129, 0.35);
+}
+
+/* ================================================================
+   SLIDE 25: EL VIAJE DEL TOKEN — BF16 (5 pasadas, t=4t0)
+   vs NVFP4 (3 pasadas cortas, t=t0, 4x tok/s)
+   Motion path CSS + motor de pasos (.step): 3 pasos.
+   ================================================================ */
+
+/* --- Tipografía estática del SVG --- */
+#slide-25 .vt-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+#slide-25 .vt-occ1 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  fill: #b45309;
+}
+
+#slide-25 .vt-occ2 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  fill: #0284c7;
+}
+
+#slide-25 .vt-block1,
+#slide-25 .vt-block2 {
+  fill: var(--bg-surface);
+  stroke: var(--border-medium);
+  stroke-width: 1.6;
+  transition: stroke 0.45s ease, filter 0.45s ease;
+}
+
+#slide-25 .vt-block2 {
+  fill: rgba(2, 132, 199, 0.05);
+}
+
+#slide-25 .vt-blocklabel {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  fill: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+#slide-25 .vt-spill {
+  fill: rgba(245, 158, 11, 0.12);
+  stroke: #f59e0b;
+  stroke-width: 1.5;
+}
+
+#slide-25 .vt-spill-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  fill: #b45309;
+}
+
+#slide-25 .vt-spill-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+#slide-25 .vt-lead {
+  stroke: var(--text-muted);
+  stroke-width: 2.2;
+}
+
+#slide-25 .vt-arrowhead {
+  fill: var(--text-muted);
+}
+
+#slide-25 .vt-salida {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  fill: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+/* --- Rutas (recorridos serpiente) --- */
+#slide-25 .vt-route1,
+#slide-25 .vt-route2 {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-dasharray: 10 8;
+  opacity: 0.55;
+  transition: stroke 0.45s ease, opacity 0.45s ease;
+}
+
+#slide-25 .vt-route1 {
+  stroke: rgba(217, 119, 6, 0.55);
+}
+
+#slide-25 .vt-route2 {
+  stroke: rgba(2, 132, 199, 0.55);
+}
+
+#slide-25:has(.vt-j1.step-active) .vt-route1 {
+  stroke: #d97706;
+  opacity: 1;
+}
+
+#slide-25:has(.vt-j2.step-active) .vt-route2 {
+  stroke: #0284c7;
+  opacity: 1;
+}
+
+#slide-25:has(.vt-j2.step-active) .vt-block2 {
+  stroke: #0284c7;
+}
+
+/* --- Salidas estáticas (marcador tenue) --- */
+#slide-25 .vt-exit-static {
+  fill: var(--bg-surface-elevated);
+  stroke: var(--border-subtle);
+  stroke-width: 1.4;
+  stroke-dasharray: 6 5;
+  transition: opacity 0.4s ease;
+}
+
+#slide-25 .vt-exit-wait {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text-dim);
+}
+
+/* --- Tokens viajeros (motion path) --- */
+#slide-25 .vt-token1,
+#slide-25 .vt-token2 {
+  opacity: 0;
+  offset-rotate: 0deg;
+}
+
+#slide-25 .vt-token1 {
+  offset-path: path("M158,76 H752 a16,16 0 0 1 0,32 H158 a16,16 0 0 0 0,32 H752 a16,16 0 0 1 0,32 H158 a16,16 0 0 0 0,32 H752");
+}
+
+#slide-25 .vt-token2 {
+  offset-path: path("M168,312 H340 a26.5,26.5 0 0 1 0,53 H168 a26.5,26.5 0 0 0 0,53 H340");
+}
+
+#slide-25 .vt-token-chip {
+  fill: rgba(245, 158, 11, 0.15);
+  stroke: #f59e0b;
+  stroke-width: 1.6;
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5));
+}
+
+#slide-25 .vt-token-emoji {
+  font-size: 15px;
+}
+
+#slide-25 .vt-j1.step-active .vt-token1 {
+  opacity: 1;
+  animation: vtTravel1 1.6s linear forwards;
+}
+
+#slide-25 .vt-j2.step-active .vt-token2 {
+  opacity: 1;
+  animation: vtTravel2 0.4s linear forwards;
+}
+
+@keyframes vtTravel1 {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
+@keyframes vtTravel2 {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
+/* --- Punto de llegada + salida iluminada (aparecen al final del viaje) --- */
+#slide-25 .vt-arr1,
+#slide-25 .vt-arr2,
+#slide-25 .vt-exit1,
+#slide-25 .vt-exit2 {
+  opacity: 0;
+}
+
+#slide-25 .vt-arr1 {
+  fill: #d97706;
+}
+
+#slide-25 .vt-arr2 {
+  fill: #0284c7;
+}
+
+#slide-25 .vt-j1.step-active .vt-arr1 {
+  animation: vtPop 0.4s var(--ease-spring) 1.5s both;
+}
+
+#slide-25 .vt-j1.step-active .vt-exit1 {
+  animation: vtFadeIn 0.45s ease 1.5s both;
+}
+
+#slide-25 .vt-j2.step-active .vt-arr2 {
+  animation: vtPop 0.4s var(--ease-spring) 0.35s both;
+}
+
+#slide-25 .vt-j2.step-active .vt-exit2 {
+  animation: vtFadeIn 0.45s ease 0.35s both;
+}
+
+@keyframes vtPop {
+  0% { opacity: 0; r: 0; }
+  60% { opacity: 1; r: 8; }
+  100% { opacity: 1; r: 5; }
+}
+
+@keyframes vtFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Salidas iluminadas --- */
+#slide-25 .vt-exit-lit1 {
+  fill: rgba(245, 158, 11, 0.1);
+  stroke: #d97706;
+  stroke-width: 1.6;
+}
+
+#slide-25 .vt-exit-lit2 {
+  fill: rgba(2, 132, 199, 0.1);
+  stroke: #0284c7;
+  stroke-width: 1.6;
+}
+
+#slide-25 .vt-clock1 {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 800;
+  fill: #b45309;
+}
+
+#slide-25 .vt-clock2 {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 800;
+  fill: #0284c7;
+}
+
+#slide-25 .vt-tokps1 {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--text-muted);
+}
+
+#slide-25 .vt-tokps2 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  fill: #059669;
+}
+
+/* --- Salida estática se apaga cuando llega el token --- */
+#slide-25:has(.vt-j1.step-active) .vt-exit-static1 {
+  opacity: 0.1;
+}
+
+#slide-25:has(.vt-j2.step-active) .vt-exit-static2 {
+  opacity: 0.1;
+}
+
+/* --- Franja de espera y veredicto --- */
+#slide-25 .vt-strip {
+  fill: var(--bg-surface);
+  stroke: var(--border-subtle);
+  stroke-width: 1.5;
+}
+
+#slide-25 .vt-strip-static {
+  stroke-dasharray: 7 6;
+  transition: opacity 0.4s ease;
+}
+
+#slide-25 .vt-strip-wait {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--text-dim);
+  letter-spacing: 0.06em;
+  transition: opacity 0.4s ease;
+}
+
+#slide-25 .vt-verdict {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.15s;
+}
+
+#slide-25 .vt-verdict.step-active {
+  opacity: 1;
+}
+
+#slide-25 .vt-strip-lit {
+  fill: rgba(16, 185, 129, 0.08);
+  stroke: #059669;
+  stroke-width: 1.6;
+}
+
+#slide-25 .vt-verdict-main {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 800;
+  fill: #059669;
+  letter-spacing: 0.02em;
+}
+
+#slide-25 .vt-strip-l1 {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  fill: var(--text-main);
+}
+
+#slide-25 .vt-strip-l2 {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--text-muted);
+}
+
+#slide-25:has(.vt-verdict.step-active) .vt-strip-static,
+#slide-25:has(.vt-verdict.step-active) .vt-strip-wait {
+  opacity: 0;
+}
+
+#slide-25 .vt-cap-final {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+#slide-25:has(.vt-verdict.step-active) .vt-cap-final {
+  opacity: 1;
+}
+
+/* --- Paso activo clicable --- */
+#slide-25 .step {
+  cursor: pointer;
+}
+
+/* ================================================================
+   SLIDE 25 — Overview e impresión: estado final (viajes completados)
+   ================================================================ */
+body.overview-mode #slide-25 .vt-token1,
+body.overview-mode #slide-25 .vt-token2 {
+  opacity: 1 !important;
+  offset-distance: 100% !important;
+  animation: none !important;
+}
+
+@media print {
+
+  #slide-25 .vt-token1,
+  #slide-25 .vt-token2 {
+    opacity: 1 !important;
+    offset-distance: 100% !important;
+    animation: none !important;
+  }
+}
+
+body.overview-mode #slide-25 .vt-arr1,
+body.overview-mode #slide-25 .vt-arr2,
+body.overview-mode #slide-25 .vt-exit1,
+body.overview-mode #slide-25 .vt-exit2 {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+@media print {
+
+  #slide-25 .vt-arr1,
+  #slide-25 .vt-arr2,
+  #slide-25 .vt-exit1,
+  #slide-25 .vt-exit2 {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
+body.overview-mode #slide-25 .vt-exit-static,
+body.overview-mode #slide-25 .vt-exit-wait,
+body.overview-mode #slide-25 .vt-strip-static,
+body.overview-mode #slide-25 .vt-strip-wait {
+  opacity: 0 !important;
+}
+
+@media print {
+
+  #slide-25 .vt-exit-static,
+  #slide-25 .vt-exit-wait,
+  #slide-25 .vt-strip-static,
+  #slide-25 .vt-strip-wait {
+    opacity: 0 !important;
+  }
+}
+
+body.overview-mode #slide-25 .vt-route1,
+body.overview-mode #slide-25 .vt-route2 {
+  stroke: #d97706;
+  opacity: 1 !important;
+}
+
+@media print {
+
+  #slide-25 .vt-route1,
+  #slide-25 .vt-route2 {
+    stroke: #d97706;
+    opacity: 1 !important;
+  }
+}
+
+body.overview-mode #slide-25 .vt-cap-final {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  #slide-25 .vt-cap-final {
+    opacity: 1 !important;
+  }
 }

@@ -10,7 +10,7 @@
 Estamos construyendo y refinando la presentación técnica en diapositivas web interactivas (100% standalone, portables y sin dependencias de Node.js). El empaquetado se realiza con `python3 bundle.py` hacia la carpeta `dist/`.
 
 ### Los 3 decks del proyecto:
-1. `dist/charla-parte1-hardware-modelos.html` (34 slides: Hardware, Cuantización, VRAM, Modelos locales; las slides 23-24 son el panel visual Denso vs MoE con cajitas animadas por pasos).
+1. `dist/charla-parte1-hardware-modelos.html` (35 slides: Hardware, Cuantización, VRAM, Modelos locales; 23-24 panel visual Denso vs MoE y 25 el viaje del token, animadas por pasos).
 2. `dist/charla-parte2-ciclo-desarrollo.html` (**26 slides actualmente**: Ciclo de Desarrollo con IA, Incepción, Especificación, DDD, TDD y Living Docs).
 3. `dist/plantillas-referencia.html` (8 slides: Plantillas de referencia y prompt engineering).
 
