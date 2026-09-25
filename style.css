@@ -18056,21 +18056,30 @@ body.deck-hardware-part1 #slide-29 .trio-viewport {
 
 body.deck-hardware-part1 #slide-29 .trio-viewport.hardware {
   width: 500px;
-  padding: 0.6rem;
+  padding: 1rem;
   overflow: hidden;
+  transition: padding 0.4s ease;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img {
+/* Estado inicial: Hardware 100% visible, entero sin recortes */
+body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img.gb10-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: right center;
-  transform: scale(1.13);
-  transition: transform 0.3s ease;
+  object-fit: contain;
+  object-position: center center;
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), object-position 0.5s ease;
 }
 
-body.deck-hardware-part1 #slide-29 .trio-viewport.hardware:hover img {
-  transform: scale(1.17);
+/* Paso 1: Zoom hacia el hardware y el texto de la derecha */
+body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img.gb10-img.step-active {
+  object-fit: cover;
+  object-position: 82% center;
+  transform: scale(1.18);
+}
+
+body.deck-hardware-part1 #slide-29 .trio-viewport.hardware:has(img.gb10-img.step-active) {
+  padding: 0.6rem;
 }
 
 body.deck-hardware-part1 #slide-29 .trio-viewport.model {
@@ -18123,7 +18132,7 @@ body.deck-hardware-part1 #slide-29 .trio-viewport.model {
   overflow: hidden;
 }
 
-/* Sello ¡OBSOLETO! (Step 1) */
+/* Sello ¡OBSOLETO! (Step 2) */
 body.deck-hardware-part1 #slide-29 .model-obsolete-overlay {
   position: absolute;
   inset: 0;
@@ -18169,7 +18178,7 @@ body.deck-hardware-part1.theme-dark #slide-29 .obsolete-stamp {
   box-shadow: 0 10px 30px rgba(239, 68, 68, 0.45);
 }
 
-/* Al activarse el Step 2 (reemplazo por Qwen 3.8 FlashNext), quitamos por completo el sello */
+/* Al activarse el Step 3 (reemplazo por Qwen 3.8 FlashNext), quitamos por completo el sello */
 body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .model-obsolete-overlay {
   opacity: 0;
   visibility: hidden;
@@ -18198,7 +18207,7 @@ body.deck-hardware-part1 #slide-29 .chip-model-122b .original-model {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Step 2 inactivo: el nuevo modelo está oculto */
+/* Step 3 inactivo: el nuevo modelo está oculto */
 body.deck-hardware-part1 #slide-29 .updated-model {
   position: absolute;
   inset: 0;
@@ -18214,7 +18223,7 @@ body.deck-hardware-part1 #slide-29 .updated-model {
   justify-content: space-between;
 }
 
-/* Step 2 activo: el original se oculta y entra Qwen 3.8 FlashNext */
+/* Step 3 activo: el original se oculta y entra Qwen 3.8 FlashNext */
 body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .chip-model-122b .original-model {
   opacity: 0;
   transform: translateY(-100%);
