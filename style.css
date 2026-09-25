@@ -18129,11 +18129,13 @@ body.deck-hardware-part1.theme-dark #slide-29 .obsolete-stamp {
   box-shadow: 0 10px 30px rgba(239, 68, 68, 0.45);
 }
 
-/* Al activarse el Step 2 (reemplazo por Qwen 3.8 FlashNext), desvanecemos suavemente el sello */
+/* Al activarse el Step 2 (reemplazo por Qwen 3.8 FlashNext), quitamos por completo el sello */
 body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .model-obsolete-overlay {
-  opacity: 0.12;
-  transform: scale(0.92) rotate(-8deg);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.85) rotate(-15deg);
+  transition: opacity 0.3s ease, transform 0.35s ease, visibility 0.3s;
 }
 
 /* Manejo de chips y transición de modelo en chip-model-122b */
