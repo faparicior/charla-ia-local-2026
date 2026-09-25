@@ -18056,21 +18056,21 @@ body.deck-hardware-part1 #slide-29 .trio-viewport {
 
 body.deck-hardware-part1 #slide-29 .trio-viewport.hardware {
   width: 500px;
-  padding: 1rem;
+  padding: 0.6rem;
   overflow: hidden;
 }
 
 body.deck-hardware-part1 #slide-29 .trio-viewport.hardware img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  transform: scale(1.18);
+  object-fit: cover;
+  object-position: right center;
+  transform: scale(1.13);
   transition: transform 0.3s ease;
 }
 
 body.deck-hardware-part1 #slide-29 .trio-viewport.hardware:hover img {
-  transform: scale(1.13);
+  transform: scale(1.17);
 }
 
 body.deck-hardware-part1 #slide-29 .trio-viewport.model {
