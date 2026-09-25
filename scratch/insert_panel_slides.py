@@ -52,6 +52,14 @@ if css_head_marker in css_text:
         return f"#slide-{n + 2}" if 23 <= n <= 32 else m.group(0)
 
     head = re.sub(r"#slide-(\d+)", _shift, head)
+
+    # Ajuste posterior: s26/s27 (antes 24/25) no deben llevar subtitulo compacto
+    head = head.replace(
+        "body.deck-hardware-part1.mode-document #slide-26 .slide-content > .subtitle,\n"
+        "body.deck-hardware-part1.mode-document #slide-27 .slide-content > .subtitle,\n"
+        "body.deck-hardware-part1.mode-document #slide-12 .slide-content > .subtitle {",
+        "body.deck-hardware-part1.mode-document #slide-12 .slide-content > .subtitle {",
+    )
     CSS.write_text(head + css_head_marker + tail, encoding="utf-8")
     print("✅ style.css: selectores #slide-N>=23 desplazados +2")
 else:

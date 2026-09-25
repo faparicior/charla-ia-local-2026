@@ -17433,9 +17433,8 @@ body.mode-document .qad-card .anat-detail {
   line-height: 1.55;
 }
 
-/* s15/s16/s17 doc: subtitulo compacto (patron s4, especificidad ganadora) */
-body.deck-hardware-part1.mode-document #slide-26 .slide-content > .subtitle,
-body.deck-hardware-part1.mode-document #slide-27 .slide-content > .subtitle,
+/* s12 doc: subtitulo compacto (patron s4, especificidad ganadora).
+   s26/s27 usan ya el subtitulo grande como el resto del deck (21-25). */
 body.deck-hardware-part1.mode-document #slide-12 .slide-content > .subtitle {
   font-size: 0.98rem !important;
   line-height: 1.42 !important;
@@ -17947,24 +17946,17 @@ body.deck-hardware-part1 #slide-28 .calculasiones-visual-stage {
 }
 
 body.deck-hardware-part1 #slide-28 .calculasiones-card-spotlight {
-  background: var(--bg-surface);
-  border: 2px solid var(--border-medium);
-  border-radius: 24px;
-  padding: 1.3rem;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
-  width: 100%;
-  max-width: 650px;
+  display: contents;
 }
 
-body.deck-hardware-part1 #slide-28 .calculasiones-card-spotlight img {
+body.deck-hardware-part1 #slide-28 .gato-hero-img {
   width: 100%;
-  max-height: 540px;
+  max-width: 680px;
+  max-height: 660px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 28px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(203, 213, 225, 0.6);
   display: block;
 }
 
@@ -18026,9 +18018,9 @@ body.deck-hardware-part1 #slide-28 .calc-reason-card p {
 }
 
 /* Modo oscuro Slide 28 */
-body.deck-hardware-part1.theme-dark #slide-28 .calculasiones-card-spotlight {
+body.deck-hardware-part1.theme-dark #slide-28 .gato-hero-img {
   border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
 }
 
 body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card {
@@ -18101,6 +18093,158 @@ body.deck-hardware-part1 #slide-29 .trio-caption {
   font-size: 1.12rem;
   padding: 0.7rem 1.6rem;
 }
+
+/* ============================================================
+   SLIDE 29: Efecto interactivo de Obsolescencia y Actualización a Qwen 3.8 FlashNext
+   ============================================================ */
+body.deck-hardware-part1 #slide-29 .trio-viewport.model {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sello ¡OBSOLETO! (Step 1) */
+body.deck-hardware-part1 #slide-29 .model-obsolete-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: 24px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.3);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
+}
+
+body.deck-hardware-part1 #slide-29 .model-obsolete-overlay.step-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+body.deck-hardware-part1 #slide-29 .obsolete-stamp {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #dc2626;
+  border: 4px solid #dc2626;
+  border-radius: 14px;
+  padding: 0.6rem 1.8rem;
+  text-transform: uppercase;
+  transform: rotate(-12deg);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25), inset 0 0 12px rgba(220, 38, 38, 0.15);
+  background: rgba(255, 255, 255, 0.92);
+  user-select: none;
+}
+
+body.deck-hardware-part1.theme-dark #slide-29 .obsolete-stamp {
+  background: rgba(24, 24, 27, 0.95);
+  color: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.45);
+}
+
+/* Al activarse el Step 2 (reemplazo por Qwen 3.8 FlashNext), desvanecemos suavemente el sello */
+body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .model-obsolete-overlay {
+  opacity: 0.12;
+  transform: scale(0.92) rotate(-8deg);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Manejo de chips y transición de modelo en chip-model-122b */
+body.deck-hardware-part1 #slide-29 .chip-model-122b {
+  position: relative;
+  overflow: hidden;
+  min-height: 52px;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+body.deck-hardware-part1 #slide-29 .chip-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.6rem;
+}
+
+body.deck-hardware-part1 #slide-29 .chip-model-122b .original-model {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Step 2 inactivo: el nuevo modelo está oculto */
+body.deck-hardware-part1 #slide-29 .updated-model {
+  position: absolute;
+  inset: 0;
+  padding: 0.75rem 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  background: rgba(16, 185, 129, 0.12);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease, visibility 0.35s;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Step 2 activo: el original se oculta y entra Qwen 3.8 FlashNext */
+body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .chip-model-122b .original-model {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+body.deck-hardware-part1 #slide-29 .updated-model.step-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0);
+}
+
+body.deck-hardware-part1 #slide-29:has(.updated-model.step-active) .chip-model-122b {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.25);
+  transform: scale(1.02);
+}
+
+body.deck-hardware-part1 #slide-29 .updated-model-title {
+  color: #047857;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1.05rem;
+}
+
+body.deck-hardware-part1 #slide-29 .updated-model-title small {
+  font-size: 0.82rem;
+  color: #059669;
+  font-weight: 700;
+}
+
+body.deck-hardware-part1 #slide-29 .quant-tag.next-gen {
+  background: #059669;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  padding: 0.22rem 0.55rem;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+body.deck-hardware-part1.theme-dark #slide-29 .updated-model-title {
+  color: #34d399;
+}
+
+body.deck-hardware-part1.theme-dark #slide-29:has(.updated-model.step-active) .chip-model-122b {
+  border-color: rgba(52, 211, 153, 0.6);
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 4px 22px rgba(16, 185, 129, 0.35);
+}
+
 
 
 </style>
@@ -21547,16 +21691,31 @@ body.deck-hardware-part1 #slide-29 .trio-caption {
     <!-- 2. Los Modelos (Logo Qwen + 2 Tags MoE) -->
           <div class="trio-item">
             <div class="trio-viewport model">
+              <!-- Sello / Marca interactiva de Obsolescencia (Paso 1) -->
+              <div class="model-obsolete-overlay step" data-step="1">
+                <span class="obsolete-stamp">¡OBSOLETO!</span>
+              </div>
+
               <img src="data:image/webp;base64,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" alt="Logo de Qwen (Alibaba Cloud)">
 
               <div class="trio-model-list">
-                <div class="trio-model-chip">
-                  <span>Qwen 3.5 122B A10B MoE</span>
-                  <span class="quant-tag int4">INT4</span>
+                <div class="trio-model-chip chip-model-122b">
+                  <!-- Modelo original -->
+                  <div class="chip-content original-model">
+                    <span>Qwen 3.5 122B A10B MoE</span>
+                    <span class="quant-tag int4">INT4</span>
+                  </div>
+                  <!-- Modelo actualizado (Paso 2) -->
+                  <div class="chip-content updated-model step" data-step="2">
+                    <span class="updated-model-title">Qwen 3.8 FlashNext <small>(MoE)</small></span>
+                    <span class="quant-tag next-gen">NUEVO</span>
+                  </div>
                 </div>
                 <div class="trio-model-chip">
-                  <span>Qwen 3.6 35B A3B MoE</span>
-                  <span class="quant-tag fp8">FP8</span>
+                  <div class="chip-content">
+                    <span>Qwen 3.6 35B A3B MoE</span>
+                    <span class="quant-tag fp8">FP8</span>
+                  </div>
                 </div>
               </div>
             </div>
