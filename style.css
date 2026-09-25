@@ -1489,7 +1489,129 @@ body.theme-dark .press-header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.meme-theatrical-card {
+  width: 100%;
+  max-width: 1480px;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-medium);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.theme-dark .meme-theatrical-card {
+  background: #181920;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.meme-dialogue-bar {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 2px solid var(--border-subtle);
+  padding: 1rem 2rem;
+  gap: 1.8rem;
+}
+
+body.theme-dark .meme-dialogue-bar {
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.meme-speaker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.meme-speaker-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.meme-speaker-role {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.meme-speaker-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(234, 88, 12, 0.12);
+  color: #ea580c;
+  border: 1px solid rgba(234, 88, 12, 0.25);
+}
+
+.meme-speaker-tag.warning {
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+body.theme-dark .meme-speaker-tag.warning {
+  color: #fbbf24;
+}
+
+.meme-quote-text {
+  font-family: var(--font-sans);
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.meme-highlight-date {
+  display: inline-block;
+  color: #ea580c;
+  font-weight: 800;
+  margin-left: 0.35rem;
+}
+
+body.theme-dark .meme-highlight-date {
+  color: #f97316;
+}
+
+.meme-dialogue-divider {
+  background: var(--border-medium);
+  width: 2px;
+  height: 70%;
+  align-self: center;
+}
+
+.meme-photo-stage {
+  width: 100%;
+  background: #0d0e12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.meme-theatrical-img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  display: block;
 }
 
 .meme-card-spotlight {
@@ -1514,8 +1636,8 @@ body.theme-dark .press-header {
 }
 
 .meme-hero-img {
-  max-width: 1140px;
-  max-height: 680px;
+  max-width: 1480px;
+  max-height: 720px;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -1525,7 +1647,6 @@ body.theme-dark .press-header {
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .meme-caption-spotlight {
   font-family: var(--font-mono);
@@ -1602,19 +1723,19 @@ body.theme-dark .hacker-card.highlight-blue {
 }
 
 .hacker-avatar {
-  width: 78px;
-  height: 78px;
-  min-width: 78px;
+  width: 86px;
+  height: 86px;
+  min-width: 86px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #ea580c;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.28);
   background: #fff;
 }
 
 .hacker-avatar.avarok {
   border-color: #0284c7;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.28);
 }
 
 body.theme-dark .hacker-avatar {
@@ -1624,7 +1745,7 @@ body.theme-dark .hacker-avatar {
 .hacker-profile-info {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
   flex: 1;
 }
 
@@ -1637,7 +1758,7 @@ body.theme-dark .hacker-avatar {
 
 .hacker-name {
   font-family: var(--font-serif);
-  font-size: 1.65rem;
+  font-size: 1.95rem;
   font-weight: 700;
   color: var(--text-main);
   line-height: 1.15;
@@ -1645,28 +1766,29 @@ body.theme-dark .hacker-avatar {
 
 .hacker-handle {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--text-muted);
   font-weight: 600;
 }
 
 .hacker-role {
-  font-size: 0.95rem;
+  font-size: 1.12rem;
+  font-weight: 500;
   color: var(--text-muted);
 }
 
 .hacker-repo-tag {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #ea580c;
   background: rgba(234, 88, 12, 0.12);
   border: 1px solid rgba(234, 88, 12, 0.25);
-  padding: 0.15rem 0.5rem;
-  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 7px;
   display: inline-block;
   align-self: flex-start;
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
 }
 
 .hacker-repo-tag.blue {
@@ -1678,17 +1800,17 @@ body.theme-dark .hacker-avatar {
 .hacker-list {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.85rem;
 }
 
 .hacker-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.8rem;
+  gap: 1rem;
   background: rgba(0, 0, 0, 0.025);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 0.65rem 0.9rem;
+  border-radius: 14px;
+  padding: 0.95rem 1.25rem;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -1720,39 +1842,39 @@ body.theme-dark .hacker-card.highlight-blue .hacker-item {
 .hackers-upstream-ribbon {
   background: var(--bg-surface);
   border: 2px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 0.75rem 1.3rem;
+  border-radius: 16px;
+  padding: 0.95rem 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
 }
 
 .hackers-upstream-left {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .hackers-upstream-icon {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .hackers-upstream-text {
-  font-size: 0.98rem;
+  font-size: 1.2rem;
   color: var(--text-main);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .hackers-upstream-badge {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 0.3rem 0.75rem;
-  border-radius: 7px;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
   background: rgba(22, 163, 74, 0.12);
   color: #15803d;
   border: 1px solid rgba(22, 163, 74, 0.25);
@@ -1766,14 +1888,14 @@ body.theme-dark .hackers-upstream-badge {
 }
 
 .hacker-icon-badge {
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
-  border-radius: 7px;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   margin-top: 0.1rem;
 }
@@ -1801,19 +1923,19 @@ body.theme-dark .hacker-icon-badge.pro {
 .hacker-item-body {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
   flex: 1;
 }
 
 .hacker-item-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.45rem;
+  font-weight: 750;
   color: var(--text-main);
-  line-height: 1.3;
+  line-height: 1.28;
 }
 
 .hacker-item-desc {
-  font-size: 1.12rem;
+  font-size: 1.25rem;
   line-height: 1.45;
   color: var(--text-muted);
 }
@@ -6001,11 +6123,13 @@ body.theme-dark .tri-center-target {
 }
 
 .model-sizing-subtitle {
-  font-size: 1.08rem;
+  font-size: 1.8rem !important;
   color: var(--text-muted);
-  margin-top: 0;
+  font-weight: 400;
+  line-height: 1.55 !important;
+  max-width: 1200px;
+  margin-top: -0.85rem !important;
   margin-bottom: 0.85rem;
-  line-height: 1.4;
 }
 
 .model-sizing-deck {
@@ -16086,7 +16210,8 @@ body.deck-hardware-part1 .hacker-card>.hacker-list {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  gap: 0.95rem;
 }
 
 body.deck-hardware-part1 .memory-story-deck>.memory-table-card {
