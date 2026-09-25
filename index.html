@@ -4211,639 +4211,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
+         SLIDE 33: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
     <section class="slide" id="slide-33">
-      <div class="slide-content">
-        <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
-        <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          176B par&aacute;metros, 6B activos por token: la tabla n-gram (el engram) no computa &mdash; se consulta.
-          Y lo que se consulta puede vivir fuera de la GPU: en la RAM del host o streameado desde disco.
-        </p>
-
-        <div class="engram-deck">
-          <div class="engram-layout">
-
-            <div class="engram-stage-card">
-              <div class="vram-gauge-header">
-                <div class="vram-gauge-title"><span>&#129504; D&oacute;nde vive cada cosa (176B totales)</span></div>
-                <span class="vram-capacity-badge">6B activos</span>
-              </div>
-              <div class="engram-stage">
-                <svg class="engram-svg" viewBox="0 0 480 400" role="img" aria-label="El backbone MoE (65-70 GB) vive en la GPU; la tabla n-gram de 51B se consulta desde la RAM del host o desde disco">
-                  <defs>
-                    <linearGradient id="egB" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
-                    </linearGradient>
-                    <linearGradient id="egG" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
-                    </linearGradient>
-                    <marker id="egArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-                      <path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/>
-                    </marker>
-                  </defs>
-
-    <!-- GPU (frame 16..266 x 36..366) -->
-                  <rect x="16" y="36" width="250" height="330" rx="14" class="eg-frame"/>
-                  <text x="141" y="66" text-anchor="middle" font-size="16" font-weight="800" fill="#1d4ed8">&#128421;&#65039; GPU &middot; piensa aqu&iacute;</text>
-                  <rect x="34" y="86" width="214" height="200" rx="10" fill="url(#egB)"/>
-                  <text x="141" y="120" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">Backbone MoE</text>
-                  <text x="141" y="158" text-anchor="middle" font-size="30" font-weight="800" fill="#ffffff">125B</text>
-                  <text x="141" y="194" text-anchor="middle" font-size="13.5" fill="#dbeafe">512 expertos &middot; 10+1 activos</text>
-                  <text x="141" y="216" text-anchor="middle" font-size="13.5" fill="#dbeafe">= 6B por token</text>
-                  <text x="141" y="326" text-anchor="middle" font-size="34" font-weight="800" fill="#1d4ed8">65&ndash;70 GB</text>
-                  <text x="141" y="350" text-anchor="middle" font-size="13.5" fill="#64748b">residentes en GPU</text>
-
-    <!-- Flechas en el hueco 266..302, dentro de 146..254 -->
-                  <line x1="274" y1="254" x2="274" y2="146" stroke="#f59e0b" stroke-width="3" marker-end="url(#egArrow)"/>
-                  <line x1="294" y1="146" x2="294" y2="254" stroke="#f59e0b" stroke-width="3" marker-end="url(#egArrow)"/>
-                  <text transform="rotate(-90 284 200)" x="284" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#c2410c">consulta &#8644; prefetch</text>
-
-    <!-- Engram (frame 302..464 x 36..366) -->
-                  <rect x="302" y="36" width="162" height="330" rx="14" class="eg-frame"/>
-                  <text x="383" y="62" text-anchor="middle" font-size="16" font-weight="800" fill="#15803d">&#128218; Engram</text>
-                  <text x="383" y="82" text-anchor="middle" font-size="13" fill="#64748b">tabla n-gram &middot; 51B</text>
-                  <rect x="318" y="94" width="130" height="138" rx="8" fill="url(#egG)" opacity="0.14"/>
-                  <g fill="url(#egG)">
-                    <rect x="326" y="106" width="26" height="28" rx="3"/><rect x="358" y="106" width="18" height="28" rx="3" opacity="0.75"/>
-                    <rect x="382" y="106" width="30" height="28" rx="3"/><rect x="418" y="106" width="20" height="28" rx="3" opacity="0.65"/>
-                    <rect x="330" y="150" width="20" height="28" rx="3" opacity="0.7"/><rect x="356" y="150" width="28" height="28" rx="3"/>
-                    <rect x="390" y="150" width="16" height="28" rx="3" opacity="0.6"/><rect x="412" y="150" width="26" height="28" rx="3"/>
-                    <rect x="324" y="194" width="30" height="28" rx="3"/><rect x="360" y="194" width="16" height="28" rx="3" opacity="0.7"/>
-                    <rect x="382" y="194" width="24" height="28" rx="3" opacity="0.8"/><rect x="412" y="194" width="22" height="28" rx="3"/>
-                  </g>
-                  <text x="383" y="256" text-anchor="middle" font-size="14" fill="#15803d" font-weight="700">BF16: 102 GB</text>
-                  <text x="383" y="276" text-anchor="middle" font-size="14" fill="#15803d" font-weight="700">NVFP4: ~26 GB</text>
-                  <text x="383" y="300" text-anchor="middle" font-size="13" fill="#64748b">20M &times; 2560 = 51B</text>
-                  <g>
-                    <rect x="312" y="316" width="26" height="16" rx="2" fill="#475569"/>
-                    <rect x="314" y="312" width="22" height="4" rx="1" fill="#64748b"/>
-                    <g fill="#94a3b8">
-                      <rect x="314" y="332" width="3" height="5"/><rect x="320" y="332" width="3" height="5"/>
-                      <rect x="326" y="332" width="3" height="5"/><rect x="332" y="332" width="3" height="5"/>
-                    </g>
-                  </g>
-                  <text x="346" y="329" font-size="14" font-weight="800" fill="#334155">RAM del host</text>
-                  <g>
-                    <rect x="312" y="344" width="26" height="14" rx="3" fill="#475569"/>
-                    <circle cx="325" cy="351" r="5" fill="none" stroke="#cbd5e1" stroke-width="2"/>
-                    <circle cx="325" cy="351" r="1.6" fill="#cbd5e1"/>
-                    <rect x="338" y="347" width="1.5" height="8" fill="#64748b"/>
-                  </g>
-                  <text x="346" y="356" font-size="14" font-weight="800" fill="#334155">o desde disco</text>
-
-    <!-- Banda inferior compacta (36..464 x 370..396) -->
-                  <rect x="16" y="370" width="448" height="26" rx="8" class="eg-band"/>
-                  <text x="240" y="387" text-anchor="middle" font-size="12" font-weight="500" class="eg-band-text">La GPU carga lo que piensa; el engram se consulta cuando hace falta</text>
-                </svg>
-              </div>
-            </div>
-
-            <div class="engram-right">
-              <div class="memory-pillar-card">
-                <div class="memory-pillar-title"><span>1.</span><span>&#128218; El engram: se consulta, no se multiplica</span></div>
-                <p class="memory-analogy-box doc-only">Analog&iacute;a: los apuntes en la pared del taller: no los piensas, los miras.</p>
-                <div class="memory-card-highlight-pill">20M entradas &times; 2560 dim = 51B: se consulta, no se multiplica &mdash; vive en RAM host o disco.</div>
-              </div>
-
-              <div class="memory-pillar-card">
-                <div class="memory-pillar-title"><span>2.</span><span>&#128421;&#65039; La GPU solo guarda lo que piensa</span></div>
-                <p class="memory-analogy-box doc-only">Analog&iacute;a: el obrador con lo que se cocina; la despensa fuera.</p>
-                <div class="memory-card-highlight-pill">125B con 10+1 expertos activos = 6B por token: 65&ndash;70 GB en GPU.</div>
-              </div>
-
-              <div class="memory-pillar-card">
-                <div class="memory-pillar-title"><span>3.</span><span>&#127919; El resultado</span></div>
-                <div class="memory-card-highlight-pill">GPQA 91,7 &middot; DeepSWE 58,7 vs 42,2 (27B): calidad de 176B.</div>
-              </div>
-
-              <div class="engram-extras doc-only">
-                <div class="engram-extra"><strong>KV de chicle</strong><p>14,7 KB/token &middot; 8,2 GB &asymp; 600k tokens</p></div>
-                <div class="engram-extra"><strong>Calidad medida</strong><p>SWE-bench Pro 62,5 &middot; LCB 91,9</p></div>
-                <div class="engram-extra"><strong>Otra historia</strong><p>Fit GB10 y cuantizaciones: slide siguiente</p></div>
-                <div class="engram-extra"><strong>Expertos (fuente)</strong><p>Ficha oficial HF: 512, 10+1, dim 640</p></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 34: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
-         ==================================================================== -->
-    <section class="slide" id="slide-34">
-      <div class="slide-content">
-        <div class="tag">Qwen 3.8 Flash Next &bull; Anatom&iacute;a</div>
-        <h2>Por dentro: <span class="serif-italic">cinco piezas en 48 capas</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          48 capas = 12 &times; (3&times;(GDN&rarr;MoE) &rarr; 1&times;(QSA&rarr;MoE)): tres capas de memoria comprimida y una de atenci&oacute;n precisa por grupo. Fuente: ficha oficial HF (Hidden Layout).
-        </p>
-
-        <div class="anat-deck">
-          <div class="anat-grid">
-            <div class="anat-card">
-              <div class="anat-head"><span class="anat-ico">&#129504;</span><div class="anat-title">GDN &mdash; el cuaderno de campo</div></div>
-              <div class="anat-visual">
-                <svg viewBox="0 0 320 84" role="img" aria-label="Tres capas de 4 comprimen la conversación en un estado de tamaño fijo">
-                  <defs><marker id="an1Arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/></marker></defs>
-                  <rect x="8" y="14" width="56" height="22" rx="11" class="ag-mute"/>
-                  <rect x="18" y="42" width="56" height="22" rx="11" class="ag-mute"/>
-                  <rect x="28" y="70" width="56" height="10" rx="5" class="ag-mute"/>
-                  <line x1="96" y1="42" x2="160" y2="42" stroke="#f59e0b" stroke-width="3" marker-end="url(#an1Arrow)"/>
-                  <rect x="172" y="18" width="136" height="48" rx="8" fill="url(#egB)"/>
-                  <text x="240" y="40" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">estado fijo</text>
-                  <text x="240" y="56" text-anchor="middle" font-size="11" fill="#dbeafe">sin KV cache</text>
-                </svg>
-              </div>
-              <p class="anat-phrase">3 de cada 4 capas condensan la conversaci&oacute;n en un estado de tama&ntilde;o fijo: barato de mantener a 1M tokens.</p>
-              <div class="anat-data">sin KV cache &middot; estado fijo</div>
-              <p class="anat-detail doc-only">Gated DeltaNet (16 cab. QK, 48 V, dim 128): comprime el historial en un estado fijo y no genera KV cache &mdash; por eso solo 12 de 48 capas cargan KV.</p>
-            </div>
-
-            <div class="anat-card">
-              <div class="anat-head"><span class="anat-ico">&#128269;</span><div class="anat-title">QSA &mdash; busca solo lo importante</div></div>
-              <div class="anat-visual">
-                <svg viewBox="0 0 320 84" role="img" aria-label="Un indexer elige los bloques importantes del contexto largo">
-                  <g class="ag-mute">
-                    <rect x="8" y="30" width="20" height="26" rx="4"/><rect x="34" y="30" width="20" height="26" rx="4"/>
-                    <rect x="60" y="30" width="20" height="26" rx="4"/><rect x="86" y="30" width="20" height="26" rx="4"/>
-                    <rect x="112" y="30" width="20" height="26" rx="4"/>
-                  </g>
-                  <rect x="140" y="26" width="24" height="34" rx="4" fill="url(#egB)"/>
-                  <rect x="170" y="26" width="24" height="34" rx="4" fill="url(#egB)"/>
-                  <g class="ag-mute">
-                    <rect x="200" y="30" width="20" height="26" rx="4"/><rect x="226" y="30" width="20" height="26" rx="4"/>
-                  </g>
-                  <circle cx="272" cy="38" r="14" fill="none" stroke="#f59e0b" stroke-width="3"/>
-                  <line x1="282" y1="48" x2="294" y2="60" stroke="#f59e0b" stroke-width="3"/>
-                  <text x="160" y="78" text-anchor="middle" font-size="11" fill="#64748b">indexer: 512 bloques &asymp; 2048 tokens</text>
-                </svg>
-              </div>
-              <p class="anat-phrase">1 de cada 4 capas: atenci&oacute;n global que solo consulta los bloques clave del contexto.</p>
-              <div class="anat-data">&times;7.6 prefill &middot; &times;4.9 decode @ 1M</div>
-              <p class="anat-detail doc-only">Indexer ligero (MQA 4Q + 1K, dim 128) que agrupa la secuencia en micro-bloques y elige. Estas 12 capas s&iacute; llevan KV cache (14,7 KB/token).</p>
-            </div>
-
-            <div class="anat-card">
-              <div class="anat-head"><span class="anat-ico">&#129513;</span><div class="anat-title">MoE &mdash; 512 especialistas, 11 en turno</div></div>
-              <div class="anat-visual">
-                <svg viewBox="0 0 320 84" role="img" aria-label="De 512 expertos se activan 10 ruteados y 1 compartido">
-                  <g class="ag-mute">
-                    <rect x="8" y="30" width="22" height="26" rx="4"/><rect x="36" y="30" width="22" height="26" rx="4"/>
-                    <rect x="64" y="30" width="22" height="26" rx="4"/><rect x="92" y="30" width="22" height="26" rx="4"/>
-                    <rect x="120" y="30" width="22" height="26" rx="4"/>
-                  </g>
-                  <rect x="150" y="30" width="22" height="26" rx="4" fill="#f59e0b"/>
-                  <rect x="178" y="30" width="22" height="26" rx="4" fill="#f59e0b"/>
-                  <rect x="206" y="30" width="22" height="26" rx="4" fill="url(#egB)"/>
-                  <text x="258" y="46" text-anchor="middle" font-size="11" font-weight="800" fill="#334155">512 &rarr; 10+1</text>
-                  <text x="8" y="78" font-size="11" fill="#64748b">azul: compartido &middot; naranja: ruteados</text>
-                </svg>
-              </div>
-              <p class="anat-phrase">10 ruteados + 1 compartido por token: 6B de los 125B. La factura no escala con lo que sabe el modelo.</p>
-              <div class="anat-data">512 &middot; 10+1 &middot; dim 640</div>
-              <p class="anat-detail doc-only">Ultra-sparse MoE con balanceo global; dim intermedia 640 (la causa del 640/128: TP&ge;4 exige expert parallel). &laquo;M&aacute;s par&aacute;metros totales con activos fijos baja la p&eacute;rdida&raquo; (blog oficial).</p>
-            </div>
-
-            <div class="anat-card anat-wide">
-              <div class="anat-head"><span class="anat-ico">&#128218;</span><div class="anat-title">Engram &mdash; la biblioteca de frases</div></div>
-              <div class="anat-visual">
-                <svg viewBox="0 0 320 84" role="img" aria-label="20M entradas de 2560 dimensiones: 51B parámetros consultados por dirección">
-                  <defs><marker id="an4Arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/></marker></defs>
-                  <rect x="8" y="14" width="150" height="56" rx="8" fill="url(#egG)" opacity="0.14"/>
-                  <g fill="url(#egG)">
-                    <rect x="16" y="22" width="24" height="18" rx="3"/><rect x="46" y="22" width="16" height="18" rx="3" opacity="0.7"/>
-                    <rect x="68" y="22" width="26" height="18" rx="3"/><rect x="100" y="22" width="18" height="18" rx="3" opacity="0.6"/>
-                    <rect x="16" y="48" width="18" height="18" rx="3" opacity="0.75"/><rect x="40" y="48" width="26" height="18" rx="3"/>
-                    <rect x="72" y="48" width="16" height="18" rx="3" opacity="0.6"/><rect x="94" y="48" width="22" height="18" rx="3"/>
-                  </g>
-                  <line x1="170" y1="42" x2="210" y2="42" stroke="#f59e0b" stroke-width="3" marker-end="url(#an4Arrow)"/>
-                  <text x="196" y="34" text-anchor="middle" font-size="10" font-weight="700" fill="#c2410c">lookup</text>
-                  <rect x="222" y="12" width="94" height="60" rx="8" fill="url(#egB)"/>
-                  <text x="269" y="34" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">20M &times; 2560</text>
-                  <text x="269" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">= 51B</text>
-                  <text x="269" y="66" text-anchor="middle" font-size="11" fill="#dbeafe">sin matmul</text>
-                </svg>
-              </div>
-              <p class="anat-phrase">20M entradas &times; 2560 dim = 51B par&aacute;metros en la capa 2: se consulta por direcci&oacute;n, sin multiplicaciones.</p>
-              <div class="anat-data">BF16 102 GB &middot; NVFP4 ~26 GB &middot; host RAM o disco</div>
-              <p class="anat-detail doc-only">N-gram Embedding (inspirada en Gemma 3n PLE y DeepSeek Engram): &laquo;deterministically addressed&raquo;, no entra en el presupuesto de matmul por token; vive en la RAM del host con prefetch as&iacute;ncrono en paralelo al c&oacute;mputo (blog oficial).</p>
-            </div>
-
-            <div class="anat-card anat-wide">
-              <div class="anat-head"><span class="anat-ico">&#128295;</span><div class="anat-title">GR + MTP &mdash; fontaner&iacute;a y turbo</div></div>
-              <div class="anat-visual">
-                <svg viewBox="0 0 320 84" role="img" aria-label="Residual de 4 carriles con puertas dinámicas y predicción multi-token">
-                  <g class="ag-mute">
-                    <rect x="8" y="14" width="180" height="12" rx="6"/>
-                    <rect x="8" y="34" width="180" height="12" rx="6"/>
-                    <rect x="8" y="54" width="180" height="12" rx="6"/>
-                    <rect x="8" y="74" width="180" height="10" rx="5"/>
-                  </g>
-                  <rect x="60" y="10" width="76" height="20" rx="10" fill="url(#egB)" opacity="0.25"/>
-                  <text x="98" y="24" text-anchor="middle" font-size="10" font-weight="700" fill="#1d4ed8">gates</text>
-                  <polygon points="240,12 228,44 244,44 234,72 268,38 250,38 262,12" fill="#f59e0b"/>
-                  <text x="292" y="46" text-anchor="middle" font-size="11" font-weight="800" fill="#c2410c">MTP</text>
-                </svg>
-              </div>
-              <p class="anat-phrase">El residual en 4 carriles (GR) estabiliza el entrenamiento; la capa MTP predice varios tokens por paso (+57%).</p>
-              <div class="anat-data">4 ramas &middot; estado FP8 &middot; +57% &middot; 2,25 tok/paso</div>
-              <p class="anat-detail doc-only">Gated Residual: 4 ramas con gates de lectura din&aacute;micos y escritura por rama; suprime outliers y permite estado FP8. MTP: 1 capa entrenada multi-step; en 8&times;3090 acelera el decode a 100&ndash;107 tok/s con 2,25 tok/paso aceptados.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 35: LA DECISIÓN: LAS "CALCULASIONES"
-         ==================================================================== -->
-    <section class="slide" id="slide-35">
-      <div class="slide-content">
-        <div class="tag">Vivencia Personal • La Decisión</div>
-        <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Con las matemáticas claras (VRAM, cuantización INT4/NVFP4 y el ahorro vs Cloud)... llega el momento de
-          adquirir el aparato.
-        </p>
-
-        <div class="calculasiones-layout-split">
-          <div class="calculasiones-visual-stage">
-            <img src="script/img/gato-calculasiones-1.webp" alt="Meme: Gato haciendo cálculos con un bolígrafo" class="gato-hero-img">
-          </div>
-
-          <div class="calculasiones-cards-column">
-            <div class="calc-reason-card">
-              <span class="calc-reason-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
-              <div>
-                <div class="calc-reason-title" style="color:#0284c7">Cálculo de Inferencia Cloud vs Local</div>
-                <p>Las APIs de frontera ($1.25 – $4.00 / 1M tok) en un flujo de desarrollo diario intensivo escalan a cientos de euros al mes.</p>
-              </div>
-            </div>
-
-            <div class="calc-reason-card">
-              <span class="calc-reason-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
-              <div>
-                <div class="calc-reason-title" style="color:#7c3aed">La Ecuación de la VRAM (128 GB)</div>
-                <p>INT4 / NVFP4 permite encajar modelos MoE de 122B y 35B con 256K de contexto nativo sin recurrir a costoso alquiler de H100.</p>
-              </div>
-            </div>
-
-            <div class="calc-reason-card highlight">
-              <span class="calc-reason-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
-              <div>
-                <div class="calc-reason-title" style="color:#ea580c">La Conclusión Inevitable</div>
-                <p>Amortización en meses, latencia cero, soberanía total de código y experimentación sin mirar el taxímetro de tokens.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 36: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
-         ==================================================================== -->
-    <section class="slide" id="slide-36">
-      <div class="slide-content">
-        <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
-        <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          La fórmula de la soberanía: hardware propio + modelos abiertos punteros = alquimia artesanal en local.
-        </p>
-
-        <div class="trio-stage">
-
-    <!-- 1. El Hardware (Blackwell GB10 con fondo blanco) -->
-          <div class="trio-item">
-            <div class="trio-viewport hardware">
-              <img src="script/img/gb10-nvidia-2.webp" alt="NVIDIA Blackwell GB10 Hardware" class="gb10-img step" data-step="1">
-            </div>
-            <div class="trio-caption blue">
-              <span>📦</span> 1. Hardware (GB10 • 128 GB)
-            </div>
-          </div>
-
-    <!-- Operador: MÁS (+) -->
-          <div class="trio-operator plus">+</div>
-
-    <!-- 2. Los Modelos (Logo Qwen + 2 Tags MoE) -->
-          <div class="trio-item">
-            <div class="trio-viewport model">
-              <!-- Sello / Marca interactiva de Obsolescencia (Paso 2) -->
-              <div class="model-obsolete-overlay step" data-step="2">
-                <span class="obsolete-stamp">¡OBSOLETO!</span>
-              </div>
-
-              <img src="script/img/qwen-logo.webp" alt="Logo de Qwen (Alibaba Cloud)">
-
-              <div class="trio-model-list">
-                <div class="trio-model-chip chip-model-122b">
-                  <!-- Modelo original -->
-                  <div class="chip-content original-model">
-                    <span>Qwen 3.5 122B A10B MoE</span>
-                    <span class="quant-tag int4">INT4</span>
-                  </div>
-                  <!-- Modelo actualizado (Paso 3) -->
-                  <div class="chip-content updated-model step" data-step="3">
-                    <span class="updated-model-title">Qwen 3.8 FlashNext MoE</span>
-                    <span class="quant-tag next-gen">NUEVO</span>
-                  </div>
-                </div>
-                <div class="trio-model-chip">
-                  <div class="chip-content">
-                    <span>Qwen 3.6 35B A3B MoE</span>
-                    <span class="quant-tag fp8">FP8</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="trio-caption purple">
-              <span>🧠</span> 2. Modelos Open-Weights
-            </div>
-          </div>
-
-    <!-- Operador: IGUAL (=) -->
-          <div class="trio-operator equals">=</div>
-
-    <!-- 3. La Foto / Alquimia (100% visible, entera sin zoom) -->
-          <div class="trio-item">
-            <div class="trio-viewport alchemy">
-              <img src="script/img/alquimia-aparato.webp" alt="Modo alquimia activado">
-            </div>
-            <div class="trio-caption orange">
-              <span>⚗️</span> 3. «Alquimia de la buena»
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 37: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
-         ==================================================================== -->
-    <section class="slide" id="slide-37">
-      <div class="slide-content">
-        <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
-        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          De la desincronización de energía al vacío de kernels oficiales: la frustración técnica de los primeros
-          compradores de GB10.
-        </p>
-
-        <div class="press-grid">
-
-    <!-- 1. NVIDIA Dev Forums -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">NVIDIA Dev Forums</span>
-                <span class="press-date">14 Mar 2026</span>
-              </div>
-              <span class="tag">Power Throttle</span>
-            </div>
-            <div class="press-headline">«DGX Spark &amp; ASUS GX10 stuck at 611MHz / 13W throttle state»</div>
-            <p class="press-desc">
-              Bugs en el controlador USB-C PD bloquean la GPU en modo seguro inutilizable. <mark class="highlighter">El
-                soporte oficial confirma que el único fix temporal es el "cold drain"</mark>: desconectar físicamente de
-              la corriente y esperar a vaciar condensadores.
-            </p>
-          </div>
-
-    <!-- 2. GitHub Issues vLLM -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">GitHub Issues (vLLM)</span>
-                <span class="press-date">8 Abr 2026</span>
-              </div>
-              <span class="tag">SM 12.1a Mismatch</span>
-            </div>
-            <div class="press-headline">«Fatal CUDA error: Datacenter sm_100 containers fail on GB10»</div>
-            <p class="press-desc">
-              La arquitectura de consumo SM 12.1a no es compatible con binarios oficiales. <mark class="highlighter">Los
-                kernels de Tensor Core tcgen05 para FP4 vienen deshabilitados o sin compilar</mark>, provocando fallos
-              inmediatos.
-            </p>
-          </div>
-
-    <!-- 3. Reddit r/LocalLLaMA -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Reddit (r/LocalLLaMA)</span>
-                <span class="press-date">19 May 2026</span>
-              </div>
-              <span class="tag">Roadmap Trap</span>
-            </div>
-            <div class="press-headline">«NVFP4 on GB10 performs WORSE than INT4 on Ada: Where are the kernels?»</div>
-            <p class="press-desc">
-              Compradores de estaciones de 128GB descubren que <mark class="highlighter">NVIDIA no liberará soporte
-                maduro de NVFP4 hasta finales de 2026</mark>, dejando el hardware puntero a un tercio de su velocidad
-              teórica.
-            </p>
-          </div>
-
-    <!-- 4. Community Release Notes -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Community Release</span>
-                <span class="press-date">2 Jun 2026</span>
-              </div>
-              <span class="tag">Open Source Fix</span>
-            </div>
-            <div class="press-headline">«avarok/vllm-nvfp4-gb10 &amp; spark-vllm-docker: Unlocking 128GB Unified Memory»
-            </div>
-            <p class="press-desc">
-              Desarrolladores independientes publican <mark class="highlighter">imágenes Docker con kernels CUTLASS
-                recompilados a mano</mark>, permitiendo correr Nemotron y Qwen 72B a máxima velocidad sin esperar a los
-              drivers oficiales.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 38: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
-         ==================================================================== -->
-    <section class="slide" id="slide-38">
-      <div class="slide-content">
-        <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
-        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          La promesa de ejecutar NVFP4 en hardware de consumo... "pero a finales de 2026".
-        </p>
-
-        <div class="meme-stage-single">
-          <div class="meme-theatrical-card">
-            <div class="meme-dialogue-bar">
-              <div class="meme-speaker left">
-                <div class="meme-speaker-meta">
-                  <span class="meme-speaker-role">Comunidad &amp; Desarrolladores</span>
-                  <span class="meme-speaker-tag">La Promesa Blackwell</span>
-                </div>
-                <div class="meme-quote-text">«¡Me dijiste que podría ejecutar NVFP4!»</div>
-              </div>
-
-              <div class="meme-dialogue-divider"></div>
-
-              <div class="meme-speaker right">
-                <div class="meme-speaker-meta">
-                  <span class="meme-speaker-role">NVIDIA &amp; Drivers Oficiales</span>
-                  <span class="meme-speaker-tag warning">Roadmap Oficial</span>
-                </div>
-                <div class="meme-quote-text">
-                  «Pero no dije cuándo…»
-                  <span class="meme-highlight-date">(A finales de 2026)</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="meme-photo-stage">
-              <img src="script/img/gato-nvfp4-clean.webp"
-                alt="Meme NVFP4: Me dijiste que podría ejecutar NVFP4... pero no dije cuándo (A finales de 2026)"
-                class="meme-theatrical-img">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 39: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
-         ==================================================================== -->
-    <section class="slide" id="slide-39">
-      <div class="slide-content">
-        <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
-        <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Cuando los drivers propietarios fallan o se retrasan, los artesanos y la comunidad abren el camino a base de
-          kernels y parches.
-        </p>
-
-        <div class="hackers-deck">
-
-          <div class="hackers-grid">
-
-    <!-- Card 1: Eugr -->
-            <div class="hacker-card highlight">
-              <div class="hacker-profile-header">
-                <img src="script/img/eugr.png" alt="Eugr" class="hacker-avatar">
-                <div class="hacker-profile-info">
-                  <div class="hacker-name-row">
-                    <span class="hacker-name">Eugr</span>
-                    <span class="hacker-handle">@eugr</span>
-                  </div>
-                  <span class="hacker-role">Independent Hacker &amp; ML Engineer</span>
-                  <span class="hacker-repo-tag">eugr/spark-vllm-docker</span>
-                </div>
-              </div>
-
-              <div class="hacker-list">
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Contenedores Docker para DGX Spark</div>
-                    <div class="hacker-item-desc">Creó las primeras imágenes y <em>build recipes</em> de vLLM
-                      optimizadas para Asus Ascent GX10 / DGX Spark, permitiendo levantar el stack de inferencia.</div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Soporte MTP &amp; Aceleración Especulativa</div>
-                    <div class="hacker-item-desc">Integró recetas de Multi-Token Prediction directamente en vLLM para
-                      multiplicar la velocidad de inferencia sin VRAM adicional.</div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">128 GB Unificados al Máximo</div>
-                    <div class="hacker-item-desc">Habilitó la ejecución de modelos MoE y densos masivos (Qwen, Nemotron)
-                      sorteando las trabas iniciales de software del vendor.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-    <!-- Card 2: Thomas Braun (Avarok) -->
-            <div class="hacker-card highlight-blue">
-              <div class="hacker-profile-header">
-                <img src="script/img/thomas-braun.jpeg" alt="Thomas Braun (Avarok)" class="hacker-avatar avarok">
-                <div class="hacker-profile-info">
-                  <div class="hacker-name-row">
-                    <span class="hacker-name">Thomas Braun</span>
-                    <span class="hacker-handle">@tbraun96 • Avarok</span>
-                  </div>
-                  <span class="hacker-role">Founder of Avarok &amp; Kernel Hacker</span>
-                  <span class="hacker-repo-tag blue">avarok/vllm-nvfp4-gb10</span>
-                </div>
-              </div>
-
-              <div class="hacker-list">
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Recompilación de Kernels CUTLASS</div>
-                    <div class="hacker-item-desc">Parcheó y recompiló a mano los kernels para la microarquitectura
-                      <code>sm_121a</code> de Blackwell GB10 saltándose los binarios oficiales.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">NVFP4 Nativo Meses Antes del Roadmap</div>
-                    <div class="hacker-item-desc">Desbloqueó la aceleración FP4 en Tensor Cores en mayo/junio 2026,
-                      mientras NVIDIA posponía el soporte oficial a finales de año.</div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Rendimiento Teórico Recuperado</div>
-                    <div class="hacker-item-desc">Multiplicó por 3x la velocidad de Nemotron y Qwen 72B frente a los
-                      lentos fallbacks por software estándar.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-    <!-- Ribbon explicativo vLLM & SGLang Upstream -->
-          <div class="hackers-upstream-ribbon">
-            <div class="hackers-upstream-left">
-              <div class="hackers-upstream-icon">🛠️</div>
-              <div class="hackers-upstream-text">
-                <strong>El Ecosistema vLLM &amp; SGLang al Rescate:</strong> La comunidad y los mantenedores integran
-                continuamente parches de kernels CUTLASS/PTX y PRs upstream para que el hardware funcione a máxima
-                potencia sin esperar a los drivers oficiales.
-              </div>
-            </div>
-            <div class="hackers-upstream-badge">Comunidad Open Source</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 40: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
-         ==================================================================== -->
-    <section class="slide" id="slide-40">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -4854,6 +4224,9 @@
         </p>
 
         <div class="model-sizing-deck">
+
+          <!-- Trigger interactivo del Step 1: Marca modelos obsoletos -->
+          <div class="model-obsolete-trigger step" data-step="1"></div>
 
     <!-- Barra Superior de Referencia 128 GB -->
           <div class="model-sizing-header-bar">
@@ -4870,7 +4243,7 @@
           <div class="model-sizing-grid">
 
     <!-- Fila 1: Qwen 3.5 122B FP8 (Gris - Descartado) -->
-            <div class="model-sizing-row">
+            <div class="model-sizing-row row-obsolete-target">
               <div class="model-sizing-icon"></div>
               <div class="model-sizing-bar-track">
                 <div class="model-sizing-bar unselected" style="width: 95.3%;">
@@ -4878,11 +4251,13 @@
                       GB)</span></span>
                 </div>
               </div>
-              <div class="model-sizing-speeds"></div>
+              <div class="model-sizing-speeds">
+                <span class="speed-badge obsolete-badge">OBSOLETO</span>
+              </div>
             </div>
 
     <!-- Fila 2: Qwen 3.5 122B INT4 AutoRound (Verde) -->
-            <div class="model-sizing-row">
+            <div class="model-sizing-row row-obsolete-target">
               <div class="model-sizing-icon">🐢</div>
               <div class="model-sizing-bar-track">
                 <div class="model-sizing-bar selected" style="width: 53.9%;">
@@ -4892,11 +4267,12 @@
               </div>
               <div class="model-sizing-speeds">
                 <span class="speed-badge boost">28 tokens/seg</span>
+                <span class="speed-badge obsolete-badge">OBSOLETO</span>
               </div>
             </div>
 
     <!-- Fila 3: Qwen 3.5 122B Hybrid + MTP-2 (Verde) -->
-            <div class="model-sizing-row">
+            <div class="model-sizing-row row-obsolete-target">
               <div class="model-sizing-icon">🐢💨</div>
               <div class="model-sizing-bar-track">
                 <div class="model-sizing-bar selected" style="width: 53.9%;">
@@ -4906,11 +4282,12 @@
               </div>
               <div class="model-sizing-speeds">
                 <span class="speed-badge boost">54 tokens/seg</span>
+                <span class="speed-badge obsolete-badge">OBSOLETO</span>
               </div>
             </div>
 
     <!-- Fila 3b: Qwen 3.8 Flash Next NVFP4 QAD (Verde) -->
-            <div class="model-sizing-row">
+            <div class="model-sizing-row row-successor-target">
               <div class="model-sizing-icon">🐢💨</div>
               <div class="model-sizing-bar-track">
                 <div class="model-sizing-bar selected" style="width: 76.6%;">
@@ -4921,15 +4298,16 @@
               <div class="model-sizing-speeds">
                 <span class="speed-badge neutral">24 tokens/seg</span>
                 <span class="speed-badge boost">38 tokens/seg con MTP</span>
+                <span class="speed-badge successor-badge">👑 SUCESOR</span>
               </div>
             </div>
 
     <!-- Grupo 1: Qwen 3 Coder Next (Brackets) -->
-            <div class="model-group-bracket">
+            <div class="model-group-bracket group-obsolete-target">
               <div class="model-bracket-curve"></div>
 
     <!-- Fila 4: Qwen 3 Coder Next FP8 (Gris) -->
-              <div class="model-sizing-row">
+              <div class="model-sizing-row row-obsolete-target">
                 <div class="model-sizing-icon"></div>
                 <div class="model-sizing-bar-track">
                   <div class="model-sizing-bar unselected" style="width: 58.6%;">
@@ -4939,11 +4317,12 @@
                 </div>
                 <div class="model-sizing-speeds">
                   <span class="speed-badge neutral">46 tokens/seg</span>
+                  <span class="speed-badge obsolete-badge">OBSOLETO</span>
                 </div>
               </div>
 
     <!-- Fila 5: Qwen 3 Coder Next INT4 AutoR (Verde) -->
-              <div class="model-sizing-row">
+              <div class="model-sizing-row row-obsolete-target">
                 <div class="model-sizing-icon"></div>
                 <div class="model-sizing-bar-track">
                   <div class="model-sizing-bar selected" style="width: 32.0%;">
@@ -4953,6 +4332,7 @@
                 </div>
                 <div class="model-sizing-speeds">
                   <span class="speed-badge boost">73 tokens/seg</span>
+                  <span class="speed-badge obsolete-badge">OBSOLETO</span>
                 </div>
               </div>
             </div>
@@ -5077,6 +4457,636 @@
               </div>
             </div>
 
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 34: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
+         ==================================================================== -->
+    <section class="slide" id="slide-34">
+      <div class="slide-content">
+        <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
+        <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          176B par&aacute;metros, 6B activos por token: la tabla n-gram (el engram) no computa &mdash; se consulta.
+          Y lo que se consulta puede vivir fuera de la GPU: en la RAM del host o streameado desde disco.
+        </p>
+
+        <div class="engram-deck">
+          <div class="engram-layout">
+
+            <div class="engram-stage-card">
+              <div class="vram-gauge-header">
+                <div class="vram-gauge-title"><span>&#129504; D&oacute;nde vive cada cosa (176B totales)</span></div>
+                <span class="vram-capacity-badge">6B activos</span>
+              </div>
+              <div class="engram-stage">
+                <svg class="engram-svg" viewBox="0 0 480 400" role="img" aria-label="El backbone MoE (65-70 GB) vive en la GPU; la tabla n-gram de 51B se consulta desde la RAM del host o desde disco">
+                  <defs>
+                    <linearGradient id="egB" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <linearGradient id="egG" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
+                    </linearGradient>
+                    <marker id="egArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                      <path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/>
+                    </marker>
+                  </defs>
+
+    <!-- GPU (frame 16..266 x 36..366) -->
+                  <rect x="16" y="36" width="250" height="330" rx="14" class="eg-frame"/>
+                  <text x="141" y="66" text-anchor="middle" font-size="16" font-weight="800" fill="#1d4ed8">&#128421;&#65039; GPU &middot; piensa aqu&iacute;</text>
+                  <rect x="34" y="86" width="214" height="200" rx="10" fill="url(#egB)"/>
+                  <text x="141" y="120" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">Backbone MoE</text>
+                  <text x="141" y="158" text-anchor="middle" font-size="30" font-weight="800" fill="#ffffff">125B</text>
+                  <text x="141" y="194" text-anchor="middle" font-size="13.5" fill="#dbeafe">512 expertos &middot; 10+1 activos</text>
+                  <text x="141" y="216" text-anchor="middle" font-size="13.5" fill="#dbeafe">= 6B por token</text>
+                  <text x="141" y="326" text-anchor="middle" font-size="34" font-weight="800" fill="#1d4ed8">65&ndash;70 GB</text>
+                  <text x="141" y="350" text-anchor="middle" font-size="13.5" fill="#64748b">residentes en GPU</text>
+
+    <!-- Flechas en el hueco 266..302, dentro de 146..254 -->
+                  <line x1="274" y1="254" x2="274" y2="146" stroke="#f59e0b" stroke-width="3" marker-end="url(#egArrow)"/>
+                  <line x1="294" y1="146" x2="294" y2="254" stroke="#f59e0b" stroke-width="3" marker-end="url(#egArrow)"/>
+                  <text transform="rotate(-90 284 200)" x="284" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#c2410c">consulta &#8644; prefetch</text>
+
+    <!-- Engram (frame 302..464 x 36..366) -->
+                  <rect x="302" y="36" width="162" height="330" rx="14" class="eg-frame"/>
+                  <text x="383" y="62" text-anchor="middle" font-size="16" font-weight="800" fill="#15803d">&#128218; Engram</text>
+                  <text x="383" y="82" text-anchor="middle" font-size="13" fill="#64748b">tabla n-gram &middot; 51B</text>
+                  <rect x="318" y="94" width="130" height="138" rx="8" fill="url(#egG)" opacity="0.14"/>
+                  <g fill="url(#egG)">
+                    <rect x="326" y="106" width="26" height="28" rx="3"/><rect x="358" y="106" width="18" height="28" rx="3" opacity="0.75"/>
+                    <rect x="382" y="106" width="30" height="28" rx="3"/><rect x="418" y="106" width="20" height="28" rx="3" opacity="0.65"/>
+                    <rect x="330" y="150" width="20" height="28" rx="3" opacity="0.7"/><rect x="356" y="150" width="28" height="28" rx="3"/>
+                    <rect x="390" y="150" width="16" height="28" rx="3" opacity="0.6"/><rect x="412" y="150" width="26" height="28" rx="3"/>
+                    <rect x="324" y="194" width="30" height="28" rx="3"/><rect x="360" y="194" width="16" height="28" rx="3" opacity="0.7"/>
+                    <rect x="382" y="194" width="24" height="28" rx="3" opacity="0.8"/><rect x="412" y="194" width="22" height="28" rx="3"/>
+                  </g>
+                  <text x="383" y="256" text-anchor="middle" font-size="14" fill="#15803d" font-weight="700">BF16: 102 GB</text>
+                  <text x="383" y="276" text-anchor="middle" font-size="14" fill="#15803d" font-weight="700">NVFP4: ~26 GB</text>
+                  <text x="383" y="300" text-anchor="middle" font-size="13" fill="#64748b">20M &times; 2560 = 51B</text>
+                  <g>
+                    <rect x="312" y="316" width="26" height="16" rx="2" fill="#475569"/>
+                    <rect x="314" y="312" width="22" height="4" rx="1" fill="#64748b"/>
+                    <g fill="#94a3b8">
+                      <rect x="314" y="332" width="3" height="5"/><rect x="320" y="332" width="3" height="5"/>
+                      <rect x="326" y="332" width="3" height="5"/><rect x="332" y="332" width="3" height="5"/>
+                    </g>
+                  </g>
+                  <text x="346" y="329" font-size="14" font-weight="800" fill="#334155">RAM del host</text>
+                  <g>
+                    <rect x="312" y="344" width="26" height="14" rx="3" fill="#475569"/>
+                    <circle cx="325" cy="351" r="5" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                    <circle cx="325" cy="351" r="1.6" fill="#cbd5e1"/>
+                    <rect x="338" y="347" width="1.5" height="8" fill="#64748b"/>
+                  </g>
+                  <text x="346" y="356" font-size="14" font-weight="800" fill="#334155">o desde disco</text>
+
+    <!-- Banda inferior compacta (36..464 x 370..396) -->
+                  <rect x="16" y="370" width="448" height="26" rx="8" class="eg-band"/>
+                  <text x="240" y="387" text-anchor="middle" font-size="12" font-weight="500" class="eg-band-text">La GPU carga lo que piensa; el engram se consulta cuando hace falta</text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="engram-right">
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>1.</span><span>&#128218; El engram: se consulta, no se multiplica</span></div>
+                <p class="memory-analogy-box doc-only">Analog&iacute;a: los apuntes en la pared del taller: no los piensas, los miras.</p>
+                <div class="memory-card-highlight-pill">20M entradas &times; 2560 dim = 51B: se consulta, no se multiplica &mdash; vive en RAM host o disco.</div>
+              </div>
+
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>2.</span><span>&#128421;&#65039; La GPU solo guarda lo que piensa</span></div>
+                <p class="memory-analogy-box doc-only">Analog&iacute;a: el obrador con lo que se cocina; la despensa fuera.</p>
+                <div class="memory-card-highlight-pill">125B con 10+1 expertos activos = 6B por token: 65&ndash;70 GB en GPU.</div>
+              </div>
+
+              <div class="memory-pillar-card">
+                <div class="memory-pillar-title"><span>3.</span><span>&#127919; El resultado</span></div>
+                <div class="memory-card-highlight-pill">GPQA 91,7 &middot; DeepSWE 58,7 vs 42,2 (27B): calidad de 176B.</div>
+              </div>
+
+              <div class="engram-extras doc-only">
+                <div class="engram-extra"><strong>KV de chicle</strong><p>14,7 KB/token &middot; 8,2 GB &asymp; 600k tokens</p></div>
+                <div class="engram-extra"><strong>Calidad medida</strong><p>SWE-bench Pro 62,5 &middot; LCB 91,9</p></div>
+                <div class="engram-extra"><strong>Otra historia</strong><p>Fit GB10 y cuantizaciones: slide siguiente</p></div>
+                <div class="engram-extra"><strong>Expertos (fuente)</strong><p>Ficha oficial HF: 512, 10+1, dim 640</p></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 35: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
+         ==================================================================== -->
+    <section class="slide" id="slide-35">
+      <div class="slide-content">
+        <div class="tag">Qwen 3.8 Flash Next &bull; Anatom&iacute;a</div>
+        <h2>Por dentro: <span class="serif-italic">cinco piezas en 48 capas</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          48 capas = 12 &times; (3&times;(GDN&rarr;MoE) &rarr; 1&times;(QSA&rarr;MoE)): tres capas de memoria comprimida y una de atenci&oacute;n precisa por grupo. Fuente: ficha oficial HF (Hidden Layout).
+        </p>
+
+        <div class="anat-deck">
+          <div class="anat-grid">
+            <div class="anat-card">
+              <div class="anat-head"><span class="anat-ico">&#129504;</span><div class="anat-title">GDN &mdash; el cuaderno de campo</div></div>
+              <div class="anat-visual">
+                <svg viewBox="0 0 320 84" role="img" aria-label="Tres capas de 4 comprimen la conversación en un estado de tamaño fijo">
+                  <defs><marker id="an1Arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/></marker></defs>
+                  <rect x="8" y="14" width="56" height="22" rx="11" class="ag-mute"/>
+                  <rect x="18" y="42" width="56" height="22" rx="11" class="ag-mute"/>
+                  <rect x="28" y="70" width="56" height="10" rx="5" class="ag-mute"/>
+                  <line x1="96" y1="42" x2="160" y2="42" stroke="#f59e0b" stroke-width="3" marker-end="url(#an1Arrow)"/>
+                  <rect x="172" y="18" width="136" height="48" rx="8" fill="url(#egB)"/>
+                  <text x="240" y="40" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">estado fijo</text>
+                  <text x="240" y="56" text-anchor="middle" font-size="11" fill="#dbeafe">sin KV cache</text>
+                </svg>
+              </div>
+              <p class="anat-phrase">3 de cada 4 capas condensan la conversaci&oacute;n en un estado de tama&ntilde;o fijo: barato de mantener a 1M tokens.</p>
+              <div class="anat-data">sin KV cache &middot; estado fijo</div>
+              <p class="anat-detail doc-only">Gated DeltaNet (16 cab. QK, 48 V, dim 128): comprime el historial en un estado fijo y no genera KV cache &mdash; por eso solo 12 de 48 capas cargan KV.</p>
+            </div>
+
+            <div class="anat-card">
+              <div class="anat-head"><span class="anat-ico">&#128269;</span><div class="anat-title">QSA &mdash; busca solo lo importante</div></div>
+              <div class="anat-visual">
+                <svg viewBox="0 0 320 84" role="img" aria-label="Un indexer elige los bloques importantes del contexto largo">
+                  <g class="ag-mute">
+                    <rect x="8" y="30" width="20" height="26" rx="4"/><rect x="34" y="30" width="20" height="26" rx="4"/>
+                    <rect x="60" y="30" width="20" height="26" rx="4"/><rect x="86" y="30" width="20" height="26" rx="4"/>
+                    <rect x="112" y="30" width="20" height="26" rx="4"/>
+                  </g>
+                  <rect x="140" y="26" width="24" height="34" rx="4" fill="url(#egB)"/>
+                  <rect x="170" y="26" width="24" height="34" rx="4" fill="url(#egB)"/>
+                  <g class="ag-mute">
+                    <rect x="200" y="30" width="20" height="26" rx="4"/><rect x="226" y="30" width="20" height="26" rx="4"/>
+                  </g>
+                  <circle cx="272" cy="38" r="14" fill="none" stroke="#f59e0b" stroke-width="3"/>
+                  <line x1="282" y1="48" x2="294" y2="60" stroke="#f59e0b" stroke-width="3"/>
+                  <text x="160" y="78" text-anchor="middle" font-size="11" fill="#64748b">indexer: 512 bloques &asymp; 2048 tokens</text>
+                </svg>
+              </div>
+              <p class="anat-phrase">1 de cada 4 capas: atenci&oacute;n global que solo consulta los bloques clave del contexto.</p>
+              <div class="anat-data">&times;7.6 prefill &middot; &times;4.9 decode @ 1M</div>
+              <p class="anat-detail doc-only">Indexer ligero (MQA 4Q + 1K, dim 128) que agrupa la secuencia en micro-bloques y elige. Estas 12 capas s&iacute; llevan KV cache (14,7 KB/token).</p>
+            </div>
+
+            <div class="anat-card">
+              <div class="anat-head"><span class="anat-ico">&#129513;</span><div class="anat-title">MoE &mdash; 512 especialistas, 11 en turno</div></div>
+              <div class="anat-visual">
+                <svg viewBox="0 0 320 84" role="img" aria-label="De 512 expertos se activan 10 ruteados y 1 compartido">
+                  <g class="ag-mute">
+                    <rect x="8" y="30" width="22" height="26" rx="4"/><rect x="36" y="30" width="22" height="26" rx="4"/>
+                    <rect x="64" y="30" width="22" height="26" rx="4"/><rect x="92" y="30" width="22" height="26" rx="4"/>
+                    <rect x="120" y="30" width="22" height="26" rx="4"/>
+                  </g>
+                  <rect x="150" y="30" width="22" height="26" rx="4" fill="#f59e0b"/>
+                  <rect x="178" y="30" width="22" height="26" rx="4" fill="#f59e0b"/>
+                  <rect x="206" y="30" width="22" height="26" rx="4" fill="url(#egB)"/>
+                  <text x="258" y="46" text-anchor="middle" font-size="11" font-weight="800" fill="#334155">512 &rarr; 10+1</text>
+                  <text x="8" y="78" font-size="11" fill="#64748b">azul: compartido &middot; naranja: ruteados</text>
+                </svg>
+              </div>
+              <p class="anat-phrase">10 ruteados + 1 compartido por token: 6B de los 125B. La factura no escala con lo que sabe el modelo.</p>
+              <div class="anat-data">512 &middot; 10+1 &middot; dim 640</div>
+              <p class="anat-detail doc-only">Ultra-sparse MoE con balanceo global; dim intermedia 640 (la causa del 640/128: TP&ge;4 exige expert parallel). &laquo;M&aacute;s par&aacute;metros totales con activos fijos baja la p&eacute;rdida&raquo; (blog oficial).</p>
+            </div>
+
+            <div class="anat-card anat-wide">
+              <div class="anat-head"><span class="anat-ico">&#128218;</span><div class="anat-title">Engram &mdash; la biblioteca de frases</div></div>
+              <div class="anat-visual">
+                <svg viewBox="0 0 320 84" role="img" aria-label="20M entradas de 2560 dimensiones: 51B parámetros consultados por dirección">
+                  <defs><marker id="an4Arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,1 L8,4 L0,7 Z" fill="#f59e0b"/></marker></defs>
+                  <rect x="8" y="14" width="150" height="56" rx="8" fill="url(#egG)" opacity="0.14"/>
+                  <g fill="url(#egG)">
+                    <rect x="16" y="22" width="24" height="18" rx="3"/><rect x="46" y="22" width="16" height="18" rx="3" opacity="0.7"/>
+                    <rect x="68" y="22" width="26" height="18" rx="3"/><rect x="100" y="22" width="18" height="18" rx="3" opacity="0.6"/>
+                    <rect x="16" y="48" width="18" height="18" rx="3" opacity="0.75"/><rect x="40" y="48" width="26" height="18" rx="3"/>
+                    <rect x="72" y="48" width="16" height="18" rx="3" opacity="0.6"/><rect x="94" y="48" width="22" height="18" rx="3"/>
+                  </g>
+                  <line x1="170" y1="42" x2="210" y2="42" stroke="#f59e0b" stroke-width="3" marker-end="url(#an4Arrow)"/>
+                  <text x="196" y="34" text-anchor="middle" font-size="10" font-weight="700" fill="#c2410c">lookup</text>
+                  <rect x="222" y="12" width="94" height="60" rx="8" fill="url(#egB)"/>
+                  <text x="269" y="34" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">20M &times; 2560</text>
+                  <text x="269" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">= 51B</text>
+                  <text x="269" y="66" text-anchor="middle" font-size="11" fill="#dbeafe">sin matmul</text>
+                </svg>
+              </div>
+              <p class="anat-phrase">20M entradas &times; 2560 dim = 51B par&aacute;metros en la capa 2: se consulta por direcci&oacute;n, sin multiplicaciones.</p>
+              <div class="anat-data">BF16 102 GB &middot; NVFP4 ~26 GB &middot; host RAM o disco</div>
+              <p class="anat-detail doc-only">N-gram Embedding (inspirada en Gemma 3n PLE y DeepSeek Engram): &laquo;deterministically addressed&raquo;, no entra en el presupuesto de matmul por token; vive en la RAM del host con prefetch as&iacute;ncrono en paralelo al c&oacute;mputo (blog oficial).</p>
+            </div>
+
+            <div class="anat-card anat-wide">
+              <div class="anat-head"><span class="anat-ico">&#128295;</span><div class="anat-title">GR + MTP &mdash; fontaner&iacute;a y turbo</div></div>
+              <div class="anat-visual">
+                <svg viewBox="0 0 320 84" role="img" aria-label="Residual de 4 carriles con puertas dinámicas y predicción multi-token">
+                  <g class="ag-mute">
+                    <rect x="8" y="14" width="180" height="12" rx="6"/>
+                    <rect x="8" y="34" width="180" height="12" rx="6"/>
+                    <rect x="8" y="54" width="180" height="12" rx="6"/>
+                    <rect x="8" y="74" width="180" height="10" rx="5"/>
+                  </g>
+                  <rect x="60" y="10" width="76" height="20" rx="10" fill="url(#egB)" opacity="0.25"/>
+                  <text x="98" y="24" text-anchor="middle" font-size="10" font-weight="700" fill="#1d4ed8">gates</text>
+                  <polygon points="240,12 228,44 244,44 234,72 268,38 250,38 262,12" fill="#f59e0b"/>
+                  <text x="292" y="46" text-anchor="middle" font-size="11" font-weight="800" fill="#c2410c">MTP</text>
+                </svg>
+              </div>
+              <p class="anat-phrase">El residual en 4 carriles (GR) estabiliza el entrenamiento; la capa MTP predice varios tokens por paso (+57%).</p>
+              <div class="anat-data">4 ramas &middot; estado FP8 &middot; +57% &middot; 2,25 tok/paso</div>
+              <p class="anat-detail doc-only">Gated Residual: 4 ramas con gates de lectura din&aacute;micos y escritura por rama; suprime outliers y permite estado FP8. MTP: 1 capa entrenada multi-step; en 8&times;3090 acelera el decode a 100&ndash;107 tok/s con 2,25 tok/paso aceptados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 36: LA DECISIÓN: LAS "CALCULASIONES"
+         ==================================================================== -->
+    <section class="slide" id="slide-36">
+      <div class="slide-content">
+        <div class="tag">Vivencia Personal • La Decisión</div>
+        <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Con las matemáticas claras (VRAM, cuantización INT4/NVFP4 y el ahorro vs Cloud)... llega el momento de
+          adquirir el aparato.
+        </p>
+
+        <div class="calculasiones-layout-split">
+          <div class="calculasiones-visual-stage">
+            <img src="script/img/gato-calculasiones-1.webp" alt="Meme: Gato haciendo cálculos con un bolígrafo" class="gato-hero-img">
+          </div>
+
+          <div class="calculasiones-cards-column">
+            <div class="calc-reason-card">
+              <span class="calc-reason-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
+              <div>
+                <div class="calc-reason-title" style="color:#0284c7">Cálculo de Inferencia Cloud vs Local</div>
+                <p>Las APIs de frontera ($1.25 – $4.00 / 1M tok) en un flujo de desarrollo diario intensivo escalan a cientos de euros al mes.</p>
+              </div>
+            </div>
+
+            <div class="calc-reason-card">
+              <span class="calc-reason-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
+              <div>
+                <div class="calc-reason-title" style="color:#7c3aed">La Ecuación de la VRAM (128 GB)</div>
+                <p>INT4 / NVFP4 permite encajar modelos MoE de 122B y 35B con 256K de contexto nativo sin recurrir a costoso alquiler de H100.</p>
+              </div>
+            </div>
+
+            <div class="calc-reason-card highlight">
+              <span class="calc-reason-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
+              <div>
+                <div class="calc-reason-title" style="color:#ea580c">La Conclusión Inevitable</div>
+                <p>Amortización en meses, latencia cero, soberanía total de código y experimentación sin mirar el taxímetro de tokens.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 37: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
+         ==================================================================== -->
+    <section class="slide" id="slide-37">
+      <div class="slide-content">
+        <div class="tag">Vivencia Personal • ¡Llegó el Aparato!</div>
+        <h2>¡Llegó el Aparato!: <span class="serif-italic" style="color: #ea580c;">Alquimia de la buena</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          La fórmula de la soberanía: hardware propio + modelos abiertos punteros = alquimia artesanal en local.
+        </p>
+
+        <div class="trio-stage">
+
+    <!-- 1. El Hardware (Blackwell GB10 con fondo blanco) -->
+          <div class="trio-item">
+            <div class="trio-viewport hardware">
+              <img src="script/img/gb10-nvidia-2.webp" alt="NVIDIA Blackwell GB10 Hardware" class="gb10-img step" data-step="1">
+            </div>
+            <div class="trio-caption blue">
+              <span>📦</span> 1. Hardware (GB10 • 128 GB)
+            </div>
+          </div>
+
+    <!-- Operador: MÁS (+) -->
+          <div class="trio-operator plus">+</div>
+
+    <!-- 2. Los Modelos (Logo Qwen + 2 Tags MoE) -->
+          <div class="trio-item">
+            <div class="trio-viewport model">
+              <!-- Sello / Marca interactiva de Obsolescencia (Paso 2) -->
+              <div class="model-obsolete-overlay step" data-step="2">
+                <span class="obsolete-stamp">¡OBSOLETO!</span>
+              </div>
+
+              <img src="script/img/qwen-logo.webp" alt="Logo de Qwen (Alibaba Cloud)">
+
+              <div class="trio-model-list">
+                <div class="trio-model-chip chip-model-122b">
+                  <!-- Modelo original -->
+                  <div class="chip-content original-model">
+                    <span>Qwen 3.5 122B A10B MoE</span>
+                    <span class="quant-tag int4">INT4</span>
+                  </div>
+                  <!-- Modelo actualizado (Paso 3) -->
+                  <div class="chip-content updated-model step" data-step="3">
+                    <span class="updated-model-title">Qwen 3.8 FlashNext MoE</span>
+                    <span class="quant-tag next-gen">NUEVO</span>
+                  </div>
+                </div>
+                <div class="trio-model-chip">
+                  <div class="chip-content">
+                    <span>Qwen 3.6 35B A3B MoE</span>
+                    <span class="quant-tag fp8">FP8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="trio-caption purple">
+              <span>🧠</span> 2. Modelos Open-Weights
+            </div>
+          </div>
+
+    <!-- Operador: IGUAL (=) -->
+          <div class="trio-operator equals">=</div>
+
+    <!-- 3. La Foto / Alquimia (100% visible, entera sin zoom) -->
+          <div class="trio-item">
+            <div class="trio-viewport alchemy">
+              <img src="script/img/alquimia-aparato.webp" alt="Modo alquimia activado">
+            </div>
+            <div class="trio-caption orange">
+              <span>⚗️</span> 3. «Alquimia de la buena»
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 38: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-38">
+      <div class="slide-content">
+        <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
+        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          De la desincronización de energía al vacío de kernels oficiales: la frustración técnica de los primeros
+          compradores de GB10.
+        </p>
+
+        <div class="press-grid">
+
+    <!-- 1. NVIDIA Dev Forums -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">NVIDIA Dev Forums</span>
+                <span class="press-date">14 Mar 2026</span>
+              </div>
+              <span class="tag">Power Throttle</span>
+            </div>
+            <div class="press-headline">«DGX Spark &amp; ASUS GX10 stuck at 611MHz / 13W throttle state»</div>
+            <p class="press-desc">
+              Bugs en el controlador USB-C PD bloquean la GPU en modo seguro inutilizable. <mark class="highlighter">El
+                soporte oficial confirma que el único fix temporal es el "cold drain"</mark>: desconectar físicamente de
+              la corriente y esperar a vaciar condensadores.
+            </p>
+          </div>
+
+    <!-- 2. GitHub Issues vLLM -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">GitHub Issues (vLLM)</span>
+                <span class="press-date">8 Abr 2026</span>
+              </div>
+              <span class="tag">SM 12.1a Mismatch</span>
+            </div>
+            <div class="press-headline">«Fatal CUDA error: Datacenter sm_100 containers fail on GB10»</div>
+            <p class="press-desc">
+              La arquitectura de consumo SM 12.1a no es compatible con binarios oficiales. <mark class="highlighter">Los
+                kernels de Tensor Core tcgen05 para FP4 vienen deshabilitados o sin compilar</mark>, provocando fallos
+              inmediatos.
+            </p>
+          </div>
+
+    <!-- 3. Reddit r/LocalLLaMA -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reddit (r/LocalLLaMA)</span>
+                <span class="press-date">19 May 2026</span>
+              </div>
+              <span class="tag">Roadmap Trap</span>
+            </div>
+            <div class="press-headline">«NVFP4 on GB10 performs WORSE than INT4 on Ada: Where are the kernels?»</div>
+            <p class="press-desc">
+              Compradores de estaciones de 128GB descubren que <mark class="highlighter">NVIDIA no liberará soporte
+                maduro de NVFP4 hasta finales de 2026</mark>, dejando el hardware puntero a un tercio de su velocidad
+              teórica.
+            </p>
+          </div>
+
+    <!-- 4. Community Release Notes -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Community Release</span>
+                <span class="press-date">2 Jun 2026</span>
+              </div>
+              <span class="tag">Open Source Fix</span>
+            </div>
+            <div class="press-headline">«avarok/vllm-nvfp4-gb10 &amp; spark-vllm-docker: Unlocking 128GB Unified Memory»
+            </div>
+            <p class="press-desc">
+              Desarrolladores independientes publican <mark class="highlighter">imágenes Docker con kernels CUTLASS
+                recompilados a mano</mark>, permitiendo correr Nemotron y Qwen 72B a máxima velocidad sin esperar a los
+              drivers oficiales.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 39: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
+         ==================================================================== -->
+    <section class="slide" id="slide-39">
+      <div class="slide-content">
+        <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
+        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          La promesa de ejecutar NVFP4 en hardware de consumo... "pero a finales de 2026".
+        </p>
+
+        <div class="meme-stage-single">
+          <div class="meme-theatrical-card">
+            <div class="meme-dialogue-bar">
+              <div class="meme-speaker left">
+                <div class="meme-speaker-meta">
+                  <span class="meme-speaker-role">Comunidad &amp; Desarrolladores</span>
+                  <span class="meme-speaker-tag">La Promesa Blackwell</span>
+                </div>
+                <div class="meme-quote-text">«¡Me dijiste que podría ejecutar NVFP4!»</div>
+              </div>
+
+              <div class="meme-dialogue-divider"></div>
+
+              <div class="meme-speaker right">
+                <div class="meme-speaker-meta">
+                  <span class="meme-speaker-role">NVIDIA &amp; Drivers Oficiales</span>
+                  <span class="meme-speaker-tag warning">Roadmap Oficial</span>
+                </div>
+                <div class="meme-quote-text">
+                  «Pero no dije cuándo…»
+                  <span class="meme-highlight-date">(A finales de 2026)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="meme-photo-stage">
+              <img src="script/img/gato-nvfp4-clean.webp"
+                alt="Meme NVFP4: Me dijiste que podría ejecutar NVFP4... pero no dije cuándo (A finales de 2026)"
+                class="meme-theatrical-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 40: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         ==================================================================== -->
+    <section class="slide" id="slide-40">
+      <div class="slide-content">
+        <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
+        <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Cuando los drivers propietarios fallan o se retrasan, los artesanos y la comunidad abren el camino a base de
+          kernels y parches.
+        </p>
+
+        <div class="hackers-deck">
+
+          <div class="hackers-grid">
+
+    <!-- Card 1: Eugr -->
+            <div class="hacker-card highlight">
+              <div class="hacker-profile-header">
+                <img src="script/img/eugr.png" alt="Eugr" class="hacker-avatar">
+                <div class="hacker-profile-info">
+                  <div class="hacker-name-row">
+                    <span class="hacker-name">Eugr</span>
+                    <span class="hacker-handle">@eugr</span>
+                  </div>
+                  <span class="hacker-role">Independent Hacker &amp; ML Engineer</span>
+                  <span class="hacker-repo-tag">eugr/spark-vllm-docker</span>
+                </div>
+              </div>
+
+              <div class="hacker-list">
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Contenedores Docker para DGX Spark</div>
+                    <div class="hacker-item-desc">Creó las primeras imágenes y <em>build recipes</em> de vLLM
+                      optimizadas para Asus Ascent GX10 / DGX Spark, permitiendo levantar el stack de inferencia.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Soporte MTP &amp; Aceleración Especulativa</div>
+                    <div class="hacker-item-desc">Integró recetas de Multi-Token Prediction directamente en vLLM para
+                      multiplicar la velocidad de inferencia sin VRAM adicional.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">128 GB Unificados al Máximo</div>
+                    <div class="hacker-item-desc">Habilitó la ejecución de modelos MoE y densos masivos (Qwen, Nemotron)
+                      sorteando las trabas iniciales de software del vendor.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    <!-- Card 2: Thomas Braun (Avarok) -->
+            <div class="hacker-card highlight-blue">
+              <div class="hacker-profile-header">
+                <img src="script/img/thomas-braun.jpeg" alt="Thomas Braun (Avarok)" class="hacker-avatar avarok">
+                <div class="hacker-profile-info">
+                  <div class="hacker-name-row">
+                    <span class="hacker-name">Thomas Braun</span>
+                    <span class="hacker-handle">@tbraun96 • Avarok</span>
+                  </div>
+                  <span class="hacker-role">Founder of Avarok &amp; Kernel Hacker</span>
+                  <span class="hacker-repo-tag blue">avarok/vllm-nvfp4-gb10</span>
+                </div>
+              </div>
+
+              <div class="hacker-list">
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Recompilación de Kernels CUTLASS</div>
+                    <div class="hacker-item-desc">Parcheó y recompiló a mano los kernels para la microarquitectura
+                      <code>sm_121a</code> de Blackwell GB10 saltándose los binarios oficiales.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">NVFP4 Nativo Meses Antes del Roadmap</div>
+                    <div class="hacker-item-desc">Desbloqueó la aceleración FP4 en Tensor Cores en mayo/junio 2026,
+                      mientras NVIDIA posponía el soporte oficial a finales de año.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Rendimiento Teórico Recuperado</div>
+                    <div class="hacker-item-desc">Multiplicó por 3x la velocidad de Nemotron y Qwen 72B frente a los
+                      lentos fallbacks por software estándar.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+    <!-- Ribbon explicativo vLLM & SGLang Upstream -->
+          <div class="hackers-upstream-ribbon">
+            <div class="hackers-upstream-left">
+              <div class="hackers-upstream-icon">🛠️</div>
+              <div class="hackers-upstream-text">
+                <strong>El Ecosistema vLLM &amp; SGLang al Rescate:</strong> La comunidad y los mantenedores integran
+                continuamente parches de kernels CUTLASS/PTX y PRs upstream para que el hardware funcione a máxima
+                potencia sin esperar a los drivers oficiales.
+              </div>
+            </div>
+            <div class="hackers-upstream-badge">Comunidad Open Source</div>
           </div>
 
         </div>

@@ -6111,9 +6111,9 @@ body.theme-dark .tri-center-target {
 }
 
 /* ==========================================================================
-   SLIDE 24: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
+   SLIDE 33: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
    ========================================================================== */
-#slide-41 .slide-content {
+#slide-33 .slide-content {
   gap: 0.35rem;
   justify-content: flex-start;
 }
@@ -6375,6 +6375,184 @@ body.theme-dark .speed-badge.neutral {
   border-right: none;
   border-radius: 4px 0 0 4px;
   pointer-events: none;
+}
+
+/* ==========================================================================
+   SLIDE 33: Efecto Interactivo - Marcado de Modelos Obsoletos (Step 1)
+   ========================================================================== */
+
+/* Estado inicial: badges ocultos */
+#slide-33 .obsolete-badge,
+#slide-33 .successor-badge {
+  display: none;
+}
+
+#slide-33 .model-obsolete-trigger {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Transiciones suaves en las filas y elementos */
+#slide-33 .row-obsolete-target,
+#slide-33 .row-successor-target,
+#slide-33 .row-obsolete-target .model-sizing-bar,
+#slide-33 .row-successor-target .model-sizing-bar,
+#slide-33 .row-obsolete-target .model-bar-label,
+#slide-33 .row-obsolete-target .speed-badge,
+#slide-33 .group-obsolete-target .model-bracket-curve {
+  transition: opacity 0.4s ease, filter 0.4s ease, background 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* --- ESTADO ACTIVO: cuando el usuario da a Siguiente en Slide 33 --- */
+#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target,
+#slide-33[data-active-steps="1"] .row-obsolete-target {
+  opacity: 0.42;
+  filter: grayscale(0.65);
+}
+
+#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target:hover,
+#slide-33[data-active-steps="1"] .row-obsolete-target:hover {
+  opacity: 0.85;
+  filter: grayscale(0.15);
+}
+
+/* Tachado visible en la etiqueta del modelo */
+#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-bar-label,
+#slide-33[data-active-steps="1"] .row-obsolete-target .model-bar-label {
+  text-decoration: line-through;
+  text-decoration-color: #ef4444;
+  text-decoration-thickness: 2.5px;
+}
+
+/* Barra con estilo obsoleto: borde rojo desaturado y trama */
+#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-sizing-bar,
+#slide-33[data-active-steps="1"] .row-obsolete-target .model-sizing-bar {
+  border-color: rgba(239, 68, 68, 0.5) !important;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.08),
+    rgba(239, 68, 68, 0.08) 8px,
+    rgba(241, 245, 249, 0.7) 8px,
+    rgba(241, 245, 249, 0.7) 16px
+  ) !important;
+  color: #991b1b !important;
+}
+
+body.theme-dark #slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-sizing-bar,
+body.theme-dark #slide-33[data-active-steps="1"] .row-obsolete-target .model-sizing-bar {
+  border-color: rgba(239, 68, 68, 0.45) !important;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.14),
+    rgba(239, 68, 68, 0.14) 8px,
+    rgba(20, 24, 30, 0.5) 8px,
+    rgba(20, 24, 30, 0.5) 16px
+  ) !important;
+  color: #fca5a5 !important;
+}
+
+/* Tachado en los badges de velocidad de modelos obsoletos */
+#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .speed-badge:not(.obsolete-badge),
+#slide-33[data-active-steps="1"] .row-obsolete-target .speed-badge:not(.obsolete-badge) {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* Corchete de grupo obsoleto */
+#slide-33:has(.model-obsolete-trigger.step-active) .group-obsolete-target .model-bracket-curve,
+#slide-33[data-active-steps="1"] .group-obsolete-target .model-bracket-curve {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Badge OBSOLETO */
+#slide-33:has(.model-obsolete-trigger.step-active) .obsolete-badge,
+#slide-33[data-active-steps="1"] .obsolete-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1.5px solid #dc2626;
+  color: #dc2626;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.55rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.22);
+  animation: modelObsoletePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+body.theme-dark #slide-33:has(.model-obsolete-trigger.step-active) .obsolete-badge,
+body.theme-dark #slide-33[data-active-steps="1"] .obsolete-badge {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+  color: #fca5a5;
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+}
+
+/* --- Resaltado del Sucesor: Qwen 3.8 Flash Next --- */
+#slide-33:has(.model-obsolete-trigger.step-active) .row-successor-target,
+#slide-33[data-active-steps="1"] .row-successor-target {
+  transform: scale(1.012);
+  transform-origin: left center;
+}
+
+#slide-33:has(.model-obsolete-trigger.step-active) .row-successor-target .model-sizing-bar,
+#slide-33[data-active-steps="1"] .row-successor-target .model-sizing-bar {
+  border-color: #059669 !important;
+  background: #ecfdf5 !important;
+  box-shadow: 0 0 0 2.5px rgba(16, 185, 129, 0.45), 0 4px 18px rgba(16, 185, 129, 0.22);
+}
+
+body.theme-dark #slide-33:has(.model-obsolete-trigger.step-active) .row-successor-target .model-sizing-bar,
+body.theme-dark #slide-33[data-active-steps="1"] .row-successor-target .model-sizing-bar {
+  background: rgba(16, 185, 129, 0.24) !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 0 2.5px rgba(52, 211, 153, 0.45), 0 4px 20px rgba(16, 185, 129, 0.32);
+}
+
+#slide-33:has(.model-obsolete-trigger.step-active) .successor-badge,
+#slide-33[data-active-steps="1"] .successor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: #059669;
+  border: 1px solid #047857;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.58rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.35);
+  animation: modelSuccessorPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes modelObsoletePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) rotate(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes modelSuccessorPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ==========================================================================
@@ -18063,9 +18241,9 @@ body.overview-mode #slide-24 .mp-cap-final {
 }
 
 /* ============================================================
-   SLIDE 28: Layout Split (Meme Gato Cálculos a la Izquierda + Razonamiento a la Derecha)
+   SLIDE 36: Layout Split (Meme Gato Cálculos a la Izquierda + Razonamiento a la Derecha)
    ============================================================ */
-body.deck-hardware-part1 #slide-35 .calculasiones-layout-split {
+body.deck-hardware-part1 #slide-36 .calculasiones-layout-split {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
   gap: 3rem;
@@ -18076,7 +18254,7 @@ body.deck-hardware-part1 #slide-35 .calculasiones-layout-split {
   margin-top: 0.8rem;
 }
 
-body.deck-hardware-part1 #slide-35 .calculasiones-visual-stage {
+body.deck-hardware-part1 #slide-36 .calculasiones-visual-stage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18084,11 +18262,11 @@ body.deck-hardware-part1 #slide-35 .calculasiones-visual-stage {
   height: 100%;
 }
 
-body.deck-hardware-part1 #slide-35 .calculasiones-card-spotlight {
+body.deck-hardware-part1 #slide-36 .calculasiones-card-spotlight {
   display: contents;
 }
 
-body.deck-hardware-part1 #slide-35 .gato-hero-img {
+body.deck-hardware-part1 #slide-36 .gato-hero-img {
   width: 100%;
   max-width: 680px;
   max-height: 660px;
@@ -18099,14 +18277,14 @@ body.deck-hardware-part1 #slide-35 .gato-hero-img {
   display: block;
 }
 
-body.deck-hardware-part1 #slide-35 .calculasiones-cards-column {
+body.deck-hardware-part1 #slide-36 .calculasiones-cards-column {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-35 .calc-reason-card {
+body.deck-hardware-part1 #slide-36 .calc-reason-card {
   display: flex;
   gap: 1.4rem;
   align-items: flex-start;
@@ -18118,17 +18296,17 @@ body.deck-hardware-part1 #slide-35 .calc-reason-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-body.deck-hardware-part1 #slide-35 .calc-reason-card:hover {
+body.deck-hardware-part1 #slide-36 .calc-reason-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
-body.deck-hardware-part1 #slide-35 .calc-reason-card.highlight {
+body.deck-hardware-part1 #slide-36 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.35);
   background: linear-gradient(145deg, #ffffff 0%, rgba(234, 88, 12, 0.03) 100%);
 }
 
-body.deck-hardware-part1 #slide-35 .calc-reason-num {
+body.deck-hardware-part1 #slide-36 .calc-reason-num {
   flex: 0 0 auto;
   width: 52px;
   height: 52px;
@@ -18143,57 +18321,57 @@ body.deck-hardware-part1 #slide-35 .calc-reason-num {
   font-family: var(--font-mono);
 }
 
-body.deck-hardware-part1 #slide-35 .calc-reason-title {
+body.deck-hardware-part1 #slide-36 .calc-reason-title {
   font-weight: 800;
   font-size: 1.28rem;
   margin-bottom: 0.45rem;
 }
 
-body.deck-hardware-part1 #slide-35 .calc-reason-card p {
+body.deck-hardware-part1 #slide-36 .calc-reason-card p {
   font-size: 1.1rem;
   color: #525660;
   line-height: 1.55;
   margin: 0;
 }
 
-/* Modo oscuro Slide 28 */
-body.deck-hardware-part1.theme-dark #slide-35 .gato-hero-img {
+/* Modo oscuro Slide 36 */
+body.deck-hardware-part1.theme-dark #slide-36 .gato-hero-img {
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
 }
 
-body.deck-hardware-part1.theme-dark #slide-35 .calc-reason-card {
+body.deck-hardware-part1.theme-dark #slide-36 .calc-reason-card {
   background: #23262c;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body.deck-hardware-part1.theme-dark #slide-35 .calc-reason-card.highlight {
+body.deck-hardware-part1.theme-dark #slide-36 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.4);
   background: linear-gradient(145deg, #23262c 0%, rgba(234, 88, 12, 0.1) 100%);
 }
 
-body.deck-hardware-part1.theme-dark #slide-35 .calc-reason-card p {
+body.deck-hardware-part1.theme-dark #slide-36 .calc-reason-card p {
   color: #b8bcc4;
 }
 
 /* ============================================================
-   SLIDE 29: Optimización de espacio (tarjetas e imágenes más grandes)
+   SLIDE 37: Optimización de espacio (tarjetas e imágenes más grandes)
    ============================================================ */
-body.deck-hardware-part1 #slide-36 .trio-stage {
+body.deck-hardware-part1 #slide-37 .trio-stage {
   max-width: 1760px;
   gap: 2rem;
   margin-top: 1.2rem;
   margin-bottom: auto;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport {
+body.deck-hardware-part1 #slide-37 .trio-viewport {
   height: 520px;
   border-radius: 24px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1);
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport.hardware {
+body.deck-hardware-part1 #slide-37 .trio-viewport.hardware {
   width: 500px;
   padding: 1rem;
   overflow: hidden;
@@ -18201,7 +18379,7 @@ body.deck-hardware-part1 #slide-36 .trio-viewport.hardware {
 }
 
 /* Estado inicial: Hardware 100% visible, entero sin recortes */
-body.deck-hardware-part1 #slide-36 .trio-viewport.hardware img.gb10-img {
+body.deck-hardware-part1 #slide-37 .trio-viewport.hardware img.gb10-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -18211,68 +18389,68 @@ body.deck-hardware-part1 #slide-36 .trio-viewport.hardware img.gb10-img {
 }
 
 /* Paso 1: Zoom hacia el hardware y el texto de la derecha */
-body.deck-hardware-part1 #slide-36 .trio-viewport.hardware img.gb10-img.step-active {
+body.deck-hardware-part1 #slide-37 .trio-viewport.hardware img.gb10-img.step-active {
   object-fit: cover;
   object-position: 82% center;
   transform: scale(1.18);
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport.hardware:has(img.gb10-img.step-active) {
+body.deck-hardware-part1 #slide-37 .trio-viewport.hardware:has(img.gb10-img.step-active) {
   padding: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport.model {
+body.deck-hardware-part1 #slide-37 .trio-viewport.model {
   width: 440px;
   padding: 1.6rem 1.8rem;
   gap: 1.5rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport.model img {
+body.deck-hardware-part1 #slide-37 .trio-viewport.model img {
   width: 250px;
   height: 250px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport.model:hover img {
+body.deck-hardware-part1 #slide-37 .trio-viewport.model:hover img {
   transform: scale(1.05);
 }
 
-body.deck-hardware-part1 #slide-36 .trio-model-list {
+body.deck-hardware-part1 #slide-37 .trio-model-list {
   gap: 0.85rem;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-model-chip {
+body.deck-hardware-part1 #slide-37 .trio-model-chip {
   padding: 0.8rem 1.25rem;
   font-size: 1.05rem;
   border-radius: 12px;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-viewport.alchemy {
+body.deck-hardware-part1 #slide-37 .trio-viewport.alchemy {
   width: 480px;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-operator {
+body.deck-hardware-part1 #slide-37 .trio-operator {
   font-size: 3.6rem;
   margin-top: -3.2rem;
 }
 
-body.deck-hardware-part1 #slide-36 .trio-caption {
+body.deck-hardware-part1 #slide-37 .trio-caption {
   font-size: 1.12rem;
   padding: 0.7rem 1.6rem;
 }
 
 /* ============================================================
-   SLIDE 29: Efecto interactivo de Obsolescencia y Actualización a Qwen 3.8 FlashNext
+   SLIDE 37: Efecto interactivo de Obsolescencia y Actualización a Qwen 3.8 FlashNext
    ============================================================ */
-body.deck-hardware-part1 #slide-36 .trio-viewport.model {
+body.deck-hardware-part1 #slide-37 .trio-viewport.model {
   position: relative;
   overflow: hidden;
 }
 
 /* Sello ¡OBSOLETO! (Step 2) */
-body.deck-hardware-part1 #slide-36 .model-obsolete-overlay {
+body.deck-hardware-part1 #slide-37 .model-obsolete-overlay {
   position: absolute;
   inset: 0;
   display: flex;
@@ -18288,13 +18466,13 @@ body.deck-hardware-part1 #slide-36 .model-obsolete-overlay {
   transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
 }
 
-body.deck-hardware-part1 #slide-36 .model-obsolete-overlay.step-active {
+body.deck-hardware-part1 #slide-37 .model-obsolete-overlay.step-active {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-body.deck-hardware-part1 #slide-36 .obsolete-stamp {
+body.deck-hardware-part1 #slide-37 .obsolete-stamp {
   font-family: var(--font-mono);
   font-size: 2.2rem;
   font-weight: 900;
@@ -18310,7 +18488,7 @@ body.deck-hardware-part1 #slide-36 .obsolete-stamp {
   user-select: none;
 }
 
-body.deck-hardware-part1.theme-dark #slide-36 .obsolete-stamp {
+body.deck-hardware-part1.theme-dark #slide-37 .obsolete-stamp {
   background: rgba(24, 24, 27, 0.95);
   color: #ef4444;
   border-color: #ef4444;
@@ -18318,7 +18496,7 @@ body.deck-hardware-part1.theme-dark #slide-36 .obsolete-stamp {
 }
 
 /* Al activarse el Step 3 (reemplazo por Qwen 3.8 FlashNext), quitamos por completo el sello */
-body.deck-hardware-part1 #slide-36:has(.updated-model.step-active) .model-obsolete-overlay {
+body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .model-obsolete-overlay {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -18327,14 +18505,14 @@ body.deck-hardware-part1 #slide-36:has(.updated-model.step-active) .model-obsole
 }
 
 /* Manejo de chips y transición de modelo en chip-model-122b */
-body.deck-hardware-part1 #slide-36 .chip-model-122b {
+body.deck-hardware-part1 #slide-37 .chip-model-122b {
   position: relative;
   overflow: hidden;
   min-height: 52px;
   transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
-body.deck-hardware-part1 #slide-36 .chip-content {
+body.deck-hardware-part1 #slide-37 .chip-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18342,12 +18520,12 @@ body.deck-hardware-part1 #slide-36 .chip-content {
   gap: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-36 .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-37 .chip-model-122b .original-model {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Step 3 inactivo: el nuevo modelo está oculto */
-body.deck-hardware-part1 #slide-36 .updated-model {
+body.deck-hardware-part1 #slide-37 .updated-model {
   position: absolute;
   inset: 0;
   padding: 0.75rem 1.2rem;
@@ -18363,25 +18541,25 @@ body.deck-hardware-part1 #slide-36 .updated-model {
 }
 
 /* Step 3 activo: el original se oculta y entra Qwen 3.8 FlashNext */
-body.deck-hardware-part1 #slide-36:has(.updated-model.step-active) .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .chip-model-122b .original-model {
   opacity: 0;
   transform: translateY(-100%);
 }
 
-body.deck-hardware-part1 #slide-36 .updated-model.step-active {
+body.deck-hardware-part1 #slide-37 .updated-model.step-active {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0);
 }
 
-body.deck-hardware-part1 #slide-36:has(.updated-model.step-active) .chip-model-122b {
+body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .chip-model-122b {
   border-color: rgba(16, 185, 129, 0.6);
   background: rgba(16, 185, 129, 0.08);
   box-shadow: 0 4px 18px rgba(16, 185, 129, 0.25);
   transform: scale(1.02);
 }
 
-body.deck-hardware-part1 #slide-36 .updated-model-title {
+body.deck-hardware-part1 #slide-37 .updated-model-title {
   color: #047857;
   font-weight: 800;
   display: flex;
@@ -18390,13 +18568,13 @@ body.deck-hardware-part1 #slide-36 .updated-model-title {
   font-size: 1.05rem;
 }
 
-body.deck-hardware-part1 #slide-36 .updated-model-title small {
+body.deck-hardware-part1 #slide-37 .updated-model-title small {
   font-size: 0.82rem;
   color: #059669;
   font-weight: 700;
 }
 
-body.deck-hardware-part1 #slide-36 .quant-tag.next-gen {
+body.deck-hardware-part1 #slide-37 .quant-tag.next-gen {
   background: #059669;
   color: #ffffff;
   font-weight: 800;
@@ -18406,11 +18584,11 @@ body.deck-hardware-part1 #slide-36 .quant-tag.next-gen {
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
 }
 
-body.deck-hardware-part1.theme-dark #slide-36 .updated-model-title {
+body.deck-hardware-part1.theme-dark #slide-37 .updated-model-title {
   color: #34d399;
 }
 
-body.deck-hardware-part1.theme-dark #slide-36:has(.updated-model.step-active) .chip-model-122b {
+body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .chip-model-122b {
   border-color: rgba(52, 211, 153, 0.6);
   background: rgba(16, 185, 129, 0.15);
   box-shadow: 0 4px 22px rgba(16, 185, 129, 0.35);
