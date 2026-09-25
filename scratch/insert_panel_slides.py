@@ -37,6 +37,27 @@ assert 'id="slide-22"' in html
 assert 'id="slide-23"' not in html  # libres para las nuevas
 
 # ---------------------------------------------------------------------------
+# 1b. Desplazar selectores #slide-N (N>=23) de style.css que apuntaban a las
+#     slides ANTES de la inserción (quedaron obsoletos al renumerar +2).
+#     Se excluye el bloque CSS nuevo de las slides 23/24 (se añade después).
+# ---------------------------------------------------------------------------
+import re
+css_head_marker = "SLIDES 23 & 24: PANEL VISUAL"
+css_text = CSS.read_text(encoding="utf-8")
+if css_head_marker in css_text:
+    head, tail = css_text.split(css_head_marker, 1)
+
+    def _shift(m):
+        n = int(m.group(1))
+        return f"#slide-{n + 2}" if 23 <= n <= 32 else m.group(0)
+
+    head = re.sub(r"#slide-(\d+)", _shift, head)
+    CSS.write_text(head + css_head_marker + tail, encoding="utf-8")
+    print("✅ style.css: selectores #slide-N>=23 desplazados +2")
+else:
+    print("ℹ️ style.css: sin bloque nuevo aún, no hay selectores que desplazar")
+
+# ---------------------------------------------------------------------------
 # 2. Generadores SVG del panel de 48 cajitas (8 col x 6 filas)
 # ---------------------------------------------------------------------------
 CELL_W, CELL_H = 84, 54

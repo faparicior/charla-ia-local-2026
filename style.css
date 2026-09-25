@@ -5977,7 +5977,7 @@ body.theme-dark .tri-center-target {
 /* ==========================================================================
    SLIDE 24: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
    ========================================================================== */
-#slide-32 .slide-content {
+#slide-34 .slide-content {
   gap: 0.35rem;
   justify-content: flex-start;
 }
@@ -16599,7 +16599,7 @@ body.deck-hardware-part1 #slide-4 .press-footer-link {
 }
 
 /* s14 en modo presentación: col-note ocultas -> filas más altas para llenar la caja */
-body.deck-hardware-part1:not(.mode-document) #slide-23 .goldilocks-table td {
+body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-table td {
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
 }
@@ -16909,8 +16909,8 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
 }
 
 /* s14 charla: columna Diagnóstico/Fit entera fuera (th + celdas) */
-body.deck-hardware-part1:not(.mode-document) #slide-23 .goldilocks-table th:last-child,
-body.deck-hardware-part1:not(.mode-document) #slide-23 .goldilocks-table td.col-note {
+body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-table th:last-child,
+body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-table td.col-note {
   display: none;
 }
 
@@ -16921,7 +16921,7 @@ body.mode-document th.doc-only { display: table-cell; }
 body.mode-document li.doc-only { display: list-item; }
 
 /* s14 charla: banner Zona Ricitos de Oro solo en modo documento */
-body.deck-hardware-part1:not(.mode-document) #slide-23 .goldilocks-banner {
+body.deck-hardware-part1:not(.mode-document) #slide-25 .goldilocks-banner {
   display: none;
 }
 
@@ -17415,8 +17415,8 @@ body.mode-document .qad-card .anat-detail {
 }
 
 /* s15/s16/s17 doc: subtitulo compacto (patron s4, especificidad ganadora) */
-body.deck-hardware-part1.mode-document #slide-24 .slide-content > .subtitle,
-body.deck-hardware-part1.mode-document #slide-25 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-26 .slide-content > .subtitle,
+body.deck-hardware-part1.mode-document #slide-27 .slide-content > .subtitle,
 body.deck-hardware-part1.mode-document #slide-12 .slide-content > .subtitle {
   font-size: 0.98rem !important;
   line-height: 1.42 !important;
@@ -17904,3 +17904,175 @@ body.overview-mode #slide-24 .mp-cap-final {
     opacity: 1 !important;
   }
 }
+
+/* ============================================================
+   SLIDE 28: Layout Split (Meme Gato Cálculos a la Izquierda + Razonamiento a la Derecha)
+   ============================================================ */
+body.deck-hardware-part1 #slide-28 .calculasiones-layout-split {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 0.8rem;
+}
+
+body.deck-hardware-part1 #slide-28 .calculasiones-visual-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+body.deck-hardware-part1 #slide-28 .calculasiones-card-spotlight {
+  display: contents;
+}
+
+body.deck-hardware-part1 #slide-28 .gato-hero-img {
+  width: 100%;
+  max-width: 680px;
+  max-height: 660px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  display: block;
+}
+
+body.deck-hardware-part1 #slide-28 .calculasiones-cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  justify-content: center;
+}
+
+body.deck-hardware-part1 #slide-28 .calc-reason-card {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.deck-hardware-part1 #slide-28 .calc-reason-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+body.deck-hardware-part1 #slide-28 .calc-reason-card.highlight {
+  border-color: rgba(234, 88, 12, 0.35);
+  background: linear-gradient(145deg, #ffffff 0%, rgba(234, 88, 12, 0.03) 100%);
+}
+
+body.deck-hardware-part1 #slide-28 .calc-reason-num {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: var(--ct);
+  color: var(--c);
+  font-weight: 800;
+  font-size: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+}
+
+body.deck-hardware-part1 #slide-28 .calc-reason-title {
+  font-weight: 800;
+  font-size: 1.28rem;
+  margin-bottom: 0.45rem;
+}
+
+body.deck-hardware-part1 #slide-28 .calc-reason-card p {
+  font-size: 1.1rem;
+  color: #525660;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Modo oscuro Slide 28 */
+body.deck-hardware-part1.theme-dark #slide-28 .gato-hero-img {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+}
+
+body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card {
+  background: #23262c;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card.highlight {
+  border-color: rgba(234, 88, 12, 0.4);
+  background: linear-gradient(145deg, #23262c 0%, rgba(234, 88, 12, 0.1) 100%);
+}
+
+body.deck-hardware-part1.theme-dark #slide-28 .calc-reason-card p {
+  color: #b8bcc4;
+}
+
+/* ============================================================
+   SLIDE 29: Optimización de espacio (tarjetas e imágenes más grandes)
+   ============================================================ */
+body.deck-hardware-part1 #slide-29 .trio-stage {
+  max-width: 1760px;
+  gap: 2rem;
+  margin-top: 1.2rem;
+  margin-bottom: auto;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-viewport {
+  height: 520px;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1);
+}
+
+body.deck-hardware-part1 #slide-29 .trio-viewport.hardware {
+  width: 500px;
+  padding: 1.4rem;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-viewport.model {
+  width: 430px;
+  padding: 2rem;
+  gap: 1.8rem;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-viewport.model img {
+  width: 170px;
+  height: 170px;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-model-list {
+  gap: 0.9rem;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-model-chip {
+  padding: 0.75rem 1.2rem;
+  font-size: 1.02rem;
+  border-radius: 12px;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-viewport.alchemy {
+  width: 480px;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-operator {
+  font-size: 3.6rem;
+  margin-top: -3.2rem;
+}
+
+body.deck-hardware-part1 #slide-29 .trio-caption {
+  font-size: 1.12rem;
+  padding: 0.7rem 1.6rem;
+}
+
