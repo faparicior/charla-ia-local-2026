@@ -40,6 +40,16 @@ La inferencia de modelos de lenguaje autorregresivos está **limitada por el anc
 * **Ecosistema:** `llama.cpp` / Ollama para inferencia local en CPU, GPU de consumo y Apple Silicon (Unified Memory).
 * **Puntos clave:** Con matrices de importancia (`imatrix`), **Q5_K_M** se considera el "Gold Standard" de equilibrio (~98.8% retención), mientras que **Q4_K_M** ofrece el compromiso clásico de ahorro (~96.5% retención).
 
+### F. QAD (Quantization-Aware Distillation — NVIDIA 2026)
+* **Mecanismo:** Un *teacher* congelado en BF16 guía a un *student* cuantizado (W4) usando KL Divergence loss y alineación geométrica CKA.
+* **Impacto en calidad:** Recupera prácticamente el 100% de la precisión del original sin sufrir la inestabilidad del QAT tradicional. Estándar para exprimir el formato NVFP4.
+
+### G. GSQ + RCO (ISTA-DASLab / Dan Alistarh) — 2 a 3 bits de Alta Fidelidad
+* **Mecanismo:** GSQ relaja la rejilla discreta con Gumbel-Softmax; RCO optimiza el presupuesto exacto de VRAM mediante una variedad Riemanniana en el espacio de logits.
+* **Impacto en calidad:** Permite empaquetar modelos de 27B–32B en GPUs de 16 GB (o 70B en 24 GB) a ~2.7–3.3 bits efectivos sin el colapso destructivo habitual.
+
+> *Nota:* Consulta la guía monográfica completa en [`script/compensacion-activa-pesos.md`](compensacion-activa-pesos.md).
+
 ---
 
 ## 3. Tabla de Pérdida Esperada de Capacidad: Caso de Estudio Qwen 3.5 - 122B MoE

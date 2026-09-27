@@ -1545,6 +1545,19 @@
                     <td><span class="cost-tag extreme">Extremo</span> <span class="cost-sub">(d&iacute;as cl&uacute;ster)</span></td>
                     <td>Espec&iacute;fico del framework</td>
                   </tr>
+                  <tr class="step row-gsq-special" data-step="1">
+                    <td class="col-name">
+                      <div class="name-with-badge">
+                        <strong>GSQ + RCO</strong>
+                        <span class="vendor-tag ista">ISTA</span>
+                        <span class="gsq-mini-pill">&#10024; 2&ndash;3 bits</span>
+                      </div>
+                    </td>
+                    <td><span class="comp-badge badge-fuchsia">Gumbel + Manifold</span></td>
+                    <td>Relajaci&oacute;n continua &amp; variedad Riemanniana <span class="comp-detail doc-only">(sin colapso a 2.7 bpw)</span></td>
+                    <td><span class="cost-tag medium">Medio</span> <span class="cost-sub">(1 GPU &middot; &lt;2h)</span></td>
+                    <td>GGUF / ExLlamaV2 <span class="comp-sub">(27B en 16GB &middot; 70B en 24GB)</span></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -1552,7 +1565,209 @@
             <div class="comp-table-footer">
               <div class="comp-footer-icon">&#128161;</div>
               <div class="comp-footer-text">
-                <strong>La clave pr&aacute;ctica:</strong> Para desplegar sin cl&uacute;sters de re-entrenamiento, <strong>AutoRound</strong> lidera en inferencia abierta universal y <strong>QAD</strong> es el nuevo est&aacute;ndar para exprimir 4 bits (NVFP4) al nivel exacto de BF16.
+                <strong>La clave pr&aacute;ctica:</strong> Para 4 bits (NVFP4), <strong>AutoRound</strong> y <strong>QAD</strong> garantizan m&aacute;xima fidelidad sin deriva. Para romper el abismo de <strong>2&ndash;3 bits</strong>, la frontera de 2026 es <strong>GSQ + RCO</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 13c: ROMPIENDO EL ABISMO DE LOS 2-3 BITS — GSQ + RCO
+         ==================================================================== -->
+    <section class="slide" id="slide-13-gsq-rco">
+      <div class="slide-content">
+        <div class="tag">Vanguardia 2026 &bull; Cuantizaci&oacute;n Extrema (2&ndash;3 bits) &bull; ISTA-DASLab</div>
+        <h2>Rompiendo el Abismo de los 2&ndash;3 Bits: <span class="serif-italic" style="color: #c026d3;">GSQ + RCO</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          C&oacute;mo la relajaci&oacute;n continua mediante Gumbel-Softmax (arXiv:2604.18556) y las Variedades Riemannianas (arXiv:2605.00649) salvan modelos de 27B y 70B del colapso cognitivo en GPUs dom&eacute;sticas.
+        </p>
+
+        <div class="gsq-rco-grid">
+          <!-- Columna Izquierda: Los Dos Pilares Matemáticos -->
+          <div class="gsq-pillars-col">
+            <!-- Pilar 1: GSQ -->
+            <div class="gsq-card gsq-card-gumbel">
+              <div class="gsq-card-header">
+                <div class="gsq-card-title-group">
+                  <span class="gsq-icon">&#128300;</span>
+                  <div>
+                    <h3 class="gsq-card-title">GSQ: Gumbel-Softmax Quantization</h3>
+                    <span class="gsq-card-arxiv">arXiv:2604.18556 &middot; ISTA-DASLab (Dan Alistarh)</span>
+                  </div>
+                </div>
+                <span class="gsq-pill-tag tag-fuchsia">Relajaci&oacute;n Continua</span>
+              </div>
+              <div class="gsq-card-body">
+                <p class="gsq-desc">
+                  <strong>El problema a &lt;3 bits:</strong> El redondeo discreto carece de gradiente directo. El estimador cl&aacute;sico (STE) inyecta tanto ruido que descalabra la atenci&oacute;n de los modelos.
+                </p>
+                <div class="gsq-pipeline-box">
+                  <div class="gsq-pipe-step">
+                    <span class="pipe-label">Pesos $W$</span>
+                    <span class="pipe-desc">Valores BF16</span>
+                  </div>
+                  <div class="gsq-pipe-arrow">&rarr;</div>
+                  <div class="gsq-pipe-step highlight">
+                    <span class="pipe-label">+ Gumbel $(g)$</span>
+                    <span class="pipe-desc">Ruido estoc&aacute;stico</span>
+                  </div>
+                  <div class="gsq-pipe-arrow">&rarr;</div>
+                  <div class="gsq-pipe-step highlight">
+                    <span class="pipe-label">Softmax($\cdot / \tau$)</span>
+                    <span class="pipe-desc">Recocido $\tau \to 0$</span>
+                  </div>
+                  <div class="gsq-pipe-arrow">&rarr;</div>
+                  <div class="gsq-pipe-step">
+                    <span class="pipe-label">Rejilla Discreta</span>
+                    <span class="pipe-desc">2 &oacute; 3 bits puros</span>
+                  </div>
+                </div>
+                <p class="gsq-note">
+                  &#10004; <strong>Ventaja crucial:</strong> Permite backpropagation anal&iacute;tico exacto durante la cuantizaci&oacute;n. Los pesos convergen sin saltos ca&oacute;ticos.
+                </p>
+              </div>
+            </div>
+
+            <!-- Pilar 2: RCO -->
+            <div class="gsq-card gsq-card-rco">
+              <div class="gsq-card-header">
+                <div class="gsq-card-title-group">
+                  <span class="gsq-icon">&#128208;</span>
+                  <div>
+                    <h3 class="gsq-card-title">RCO: Riemannian Constrained Optimization</h3>
+                    <span class="gsq-card-arxiv">arXiv:2605.00649 &middot; ISTA-DASLab</span>
+                  </div>
+                </div>
+                <span class="gsq-pill-tag tag-violet">Presupuesto VRAM Exacto</span>
+              </div>
+              <div class="gsq-card-body">
+                <p class="gsq-desc">
+                  <strong>El problema de los bits enteros:</strong> Forzar 2 o 3 bits uniformes asfixia a los tensores cr&iacute;ticos de atenci&oacute;n y malgasta espacio en capas intermedias.
+                </p>
+                <div class="rco-allocation-visual">
+                  <div class="rco-alloc-bar">
+                    <div class="rco-alloc-segment seg-crit" style="flex: 1.35;">
+                      <span class="seg-title">Atenci&oacute;n / QKV / Down</span>
+                      <span class="seg-bits">3.4 bpw</span>
+                    </div>
+                    <div class="rco-alloc-segment seg-mid" style="flex: 1.0;">
+                      <span class="seg-title">MLP Gate / Out</span>
+                      <span class="seg-bits">2.8 bpw</span>
+                    </div>
+                    <div class="rco-alloc-segment seg-low" style="flex: 0.85;">
+                      <span class="seg-title">Capas Tolerantes</span>
+                      <span class="seg-bits">2.1 bpw</span>
+                    </div>
+                  </div>
+                  <div class="rco-alloc-legend">
+                    <span>&#9878;&#65039; Restricci&oacute;n de Variedad Riemanniana:</span>
+                    <strong>Media exacta = 2.80 bpw (Encaja en tu VRAM sin redondear hacia arriba)</strong>
+                  </div>
+                </div>
+                <p class="gsq-note">
+                  &#10004; <strong>Ventaja crucial:</strong> Optimizaci&oacute;n fraccional continua capa por capa; cero desperdicio de memoria y m&aacute;xima fidelidad donde importa.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Impacto Práctico y Hitos de Hardware -->
+          <div class="gsq-impact-col">
+            <!-- Tarjeta 1: Gráfico comparativo del Abismo de los 2-3 bits -->
+            <div class="impact-card cliff-card">
+              <div class="impact-header">
+                <span class="impact-title">&#128201; El Fin del &laquo;Abismo de los 2&ndash;3 Bits&raquo;</span>
+                <span class="impact-sub">Perplejidad &amp; Razonamiento</span>
+              </div>
+              <div class="cliff-comparison-bars">
+                <div class="cliff-row">
+                  <div class="cliff-meta">
+                    <span class="cliff-name">NVFP4 / Q4_K_M (4.0 bpw)</span>
+                    <span class="cliff-score pass">~99% Calidad BF16</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-4bit" style="width: 99%;"></div>
+                  </div>
+                </div>
+                <div class="cliff-row">
+                  <div class="cliff-meta">
+                    <span class="cliff-name">AutoRound PTQ (3.0 bpw)</span>
+                    <span class="cliff-score medium">~86% Calidad</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-3bit" style="width: 86%;"></div>
+                  </div>
+                </div>
+                <div class="cliff-row">
+                  <div class="cliff-meta">
+                    <span class="cliff-name">PTQ Cl&aacute;sico / RTN (&lt;3.0 bpw)</span>
+                    <span class="cliff-score fail">&#128165; Colapso Cognitivo (Bucles)</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-collapse" style="width: 25%;"></div>
+                  </div>
+                </div>
+                <div class="cliff-row highlight-gsq">
+                  <div class="cliff-meta">
+                    <span class="cliff-name"><strong>GSQ + RCO (2.8 bpw Mixto)</strong></span>
+                    <span class="cliff-score star">&#10024; ~96.5% Calidad (Intacto)</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-gsq" style="width: 96.5%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Hitos de Hardware Local Real -->
+            <div class="impact-card hardware-targets-card">
+              <div class="impact-header">
+                <span class="impact-title">&#128421;&#65039; Qu&eacute; Desbloquea en Hardware Dom&eacute;stico</span>
+                <span class="impact-sub">GGUF &middot; ExLlamaV2</span>
+              </div>
+              <div class="hardware-targets-grid">
+                <div class="hw-target-box box-16gb">
+                  <div class="hw-target-badge">16 GB VRAM</div>
+                  <div class="hw-target-gpu">RTX 4080 / 5080 &middot; Mac 16GB</div>
+                  <div class="hw-target-models">
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Qwen 2.5 32B</span>
+                      <span class="model-fit-tag">&#10004; 100% en GPU (2.85 bpw)</span>
+                    </div>
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Gemma 2 27B</span>
+                      <span class="model-fit-tag">&#10004; Con KV Cache FP8</span>
+                    </div>
+                  </div>
+                  <div class="hw-target-foot">Antes impensable sin offload severo a RAM</div>
+                </div>
+
+                <div class="hw-target-box box-24gb">
+                  <div class="hw-target-badge">24 GB VRAM</div>
+                  <div class="hw-target-gpu">RTX 3090 / 4090 / 5090 &middot; Mac 24GB</div>
+                  <div class="hw-target-models">
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Llama 3.3 70B</span>
+                      <span class="model-fit-tag">&#10004; 100% en GPU (2.75 bpw)</span>
+                    </div>
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Qwen 2.5 72B</span>
+                      <span class="model-fit-tag">&#10004; ~22 GB VRAM &middot; 20+ t/s</span>
+                    </div>
+                  </div>
+                  <div class="hw-target-foot">Pensamiento largo sin cuello de botella PCIe</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Callout Inferior -->
+            <div class="gsq-callout-footer">
+              <span class="gsq-callout-icon">&#9889;</span>
+              <div class="gsq-callout-text">
+                <strong>El salto estrat&eacute;gico de 2026:</strong> Ya no se trata s&oacute;lo de recortar bits, sino de <em>asignar precisi&oacute;n continua</em> sobre la geometr&iacute;a del modelo. GSQ + RCO redefine qu&eacute; modelos caben en una &uacute;nica GPU dom&eacute;stica.
               </div>
             </div>
           </div>
@@ -5379,7 +5594,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">42</span>
+        <span id="slide-current">1</span> / <span id="slide-total">43</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
