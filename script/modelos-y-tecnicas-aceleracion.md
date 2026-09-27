@@ -27,6 +27,12 @@
 * **Uso en inferencia (*Self-Speculative Decoding*):** Estos cabezales actúan como un *drafter* interno sin requerir un modelo auxiliar externo. Proponen una secuencia corta de tokens que el modelo base verifica en una sola pasada causal paralela.
 * **Ventajas y límites:** Overhead de memoria mínimo y latencia de *drafting* casi nula. Sin embargo, la tasa de aceptación decae rápidamente a partir de 2–4 tokens hacia adelante al perder contexto autoregresivo profundo.
 
+**DSpark & DeepSpec (DeepSeek)**
+
+* **Principio:** Técnica de decodificación especulativa abierta desarrollada por DeepSeek enfocada en la eficiencia de verificación mediante **corte dinámico de confianza** (*dynamic confidence cutoff*).
+* **Mecanismo:** El modelo borrador genera secuencias candidatas evaluando la probabilidad de acierto token a token con un cabezal de Markov. Si la confianza decae por debajo de un umbral dinámico (típicamente `< 70%`), la propuesta se trunca inmediatamente en lugar de enviar tokens dudosos al modelo base.
+* **Ventajas:** Evita el desperdicio de ciclos de GPU en el modelo principal para validar tokens erróneos (*speculation thrashing*). No requiere reentrenar los pesos del modelo grande y, a través del toolkit MIT **DeepSpec**, se adapta a Qwen, Llama y Gemma en vLLM/SGLang, elevando el throughput un +60% a +85%.
+
 ---
 
 **DFlash (*Block Diffusion Speculative Decoding*)**
@@ -45,10 +51,10 @@
 
 ---
 
-| Característica | MTP | DFlash | DFlash 2 |
-| --- | --- | --- | --- |
-| **Tipo de Drafter** | Cabezales internos / autoregresivo ligero | Modelo externo de difusión por bloques | Difusión por bloques + Selector de caminos |
-| **Generación de borrador** | Secuencial / heads paralelos fijos | 1 *forward pass* paralelo | 1 *forward pass* paralelo + selección multi-candidato |
-| **Tokens típicos por bloque** | 1 – 3 tokens | 8 – 16 tokens | 8 tokens (con candidatos por slot) |
-| **Impacto en VRAM** | Prácticamente nulo | Bajo (modelo auxiliar compacto) | Bajo (modelo auxiliar + micro-selector) |
-| **Garantía de salida** | *Lossless* (verificado por el base) | *Lossless* | *Lossless* |
+| Característica | MTP | DSpark (DeepSpec) | DFlash | DFlash 2 |
+| --- | --- | --- | --- | --- |
+| **Tipo de Drafter** | Cabezales internos / autoregresivo ligero | Drafter autoregresivo + filtro de Markov | Modelo externo de difusión por bloques | Difusión por bloques + Selector de caminos |
+| **Generación de borrador** | Secuencial / heads paralelos fijos | Secuencial con corte dinámico (&lt;70%) | 1 *forward pass* paralelo | 1 *forward pass* paralelo + selección multi-candidato |
+| **Tokens típicos por bloque** | 1 – 3 tokens | 3 – 6 tokens (longitud variable adaptativa) | 8 – 16 tokens | 8 tokens (con candidatos por slot) |
+| **Impacto en VRAM** | Prácticamente nulo | Muy bajo (drafter compacto) | Bajo (modelo auxiliar compacto) | Bajo (modelo auxiliar + micro-selector) |
+| **Garantía de salida** | *Lossless* (verificado por el base) | *Lossless* (verificado por el base) | *Lossless* | *Lossless* |
