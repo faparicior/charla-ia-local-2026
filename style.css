@@ -20851,3 +20851,26 @@ body.deck-hardware-part1 .autoround-card-desc {
   font-size: 1.05rem;
   line-height: 1.5;
 }
+
+/* ==========================================================================
+   PARTE 2 — Slide 27 (timeline SDLC): tarjeta Fase 2b Features (fucsia) + grid a 6
+   ========================================================================== */
+#slide-pillar-sdlc-timeline .adr-timeline-track {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+#slide-pillar-sdlc-timeline .adr-step-icon-box.fuchsia {
+  background: rgba(217, 70, 239, 0.12);
+  border-color: rgba(217, 70, 239, 0.3);
+  box-shadow: 0 0 18px rgba(217, 70, 239, 0.15);
+}
+
+#slide-pillar-sdlc-timeline .adr-step-bullet-item.fuchsia {
+  background: rgba(217, 70, 239, 0.08);
+  border-color: rgba(217, 70, 239, 0.25);
+}
+
+#slide-pillar-sdlc-timeline .adr-step-bullet-item.fuchsia code {
+  color: #a21caf;
+}
