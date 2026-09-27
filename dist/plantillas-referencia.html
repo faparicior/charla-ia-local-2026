@@ -2003,6 +2003,148 @@ body.theme-dark .hacker-item-desc code {
   box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
+/* ==========================================================================
+   SLIDE 40 / SLIDE 42: HACKERS & COMUNIDAD - ESCALADO PROMINENTE PARA PRESENTACIÓN
+   ========================================================================== */
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-deck {
+  flex: 1 1 0;
+  min-height: 0;
+  justify-content: space-between;
+  gap: 1.35rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-card {
+  padding: 1.65rem 1.85rem;
+  border-radius: 22px;
+  justify-content: space-between;
+  gap: 1.15rem;
+  height: 100%;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-profile-header {
+  gap: 1.35rem;
+  padding-bottom: 0.95rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-avatar {
+  width: 98px;
+  height: 98px;
+  min-width: 98px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-name {
+  font-size: 2.35rem;
+  font-weight: 800;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-handle {
+  font-size: 1.18rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-role {
+  font-size: 1.25rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-repo-tag {
+  font-size: 1.08rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-list {
+  gap: 1.05rem;
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item {
+  padding: 1.15rem 1.45rem;
+  border-radius: 16px;
+  gap: 1.2rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-icon-badge {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  font-size: 1.4rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item-title {
+  font-size: 1.62rem;
+  font-weight: 750;
+  line-height: 1.26;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item-desc {
+  font-size: 1.38rem;
+  line-height: 1.48;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-ribbon {
+  padding: 1.15rem 1.85rem;
+  border-radius: 18px;
+  gap: 1.6rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-icon {
+  font-size: 2.1rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-text {
+  font-size: 1.32rem;
+  line-height: 1.46;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-badge {
+  font-size: 1.05rem;
+  padding: 0.5rem 1.1rem;
+}
+
+/* Modo Documento: escala compacta que preserva legibilidad con subtítulo */
+body.mode-document #slide-40 .hacker-card {
+  padding: 1.2rem 1.4rem;
+  border-radius: 16px;
+}
+
+body.mode-document #slide-40 .hacker-avatar {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+}
+
+body.mode-document #slide-40 .hacker-name {
+  font-size: 1.9rem;
+}
+
+body.mode-document #slide-40 .hacker-item {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+}
+
+body.mode-document #slide-40 .hacker-item-title {
+  font-size: 1.32rem;
+}
+
+body.mode-document #slide-40 .hacker-item-desc {
+  font-size: 1.12rem;
+}
+
+body.mode-document #slide-40 .hackers-upstream-ribbon {
+  padding: 0.85rem 1.4rem;
+}
+
+body.mode-document #slide-40 .hackers-upstream-text {
+  font-size: 1.1rem;
+}
+
 .code-content .string {
   color: #34d399;
 }
@@ -2104,27 +2246,27 @@ body.theme-dark .rect-bar-cap {
 }
 
 .rect-bar-segment.c2 {
-  background-color: #d97706;
+  background-color: #10b981;
 }
 
 .rect-bar-segment.c3 {
-  background-color: #7c3aed;
+  background-color: #d97706;
 }
 
 .rect-bar-segment.c4 {
-  background-color: #ea580c;
+  background-color: #7c3aed;
 }
 
 .rect-bar-segment.c5 {
-  background-color: #0d9488;
+  background-color: #ea580c;
 }
 
 .rect-bar-segment.c6 {
-  background-color: #e11d48;
+  background-color: #0d9488;
 }
 
 .rect-bar-segment.c7 {
-  background-color: #10b981;
+  background-color: #e11d48;
 }
 
 .rect-bar-segment.c8 {
@@ -2144,6 +2286,11 @@ body.theme-dark .rect-bar-cap {
 .rect-timeline-grid.cols-5 {
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
+}
+
+.rect-timeline-grid.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.95rem;
 }
 
 .rect-timeline-grid.cols-8 {
@@ -2495,6 +2642,47 @@ body.theme-dark .c-cyan {
 
 .rect-timeline-grid.cols-5 .rect-date-label {
   font-size: 0.78rem;
+}
+
+/* Ajustes específicos para 7 columnas (Timeline 2026 Modelos & Hardware) */
+.rect-timeline-grid.cols-7 .rect-top-slot,
+.rect-timeline-grid.cols-7 .rect-bottom-slot {
+  height: 285px;
+}
+
+.rect-timeline-grid.cols-7 .rect-card {
+  padding: 0.85rem 0.95rem;
+  border-radius: 13px;
+  gap: 0.38rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-title {
+  font-size: 1.12rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-tag {
+  font-size: 0.72rem;
+  padding: 0.14rem 0.46rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-desc {
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-footer {
+  font-size: 0.74rem;
+  padding-top: 0.3rem;
+  gap: 0.15rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-date-year {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.rect-timeline-grid.cols-7 .rect-date-label {
+  font-size: 0.75rem;
 }
 
 /* Cinta resumen de pie de slide */
@@ -6847,6 +7035,233 @@ body.theme-dark .chosen-synergy-banner {
 body.theme-dark .chosen-synergy-badge {
   color: #fb923c;
   background: rgba(234, 88, 12, 0.2);
+}
+
+/* ==========================================================================
+   SLIDE 41: MODELOS ESCOGIDOS - TIPOGRAFÍA EXPANSIVA Y PASOS INTERACTIVOS
+   ========================================================================== */
+.chosen-model-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+#slide-41 .chosen-card {
+  position: relative;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  height: 100%;
+}
+
+/* Modo Charla (Presentación): Tipografías generosas aprovechando la altura */
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-card {
+  padding: 1.45rem 1.65rem;
+  border-radius: 18px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-card-header {
+  gap: 0.45rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-model-title {
+  font-size: 1.8rem;
+  line-height: 1.22;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-role-desc {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-role-badge {
+  font-size: 0.84rem;
+  padding: 0.28rem 0.72rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-quant-badge {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.62rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-hf-link {
+  font-size: 0.82rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-table {
+  padding: 0.55rem 0.85rem;
+  gap: 0.38rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row {
+  font-size: 0.86rem;
+  padding: 0.28rem 0.45rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row .spec-value {
+  font-size: 0.86rem;
+}
+
+/* Sello ¡OBSOLETO! para Slide 41 (Step 1) */
+#slide-41 .card-obsolete-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: 18px;
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.3);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
+}
+
+#slide-41 .card-obsolete-overlay.step-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+#slide-41 .obsolete-stamp {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #dc2626;
+  border: 4px solid #dc2626;
+  border-radius: 14px;
+  padding: 0.6rem 1.8rem;
+  text-transform: uppercase;
+  transform: rotate(-12deg);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25), inset 0 0 12px rgba(220, 38, 38, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  user-select: none;
+}
+
+body.theme-dark #slide-41 .obsolete-stamp {
+  background: rgba(24, 24, 27, 0.95);
+  color: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.45);
+}
+
+/* En Step 1 (sello activo, pero Step 2 inactivo): Qwen 3.5 muestra badge inline OBSOLETO y tachado */
+#slide-41 .card-inline-obsolete-tag {
+  display: none;
+}
+
+#slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .card-inline-obsolete-tag {
+  display: inline-flex;
+}
+
+#slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
+  text-decoration: line-through;
+  opacity: 0.65;
+  color: #dc2626;
+}
+
+body.theme-dark #slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
+  color: #f87171;
+}
+
+/* En Step 2: entra Qwen 3.8 FlashNext y se retira el sello y Qwen 3.5 */
+#slide-41:has(.model-v3-8.step-active) .card-obsolete-overlay {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: scale(0.85) rotate(-15deg);
+}
+
+#slide-41:has(.model-v3-8.step-active) .model-v3-5 {
+  display: none !important;
+}
+
+#slide-41 .model-v3-8:not(.step-active) {
+  display: none;
+}
+
+#slide-41 .model-v3-8.step-active {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#slide-41:has(.model-v3-8.step-active) .card-brain {
+  border-top-color: #10b981;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+}
+
+body.theme-dark #slide-41:has(.model-v3-8.step-active) .card-brain {
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);
+}
+
+/* Badges específicos de Qwen 3.8 */
+.chosen-role-badge.successor-role {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+body.theme-dark .chosen-role-badge.successor-role {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.title-successor {
+  color: #059669 !important;
+}
+
+body.theme-dark .title-successor {
+  color: #34d399 !important;
+}
+
+.desc-successor {
+  border-left-color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.04) !important;
+}
+
+body.theme-dark .desc-successor {
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Modo Documento: se muestra directamente el stack actualizado sin overlays */
+body.mode-document #slide-41 .card-obsolete-overlay {
+  display: none !important;
+}
+
+body.mode-document #slide-41 .model-v3-5 {
+  display: none !important;
+}
+
+body.mode-document #slide-41 .model-v3-8 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem !important;
+}
+
+body.mode-document #slide-41 .card-brain {
+  border-top-color: #10b981;
+}
+
+body.mode-document #slide-41 .chosen-model-title {
+  font-size: 1.35rem;
+}
+
+body.mode-document #slide-41 .chosen-role-desc {
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 /* ==========================================================================
@@ -20892,6 +21307,112 @@ body.deck-hardware-part1 .autoround-card-desc {
 
 #slide-pillar-sdlc-timeline .adr-step-bullet-item.fuchsia code {
   color: #a21caf;
+}
+
+/* ==========================================================================
+   PARTE 2 — Variante fucsia para hero-box / skill-pill (Fase 2b Features)
+   ========================================================================== */
+.sdlc-hero-box.fuchsia {
+  border-left-color: #d946ef;
+}
+
+body.theme-dark .sdlc-hero-box.fuchsia {
+  border-left-color: #e879f9;
+}
+
+.sdlc-hero-box.fuchsia .sdlc-hero-quote u {
+  color: #d946ef;
+}
+
+.sdlc-skill-pill.fuchsia {
+  background: rgba(217, 70, 239, 0.08);
+  border: 1px solid rgba(217, 70, 239, 0.25);
+  color: #a21caf;
+}
+
+body.theme-dark .sdlc-skill-pill.fuchsia {
+  background: rgba(240, 171, 252, 0.12);
+  border-color: rgba(240, 171, 252, 0.3);
+  color: #f0abfc;
+}
+
+/* ==========================================================================
+   PARTE 2 — Slides 2b Features & Fase 3: Modo Charla simple (patrón 17/18)
+   En Charla: quote + títulos de puntos + terminal núcleo + banner compacto.
+   El detalle (subs, descs, secciones doc-only) vive en Modo Documento.
+   ========================================================================== */
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-desc,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-desc {
+  display: none !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-banner {
+  padding: 0.55rem 1.2rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-icon {
+  font-size: 1.05rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-text {
+  font-size: 0.88rem !important;
+}
+
+/* — Misma geometría que 17/18 en Charla: terminal abraza contenido (centrada) y
+     columna izquierda con ritmo compacto — */
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal {
+  height: auto;
+  max-height: 100%;
+  align-self: center;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal-body {
+  max-height: calc(1080px - 19rem);
+  overflow-y: auto;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-explain-col,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-explain-col {
+  justify-content: center;
+  gap: 1.05rem;
+}
+
+/* ==========================================================================
+   PARTE 2 — Slides 2b & Fase 3: lista de puntos SIN caja en Modo Charla
+   (mismo patrón que las slides [id^="slide-phase2-"]: transparente + separadores)
+   ========================================================================== */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-points-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: 1.25rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-item+.sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-item+.sdlc-point-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.2rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-item {
+  align-items: flex-start !important;
+  gap: 1rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-icon {
+  font-size: 1.85rem !important;
 }
 
 </style>

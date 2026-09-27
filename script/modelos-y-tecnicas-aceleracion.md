@@ -1,13 +1,15 @@
-| Modelo | Fecha oficial de lanzamiento | Tipo / Arquitectura |
+| Modelo / Hardware | Fecha oficial de lanzamiento | Tipo / Arquitectura / Memoria |
 | --- | --- | --- |
 | **Qwen 3.5 122B** (*Qwen3.5-122B-A10B*) | **23 de febrero de 2026** | MoE multimodal (10B activos) |
 | **Qwen 3.5 35B** (*Qwen3.5-35B-A3B*) | **24 de febrero de 2026** | MoE multimodal (3B activos) |
+| **NVIDIA DGX Spark / ASUS Ascent GX10** (*GB10*) | **Marzo de 2026** | Estación Blackwell SM 12.1a con 128 GB LPDDR5x unificados |
 | **Qwen 3.6 35B** (*Qwen3.6-35B-A3B*) | **16 de abril de 2026** | MoE multimodal optimizado |
 | **Qwen 3.8 27B** | **14 de agosto de 2026** | Dense multimodal / híbrido (DeltaNet + Attention) |
 
 
-| Modelo | Técnica / Drafter | Fecha de integración en repositorios de `eugr` | Contexto de la receta / implementación |
+| Hardware / Modelo | Técnica / Drafter | Fecha de integración en repositorios de `eugr` | Contexto de la receta / implementación |
 | --- | --- | --- | --- |
+| **NVIDIA DGX Spark / GB10** | **vLLM / SM 12.1a** | **Marzo – Abril de 2026** | Primeras estaciones locales con 128 GB unificados; base de despliegue para recetas MTP comunitarias (`eugr`) y cuantización NVFP4/INT4. |
 | **Qwen 3.5 122B** (*A10B*) | **MTP** | **Principios de abril de 2026** | Integración con `num_speculative_tokens: 2` sobre checkpoints AutoRound INT4 y FP8 híbrido. |
 |  | **DFlash** | **Finales de junio de 2026** (~24 de junio) | Receta con *block drafting* paralelo (~12 tokens por forward) para tráfico agentic/código. |
 | **Qwen 3.5 35B** (*A3B*) | **MTP** | **Marzo – principios de abril de 2026** | Recetas iniciales vLLM; limitado a 1 token especulativo por saturación de ancho de banda. |

@@ -2003,6 +2003,148 @@ body.theme-dark .hacker-item-desc code {
   box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
+/* ==========================================================================
+   SLIDE 40 / SLIDE 42: HACKERS & COMUNIDAD - ESCALADO PROMINENTE PARA PRESENTACIÓN
+   ========================================================================== */
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-deck {
+  flex: 1 1 0;
+  min-height: 0;
+  justify-content: space-between;
+  gap: 1.35rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-card {
+  padding: 1.65rem 1.85rem;
+  border-radius: 22px;
+  justify-content: space-between;
+  gap: 1.15rem;
+  height: 100%;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-profile-header {
+  gap: 1.35rem;
+  padding-bottom: 0.95rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-avatar {
+  width: 98px;
+  height: 98px;
+  min-width: 98px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-name {
+  font-size: 2.35rem;
+  font-weight: 800;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-handle {
+  font-size: 1.18rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-role {
+  font-size: 1.25rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-repo-tag {
+  font-size: 1.08rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-list {
+  gap: 1.05rem;
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item {
+  padding: 1.15rem 1.45rem;
+  border-radius: 16px;
+  gap: 1.2rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-icon-badge {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  font-size: 1.4rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item-title {
+  font-size: 1.62rem;
+  font-weight: 750;
+  line-height: 1.26;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item-desc {
+  font-size: 1.38rem;
+  line-height: 1.48;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-ribbon {
+  padding: 1.15rem 1.85rem;
+  border-radius: 18px;
+  gap: 1.6rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-icon {
+  font-size: 2.1rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-text {
+  font-size: 1.32rem;
+  line-height: 1.46;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-badge {
+  font-size: 1.05rem;
+  padding: 0.5rem 1.1rem;
+}
+
+/* Modo Documento: escala compacta que preserva legibilidad con subtítulo */
+body.mode-document #slide-40 .hacker-card {
+  padding: 1.2rem 1.4rem;
+  border-radius: 16px;
+}
+
+body.mode-document #slide-40 .hacker-avatar {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+}
+
+body.mode-document #slide-40 .hacker-name {
+  font-size: 1.9rem;
+}
+
+body.mode-document #slide-40 .hacker-item {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+}
+
+body.mode-document #slide-40 .hacker-item-title {
+  font-size: 1.32rem;
+}
+
+body.mode-document #slide-40 .hacker-item-desc {
+  font-size: 1.12rem;
+}
+
+body.mode-document #slide-40 .hackers-upstream-ribbon {
+  padding: 0.85rem 1.4rem;
+}
+
+body.mode-document #slide-40 .hackers-upstream-text {
+  font-size: 1.1rem;
+}
+
 .code-content .string {
   color: #34d399;
 }
@@ -2104,27 +2246,27 @@ body.theme-dark .rect-bar-cap {
 }
 
 .rect-bar-segment.c2 {
-  background-color: #d97706;
+  background-color: #10b981;
 }
 
 .rect-bar-segment.c3 {
-  background-color: #7c3aed;
+  background-color: #d97706;
 }
 
 .rect-bar-segment.c4 {
-  background-color: #ea580c;
+  background-color: #7c3aed;
 }
 
 .rect-bar-segment.c5 {
-  background-color: #0d9488;
+  background-color: #ea580c;
 }
 
 .rect-bar-segment.c6 {
-  background-color: #e11d48;
+  background-color: #0d9488;
 }
 
 .rect-bar-segment.c7 {
-  background-color: #10b981;
+  background-color: #e11d48;
 }
 
 .rect-bar-segment.c8 {
@@ -2144,6 +2286,11 @@ body.theme-dark .rect-bar-cap {
 .rect-timeline-grid.cols-5 {
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
+}
+
+.rect-timeline-grid.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.95rem;
 }
 
 .rect-timeline-grid.cols-8 {
@@ -2495,6 +2642,47 @@ body.theme-dark .c-cyan {
 
 .rect-timeline-grid.cols-5 .rect-date-label {
   font-size: 0.78rem;
+}
+
+/* Ajustes específicos para 7 columnas (Timeline 2026 Modelos & Hardware) */
+.rect-timeline-grid.cols-7 .rect-top-slot,
+.rect-timeline-grid.cols-7 .rect-bottom-slot {
+  height: 285px;
+}
+
+.rect-timeline-grid.cols-7 .rect-card {
+  padding: 0.85rem 0.95rem;
+  border-radius: 13px;
+  gap: 0.38rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-title {
+  font-size: 1.12rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-tag {
+  font-size: 0.72rem;
+  padding: 0.14rem 0.46rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-desc {
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.rect-timeline-grid.cols-7 .rect-card-footer {
+  font-size: 0.74rem;
+  padding-top: 0.3rem;
+  gap: 0.15rem;
+}
+
+.rect-timeline-grid.cols-7 .rect-date-year {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.rect-timeline-grid.cols-7 .rect-date-label {
+  font-size: 0.75rem;
 }
 
 /* Cinta resumen de pie de slide */
@@ -6847,6 +7035,233 @@ body.theme-dark .chosen-synergy-banner {
 body.theme-dark .chosen-synergy-badge {
   color: #fb923c;
   background: rgba(234, 88, 12, 0.2);
+}
+
+/* ==========================================================================
+   SLIDE 41: MODELOS ESCOGIDOS - TIPOGRAFÍA EXPANSIVA Y PASOS INTERACTIVOS
+   ========================================================================== */
+.chosen-model-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+#slide-41 .chosen-card {
+  position: relative;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  height: 100%;
+}
+
+/* Modo Charla (Presentación): Tipografías generosas aprovechando la altura */
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-card {
+  padding: 1.45rem 1.65rem;
+  border-radius: 18px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-card-header {
+  gap: 0.45rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-model-title {
+  font-size: 1.8rem;
+  line-height: 1.22;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-role-desc {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-role-badge {
+  font-size: 0.84rem;
+  padding: 0.28rem 0.72rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-quant-badge {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.62rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-hf-link {
+  font-size: 0.82rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-table {
+  padding: 0.55rem 0.85rem;
+  gap: 0.38rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row {
+  font-size: 0.86rem;
+  padding: 0.28rem 0.45rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row .spec-value {
+  font-size: 0.86rem;
+}
+
+/* Sello ¡OBSOLETO! para Slide 41 (Step 1) */
+#slide-41 .card-obsolete-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: 18px;
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.3);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
+}
+
+#slide-41 .card-obsolete-overlay.step-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+#slide-41 .obsolete-stamp {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #dc2626;
+  border: 4px solid #dc2626;
+  border-radius: 14px;
+  padding: 0.6rem 1.8rem;
+  text-transform: uppercase;
+  transform: rotate(-12deg);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25), inset 0 0 12px rgba(220, 38, 38, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  user-select: none;
+}
+
+body.theme-dark #slide-41 .obsolete-stamp {
+  background: rgba(24, 24, 27, 0.95);
+  color: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.45);
+}
+
+/* En Step 1 (sello activo, pero Step 2 inactivo): Qwen 3.5 muestra badge inline OBSOLETO y tachado */
+#slide-41 .card-inline-obsolete-tag {
+  display: none;
+}
+
+#slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .card-inline-obsolete-tag {
+  display: inline-flex;
+}
+
+#slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
+  text-decoration: line-through;
+  opacity: 0.65;
+  color: #dc2626;
+}
+
+body.theme-dark #slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
+  color: #f87171;
+}
+
+/* En Step 2: entra Qwen 3.8 FlashNext y se retira el sello y Qwen 3.5 */
+#slide-41:has(.model-v3-8.step-active) .card-obsolete-overlay {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: scale(0.85) rotate(-15deg);
+}
+
+#slide-41:has(.model-v3-8.step-active) .model-v3-5 {
+  display: none !important;
+}
+
+#slide-41 .model-v3-8:not(.step-active) {
+  display: none;
+}
+
+#slide-41 .model-v3-8.step-active {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#slide-41:has(.model-v3-8.step-active) .card-brain {
+  border-top-color: #10b981;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+}
+
+body.theme-dark #slide-41:has(.model-v3-8.step-active) .card-brain {
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);
+}
+
+/* Badges específicos de Qwen 3.8 */
+.chosen-role-badge.successor-role {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+body.theme-dark .chosen-role-badge.successor-role {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.title-successor {
+  color: #059669 !important;
+}
+
+body.theme-dark .title-successor {
+  color: #34d399 !important;
+}
+
+.desc-successor {
+  border-left-color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.04) !important;
+}
+
+body.theme-dark .desc-successor {
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Modo Documento: se muestra directamente el stack actualizado sin overlays */
+body.mode-document #slide-41 .card-obsolete-overlay {
+  display: none !important;
+}
+
+body.mode-document #slide-41 .model-v3-5 {
+  display: none !important;
+}
+
+body.mode-document #slide-41 .model-v3-8 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem !important;
+}
+
+body.mode-document #slide-41 .card-brain {
+  border-top-color: #10b981;
+}
+
+body.mode-document #slide-41 .chosen-model-title {
+  font-size: 1.35rem;
+}
+
+body.mode-document #slide-41 .chosen-role-desc {
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 /* ==========================================================================
@@ -20894,6 +21309,112 @@ body.deck-hardware-part1 .autoround-card-desc {
   color: #a21caf;
 }
 
+/* ==========================================================================
+   PARTE 2 — Variante fucsia para hero-box / skill-pill (Fase 2b Features)
+   ========================================================================== */
+.sdlc-hero-box.fuchsia {
+  border-left-color: #d946ef;
+}
+
+body.theme-dark .sdlc-hero-box.fuchsia {
+  border-left-color: #e879f9;
+}
+
+.sdlc-hero-box.fuchsia .sdlc-hero-quote u {
+  color: #d946ef;
+}
+
+.sdlc-skill-pill.fuchsia {
+  background: rgba(217, 70, 239, 0.08);
+  border: 1px solid rgba(217, 70, 239, 0.25);
+  color: #a21caf;
+}
+
+body.theme-dark .sdlc-skill-pill.fuchsia {
+  background: rgba(240, 171, 252, 0.12);
+  border-color: rgba(240, 171, 252, 0.3);
+  color: #f0abfc;
+}
+
+/* ==========================================================================
+   PARTE 2 — Slides 2b Features & Fase 3: Modo Charla simple (patrón 17/18)
+   En Charla: quote + títulos de puntos + terminal núcleo + banner compacto.
+   El detalle (subs, descs, secciones doc-only) vive en Modo Documento.
+   ========================================================================== */
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-desc,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-hero-sub,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-desc {
+  display: none !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .chosen-synergy-banner,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-banner {
+  padding: 0.55rem 1.2rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .chosen-synergy-icon,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-icon {
+  font-size: 1.05rem !important;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .chosen-synergy-text,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-text {
+  font-size: 0.88rem !important;
+}
+
+/* — Misma geometría que 17/18 en Charla: terminal abraza contenido (centrada) y
+     columna izquierda con ritmo compacto — */
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal {
+  height: auto;
+  max-height: 100%;
+  align-self: center;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal-body,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal-body {
+  max-height: calc(1080px - 19rem);
+  overflow-y: auto;
+}
+
+body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-explain-col,
+body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-explain-col {
+  justify-content: center;
+  gap: 1.05rem;
+}
+
+/* ==========================================================================
+   PARTE 2 — Slides 2b & Fase 3: lista de puntos SIN caja en Modo Charla
+   (mismo patrón que las slides [id^="slide-phase2-"]: transparente + separadores)
+   ========================================================================== */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-points-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: 1.25rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-item+.sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-item+.sdlc-point-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.2rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-item {
+  align-items: flex-start !important;
+  gap: 1rem !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-point-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-point-icon {
+  font-size: 1.85rem !important;
+}
+
 </style>
 </head>
 
@@ -24625,7 +25146,7 @@ body.deck-hardware-part1 .autoround-card-desc {
 
         <div class="rect-timeline-deck">
 
-          <!-- Wrapper con la barra de fondo y las 6 columnas alternantes -->
+          <!-- Wrapper con la barra de fondo y las 7 columnas alternantes -->
           <div class="rect-timeline-wrapper">
 
             <!-- Barra rectangular continua de fondo con extensiones laterales -->
@@ -24638,12 +25159,13 @@ body.deck-hardware-part1 .autoround-card-desc {
                 <div class="rect-bar-segment c4"></div>
                 <div class="rect-bar-segment c5"></div>
                 <div class="rect-bar-segment c6"></div>
+                <div class="rect-bar-segment c7"></div>
               </div>
               <div class="rect-bar-cap right"></div>
             </div>
 
-            <!-- Cuadrícula interactiva de 6 columnas -->
-            <div class="rect-timeline-grid">
+            <!-- Cuadrícula interactiva de 7 columnas -->
+            <div class="rect-timeline-grid cols-7">
 
               <!-- COLUMNA 1: Feb 2026 (Card Arriba / Fecha Abajo) -->
               <div class="rect-col c-blue">
@@ -24678,12 +25200,12 @@ body.deck-hardware-part1 .autoround-card-desc {
                 </div>
               </div>
 
-              <!-- COLUMNA 2: Mar – Abr 2026 (Fecha Arriba / Card Abajo) -->
-              <div class="rect-col c-amber">
+              <!-- COLUMNA 2: Marzo 2026 (Fecha Arriba / Card Abajo - HITO HARDWARE DGX SPARK) -->
+              <div class="rect-col c-green">
                 <div class="rect-top-slot">
                   <div class="rect-date-block" style="margin-bottom: 0.5rem;">
-                    <div class="rect-date-year">MAR – ABR</div>
-                    <div class="rect-date-label">Recetas MTP</div>
+                    <div class="rect-date-year">MARZO 2026</div>
+                    <div class="rect-date-label">DGX Spark (GB10)</div>
                   </div>
                   <div class="rect-pin-node-dot"></div>
                   <div class="rect-pin-stem"></div>
@@ -24694,6 +25216,26 @@ body.deck-hardware-part1 .autoround-card-desc {
                 </div>
 
                 <div class="rect-bottom-slot">
+                  <div class="rect-card">
+                    <div class="rect-card-header">
+                      <div class="rect-card-title">DGX Spark</div>
+                      <span class="rect-card-tag" style="color: #059669; font-weight: 800;">128 GB VRAM</span>
+                    </div>
+                    <div class="rect-card-desc">
+                      Llegada de la estación <strong>Blackwell SM 12.1a</strong>. 128 GB unificados que permiten correr
+                      MoE de 122B (INT4) y 35B (FP8) en local.
+                    </div>
+                    <div class="rect-card-footer">
+                      <span style="color: var(--text-dim);">Hardware: GB10</span>
+                      <strong style="color: #047857;">Hito Hardware</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 3: Mar – Abr 2026 (Card Arriba / Fecha Abajo) -->
+              <div class="rect-col c-amber">
+                <div class="rect-top-slot">
                   <div class="rect-card">
                     <div class="rect-card-header">
                       <div class="rect-card-title">MTP en vLLM</div>
@@ -24709,11 +25251,37 @@ body.deck-hardware-part1 .autoround-card-desc {
                     </div>
                   </div>
                 </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">MAR – ABR</div>
+                    <div class="rect-date-label">Recetas MTP</div>
+                  </div>
+                </div>
               </div>
 
-              <!-- COLUMNA 3: 16 Abr 2026 (Card Arriba / Fecha Abajo) -->
+              <!-- COLUMNA 4: 16 Abr 2026 (Fecha Arriba / Card Abajo) -->
               <div class="rect-col c-purple">
                 <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">16 ABR</div>
+                    <div class="rect-date-label">Qwen 3.6 35B</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
                   <div class="rect-card">
                     <div class="rect-card-header">
                       <div class="rect-card-title">Qwen 3.6 35B</div>
@@ -24728,37 +25296,11 @@ body.deck-hardware-part1 .autoround-card-desc {
                     </div>
                   </div>
                 </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-pin-stem"></div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-date-block" style="margin-top: 0.5rem;">
-                    <div class="rect-date-year">16 ABR</div>
-                    <div class="rect-date-label">Qwen 3.6 35B</div>
-                  </div>
-                </div>
               </div>
 
-              <!-- COLUMNA 4: Jun – Jul 2026 (Fecha Arriba / Card Abajo) -->
+              <!-- COLUMNA 5: Jun – Jul 2026 (Card Arriba / Fecha Abajo) -->
               <div class="rect-col c-orange">
                 <div class="rect-top-slot">
-                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
-                    <div class="rect-date-year">JUN – JUL</div>
-                    <div class="rect-date-label">Era DFlash v1</div>
-                  </div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-pin-stem"></div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
                   <div class="rect-card">
                     <div class="rect-card-header">
                       <div class="rect-card-title">DFlash (Diff)</div>
@@ -24774,11 +25316,37 @@ body.deck-hardware-part1 .autoround-card-desc {
                     </div>
                   </div>
                 </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">JUN – JUL</div>
+                    <div class="rect-date-label">Era DFlash v1</div>
+                  </div>
+                </div>
               </div>
 
-              <!-- COLUMNA 5: 14-18 Ago 2026 (Card Arriba / Fecha Abajo) -->
+              <!-- COLUMNA 6: 14-18 Ago 2026 (Fecha Arriba / Card Abajo) -->
               <div class="rect-col c-teal">
                 <div class="rect-top-slot">
+                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
+                    <div class="rect-date-year">14-18 AGO</div>
+                    <div class="rect-date-label">Qwen 3.8 27B</div>
+                  </div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-pin-stem"></div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
                   <div class="rect-card">
                     <div class="rect-card-header">
                       <div class="rect-card-title">Qwen 3.8 27B</div>
@@ -24793,37 +25361,11 @@ body.deck-hardware-part1 .autoround-card-desc {
                     </div>
                   </div>
                 </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
-                  <div class="rect-pin-stem"></div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-date-block" style="margin-top: 0.5rem;">
-                    <div class="rect-date-year">14-18 AGO</div>
-                    <div class="rect-date-label">Qwen 3.8 27B</div>
-                  </div>
-                </div>
               </div>
 
-              <!-- COLUMNA 6: 20-22 Ago 2026 (Fecha Arriba / Card Abajo - DESTACADO) -->
+              <!-- COLUMNA 7: 20-22 Ago 2026 (Card Arriba / Fecha Abajo - DESTACADO) -->
               <div class="rect-col c-crimson">
                 <div class="rect-top-slot">
-                  <div class="rect-date-block" style="margin-bottom: 0.5rem;">
-                    <div class="rect-date-year">20-22 AGO</div>
-                    <div class="rect-date-label">DFlash 2 (Grafos)</div>
-                  </div>
-                  <div class="rect-pin-node-dot"></div>
-                  <div class="rect-pin-stem"></div>
-                </div>
-
-                <div class="rect-center-pin">
-                  <div class="rect-donut"></div>
-                </div>
-
-                <div class="rect-bottom-slot">
                   <div class="rect-card highlight">
                     <div class="rect-card-header">
                       <div class="rect-card-title" style="color: #be123c;">DFlash 2 (Path)</div>
@@ -24838,6 +25380,19 @@ body.deck-hardware-part1 .autoround-card-desc {
                       <span style="color: var(--text-dim);">Drafter: Selector Grafo</span>
                       <strong style="color: #be123c;">Máx Aceptación</strong>
                     </div>
+                  </div>
+                </div>
+
+                <div class="rect-center-pin">
+                  <div class="rect-donut"></div>
+                </div>
+
+                <div class="rect-bottom-slot">
+                  <div class="rect-pin-stem"></div>
+                  <div class="rect-pin-node-dot"></div>
+                  <div class="rect-date-block" style="margin-top: 0.5rem;">
+                    <div class="rect-date-year">20-22 AGO</div>
+                    <div class="rect-date-label">DFlash 2 (Grafos)</div>
                   </div>
                 </div>
               </div>
@@ -26302,120 +26857,183 @@ body.deck-hardware-part1 .autoround-card-desc {
 
           <div class="chosen-models-grid">
 
-    <!-- Card 1: Qwen 3.5 122B A10B (Cerebro de Razonamiento) -->
+    <!-- Card 1: Qwen 3.5 122B / Qwen 3.8 FlashNext (Cerebro de Razonamiento) -->
             <div class="chosen-card card-brain">
-              <div class="chosen-card-header">
-                <div class="chosen-badge-row">
-                  <span class="chosen-role-badge brain">🧠 Cerebro &amp; Razonamiento</span>
-                  <span class="chosen-quant-badge green">INT4 AutoRound</span>
+              <!-- Sello interactivo ¡OBSOLETO! (Paso 1) -->
+              <div class="card-obsolete-overlay step" data-step="1">
+                <span class="obsolete-stamp">¡OBSOLETO!</span>
+              </div>
+
+              <!-- Contenido Modelo Original (Qwen 3.5 122B - Paso 0 y 1) -->
+              <div class="chosen-model-stage model-v3-5">
+                <div class="chosen-card-header">
+                  <div class="chosen-badge-row">
+                    <span class="chosen-role-badge brain">🧠 Cerebro &amp; Razonamiento</span>
+                    <span class="chosen-quant-badge green">INT4 AutoRound</span>
+                  </div>
+                  <div class="chosen-model-title">
+                    <span class="model-title-text">Qwen 3.5 - 122B A10B</span>
+                    <span class="speed-badge obsolete-badge card-inline-obsolete-tag">OBSOLETO</span>
+                  </div>
+                  <div class="chosen-hf-link">
+                    <span class="chosen-hf-icon">🤗</span>
+                    <code>Qwen/Qwen3.5-122B-A10B</code>
+                  </div>
                 </div>
-                <div class="chosen-model-title">Qwen 3.5 - 122B A10B</div>
-                <div class="chosen-hf-link">
-                  <span class="chosen-hf-icon">🤗</span>
-                  <code>Qwen/Qwen3.5-122B-A10B</code>
+
+                <div class="chosen-role-desc">
+                  <strong>El Estratega del Sistema:</strong> Prioriza <strong>profundidad lógica y consistencia</strong>
+                  en cadenas de razonamiento largo. Aunque genera a velocidad pausada (~28-54 t/s con MTP), su inmensa
+                  masa crítica evita alucinaciones en arquitectura y refactorizaciones críticas.
+                </div>
+
+                <!-- Ficha Técnica de Hugging Face -->
+                <div class="chosen-spec-table">
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Parámetros (Tot. / Act.)</span>
+                    <span class="spec-value"><strong>122B</strong> / <strong>10B Activos</strong> <small>(MoE Sparse)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
+                    <span class="spec-value"><strong>48 capas</strong> <small>(12 bloques: 3× DeltaNet + 1× Attn)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
+                    <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1 compartido)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
+                    <span class="spec-value"><strong>3.072</strong> <small>• 32 Attention Heads • 2 KV (GQA)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Dimensión Intermedia MoE</span>
+                    <span class="spec-value"><strong>1.024</strong> <small>(SwiGLU / SiLU)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
+                    <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Multimodal Nativo</small></span>
+                  </div>
+                  <div class="chosen-spec-row highlight-green">
+                    <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
+                    <span class="spec-value"><strong>~69 GB</strong> en INT4 <small>(&gt;50 GB libres)</small> • <strong>28 – 54 t/s</strong></span>
+                  </div>
                 </div>
               </div>
 
-              <div class="chosen-role-desc">
-                <strong>El Estratega del Sistema:</strong> Prioriza <strong>profundidad lógica y consistencia</strong>
-                en cadenas de razonamiento largo. Aunque genera a velocidad pausada (~28-54 t/s con MTP), su inmensa
-                masa crítica evita alucinaciones en arquitectura y refactorizaciones críticas.
-              </div>
+              <!-- Contenido Modelo Sucesor (Qwen 3.8 FlashNext - Paso 2) -->
+              <div class="chosen-model-stage model-v3-8 step" data-step="2">
+                <div class="chosen-card-header">
+                  <div class="chosen-badge-row">
+                    <span class="chosen-role-badge successor-role">👑 Sucesor 2026 • Razonamiento</span>
+                    <span class="chosen-quant-badge next-gen">NVFP4 QAD</span>
+                  </div>
+                  <div class="chosen-model-title title-successor">
+                    <span class="model-title-text">Qwen 3.8 - Flash Next</span>
+                    <span class="speed-badge successor-badge">NUEVO</span>
+                  </div>
+                  <div class="chosen-hf-link">
+                    <span class="chosen-hf-icon">🤗</span>
+                    <code>Qwen/Qwen3.8-FlashNext-MoE</code>
+                  </div>
+                </div>
 
-    <!-- Ficha Técnica de Hugging Face -->
-              <div class="chosen-spec-table">
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Parámetros (Tot. / Act.)</span>
-                  <span class="spec-value"><strong>122B</strong> / <strong>10B Activos</strong> <small>(MoE
-                      Sparse)</small></span>
+                <div class="chosen-role-desc desc-successor">
+                  <strong>El Estratega Evolucionado (Sucesor 2026):</strong> Mayor potencia de abstracción con <strong>arquitectura MoE refinada</strong>. Sustituye al 3.5 aportando mayor densidad de razonamiento, menor latencia y aceleración nativa NVFP4 + MTP sin cuello de botella.
                 </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
-                  <span class="spec-value"><strong>48 capas</strong> <small>(12 bloques: 3× DeltaNet + 1×
-                      Attn)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
-                  <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1
-                      compartido)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
-                  <span class="spec-value"><strong>3.072</strong> <small>• 32 Attention Heads • 2 KV
-                      (GQA)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Dimensión Intermedia MoE</span>
-                  <span class="spec-value"><strong>1.024</strong> <small>(SwiGLU / SiLU)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
-                  <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Multimodal
-                      Nativo</small></span>
-                </div>
-                <div class="chosen-spec-row highlight-green">
-                  <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
-                  <span class="spec-value"><strong>~69 GB</strong> en INT4 <small>(&gt;50 GB libres)</small> •
-                    <strong>28 – 54 t/s</strong></span>
+
+                <!-- Ficha Técnica de Hugging Face Qwen 3.8 -->
+                <div class="chosen-spec-table">
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Parámetros (Tot. / Act.)</span>
+                    <span class="spec-value"><strong>125B+51B</strong> / <strong>6B Activos</strong> <small>(MoE Sparse)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
+                    <span class="spec-value"><strong>48 capas</strong> <small>(DeltaNet + Attention Híbrido)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
+                    <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1 compartido)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
+                    <span class="spec-value"><strong>3.584</strong> <small>• 32 Attention Heads • GQA</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Dimensión Intermedia MoE</span>
+                    <span class="spec-value"><strong>1.024</strong> <small>(SwiGLU / SiLU)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
+                    <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Multimodal Nativo</small></span>
+                  </div>
+                  <div class="chosen-spec-row highlight-green">
+                    <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
+                    <span class="spec-value"><strong>~98 GB</strong> en NVFP4 QAD • <strong>24 – 38 t/s</strong> con MTP</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-    <!-- Card 2: Qwen 3.6 35B A3B (Especialista en Código) -->
+            <!-- Card 2: Qwen 3.6 35B A3B (Especialista en Código) -->
             <div class="chosen-card card-coder">
-              <div class="chosen-card-header">
-                <div class="chosen-badge-row">
-                  <span class="chosen-role-badge coder">⚡ Especialista en Código</span>
-                  <span class="chosen-quant-badge blue">NVFP4 / FP8</span>
+              <div class="chosen-model-stage">
+                <div class="chosen-card-header">
+                  <div class="chosen-badge-row">
+                    <span class="chosen-role-badge coder">⚡ Especialista en Código</span>
+                    <span class="chosen-quant-badge blue">NVFP4 / FP8</span>
+                  </div>
+                  <div class="chosen-model-title">
+                    <span class="model-title-text">Qwen 3.6 - 35B A3B</span>
+                  </div>
+                  <div class="chosen-hf-link">
+                    <span class="chosen-hf-icon">🤗</span>
+                    <code>Qwen/Qwen3.6-35B-A3B</code>
+                  </div>
                 </div>
-                <div class="chosen-model-title">Qwen 3.6 - 35B A3B</div>
-                <div class="chosen-hf-link">
-                  <span class="chosen-hf-icon">🤗</span>
-                  <code>Qwen/Qwen3.6-35B-A3B</code>
-                </div>
-              </div>
 
-              <div class="chosen-role-desc">
-                <strong>El Artesano Ágil:</strong> Diseñado para <strong>máxima velocidad en el IDE</strong> (74 a 134
-                t/s con MTP). Solo activa 3B de parámetros por token, permitiendo autocompletado instantáneo, generación
-                de tests y edición de archivos sin latencia.
-              </div>
+                <div class="chosen-role-desc">
+                  <strong>El Artesano Ágil:</strong> Diseñado para <strong>máxima velocidad en el IDE</strong> (74 a 134
+                  t/s con MTP). Solo activa 3B de parámetros por token, permitiendo autocompletado instantáneo, generación
+                  de tests y edición de archivos sin latencia.
+                </div>
 
-    <!-- Ficha Técnica de Hugging Face -->
-              <div class="chosen-spec-table">
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Parámetros (Tot. / Act.)</span>
-                  <span class="spec-value"><strong>35B</strong> / <strong>3B Activos</strong> <small>(Cálculo
-                      ultraligero 3B)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
-                  <span class="spec-value"><strong>40 capas</strong> <small>(10 bloques: 3x DeltaNet + 1x
-                      Attn)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
-                  <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1
-                      compartido)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
-                  <span class="spec-value"><strong>2.048</strong> <small>• 16 Attention Heads • 2 KV
-                      (GQA)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Dimensión Intermedia MoE</span>
-                  <span class="spec-value"><strong>512</strong> <small>(SwiGLU / SiLU)</small></span>
-                </div>
-                <div class="chosen-spec-row">
-                  <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
-                  <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Extensible &gt;1M con
-                      YaRN</small></span>
-                </div>
-                <div class="chosen-spec-row highlight-blue">
-                  <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
-                  <span class="spec-value"><strong>~19 GB</strong> en NVFP4 <small>(~35 GB FP8)</small> • <strong>74 –
-                      134 t/s</strong></span>
+                <!-- Ficha Técnica de Hugging Face -->
+                <div class="chosen-spec-table">
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Parámetros (Tot. / Act.)</span>
+                    <span class="spec-value"><strong>35B</strong> / <strong>3B Activos</strong> <small>(Cálculo
+                        ultraligero 3B)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Capas Ocultas (<code>num_hidden_layers</code>)</span>
+                    <span class="spec-value"><strong>40 capas</strong> <small>(10 bloques: 3x DeltaNet + 1x
+                        Attn)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Expertos MoE (<code>num_experts</code>)</span>
+                    <span class="spec-value"><strong>256 expertos</strong> <small>(8 ruteados + 1
+                        compartido)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Dimensión Oculta (<code>hidden_size</code>)</span>
+                    <span class="spec-value"><strong>2.048</strong> <small>• 16 Attention Heads • 2 KV
+                        (GQA)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Dimensión Intermedia MoE</span>
+                    <span class="spec-value"><strong>512</strong> <small>(SwiGLU / SiLU)</small></span>
+                  </div>
+                  <div class="chosen-spec-row">
+                    <span class="spec-label">Contexto Nativo &amp; Modalidad</span>
+                    <span class="spec-value"><strong>262.144 tokens (256K)</strong> <small>• Extensible &gt;1M con
+                        YaRN</small></span>
+                  </div>
+                  <div class="chosen-spec-row highlight-blue">
+                    <span class="spec-label">Consumo VRAM &amp; Velocidad</span>
+                    <span class="spec-value"><strong>~19 GB</strong> en NVFP4 <small>(~35 GB FP8)</small> • <strong>74 –
+                        134 t/s</strong></span>
+                  </div>
                 </div>
               </div>
             </div>

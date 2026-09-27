@@ -1,0 +1,145 @@
+    <section class="slide" id="slide-phase3-entity-lifecycle">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-phase2b-features" class="deck-back-btn">← Features (2b)</a>
+          <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 3 • Modelo DDD
+            Rico</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(16, 185, 129, 0.12); color: #047857; border-color: rgba(16, 185, 129, 0.3);">Fase 3 •
+          Dominio &amp; FSM • docs/product/bounded-contexts/conference/entities/conference.md</div>
+        <h2>Fase 3: Modelo DDD Rico – <span class="serif-italic" style="color: #059669;">Ciclo de Vida de la
+            Entidad</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Del diagrama FSM de la Fase 2 al contrato formal: estados, transiciones con guardas, invariantes y Domain
+          Events en un espacio cerrado.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box green">
+              <div class="sdlc-hero-quote">
+                “Un modelo anémico (getters/setters) deja las invariantes en manos del llamador. <u>El agregado las
+                  blinda</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Conference: DRAFT → CFP_OPEN → CFP_CLOSED → PUBLISHED. Los métodos de dominio (publishCfp()) validan
+                guardas y emiten eventos — cero setters públicos.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">🧬</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #059669;">1. Espacio Cerrado de Estados (FSM)</div>
+                  <div class="sdlc-point-desc">Matriz de transiciones (evento, guarda, efectos): la IA no puede
+                    inventar transiciones que no existen en el contrato.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🔒</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">2. INV con Rollback vs BR sin Rollback</div>
+                  <div class="sdlc-point-desc">Invariantes duras en VOs y agregado; reglas de negocio flexibles en
+                    Application Services con fallbacks.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📡</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3. Domain Events Serializables</div>
+                  <div class="sdlc-point-desc">ConferenceCreated / CfpOpened → Outbox en JSON: proyecciones asíncronas
+                    desacopladas del request.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill green">
+              <span>⚡ Comando SDLC:</span>
+              <code>/create-entity-lifecycle</code>
+              <span>• Template: entity-lifecycle.md</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Plantilla Markdown de Ciclo de Vida -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄 docs/product/bounded-contexts/conference/entities/conference.md</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver
+                Documento</button>
+              <span class="sdlc-term-tag"
+                style="background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3);">TEMPLATE:
+                ENTITY LIFECYCLE</span>
+            </div>
+
+            <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.55rem;">
+              <div class="md-line md-h1"><span class="md-hash">#</span> Entity: Conference (Aggregate Root)</div>
+
+              <div class="doc-only"
+                style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                <div><span class="md-bold" style="width: auto;">* Table:</span> conferences | <span class="md-bold"
+                    style="width: auto;">PK:</span> UUIDv4 | <span class="md-bold" style="width: auto;">Context:</span>
+                  conference</div>
+                <div><span class="md-bold" style="width: auto;">* VOs:</span> Slug, EventDates, CfpWindow | <span
+                    class="md-bold" style="width: auto;">Owner:</span> Conference Team</div>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 1. FSM (Espacio Cerrado de Estados)</div>
+              <div
+                style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                [*] ➔ <strong style="color: #c9d1d9;">DRAFT</strong> ➔ <strong style="color: #6ee7b7;">CFP_OPEN</strong>
+                ➔ <strong style="color: #c9d1d9;">CFP_CLOSED</strong> ➔ <strong
+                  style="color: #93c5fd;">PUBLISHED</strong><br />
+                Transiciones solo vía <strong style="color: #fcd34d;">métodos de dominio</strong>: publishCfp(),
+                closeCfp(), publish() — la IA no inventa caminos
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2. Matriz de Transiciones</div>
+              <div
+                style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                • <strong style="color: #6ee7b7;">DRAFT → publishCfp() → CFP_OPEN</strong><br />
+                &nbsp;&nbsp;Guarda: fechas ≥ hoy &amp;&amp; BR-004 (free tier ≤ 5) | Emite: <code
+                  style="color: #f0abfc;">CfpOpened</code><br />
+                • <strong style="color: #6ee7b7;">CFP_CLOSED → publish() → PUBLISHED</strong><br />
+                &nbsp;&nbsp;Guarda: ≥ 1 sesión aceptada | Emite: <code
+                  style="color: #f0abfc;">ConferencePublished</code>
+              </div>
+
+              <div class="md-line md-h2 doc-only"><span class="md-hash">##</span> 3. Invariantes (INV) &amp; Reglas (BR)
+              </div>
+              <div
+                style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                • <strong style="color: #fca5a5;">INV-001</strong>: slug único global → rollback duras en VO <br />
+                • <strong style="color: #fca5a5;">INV-002</strong>: fechas coherentes (start &lt; end &lt; close)<br />
+                • <strong style="color: #fcd34d;">BR-004</strong>: límite free tier → orquestación, <em>sin</em> rollback
+                (../business-rules/)
+              </div>
+
+              <div class="md-line md-h2 doc-only"><span class="md-hash">##</span> 4. Domain Events (Outbox)</div>
+              <div class="doc-only"
+                style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                ConferenceCreated • CfpOpened • CfpClosed • ConferencePublished → JSON serializable → <strong
+                  style="color: #93c5fd;">Outbox</strong> en la misma transacción
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🧬</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> El agregado es la única puerta de mutación. Con la FSM cerrada, la IA
+            no puede inventar estados ni transiciones que no existen.
+          </div>
+        </div>
+      </div>
+    </section>

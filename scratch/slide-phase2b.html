@@ -1,0 +1,160 @@
+    <section class="slide" id="slide-phase2b-features">
+      <div class="slide-content" style="gap: 1.15rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-phase2-diagram3-state" class="deck-back-btn">← Diagrama de Estados</a>
+          <span class="deck-part-badge" style="background: rgba(217, 70, 239, 0.15); color: #a21caf;">Fase 2b • Features
+            &amp; Slicing</span>
+        </div>
+        <div class="tag"
+          style="background: rgba(217, 70, 239, 0.12); color: #a21caf; border-color: rgba(217, 70, 239, 0.3);">Fase 2b •
+          Especificación Vertical •
+          docs/product/bounded-contexts/conference/flows/features/feature-01-setup-form.md</div>
+        <h2>Fase 2b: Slicing Vertical – <span class="serif-italic" style="color: #d946ef;">Features Listas para TDD</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Cada flow se trocea en features numeradas: la unidad exacta de trabajo que consume /implement-flow, con su
+          contrato de errores HTTP.
+        </p>
+
+        <div class="sdlc-console-deck">
+          <!-- Columna Izquierda: Explicación Conceptual -->
+          <div class="sdlc-explain-col">
+            <div class="sdlc-hero-box fuchsia">
+              <div class="sdlc-hero-quote">
+                “Si el flow no se trocea, la IA construirá el journey entero de un tirón y <u>alucinará el
+                  alcance</u>.”
+              </div>
+              <div class="sdlc-hero-sub">
+                Journey 01 (Setup Conference) → 2 features: F1 (formulario evento + CfP) y F2 (dashboard + copiar
+                enlace). Cada una define requisitos, errores HTTP y su checklist TDD.
+              </div>
+            </div>
+
+            <div class="sdlc-points-card">
+              <div class="sdlc-point-item active-point">
+                <div class="sdlc-point-icon">✂️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title" style="color: #a21caf;">1. Slices Verticales Numerados</div>
+                  <div class="sdlc-point-desc">feature-01-*.md: requisitos funcionales y no funcionales + criterios de
+                    aceptación Gherkin, por feature y sin solaparse.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">🛡️</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">2. Contrato de Errores HTTP + TOCTOU</div>
+                  <div class="sdlc-point-desc">Errores por capa (409 slug duplicado vía unique index, 403 BR-004) y
+                    análisis de concurrencia antes de codificar.</div>
+                </div>
+              </div>
+
+              <div class="sdlc-point-item">
+                <div class="sdlc-point-icon">📚</div>
+                <div class="sdlc-point-text">
+                  <div class="sdlc-point-title">3. Ámbito por Capa (DDD)</div>
+                  <div class="sdlc-point-desc">Qué toca a Domain, Application, Infra e Interface en ESTA feature:
+                    fronteras explícitas antes de tirar código.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdlc-skill-pill fuchsia">
+              <span>⚡ Comando SDLC:</span>
+              <code>/create-features</code>
+              <span>• Template: feature-specification.md</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Plantilla Markdown de Feature -->
+          <div class="sdlc-terminal">
+            <div class="code-header">
+              <div class="code-dots">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-title">📄
+                docs/product/bounded-contexts/conference/flows/features/feature-01-setup-form.md</div>
+              <button class="btn-toggle-doc" type="button" title="Alternar Modo Documento / Charla (D)">🔍 Ver
+                Documento</button>
+              <span class="sdlc-term-tag"
+                style="background: rgba(217, 70, 239, 0.18); color: #f0abfc; border-color: rgba(217, 70, 239, 0.3);">TEMPLATE:
+                FEATURE SPEC</span>
+            </div>
+
+            <div class="sdlc-terminal-body" style="font-size: 0.74rem; gap: 0.55rem;">
+              <div class="md-line md-h1"><span class="md-hash">#</span> Feature 01: Setup Conference Form</div>
+
+              <div class="doc-only"
+                style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                <div><span class="md-bold" style="width: auto;">* Feature ID:</span> <span
+                    style="color: #f0abfc;">F01</span> | <span class="md-bold" style="width: auto;">Parent Flow:</span>
+                  journey-01-setup-conference.md</div>
+                <div><span class="md-bold" style="width: auto;">* Bounded Context:</span> conference | <span
+                    class="md-bold" style="width: auto;">Status:</span> 📋 Planned</div>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 1. Requisitos (Func. / No Func.)</div>
+              <div class="doc-only"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
+                <div
+                  style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #93c5fd;">Funcionales:</strong><br />
+                  Crear evento (nombre, fechas, ciudad) y abrir CfP al publicar.
+                </div>
+                <div
+                  style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #fca5a5;">No Funcionales:</strong><br />
+                  API &lt; 200ms • auth organizer (JWT) • capas DDD estrictas.
+                </div>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 2. Contrato de Errores HTTP</div>
+              <div
+                style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                • <strong style="color: #86efac;">201 Created</strong> + Location: /cfp/[slug] (happy path)<br />
+                • <strong style="color: #fca5a5;">409 SLUG_TAKEN</strong>: UNIQUE index → <code
+                  style="color: #a78bfa;">DuplicateSlugError</code> (TOCTOU cubierto)<br />
+                • <strong style="color: #fcd34d;">403 FREE_TIER_LIMIT_EXCEEDED</strong>: BR-004 (Application) → modal
+                upgrade, cero rollback<br />
+                • <strong style="color: #fca5a5;">400 VALIDATION_ERROR</strong>: Zod parse (Interface layer)
+              </div>
+
+              <div class="md-line md-h2 doc-only"><span class="md-hash">##</span> 3. Ámbito por Capa (DDD)</div>
+              <div class="doc-only"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.71rem;">
+                <div
+                  style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #86efac;">Domain:</strong> Conference.create() + VOs (Slug, EventDates)</div>
+                <div
+                  style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #93c5fd;">Application:</strong> CreateConferenceHandler + BR-004</div>
+                <div
+                  style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #fcd34d;">Infra:</strong> Drizzle repo + Outbox</div>
+                <div
+                  style="background: rgba(255, 255, 255, 0.03); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <strong style="color: #f0abfc;">Interface:</strong> POST /api/v1/conferences + Zod</div>
+              </div>
+
+              <div class="md-line md-h2"><span class="md-hash">##</span> 4. Checklist TDD (esta feature)</div>
+              <div
+                style="background: #161b22; border-radius: 6px; padding: 0.4rem 0.65rem; font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.35; color: #c9d1d9;">
+                <strong style="color: #fca5a5;">1º</strong> test de dominio (FAIL) ➔ <strong
+                  style="color: #86efac;">2º</strong> impl VO/entidad (PASS) ➔ <strong
+                  style="color: #93c5fd;">3º</strong> test handlers (mock) ➔ <strong style="color: #fcd34d;">4º</strong>
+                check:arch 0 errores ➔ <strong style="color: #c9d1d9;">5º</strong> lint + tsc
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.85rem 1.4rem;">
+          <div class="chosen-synergy-icon" style="font-size: 1.5rem;">✂️</div>
+          <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+            <strong>Regla de Oro Crafter:</strong> Una feature = un ciclo TDD completo. Si la IA salta de feature, el
+            scope alucina y los tests dejan de ser el contrato.
+          </div>
+        </div>
+      </div>
+    </section>
