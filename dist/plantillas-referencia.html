@@ -14220,7 +14220,7 @@ body:not(.mode-document) .slide[id^="slide-step"] .sdlc-console-deck,
 body:not(.mode-document) .slide[id^="slide-step"] .boundaries-console-deck,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .sdlc-console-deck,
 body:not(.mode-document) .slide[id^="slide-phase2-"] .boundaries-console-deck {
-  padding-bottom: 4rem;
+  padding-bottom: 2.1rem;
 }
 
 /* Tipografía de terminal algo mayor para proyección en Modo Charla */
@@ -14255,7 +14255,7 @@ body:not(.mode-document) .slide[id^="slide-pillar-"] .press-grid,
 body:not(.mode-document) .slide[id^="slide-pillar-"] .agents-case-grid {
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 4rem;
+  padding-bottom: 2.1rem;
 }
 
 /* Casos finales (31-34): mismo centrado con sesgo óptico */
@@ -14271,7 +14271,7 @@ body:not(.mode-document) .slide[id="slide-local-inference-client"] .code-window 
 body:not(.mode-document) .slide[id="slide-local-inference-client"] .code-window {
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 4rem;
+  padding-bottom: 2.1rem;
 }
 
 body:not(.mode-document) .slide[id^="slide-tdd-hybrid-evolution"] .sdlc-build-deck {
@@ -20812,6 +20812,64 @@ body.theme-dark #slide-drifting-local-adr .drift-viewport-clean {
 }
 
 
+
+/* ==========================================================================
+   PARTE 1 — HUD 16/17 (NVFP4 & AutoRound INT4): paneles que abrazan contenido
+   Las cards se estiraban a ~713px con ~300px de vacío interno (box capado a
+   250px). Ahora el deck no estira, la caja del diagrama crece hasta el
+   aspecto real del SVG y los textos suben para proyección.
+   ========================================================================== */
+
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.nvfp4-pipeline-deck,
+body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.autoround-deck {
+  flex: none;
+}
+
+/* Cluster centrado con sesgo óptico del deck (+38: aire abajo = arriba + 38) — solo Modo Charla */
+body.deck-hardware-part1:not(.mode-document) #slide-14 .slide-content,
+body.deck-hardware-part1:not(.mode-document) #slide-15 .slide-content {
+  justify-content: center !important;
+  padding-bottom: 2.4rem;
+}
+
+body.deck-hardware-part1 .nvfp4-flow-grid,
+body.deck-hardware-part1 .autoround-grid-3col {
+  flex: none;
+  align-items: stretch;
+}
+
+body.deck-hardware-part1 .nvfp4-diagram-box,
+body.deck-hardware-part1 .autoround-visual-box {
+  flex: 1;
+  max-height: 312px;
+  min-height: 240px;
+}
+
+body.deck-hardware-part1 .nvfp4-step-title {
+  font-size: 1.18rem;
+}
+
+body.deck-hardware-part1 .nvfp4-step-num {
+  font-size: 0.85rem;
+}
+
+body.deck-hardware-part1 .nvfp4-step-desc {
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+body.deck-hardware-part1 .autoround-card-title {
+  font-size: 1.25rem;
+}
+
+body.deck-hardware-part1 .autoround-card-icon {
+  font-size: 1.7rem;
+}
+
+body.deck-hardware-part1 .autoround-card-desc {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
 
 </style>
 </head>
