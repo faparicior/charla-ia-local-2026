@@ -19312,18 +19312,18 @@ body.theme-dark #slide-journey-ddd-flow text[fill="var(--text-dim)"] {
 
 /* ==========================================================================
    SLIDE MAPA INTERACTIVO DEL SDLC (#slide-sdlc-map)
-   Recreación SVG del diagrama de docs/SDLC-WORKFLOW-DIRECTORY.md
-   Cámara vertical por fases + reveals paso a paso (Talk Mode only).
+   Recreación SVG izquierda→derecha de docs/SDLC-WORKFLOW-DIRECTORY.md
+   Mapa completo siempre visible en silueta; las fases se iluminan al clic.
    ========================================================================== */
 
 /* ---- Paleta por banda (variables locales, tema claro/oscuro) ---- */
-#slide-sdlc-map .band-sky     { --ac:#0369a1; --edge:#0ea5e9; --tint:rgba(14,165,233,.07);  --tintline:rgba(14,165,233,.32); }
-#slide-sdlc-map .band-indigo  { --ac:#4338ca; --edge:#818cf8; --tint:rgba(99,102,241,.07);  --tintline:rgba(99,102,241,.32); }
-#slide-sdlc-map .band-purple  { --ac:#6d28d9; --edge:#a78bfa; --tint:rgba(139,92,246,.07);  --tintline:rgba(139,92,246,.30); }
-#slide-sdlc-map .band-emerald { --ac:#047857; --edge:#34d399; --tint:rgba(16,185,129,.07);  --tintline:rgba(16,185,129,.30); }
-#slide-sdlc-map .band-amber   { --ac:#b45309; --edge:#fbbf24; --tint:rgba(245,158,11,.07);  --tintline:rgba(245,158,11,.30); }
-#slide-sdlc-map .band-crimson { --ac:#be123c; --edge:#fb7185; --tint:rgba(244,63,94,.07);   --tintline:rgba(244,63,94,.30); }
-#slide-sdlc-map .band-slate   { --ac:#334155; --edge:#94a3b8; --tint:rgba(148,163,184,.07); --tintline:rgba(148,163,184,.32); }
+#slide-sdlc-map .band-sky     { --ac:#0369a1; --edge:#0ea5e9; --tint:rgba(14,165,233,.09);  --tintline:rgba(14,165,233,.35); --pd:0s; }
+#slide-sdlc-map .band-indigo  { --ac:#4338ca; --edge:#818cf8; --tint:rgba(99,102,241,.09);  --tintline:rgba(99,102,241,.35); --pd:.25s; }
+#slide-sdlc-map .band-purple  { --ac:#6d28d9; --edge:#a78bfa; --tint:rgba(139,92,246,.09);  --tintline:rgba(139,92,246,.33); --pd:.5s; }
+#slide-sdlc-map .band-emerald { --ac:#047857; --edge:#34d399; --tint:rgba(16,185,129,.09);  --tintline:rgba(16,185,129,.33); --pd:.75s; }
+#slide-sdlc-map .band-amber   { --ac:#b45309; --edge:#fbbf24; --tint:rgba(245,158,11,.09);  --tintline:rgba(245,158,11,.33); --pd:1s; }
+#slide-sdlc-map .band-crimson { --ac:#be123c; --edge:#fb7185; --tint:rgba(244,63,94,.09);   --tintline:rgba(244,63,94,.33); --pd:1.25s; }
+#slide-sdlc-map .band-slate   { --ac:#334155; --edge:#94a3b8; --tint:rgba(148,163,184,.09); --tintline:rgba(148,163,184,.35); --pd:1.5s; }
 
 body.theme-dark #slide-sdlc-map .band-sky     { --ac:#7dd3fc; --edge:#38bdf8; }
 body.theme-dark #slide-sdlc-map .band-indigo  { --ac:#a5b4fc; --edge:#96a1fa; }
@@ -19335,6 +19335,7 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
 
 /* ---- Panel estilo terminal (siempre oscuro, como los consoles del deck) ---- */
 #slide-sdlc-map .sdlc-map-panel {
+  flex: none;
   width: 1564px;
   margin: 0 auto;
   background: #0d1117;
@@ -19366,8 +19367,7 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
 
 #slide-sdlc-map .sdlc-map-canvas {
   width: 1560px;
-  height: 2660px;
-  transform-origin: 50% 0;
+  height: 580px;
 }
 
 #slide-sdlc-map .sdlc-map-hint {
@@ -19382,7 +19382,7 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
   font-size: 0.85rem;
 }
 
-/* ---- Estilos base de los elementos SVG (visibles en ambos modos) ---- */
+/* ---- Estilos base de los elementos SVG ---- */
 #slide-sdlc-map .sdlc-map-svg {
   display: block;
   font-family: var(--font-sans);
@@ -19399,9 +19399,9 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
 }
 
 #slide-sdlc-map .map-kicker {
-  font-size: 15px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   fill: var(--edge);
 }
 
@@ -19412,9 +19412,15 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
 }
 
 #slide-sdlc-map .map-title {
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.01em;
+  fill: var(--text-main);
+}
+
+#slide-sdlc-map .map-title-sm {
+  font-size: 16.5px;
+  font-weight: 800;
   fill: var(--text-main);
 }
 
@@ -19424,9 +19430,10 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
   stroke-width: 1;
 }
 
-#slide-sdlc-map .map-cmd {
+#slide-sdlc-map .map-cmd,
+#slide-sdlc-map .map-cmd-sm {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 12.5px;
   font-weight: 600;
   fill: var(--ac);
 }
@@ -19435,50 +19442,57 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
   fill: rgba(255, 255, 255, 0.03);
   stroke: var(--edge);
   stroke-opacity: 0.5;
-  stroke-width: 1.4;
-  stroke-dasharray: 7 5;
+  stroke-width: 1.3;
+  stroke-dasharray: 6 5;
 }
 
-#slide-sdlc-map .map-chip-path {
+#slide-sdlc-map .map-chip-sm {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: var(--edge);
+  stroke-opacity: 0.5;
+  stroke-width: 1.2;
+  stroke-dasharray: 5 4;
+}
+
+#slide-sdlc-map .map-chip-path,
+#slide-sdlc-map .map-chip-path-sm {
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 12px;
   fill: var(--edge);
-}
-
-#slide-sdlc-map .map-chip-base {
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  fill: #8b93a5;
 }
 
 #slide-sdlc-map .map-chip-item {
   font-family: var(--font-mono);
-  font-size: 16.5px;
+  font-size: 11.5px;
   font-weight: 600;
   fill: var(--edge);
 }
 
-#slide-sdlc-map .map-sub {
-  font-size: 15px;
-  fill: var(--text-muted);
+#slide-sdlc-map .map-note {
+  font-size: 12.5px;
+  fill: #9aa3b5;
 }
 
 #slide-sdlc-map .map-op-cmd {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   fill: var(--ac);
 }
 
 #slide-sdlc-map .map-op-cap {
-  font-size: 14.5px;
+  font-size: 11.5px;
   fill: var(--text-muted);
+}
+
+#slide-sdlc-map .band-indigo .map-op-cap {
+  fill: #9aa3b5;
 }
 
 #slide-sdlc-map .map-flow {
   fill: none;
   stroke: var(--edge);
-  stroke-width: 2.5;
+  stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 100;
@@ -19487,8 +19501,8 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
 #slide-sdlc-map .map-dash {
   fill: none;
   stroke: var(--edge);
-  stroke-width: 2.2;
-  stroke-dasharray: 7 6;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
   stroke-linecap: round;
 }
 
@@ -19498,18 +19512,13 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
   transform-origin: center;
 }
 
-#slide-sdlc-map .map-rail-label {
-  font-size: 13px;
+#slide-sdlc-map .map-rule-label {
+  font-size: 10.5px;
   font-style: italic;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  fill: #8b93a5;
-}
-
-#slide-sdlc-map .map-mini {
-  font-size: 14px;
-  font-style: italic;
+  letter-spacing: 0.03em;
   fill: var(--edge);
+  opacity: 0.9;
 }
 
 #slide-sdlc-map .map-pill {
@@ -19519,96 +19528,73 @@ body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
 }
 
 #slide-sdlc-map .map-pill-t {
-  font-size: 16px;
+  font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
 }
 
+/* Contraste: el título del ADR va directo sobre el panel oscuro */
+#slide-sdlc-map .band-indigo .map-title { fill: #eef0ff; }
+#slide-sdlc-map .band-indigo .map-cmd { fill: #a5b4fc; }
+
 /* Banda en foco (último paso activado) */
-#slide-sdlc-map .map-step.step-current .map-band-bg {
+#slide-sdlc-map .map-step.step-current .map-band-bg,
+#slide-sdlc-map .map-step.step-current .map-skill {
   stroke: var(--edge);
   stroke-width: 2;
 }
 
-/* ---- Tarjetas laterales (paso 8 · vista completa) ---- */
-#slide-sdlc-map .map-side {
+/* ---- Barrido de luz (paso 8 · ciclo completo) ---- */
+#slide-sdlc-map .map-sweep {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 560px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
+  left: 0;
+  width: 210px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16) 45%, rgba(165, 180, 252, 0.22) 55%, transparent);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.6s ease 0.55s;
 }
 
-#slide-sdlc-map .map-side-left {
-  left: 0;
-  padding-left: 44px;
+@keyframes mapSweep {
+  0%   { transform: translateX(-230px); opacity: 0; }
+  12%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(1600px); opacity: 0; }
 }
 
-#slide-sdlc-map .map-side-right {
-  right: 0;
-  padding-right: 44px;
+@keyframes bandGlowPulse {
+  0%, 100% { filter: none; }
+  50%      { filter: drop-shadow(0 0 14px var(--edge)); }
 }
 
-#slide-sdlc-map .map-side-chip {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 13px 18px;
+@keyframes mapPopIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
 }
 
-#slide-sdlc-map .map-side-chip span {
-  font-size: 1.5rem;
-  line-height: 1.2;
+@keyframes mapDraw {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
 }
 
-#slide-sdlc-map .map-side-chip strong {
-  display: block;
-  color: #e8ecf4;
-  font-size: 0.98rem;
-  font-family: var(--font-sans);
+@keyframes mapFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-#slide-sdlc-map .map-side-chip em {
-  display: block;
-  color: #9aa3b5;
-  font-size: 0.85rem;
-  font-style: normal;
-  font-family: var(--font-mono);
-  margin-top: 3px;
+@keyframes mapHeadIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* ==========================================================================
-   MODO CHARLA: reveals paso a paso + cámara vertical (NUNCA en Modo Documento)
+   MODO CHARLA: silueta + iluminación por pasos (NUNCA en Modo Documento)
    ========================================================================== */
 
-/* Banda 1: siempre activa al entrar en la slide */
-body:not(.mode-document) #slide-sdlc-map .map-band-live .pop {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-body:not(.mode-document) #slide-sdlc-map .map-band-live .map-flow {
-  stroke-dashoffset: 0;
-}
-
-body:not(.mode-document) #slide-sdlc-map .map-band-live .map-dash,
-body:not(.mode-document) #slide-sdlc-map .map-band-live .map-head {
-  opacity: 1;
-  transform: none;
-}
-
-/* Grupos de paso: apagados hasta activarse */
+/* Todo el mapa en silueta tenue hasta que su paso se activa */
 body:not(.mode-document) #slide-sdlc-map .map-step {
-  opacity: 0.16;
+  opacity: 0.2;
   filter: grayscale(0.9);
   transition: opacity 0.55s ease, filter 0.55s ease;
 }
@@ -19619,11 +19605,11 @@ body:not(.mode-document) #slide-sdlc-map .map-step.step-active {
 }
 
 body:not(.mode-document) #slide-sdlc-map .map-step:not(.step-active):hover {
-  opacity: 0.38;
+  opacity: 0.4;
   filter: grayscale(0.5);
 }
 
-/* El pill del paso 8 es asequimiento visible desde el principio */
+/* El pill del paso 8 se ve desde el principio como asequimiento */
 body:not(.mode-document) #slide-sdlc-map .map-step-reveal {
   opacity: 0.55;
   filter: none;
@@ -19634,97 +19620,55 @@ body:not(.mode-document) #slide-sdlc-map .map-step-reveal.step-active {
 }
 
 body:not(.mode-document) #slide-sdlc-map .map-step.step-current {
-  filter: drop-shadow(0 0 16px var(--tintline));
+  filter: drop-shadow(0 0 10px var(--tintline));
 }
 
-/* Cajas: pop individual escalonado */
-body:not(.mode-document) #slide-sdlc-map .pop {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
-}
-
+/* Cajas: siempre visibles en silueta; al activar el paso, pop animado */
 body:not(.mode-document) #slide-sdlc-map .map-step.step-active .pop {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: var(--d, 0s);
+  animation: mapPopIn 0.55s var(--ease-spring) var(--d, 0s) both;
 }
 
-/* Flechas sólidas: se dibujan (pathLength normalizado) */
-body:not(.mode-document) #slide-sdlc-map .map-flow {
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 0.75s ease-in-out;
-}
-
+/* Flechas sólidas: al activar, se dibujan */
 body:not(.mode-document) #slide-sdlc-map .map-step.step-active .map-flow {
-  stroke-dashoffset: 0;
-  transition-delay: var(--d, 0s);
+  animation: mapDraw 0.65s ease-out var(--d, 0s) both;
 }
 
-/* Flechas discontinuas: fade in */
-body:not(.mode-document) #slide-sdlc-map .map-dash {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
+/* Flechas discontinuas: al activar, fade in */
 body:not(.mode-document) #slide-sdlc-map .map-step.step-active .map-dash {
-  opacity: 1;
-  transition-delay: var(--d, 0s);
+  animation: mapFadeIn 0.5s ease var(--d, 0s) both;
 }
 
 /* Puntas de flecha: aparecen al final del trazado */
-body:not(.mode-document) #slide-sdlc-map .map-head {
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.35s ease, transform 0.35s var(--ease-spring);
-}
-
 body:not(.mode-document) #slide-sdlc-map .map-step.step-active .map-head {
-  opacity: 1;
-  transform: scale(1);
-  transition-delay: var(--d, 0s);
+  animation: mapHeadIn 0.35s var(--ease-spring) var(--d, 0s) both;
 }
 
-/* Cámara vertical: pan por fase (reglas en cascada, la última gana) */
-body:not(.mode-document) #slide-sdlc-map .sdlc-map-canvas {
-  transform: translateY(0);
-  transition: transform 1.05s var(--ease-spring);
-  will-change: transform;
+/* Paso 8: barrido de luz + pulso de las bandas */
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .map-sweep {
+  animation: mapSweep 1.9s ease-in-out 0.15s both;
 }
 
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="2"].step-active) .sdlc-map-canvas { transform: translateY(-340px); }
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="3"].step-active) .sdlc-map-canvas { transform: translateY(-670px); }
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="4"].step-active) .sdlc-map-canvas { transform: translateY(-1040px); }
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="5"].step-active) .sdlc-map-canvas { transform: translateY(-1410px); }
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="6"].step-active) .sdlc-map-canvas { transform: translateY(-1780px); }
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="7"].step-active) .sdlc-map-canvas { transform: translateY(-2080px); }
-
-/* Paso 8: zoom out a la vista completa del mapa */
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .sdlc-map-canvas {
-  transform: scale(0.218);
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .map-band-bg {
+  animation: bandGlowPulse 1.05s ease-in-out var(--pd, 0s) 2;
 }
 
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .sdlc-map-canvas .svg-t {
-  opacity: 0;
-  transition: opacity 0.45s ease 0.3s;
+/* Contador de pasos en la barra del panel (N iluminados / 8) */
+body.mode-document #slide-sdlc-map .sdlc-map-progress {
+  visibility: hidden;
 }
 
-body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .map-side {
-  opacity: 1;
-}
-
-/* Contador de pasos en la barra del panel */
-#slide-sdlc-map .map-step-counter::after { content: "1 / 8 · Fase 1 · Discovery"; }
-#slide-sdlc-map[data-active-steps="1"] .map-step-counter::after { content: "2 / 8 · Gobierno ADR"; }
-#slide-sdlc-map[data-active-steps="2"] .map-step-counter::after { content: "3 / 8 · Fase 2 · Specs"; }
-#slide-sdlc-map[data-active-steps="3"] .map-step-counter::after { content: "4 / 8 · Fase 3 · Dominio"; }
-#slide-sdlc-map[data-active-steps="4"] .map-step-counter::after { content: "5 / 8 · Fase 4 · TDD"; }
-#slide-sdlc-map[data-active-steps="5"] .map-step-counter::after { content: "6 / 8 · Fase 5+ · Evolución"; }
-#slide-sdlc-map[data-active-steps="6"] .map-step-counter::after { content: "7 / 8 · Operaciones"; }
-#slide-sdlc-map[data-active-steps="7"] .map-step-counter::after { content: "8 / 8 · Mapa completo"; }
+#slide-sdlc-map .map-step-counter::after { content: "▶ 0 / 8 · Pulsa: Fase 1 · Discovery"; }
+#slide-sdlc-map[data-active-steps="1"] .map-step-counter::after { content: "1 / 8 · Fase 1 · Discovery"; }
+#slide-sdlc-map[data-active-steps="2"] .map-step-counter::after { content: "2 / 8 · Gobierno ADR"; }
+#slide-sdlc-map[data-active-steps="3"] .map-step-counter::after { content: "3 / 8 · Fase 2 · Specs"; }
+#slide-sdlc-map[data-active-steps="4"] .map-step-counter::after { content: "4 / 8 · Fase 3 · Dominio"; }
+#slide-sdlc-map[data-active-steps="5"] .map-step-counter::after { content: "5 / 8 · Fase 4 · TDD"; }
+#slide-sdlc-map[data-active-steps="6"] .map-step-counter::after { content: "6 / 8 · Fase 5+ · Evolución"; }
+#slide-sdlc-map[data-active-steps="7"] .map-step-counter::after { content: "7 / 8 · Operaciones"; }
+#slide-sdlc-map[data-active-steps="8"] .map-step-counter::after { content: "8 / 8 · Ciclo completo"; }
 
 /* ==========================================================================
-   OVERVIEW & IMPRESIÓN: mapa completo visible con zoom de encuadre
+   OVERVIEW & IMPRESIÓN: mapa completo iluminado
    ========================================================================== */
 body.overview-mode #slide-sdlc-map .map-step,
 body.overview-mode #slide-sdlc-map .pop,
@@ -19744,13 +19688,8 @@ body.overview-mode #slide-sdlc-map .map-head {
   transform: none !important;
 }
 
-body.overview-mode #slide-sdlc-map .sdlc-map-canvas {
-  transform: scale(0.218) !important;
-  transition: none !important;
-}
-
-body.overview-mode #slide-sdlc-map .map-side {
-  opacity: 0 !important;
+body.overview-mode #slide-sdlc-map .map-sweep {
+  display: none !important;
 }
 
 @media print {
@@ -19773,420 +19712,11 @@ body.overview-mode #slide-sdlc-map .map-side {
     transform: none !important;
   }
 
-  #slide-sdlc-map .sdlc-map-canvas {
-    transform: scale(0.218) !important;
-    transition: none !important;
-  }
-
-  #slide-sdlc-map .map-side,
+  #slide-sdlc-map .map-sweep,
   #slide-sdlc-map .sdlc-map-hint {
-    opacity: 0 !important;
+    display: none !important;
   }
 }
-
-/* ==========================================================================
-   SLIDE 13b: EL EQUILIBRISTA DE LA INFERENCIA (AUTOROUND & PENSAMIENTO LARGO)
-   ========================================================================== */
-.deck-hardware-part1 .autoround-balance-split {
-  display: grid;
-  grid-template-columns: 0.78fr 1.22fr;
-  gap: 1.8rem;
-  align-items: center;
-  width: 100%;
-  flex: 1 1 0;
-  min-height: 0;
-  margin-top: 0.2rem;
-}
-
-.tightrope-visual-stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.tightrope-visual-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: 20px;
-  padding: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: 100%;
-  max-width: 680px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
-  position: relative;
-  overflow: hidden;
-}
-
-body.theme-dark .tightrope-visual-card {
-  background: #1c1d22;
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-}
-
-.tightrope-badge-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.tightrope-pill-badge {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #0284c7;
-  background: rgba(2, 132, 199, 0.1);
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-body.theme-dark .tightrope-pill-badge {
-  background: rgba(2, 132, 199, 0.2);
-  color: #38bdf8;
-}
-
-.tightrope-model-badge {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-dim);
-  background: rgba(0, 0, 0, 0.04);
-  padding: 0.25rem 0.55rem;
-  border-radius: 6px;
-}
-
-body.theme-dark .tightrope-model-badge {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-}
-
-.tightrope-gif-wrapper {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border-subtle);
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.tightrope-hero-gif {
-  width: 100%;
-  height: auto;
-  max-height: 380px;
-  object-fit: contain;
-  display: block;
-}
-
-.tightrope-caption-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  width: 100%;
-}
-
-.tightrope-caption-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 0.72rem 0.85rem;
-  font-size: 0.86rem;
-  line-height: 1.45;
-  color: var(--text-muted);
-}
-
-body.theme-dark .tightrope-caption-item {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.06);
-  color: #b8bcc4;
-}
-
-.caption-icon {
-  font-size: 1.15rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.caption-text strong {
-  color: var(--text-main);
-}
-
-body.theme-dark .caption-text strong {
-  color: #f1f5f9;
-}
-
-/* Tarjeta y Tabla Comparativa de Compensación Activa */
-.compensation-table-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: 20px;
-  padding: 1.35rem 1.6rem;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 0.95rem;
-  width: 100%;
-  min-height: 0;
-}
-
-body.theme-dark .compensation-table-card {
-  background: #1c1d22;
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-}
-
-.comp-table-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.comp-table-title {
-  font-family: var(--font-sans);
-  font-size: 1.12rem;
-  font-weight: 800;
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-body.theme-dark .comp-table-title {
-  color: #f1f5f9;
-}
-
-.comp-table-sub {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--text-dim);
-  text-transform: uppercase;
-}
-
-.comp-table-wrap {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.comp-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.comp-table th {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.65rem 0.75rem;
-  border-bottom: 2px solid var(--border-medium);
-  white-space: nowrap;
-}
-
-.comp-table td {
-  padding: 0.62rem 0.75rem;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.92rem;
-  vertical-align: middle;
-}
-
-.comp-table tr:last-child td {
-  border-bottom: none;
-}
-
-.comp-table tr:hover {
-  background: rgba(0, 0, 0, 0.02);
-}
-
-body.theme-dark .comp-table tr:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.comp-table td.col-name {
-  white-space: nowrap;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-body.theme-dark .comp-table td.col-name {
-  color: #f1f5f9;
-}
-
-.name-with-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex-wrap: wrap;
-}
-
-.vendor-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.12rem 0.45rem;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--text-dim);
-  display: inline-block;
-}
-
-body.theme-dark .vendor-tag {
-  background: rgba(255, 255, 255, 0.08);
-  color: #94a3b8;
-}
-
-.vendor-tag.nv {
-  background: rgba(118, 185, 0, 0.15);
-  color: #4d7c0f;
-}
-
-body.theme-dark .vendor-tag.nv {
-  background: rgba(118, 185, 0, 0.25);
-  color: #a3e635;
-}
-
-.vendor-tag.intel {
-  background: rgba(2, 132, 199, 0.15);
-  color: #0284c7;
-}
-
-body.theme-dark .vendor-tag.intel {
-  background: rgba(2, 132, 199, 0.25);
-  color: #38bdf8;
-}
-
-.vendor-tag.meta {
-  background: rgba(59, 130, 246, 0.15);
-  color: #2563eb;
-}
-
-body.theme-dark .vendor-tag.meta {
-  background: rgba(59, 130, 246, 0.25);
-  color: #60a5fa;
-}
-
-.vendor-tag.ista {
-  background: rgba(217, 70, 239, 0.15);
-  color: #a21caf;
-}
-
-body.theme-dark .vendor-tag.ista {
-  background: rgba(217, 70, 239, 0.25);
-  color: #f0abfc;
-}
-
-/* Badges de Tipo */
-.comp-badge {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 800;
-  padding: 0.2rem 0.58rem;
-  border-radius: 6px;
-  white-space: nowrap;
-  display: inline-block;
-}
-
-.badge-purple {
-  background: rgba(147, 51, 234, 0.12);
-  color: #7e22ce;
-}
-
-body.theme-dark .badge-purple {
-  background: rgba(168, 85, 247, 0.2);
-  color: #d8b4fe;
-}
-
-.badge-green {
-  background: rgba(22, 163, 74, 0.12);
-  color: #15803d;
-}
-
-body.theme-dark .badge-green {
-  background: rgba(34, 197, 94, 0.2);
-  color: #86efac;
-}
-
-.badge-amber {
-  background: rgba(217, 119, 6, 0.12);
-  color: #b45309;
-}
-
-body.theme-dark .badge-amber {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fde68a;
-}
-
-.badge-sky {
-  background: rgba(2, 132, 199, 0.12);
-  color: #0284c7;
-}
-
-body.theme-dark .badge-sky {
-  background: rgba(56, 189, 248, 0.2);
-  color: #7dd3fc;
-}
-
-.badge-orange {
-  background: rgba(234, 88, 12, 0.12);
-  color: #c2410c;
-}
-
-body.theme-dark .badge-orange {
-  background: rgba(251, 146, 60, 0.2);
-  color: #fed7aa;
-}
-
-.badge-red {
-  background: rgba(220, 38, 38, 0.12);
-  color: #dc2626;
-}
-
-body.theme-dark .badge-red {
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
-}
-
-.badge-fuchsia {
-  background: rgba(217, 70, 239, 0.14);
-  color: #a21caf;
-}
-
-body.theme-dark .badge-fuchsia {
-  background: rgba(217, 70, 239, 0.25);
-  color: #f0abfc;
-}
-
-.gsq-mini-pill {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 800;
-  padding: 0.12rem 0.48rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  box-shadow: 0 2px 8px rgba(217, 70, 239, 0.35);
-}
-
 /* Fila interactiva GSQ + RCO en Slide 14 */
 tr.row-gsq-special {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -20869,6 +20399,68 @@ body.theme-dark .gsq-callout-text {
 body.theme-dark .gsq-callout-text strong {
   color: #f1f5f9;
 }
+
+/* ==========================================================================
+   PARTE 2 - SLIDES SPECIAL 2b & 2c: METÁFORAS DE DRIFTING (SONNET VS QWEN ADR)
+   ========================================================================== */
+.drift-deck-fullscreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 0.25rem;
+}
+
+.drift-viewport-clean {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 220px);
+  min-height: 600px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000000;
+  border: 1.5px solid var(--border-subtle);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.theme-dark .drift-viewport-clean {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 52px rgba(0, 0, 0, 0.6);
+}
+
+#slide-drifting-cloud-sonnet .drift-viewport-clean {
+  border-color: rgba(234, 88, 12, 0.35);
+}
+
+body.theme-dark #slide-drifting-cloud-sonnet .drift-viewport-clean {
+  border-color: rgba(234, 88, 12, 0.5);
+  box-shadow: 0 16px 52px rgba(234, 88, 12, 0.18);
+}
+
+#slide-drifting-local-adr .drift-viewport-clean {
+  border-color: rgba(2, 132, 199, 0.35);
+}
+
+body.theme-dark #slide-drifting-local-adr .drift-viewport-clean {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 16px 52px rgba(2, 132, 199, 0.18);
+}
+
+.drift-hero-img-contain {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 
 
 </style>
@@ -22410,9 +22002,9 @@ body.theme-dark .gsq-callout-text strong {
                       </div>
                     </td>
                     <td><span class="comp-badge badge-fuchsia">Gumbel + Manifold</span></td>
-                    <td>Relajaci&oacute;n continua &amp; variedad Riemanniana <span class="comp-detail doc-only">(sin colapso a 2.7 bpw)</span></td>
+                    <td>Optimizaci&oacute;n suave &amp; variedad Riemanniana <span class="comp-detail doc-only">(sin colapso a 2.7 bpw)</span></td>
                     <td><span class="cost-tag medium">Medio</span> <span class="cost-sub">(1 GPU &middot; &lt;2h)</span></td>
-                    <td>GGUF / ExLlamaV2 <span class="comp-sub">(27B en 16GB &middot; 70B en 24GB)</span></td>
+                    <td>GGUF / ExLlamaV2 <span class="comp-sub">(35B en 16GB &middot; 122B en 24GB)</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -22438,11 +22030,109 @@ body.theme-dark .gsq-callout-text strong {
         <div class="tag">Vanguardia 2026 &bull; Cuantizaci&oacute;n Extrema (2&ndash;3 bits) &bull; ISTA-DASLab</div>
         <h2>Rompiendo el Abismo de los 2&ndash;3 Bits: <span class="serif-italic" style="color: #c026d3;">GSQ + RCO</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          C&oacute;mo la relajaci&oacute;n continua mediante Gumbel-Softmax (arXiv:2604.18556) y las Variedades Riemannianas (arXiv:2605.00649) salvan modelos de 27B y 70B del colapso cognitivo en GPUs dom&eacute;sticas.
+          C&oacute;mo la optimizaci&oacute;n suave diferenciable (Gumbel-Softmax, arXiv:2604.18556) y las Variedades Riemannianas (arXiv:2605.00649) salvan modelos de 35B y 122B del colapso cognitivo en GPUs dom&eacute;sticas.
         </p>
 
         <div class="gsq-rco-grid">
-          <!-- Columna Izquierda: Los Dos Pilares Matemáticos -->
+          <!-- Columna Izquierda: Impacto Práctico & Hitos en Hardware (Protagonista Grande) -->
+          <div class="gsq-impact-col">
+            <!-- Tarjeta 1: Gráfico comparativo del Abismo de los 2-3 bits -->
+            <div class="impact-card cliff-card">
+              <div class="impact-header">
+                <span class="impact-title">&#128201; El Fin del &laquo;Abismo de los 2&ndash;3 Bits&raquo;</span>
+                <span class="impact-sub">Perplejidad &amp; Razonamiento</span>
+              </div>
+              <div class="cliff-comparison-bars">
+                <div class="cliff-row">
+                  <div class="cliff-meta">
+                    <span class="cliff-name">NVFP4 / Q4_K_M (4.0 bpw)</span>
+                    <span class="cliff-score pass">~99% Fidelidad Original</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-4bit" style="width: 99%;"></div>
+                  </div>
+                </div>
+                <div class="cliff-row">
+                  <div class="cliff-meta">
+                    <span class="cliff-name">AutoRound PTQ (3.0 bpw)</span>
+                    <span class="cliff-score medium">~86% Calidad (decae a &lt;3 bpw)</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-3bit" style="width: 86%;"></div>
+                  </div>
+                </div>
+                <div class="cliff-row">
+                  <div class="cliff-meta">
+                    <span class="cliff-name">PTQ Cl&aacute;sico / RTN (&lt;3.0 bpw)</span>
+                    <span class="cliff-score fail">&#128165; Colapso Cognitivo (Bucles infinitos)</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-collapse" style="width: 25%;"></div>
+                  </div>
+                </div>
+                <div class="cliff-row highlight-gsq">
+                  <div class="cliff-meta">
+                    <span class="cliff-name"><strong>GSQ + RCO (2.8 bpw Mixto)</strong></span>
+                    <span class="cliff-score star">&#10024; ~96.5% Fidelidad (Razonamiento intacto)</span>
+                  </div>
+                  <div class="cliff-bar-track">
+                    <div class="cliff-bar-fill bar-gsq" style="width: 96.5%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Hitos de Hardware Local Real (Modelos 2026) -->
+            <div class="impact-card hardware-targets-card">
+              <div class="impact-header">
+                <span class="impact-title">&#128421;&#65039; Qu&eacute; Desbloquea en Hardware Dom&eacute;stico</span>
+                <span class="impact-sub">GGUF &middot; ExLlamaV2</span>
+              </div>
+              <div class="hardware-targets-grid">
+                <div class="hw-target-box box-16gb">
+                  <div class="hw-target-badge">16 GB VRAM</div>
+                  <div class="hw-target-gpu">RTX 4080 / 5080 &middot; Mac 16GB</div>
+                  <div class="hw-target-models">
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Qwen 3.6 - 35B</span>
+                      <span class="model-fit-tag">&#10004; 100% en GPU (2.85 bpw &asymp; 12.5 GB)</span>
+                    </div>
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Qwen 3.8 - 27B / Gemma 4</span>
+                      <span class="model-fit-tag">&#10004; Con KV Cache FP8 &middot; 80+ t/s</span>
+                    </div>
+                  </div>
+                  <div class="hw-target-foot">Un modelo de 35B completo sin offload a RAM</div>
+                </div>
+
+                <div class="hw-target-box box-24gb">
+                  <div class="hw-target-badge">24 GB VRAM</div>
+                  <div class="hw-target-gpu">RTX 3090 / 4090 / 5090 &middot; Mac 24GB</div>
+                  <div class="hw-target-models">
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Qwen 3.5 - 122B MoE</span>
+                      <span class="model-fit-tag">&#10004; 100% en GPU (2.75 bpw &asymp; 22.5 GB)</span>
+                    </div>
+                    <div class="hw-model-item">
+                      <span class="model-badge-mini">Llama 4 / DeepSeek R1 MoE</span>
+                      <span class="model-fit-tag">&#10004; Razonamiento mononodo &middot; 25+ t/s</span>
+                    </div>
+                  </div>
+                  <div class="hw-target-foot">Pensamiento largo sin cuello de botella PCIe</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Callout Inferior -->
+            <div class="gsq-callout-footer">
+              <span class="gsq-callout-icon">&#9889;</span>
+              <div class="gsq-callout-text">
+                <strong>El salto de 2026:</strong> No se trata de recortar bits ciegamente, sino de <em>asignar precisi&oacute;n geom&eacute;trica continua</em>. GSQ + RCO redefine qu&eacute; modelos caben en una &uacute;nica GPU dom&eacute;stica.
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Los Dos Pilares Matemáticos (Claros y Elegantes) -->
           <div class="gsq-pillars-col">
             <!-- Pilar 1: GSQ -->
             <div class="gsq-card gsq-card-gumbel">
@@ -22450,39 +22140,21 @@ body.theme-dark .gsq-callout-text strong {
                 <div class="gsq-card-title-group">
                   <span class="gsq-icon">&#128300;</span>
                   <div>
-                    <h3 class="gsq-card-title">GSQ: Gumbel-Softmax Quantization</h3>
-                    <span class="gsq-card-arxiv">arXiv:2604.18556 &middot; ISTA-DASLab (Dan Alistarh)</span>
+                    <h3 class="gsq-card-title">GSQ: Gumbel-Softmax</h3>
+                    <span class="gsq-card-arxiv">arXiv:2604.18556 &middot; ISTA-DASLab</span>
                   </div>
                 </div>
-                <span class="gsq-pill-tag tag-fuchsia">Relajaci&oacute;n Continua</span>
+                <span class="gsq-pill-tag tag-fuchsia">Optimizaci&oacute;n Suave</span>
               </div>
               <div class="gsq-card-body">
                 <p class="gsq-desc">
-                  <strong>El problema a &lt;3 bits:</strong> El redondeo discreto carece de gradiente directo. El estimador cl&aacute;sico (STE) inyecta tanto ruido que descalabra la atenci&oacute;n de los modelos.
+                  <strong>El reto a &lt;3 bits:</strong> El redondeo discreto no tiene derivadas. El estimador cl&aacute;sico (STE) inyecta tanto ruido que descalabra la atenci&oacute;n.
                 </p>
-                <div class="gsq-pipeline-box">
-                  <div class="gsq-pipe-step">
-                    <span class="pipe-label">Pesos $W$</span>
-                    <span class="pipe-desc">Valores BF16</span>
-                  </div>
-                  <div class="gsq-pipe-arrow">&rarr;</div>
-                  <div class="gsq-pipe-step highlight">
-                    <span class="pipe-label">+ Gumbel $(g)$</span>
-                    <span class="pipe-desc">Ruido estoc&aacute;stico</span>
-                  </div>
-                  <div class="gsq-pipe-arrow">&rarr;</div>
-                  <div class="gsq-pipe-step highlight">
-                    <span class="pipe-label">Softmax($\cdot / \tau$)</span>
-                    <span class="pipe-desc">Recocido $\tau \to 0$</span>
-                  </div>
-                  <div class="gsq-pipe-arrow">&rarr;</div>
-                  <div class="gsq-pipe-step">
-                    <span class="pipe-label">Rejilla Discreta</span>
-                    <span class="pipe-desc">2 &oacute; 3 bits puros</span>
-                  </div>
-                </div>
+                <p class="gsq-desc">
+                  <strong>La soluci&oacute;n:</strong> Parametriza la pertenencia a los niveles discretos mediante probabilidades continuas con temperatura recocida ($\tau \to 0$).
+                </p>
                 <p class="gsq-note">
-                  &#10004; <strong>Ventaja crucial:</strong> Permite backpropagation anal&iacute;tico exacto durante la cuantizaci&oacute;n. Los pesos convergen sin saltos ca&oacute;ticos.
+                  &#10004; <strong>Ventaja:</strong> Permite backpropagation anal&iacute;tico directo durante la cuantizaci&oacute;n. Los pesos convergen con suavidad anal&iacute;tica sin saltos ca&oacute;ticos.
                 </p>
               </div>
             </div>
@@ -22493,7 +22165,7 @@ body.theme-dark .gsq-callout-text strong {
                 <div class="gsq-card-title-group">
                   <span class="gsq-icon">&#128208;</span>
                   <div>
-                    <h3 class="gsq-card-title">RCO: Riemannian Constrained Optimization</h3>
+                    <h3 class="gsq-card-title">RCO: Variedad Riemanniana</h3>
                     <span class="gsq-card-arxiv">arXiv:2605.00649 &middot; ISTA-DASLab</span>
                   </div>
                 </div>
@@ -22501,12 +22173,12 @@ body.theme-dark .gsq-callout-text strong {
               </div>
               <div class="gsq-card-body">
                 <p class="gsq-desc">
-                  <strong>El problema de los bits enteros:</strong> Forzar 2 o 3 bits uniformes asfixia a los tensores cr&iacute;ticos de atenci&oacute;n y malgasta espacio en capas intermedias.
+                  <strong>El reto de bits enteros:</strong> Forzar 2 &oacute; 3 bits uniformes asfixia a la atenci&oacute;n y desperdicia espacio en capas tolerantes.
                 </p>
                 <div class="rco-allocation-visual">
                   <div class="rco-alloc-bar">
                     <div class="rco-alloc-segment seg-crit" style="flex: 1.35;">
-                      <span class="seg-title">Atenci&oacute;n / QKV / Down</span>
+                      <span class="seg-title">Atenci&oacute;n / QKV</span>
                       <span class="seg-bits">3.4 bpw</span>
                     </div>
                     <div class="rco-alloc-segment seg-mid" style="flex: 1.0;">
@@ -22519,111 +22191,13 @@ body.theme-dark .gsq-callout-text strong {
                     </div>
                   </div>
                   <div class="rco-alloc-legend">
-                    <span>&#9878;&#65039; Restricci&oacute;n de Variedad Riemanniana:</span>
-                    <strong>Media exacta = 2.80 bpw (Encaja en tu VRAM sin redondear hacia arriba)</strong>
+                    <span>&#9878;&#65039; Restricci&oacute;n geom&eacute;trica:</span>
+                    <strong>Media exacta = 2.80 bpw (Encaja en tu VRAM sin redondeos)</strong>
                   </div>
                 </div>
                 <p class="gsq-note">
-                  &#10004; <strong>Ventaja crucial:</strong> Optimizaci&oacute;n fraccional continua capa por capa; cero desperdicio de memoria y m&aacute;xima fidelidad donde importa.
+                  &#10004; <strong>Ventaja:</strong> Asignaci&oacute;n fraccional por capa; m&aacute;xima fidelidad donde importa y cero desperdicio de memoria.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Impacto Práctico y Hitos de Hardware -->
-          <div class="gsq-impact-col">
-            <!-- Tarjeta 1: Gráfico comparativo del Abismo de los 2-3 bits -->
-            <div class="impact-card cliff-card">
-              <div class="impact-header">
-                <span class="impact-title">&#128201; El Fin del &laquo;Abismo de los 2&ndash;3 Bits&raquo;</span>
-                <span class="impact-sub">Perplejidad &amp; Razonamiento</span>
-              </div>
-              <div class="cliff-comparison-bars">
-                <div class="cliff-row">
-                  <div class="cliff-meta">
-                    <span class="cliff-name">NVFP4 / Q4_K_M (4.0 bpw)</span>
-                    <span class="cliff-score pass">~99% Calidad BF16</span>
-                  </div>
-                  <div class="cliff-bar-track">
-                    <div class="cliff-bar-fill bar-4bit" style="width: 99%;"></div>
-                  </div>
-                </div>
-                <div class="cliff-row">
-                  <div class="cliff-meta">
-                    <span class="cliff-name">AutoRound PTQ (3.0 bpw)</span>
-                    <span class="cliff-score medium">~86% Calidad</span>
-                  </div>
-                  <div class="cliff-bar-track">
-                    <div class="cliff-bar-fill bar-3bit" style="width: 86%;"></div>
-                  </div>
-                </div>
-                <div class="cliff-row">
-                  <div class="cliff-meta">
-                    <span class="cliff-name">PTQ Cl&aacute;sico / RTN (&lt;3.0 bpw)</span>
-                    <span class="cliff-score fail">&#128165; Colapso Cognitivo (Bucles)</span>
-                  </div>
-                  <div class="cliff-bar-track">
-                    <div class="cliff-bar-fill bar-collapse" style="width: 25%;"></div>
-                  </div>
-                </div>
-                <div class="cliff-row highlight-gsq">
-                  <div class="cliff-meta">
-                    <span class="cliff-name"><strong>GSQ + RCO (2.8 bpw Mixto)</strong></span>
-                    <span class="cliff-score star">&#10024; ~96.5% Calidad (Intacto)</span>
-                  </div>
-                  <div class="cliff-bar-track">
-                    <div class="cliff-bar-fill bar-gsq" style="width: 96.5%;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tarjeta 2: Hitos de Hardware Local Real -->
-            <div class="impact-card hardware-targets-card">
-              <div class="impact-header">
-                <span class="impact-title">&#128421;&#65039; Qu&eacute; Desbloquea en Hardware Dom&eacute;stico</span>
-                <span class="impact-sub">GGUF &middot; ExLlamaV2</span>
-              </div>
-              <div class="hardware-targets-grid">
-                <div class="hw-target-box box-16gb">
-                  <div class="hw-target-badge">16 GB VRAM</div>
-                  <div class="hw-target-gpu">RTX 4080 / 5080 &middot; Mac 16GB</div>
-                  <div class="hw-target-models">
-                    <div class="hw-model-item">
-                      <span class="model-badge-mini">Qwen 2.5 32B</span>
-                      <span class="model-fit-tag">&#10004; 100% en GPU (2.85 bpw)</span>
-                    </div>
-                    <div class="hw-model-item">
-                      <span class="model-badge-mini">Gemma 2 27B</span>
-                      <span class="model-fit-tag">&#10004; Con KV Cache FP8</span>
-                    </div>
-                  </div>
-                  <div class="hw-target-foot">Antes impensable sin offload severo a RAM</div>
-                </div>
-
-                <div class="hw-target-box box-24gb">
-                  <div class="hw-target-badge">24 GB VRAM</div>
-                  <div class="hw-target-gpu">RTX 3090 / 4090 / 5090 &middot; Mac 24GB</div>
-                  <div class="hw-target-models">
-                    <div class="hw-model-item">
-                      <span class="model-badge-mini">Llama 3.3 70B</span>
-                      <span class="model-fit-tag">&#10004; 100% en GPU (2.75 bpw)</span>
-                    </div>
-                    <div class="hw-model-item">
-                      <span class="model-badge-mini">Qwen 2.5 72B</span>
-                      <span class="model-fit-tag">&#10004; ~22 GB VRAM &middot; 20+ t/s</span>
-                    </div>
-                  </div>
-                  <div class="hw-target-foot">Pensamiento largo sin cuello de botella PCIe</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Callout Inferior -->
-            <div class="gsq-callout-footer">
-              <span class="gsq-callout-icon">&#9889;</span>
-              <div class="gsq-callout-text">
-                <strong>El salto estrat&eacute;gico de 2026:</strong> Ya no se trata s&oacute;lo de recortar bits, sino de <em>asignar precisi&oacute;n continua</em> sobre la geometr&iacute;a del modelo. GSQ + RCO redefine qu&eacute; modelos caben en una &uacute;nica GPU dom&eacute;stica.
               </div>
             </div>
           </div>
