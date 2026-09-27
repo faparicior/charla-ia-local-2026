@@ -1453,7 +1453,7 @@
         <div class="tag">Razonamiento &amp; Thinking Models • Compensaci&oacute;n de Error</div>
         <h2>El Equilibrista de la Inferencia: <span class="serif-italic" style="color: #0284c7;">Compensaci&oacute;n Activa de Pesos</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          &iquest;C&oacute;mo sobrevive un modelo a 5.000 tokens de pensamiento sin caerse? Mientras el redondeo ciego (RTN) acumula sesgo paso a paso, AutoRound (Intel Labs) equilibra los pesos contiguos en sentidos opuestos para neutralizar la desviaci&oacute;n en cadenas largas.
+          &iquest;C&oacute;mo sobrevive un modelo a 5.000 tokens de pensamiento sin caerse? Comparativa de sistemas de compensaci&oacute;n activa: desde PTQ r&aacute;pido (AutoRound, SpinQuant) hasta destilaci&oacute;n avanzada (QAD) y QAT.
         </p>
 
         <div class="autoround-balance-split">
@@ -1477,73 +1477,84 @@
                 <div class="tightrope-caption-item">
                   <span class="caption-icon">&#128054;</span>
                   <div class="caption-text">
-                    <strong>Sult&aacute;n (AutoRound):</strong> Coloca el plato justo bajo cada pisada, equilibrando los pesos para que no caiga al vac&iacute;o.
+                    <strong>Sult&aacute;n (Compensaci&oacute;n):</strong> Coloca el plato justo bajo cada pisada, equilibrando los pesos para que no caiga al vac&iacute;o.
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Columna Derecha: Tarjetas de Contraste Técnico -->
-          <div class="autoround-balance-cards">
-
-            <!-- Card 1: Redondeo Ciego (RTN) -->
-            <div class="balance-card balance-card-rtn">
-              <div class="balance-card-header">
-                <span class="balance-badge badge-red">&#10007; Redondeo Ciego (RTN Cl&aacute;sico)</span>
-                <span class="balance-subtag text-red">Sesgo Unidireccional Acumulado</span>
-              </div>
-              <p class="balance-desc">
-                Cada peso se redondea al entero m&aacute;s pr&oacute;ximo sin mirar a los dem&aacute;s. Si m&uacute;ltiples pesos caen a la baja, el sesgo se suma:
-              </p>
-              <div class="balance-math-box math-red">
-                <div class="math-row">
-                  <code>W&#8321; (3.49) &rarr; 3 <span class="err-tag">(&minus;0.49)</span></code>
-                  <span class="math-op">+</span>
-                  <code>W&#8322; (3.48) &rarr; 3 <span class="err-tag">(&minus;0.48)</span></code>
-                  <span class="math-op">=</span>
-                  <strong class="math-total text-red">Error &minus;0.97 &#10007;</strong>
-                </div>
-              </div>
-              <div class="balance-consequence text-red doc-only">
-                <strong>Efecto Domin&oacute;:</strong> En 50 pasos encadenados, el error se multiplica ((0,98)&#8309;&#8304; &asymp; 36%): el modelo entra en bucle infinito y no cierra <code>&lt;/think&gt;</code>.
-              </div>
+          <!-- Columna Derecha: Tabla Comparativa de Compensación Activa -->
+          <div class="compensation-table-card">
+            <div class="comp-table-header">
+              <div class="comp-table-title">&#9878;&#65039; Sistemas de Compensaci&oacute;n Activa de Pesos</div>
+              <span class="comp-table-sub">Inferencia &middot; De PTQ a QAD</span>
             </div>
 
-            <!-- Card 2: AutoRound (Intel Labs - Sign-SGD) -->
-            <div class="balance-card balance-card-autoround">
-              <div class="balance-card-header">
-                <span class="balance-badge badge-green">&#10003; AutoRound (Intel Labs &middot; Sign-SGD)</span>
-                <span class="balance-subtag text-green">Compensaci&oacute;n Activa entre Pares</span>
-              </div>
-              <p class="balance-desc">
-                Optimiza por bloques de Transformer. Si forzar un peso hacia abajo genera error, empuja el contiguo hacia arriba:
-              </p>
-              <div class="balance-math-box math-green">
-                <div class="math-row">
-                  <code>W&#8321; (3.49) &rarr; 3 <span class="err-tag">(&minus;0.49)</span></code>
-                  <span class="math-op">+</span>
-                  <code>W&#8322; (3.48) &rarr; 4 <span class="err-tag">(+0.52)</span></code>
-                  <span class="math-op">=</span>
-                  <strong class="math-total text-green">Error Neto &asymp; 0.00 &#10003;</strong>
-                </div>
-              </div>
-              <div class="balance-consequence text-green doc-only">
-                <strong>Equilibrio F&iacute;sico:</strong> Los errores opuestos se cancelan mutuamente en cada paso: el centro de gravedad num&eacute;rico permanece intacto.
-              </div>
+            <div class="comp-table-wrap">
+              <table class="comp-table">
+                <thead>
+                  <tr>
+                    <th>Sistema</th>
+                    <th>Tipo</th>
+                    <th>Mecanismo de Compensaci&oacute;n</th>
+                    <th>Coste C&oacute;mputo</th>
+                    <th>Hardware / Soporte</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="col-name"><strong>QAD</strong> <span class="vendor-tag nv">NVIDIA</span></td>
+                    <td><span class="comp-badge badge-purple">Destilaci&oacute;n</span></td>
+                    <td>Teacher BF16 gu&iacute;a Student W4 <span class="comp-detail doc-only">(KL loss &middot; CKA)</span></td>
+                    <td><span class="cost-tag medium">Medio</span> <span class="cost-sub">(horas GPU)</span></td>
+                    <td>Blackwell / TensorRT / vLLM</td>
+                  </tr>
+                  <tr>
+                    <td class="col-name"><strong>AutoRound</strong> <span class="vendor-tag intel">Intel</span></td>
+                    <td><span class="comp-badge badge-green">PTQ Sign-SGD</span></td>
+                    <td>Pares contiguos anulan error neto <span class="comp-detail doc-only">(&plusmn;0.5 &asymp; 0)</span></td>
+                    <td><span class="cost-tag min">M&iacute;nimo</span> <span class="cost-sub">(10&ndash;30 min)</span></td>
+                    <td>Universal <span class="comp-sub">(GGUF, AWQ, vLLM)</span></td>
+                  </tr>
+                  <tr>
+                    <td class="col-name"><strong>ResComp</strong> <span class="vendor-tag">GPTAQ</span></td>
+                    <td><span class="comp-badge badge-amber">PTQ Hessiano</span></td>
+                    <td>Peso a peso vs salida FP16 virgen <span class="comp-detail doc-only">(inversa H)</span></td>
+                    <td><span class="cost-tag low">Bajo</span> <span class="cost-sub">(1&ndash;2 horas)</span></td>
+                    <td>Universal</td>
+                  </tr>
+                  <tr>
+                    <td class="col-name"><strong>SpinQuant</strong> <span class="vendor-tag meta">Meta</span></td>
+                    <td><span class="comp-badge badge-sky">PTQ Rotaci&oacute;n</span></td>
+                    <td>Dispersi&oacute;n de outliers <span class="comp-detail doc-only">(Cayley / Hadamard)</span></td>
+                    <td><span class="cost-tag min">M&iacute;nimo</span> <span class="cost-sub">(minutos)</span></td>
+                    <td>TensorRT-LLM / vLLM</td>
+                  </tr>
+                  <tr>
+                    <td class="col-name"><strong>EfficientQAT</strong></td>
+                    <td><span class="comp-badge badge-orange">QAT Modular</span></td>
+                    <td>Block-AP (VRAM) + tuning step-size</td>
+                    <td><span class="cost-tag high">Alto</span> <span class="cost-sub">(horas en 1 GPU)</span></td>
+                    <td>Universal</td>
+                  </tr>
+                  <tr>
+                    <td class="col-name"><strong>QAT Cl&aacute;sico</strong></td>
+                    <td><span class="comp-badge badge-red">Re-entrenamiento</span></td>
+                    <td>Red completa con forward simulado (STE)</td>
+                    <td><span class="cost-tag extreme">Extremo</span> <span class="cost-sub">(d&iacute;as cl&uacute;ster)</span></td>
+                    <td>Espec&iacute;fico del framework</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
-            <!-- Card 3: El Veredicto en Modelos de Razonamiento -->
-            <div class="balance-card balance-card-verdict">
-              <div class="verdict-icon">&#128161;</div>
-              <div class="verdict-content">
-                <div class="verdict-title">Por Qu&eacute; Salva el Pensamiento Largo</div>
-                <p class="verdict-text">
-                  En un test puntual de 1 token el sesgo no se nota. Pero en <strong>cadenas de 5.000 tokens</strong>, compensar cada pisada de los pesos es lo &uacute;nico que evita la alucinaci&oacute;n acumulativa manteniendo el 98,4% de precisi&oacute;n FP16 en INT4.
-                </p>
+            <div class="comp-table-footer">
+              <div class="comp-footer-icon">&#128161;</div>
+              <div class="comp-footer-text">
+                <strong>La clave pr&aacute;ctica:</strong> Para desplegar sin cl&uacute;sters de re-entrenamiento, <strong>AutoRound</strong> lidera en inferencia abierta universal y <strong>QAD</strong> es el nuevo est&aacute;ndar para exprimir 4 bits (NVFP4) al nivel exacto de BF16.
               </div>
             </div>
-
           </div>
         </div>
 
