@@ -2226,6 +2226,11 @@ body.theme-dark .rect-bar-cap {
   gap: 1.5rem;
 }
 
+.rect-bar-segments.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.95rem;
+}
+
 .rect-bar-segments.cols-8 {
   grid-template-columns: repeat(8, 1fr);
   gap: 0.85rem;
@@ -2246,15 +2251,15 @@ body.theme-dark .rect-bar-cap {
 }
 
 .rect-bar-segment.c2 {
-  background-color: #10b981;
-}
-
-.rect-bar-segment.c3 {
   background-color: #d97706;
 }
 
-.rect-bar-segment.c4 {
+.rect-bar-segment.c3 {
   background-color: #7c3aed;
+}
+
+.rect-bar-segment.c4 {
+  background-color: #10b981;
 }
 
 .rect-bar-segment.c5 {
@@ -3631,6 +3636,207 @@ body.theme-dark .dspark-novel-desc {
 }
 
 .dspark-novel-desc strong {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   LAYOUT ESTRATEGIA DFLASH 2 (GRAFOS MULTI-CANDIDATO & PATH SELECTOR)
+   ========================================================================== */
+.dflash2-clean-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.dflash2-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.dflash2-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.85rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dflash2-card:hover {
+  transform: translateY(-3px);
+}
+
+.dflash2-card.highlight {
+  background: linear-gradient(160deg, #ffffff 0%, #fff1f2 60%, #ffe4e6 100%);
+  border-color: #be123c;
+  box-shadow: 0 10px 30px rgba(190, 18, 60, 0.14);
+}
+
+body.theme-dark .dflash2-card.highlight {
+  background: linear-gradient(160deg, #22242d 0%, #35151e 60%, #250d14 100%);
+  border-color: #fb7185;
+}
+
+.dflash2-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dflash2-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+
+.dflash2-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: #be123c;
+  color: #ffffff;
+}
+
+.dflash2-badge.subtle {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+}
+
+body.theme-dark .dflash2-badge.subtle {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.dflash2-card-desc {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+body.theme-dark .dflash2-card-desc {
+  color: #94a3b8;
+}
+
+.dflash2-card-desc strong {
+  color: var(--text-main);
+}
+
+/* Visualizador de Grafo y Trayectoria */
+.dflash2-graph-flow {
+  background: var(--bg-surface);
+  border: 1.5px dashed var(--border-medium);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dflash2-slots-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: space-between;
+}
+
+.dflash2-slot-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dflash2-slot-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.dflash2-cand-pill {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+}
+
+.dflash2-cand-pill.selected {
+  background: #be123c;
+  color: #ffffff;
+  border-color: #9f1239;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(190, 18, 60, 0.4);
+}
+
+.dflash2-cand-pill.alt {
+  opacity: 0.55;
+  font-size: 0.74rem;
+}
+
+.dflash2-cand-pill.failed {
+  border-color: #ef4444;
+  color: #dc2626;
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* 3 Tarjetas de Beneficios DFlash 2 */
+.dflash2-novel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.dflash2-novel-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.dflash2-novel-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dflash2-novel-desc {
+  font-size: 1.05rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+body.theme-dark .dflash2-novel-desc {
+  color: #94a3b8;
+}
+
+.dflash2-novel-desc strong {
   color: var(--text-main);
 }
 
@@ -18296,13 +18502,13 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   display: block;
 }
 
-#slide-23 .step,
+#slide-22 .step,
 #slide-24 .step {
   cursor: pointer;
 }
 
 /* --- Tipografía y colores estáticos del SVG --- */
-#slide-23 .dp-label,
+#slide-22 .dp-label,
 #slide-24 .mp-label {
   font-family: var(--font-mono);
   font-size: 15px;
@@ -18311,7 +18517,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.05em;
 }
 
-#slide-23 .dp-panel,
+#slide-22 .dp-panel,
 #slide-24 .mp-panel {
   fill: var(--bg-surface);
   stroke: var(--border-medium);
@@ -18319,7 +18525,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   transition: stroke 0.5s ease;
 }
 
-#slide-23 .dp-mini,
+#slide-22 .dp-mini,
 #slide-24 .mp-mini {
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -18328,7 +18534,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.08em;
 }
 
-#slide-23 .dp-pill-title,
+#slide-22 .dp-pill-title,
 #slide-24 .mp-pill-title {
   font-family: var(--font-mono);
   font-size: 16px;
@@ -18336,7 +18542,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   fill: #b45309;
 }
 
-#slide-23 .dp-pill-sub,
+#slide-22 .dp-pill-sub,
 #slide-24 .mp-pill-sub {
   font-family: var(--font-sans);
   font-size: 11px;
@@ -18345,7 +18551,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- Cajitas apagadas (estado inicial) --- */
-#slide-23 .dp-cell,
+#slide-22 .dp-cell,
 #slide-24 .mp-cell {
   fill: var(--bg-surface-elevated);
   stroke: var(--border-medium);
@@ -18356,20 +18562,20 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- Franja inferior en espera --- */
-#slide-23 .dp-strip,
+#slide-22 .dp-strip,
 #slide-24 .mp-strip {
   fill: var(--bg-surface);
   stroke: var(--border-subtle);
   stroke-width: 1.5;
 }
 
-#slide-23 .dp-strip-static,
+#slide-22 .dp-strip-static,
 #slide-24 .mp-strip-static {
   stroke-dasharray: 7 6;
   transition: opacity 0.4s ease;
 }
 
-#slide-23 .dp-strip-wait,
+#slide-22 .dp-strip-wait,
 #slide-24 .mp-strip-wait {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -18402,51 +18608,51 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- PASO 1: la petición (oculta hasta activarse) --- */
-#slide-23 .dp-request,
+#slide-22 .dp-request,
 #slide-24 .mp-request {
   opacity: 0;
   transform: translateX(-46px);
   transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
 }
 
-#slide-23 .dp-request.step-active,
+#slide-22 .dp-request.step-active,
 #slide-24 .mp-request.step-active {
   opacity: 1;
   transform: translateX(0);
 }
 
-#slide-23 .dp-pill,
+#slide-22 .dp-pill,
 #slide-24 .mp-pill {
   fill: rgba(245, 158, 11, 0.12);
   stroke: #f59e0b;
   stroke-width: 1.6;
 }
 
-#slide-23 .dp-arrow,
+#slide-22 .dp-arrow,
 #slide-24 .mp-arrow {
   stroke: var(--text-muted);
   stroke-width: 2.4;
 }
 
-#slide-23 .dp-arrowhead,
+#slide-22 .dp-arrowhead,
 #slide-24 .mp-arrowhead {
   fill: var(--text-muted);
 }
 
 /* --- PASO 2: superposición luminosa (oculta hasta activarse) --- */
-#slide-23 .dp-lights,
+#slide-22 .dp-lights,
 #slide-24 .mp-lights {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
 }
 
-#slide-23 .dp-lights.step-active,
+#slide-22 .dp-lights.step-active,
 #slide-24 .mp-lights.step-active {
   opacity: 1;
 }
 
 /* --- Franja inferior iluminada --- */
-#slide-23 .dp-strip-lit {
+#slide-22 .dp-strip-lit {
   fill: rgba(245, 158, 11, 0.09);
   stroke: #d97706;
   stroke-width: 1.6;
@@ -18458,7 +18664,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   stroke-width: 1.6;
 }
 
-#slide-23 .dp-count {
+#slide-22 .dp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
@@ -18474,7 +18680,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.03em;
 }
 
-#slide-23 .dp-strip-l1,
+#slide-22 .dp-strip-l1,
 #slide-24 .mp-strip-l1 {
   font-family: var(--font-sans);
   font-size: 13.5px;
@@ -18482,7 +18688,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   fill: var(--text-main);
 }
 
-#slide-23 .dp-strip-l2,
+#slide-22 .dp-strip-l2,
 #slide-24 .mp-strip-l2 {
   font-family: var(--font-sans);
   font-size: 12.5px;
@@ -18493,35 +18699,35 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 /* ================================================================
    SLIDE 23 — DENSO: al activar el paso 2 se encienden las 48
    ================================================================ */
-#slide-23:has(.dp-lights.step-active) .dp-cell {
+#slide-22:has(.dp-lights.step-active) .dp-cell {
   fill: rgba(245, 158, 11, 0.2);
   stroke: #d97706;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45));
 }
 
-#slide-23:has(.dp-lights.step-active) .dp-panel {
+#slide-22:has(.dp-lights.step-active) .dp-panel {
   stroke: #d97706;
 }
 
-#slide-23:has(.dp-lights.step-active) .dp-strip-static,
-#slide-23:has(.dp-lights.step-active) .dp-strip-wait {
+#slide-22:has(.dp-lights.step-active) .dp-strip-static,
+#slide-22:has(.dp-lights.step-active) .dp-strip-wait {
   opacity: 0;
 }
 
-#slide-23 .dp-glow {
+#slide-22 .dp-glow {
   fill: rgba(245, 158, 11, 0.05);
   stroke: #d97706;
   stroke-width: 2.5;
   filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
 }
 
-#slide-23 .dp-cap-final {
+#slide-22 .dp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
 }
 
-#slide-23:has(.dp-lights.step-active) .dp-cap-final {
+#slide-22:has(.dp-lights.step-active) .dp-cap-final {
   opacity: 1;
 }
 
@@ -18587,7 +18793,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 /* ================================================================
    SLIDES 23 & 24 — Overview e impresión: estado final encendido
    ================================================================ */
-body.overview-mode #slide-23 .dp-request,
+body.overview-mode #slide-22 .dp-request,
 body.overview-mode #slide-24 .mp-request {
   opacity: 1 !important;
   transform: none !important;
@@ -18595,27 +18801,27 @@ body.overview-mode #slide-24 .mp-request {
 
 @media print {
 
-  #slide-23 .dp-request,
+  #slide-22 .dp-request,
   #slide-24 .mp-request {
     opacity: 1 !important;
     transform: none !important;
   }
 }
 
-body.overview-mode #slide-23 .dp-lights,
+body.overview-mode #slide-22 .dp-lights,
 body.overview-mode #slide-24 .mp-lights {
   opacity: 1 !important;
 }
 
 @media print {
 
-  #slide-23 .dp-lights,
+  #slide-22 .dp-lights,
   #slide-24 .mp-lights {
     opacity: 1 !important;
   }
 }
 
-body.overview-mode #slide-23 .dp-cell {
+body.overview-mode #slide-22 .dp-cell {
   fill: rgba(245, 158, 11, 0.2) !important;
   stroke: #d97706 !important;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
@@ -18623,7 +18829,7 @@ body.overview-mode #slide-23 .dp-cell {
 
 @media print {
 
-  #slide-23 .dp-cell {
+  #slide-22 .dp-cell {
     fill: rgba(245, 158, 11, 0.2) !important;
     stroke: #d97706 !important;
     filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
@@ -18645,8 +18851,8 @@ body.overview-mode #slide-24 .mp-cell.mp-on {
   }
 }
 
-body.overview-mode #slide-23 .dp-strip-static,
-body.overview-mode #slide-23 .dp-strip-wait,
+body.overview-mode #slide-22 .dp-strip-static,
+body.overview-mode #slide-22 .dp-strip-wait,
 body.overview-mode #slide-24 .mp-strip-static,
 body.overview-mode #slide-24 .mp-strip-wait {
   opacity: 0 !important;
@@ -18654,22 +18860,22 @@ body.overview-mode #slide-24 .mp-strip-wait {
 
 @media print {
 
-  #slide-23 .dp-strip-static,
-  #slide-23 .dp-strip-wait,
+  #slide-22 .dp-strip-static,
+  #slide-22 .dp-strip-wait,
   #slide-24 .mp-strip-static,
   #slide-24 .mp-strip-wait {
     opacity: 0 !important;
   }
 }
 
-body.overview-mode #slide-23 .dp-cap-final,
+body.overview-mode #slide-22 .dp-cap-final,
 body.overview-mode #slide-24 .mp-cap-final {
   opacity: 1 !important;
 }
 
 @media print {
 
-  #slide-23 .dp-cap-final,
+  #slide-22 .dp-cap-final,
   #slide-24 .mp-cap-final {
     opacity: 1 !important;
   }
@@ -21365,23 +21571,50 @@ body:not(.mode-document) .slide[id^="slide-phase3-"] .chosen-synergy-text {
 
 /* — Misma geometría que 17/18 en Charla: terminal abraza contenido (centrada) y
      columna izquierda con ritmo compacto — */
-body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal,
-body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal {
-  height: auto;
-  max-height: 100%;
-  align-self: center;
+/* — Geometría EXACTA de la serie phase2- en Charla: quote sin caja (solo barra de
+   acento izq.), columna repartida (quote arriba / puntos centro / pill abajo),
+   terminal que abraza y consola centrada con sesgo óptico — */
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-hero-box {
+  background: transparent !important;
+  border-top-width: 0 !important;
+  border-right-width: 0 !important;
+  border-bottom-width: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.3rem 0 0.3rem 1.4rem !important;
 }
 
-body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal-body,
-body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal-body {
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-hero-quote,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-hero-quote {
+  font-size: 1.75rem !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-console-deck {
+  align-items: center;
+  padding-bottom: 2.1rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal {
+  height: auto;
+  max-height: 100%;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-terminal-body {
   max-height: calc(1080px - 19rem);
   overflow-y: auto;
 }
 
-body:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-explain-col,
-body:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-explain-col {
-  justify-content: center;
-  gap: 1.05rem;
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase2b-"] .sdlc-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide[id^="slide-phase3-"] .sdlc-explain-col {
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-self: stretch;
 }
 
 /* ==========================================================================
