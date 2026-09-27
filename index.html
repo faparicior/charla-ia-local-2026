@@ -1446,6 +1446,111 @@
     </section>
 
     <!-- ====================================================================
+         SLIDE 13b: EL EQUILIBRISTA DE LA INFERENCIA — AUTOROUND & PENSAMIENTO LARGO
+         ==================================================================== -->
+    <section class="slide" id="slide-13-autoround">
+      <div class="slide-content">
+        <div class="tag">Razonamiento &amp; Thinking Models • Compensaci&oacute;n de Error</div>
+        <h2>El Equilibrista de la Inferencia: <span class="serif-italic" style="color: #0284c7;">Compensaci&oacute;n Activa de Pesos</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          &iquest;C&oacute;mo sobrevive un modelo a 5.000 tokens de pensamiento sin caerse? Mientras el redondeo ciego (RTN) acumula sesgo paso a paso, AutoRound (Intel Labs) equilibra los pesos contiguos en sentidos opuestos para neutralizar la desviaci&oacute;n en cadenas largas.
+        </p>
+
+        <div class="autoround-balance-split">
+          <!-- Columna Izquierda: Visual Stage con GIF Inspector Gadget -->
+          <div class="tightrope-visual-stage">
+            <div class="tightrope-visual-card">
+              <div class="tightrope-badge-header">
+                <span class="tightrope-pill-badge">&#127914; Met&aacute;fora Visual &middot; Cuerda Floja</span>
+                <span class="tightrope-model-badge">DeepSeek R1 / Qwen Thinking</span>
+              </div>
+              <div class="tightrope-gif-wrapper">
+                <img src="script/img/inspector-gadget-cartoon-gif-upscaler.gif" alt="Inspector Gadget caminando sobre la cuerda floja mientras Sult&aacute;n equilibra platos bajo sus pies" class="tightrope-hero-gif">
+              </div>
+              <div class="tightrope-caption-grid">
+                <div class="tightrope-caption-item">
+                  <span class="caption-icon">&#128694;</span>
+                  <div class="caption-text">
+                    <strong>Inspector Gadget:</strong> El modelo avanzando a ciegas a lo largo de 50 pasos de razonamiento encadenado.
+                  </div>
+                </div>
+                <div class="tightrope-caption-item">
+                  <span class="caption-icon">&#128054;</span>
+                  <div class="caption-text">
+                    <strong>Sult&aacute;n (AutoRound):</strong> Coloca el plato justo bajo cada pisada, equilibrando los pesos para que no caiga al vac&iacute;o.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Tarjetas de Contraste Técnico -->
+          <div class="autoround-balance-cards">
+
+            <!-- Card 1: Redondeo Ciego (RTN) -->
+            <div class="balance-card balance-card-rtn">
+              <div class="balance-card-header">
+                <span class="balance-badge badge-red">&#10007; Redondeo Ciego (RTN Cl&aacute;sico)</span>
+                <span class="balance-subtag text-red">Sesgo Unidireccional Acumulado</span>
+              </div>
+              <p class="balance-desc">
+                Cada peso se redondea al entero m&aacute;s pr&oacute;ximo sin mirar a los dem&aacute;s. Si m&uacute;ltiples pesos caen a la baja, el sesgo se suma:
+              </p>
+              <div class="balance-math-box math-red">
+                <div class="math-row">
+                  <code>W&#8321; (3.49) &rarr; 3 <span class="err-tag">(&minus;0.49)</span></code>
+                  <span class="math-op">+</span>
+                  <code>W&#8322; (3.48) &rarr; 3 <span class="err-tag">(&minus;0.48)</span></code>
+                  <span class="math-op">=</span>
+                  <strong class="math-total text-red">Error &minus;0.97 &#10007;</strong>
+                </div>
+              </div>
+              <div class="balance-consequence text-red doc-only">
+                <strong>Efecto Domin&oacute;:</strong> En 50 pasos encadenados, el error se multiplica ((0,98)&#8309;&#8304; &asymp; 36%): el modelo entra en bucle infinito y no cierra <code>&lt;/think&gt;</code>.
+              </div>
+            </div>
+
+            <!-- Card 2: AutoRound (Intel Labs - Sign-SGD) -->
+            <div class="balance-card balance-card-autoround">
+              <div class="balance-card-header">
+                <span class="balance-badge badge-green">&#10003; AutoRound (Intel Labs &middot; Sign-SGD)</span>
+                <span class="balance-subtag text-green">Compensaci&oacute;n Activa entre Pares</span>
+              </div>
+              <p class="balance-desc">
+                Optimiza por bloques de Transformer. Si forzar un peso hacia abajo genera error, empuja el contiguo hacia arriba:
+              </p>
+              <div class="balance-math-box math-green">
+                <div class="math-row">
+                  <code>W&#8321; (3.49) &rarr; 3 <span class="err-tag">(&minus;0.49)</span></code>
+                  <span class="math-op">+</span>
+                  <code>W&#8322; (3.48) &rarr; 4 <span class="err-tag">(+0.52)</span></code>
+                  <span class="math-op">=</span>
+                  <strong class="math-total text-green">Error Neto &asymp; 0.00 &#10003;</strong>
+                </div>
+              </div>
+              <div class="balance-consequence text-green doc-only">
+                <strong>Equilibrio F&iacute;sico:</strong> Los errores opuestos se cancelan mutuamente en cada paso: el centro de gravedad num&eacute;rico permanece intacto.
+              </div>
+            </div>
+
+            <!-- Card 3: El Veredicto en Modelos de Razonamiento -->
+            <div class="balance-card balance-card-verdict">
+              <div class="verdict-icon">&#128161;</div>
+              <div class="verdict-content">
+                <div class="verdict-title">Por Qu&eacute; Salva el Pensamiento Largo</div>
+                <p class="verdict-text">
+                  En un test puntual de 1 token el sesgo no se nota. Pero en <strong>cadenas de 5.000 tokens</strong>, compensar cada pisada de los pesos es lo &uacute;nico que evita la alucinaci&oacute;n acumulativa manteniendo el 98,4% de precisi&oacute;n FP16 en INT4.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
          SLIDE 14: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
     <section class="slide" id="slide-14">
@@ -5263,7 +5368,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">41</span>
+        <span id="slide-current">1</span> / <span id="slide-total">42</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>

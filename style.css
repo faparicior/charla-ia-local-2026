@@ -11128,7 +11128,7 @@ body.theme-dark .triad-artifact-preview {
 .triad-ai-shield {
   background: rgba(239, 68, 68, 0.07);
   border-left: 3.5px solid #ef4444;
-  padding: 0.75rem 0.95rem;
+  padding: 0.55rem 0.85rem;
   border-radius: 0 8px 8px 0;
   font-size: 0.88rem;
   line-height: 1.45;
@@ -14963,7 +14963,8 @@ body.theme-dark .scenario-detail-badge {
 .deck-hardware-part1 .memory-story-grid,
 .deck-hardware-part1 .yarn-split-grid,
 .deck-hardware-part1 .rope-levels-split-grid,
-.deck-hardware-part1 .rope-iban-split-grid {
+.deck-hardware-part1 .rope-iban-split-grid,
+.deck-hardware-part1 .autoround-balance-split {
   flex: 1;
   min-height: 0;
 }
@@ -19024,4 +19025,1143 @@ body.overview-mode #slide-25 .vt-cap-final {
   #slide-25 .vt-cap-final {
     opacity: 1 !important;
   }
+}
+
+
+/* ==========================================================================
+   SLIDE 31: EL VIAJE DE UNA PETICIÓN E2E (USER JOURNEY ➔ CONTROLADOR ➔ CASO DE USO ➔ DOMINIO ➔ PERSISTENCIA)
+   Diseñado para Producto (PM / Stakeholders) e Ingeniería DDD
+   ========================================================================== */
+
+#slide-journey-ddd-flow .slide-content {
+  gap: 0.65rem;
+  max-width: 1780px;
+  padding-bottom: 0.5rem;
+}
+
+/* Barra de Perspectiva / Filtro de Audiencia */
+.flow-perspective-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 0.45rem 0.95rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+body.theme-dark .flow-perspective-bar {
+  background: var(--bg-surface-elevated);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.perspective-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.perspective-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.perspective-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.perspective-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.theme-dark .perspective-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+}
+
+.perspective-btn:hover {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+body.theme-dark .perspective-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.perspective-btn.active {
+  background: #4f46e5;
+  color: #ffffff !important;
+  border-color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+body.theme-dark .perspective-btn.active {
+  background: #6366f1;
+  color: #ffffff !important;
+  border-color: #6366f1;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+}
+
+/* Perspective Takeaway message */
+.perspective-takeaway {
+  flex: 1;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  border-radius: 8px;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text-main);
+  transition: all 0.25s ease;
+}
+
+body.theme-dark .perspective-takeaway {
+  background: rgba(99, 102, 241, 0.16);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #e2e8f0;
+}
+
+/* Contenedor del Lienzo SVG */
+.flow-svg-viewport {
+  width: 100%;
+  height: 520px;
+  background: var(--bg-surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 0.6rem 0.8rem;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.theme-dark .flow-svg-viewport {
+  background: #121319;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.flow-svg-viewport svg {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  display: block;
+}
+
+/* Station Nodes */
+.flow-station {
+  cursor: pointer;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease, transform 0.25s ease;
+}
+
+.flow-station:hover {
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.45));
+}
+
+.flow-station.flow-dimmed {
+  opacity: 0.22 !important;
+  filter: grayscale(0.85) !important;
+  pointer-events: auto;
+}
+
+.flow-station.flow-highlight-biz {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+#station-3.flow-highlight-biz .outer-box {
+  stroke: #f59e0b !important;
+  stroke-width: 4px !important;
+  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.75));
+}
+
+#station-4.flow-highlight-biz .outer-box {
+  stroke: #a855f7 !important;
+  stroke-width: 4px !important;
+  filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.75));
+}
+
+#station-1.flow-highlight-biz .outer-box {
+  stroke: #6366f1 !important;
+  stroke-width: 3.5px !important;
+}
+
+#station-5.flow-highlight-biz .outer-box {
+  stroke: #10b981 !important;
+  stroke-width: 3.5px !important;
+}
+
+.flow-station.flow-highlight-tech .outer-box {
+  stroke-width: 3.5px !important;
+}
+
+#station-2.flow-highlight-tech .outer-box {
+  stroke: #0284c7 !important;
+  filter: drop-shadow(0 0 14px rgba(2, 132, 199, 0.65));
+}
+
+#station-5.flow-highlight-tech .outer-box {
+  stroke: #059669 !important;
+  filter: drop-shadow(0 0 14px rgba(5, 150, 105, 0.65));
+}
+
+/* Role Badges inside SVG (PM callout / Tech callout) */
+.role-focus-badge {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.role-focus-badge.visible {
+  opacity: 1;
+}
+
+/* Animated Wires */
+.flow-path-wire {
+  stroke-dasharray: 6 4;
+  animation: flowWireDash 25s linear infinite;
+}
+
+@keyframes flowWireDash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Return Path Styling */
+#group-return-path {
+  transition: all 0.3s ease;
+}
+
+body.theme-dark #wire-return {
+  stroke: #818cf8 !important;
+}
+
+body.theme-dark #return-pill-bg {
+  fill: #1e1b4b !important;
+  stroke: #818cf8 !important;
+}
+
+body.theme-dark .return-wire-text {
+  fill: #e0e7ff !important;
+}
+
+/* High-contrast text labels in dark mode */
+body.theme-dark .svg-node-title {
+  fill: #f8fafc !important;
+}
+
+body.theme-dark #slide-journey-ddd-flow text[fill="var(--text-main)"] {
+  fill: #f1f5f9 !important;
+}
+
+body.theme-dark #slide-journey-ddd-flow text[fill="var(--text-muted)"] {
+  fill: #cbd5e1 !important;
+}
+
+body.theme-dark #slide-journey-ddd-flow text[fill="var(--text-dim)"] {
+  fill: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   SLIDE MAPA INTERACTIVO DEL SDLC (#slide-sdlc-map)
+   Recreación SVG del diagrama de docs/SDLC-WORKFLOW-DIRECTORY.md
+   Cámara vertical por fases + reveals paso a paso (Talk Mode only).
+   ========================================================================== */
+
+/* ---- Paleta por banda (variables locales, tema claro/oscuro) ---- */
+#slide-sdlc-map .band-sky     { --ac:#0369a1; --edge:#0ea5e9; --tint:rgba(14,165,233,.07);  --tintline:rgba(14,165,233,.32); }
+#slide-sdlc-map .band-indigo  { --ac:#4338ca; --edge:#818cf8; --tint:rgba(99,102,241,.07);  --tintline:rgba(99,102,241,.32); }
+#slide-sdlc-map .band-purple  { --ac:#6d28d9; --edge:#a78bfa; --tint:rgba(139,92,246,.07);  --tintline:rgba(139,92,246,.30); }
+#slide-sdlc-map .band-emerald { --ac:#047857; --edge:#34d399; --tint:rgba(16,185,129,.07);  --tintline:rgba(16,185,129,.30); }
+#slide-sdlc-map .band-amber   { --ac:#b45309; --edge:#fbbf24; --tint:rgba(245,158,11,.07);  --tintline:rgba(245,158,11,.30); }
+#slide-sdlc-map .band-crimson { --ac:#be123c; --edge:#fb7185; --tint:rgba(244,63,94,.07);   --tintline:rgba(244,63,94,.30); }
+#slide-sdlc-map .band-slate   { --ac:#334155; --edge:#94a3b8; --tint:rgba(148,163,184,.07); --tintline:rgba(148,163,184,.32); }
+
+body.theme-dark #slide-sdlc-map .band-sky     { --ac:#7dd3fc; --edge:#38bdf8; }
+body.theme-dark #slide-sdlc-map .band-indigo  { --ac:#a5b4fc; --edge:#96a1fa; }
+body.theme-dark #slide-sdlc-map .band-purple  { --ac:#c4b5fd; --edge:#b79cfb; }
+body.theme-dark #slide-sdlc-map .band-emerald { --ac:#6ee7b7; --edge:#4ade80; }
+body.theme-dark #slide-sdlc-map .band-amber   { --ac:#fcd34d; --edge:#fbbf24; }
+body.theme-dark #slide-sdlc-map .band-crimson { --ac:#fda4af; --edge:#fb7185; }
+body.theme-dark #slide-sdlc-map .band-slate   { --ac:#cbd5e1; --edge:#a8b3c4; }
+
+/* ---- Panel estilo terminal (siempre oscuro, como los consoles del deck) ---- */
+#slide-sdlc-map .sdlc-map-panel {
+  width: 1564px;
+  margin: 0 auto;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(10, 12, 18, 0.28);
+}
+
+#slide-sdlc-map .sdlc-map-progress {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.14);
+  border: 1px solid rgba(99, 102, 241, 0.32);
+  padding: 0.22rem 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+#slide-sdlc-map .sdlc-map-viewport {
+  position: relative;
+  height: 580px;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+#slide-sdlc-map .sdlc-map-canvas {
+  width: 1560px;
+  height: 2660px;
+  transform-origin: 50% 0;
+}
+
+#slide-sdlc-map .sdlc-map-hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 1.4rem;
+  background: #090a0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #8b93a5;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ---- Estilos base de los elementos SVG (visibles en ambos modos) ---- */
+#slide-sdlc-map .sdlc-map-svg {
+  display: block;
+  font-family: var(--font-sans);
+}
+
+#slide-sdlc-map .map-step {
+  cursor: pointer;
+}
+
+#slide-sdlc-map .map-band-bg {
+  fill: var(--tint);
+  stroke: var(--tintline);
+  stroke-width: 1;
+}
+
+#slide-sdlc-map .map-kicker {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  fill: var(--edge);
+}
+
+#slide-sdlc-map .map-skill {
+  fill: var(--bg-surface);
+  stroke: var(--tintline);
+  stroke-width: 1.5;
+}
+
+#slide-sdlc-map .map-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  fill: var(--text-main);
+}
+
+#slide-sdlc-map .map-cmd-chip {
+  fill: var(--tint);
+  stroke: var(--tintline);
+  stroke-width: 1;
+}
+
+#slide-sdlc-map .map-cmd {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--ac);
+}
+
+#slide-sdlc-map .map-chip {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: var(--edge);
+  stroke-opacity: 0.5;
+  stroke-width: 1.4;
+  stroke-dasharray: 7 5;
+}
+
+#slide-sdlc-map .map-chip-path {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  fill: var(--edge);
+}
+
+#slide-sdlc-map .map-chip-base {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  fill: #8b93a5;
+}
+
+#slide-sdlc-map .map-chip-item {
+  font-family: var(--font-mono);
+  font-size: 16.5px;
+  font-weight: 600;
+  fill: var(--edge);
+}
+
+#slide-sdlc-map .map-sub {
+  font-size: 15px;
+  fill: var(--text-muted);
+}
+
+#slide-sdlc-map .map-op-cmd {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--ac);
+}
+
+#slide-sdlc-map .map-op-cap {
+  font-size: 14.5px;
+  fill: var(--text-muted);
+}
+
+#slide-sdlc-map .map-flow {
+  fill: none;
+  stroke: var(--edge);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+}
+
+#slide-sdlc-map .map-dash {
+  fill: none;
+  stroke: var(--edge);
+  stroke-width: 2.2;
+  stroke-dasharray: 7 6;
+  stroke-linecap: round;
+}
+
+#slide-sdlc-map .map-head {
+  fill: var(--edge);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+#slide-sdlc-map .map-rail-label {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  fill: #8b93a5;
+}
+
+#slide-sdlc-map .map-mini {
+  font-size: 14px;
+  font-style: italic;
+  fill: var(--edge);
+}
+
+#slide-sdlc-map .map-pill {
+  fill: var(--bg-surface-elevated);
+  stroke: var(--tintline);
+  stroke-width: 1.5;
+}
+
+#slide-sdlc-map .map-pill-t {
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--text-main);
+}
+
+/* Banda en foco (último paso activado) */
+#slide-sdlc-map .map-step.step-current .map-band-bg {
+  stroke: var(--edge);
+  stroke-width: 2;
+}
+
+/* ---- Tarjetas laterales (paso 8 · vista completa) ---- */
+#slide-sdlc-map .map-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease 0.55s;
+}
+
+#slide-sdlc-map .map-side-left {
+  left: 0;
+  padding-left: 44px;
+}
+
+#slide-sdlc-map .map-side-right {
+  right: 0;
+  padding-right: 44px;
+}
+
+#slide-sdlc-map .map-side-chip {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 13px 18px;
+}
+
+#slide-sdlc-map .map-side-chip span {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+#slide-sdlc-map .map-side-chip strong {
+  display: block;
+  color: #e8ecf4;
+  font-size: 0.98rem;
+  font-family: var(--font-sans);
+}
+
+#slide-sdlc-map .map-side-chip em {
+  display: block;
+  color: #9aa3b5;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-family: var(--font-mono);
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   MODO CHARLA: reveals paso a paso + cámara vertical (NUNCA en Modo Documento)
+   ========================================================================== */
+
+/* Banda 1: siempre activa al entrar en la slide */
+body:not(.mode-document) #slide-sdlc-map .map-band-live .pop {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-band-live .map-flow {
+  stroke-dashoffset: 0;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-band-live .map-dash,
+body:not(.mode-document) #slide-sdlc-map .map-band-live .map-head {
+  opacity: 1;
+  transform: none;
+}
+
+/* Grupos de paso: apagados hasta activarse */
+body:not(.mode-document) #slide-sdlc-map .map-step {
+  opacity: 0.16;
+  filter: grayscale(0.9);
+  transition: opacity 0.55s ease, filter 0.55s ease;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step.step-active {
+  opacity: 1;
+  filter: none;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step:not(.step-active):hover {
+  opacity: 0.38;
+  filter: grayscale(0.5);
+}
+
+/* El pill del paso 8 es asequimiento visible desde el principio */
+body:not(.mode-document) #slide-sdlc-map .map-step-reveal {
+  opacity: 0.55;
+  filter: none;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step-reveal.step-active {
+  opacity: 1;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step.step-current {
+  filter: drop-shadow(0 0 16px var(--tintline));
+}
+
+/* Cajas: pop individual escalonado */
+body:not(.mode-document) #slide-sdlc-map .pop {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step.step-active .pop {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--d, 0s);
+}
+
+/* Flechas sólidas: se dibujan (pathLength normalizado) */
+body:not(.mode-document) #slide-sdlc-map .map-flow {
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.75s ease-in-out;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step.step-active .map-flow {
+  stroke-dashoffset: 0;
+  transition-delay: var(--d, 0s);
+}
+
+/* Flechas discontinuas: fade in */
+body:not(.mode-document) #slide-sdlc-map .map-dash {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step.step-active .map-dash {
+  opacity: 1;
+  transition-delay: var(--d, 0s);
+}
+
+/* Puntas de flecha: aparecen al final del trazado */
+body:not(.mode-document) #slide-sdlc-map .map-head {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.35s ease, transform 0.35s var(--ease-spring);
+}
+
+body:not(.mode-document) #slide-sdlc-map .map-step.step-active .map-head {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: var(--d, 0s);
+}
+
+/* Cámara vertical: pan por fase (reglas en cascada, la última gana) */
+body:not(.mode-document) #slide-sdlc-map .sdlc-map-canvas {
+  transform: translateY(0);
+  transition: transform 1.05s var(--ease-spring);
+  will-change: transform;
+}
+
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="2"].step-active) .sdlc-map-canvas { transform: translateY(-340px); }
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="3"].step-active) .sdlc-map-canvas { transform: translateY(-670px); }
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="4"].step-active) .sdlc-map-canvas { transform: translateY(-1040px); }
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="5"].step-active) .sdlc-map-canvas { transform: translateY(-1410px); }
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="6"].step-active) .sdlc-map-canvas { transform: translateY(-1780px); }
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="7"].step-active) .sdlc-map-canvas { transform: translateY(-2080px); }
+
+/* Paso 8: zoom out a la vista completa del mapa */
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .sdlc-map-canvas {
+  transform: scale(0.218);
+}
+
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .sdlc-map-canvas .svg-t {
+  opacity: 0;
+  transition: opacity 0.45s ease 0.3s;
+}
+
+body:not(.mode-document) #slide-sdlc-map:has(.step[data-step="8"].step-active) .map-side {
+  opacity: 1;
+}
+
+/* Contador de pasos en la barra del panel */
+#slide-sdlc-map .map-step-counter::after { content: "1 / 8 · Fase 1 · Discovery"; }
+#slide-sdlc-map[data-active-steps="1"] .map-step-counter::after { content: "2 / 8 · Gobierno ADR"; }
+#slide-sdlc-map[data-active-steps="2"] .map-step-counter::after { content: "3 / 8 · Fase 2 · Specs"; }
+#slide-sdlc-map[data-active-steps="3"] .map-step-counter::after { content: "4 / 8 · Fase 3 · Dominio"; }
+#slide-sdlc-map[data-active-steps="4"] .map-step-counter::after { content: "5 / 8 · Fase 4 · TDD"; }
+#slide-sdlc-map[data-active-steps="5"] .map-step-counter::after { content: "6 / 8 · Fase 5+ · Evolución"; }
+#slide-sdlc-map[data-active-steps="6"] .map-step-counter::after { content: "7 / 8 · Operaciones"; }
+#slide-sdlc-map[data-active-steps="7"] .map-step-counter::after { content: "8 / 8 · Mapa completo"; }
+
+/* ==========================================================================
+   OVERVIEW & IMPRESIÓN: mapa completo visible con zoom de encuadre
+   ========================================================================== */
+body.overview-mode #slide-sdlc-map .map-step,
+body.overview-mode #slide-sdlc-map .pop,
+body.overview-mode #slide-sdlc-map .svg-t {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+body.overview-mode #slide-sdlc-map .map-flow {
+  stroke-dashoffset: 0 !important;
+}
+
+body.overview-mode #slide-sdlc-map .map-dash,
+body.overview-mode #slide-sdlc-map .map-head {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+body.overview-mode #slide-sdlc-map .sdlc-map-canvas {
+  transform: scale(0.218) !important;
+  transition: none !important;
+}
+
+body.overview-mode #slide-sdlc-map .map-side {
+  opacity: 0 !important;
+}
+
+@media print {
+
+  #slide-sdlc-map .map-step,
+  #slide-sdlc-map .pop,
+  #slide-sdlc-map .svg-t {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  #slide-sdlc-map .map-flow {
+    stroke-dashoffset: 0 !important;
+  }
+
+  #slide-sdlc-map .map-dash,
+  #slide-sdlc-map .map-head {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #slide-sdlc-map .sdlc-map-canvas {
+    transform: scale(0.218) !important;
+    transition: none !important;
+  }
+
+  #slide-sdlc-map .map-side,
+  #slide-sdlc-map .sdlc-map-hint {
+    opacity: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   SLIDE 13b: EL EQUILIBRISTA DE LA INFERENCIA (AUTOROUND & PENSAMIENTO LARGO)
+   ========================================================================== */
+.deck-hardware-part1 .autoround-balance-split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.2rem;
+  align-items: center;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 0.2rem;
+}
+
+.tightrope-visual-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.tightrope-visual-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: 820px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-dark .tightrope-visual-card {
+  background: #1c1d22;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.tightrope-badge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.tightrope-pill-badge {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+body.theme-dark .tightrope-pill-badge {
+  background: rgba(2, 132, 199, 0.2);
+  color: #38bdf8;
+}
+
+.tightrope-model-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+}
+
+body.theme-dark .tightrope-model-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+}
+
+.tightrope-gif-wrapper {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.tightrope-hero-gif {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+}
+
+.tightrope-caption-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.tightrope-caption-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+body.theme-dark .tightrope-caption-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: #b8bcc4;
+}
+
+.caption-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.caption-text strong {
+  color: var(--text-main);
+}
+
+body.theme-dark .caption-text strong {
+  color: #f1f5f9;
+}
+
+.autoround-balance-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.balance-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 16px;
+  padding: 1.15rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.theme-dark .balance-card {
+  background: #1c1d22;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.balance-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.balance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.balance-card-rtn::before {
+  background: #dc2626;
+}
+
+.balance-card-autoround::before {
+  background: #16a34a;
+}
+
+.balance-card-verdict::before {
+  background: #0284c7;
+}
+
+.balance-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-badge {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.balance-badge.badge-red {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+}
+
+body.theme-dark .balance-badge.badge-red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.balance-badge.badge-green {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+}
+
+body.theme-dark .balance-badge.badge-green {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+}
+
+.balance-subtag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.text-red {
+  color: #dc2626;
+}
+
+body.theme-dark .text-red {
+  color: #f87171;
+}
+
+.text-green {
+  color: #16a34a;
+}
+
+body.theme-dark .text-green {
+  color: #4ade80;
+}
+
+.balance-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+body.theme-dark .balance-desc {
+  color: #b8bcc4;
+}
+
+.balance-math-box {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: 10px;
+  border: 1px dashed;
+  display: flex;
+  align-items: center;
+}
+
+.balance-math-box.math-red {
+  background: rgba(220, 38, 38, 0.04);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+body.theme-dark .balance-math-box.math-red {
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+.balance-math-box.math-green {
+  background: rgba(22, 163, 74, 0.04);
+  border-color: rgba(22, 163, 74, 0.25);
+}
+
+body.theme-dark .balance-math-box.math-green {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.35);
+}
+
+.math-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.math-row code {
+  background: transparent;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 0;
+}
+
+body.theme-dark .math-row code {
+  color: #f1f5f9;
+}
+
+.math-op {
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.math-row .err-tag {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.math-total {
+  margin-left: auto;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.balance-consequence {
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.balance-card-verdict {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.06) 0%, rgba(59, 130, 246, 0.03) 100%);
+  border-color: rgba(2, 132, 199, 0.3);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.45rem;
+}
+
+body.theme-dark .balance-card-verdict {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(59, 130, 246, 0.06) 100%);
+  border-color: rgba(2, 132, 199, 0.4);
+}
+
+.verdict-icon {
+  font-size: 1.65rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.verdict-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.verdict-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0284c7;
+}
+
+body.theme-dark .verdict-title {
+  color: #38bdf8;
+}
+
+.verdict-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+body.theme-dark .verdict-text {
+  color: #b8bcc4;
+}
+
+/* Modo Charla: en modo sin documento, tipografías generosas */
+body.deck-hardware-part1:not(.mode-document) .autoround-balance-split .balance-desc {
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+body.deck-hardware-part1:not(.mode-document) .autoround-balance-split .math-row code {
+  font-size: 0.92rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) .autoround-balance-split .verdict-text {
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
