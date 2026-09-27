@@ -21850,3 +21850,76 @@ body.deck-sdlc-part2:not(.mode-document) #slide-inception-greenfield-brownfield 
   justify-content: center;
   max-height: 560px;
 }
+
+/* ==========================================================================
+   PARTE 1 — Slide 27b: resumen de estrategias de aceleración (variante goldilocks)
+   ========================================================================== */
+#slide-27b .goldilocks-table td {
+  white-space: normal;
+  line-height: 1.35;
+  vertical-align: top;
+  padding: 1.6rem 0.65rem;
+  font-size: 0.98rem;
+}
+
+#slide-27b .goldilocks-table th {
+  padding: 0.9rem 0.65rem;
+  font-size: 0.85rem;
+}
+
+#slide-27b .goldilocks-table td.acel-how {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-main);
+  min-width: 380px;
+  max-width: 560px;
+}
+
+#slide-27b .goldilocks-table td.acel-gain {
+  font-weight: 700;
+  color: #15803d;
+  font-size: 1.08rem;
+  white-space: nowrap;
+}
+
+#slide-27b .goldilocks-table td.acel-req,
+#slide-27b .goldilocks-table td.acel-ideal {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  min-width: 210px;
+}
+
+#slide-27b .goldilocks-table td.col-name {
+  font-size: 1.08rem;
+  white-space: nowrap;
+}
+
+#slide-27b .goldilocks-table-card {
+  width: 100%;
+  padding: 0.4rem 1.15rem;
+}
+
+#slide-27b .slide-content {
+  justify-content: center;
+}
+
+#slide-27b .goldilocks-deck {
+  gap: 1.1rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-27b .slide-content {
+  justify-content: flex-start !important;
+  height: 100% !important;
+  padding-top: 2.2rem;
+  padding-bottom: 5.2rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-27b .goldilocks-deck {
+  flex: 1;
+  justify-content: center;
+}
+
+body.theme-dark #slide-27b .goldilocks-table td.acel-gain {
+  color: #86efac;
+}
