@@ -63,44 +63,63 @@ function initDeck() {
 
   updateDualModeUI();
 
+  const hasSlide0 = slides[0]?.id === 'slide-0';
   if (totalCounter) {
-    totalCounter.textContent = slides.length;
+    totalCounter.textContent = hasSlide0 ? (slides.length - 1) : slides.length;
   }
 
-  // Leer slide desde URL Hash (#1, #21, #slide-pillar-intro, o #last = última slide)
+  // Reiniciar animación del GIF de crash (slide-0)
+  function restartCrashGif() {
+    const crashImg = document.getElementById('car-crash-img');
+    if (!crashImg || !crashImg.parentNode) return;
+    const parent = crashImg.parentNode;
+    const clone = crashImg.cloneNode(true);
+    parent.replaceChild(clone, crashImg);
+  }
+
+  // Leer slide desde URL Hash (#0, #1, #21, #slide-pillar-intro, o #last = última slide)
   function getSlideIndexFromHash() {
     let rawHash = window.location.hash.replace('#', '').trim();
     if (!rawHash) return 0;
     if (rawHash === 'last') {
       return slides.length - 1;
     }
-    // 1. Si es numérico puro (#1, #21), SIEMPRE es el número de diapositiva (1-based)
-    if (/^\d+$/.test(rawHash)) {
-      const num = parseInt(rawHash, 10);
-      if (num >= 1 && num <= slides.length) {
-        return num - 1;
-      }
-    }
-    // 2. Si tiene formato "slide-N" numérico (ej: #slide-21)
-    const numMatch = rawHash.match(/^slide-(\d+)$/);
-    if (numMatch) {
-      const num = parseInt(numMatch[1], 10);
-      if (num >= 1 && num <= slides.length) {
-        return num - 1;
-      }
-    }
-    // 3. Buscar coincidencia por ID semántico de slide (ej: slide-pillar-intro, slide-step1-boundaries)
+    // Prioridad 1: Coincidencia exacta por ID semántico de slide (ej: slide-0, slide-1, slide-pillar-intro)
     const exactIndex = slides.findIndex(s => s.id === rawHash || s.id === `slide-${rawHash}`);
     if (exactIndex !== -1) {
       return exactIndex;
+    }
+    // Prioridad 2: Si el hash es 0
+    if (rawHash === '0') {
+      return 0;
+    }
+    // Prioridad 3: Si es numérico puro (#1, #21)
+    if (/^\d+$/.test(rawHash)) {
+      const num = parseInt(rawHash, 10);
+      if (hasSlide0) {
+        if (num >= 0 && num < slides.length) {
+          return num;
+        }
+      } else {
+        if (num >= 1 && num <= slides.length) {
+          return num - 1;
+        }
+      }
     }
     return 0;
   }
 
   function updateHUD() {
-    currentCounter.textContent = currentIndex + 1;
-    const progress = ((currentIndex + 1) / slides.length) * 100;
-    progressBar.style.width = `${progress}%`;
+    if (hasSlide0) {
+      currentCounter.textContent = currentIndex;
+      const totalUseful = Math.max(1, slides.length - 1);
+      const progress = (currentIndex / totalUseful) * 100;
+      progressBar.style.width = `${progress}%`;
+    } else {
+      currentCounter.textContent = currentIndex + 1;
+      const progress = ((currentIndex + 1) / slides.length) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
   }
 
   function updateStepsStatus(slide) {
@@ -150,8 +169,16 @@ function initDeck() {
     currentIndex = index;
     updateHUD();
 
+    if (slides[currentIndex]?.id === 'slide-0') {
+      restartCrashGif();
+    }
+
     if (updateHistory) {
-      window.location.hash = (currentIndex + 1).toString();
+      if (hasSlide0) {
+        window.location.hash = currentIndex.toString();
+      } else {
+        window.location.hash = (currentIndex + 1).toString();
+      }
     }
   }
 
@@ -454,6 +481,17 @@ function initDeck() {
       });
     });
   }
+
+  // Click interactivo directo en la imagen del crash (slide-0) para repetir
+  const crashBox = document.getElementById('car-crash-box');
+  if (crashBox) {
+    crashBox.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      restartCrashGif();
+    });
+  }
+
 
   // Inicializar en la slide correspondiente y calcular escala
   updateScale();

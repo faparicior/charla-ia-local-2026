@@ -22390,6 +22390,137 @@ body.mode-document .map-checkpoint {
   display: none;
 }
 
+/* ==========================================================================
+   SLIDE 0 (PARTE 2): PRÓLOGO / REINICIO TRAS ACCIDENTES DE RUTA Y AGENDA
+   ========================================================================== */
+.crash-intro-grid {
+  display: grid;
+  grid-template-columns: 720px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* GIF prominente, limpio, sin cajas que lo encuadren */
+.crash-hero-box {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crash-hero-box:hover {
+  transform: scale(1.015);
+}
+
+.crash-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border-subtle);
+  background: #090a0d;
+  display: block;
+}
+
+body.theme-dark .crash-hero-img {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Columna Derecha: Minimalista, títulos grandes y directos */
+.crash-narrative-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  justify-content: center;
+}
+
+.crash-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.crash-point-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-muted);
+  opacity: 0.5;
+  padding-top: 0.15rem;
+}
+
+.crash-point-text h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.crash-point-text .crash-point-sub {
+  margin: 0.4rem 0 0 0;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.crash-point-item.point-alert .crash-point-num {
+  color: #ef4444;
+  opacity: 0.8;
+}
+
+.crash-point-item.point-goal .crash-point-num {
+  color: #10b981;
+  opacity: 0.9;
+}
+
+.crash-action-wrap {
+  margin-top: 1rem;
+}
+
+.btn-start-sdlc-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 2.2rem;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-start-sdlc-large:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(99, 102, 241, 0.55);
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+}
+
+.btn-start-sdlc-large .arrow {
+  font-size: 1.4rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-start-sdlc-large:hover .arrow {
+  transform: translateX(6px);
+}
+
+
 </style>
 </head>
 
@@ -23326,44 +23457,63 @@ function initDeck() {
 
   updateDualModeUI();
 
+  const hasSlide0 = slides[0]?.id === 'slide-0';
   if (totalCounter) {
-    totalCounter.textContent = slides.length;
+    totalCounter.textContent = hasSlide0 ? (slides.length - 1) : slides.length;
   }
 
-  // Leer slide desde URL Hash (#1, #21, #slide-pillar-intro, o #last = última slide)
+  // Reiniciar animación del GIF de crash (slide-0)
+  function restartCrashGif() {
+    const crashImg = document.getElementById('car-crash-img');
+    if (!crashImg || !crashImg.parentNode) return;
+    const parent = crashImg.parentNode;
+    const clone = crashImg.cloneNode(true);
+    parent.replaceChild(clone, crashImg);
+  }
+
+  // Leer slide desde URL Hash (#0, #1, #21, #slide-pillar-intro, o #last = última slide)
   function getSlideIndexFromHash() {
     let rawHash = window.location.hash.replace('#', '').trim();
     if (!rawHash) return 0;
     if (rawHash === 'last') {
       return slides.length - 1;
     }
-    // 1. Si es numérico puro (#1, #21), SIEMPRE es el número de diapositiva (1-based)
-    if (/^\d+$/.test(rawHash)) {
-      const num = parseInt(rawHash, 10);
-      if (num >= 1 && num <= slides.length) {
-        return num - 1;
-      }
-    }
-    // 2. Si tiene formato "slide-N" numérico (ej: #slide-21)
-    const numMatch = rawHash.match(/^slide-(\d+)$/);
-    if (numMatch) {
-      const num = parseInt(numMatch[1], 10);
-      if (num >= 1 && num <= slides.length) {
-        return num - 1;
-      }
-    }
-    // 3. Buscar coincidencia por ID semántico de slide (ej: slide-pillar-intro, slide-step1-boundaries)
+    // Prioridad 1: Coincidencia exacta por ID semántico de slide (ej: slide-0, slide-1, slide-pillar-intro)
     const exactIndex = slides.findIndex(s => s.id === rawHash || s.id === `slide-${rawHash}`);
     if (exactIndex !== -1) {
       return exactIndex;
+    }
+    // Prioridad 2: Si el hash es 0
+    if (rawHash === '0') {
+      return 0;
+    }
+    // Prioridad 3: Si es numérico puro (#1, #21)
+    if (/^\d+$/.test(rawHash)) {
+      const num = parseInt(rawHash, 10);
+      if (hasSlide0) {
+        if (num >= 0 && num < slides.length) {
+          return num;
+        }
+      } else {
+        if (num >= 1 && num <= slides.length) {
+          return num - 1;
+        }
+      }
     }
     return 0;
   }
 
   function updateHUD() {
-    currentCounter.textContent = currentIndex + 1;
-    const progress = ((currentIndex + 1) / slides.length) * 100;
-    progressBar.style.width = `${progress}%`;
+    if (hasSlide0) {
+      currentCounter.textContent = currentIndex;
+      const totalUseful = Math.max(1, slides.length - 1);
+      const progress = (currentIndex / totalUseful) * 100;
+      progressBar.style.width = `${progress}%`;
+    } else {
+      currentCounter.textContent = currentIndex + 1;
+      const progress = ((currentIndex + 1) / slides.length) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
   }
 
   function updateStepsStatus(slide) {
@@ -23413,8 +23563,16 @@ function initDeck() {
     currentIndex = index;
     updateHUD();
 
+    if (slides[currentIndex]?.id === 'slide-0') {
+      restartCrashGif();
+    }
+
     if (updateHistory) {
-      window.location.hash = (currentIndex + 1).toString();
+      if (hasSlide0) {
+        window.location.hash = currentIndex.toString();
+      } else {
+        window.location.hash = (currentIndex + 1).toString();
+      }
     }
   }
 
@@ -23717,6 +23875,17 @@ function initDeck() {
       });
     });
   }
+
+  // Click interactivo directo en la imagen del crash (slide-0) para repetir
+  const crashBox = document.getElementById('car-crash-box');
+  if (crashBox) {
+    crashBox.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      restartCrashGif();
+    });
+  }
+
 
   // Inicializar en la slide correspondiente y calcular escala
   updateScale();
