@@ -1,7 +1,7 @@
 # 🎤 Guion de Discurso — AI Local Crafters
 
 > Charla en dos partes · Decks HTML 1920×1080
-> Parte 1: `index.html` (44 secciones · contador 45, hardware & modelos) · Parte 2: `parte2-ciclo-desarrollo.html` (**38 slides — incluye 3 checkpoints del mapa**)
+> Parte 1: `index.html` (44 secciones · contador 45, hardware & modelos) · Parte 2: `parte2-ciclo-desarrollo.html` (**39 slides — incluye 4 checkpoints del mapa**)
 > Presentar desde `dist/` (`python3 bundle.py` reempaqueta). Recarga forzada (Ctrl+Shift+R) si acabas de editar.
 
 **Teclas de modo** (idénticas en ambas partes):
@@ -16,7 +16,7 @@
 
 El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo convierten en software; la gobernanza impide que la IA lo destruya»*.
 
-**El recurso de las estaciones**: la slide 6 presenta el mapa interactivo (9 pasos, clic a clic). Tres **checkpoints** (16, 21, 26) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
+**El recurso de las estaciones**: la slide 6 presenta el mapa interactivo (9 pasos, clic a clic). Cuatro **checkpoints** (16, 21, 26 y 36) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
 
 ## Bloque A — Apertura (1-6): el porqué y el marco
 
@@ -77,15 +77,16 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 
 **Puente D→E (33→34):** *"Ya tenemos ciclo y gobernanza. ¿Dónde viven los artefactos? → El repositorio."*
 
-## Bloque E — Cierre técnico (34-38)
+## Bloque E — Cierre técnico (34-39)
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
 | 34 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
 | 35 | **El Viaje de una Petición E2E** 🖱️ | Capstone dinámico: Usuario → Controlador → Caso de Uso (BR) → Dominio (INV) → Persistencia → retorno 201. **Filtro de audiencia**: 👔 / 🛠️ / 🌐. |
-| 36 | **Evolución sin Drift: TDD Híbrido** | Fases 4-5: `/implement-flow` (TDD) + `/modify-flow` (cambio) + `/audit-docs` (cero drift). *"Las fases 1-3 en detalle; 4-5 son esta slide".* |
-| 37 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
-| 38 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
+| **36** | **📍 Checkpoint del mapa: Fase 4** | Estación: banda ADR ya encendida + **Construcción TDD brillando** (ámbar). *"La petición ya viaja; ahora construimos — cada feature (2b) es un ciclo TDD completo. Y cuando algo cambie: Fase 5 (/modify-flow), columna 7, te devuelve al mapa."* |
+| 37 | **Evolución sin Drift: TDD Híbrido** | Fases 4-5: `/implement-flow` (TDD) + `/modify-flow` (cambio) + `/audit-docs` (cero drift). *"Las fases 1-3 en detalle; 4-5 son esta slide".* |
+| 38 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
+| 39 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
 
 ## Cheat-sheet de puentes hablados (Parte 2)
 
@@ -94,7 +95,7 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 3. 25→26: *"¿quién blinda esto? → la banda ADR"* (el salto temático grande, ahora visualizado)
 4. 31→32: *"el ADR gobierna decisiones; el índice gobierna el flujo"*
 5. 33→34: *"¿dónde viven? → el repo"* · 34→35: *"los enlaces son estáticos; veamos una petición viva"*
-6. 35→36: *"y el sistema sigue vivo: TDD + cambio sin drift"* → 37: pausa → quote
+6. 34→35: *"los enlaces son estáticos; veamos una petición viva"* · 35→36: *"petición → estación Fase 4: a construir"* · 36→37: *"y el sistema sigue vivo: TDD + cambio sin drift"* → 38: pausa → quote
 
 ---
 
@@ -152,10 +153,11 @@ Criterio: lo que es **anatomía interna, investigación de frontera o caso hist�
 |-----|-------|---------|
 | 24-25 | Plantillas BR e INV | Anatomía; la 23 ya fija el concepto BR vs INV |
 | 32 | El Ciclo Canónico del SDLC | Repite el ciclo de las 5-6; puente directo 31→33 |
+| 33 | Producto en Acción (Decision Tree) | Cima del refrito: re-enruta lo que el mapa (6) ya enseña; hoy se atraviesa rápido verbalmente |
 
 **Candidata:** 18 (Flowchart de decisiones) si el tiempo aprieta.
 
-**Se quedan:** mapa (6), checkpoints (16/21/26 — ya ocultos en Documento por diseño), franja G/B (15), 20-23, capstone E2E (35), TDD (36), quote (37).
+**Se quedan:** mapa (6), checkpoints (16/21/26/36 — ocultos en Documento por diseño), franja G/B (15), 20-23, capstone E2E (35), TDD (37), quote (38).
 
 ### Cómo ocultar cuando apruebes la lista (mecanismo pendiente)
 
@@ -166,5 +168,5 @@ Atributo `data-charla-hidden` en la `<section>` + `slides.js` lo salta en Modo C
 # Estado técnico actual
 
 - **Parte 1: 44 secciones (contador 45)** — caso DeepSeek movido al final del bloque de aceleración (32-33) y **nueva slide 34 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (id `slide-27b`, clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica").
-- **Parte 2: 38 slides** — 3 **checkpoints del mapa** (16, 21, 26): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; ocultos en Documento. El Viaje E2E (35) como capstone, TDD (36), Quote (37), Q&A (38). Cliente local eliminado.
+- **Parte 2: 39 slides** — 4 **checkpoints del mapa** (16 · 21 · 26 · **36 Fase 4, nuevo**: banda ADR ya encendida + Construcción TDD brillando): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; ocultos en Documento. El Viaje E2E (35) como capstone, TDD (36), Quote (37), Q&A (38). Cliente local eliminado.
 - Coherencia: back-bars encadenados slide a slide en ambos decks; banners `SLIDE N` renumerados a posición real.
