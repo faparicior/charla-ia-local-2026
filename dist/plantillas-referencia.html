@@ -22393,132 +22393,41 @@ body.mode-document .map-checkpoint {
 /* ==========================================================================
    SLIDE 0 (PARTE 2): PRÓLOGO / REINICIO TRAS ACCIDENTES DE RUTA Y AGENDA
    ========================================================================== */
-.crash-intro-grid {
-  display: grid;
-  grid-template-columns: 720px 1fr;
-  gap: 3.5rem;
-  align-items: center;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-/* GIF prominente, limpio, sin cajas que lo encuadren */
-.crash-hero-box {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  height: 540px;
+.crash-hero-stage {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.crash-hero-box:hover {
-  transform: scale(1.015);
-}
-
-.crash-hero-img {
   width: 100%;
-  height: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.crash-hero-gif {
+  max-width: 820px;
+  width: auto;
+  height: 600px;
+  max-height: calc(100vh - 240px);
   object-fit: contain;
   border-radius: 20px;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
-  border: 1px solid var(--border-subtle);
-  background: #090a0d;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  border: 1.5px solid var(--border-subtle);
+  background: #000000;
   display: block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
-body.theme-dark .crash-hero-img {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  border-color: rgba(255, 255, 255, 0.08);
+.crash-hero-stage:hover .crash-hero-gif {
+  transform: scale(1.015);
+  box-shadow: 0 24px 60px rgba(99, 102, 241, 0.3);
 }
 
-/* Columna Derecha: Minimalista, títulos grandes y directos */
-.crash-narrative-clean {
-  display: flex;
-  flex-direction: column;
-  gap: 2.2rem;
-  justify-content: center;
+body.theme-dark .crash-hero-gif {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7);
 }
 
-.crash-point-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.crash-point-num {
-  font-family: var(--font-serif);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--text-muted);
-  opacity: 0.5;
-  padding-top: 0.15rem;
-}
-
-.crash-point-text h3 {
-  margin: 0;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--text-main);
-  letter-spacing: -0.01em;
-}
-
-.crash-point-text .crash-point-sub {
-  margin: 0.4rem 0 0 0;
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-.crash-point-item.point-alert .crash-point-num {
-  color: #ef4444;
-  opacity: 0.8;
-}
-
-.crash-point-item.point-goal .crash-point-num {
-  color: #10b981;
-  opacity: 0.9;
-}
-
-.crash-action-wrap {
-  margin-top: 1rem;
-}
-
-.btn-start-sdlc-large {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.1rem;
-  padding: 1.1rem 2.2rem;
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  color: #ffffff !important;
-  text-decoration: none;
-  border-radius: 14px;
-  font-weight: 700;
-  font-size: 1.25rem;
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-start-sdlc-large:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 32px rgba(99, 102, 241, 0.55);
-  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
-}
-
-.btn-start-sdlc-large .arrow {
-  font-size: 1.4rem;
-  transition: transform 0.2s ease;
-}
-
-.btn-start-sdlc-large:hover .arrow {
-  transform: translateX(6px);
-}
 
 
 </style>
