@@ -80,6 +80,7 @@
     
 
 
+
 <!-- ====================================================================
          SLIDE SPECIAL 2: PARADIGMA CLOUD — API TOKEN & FUERZA BRUTA
          ==================================================================== -->
@@ -102,6 +103,7 @@
     </section>
 
     
+
 
 
 <!-- ====================================================================
@@ -129,13 +131,280 @@
     
 
 
+
+<!-- ====================================================================
+         SLIDE 4: EL VIAJE DE UNA HISTORIA: DEL USER JOURNEY AL DOMINIO
+         ==================================================================== -->
+            <section class="slide" id="slide-journey-ddd-flow">
+      <div class="slide-content" style="gap: 0.65rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-drifting-local-adr" class="deck-back-btn">← Paradigma Local</a>
+          <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">El Puente Negocio ↔ Técnica • Colaboración</span>
+        </div>
+        <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
+          Esquema Ejecutivo E2E • Cómo viaja una necesidad de usuario a través del sistema
+        </div>
+        <h2 style="margin-bottom: 0.05rem;">
+          El Viaje de una Petición: <span class="serif-italic" style="color: #6366f1;">Del User Journey al Dominio DDD</span>
+        </h2>
+        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.25rem; font-size: 1.05rem;">
+          De la necesidad del usuario al software: cómo conectan las <strong>Reglas de Negocio</strong> y las <strong>Invariantes</strong> desde que el usuario actúa hasta que el sistema responde.
+        </p>
+
+        <!-- Barra de Perspectiva: Negocio (PM) vs Técnica -->
+        <div class="flow-perspective-bar">
+          <div class="perspective-left">
+            <span class="perspective-label">Filtro de Audiencia:</span>
+            <div class="perspective-pills">
+              <button type="button" class="perspective-btn active" id="btn-view-all" onclick="setFlowPerspective('all')">
+                👁️ Visión Completa E2E
+              </button>
+              <button type="button" class="perspective-btn" id="btn-view-biz" onclick="setFlowPerspective('biz')">
+                👔 Visión Negocio (PM &amp; Stakeholders)
+              </button>
+              <button type="button" class="perspective-btn" id="btn-view-tech" onclick="setFlowPerspective('tech')">
+                🛠️ Visión Técnica (Ingeniería DDD)
+              </button>
+            </div>
+          </div>
+
+          <!-- Mensaje clave dinámico según la audiencia elegida -->
+          <div class="perspective-takeaway" id="perspective-takeaway">
+            <span id="perspective-takeaway-text">
+              🌐 <strong>Visión Compartida:</strong> El mapa completo donde Producto y Tecnología se alinean: desde la necesidad del usuario hasta la persistencia y la respuesta.
+            </span>
+          </div>
+        </div>
+
+        <!-- Lienzo SVG Principal: Limpio, Grande y Esquemático -->
+        <div class="flow-svg-viewport">
+          <svg id="flow-e2e-svg" viewBox="0 0 1200 405" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama esquemático para gestión y producto: Usuario a la izquierda, frontera del microservicio, controlador, caso de uso con reglas de negocio, dominio con invariantes, persistencia y camino de retorno al usuario.">
+            <defs>
+              <marker id="arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8" />
+              </marker>
+              <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#0284c7" />
+              </marker>
+              <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#d97706" />
+              </marker>
+              <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#7c3aed" />
+              </marker>
+              <marker id="arr-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#059669" />
+              </marker>
+              <marker id="arr-return-up" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#4f46e5" />
+              </marker>
+            </defs>
+
+            <!-- Frontera de Microservicio (Fondo) -->
+            <rect id="biz-boundary-box" x="245" y="16" width="940" height="305" rx="16" fill="rgba(2, 132, 199, 0.03)" stroke="#0284c7" stroke-width="2" stroke-dasharray="8 6" opacity="0.45" />
+            <rect id="biz-boundary-tag" x="265" y="6" width="230" height="24" rx="12" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="1.5" />
+            <text x="380" y="22" text-anchor="middle" fill="#0284c7" font-size="11" font-weight="800" letter-spacing="0.06em">⚡ FRONTERA DEL MICROSERVICIO</text>
+
+            <!-- CALLOUT OVERHEAD DE NEGOCIO (PM Focus): Muestra que está mucho más adentro que la UI o la API -->
+            <g id="biz-deep-callout" class="role-focus-badge role-biz-badge">
+              <rect x="520" y="6" width="420" height="24" rx="12" fill="#d97706" filter="drop-shadow(0 2px 8px rgba(217, 119, 6, 0.45))" />
+              <text x="730" y="22" text-anchor="middle" font-size="10.5" font-weight="800" fill="#ffffff" letter-spacing="0.04em">
+                ⚡ ¡AQUÍ VIVE TU NEGOCIO! (MUCHO MÁS ADENTRO QUE LA API)
+              </text>
+            </g>
+
+            <!-- RETORNO: Camino de vuelta al Usuario (Completamente visible y destacado) -->
+            <g id="group-return-path">
+              <!-- Línea de vuelta -->
+              <path id="wire-return" class="flow-path-wire" d="M 1090,312 L 1090,352 Q 1090,362 1075,362 L 137,362 Q 122,362 122,352 L 122,318" fill="none" stroke="#4f46e5" stroke-width="3" opacity="0.8" marker-end="url(#arr-return-up)" />
+              
+              <!-- Cartela explicativa del retorno en el centro -->
+              <rect id="return-pill-bg" x="270" y="345" width="660" height="34" rx="17" fill="var(--bg-surface)" stroke="#4f46e5" stroke-width="2" filter="drop-shadow(0 2px 8px rgba(79, 70, 229, 0.2))" />
+              <text x="600" y="367" text-anchor="middle" fill="#4338ca" font-size="12" font-weight="800" letter-spacing="0.03em" class="return-wire-text">
+                ↩ CAMINO DE RETORNO: 201 Created (o Error Amigable) ➔ Notificación Email &amp; Actualización UI
+              </text>
+            </g>
+
+            <!-- Conectores entre bloques -->
+            <g class="flow-wires">
+              <!-- 1 -> 2 -->
+              <path id="wire-1-2" class="flow-path-wire" d="M 225,177 L 265,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-blue)" />
+              <text x="245" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0284c7">Petición</text>
+
+              <!-- 2 -> 3 -->
+              <path id="wire-2-3" class="flow-path-wire" d="M 460,177 L 500,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-amber)" />
+              <text x="480" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#d97706">Ejecuta</text>
+
+              <!-- 3 -> 4 -->
+              <path id="wire-3-4" class="flow-path-wire" d="M 710,177 L 750,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-purple)" />
+              <text x="730" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7c3aed">Aplica</text>
+
+              <!-- 4 -> 5 -->
+              <path id="wire-4-5" class="flow-path-wire" d="M 960,177 L 1000,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-emerald)" />
+              <text x="980" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#059669">Persiste</text>
+            </g>
+
+            <!-- ================= BLOQUE 1: USUARIO & JOURNEY ================= -->
+            <g class="flow-station station-node" id="station-1" data-stage="1" data-biz="true" data-tech="false">
+              <rect class="outer-box" x="20" y="42" width="205" height="270" rx="16" fill="var(--bg-surface)" stroke="#6366f1" stroke-width="3" />
+              <rect x="20" y="42" width="205" height="50" rx="16" fill="rgba(99, 102, 241, 0.12)" />
+              <text x="38" y="74" font-size="22">👤</text>
+              <text x="72" y="67" font-size="14" font-weight="800" fill="#4338ca" class="svg-node-title">USUARIO</text>
+              <text x="72" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">User Journey (Paso 5)</text>
+
+              <!-- Badge de Rol (Visible al filtrar) -->
+              <g class="role-focus-badge role-biz-badge" transform="translate(32, 98)">
+                <rect x="0" y="0" width="180" height="20" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1" />
+                <text x="90" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5b21b6">🎯 TU ORIGEN: DOLOR USUARIO</text>
+              </g>
+
+              <!-- Contenido Simple y Claro -->
+              <g transform="translate(34, 126)">
+                <text x="0" y="15" font-size="12" font-weight="700" fill="#4338ca">🎯 NECESIDAD REAL:</text>
+                <text x="0" y="36" font-size="12" font-weight="500" fill="var(--text-main)">• Tiene un dolor o meta</text>
+                <text x="0" y="55" font-size="12" font-weight="500" fill="var(--text-main)">• Declarado en el Journey</text>
+                <text x="0" y="74" font-size="12" font-style="italic" fill="var(--text-muted)">“Quiero abrir el evento”</text>
+
+                <line x1="0" y1="90" x2="175" y2="90" stroke="rgba(0,0,0,0.08)" />
+
+                <text x="0" y="110" font-size="11" font-weight="700" fill="#4338ca">⚡ DISPARO DE ACCIÓN:</text>
+                <text x="0" y="128" font-size="12" font-weight="600" fill="var(--text-main)">Hace clic en la pantalla</text>
+                <text x="0" y="145" font-size="11" font-weight="500" fill="var(--text-dim)">(Formulario / Botón UI)</text>
+              </g>
+            </g>
+
+            <!-- ================= BLOQUE 2: CONTROLADOR ================= -->
+            <g class="flow-station station-node" id="station-2" data-stage="2" data-biz="false" data-tech="true">
+              <rect class="outer-box" x="265" y="42" width="195" height="270" rx="16" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="2" />
+              <rect x="265" y="42" width="195" height="50" rx="16" fill="rgba(2, 132, 199, 0.12)" />
+              <text x="283" y="74" font-size="22">🚪</text>
+              <text x="318" y="67" font-size="14" font-weight="800" fill="#0369a1" class="svg-node-title">CONTROLADOR</text>
+              <text x="318" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">Puerta de Entrada (API)</text>
+
+              <!-- Badge de Rol (Visible al filtrar) -->
+              <g class="role-focus-badge role-tech-badge" transform="translate(275, 98)">
+                <rect x="0" y="0" width="175" height="20" rx="10" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1" />
+                <text x="87" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#0369a1">🛠️ INGENIERÍA: FONTANERÍA HTTP</text>
+              </g>
+
+              <!-- Contenido -->
+              <g transform="translate(281, 126)">
+                <text x="0" y="15" font-size="12" font-weight="700" fill="#0284c7">📋 RECEPCIÓN &amp; FILTRO:</text>
+                <text x="0" y="36" font-size="12" font-weight="500" fill="var(--text-main)">• Recibe la petición web</text>
+                <text x="0" y="55" font-size="12" font-weight="500" fill="var(--text-main)">• Valida que los datos</text>
+                <text x="0" y="74" font-size="12" font-weight="500" fill="var(--text-main)">  tengan formato válido</text>
+
+                <line x1="0" y1="90" x2="165" y2="90" stroke="rgba(0,0,0,0.08)" />
+
+                <text x="0" y="110" font-size="11" font-weight="700" fill="#0284c7">🛡️ ROL CLAVE:</text>
+                <text x="0" y="128" font-size="12" font-weight="700" fill="#0369a1">Cero lógica de negocio</text>
+                <text x="0" y="145" font-size="11" font-weight="500" fill="var(--text-dim)">Pasa el testigo al Caso de Uso</text>
+              </g>
+            </g>
+
+            <!-- ================= BLOQUE 3: CASO DE USO (REGLAS DE NEGOCIO BR) ================= -->
+            <g class="flow-station station-node" id="station-3" data-stage="3" data-biz="true" data-tech="true">
+              <rect class="outer-box" x="500" y="42" width="210" height="270" rx="16" fill="var(--bg-surface)" stroke="#d97706" stroke-width="2.5" />
+              <rect x="500" y="42" width="210" height="50" rx="16" fill="rgba(217, 119, 6, 0.14)" />
+              <text x="518" y="74" font-size="22">⚙️</text>
+              <text x="552" y="67" font-size="14" font-weight="800" fill="#92400e" class="svg-node-title" letter-spacing="0.04em">CASO DE USO</text>
+              <text x="552" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">Capa de Aplicación</text>
+
+              <!-- BANNER REGLAS DE NEGOCIO -->
+              <rect x="512" y="98" width="186" height="26" rx="7" fill="#d97706" />
+              <text x="605" y="115" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.04em">
+                ⭐ REGLAS DE NEGOCIO (BR)
+              </text>
+
+              <!-- Contenido -->
+              <g transform="translate(516, 136)">
+                <text x="0" y="15" font-size="12" font-weight="700" fill="#b45309">POLÍTICAS Y CUOTAS:</text>
+                <text x="0" y="34" font-size="12" font-weight="500" fill="var(--text-main)">• ¿Superó límite Free Tier?</text>
+                <text x="0" y="52" font-size="12" font-weight="500" fill="var(--text-main)">• ¿Tiene permisos de rol?</text>
+                <text x="0" y="70" font-size="12" font-weight="500" fill="var(--text-main)">• Orquesta el proceso</text>
+
+                <line x1="0" y1="84" x2="176" y2="84" stroke="rgba(0,0,0,0.08)" />
+
+                <text x="0" y="102" font-size="11" font-weight="700" fill="#b45309">💡 SI FALLA AQUÍ:</text>
+                <text x="0" y="120" font-size="11.5" font-weight="600" fill="var(--text-main)">Avisa con elegancia</text>
+                <text x="0" y="137" font-size="11" font-weight="500" fill="var(--text-dim)">(Ej: Modal upgrade plan Pro)</text>
+              </g>
+            </g>
+
+            <!-- ================= BLOQUE 4: DOMINIO ================= -->
+            <g class="flow-station station-node" id="station-4" data-stage="4" data-biz="true" data-tech="true">
+              <rect class="outer-box" x="750" y="42" width="210" height="270" rx="16" fill="var(--bg-surface)" stroke="#7c3aed" stroke-width="2.5" />
+              <rect x="750" y="42" width="210" height="50" rx="16" fill="rgba(124, 58, 237, 0.14)" />
+              <text x="768" y="74" font-size="22">🛡️</text>
+              <text x="803" y="67" font-size="14" font-weight="800" fill="#6d28d9" class="svg-node-title">DOMINIO</text>
+              <text x="803" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">Corazón del Software</text>
+
+              <!-- BANNER INVARIANTES -->
+              <rect x="762" y="98" width="186" height="26" rx="7" fill="#7c3aed" />
+              <text x="855" y="115" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.04em">
+                🛡️ INVARIANTES (INV)
+              </text>
+
+              <!-- Contenido -->
+              <g transform="translate(766, 136)">
+                <text x="0" y="15" font-size="12" font-weight="700" fill="#6d28d9">CERO TOLERANCIA:</text>
+                <text x="0" y="34" font-size="12" font-weight="500" fill="var(--text-main)">• Integridad sagrada</text>
+                <text x="0" y="52" font-size="12" font-weight="500" fill="var(--text-main)">• “Fin siempre tras Inicio”</text>
+                <text x="0" y="70" font-size="12" font-weight="500" fill="var(--text-main)">• El estado nunca se corrompe</text>
+
+                <line x1="0" y1="84" x2="176" y2="84" stroke="rgba(0,0,0,0.08)" />
+
+                <text x="0" y="102" font-size="11" font-weight="700" fill="#6d28d9">🛑 SI FALLA AQUÍ:</text>
+                <text x="0" y="120" font-size="11.5" font-weight="700" fill="#dc2626">Freno absoluto (Error)</text>
+                <text x="0" y="137" font-size="11" font-weight="500" fill="var(--text-dim)">Protege la coherencia del negocio</text>
+              </g>
+            </g>
+
+            <!-- ================= BLOQUE 5: PERSISTENCIA ================= -->
+            <g class="flow-station station-node" id="station-5" data-stage="5" data-biz="true" data-tech="true">
+              <rect class="outer-box" x="1000" y="42" width="180" height="270" rx="16" fill="var(--bg-surface)" stroke="#059669" stroke-width="2" />
+              <rect x="1000" y="42" width="180" height="50" rx="16" fill="rgba(5, 150, 105, 0.14)" />
+              <text x="1015" y="74" font-size="22">💾</text>
+              <text x="1048" y="67" font-size="13.5" font-weight="800" fill="#047857" class="svg-node-title">PERSISTENCIA</text>
+              <text x="1048" y="83" font-size="10.5" font-weight="600" fill="var(--text-muted)">Base de Datos &amp; Avisos</text>
+
+              <!-- Badge de Rol (Visible al filtrar) -->
+              <g class="role-focus-badge role-biz-badge" transform="translate(1010, 98)">
+                <rect x="0" y="0" width="160" height="20" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="1" />
+                <text x="80" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">🎉 CONFIRMACIÓN CLIENTE</text>
+              </g>
+
+              <!-- Contenido -->
+              <g transform="translate(1015, 126)">
+                <text x="0" y="15" font-size="12" font-weight="700" fill="#047857">✅ CONSOLIDACIÓN:</text>
+                <text x="0" y="36" font-size="12" font-weight="500" fill="var(--text-main)">• Guarda en Base Datos</text>
+                <text x="0" y="55" font-size="12" font-weight="500" fill="var(--text-main)">• Deja registro atómico</text>
+                <text x="0" y="74" font-size="12" font-weight="500" fill="var(--text-main)">• Envía email / alerta</text>
+
+                <line x1="0" y1="90" x2="150" y2="90" stroke="rgba(0,0,0,0.08)" />
+
+                <text x="0" y="110" font-size="11" font-weight="700" fill="#047857">🎉 RESULTADO:</text>
+                <text x="0" y="128" font-size="12" font-weight="700" fill="#047857">Éxito confirmado</text>
+                <text x="0" y="145" font-size="11" font-weight="500" fill="var(--text-dim)">Pantalla verde en la UI</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+
+  
+
+
+
 <!-- ====================================================================
          SLIDE SPECIAL 4: LOS TRES PILARES DEL CÓDIGO CON IA
          ==================================================================== -->
     <section class="slide" id="slide-pillar-intro">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-drifting-local-adr" class="deck-back-btn">← Paradigma Local</a>
+          <a href="#slide-journey-ddd-flow" class="deck-back-btn">← El Viaje de una Petición</a>
           <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0369a1;">Parte 2 • Tres Pilares de Calidad</span>
         </div>
         <h2>Los Tres Pilares: <span class="serif-italic" style="color: #0284c7;">Código de Calidad con IA</span></h2>
@@ -222,8 +491,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 5: PIPELINE SDLC DE 5 FASES (TIMELINE ALTERNADO PODADO)
+         SLIDE 6: PIPELINE SDLC DE 5 FASES (TIMELINE ALTERNADO PODADO)
          ==================================================================== -->
     <section class="slide" id="slide-1-pipeline">
       <div class="slide-content" style="gap: 1.25rem;">
@@ -401,8 +671,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 6: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
+         SLIDE 7: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
          Recreación del diagrama de docs/SDLC-WORKFLOW-DIRECTORY.md (con Fase 2b Features)
          ==================================================================== -->
     <section class="slide" id="slide-sdlc-map">
@@ -664,8 +935,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 7: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
+         SLIDE 8: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step1-boundaries">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -849,8 +1121,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 8: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
+         SLIDE 9: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step2-tradeoffs">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -1076,8 +1349,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 9: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
+         SLIDE 10: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step3-personas">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -1243,8 +1517,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 10: PASO 4 - MAPA DE EMPATÍA (CONSOLA MARKDOWN)
+         SLIDE 11: PASO 4 - MAPA DE EMPATÍA (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step4-empathy">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -1404,8 +1679,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 11: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
+         SLIDE 12: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step5-journeys">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -1600,8 +1876,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 12: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
+         SLIDE 13: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step6-brainstorming">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -1774,8 +2051,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 13: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
+         SLIDE 14: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step7-sequencing">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -1962,8 +2240,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 14: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
+         SLIDE 15: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
          ==================================================================== -->
     <section class="slide" id="slide-step8-canvas">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -2153,8 +2432,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 15: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
+         SLIDE 16: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
          ==================================================================== -->
     <section class="slide" id="slide-inception-greenfield-brownfield">
       <div class="slide-content" style="gap: 0.85rem;">
@@ -2504,8 +2784,9 @@
     
 
 
+
 <!-- ====================================================================
-     SLIDE 16: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 2
+     SLIDE 17: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 2
      ==================================================================== -->
 <section class="slide map-checkpoint" id="slide-map-ckpt-1">
       <div class="slide-content">
@@ -2519,8 +2800,9 @@
       </div>
     </section>
 
+
 <!-- ====================================================================
-         SLIDE 17: FASE 2 (1 DE 3) - DIAGRAMA DE SECUENCIA E2E (MERMAID LIVE)
+         SLIDE 18: FASE 2 (1 DE 3) - DIAGRAMA DE SECUENCIA E2E (MERMAID LIVE)
          ==================================================================== -->
     <section class="slide" id="slide-phase2-diagram1-sequence">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -2664,8 +2946,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 18: FASE 2 (2 DE 3) - FLOWCHART DE BIFURCACIONES & DECISIONES (MERMAID LIVE)
+         SLIDE 19: FASE 2 (2 DE 3) - FLOWCHART DE BIFURCACIONES & DECISIONES (MERMAID LIVE)
          ==================================================================== -->
     <section class="slide" id="slide-phase2-diagram2-flowchart">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -2812,8 +3095,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 19: FASE 2 (3 DE 3) - CICLO DE VIDA DE LA ENTIDAD / FSM (MERMAID LIVE)
+         SLIDE 20: FASE 2 (3 DE 3) - CICLO DE VIDA DE LA ENTIDAD / FSM (MERMAID LIVE)
          ==================================================================== -->
     <section class="slide" id="slide-phase2-diagram3-state">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -2948,8 +3232,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 20: FASE 2B - FEATURES & SLICING (/create-features, SLICES VERTICALES + ERRORES HTTP)
+         SLIDE 21: FASE 2B - FEATURES & SLICING (/create-features, SLICES VERTICALES + ERRORES HTTP)
          ==================================================================== -->
         <section class="slide" id="slide-phase2b-features">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -3115,8 +3400,9 @@
     
 
 
+
 <!-- ====================================================================
-     SLIDE 21: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 3
+     SLIDE 22: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 3
      ==================================================================== -->
 <section class="slide map-checkpoint" id="slide-map-ckpt-2">
       <div class="slide-content">
@@ -3130,8 +3416,9 @@
       </div>
     </section>
 
+
 <!-- ====================================================================
-         SLIDE 22: FASE 3 - MODELO DDD RICO (/create-entity-lifecycle, FSM + INV/BR + DOMAIN EVENTS)
+         SLIDE 23: FASE 3 - MODELO DDD RICO (/create-entity-lifecycle, FSM + INV/BR + DOMAIN EVENTS)
          ==================================================================== -->
     <section class="slide" id="slide-phase3-entity-lifecycle">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -3282,8 +3569,9 @@
 
 
 
+
 <!-- ====================================================================
-         SLIDE 23: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
+         SLIDE 24: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
          ==================================================================== -->
     <section class="slide" id="slide-phase2-invariants">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -3447,8 +3735,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 24: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
+         SLIDE 25: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
          ==================================================================== -->
     <section class="slide" id="slide-phase2-br-template">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -3593,8 +3882,9 @@
     
 
 
+
 <!-- ====================================================================
-         SLIDE 25: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
+         SLIDE 26: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
          ==================================================================== -->
     <section class="slide" id="slide-phase2-inv-template">
       <div class="slide-content" style="gap: 1.15rem;">
@@ -3746,8 +4036,9 @@
     
 
 
+
 <!-- ====================================================================
-     SLIDE 26: CHECKPOINT · ESTACIÓN DEL MAPA — GOBERNANZA
+     SLIDE 27: CHECKPOINT · ESTACIÓN DEL MAPA — GOBERNANZA
      ==================================================================== -->
 <section class="slide map-checkpoint" id="slide-map-ckpt-3">
       <div class="slide-content">
@@ -3760,6 +4051,7 @@
         <div class="sdlc-map-panel map-ckpt-host" data-map-lit="1,3,4,5" data-map-here="2"></div>
       </div>
     </section>
+
 
 <!-- ====================================================================
          SLIDE SPECIAL 24: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
@@ -3836,6 +4128,7 @@
 
 
     
+
 
 
 <!-- ====================================================================
@@ -3961,6 +4254,7 @@
     
 
 
+
 <!-- ====================================================================
          SLIDE SPECIAL 26: CASO REAL NEXT.JS - EL DOCUMENTO INYECTADO (AGENTS.MD)
          ==================================================================== -->
@@ -4069,6 +4363,7 @@
     </section>
 
     
+
 
 
 <!-- ====================================================================
@@ -4253,6 +4548,7 @@
     
 
 
+
 <!-- ====================================================================
          SLIDE SPECIAL 28: PILAR 1 - ÁRBOL DE DECISIÓN DE GOBERNANZA (DE IZQ A DER)
          ==================================================================== -->
@@ -4394,6 +4690,7 @@
     </section>
 
     
+
 
 
 <!-- ====================================================================
@@ -4610,6 +4907,7 @@
     
 
 
+
 <!-- ====================================================================
          SLIDE SPECIAL 30: PILAR 2 - MATRIZ DE DECISIÓN DE PRODUCTO (4 RUTAS)
          ==================================================================== -->
@@ -4785,6 +5083,7 @@
     
 
 
+
 <!-- ====================================================================
          SLIDE SPECIAL 31: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
          ==================================================================== -->
@@ -4946,272 +5245,6 @@
     
 
 
-<!-- ====================================================================
-         SLIDE 35: EL VIAJE DE UNA HISTORIA: DEL USER JOURNEY AL DOMINIO
-         ==================================================================== -->
-            <section class="slide" id="slide-journey-ddd-flow">
-      <div class="slide-content" style="gap: 0.65rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-bridge-enlace" class="deck-back-btn">← La Conexión</a>
-          <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">
-            Fase 2 &amp; 3 • Visión de Producto &amp; Arquitectura
-          </span>
-        </div>
-        <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
-          Esquema Ejecutivo E2E • Cómo viaja una necesidad de usuario a través del sistema
-        </div>
-        <h2 style="margin-bottom: 0.05rem;">
-          El Viaje de una Petición: <span class="serif-italic" style="color: #6366f1;">Del User Journey al Dominio DDD</span>
-        </h2>
-        <p class="subtitle" style="margin-top: -0.35rem; margin-bottom: 0.25rem; font-size: 1.05rem;">
-          De la necesidad del usuario al software: cómo conectan las <strong>Reglas de Negocio</strong> y las <strong>Invariantes</strong> desde que el usuario actúa hasta que el sistema responde.
-        </p>
-
-        <!-- Barra de Perspectiva: Negocio (PM) vs Técnica -->
-        <div class="flow-perspective-bar">
-          <div class="perspective-left">
-            <span class="perspective-label">Filtro de Audiencia:</span>
-            <div class="perspective-pills">
-              <button type="button" class="perspective-btn active" id="btn-view-all" onclick="setFlowPerspective('all')">
-                👁️ Visión Completa E2E
-              </button>
-              <button type="button" class="perspective-btn" id="btn-view-biz" onclick="setFlowPerspective('biz')">
-                👔 Visión Negocio (PM &amp; Stakeholders)
-              </button>
-              <button type="button" class="perspective-btn" id="btn-view-tech" onclick="setFlowPerspective('tech')">
-                🛠️ Visión Técnica (Ingeniería DDD)
-              </button>
-            </div>
-          </div>
-
-          <!-- Mensaje clave dinámico según la audiencia elegida -->
-          <div class="perspective-takeaway" id="perspective-takeaway">
-            <span id="perspective-takeaway-text">
-              🌐 <strong>Visión Compartida:</strong> El mapa completo donde Producto y Tecnología se alinean: desde la necesidad del usuario hasta la persistencia y la respuesta.
-            </span>
-          </div>
-        </div>
-
-        <!-- Lienzo SVG Principal: Limpio, Grande y Esquemático -->
-        <div class="flow-svg-viewport">
-          <svg id="flow-e2e-svg" viewBox="0 0 1200 405" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama esquemático para gestión y producto: Usuario a la izquierda, frontera del microservicio, controlador, caso de uso con reglas de negocio, dominio con invariantes, persistencia y camino de retorno al usuario.">
-            <defs>
-              <marker id="arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8" />
-              </marker>
-              <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#0284c7" />
-              </marker>
-              <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#d97706" />
-              </marker>
-              <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#7c3aed" />
-              </marker>
-              <marker id="arr-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#059669" />
-              </marker>
-              <marker id="arr-return-up" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#4f46e5" />
-              </marker>
-            </defs>
-
-            <!-- Frontera de Microservicio (Fondo) -->
-            <rect id="biz-boundary-box" x="245" y="16" width="940" height="305" rx="16" fill="rgba(2, 132, 199, 0.03)" stroke="#0284c7" stroke-width="2" stroke-dasharray="8 6" opacity="0.45" />
-            <rect id="biz-boundary-tag" x="265" y="6" width="230" height="24" rx="12" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="1.5" />
-            <text x="380" y="22" text-anchor="middle" fill="#0284c7" font-size="11" font-weight="800" letter-spacing="0.06em">⚡ FRONTERA DEL MICROSERVICIO</text>
-
-            <!-- CALLOUT OVERHEAD DE NEGOCIO (PM Focus): Muestra que está mucho más adentro que la UI o la API -->
-            <g id="biz-deep-callout" class="role-focus-badge role-biz-badge">
-              <rect x="520" y="6" width="420" height="24" rx="12" fill="#d97706" filter="drop-shadow(0 2px 8px rgba(217, 119, 6, 0.45))" />
-              <text x="730" y="22" text-anchor="middle" font-size="10.5" font-weight="800" fill="#ffffff" letter-spacing="0.04em">
-                ⚡ ¡AQUÍ VIVE TU NEGOCIO! (MUCHO MÁS ADENTRO QUE LA API)
-              </text>
-            </g>
-
-            <!-- RETORNO: Camino de vuelta al Usuario (Completamente visible y destacado) -->
-            <g id="group-return-path">
-              <!-- Línea de vuelta -->
-              <path id="wire-return" class="flow-path-wire" d="M 1090,312 L 1090,352 Q 1090,362 1075,362 L 137,362 Q 122,362 122,352 L 122,318" fill="none" stroke="#4f46e5" stroke-width="3" opacity="0.8" marker-end="url(#arr-return-up)" />
-              
-              <!-- Cartela explicativa del retorno en el centro -->
-              <rect id="return-pill-bg" x="270" y="345" width="660" height="34" rx="17" fill="var(--bg-surface)" stroke="#4f46e5" stroke-width="2" filter="drop-shadow(0 2px 8px rgba(79, 70, 229, 0.2))" />
-              <text x="600" y="367" text-anchor="middle" fill="#4338ca" font-size="12" font-weight="800" letter-spacing="0.03em" class="return-wire-text">
-                ↩ CAMINO DE RETORNO: 201 Created (o Error Amigable) ➔ Notificación Email &amp; Actualización UI
-              </text>
-            </g>
-
-            <!-- Conectores entre bloques -->
-            <g class="flow-wires">
-              <!-- 1 -> 2 -->
-              <path id="wire-1-2" class="flow-path-wire" d="M 225,177 L 265,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-blue)" />
-              <text x="245" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0284c7">Petición</text>
-
-              <!-- 2 -> 3 -->
-              <path id="wire-2-3" class="flow-path-wire" d="M 460,177 L 500,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-amber)" />
-              <text x="480" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#d97706">Ejecuta</text>
-
-              <!-- 3 -> 4 -->
-              <path id="wire-3-4" class="flow-path-wire" d="M 710,177 L 750,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-purple)" />
-              <text x="730" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7c3aed">Aplica</text>
-
-              <!-- 4 -> 5 -->
-              <path id="wire-4-5" class="flow-path-wire" d="M 960,177 L 1000,177" fill="none" stroke="#94a3b8" stroke-width="3.5" marker-end="url(#arr-emerald)" />
-              <text x="980" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#059669">Persiste</text>
-            </g>
-
-            <!-- ================= BLOQUE 1: USUARIO & JOURNEY ================= -->
-            <g class="flow-station station-node" id="station-1" data-stage="1" data-biz="true" data-tech="false">
-              <rect class="outer-box" x="20" y="42" width="205" height="270" rx="16" fill="var(--bg-surface)" stroke="#6366f1" stroke-width="3" />
-              <rect x="20" y="42" width="205" height="50" rx="16" fill="rgba(99, 102, 241, 0.12)" />
-              <text x="38" y="74" font-size="22">👤</text>
-              <text x="72" y="67" font-size="14" font-weight="800" fill="#4338ca" class="svg-node-title">USUARIO</text>
-              <text x="72" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">User Journey (Paso 5)</text>
-
-              <!-- Badge de Rol (Visible al filtrar) -->
-              <g class="role-focus-badge role-biz-badge" transform="translate(32, 98)">
-                <rect x="0" y="0" width="180" height="20" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1" />
-                <text x="90" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5b21b6">🎯 TU ORIGEN: DOLOR USUARIO</text>
-              </g>
-
-              <!-- Contenido Simple y Claro -->
-              <g transform="translate(34, 126)">
-                <text x="0" y="15" font-size="12" font-weight="700" fill="#4338ca">🎯 NECESIDAD REAL:</text>
-                <text x="0" y="36" font-size="12" font-weight="500" fill="var(--text-main)">• Tiene un dolor o meta</text>
-                <text x="0" y="55" font-size="12" font-weight="500" fill="var(--text-main)">• Declarado en el Journey</text>
-                <text x="0" y="74" font-size="12" font-style="italic" fill="var(--text-muted)">“Quiero abrir el evento”</text>
-
-                <line x1="0" y1="90" x2="175" y2="90" stroke="rgba(0,0,0,0.08)" />
-
-                <text x="0" y="110" font-size="11" font-weight="700" fill="#4338ca">⚡ DISPARO DE ACCIÓN:</text>
-                <text x="0" y="128" font-size="12" font-weight="600" fill="var(--text-main)">Hace clic en la pantalla</text>
-                <text x="0" y="145" font-size="11" font-weight="500" fill="var(--text-dim)">(Formulario / Botón UI)</text>
-              </g>
-            </g>
-
-            <!-- ================= BLOQUE 2: CONTROLADOR ================= -->
-            <g class="flow-station station-node" id="station-2" data-stage="2" data-biz="false" data-tech="true">
-              <rect class="outer-box" x="265" y="42" width="195" height="270" rx="16" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="2" />
-              <rect x="265" y="42" width="195" height="50" rx="16" fill="rgba(2, 132, 199, 0.12)" />
-              <text x="283" y="74" font-size="22">🚪</text>
-              <text x="318" y="67" font-size="14" font-weight="800" fill="#0369a1" class="svg-node-title">CONTROLADOR</text>
-              <text x="318" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">Puerta de Entrada (API)</text>
-
-              <!-- Badge de Rol (Visible al filtrar) -->
-              <g class="role-focus-badge role-tech-badge" transform="translate(275, 98)">
-                <rect x="0" y="0" width="175" height="20" rx="10" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1" />
-                <text x="87" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#0369a1">🛠️ INGENIERÍA: FONTANERÍA HTTP</text>
-              </g>
-
-              <!-- Contenido -->
-              <g transform="translate(281, 126)">
-                <text x="0" y="15" font-size="12" font-weight="700" fill="#0284c7">📋 RECEPCIÓN &amp; FILTRO:</text>
-                <text x="0" y="36" font-size="12" font-weight="500" fill="var(--text-main)">• Recibe la petición web</text>
-                <text x="0" y="55" font-size="12" font-weight="500" fill="var(--text-main)">• Valida que los datos</text>
-                <text x="0" y="74" font-size="12" font-weight="500" fill="var(--text-main)">  tengan formato válido</text>
-
-                <line x1="0" y1="90" x2="165" y2="90" stroke="rgba(0,0,0,0.08)" />
-
-                <text x="0" y="110" font-size="11" font-weight="700" fill="#0284c7">🛡️ ROL CLAVE:</text>
-                <text x="0" y="128" font-size="12" font-weight="700" fill="#0369a1">Cero lógica de negocio</text>
-                <text x="0" y="145" font-size="11" font-weight="500" fill="var(--text-dim)">Pasa el testigo al Caso de Uso</text>
-              </g>
-            </g>
-
-            <!-- ================= BLOQUE 3: CASO DE USO (REGLAS DE NEGOCIO BR) ================= -->
-            <g class="flow-station station-node" id="station-3" data-stage="3" data-biz="true" data-tech="true">
-              <rect class="outer-box" x="500" y="42" width="210" height="270" rx="16" fill="var(--bg-surface)" stroke="#d97706" stroke-width="2.5" />
-              <rect x="500" y="42" width="210" height="50" rx="16" fill="rgba(217, 119, 6, 0.14)" />
-              <text x="518" y="74" font-size="22">⚙️</text>
-              <text x="552" y="67" font-size="14" font-weight="800" fill="#92400e" class="svg-node-title" letter-spacing="0.04em">CASO DE USO</text>
-              <text x="552" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">Capa de Aplicación</text>
-
-              <!-- BANNER REGLAS DE NEGOCIO -->
-              <rect x="512" y="98" width="186" height="26" rx="7" fill="#d97706" />
-              <text x="605" y="115" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.04em">
-                ⭐ REGLAS DE NEGOCIO (BR)
-              </text>
-
-              <!-- Contenido -->
-              <g transform="translate(516, 136)">
-                <text x="0" y="15" font-size="12" font-weight="700" fill="#b45309">POLÍTICAS Y CUOTAS:</text>
-                <text x="0" y="34" font-size="12" font-weight="500" fill="var(--text-main)">• ¿Superó límite Free Tier?</text>
-                <text x="0" y="52" font-size="12" font-weight="500" fill="var(--text-main)">• ¿Tiene permisos de rol?</text>
-                <text x="0" y="70" font-size="12" font-weight="500" fill="var(--text-main)">• Orquesta el proceso</text>
-
-                <line x1="0" y1="84" x2="176" y2="84" stroke="rgba(0,0,0,0.08)" />
-
-                <text x="0" y="102" font-size="11" font-weight="700" fill="#b45309">💡 SI FALLA AQUÍ:</text>
-                <text x="0" y="120" font-size="11.5" font-weight="600" fill="var(--text-main)">Avisa con elegancia</text>
-                <text x="0" y="137" font-size="11" font-weight="500" fill="var(--text-dim)">(Ej: Modal upgrade plan Pro)</text>
-              </g>
-            </g>
-
-            <!-- ================= BLOQUE 4: DOMINIO ================= -->
-            <g class="flow-station station-node" id="station-4" data-stage="4" data-biz="true" data-tech="true">
-              <rect class="outer-box" x="750" y="42" width="210" height="270" rx="16" fill="var(--bg-surface)" stroke="#7c3aed" stroke-width="2.5" />
-              <rect x="750" y="42" width="210" height="50" rx="16" fill="rgba(124, 58, 237, 0.14)" />
-              <text x="768" y="74" font-size="22">🛡️</text>
-              <text x="803" y="67" font-size="14" font-weight="800" fill="#6d28d9" class="svg-node-title">DOMINIO</text>
-              <text x="803" y="83" font-size="11" font-weight="600" fill="var(--text-muted)">Corazón del Software</text>
-
-              <!-- BANNER INVARIANTES -->
-              <rect x="762" y="98" width="186" height="26" rx="7" fill="#7c3aed" />
-              <text x="855" y="115" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.04em">
-                🛡️ INVARIANTES (INV)
-              </text>
-
-              <!-- Contenido -->
-              <g transform="translate(766, 136)">
-                <text x="0" y="15" font-size="12" font-weight="700" fill="#6d28d9">CERO TOLERANCIA:</text>
-                <text x="0" y="34" font-size="12" font-weight="500" fill="var(--text-main)">• Integridad sagrada</text>
-                <text x="0" y="52" font-size="12" font-weight="500" fill="var(--text-main)">• “Fin siempre tras Inicio”</text>
-                <text x="0" y="70" font-size="12" font-weight="500" fill="var(--text-main)">• El estado nunca se corrompe</text>
-
-                <line x1="0" y1="84" x2="176" y2="84" stroke="rgba(0,0,0,0.08)" />
-
-                <text x="0" y="102" font-size="11" font-weight="700" fill="#6d28d9">🛑 SI FALLA AQUÍ:</text>
-                <text x="0" y="120" font-size="11.5" font-weight="700" fill="#dc2626">Freno absoluto (Error)</text>
-                <text x="0" y="137" font-size="11" font-weight="500" fill="var(--text-dim)">Protege la coherencia del negocio</text>
-              </g>
-            </g>
-
-            <!-- ================= BLOQUE 5: PERSISTENCIA ================= -->
-            <g class="flow-station station-node" id="station-5" data-stage="5" data-biz="true" data-tech="true">
-              <rect class="outer-box" x="1000" y="42" width="180" height="270" rx="16" fill="var(--bg-surface)" stroke="#059669" stroke-width="2" />
-              <rect x="1000" y="42" width="180" height="50" rx="16" fill="rgba(5, 150, 105, 0.14)" />
-              <text x="1015" y="74" font-size="22">💾</text>
-              <text x="1048" y="67" font-size="13.5" font-weight="800" fill="#047857" class="svg-node-title">PERSISTENCIA</text>
-              <text x="1048" y="83" font-size="10.5" font-weight="600" fill="var(--text-muted)">Base de Datos &amp; Avisos</text>
-
-              <!-- Badge de Rol (Visible al filtrar) -->
-              <g class="role-focus-badge role-biz-badge" transform="translate(1010, 98)">
-                <rect x="0" y="0" width="160" height="20" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="1" />
-                <text x="80" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">🎉 CONFIRMACIÓN CLIENTE</text>
-              </g>
-
-              <!-- Contenido -->
-              <g transform="translate(1015, 126)">
-                <text x="0" y="15" font-size="12" font-weight="700" fill="#047857">✅ CONSOLIDACIÓN:</text>
-                <text x="0" y="36" font-size="12" font-weight="500" fill="var(--text-main)">• Guarda en Base Datos</text>
-                <text x="0" y="55" font-size="12" font-weight="500" fill="var(--text-main)">• Deja registro atómico</text>
-                <text x="0" y="74" font-size="12" font-weight="500" fill="var(--text-main)">• Envía email / alerta</text>
-
-                <line x1="0" y1="90" x2="150" y2="90" stroke="rgba(0,0,0,0.08)" />
-
-                <text x="0" y="110" font-size="11" font-weight="700" fill="#047857">🎉 RESULTADO:</text>
-                <text x="0" y="128" font-size="12" font-weight="700" fill="#047857">Éxito confirmado</text>
-                <text x="0" y="145" font-size="11" font-weight="500" fill="var(--text-dim)">Pantalla verde en la UI</text>
-              </g>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-
-  
-
 
 <!-- ====================================================================
      SLIDE 36: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 4
@@ -5219,14 +5252,15 @@
 <section class="slide map-checkpoint" id="slide-map-ckpt-4">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-journey-ddd-flow" class="deck-back-btn">← El Viaje de una Petición</a>
+          <a href="#slide-pillar-bridge-enlace" class="deck-back-btn">← La Conexión</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.14); color: #b45309;">Estación del Mapa • Entrando en Fase 4</span>
         </div>
         <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #b45309; border-color: rgba(245, 158, 11, 0.3);">📍 Estamos Aquí • Fase 4: Construcción TDD</div>
-        <p class="map-ckpt-kicker">La petición ya viaja de punta a punta. Ahora construimos: cada feature (2b) es un ciclo TDD completo — y cuando algo cambie, la Fase 5 (/modify-flow) te devuelve al mapa.</p>
+        <p class="map-ckpt-kicker">Del mapa al código: cada feature (2b) es un ciclo TDD completo — y cuando algo cambie, la Fase 5 (/modify-flow) te devuelve al mapa.</p>
         <div class="sdlc-map-panel map-ckpt-host" data-map-lit="1,2,3,4,5" data-map-here="6"></div>
       </div>
     </section>
+
 <!-- ====================================================================
          SLIDE 37: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
          ==================================================================== -->
@@ -5391,6 +5425,7 @@
     
 
 
+
 <!-- ====================================================================
          SLIDE 38: CITA EDITORIAL
          ==================================================================== -->
@@ -5409,6 +5444,7 @@
     </section>
 
     
+
 
 
 <!-- ====================================================================
@@ -5442,6 +5478,7 @@
     </section>
 
     
+
 
 
 </main>
