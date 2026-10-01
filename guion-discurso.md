@@ -123,31 +123,34 @@ El hilo en una frase: *«el bufé cloud se acabó → el local es viable si enti
 ## Ajustes sugeridos para la Parte 1
 
 1. **Puente D→E (16→17)**, hoy implícito: *"ya sabemos comprimir el modelo; ¿dónde vive esa memoria comprimida?"*
-2. **Bloque G como mini-arco** (26→35): *el problema* (viaje del token) → *el estado del arte* (timeline 2026 + técnicas MTP/DFlash/DSpark/DFlash 2) → *el colofón* (caso DeepSeek: cronología y hackeo) → *la conclusión* (tabla "¿cuándo usar qué?"). Anunciar el arco en la 26.
-3. **Slide 44 (contador)**: verbalizar los badges "OBSOLETO" (registro de descartes) y cerrar con el puente a parte 2 (el CTA ya existe).
+2. **Bloque G como mini-arco** (26→35): *el problema* (viaje del token, slide 27) → *el estado del arte* (timeline 2026 + técnicas MTP/DFlash/DSpark/DFlash 2) → *el colofón* (caso DeepSeek: cronología y hackeo, 33-34) → *la conclusión* (tabla "¿cuándo usar qué?", slide 35). Anunciar el arco en la 26.
+3. **Slide 45**: verbalizar los badges "OBSOLETO" (registro de descartes) y cerrar con el puente a parte 2 (el CTA ya existe).
 4. **Ritmo**: ~30 min; el bloque D es el candidato a resumirse en vivo (*"4 bits bastan si se compensa"*).
 
-## Propuesta de ocultación en Modo Charla (solo propuesta — sin aplicar en los decks)
+## Ocultación en Modo Charla — APLICADA en Parte 1 (Parte 2 pendiente de decidir)
 
 Criterio: lo que es **anatomía interna, investigación de frontera o caso histórico detallado** se oculta del modo presentación y queda vivo en Documento para **formación profunda**.
 
-### Parte 1 — candidatas a ocultar
+### Parte 1 — ocultas en Modo Charla (aplicado)
 
 | Pos | Slide | Por qué |
 |-----|-------|---------|
-| 13 | El Equilibrista de la Inferencia (AutoRound) | Mecanismo interno de compensación |
-| 14 | GSQ + RCO (abismo 2-3 bits) | Investigación de frontera, la más densa |
-| 17 | DeltaNet vs. Attention | Arquitectura interna; la Pizarra/Archivador (18) sostiene la idea |
-| 19 | Escalando a 1 Mega con YaRN | Técnica muy específica |
-| 28-31 | MTP · DFlash · DSpark · DFlash 2 | Las 4 técnicas en detalle; el timeline (27) ya las pinta a alto nivel |
-| 32-33 | Caso DeepSeek (cronología + hackeo) | El caso histórico completo — tú ya la marcaste |
-| 38 | Por dentro: cinco piezas en 48 capas | Anatomía interna |
+| 15 | GSQ + RCO (abismo 2-3 bits) | Investigación de frontera, la más densa |
+| 16 | NVIDIA NVFP4: El Secreto de los 4 Bits | Decisión de ensayo: se narra verbal, se consulta en Documento |
+| 17 | AutoRound INT4: El Secreto en MoE | Ídem |
+| 19 | La Pizarra vs. el Archivador | Metáfora de física de memoria; la sostiene DeltaNet (18) |
+| 20 | Escalando a 1 Mega con YaRN | Técnica muy específica |
+| 21 | Los 3 Niveles de Atención | Pedagogía visual |
+| 22 | La Analogía del IBAN | Pedagogía visual |
+| 29-32 | MTP · DFlash · DSpark · DFlash 2 | Las 4 técnicas en detalle; el timeline (28) las pinta a alto nivel |
+| 33-34 | Caso DeepSeek (cronología + hackeo) | El caso histórico completo |
+| 39 | Por dentro: cinco piezas en 48 capas | Anatomía interna |
 
-**A decidir en el ensayo:** 8 (GPUs de terceros), 20 (3 Niveles de Atención — la IBAN (21) se explica sola pero pierde el detalle).
+**14 ocultas → la charla recorre 31 slides** (contador global intacto: salta 13→14→18→23→28→35→40; el número de abajo siempre coincide con el ID y con este guion).
 
-**Se quedan sí o sí:** 15 NVFP4 y 16 AutoRound INT4 (punchlines), 18 Pizarra/Archivador, 21 IBAN, 22-25 (densos vs MoE), 26 (viaje del token), 27 (timeline), **34 (resumen de aceleración)**, 35 (matriz ricitos), 36-37 y 39-44 (elección, aparato, handoff).
+**Se quedan en la charla sí o sí:** 14 (El Equilibrista), 18 (DeltaNet), 23-28 (densos/MoE, viaje del token, timeline), 35 (Cuatro Vías), 36-38 (ricitos, escogiendo, Qwen 3.8 Flash Next), 40-45 (decisión, aparato, drama GB10, hackers, dupla final). La 8 (GPUs de terceros) también se queda.
 
-### Parte 2 — candidatas a ocultar
+### Parte 2 — candidatas a ocultar (PENDIENTE de decidir)
 
 | Pos | Slide | Por qué |
 |-----|-------|---------|
@@ -159,14 +162,14 @@ Criterio: lo que es **anatomía interna, investigación de frontera o caso hist�
 
 **Se quedan:** intro E2E (4 — el filtro de audiencia como dispositivo de colaboración), mapa (7), checkpoints (17/22/27/36 — ocultos en Documento por diseño), franja G/B (16), 21-24, TDD (37), quote (38).
 
-### Cómo ocultar cuando apruebes la lista (mecanismo pendiente)
+### Mecanismo aplicado
 
-Atributo `data-charla-hidden` en la `<section>` + `slides.js` lo salta en Modo Charla (flechas, contador y overview), visible en Documento (`d`) y en export/PDF. Un solo fichero, dos formatos.
+Clase `doc-only` en la `<section>` (reutiliza el CSS existente de Modo Charla/Documento) + `slides.js` la salta en Modo Charla: flechas, swipe y deep-links (con snap a la visible más cercana, respetando la dirección); visible en Documento (`d`) y en export/PDF hecho en Documento. El contador sigue siendo el número global de slide (coincide con el ID y con el guion). Un solo fichero, dos formatos.
 
 ---
 
 # Estado técnico actual
 
-- **Parte 1: 44 secciones (contador 45)** — caso DeepSeek movido al final del bloque de aceleración (32-33) y **nueva slide 34 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (id `slide-27b`, clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica").
+- **Parte 1: 45 slides (contador 45)**, IDs renumerados para coincidir con el contador (era `slide-27b`, ahora `slide-35`) — caso DeepSeek al final del bloque de aceleración (33-34) y **slide 35 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica"). **14 slides ocultas en Modo Charla** (clase `doc-only` en la sección; la charla recorre 31), visibles en Documento y en el PDF exportado en Documento.
 - **Parte 2: 39 slides** — 4 **checkpoints del mapa** (17 · 22 · 27 · **36 Fase 4**: banda ADR ya encendida + Construcción TDD brillando): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; ocultos en Documento. El Viaje E2E **movido a intro (4)**: el puente negocio ↔ técnica tras los paradigmas; el cierre verbal recupera la imagen ("ahora la leéis entera"). Conexión (35), CK4 (36), TDD (37), Quote (38), Q&A (39). Cliente local eliminado.
 - Coherencia: back-bars encadenados slide a slide en ambos decks; banners `SLIDE N` renumerados a posición real.

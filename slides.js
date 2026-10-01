@@ -59,6 +59,10 @@ function initDeck() {
     document.body.classList.toggle('mode-document', isDocumentMode);
     localStorage.setItem('deck-doc-mode', isDocumentMode ? 'true' : 'false');
     updateDualModeUI();
+    // Al volver a Modo Charla desde una slide doc-only, ir a la visible más cercana
+    if (!isDocumentMode && isSlideHidden(slides[currentIndex])) {
+      goToSlide(nearestVisibleIndex(currentIndex, 'forward'), true, 'forward');
+    }
   }
 
   updateDualModeUI();
@@ -149,6 +153,12 @@ function initDeck() {
     if (index < 0) index = 0;
     if (index >= slides.length) index = slides.length - 1;
 
+    // En Modo Charla, las slides marcadas .doc-only no se muestran: redirigir a la
+    // visible más cercana (respetando la dirección de la navegación)
+    if (isSlideHidden(slides[index])) {
+      index = nearestVisibleIndex(index, direction === 'backward' ? 'backward' : 'forward');
+    }
+
     slides.forEach((slide, i) => {
       if (i === index) {
         slide.classList.add('active');
@@ -174,12 +184,46 @@ function initDeck() {
     }
 
     if (updateHistory) {
-      if (hasSlide0) {
+      // Usar el ID semántico de la slide (#slide-13-autoround, #slide-41, #slide-0...)
+      // para que el hash siempre resuelva de vuelta a la MISMA slide.
+      // (Un hash numérico se resuelve por ID semántico en getSlideIndexFromHash,
+      //  y en la parte 1 los IDs no coinciden con la posición DOM → teletransportes).
+      const slideId = slides[currentIndex]?.id;
+      if (slideId) {
+        window.location.hash = slideId;
+      } else if (hasSlide0) {
         window.location.hash = currentIndex.toString();
       } else {
         window.location.hash = (currentIndex + 1).toString();
       }
     }
+  }
+
+  // Slides "solo documento" (clase .doc-only en la <section>): ocultas en Modo Charla,
+  // visibles en Modo Documento y en export/PDF. El contador sigue siendo el número global
+  // de slide (coincide con el ID y con el guion) y salta las ocultas.
+  function isSlideHidden(slide) {
+    return !isDocumentMode && slide?.classList.contains('doc-only');
+  }
+
+  function nearestVisibleIndex(index, preferDir = 'forward') {
+    if (index < 0) index = 0;
+    if (index >= slides.length) index = slides.length - 1;
+    if (!isSlideHidden(slides[index])) return index;
+    for (let d = 1; d < slides.length; d++) {
+      if (preferDir === 'backward') {
+        const back = index - d;
+        if (back >= 0 && !isSlideHidden(slides[back])) return back;
+        const fwd = index + d;
+        if (fwd < slides.length && !isSlideHidden(slides[fwd])) return fwd;
+      } else {
+        const fwd = index + d;
+        if (fwd < slides.length && !isSlideHidden(slides[fwd])) return fwd;
+        const back = index - d;
+        if (back >= 0 && !isSlideHidden(slides[back])) return back;
+      }
+    }
+    return index;
   }
 
   function nextSlide() {
@@ -195,8 +239,11 @@ function initDeck() {
         return;
       }
     }
-    if (currentIndex < slides.length - 1) {
-      goToSlide(currentIndex + 1, true, 'forward');
+    // Saltar las slides doc-only en Modo Charla
+    let target = currentIndex + 1;
+    while (target < slides.length && isSlideHidden(slides[target])) target++;
+    if (target < slides.length) {
+      goToSlide(target, true, 'forward');
     } else if (document.body.dataset.nextDeck) {
       window.location.href = document.body.dataset.nextDeck;
     }
@@ -215,8 +262,11 @@ function initDeck() {
         return;
       }
     }
-    if (currentIndex > 0) {
-      goToSlide(currentIndex - 1, true, 'backward');
+    // Saltar las slides doc-only en Modo Charla
+    let target = currentIndex - 1;
+    while (target >= 0 && isSlideHidden(slides[target])) target--;
+    if (target >= 0) {
+      goToSlide(target, true, 'backward');
     } else if (document.body.dataset.prevDeck) {
       window.location.href = document.body.dataset.prevDeck;
     }

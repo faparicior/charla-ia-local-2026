@@ -1147,22 +1147,22 @@ body.theme-dark .press-footer-link a:hover {
   line-height: 1.48;
 }
 
-#slide-nvidia-hack, #slide-27 .press-grid {
+#slide-nvidia-hack, #slide-34 .press-grid {
   gap: 1.15rem 2.0rem;
   padding-top: 0.15rem;
 }
 
-#slide-nvidia-hack, #slide-27 .press-card {
+#slide-nvidia-hack, #slide-34 .press-card {
   padding: 1.45rem 2.1rem;
   gap: 0.65rem;
   justify-content: space-between;
 }
 
-#slide-nvidia-hack, #slide-27 .press-footer-link {
+#slide-nvidia-hack, #slide-34 .press-footer-link {
   margin-top: 0;
 }
 
-#slide-nvidia-hack, #slide-27 .press-desc {
+#slide-nvidia-hack, #slide-34 .press-desc {
   font-size: 1.28rem;
   line-height: 1.5;
 }
@@ -1987,21 +1987,21 @@ body.theme-dark .hacker-item-desc code {
 /* ==========================================================================
    SLIDE 40 / SLIDE 42: HACKERS & COMUNIDAD - ESCALADO PROMINENTE PARA PRESENTACIÓN
    ========================================================================== */
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-deck {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hackers-deck {
   flex: 1 1 0;
   min-height: 0;
   justify-content: space-between;
   gap: 1.35rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-grid {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hackers-grid {
   flex: 1 1 0;
   min-height: 0;
   gap: 2.2rem;
   align-items: stretch;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-card {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-card {
   padding: 1.65rem 1.85rem;
   border-radius: 22px;
   justify-content: space-between;
@@ -2009,120 +2009,120 @@ body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-card {
   height: 100%;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-profile-header {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-profile-header {
   gap: 1.35rem;
   padding-bottom: 0.95rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-avatar {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-avatar {
   width: 98px;
   height: 98px;
   min-width: 98px;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-name {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-name {
   font-size: 2.35rem;
   font-weight: 800;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-handle {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-handle {
   font-size: 1.18rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-role {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-role {
   font-size: 1.25rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-repo-tag {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-repo-tag {
   font-size: 1.08rem;
   padding: 0.35rem 0.85rem;
   border-radius: 8px;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-list {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-list {
   gap: 1.05rem;
   flex: 1 1 auto;
   justify-content: space-evenly;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-item {
   padding: 1.15rem 1.45rem;
   border-radius: 16px;
   gap: 1.2rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-icon-badge {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-icon-badge {
   width: 40px;
   height: 40px;
   min-width: 40px;
   font-size: 1.4rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item-title {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-item-title {
   font-size: 1.62rem;
   font-weight: 750;
   line-height: 1.26;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hacker-item-desc {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hacker-item-desc {
   font-size: 1.38rem;
   line-height: 1.48;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-ribbon {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hackers-upstream-ribbon {
   padding: 1.15rem 1.85rem;
   border-radius: 18px;
   gap: 1.6rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-icon {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hackers-upstream-icon {
   font-size: 2.1rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-text {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hackers-upstream-text {
   font-size: 1.32rem;
   line-height: 1.46;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-40 .hackers-upstream-badge {
+body.deck-hardware-part1:not(.mode-document) #slide-44 .hackers-upstream-badge {
   font-size: 1.05rem;
   padding: 0.5rem 1.1rem;
 }
 
 /* Modo Documento: escala compacta que preserva legibilidad con subtítulo */
-body.mode-document #slide-40 .hacker-card {
+body.mode-document #slide-44 .hacker-card {
   padding: 1.2rem 1.4rem;
   border-radius: 16px;
 }
 
-body.mode-document #slide-40 .hacker-avatar {
+body.mode-document #slide-44 .hacker-avatar {
   width: 76px;
   height: 76px;
   min-width: 76px;
 }
 
-body.mode-document #slide-40 .hacker-name {
+body.mode-document #slide-44 .hacker-name {
   font-size: 1.9rem;
 }
 
-body.mode-document #slide-40 .hacker-item {
+body.mode-document #slide-44 .hacker-item {
   padding: 0.8rem 1rem;
   border-radius: 12px;
 }
 
-body.mode-document #slide-40 .hacker-item-title {
+body.mode-document #slide-44 .hacker-item-title {
   font-size: 1.32rem;
 }
 
-body.mode-document #slide-40 .hacker-item-desc {
+body.mode-document #slide-44 .hacker-item-desc {
   font-size: 1.12rem;
 }
 
-body.mode-document #slide-40 .hackers-upstream-ribbon {
+body.mode-document #slide-44 .hackers-upstream-ribbon {
   padding: 0.85rem 1.4rem;
 }
 
-body.mode-document #slide-40 .hackers-upstream-text {
+body.mode-document #slide-44 .hackers-upstream-text {
   font-size: 1.1rem;
 }
 
@@ -6507,7 +6507,7 @@ body.theme-dark .tri-center-target {
 /* ==========================================================================
    SLIDE 33: ESCOGIENDO MODELOS - VRAM VS. VELOCIDAD (TOKENS/S)
    ========================================================================== */
-#slide-33 .slide-content {
+#slide-37 .slide-content {
   gap: 0.35rem;
   justify-content: flex-start;
 }
@@ -6776,12 +6776,12 @@ body.theme-dark .speed-badge.neutral {
    ========================================================================== */
 
 /* Estado inicial: badges ocultos */
-#slide-33 .obsolete-badge,
-#slide-33 .successor-badge {
+#slide-37 .obsolete-badge,
+#slide-37 .successor-badge {
   display: none;
 }
 
-#slide-33 .model-obsolete-trigger {
+#slide-37 .model-obsolete-trigger {
   position: absolute;
   width: 0;
   height: 0;
@@ -6790,40 +6790,40 @@ body.theme-dark .speed-badge.neutral {
 }
 
 /* Transiciones suaves en las filas y elementos */
-#slide-33 .row-obsolete-target,
-#slide-33 .row-successor-target,
-#slide-33 .row-obsolete-target .model-sizing-bar,
-#slide-33 .row-successor-target .model-sizing-bar,
-#slide-33 .row-obsolete-target .model-bar-label,
-#slide-33 .row-obsolete-target .speed-badge,
-#slide-33 .group-obsolete-target .model-bracket-curve {
+#slide-37 .row-obsolete-target,
+#slide-37 .row-successor-target,
+#slide-37 .row-obsolete-target .model-sizing-bar,
+#slide-37 .row-successor-target .model-sizing-bar,
+#slide-37 .row-obsolete-target .model-bar-label,
+#slide-37 .row-obsolete-target .speed-badge,
+#slide-37 .group-obsolete-target .model-bracket-curve {
   transition: opacity 0.4s ease, filter 0.4s ease, background 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* --- ESTADO ACTIVO: cuando el usuario da a Siguiente en Slide 33 --- */
-#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target,
-#slide-33[data-active-steps="1"] .row-obsolete-target {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-obsolete-target,
+#slide-37[data-active-steps="1"] .row-obsolete-target {
   opacity: 0.42;
   filter: grayscale(0.65);
 }
 
-#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target:hover,
-#slide-33[data-active-steps="1"] .row-obsolete-target:hover {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-obsolete-target:hover,
+#slide-37[data-active-steps="1"] .row-obsolete-target:hover {
   opacity: 0.85;
   filter: grayscale(0.15);
 }
 
 /* Tachado visible en la etiqueta del modelo */
-#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-bar-label,
-#slide-33[data-active-steps="1"] .row-obsolete-target .model-bar-label {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-bar-label,
+#slide-37[data-active-steps="1"] .row-obsolete-target .model-bar-label {
   text-decoration: line-through;
   text-decoration-color: #ef4444;
   text-decoration-thickness: 2.5px;
 }
 
 /* Barra con estilo obsoleto: borde rojo desaturado y trama */
-#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-sizing-bar,
-#slide-33[data-active-steps="1"] .row-obsolete-target .model-sizing-bar {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-sizing-bar,
+#slide-37[data-active-steps="1"] .row-obsolete-target .model-sizing-bar {
   border-color: rgba(239, 68, 68, 0.5) !important;
   background: repeating-linear-gradient(
     135deg,
@@ -6835,8 +6835,8 @@ body.theme-dark .speed-badge.neutral {
   color: #991b1b !important;
 }
 
-body.theme-dark #slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-sizing-bar,
-body.theme-dark #slide-33[data-active-steps="1"] .row-obsolete-target .model-sizing-bar {
+body.theme-dark #slide-37:has(.model-obsolete-trigger.step-active) .row-obsolete-target .model-sizing-bar,
+body.theme-dark #slide-37[data-active-steps="1"] .row-obsolete-target .model-sizing-bar {
   border-color: rgba(239, 68, 68, 0.45) !important;
   background: repeating-linear-gradient(
     135deg,
@@ -6849,21 +6849,21 @@ body.theme-dark #slide-33[data-active-steps="1"] .row-obsolete-target .model-siz
 }
 
 /* Tachado en los badges de velocidad de modelos obsoletos */
-#slide-33:has(.model-obsolete-trigger.step-active) .row-obsolete-target .speed-badge:not(.obsolete-badge),
-#slide-33[data-active-steps="1"] .row-obsolete-target .speed-badge:not(.obsolete-badge) {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-obsolete-target .speed-badge:not(.obsolete-badge),
+#slide-37[data-active-steps="1"] .row-obsolete-target .speed-badge:not(.obsolete-badge) {
   text-decoration: line-through;
   opacity: 0.5;
 }
 
 /* Corchete de grupo obsoleto */
-#slide-33:has(.model-obsolete-trigger.step-active) .group-obsolete-target .model-bracket-curve,
-#slide-33[data-active-steps="1"] .group-obsolete-target .model-bracket-curve {
+#slide-37:has(.model-obsolete-trigger.step-active) .group-obsolete-target .model-bracket-curve,
+#slide-37[data-active-steps="1"] .group-obsolete-target .model-bracket-curve {
   border-color: rgba(239, 68, 68, 0.5);
 }
 
 /* Badge OBSOLETO */
-#slide-33:has(.model-obsolete-trigger.step-active) .obsolete-badge,
-#slide-33[data-active-steps="1"] .obsolete-badge {
+#slide-37:has(.model-obsolete-trigger.step-active) .obsolete-badge,
+#slide-37[data-active-steps="1"] .obsolete-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -6880,8 +6880,8 @@ body.theme-dark #slide-33[data-active-steps="1"] .row-obsolete-target .model-siz
   animation: modelObsoletePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-body.theme-dark #slide-33:has(.model-obsolete-trigger.step-active) .obsolete-badge,
-body.theme-dark #slide-33[data-active-steps="1"] .obsolete-badge {
+body.theme-dark #slide-37:has(.model-obsolete-trigger.step-active) .obsolete-badge,
+body.theme-dark #slide-37[data-active-steps="1"] .obsolete-badge {
   background: rgba(239, 68, 68, 0.22);
   border-color: #ef4444;
   color: #fca5a5;
@@ -6889,28 +6889,28 @@ body.theme-dark #slide-33[data-active-steps="1"] .obsolete-badge {
 }
 
 /* --- Resaltado del Sucesor: Qwen 3.8 Flash Next --- */
-#slide-33:has(.model-obsolete-trigger.step-active) .row-successor-target,
-#slide-33[data-active-steps="1"] .row-successor-target {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-successor-target,
+#slide-37[data-active-steps="1"] .row-successor-target {
   transform: scale(1.012);
   transform-origin: left center;
 }
 
-#slide-33:has(.model-obsolete-trigger.step-active) .row-successor-target .model-sizing-bar,
-#slide-33[data-active-steps="1"] .row-successor-target .model-sizing-bar {
+#slide-37:has(.model-obsolete-trigger.step-active) .row-successor-target .model-sizing-bar,
+#slide-37[data-active-steps="1"] .row-successor-target .model-sizing-bar {
   border-color: #059669 !important;
   background: #ecfdf5 !important;
   box-shadow: 0 0 0 2.5px rgba(16, 185, 129, 0.45), 0 4px 18px rgba(16, 185, 129, 0.22);
 }
 
-body.theme-dark #slide-33:has(.model-obsolete-trigger.step-active) .row-successor-target .model-sizing-bar,
-body.theme-dark #slide-33[data-active-steps="1"] .row-successor-target .model-sizing-bar {
+body.theme-dark #slide-37:has(.model-obsolete-trigger.step-active) .row-successor-target .model-sizing-bar,
+body.theme-dark #slide-37[data-active-steps="1"] .row-successor-target .model-sizing-bar {
   background: rgba(16, 185, 129, 0.24) !important;
   border-color: #34d399 !important;
   box-shadow: 0 0 0 2.5px rgba(52, 211, 153, 0.45), 0 4px 20px rgba(16, 185, 129, 0.32);
 }
 
-#slide-33:has(.model-obsolete-trigger.step-active) .successor-badge,
-#slide-33[data-active-steps="1"] .successor-badge {
+#slide-37:has(.model-obsolete-trigger.step-active) .successor-badge,
+#slide-37[data-active-steps="1"] .successor-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -7236,23 +7236,23 @@ body.theme-dark .chosen-synergy-badge {
   justify-content: space-between;
 }
 
-#slide-41 .chosen-card {
+#slide-45 .chosen-card {
   position: relative;
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
   height: 100%;
 }
 
 /* Modo Charla (Presentación): Tipografías generosas aprovechando la altura */
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-card {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-card {
   padding: 1.45rem 1.65rem;
   border-radius: 18px;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-card-header {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-card-header {
   gap: 0.45rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-model-title {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-model-title {
   font-size: 1.8rem;
   line-height: 1.22;
   display: flex;
@@ -7261,43 +7261,43 @@ body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-model-title {
   gap: 0.6rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-role-desc {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-role-desc {
   font-size: 1.08rem;
   line-height: 1.55;
   padding: 0.75rem 1rem;
   border-radius: 8px;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-role-badge {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-role-badge {
   font-size: 0.84rem;
   padding: 0.28rem 0.72rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-quant-badge {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-quant-badge {
   font-size: 0.78rem;
   padding: 0.25rem 0.62rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-hf-link {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-hf-link {
   font-size: 0.82rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-table {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-spec-table {
   padding: 0.55rem 0.85rem;
   gap: 0.38rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-spec-row {
   font-size: 0.86rem;
   padding: 0.28rem 0.45rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row .spec-value {
+body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-spec-row .spec-value {
   font-size: 0.86rem;
 }
 
 /* Sello ¡OBSOLETO! para Slide 41 (Step 1) */
-#slide-41 .card-obsolete-overlay {
+#slide-45 .card-obsolete-overlay {
   position: absolute;
   inset: 0;
   display: flex;
@@ -7313,13 +7313,13 @@ body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row .spec-va
   transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
 }
 
-#slide-41 .card-obsolete-overlay.step-active {
+#slide-45 .card-obsolete-overlay.step-active {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-#slide-41 .obsolete-stamp {
+#slide-45 .obsolete-stamp {
   font-family: var(--font-mono);
   font-size: 2.2rem;
   font-weight: 900;
@@ -7335,7 +7335,7 @@ body.deck-hardware-part1:not(.mode-document) #slide-41 .chosen-spec-row .spec-va
   user-select: none;
 }
 
-body.theme-dark #slide-41 .obsolete-stamp {
+body.theme-dark #slide-45 .obsolete-stamp {
   background: rgba(24, 24, 27, 0.95);
   color: #ef4444;
   border-color: #ef4444;
@@ -7343,53 +7343,53 @@ body.theme-dark #slide-41 .obsolete-stamp {
 }
 
 /* En Step 1 (sello activo, pero Step 2 inactivo): Qwen 3.5 muestra badge inline OBSOLETO y tachado */
-#slide-41 .card-inline-obsolete-tag {
+#slide-45 .card-inline-obsolete-tag {
   display: none;
 }
 
-#slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .card-inline-obsolete-tag {
+#slide-45:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .card-inline-obsolete-tag {
   display: inline-flex;
 }
 
-#slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
+#slide-45:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
   text-decoration: line-through;
   opacity: 0.65;
   color: #dc2626;
 }
 
-body.theme-dark #slide-41:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
+body.theme-dark #slide-45:has(.card-obsolete-overlay.step-active):not(:has(.model-v3-8.step-active)) .model-v3-5 .model-title-text {
   color: #f87171;
 }
 
 /* En Step 2: entra Qwen 3.8 FlashNext y se retira el sello y Qwen 3.5 */
-#slide-41:has(.model-v3-8.step-active) .card-obsolete-overlay {
+#slide-45:has(.model-v3-8.step-active) .card-obsolete-overlay {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
   transform: scale(0.85) rotate(-15deg);
 }
 
-#slide-41:has(.model-v3-8.step-active) .model-v3-5 {
+#slide-45:has(.model-v3-8.step-active) .model-v3-5 {
   display: none !important;
 }
 
-#slide-41 .model-v3-8:not(.step-active) {
+#slide-45 .model-v3-8:not(.step-active) {
   display: none;
 }
 
-#slide-41 .model-v3-8.step-active {
+#slide-45 .model-v3-8.step-active {
   display: flex !important;
   flex-direction: column;
   gap: 0.85rem;
   animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#slide-41:has(.model-v3-8.step-active) .card-brain {
+#slide-45:has(.model-v3-8.step-active) .card-brain {
   border-top-color: #10b981;
   box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
 }
 
-body.theme-dark #slide-41:has(.model-v3-8.step-active) .card-brain {
+body.theme-dark #slide-45:has(.model-v3-8.step-active) .card-brain {
   box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);
 }
 
@@ -7424,29 +7424,29 @@ body.theme-dark .desc-successor {
 }
 
 /* Modo Documento: se muestra directamente el stack actualizado sin overlays */
-body.mode-document #slide-41 .card-obsolete-overlay {
+body.mode-document #slide-45 .card-obsolete-overlay {
   display: none !important;
 }
 
-body.mode-document #slide-41 .model-v3-5 {
+body.mode-document #slide-45 .model-v3-5 {
   display: none !important;
 }
 
-body.mode-document #slide-41 .model-v3-8 {
+body.mode-document #slide-45 .model-v3-8 {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.65rem !important;
 }
 
-body.mode-document #slide-41 .card-brain {
+body.mode-document #slide-45 .card-brain {
   border-top-color: #10b981;
 }
 
-body.mode-document #slide-41 .chosen-model-title {
+body.mode-document #slide-45 .chosen-model-title {
   font-size: 1.35rem;
 }
 
-body.mode-document #slide-41 .chosen-role-desc {
+body.mode-document #slide-45 .chosen-role-desc {
   font-size: 0.88rem;
   line-height: 1.45;
 }
@@ -15020,6 +15020,12 @@ body.mode-document .doc-only {
   display: block;
 }
 
+/* Las slides ENTERAS marcadas como doc-only (solo Modo Documento) recuperan su
+   display flex en Modo Documento (la regla genérica de arriba las pondría en block y rompería el centrado) */
+body.mode-document .slide.doc-only {
+  display: flex;
+}
+
 body.mode-document .slide[id^="slide-step"] p.subtitle,
 body.mode-document .slide[id^="slide-step"] .sdlc-hero-sub,
 body.mode-document .slide[id^="slide-step"] .boundaries-hero-sub,
@@ -17543,7 +17549,7 @@ body.deck-hardware-part1 #slide-4 .press-footer-link {
 }
 
 /* s14 en modo presentación: col-note ocultas -> filas más altas para llenar la caja */
-body.deck-hardware-part1:not(.mode-document) #slide-32 .goldilocks-table td {
+body.deck-hardware-part1:not(.mode-document) #slide-36 .goldilocks-table td {
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
 }
@@ -17862,8 +17868,8 @@ body.mode-document .mem-tank-right .memory-scenarios-deck.doc-only {
 }
 
 /* s14 charla: columna Diagnóstico/Fit entera fuera (th + celdas) */
-body.deck-hardware-part1:not(.mode-document) #slide-32 .goldilocks-table th:last-child,
-body.deck-hardware-part1:not(.mode-document) #slide-32 .goldilocks-table td.col-note {
+body.deck-hardware-part1:not(.mode-document) #slide-36 .goldilocks-table th:last-child,
+body.deck-hardware-part1:not(.mode-document) #slide-36 .goldilocks-table td.col-note {
   display: none;
 }
 
@@ -17879,7 +17885,7 @@ body.mode-document li.doc-only {
 }
 
 /* s14 charla: banner Zona Ricitos de Oro solo en modo documento */
-body.deck-hardware-part1:not(.mode-document) #slide-32 .goldilocks-banner {
+body.deck-hardware-part1:not(.mode-document) #slide-36 .goldilocks-banner {
   display: none;
 }
 
@@ -18392,19 +18398,19 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
    Scoped a Modo Charla: las cajas de diagrama crecen para
    absorber el hueco de las tarjetas (justify: space-between)
    ============================================================= */
-body:not(.mode-document) .slide[id="slide-19"] .nvfp4-diagram-box,
-body:not(.mode-document) .slide[id="slide-20"] .autoround-visual-box {
+body:not(.mode-document) .slide[id="slide-21"] .nvfp4-diagram-box,
+body:not(.mode-document) .slide[id="slide-22"] .autoround-visual-box {
   max-height: 470px;
 }
 
-body:not(.mode-document) .slide[id="slide-19"] .nvfp4-diagram-box svg,
-body:not(.mode-document) .slide[id="slide-20"] .autoround-visual-box svg {
+body:not(.mode-document) .slide[id="slide-21"] .nvfp4-diagram-box svg,
+body:not(.mode-document) .slide[id="slide-22"] .autoround-visual-box svg {
   max-height: 470px;
 }
 
 /* s17 Modo Documento: gráfico a la izquierda y tabla exacta a la derecha
    (los veredictos-pill ya se muestran en Modo Charla) */
-body.mode-document .slide[id="slide-17"] .engram-deck {
+body.mode-document .slide[id="slide-19"] .engram-deck {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   grid-template-rows: 1fr;
@@ -18413,38 +18419,38 @@ body.mode-document .slide[id="slide-17"] .engram-deck {
   min-height: 0;
 }
 
-body.mode-document .slide[id="slide-17"] .engram-layout {
+body.mode-document .slide[id="slide-19"] .engram-layout {
   display: contents;
 }
 
-body.mode-document .slide[id="slide-17"] .engram-stage-card {
+body.mode-document .slide[id="slide-19"] .engram-stage-card {
   grid-column: 1;
   grid-row: 1;
   min-height: 0;
 }
 
-body.mode-document .slide[id="slide-17"] .engram-right {
+body.mode-document .slide[id="slide-19"] .engram-right {
   display: none;
 }
 
-body.mode-document .slide[id="slide-17"] .quant-loss-table-card {
+body.mode-document .slide[id="slide-19"] .quant-loss-table-card {
   grid-column: 2;
   grid-row: 1;
   min-height: 0;
   align-self: center;
 }
 
-body.mode-document .slide[id="slide-17"] .quant-loss-table {
+body.mode-document .slide[id="slide-19"] .quant-loss-table {
   font-size: 0.78rem;
 }
 
-body.mode-document .slide[id="slide-17"] .quant-loss-table th,
-body.mode-document .slide[id="slide-17"] .quant-loss-table td {
+body.mode-document .slide[id="slide-19"] .quant-loss-table th,
+body.mode-document .slide[id="slide-19"] .quant-loss-table td {
   font-size: 0.78rem;
   padding: 0.38rem 0.55rem;
 }
 
-body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
+body.mode-document .slide[id="slide-19"] .quant-loss-table th:nth-child(3) {
   width: 150px !important;
 }
 
@@ -18483,14 +18489,14 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   display: block;
 }
 
-#slide-22 .step,
-#slide-24 .step {
+#slide-24 .step,
+#slide-26 .step {
   cursor: pointer;
 }
 
 /* --- Tipografía y colores estáticos del SVG --- */
-#slide-22 .dp-label,
-#slide-24 .mp-label {
+#slide-24 .dp-label,
+#slide-26 .mp-label {
   font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 700;
@@ -18498,16 +18504,16 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.05em;
 }
 
-#slide-22 .dp-panel,
-#slide-24 .mp-panel {
+#slide-24 .dp-panel,
+#slide-26 .mp-panel {
   fill: var(--bg-surface);
   stroke: var(--border-medium);
   stroke-width: 1.6;
   transition: stroke 0.5s ease;
 }
 
-#slide-22 .dp-mini,
-#slide-24 .mp-mini {
+#slide-24 .dp-mini,
+#slide-26 .mp-mini {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
@@ -18515,16 +18521,16 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.08em;
 }
 
-#slide-22 .dp-pill-title,
-#slide-24 .mp-pill-title {
+#slide-24 .dp-pill-title,
+#slide-26 .mp-pill-title {
   font-family: var(--font-mono);
   font-size: 16px;
   font-weight: 800;
   fill: #b45309;
 }
 
-#slide-22 .dp-pill-sub,
-#slide-24 .mp-pill-sub {
+#slide-24 .dp-pill-sub,
+#slide-26 .mp-pill-sub {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
@@ -18532,8 +18538,8 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- Cajitas apagadas (estado inicial) --- */
-#slide-22 .dp-cell,
-#slide-24 .mp-cell {
+#slide-24 .dp-cell,
+#slide-26 .mp-cell {
   fill: var(--bg-surface-elevated);
   stroke: var(--border-medium);
   stroke-width: 1.4;
@@ -18543,21 +18549,21 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- Franja inferior en espera --- */
-#slide-22 .dp-strip,
-#slide-24 .mp-strip {
+#slide-24 .dp-strip,
+#slide-26 .mp-strip {
   fill: var(--bg-surface);
   stroke: var(--border-subtle);
   stroke-width: 1.5;
 }
 
-#slide-22 .dp-strip-static,
-#slide-24 .mp-strip-static {
+#slide-24 .dp-strip-static,
+#slide-26 .mp-strip-static {
   stroke-dasharray: 7 6;
   transition: opacity 0.4s ease;
 }
 
-#slide-22 .dp-strip-wait,
-#slide-24 .mp-strip-wait {
+#slide-24 .dp-strip-wait,
+#slide-26 .mp-strip-wait {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -18567,21 +18573,21 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- Router estático (MoE) --- */
-#slide-24 .mp-router {
+#slide-26 .mp-router {
   fill: var(--bg-surface);
   stroke: #0284c7;
   stroke-width: 1.6;
   transition: fill 0.45s ease, stroke 0.45s ease, filter 0.45s ease;
 }
 
-#slide-24 .mp-router-title {
+#slide-26 .mp-router-title {
   font-family: var(--font-mono);
   font-size: 14.5px;
   font-weight: 800;
   fill: #0284c7;
 }
 
-#slide-24 .mp-router-sub {
+#slide-26 .mp-router-sub {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 600;
@@ -18589,63 +18595,63 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 }
 
 /* --- PASO 1: la petición (oculta hasta activarse) --- */
-#slide-22 .dp-request,
-#slide-24 .mp-request {
+#slide-24 .dp-request,
+#slide-26 .mp-request {
   opacity: 0;
   transform: translateX(-46px);
   transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
 }
 
-#slide-22 .dp-request.step-active,
-#slide-24 .mp-request.step-active {
+#slide-24 .dp-request.step-active,
+#slide-26 .mp-request.step-active {
   opacity: 1;
   transform: translateX(0);
 }
 
-#slide-22 .dp-pill,
-#slide-24 .mp-pill {
+#slide-24 .dp-pill,
+#slide-26 .mp-pill {
   fill: rgba(245, 158, 11, 0.12);
   stroke: #f59e0b;
   stroke-width: 1.6;
 }
 
-#slide-22 .dp-arrow,
-#slide-24 .mp-arrow {
+#slide-24 .dp-arrow,
+#slide-26 .mp-arrow {
   stroke: var(--text-muted);
   stroke-width: 2.4;
 }
 
-#slide-22 .dp-arrowhead,
-#slide-24 .mp-arrowhead {
+#slide-24 .dp-arrowhead,
+#slide-26 .mp-arrowhead {
   fill: var(--text-muted);
 }
 
 /* --- PASO 2: superposición luminosa (oculta hasta activarse) --- */
-#slide-22 .dp-lights,
-#slide-24 .mp-lights {
+#slide-24 .dp-lights,
+#slide-26 .mp-lights {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
 }
 
-#slide-22 .dp-lights.step-active,
-#slide-24 .mp-lights.step-active {
+#slide-24 .dp-lights.step-active,
+#slide-26 .mp-lights.step-active {
   opacity: 1;
 }
 
 /* --- Franja inferior iluminada --- */
-#slide-22 .dp-strip-lit {
+#slide-24 .dp-strip-lit {
   fill: rgba(245, 158, 11, 0.09);
   stroke: #d97706;
   stroke-width: 1.6;
 }
 
-#slide-24 .mp-strip-lit {
+#slide-26 .mp-strip-lit {
   fill: rgba(16, 185, 129, 0.09);
   stroke: #059669;
   stroke-width: 1.6;
 }
 
-#slide-22 .dp-count {
+#slide-24 .dp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
@@ -18653,7 +18659,7 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.03em;
 }
 
-#slide-24 .mp-count {
+#slide-26 .mp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
@@ -18661,16 +18667,16 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   letter-spacing: 0.03em;
 }
 
-#slide-22 .dp-strip-l1,
-#slide-24 .mp-strip-l1 {
+#slide-24 .dp-strip-l1,
+#slide-26 .mp-strip-l1 {
   font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
 }
 
-#slide-22 .dp-strip-l2,
-#slide-24 .mp-strip-l2 {
+#slide-24 .dp-strip-l2,
+#slide-26 .mp-strip-l2 {
   font-family: var(--font-sans);
   font-size: 12.5px;
   font-weight: 600;
@@ -18680,46 +18686,46 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
 /* ================================================================
    SLIDE 23 — DENSO: al activar el paso 2 se encienden las 48
    ================================================================ */
-#slide-22:has(.dp-lights.step-active) .dp-cell {
+#slide-24:has(.dp-lights.step-active) .dp-cell {
   fill: rgba(245, 158, 11, 0.2);
   stroke: #d97706;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45));
 }
 
-#slide-22:has(.dp-lights.step-active) .dp-panel {
+#slide-24:has(.dp-lights.step-active) .dp-panel {
   stroke: #d97706;
 }
 
-#slide-22:has(.dp-lights.step-active) .dp-strip-static,
-#slide-22:has(.dp-lights.step-active) .dp-strip-wait {
+#slide-24:has(.dp-lights.step-active) .dp-strip-static,
+#slide-24:has(.dp-lights.step-active) .dp-strip-wait {
   opacity: 0;
 }
 
-#slide-22 .dp-glow {
+#slide-24 .dp-glow {
   fill: rgba(245, 158, 11, 0.05);
   stroke: #d97706;
   stroke-width: 2.5;
   filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
 }
 
-#slide-22 .dp-cap-final {
+#slide-24 .dp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
 }
 
-#slide-22:has(.dp-lights.step-active) .dp-cap-final {
+#slide-24:has(.dp-lights.step-active) .dp-cap-final {
   opacity: 1;
 }
 
 /* ================================================================
    SLIDE 24 — MoE: el router se activa y enciende 5 de 48
    ================================================================ */
-#slide-24:has(.mp-lights.step-active) .mp-cell {
+#slide-26:has(.mp-lights.step-active) .mp-cell {
   opacity: 0.42;
 }
 
-#slide-24:has(.mp-lights.step-active) .mp-cell.mp-on {
+#slide-26:has(.mp-lights.step-active) .mp-cell.mp-on {
   opacity: 1;
   fill: rgba(16, 185, 129, 0.18);
   stroke: #059669;
@@ -18727,13 +18733,13 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
 }
 
-#slide-24:has(.mp-lights.step-active) .mp-router {
+#slide-26:has(.mp-lights.step-active) .mp-router {
   fill: rgba(2, 132, 199, 0.14);
   stroke-width: 2.2;
   filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.5));
 }
 
-#slide-24 .mp-fanline {
+#slide-26 .mp-fanline {
   stroke: #059669;
   stroke-width: 2;
   stroke-dasharray: 7 6;
@@ -18742,67 +18748,67 @@ body.mode-document .slide[id="slide-17"] .quant-loss-table th:nth-child(3) {
   transition-delay: var(--d, 0ms);
 }
 
-#slide-24 .mp-fandot {
+#slide-26 .mp-fandot {
   fill: #059669;
   opacity: 0;
   transition: opacity 0.4s ease;
   transition-delay: var(--d, 0ms);
 }
 
-#slide-24:has(.mp-lights.step-active) .mp-fanline {
+#slide-26:has(.mp-lights.step-active) .mp-fanline {
   opacity: 0.7;
 }
 
-#slide-24:has(.mp-lights.step-active) .mp-fandot {
+#slide-26:has(.mp-lights.step-active) .mp-fandot {
   opacity: 0.9;
 }
 
-#slide-24:has(.mp-lights.step-active) .mp-strip-static,
-#slide-24:has(.mp-lights.step-active) .mp-strip-wait {
+#slide-26:has(.mp-lights.step-active) .mp-strip-static,
+#slide-26:has(.mp-lights.step-active) .mp-strip-wait {
   opacity: 0;
 }
 
-#slide-24 .mp-cap-final {
+#slide-26 .mp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
 }
 
-#slide-24:has(.mp-lights.step-active) .mp-cap-final {
+#slide-26:has(.mp-lights.step-active) .mp-cap-final {
   opacity: 1;
 }
 
 /* ================================================================
    SLIDES 23 & 24 — Overview e impresión: estado final encendido
    ================================================================ */
-body.overview-mode #slide-22 .dp-request,
-body.overview-mode #slide-24 .mp-request {
+body.overview-mode #slide-24 .dp-request,
+body.overview-mode #slide-26 .mp-request {
   opacity: 1 !important;
   transform: none !important;
 }
 
 @media print {
 
-  #slide-22 .dp-request,
-  #slide-24 .mp-request {
+  #slide-24 .dp-request,
+  #slide-26 .mp-request {
     opacity: 1 !important;
     transform: none !important;
   }
 }
 
-body.overview-mode #slide-22 .dp-lights,
-body.overview-mode #slide-24 .mp-lights {
+body.overview-mode #slide-24 .dp-lights,
+body.overview-mode #slide-26 .mp-lights {
   opacity: 1 !important;
 }
 
 @media print {
 
-  #slide-22 .dp-lights,
-  #slide-24 .mp-lights {
+  #slide-24 .dp-lights,
+  #slide-26 .mp-lights {
     opacity: 1 !important;
   }
 }
 
-body.overview-mode #slide-22 .dp-cell {
+body.overview-mode #slide-24 .dp-cell {
   fill: rgba(245, 158, 11, 0.2) !important;
   stroke: #d97706 !important;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
@@ -18810,14 +18816,14 @@ body.overview-mode #slide-22 .dp-cell {
 
 @media print {
 
-  #slide-22 .dp-cell {
+  #slide-24 .dp-cell {
     fill: rgba(245, 158, 11, 0.2) !important;
     stroke: #d97706 !important;
     filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
   }
 }
 
-body.overview-mode #slide-24 .mp-cell.mp-on {
+body.overview-mode #slide-26 .mp-cell.mp-on {
   fill: rgba(16, 185, 129, 0.18) !important;
   stroke: #059669 !important;
   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
@@ -18825,39 +18831,39 @@ body.overview-mode #slide-24 .mp-cell.mp-on {
 
 @media print {
 
-  #slide-24 .mp-cell.mp-on {
+  #slide-26 .mp-cell.mp-on {
     fill: rgba(16, 185, 129, 0.18) !important;
     stroke: #059669 !important;
     filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
   }
 }
 
-body.overview-mode #slide-22 .dp-strip-static,
-body.overview-mode #slide-22 .dp-strip-wait,
-body.overview-mode #slide-24 .mp-strip-static,
-body.overview-mode #slide-24 .mp-strip-wait {
+body.overview-mode #slide-24 .dp-strip-static,
+body.overview-mode #slide-24 .dp-strip-wait,
+body.overview-mode #slide-26 .mp-strip-static,
+body.overview-mode #slide-26 .mp-strip-wait {
   opacity: 0 !important;
 }
 
 @media print {
 
-  #slide-22 .dp-strip-static,
-  #slide-22 .dp-strip-wait,
-  #slide-24 .mp-strip-static,
-  #slide-24 .mp-strip-wait {
+  #slide-24 .dp-strip-static,
+  #slide-24 .dp-strip-wait,
+  #slide-26 .mp-strip-static,
+  #slide-26 .mp-strip-wait {
     opacity: 0 !important;
   }
 }
 
-body.overview-mode #slide-22 .dp-cap-final,
-body.overview-mode #slide-24 .mp-cap-final {
+body.overview-mode #slide-24 .dp-cap-final,
+body.overview-mode #slide-26 .mp-cap-final {
   opacity: 1 !important;
 }
 
 @media print {
 
-  #slide-22 .dp-cap-final,
-  #slide-24 .mp-cap-final {
+  #slide-24 .dp-cap-final,
+  #slide-26 .mp-cap-final {
     opacity: 1 !important;
   }
 }
@@ -18865,7 +18871,7 @@ body.overview-mode #slide-24 .mp-cap-final {
 /* ============================================================
    SLIDE 36: Layout Split (Meme Gato Cálculos a la Izquierda + Razonamiento a la Derecha)
    ============================================================ */
-body.deck-hardware-part1 #slide-36 .calculasiones-layout-split {
+body.deck-hardware-part1 #slide-40 .calculasiones-layout-split {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
   gap: 3rem;
@@ -18876,7 +18882,7 @@ body.deck-hardware-part1 #slide-36 .calculasiones-layout-split {
   margin-top: 0.8rem;
 }
 
-body.deck-hardware-part1 #slide-36 .calculasiones-visual-stage {
+body.deck-hardware-part1 #slide-40 .calculasiones-visual-stage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18884,11 +18890,11 @@ body.deck-hardware-part1 #slide-36 .calculasiones-visual-stage {
   height: 100%;
 }
 
-body.deck-hardware-part1 #slide-36 .calculasiones-card-spotlight {
+body.deck-hardware-part1 #slide-40 .calculasiones-card-spotlight {
   display: contents;
 }
 
-body.deck-hardware-part1 #slide-36 .gato-hero-img {
+body.deck-hardware-part1 #slide-40 .gato-hero-img {
   width: 100%;
   max-width: 680px;
   max-height: 660px;
@@ -18899,14 +18905,14 @@ body.deck-hardware-part1 #slide-36 .gato-hero-img {
   display: block;
 }
 
-body.deck-hardware-part1 #slide-36 .calculasiones-cards-column {
+body.deck-hardware-part1 #slide-40 .calculasiones-cards-column {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-36 .calc-reason-card {
+body.deck-hardware-part1 #slide-40 .calc-reason-card {
   display: flex;
   gap: 1.4rem;
   align-items: flex-start;
@@ -18918,17 +18924,17 @@ body.deck-hardware-part1 #slide-36 .calc-reason-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-body.deck-hardware-part1 #slide-36 .calc-reason-card:hover {
+body.deck-hardware-part1 #slide-40 .calc-reason-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
-body.deck-hardware-part1 #slide-36 .calc-reason-card.highlight {
+body.deck-hardware-part1 #slide-40 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.35);
   background: linear-gradient(145deg, #ffffff 0%, rgba(234, 88, 12, 0.03) 100%);
 }
 
-body.deck-hardware-part1 #slide-36 .calc-reason-num {
+body.deck-hardware-part1 #slide-40 .calc-reason-num {
   flex: 0 0 auto;
   width: 52px;
   height: 52px;
@@ -18943,13 +18949,13 @@ body.deck-hardware-part1 #slide-36 .calc-reason-num {
   font-family: var(--font-mono);
 }
 
-body.deck-hardware-part1 #slide-36 .calc-reason-title {
+body.deck-hardware-part1 #slide-40 .calc-reason-title {
   font-weight: 800;
   font-size: 1.28rem;
   margin-bottom: 0.45rem;
 }
 
-body.deck-hardware-part1 #slide-36 .calc-reason-card p {
+body.deck-hardware-part1 #slide-40 .calc-reason-card p {
   font-size: 1.1rem;
   color: #525660;
   line-height: 1.55;
@@ -18957,43 +18963,43 @@ body.deck-hardware-part1 #slide-36 .calc-reason-card p {
 }
 
 /* Modo oscuro Slide 36 */
-body.deck-hardware-part1.theme-dark #slide-36 .gato-hero-img {
+body.deck-hardware-part1.theme-dark #slide-40 .gato-hero-img {
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
 }
 
-body.deck-hardware-part1.theme-dark #slide-36 .calc-reason-card {
+body.deck-hardware-part1.theme-dark #slide-40 .calc-reason-card {
   background: #23262c;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body.deck-hardware-part1.theme-dark #slide-36 .calc-reason-card.highlight {
+body.deck-hardware-part1.theme-dark #slide-40 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.4);
   background: linear-gradient(145deg, #23262c 0%, rgba(234, 88, 12, 0.1) 100%);
 }
 
-body.deck-hardware-part1.theme-dark #slide-36 .calc-reason-card p {
+body.deck-hardware-part1.theme-dark #slide-40 .calc-reason-card p {
   color: #b8bcc4;
 }
 
 /* ============================================================
    SLIDE 37: Optimización de espacio (tarjetas e imágenes más grandes)
    ============================================================ */
-body.deck-hardware-part1 #slide-37 .trio-stage {
+body.deck-hardware-part1 #slide-41 .trio-stage {
   max-width: 1760px;
   gap: 2rem;
   margin-top: 1.2rem;
   margin-bottom: auto;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport {
+body.deck-hardware-part1 #slide-41 .trio-viewport {
   height: 520px;
   border-radius: 24px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1);
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport.hardware {
+body.deck-hardware-part1 #slide-41 .trio-viewport.hardware {
   width: 500px;
   padding: 1rem;
   overflow: hidden;
@@ -19001,7 +19007,7 @@ body.deck-hardware-part1 #slide-37 .trio-viewport.hardware {
 }
 
 /* Estado inicial: Hardware 100% visible, entero sin recortes */
-body.deck-hardware-part1 #slide-37 .trio-viewport.hardware img.gb10-img {
+body.deck-hardware-part1 #slide-41 .trio-viewport.hardware img.gb10-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -19011,54 +19017,54 @@ body.deck-hardware-part1 #slide-37 .trio-viewport.hardware img.gb10-img {
 }
 
 /* Paso 1: Zoom hacia el hardware y el texto de la derecha */
-body.deck-hardware-part1 #slide-37 .trio-viewport.hardware img.gb10-img.step-active {
+body.deck-hardware-part1 #slide-41 .trio-viewport.hardware img.gb10-img.step-active {
   object-fit: cover;
   object-position: 82% center;
   transform: scale(1.18);
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport.hardware:has(img.gb10-img.step-active) {
+body.deck-hardware-part1 #slide-41 .trio-viewport.hardware:has(img.gb10-img.step-active) {
   padding: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport.model {
+body.deck-hardware-part1 #slide-41 .trio-viewport.model {
   width: 440px;
   padding: 1.6rem 1.8rem;
   gap: 1.5rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport.model img {
+body.deck-hardware-part1 #slide-41 .trio-viewport.model img {
   width: 250px;
   height: 250px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport.model:hover img {
+body.deck-hardware-part1 #slide-41 .trio-viewport.model:hover img {
   transform: scale(1.05);
 }
 
-body.deck-hardware-part1 #slide-37 .trio-model-list {
+body.deck-hardware-part1 #slide-41 .trio-model-list {
   gap: 0.85rem;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-model-chip {
+body.deck-hardware-part1 #slide-41 .trio-model-chip {
   padding: 0.8rem 1.25rem;
   font-size: 1.05rem;
   border-radius: 12px;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-viewport.alchemy {
+body.deck-hardware-part1 #slide-41 .trio-viewport.alchemy {
   width: 480px;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-operator {
+body.deck-hardware-part1 #slide-41 .trio-operator {
   font-size: 3.6rem;
   margin-top: -3.2rem;
 }
 
-body.deck-hardware-part1 #slide-37 .trio-caption {
+body.deck-hardware-part1 #slide-41 .trio-caption {
   font-size: 1.12rem;
   padding: 0.7rem 1.6rem;
 }
@@ -19066,13 +19072,13 @@ body.deck-hardware-part1 #slide-37 .trio-caption {
 /* ============================================================
    SLIDE 37: Efecto interactivo de Obsolescencia y Actualización a Qwen 3.8 FlashNext
    ============================================================ */
-body.deck-hardware-part1 #slide-37 .trio-viewport.model {
+body.deck-hardware-part1 #slide-41 .trio-viewport.model {
   position: relative;
   overflow: hidden;
 }
 
 /* Sello ¡OBSOLETO! (Step 2) */
-body.deck-hardware-part1 #slide-37 .model-obsolete-overlay {
+body.deck-hardware-part1 #slide-41 .model-obsolete-overlay {
   position: absolute;
   inset: 0;
   display: flex;
@@ -19088,13 +19094,13 @@ body.deck-hardware-part1 #slide-37 .model-obsolete-overlay {
   transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
 }
 
-body.deck-hardware-part1 #slide-37 .model-obsolete-overlay.step-active {
+body.deck-hardware-part1 #slide-41 .model-obsolete-overlay.step-active {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-body.deck-hardware-part1 #slide-37 .obsolete-stamp {
+body.deck-hardware-part1 #slide-41 .obsolete-stamp {
   font-family: var(--font-mono);
   font-size: 2.2rem;
   font-weight: 900;
@@ -19110,7 +19116,7 @@ body.deck-hardware-part1 #slide-37 .obsolete-stamp {
   user-select: none;
 }
 
-body.deck-hardware-part1.theme-dark #slide-37 .obsolete-stamp {
+body.deck-hardware-part1.theme-dark #slide-41 .obsolete-stamp {
   background: rgba(24, 24, 27, 0.95);
   color: #ef4444;
   border-color: #ef4444;
@@ -19118,7 +19124,7 @@ body.deck-hardware-part1.theme-dark #slide-37 .obsolete-stamp {
 }
 
 /* Al activarse el Step 3 (reemplazo por Qwen 3.8 FlashNext), quitamos por completo el sello */
-body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .model-obsolete-overlay {
+body.deck-hardware-part1 #slide-41:has(.updated-model.step-active) .model-obsolete-overlay {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -19127,14 +19133,14 @@ body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .model-obsole
 }
 
 /* Manejo de chips y transición de modelo en chip-model-122b */
-body.deck-hardware-part1 #slide-37 .chip-model-122b {
+body.deck-hardware-part1 #slide-41 .chip-model-122b {
   position: relative;
   overflow: hidden;
   min-height: 52px;
   transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
-body.deck-hardware-part1 #slide-37 .chip-content {
+body.deck-hardware-part1 #slide-41 .chip-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19142,12 +19148,12 @@ body.deck-hardware-part1 #slide-37 .chip-content {
   gap: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-37 .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-41 .chip-model-122b .original-model {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Step 3 inactivo: el nuevo modelo está oculto */
-body.deck-hardware-part1 #slide-37 .updated-model {
+body.deck-hardware-part1 #slide-41 .updated-model {
   position: absolute;
   inset: 0;
   padding: 0.75rem 1.2rem;
@@ -19163,25 +19169,25 @@ body.deck-hardware-part1 #slide-37 .updated-model {
 }
 
 /* Step 3 activo: el original se oculta y entra Qwen 3.8 FlashNext */
-body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-41:has(.updated-model.step-active) .chip-model-122b .original-model {
   opacity: 0;
   transform: translateY(-100%);
 }
 
-body.deck-hardware-part1 #slide-37 .updated-model.step-active {
+body.deck-hardware-part1 #slide-41 .updated-model.step-active {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0);
 }
 
-body.deck-hardware-part1 #slide-37:has(.updated-model.step-active) .chip-model-122b {
+body.deck-hardware-part1 #slide-41:has(.updated-model.step-active) .chip-model-122b {
   border-color: rgba(16, 185, 129, 0.6);
   background: rgba(16, 185, 129, 0.08);
   box-shadow: 0 4px 18px rgba(16, 185, 129, 0.25);
   transform: scale(1.02);
 }
 
-body.deck-hardware-part1 #slide-37 .updated-model-title {
+body.deck-hardware-part1 #slide-41 .updated-model-title {
   color: #047857;
   font-weight: 800;
   display: flex;
@@ -19190,13 +19196,13 @@ body.deck-hardware-part1 #slide-37 .updated-model-title {
   font-size: 1.05rem;
 }
 
-body.deck-hardware-part1 #slide-37 .updated-model-title small {
+body.deck-hardware-part1 #slide-41 .updated-model-title small {
   font-size: 0.82rem;
   color: #059669;
   font-weight: 700;
 }
 
-body.deck-hardware-part1 #slide-37 .quant-tag.next-gen {
+body.deck-hardware-part1 #slide-41 .quant-tag.next-gen {
   background: #059669;
   color: #ffffff;
   font-weight: 800;
@@ -19206,11 +19212,11 @@ body.deck-hardware-part1 #slide-37 .quant-tag.next-gen {
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
 }
 
-body.deck-hardware-part1.theme-dark #slide-37 .updated-model-title {
+body.deck-hardware-part1.theme-dark #slide-41 .updated-model-title {
   color: #34d399;
 }
 
-body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .chip-model-122b {
+body.deck-hardware-part1.theme-dark #slide-41:has(.updated-model.step-active) .chip-model-122b {
   border-color: rgba(52, 211, 153, 0.6);
   background: rgba(16, 185, 129, 0.15);
   box-shadow: 0 4px 22px rgba(16, 185, 129, 0.35);
@@ -19223,7 +19229,7 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
    ================================================================ */
 
 /* --- Tipografía estática del SVG --- */
-#slide-25 .vt-label {
+#slide-27 .vt-label {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -19231,33 +19237,33 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
   letter-spacing: 0.04em;
 }
 
-#slide-25 .vt-occ1 {
+#slide-27 .vt-occ1 {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   fill: #b45309;
 }
 
-#slide-25 .vt-occ2 {
+#slide-27 .vt-occ2 {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   fill: #0284c7;
 }
 
-#slide-25 .vt-block1,
-#slide-25 .vt-block2 {
+#slide-27 .vt-block1,
+#slide-27 .vt-block2 {
   fill: var(--bg-surface);
   stroke: var(--border-medium);
   stroke-width: 1.6;
   transition: stroke 0.45s ease, filter 0.45s ease;
 }
 
-#slide-25 .vt-block2 {
+#slide-27 .vt-block2 {
   fill: rgba(2, 132, 199, 0.05);
 }
 
-#slide-25 .vt-blocklabel {
+#slide-27 .vt-blocklabel {
   font-family: var(--font-mono);
   font-size: 12.5px;
   font-weight: 700;
@@ -19265,36 +19271,36 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
   letter-spacing: 0.03em;
 }
 
-#slide-25 .vt-spill {
+#slide-27 .vt-spill {
   fill: rgba(245, 158, 11, 0.12);
   stroke: #f59e0b;
   stroke-width: 1.5;
 }
 
-#slide-25 .vt-spill-title {
+#slide-27 .vt-spill-title {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 800;
   fill: #b45309;
 }
 
-#slide-25 .vt-spill-sub {
+#slide-27 .vt-spill-sub {
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 600;
   fill: var(--text-muted);
 }
 
-#slide-25 .vt-lead {
+#slide-27 .vt-lead {
   stroke: var(--text-muted);
   stroke-width: 2.2;
 }
 
-#slide-25 .vt-arrowhead {
+#slide-27 .vt-arrowhead {
   fill: var(--text-muted);
 }
 
-#slide-25 .vt-salida {
+#slide-27 .vt-salida {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
@@ -19303,8 +19309,8 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
 }
 
 /* --- Rutas (recorridos serpiente) --- */
-#slide-25 .vt-route1,
-#slide-25 .vt-route2 {
+#slide-27 .vt-route1,
+#slide-27 .vt-route2 {
   fill: none;
   stroke-width: 2.5;
   stroke-dasharray: 10 8;
@@ -19312,30 +19318,30 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
   transition: stroke 0.45s ease, opacity 0.45s ease;
 }
 
-#slide-25 .vt-route1 {
+#slide-27 .vt-route1 {
   stroke: rgba(217, 119, 6, 0.55);
 }
 
-#slide-25 .vt-route2 {
+#slide-27 .vt-route2 {
   stroke: rgba(2, 132, 199, 0.55);
 }
 
-#slide-25:has(.vt-j1.step-active) .vt-route1 {
+#slide-27:has(.vt-j1.step-active) .vt-route1 {
   stroke: #d97706;
   opacity: 1;
 }
 
-#slide-25:has(.vt-j2.step-active) .vt-route2 {
+#slide-27:has(.vt-j2.step-active) .vt-route2 {
   stroke: #0284c7;
   opacity: 1;
 }
 
-#slide-25:has(.vt-j2.step-active) .vt-block2 {
+#slide-27:has(.vt-j2.step-active) .vt-block2 {
   stroke: #0284c7;
 }
 
 /* --- Salidas estáticas (marcador tenue) --- */
-#slide-25 .vt-exit-static {
+#slide-27 .vt-exit-static {
   fill: var(--bg-surface-elevated);
   stroke: var(--border-subtle);
   stroke-width: 1.4;
@@ -19343,7 +19349,7 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
   transition: opacity 0.4s ease;
 }
 
-#slide-25 .vt-exit-wait {
+#slide-27 .vt-exit-wait {
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
@@ -19351,37 +19357,37 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
 }
 
 /* --- Tokens viajeros (motion path) --- */
-#slide-25 .vt-token1,
-#slide-25 .vt-token2 {
+#slide-27 .vt-token1,
+#slide-27 .vt-token2 {
   opacity: 0;
   offset-rotate: 0deg;
 }
 
-#slide-25 .vt-token1 {
+#slide-27 .vt-token1 {
   offset-path: path("M158,76 H752 a16,16 0 0 1 0,32 H158 a16,16 0 0 0 0,32 H752 a16,16 0 0 1 0,32 H158 a16,16 0 0 0 0,32 H752");
 }
 
-#slide-25 .vt-token2 {
+#slide-27 .vt-token2 {
   offset-path: path("M168,312 H340 a26.5,26.5 0 0 1 0,53 H168 a26.5,26.5 0 0 0 0,53 H340");
 }
 
-#slide-25 .vt-token-chip {
+#slide-27 .vt-token-chip {
   fill: rgba(245, 158, 11, 0.15);
   stroke: #f59e0b;
   stroke-width: 1.6;
   filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5));
 }
 
-#slide-25 .vt-token-emoji {
+#slide-27 .vt-token-emoji {
   font-size: 15px;
 }
 
-#slide-25 .vt-j1.step-active .vt-token1 {
+#slide-27 .vt-j1.step-active .vt-token1 {
   opacity: 1;
   animation: vtTravel1 1.6s linear forwards;
 }
 
-#slide-25 .vt-j2.step-active .vt-token2 {
+#slide-27 .vt-j2.step-active .vt-token2 {
   opacity: 1;
   animation: vtTravel2 0.4s linear forwards;
 }
@@ -19397,34 +19403,34 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
 }
 
 /* --- Punto de llegada + salida iluminada (aparecen al final del viaje) --- */
-#slide-25 .vt-arr1,
-#slide-25 .vt-arr2,
-#slide-25 .vt-exit1,
-#slide-25 .vt-exit2 {
+#slide-27 .vt-arr1,
+#slide-27 .vt-arr2,
+#slide-27 .vt-exit1,
+#slide-27 .vt-exit2 {
   opacity: 0;
 }
 
-#slide-25 .vt-arr1 {
+#slide-27 .vt-arr1 {
   fill: #d97706;
 }
 
-#slide-25 .vt-arr2 {
+#slide-27 .vt-arr2 {
   fill: #0284c7;
 }
 
-#slide-25 .vt-j1.step-active .vt-arr1 {
+#slide-27 .vt-j1.step-active .vt-arr1 {
   animation: vtPop 0.4s var(--ease-spring) 1.5s both;
 }
 
-#slide-25 .vt-j1.step-active .vt-exit1 {
+#slide-27 .vt-j1.step-active .vt-exit1 {
   animation: vtFadeIn 0.45s ease 1.5s both;
 }
 
-#slide-25 .vt-j2.step-active .vt-arr2 {
+#slide-27 .vt-j2.step-active .vt-arr2 {
   animation: vtPop 0.4s var(--ease-spring) 0.35s both;
 }
 
-#slide-25 .vt-j2.step-active .vt-exit2 {
+#slide-27 .vt-j2.step-active .vt-exit2 {
   animation: vtFadeIn 0.45s ease 0.35s both;
 }
 
@@ -19440,40 +19446,40 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
 }
 
 /* --- Salidas iluminadas --- */
-#slide-25 .vt-exit-lit1 {
+#slide-27 .vt-exit-lit1 {
   fill: rgba(245, 158, 11, 0.1);
   stroke: #d97706;
   stroke-width: 1.6;
 }
 
-#slide-25 .vt-exit-lit2 {
+#slide-27 .vt-exit-lit2 {
   fill: rgba(2, 132, 199, 0.1);
   stroke: #0284c7;
   stroke-width: 1.6;
 }
 
-#slide-25 .vt-clock1 {
+#slide-27 .vt-clock1 {
   font-family: var(--font-mono);
   font-size: 17px;
   font-weight: 800;
   fill: #b45309;
 }
 
-#slide-25 .vt-clock2 {
+#slide-27 .vt-clock2 {
   font-family: var(--font-mono);
   font-size: 17px;
   font-weight: 800;
   fill: #0284c7;
 }
 
-#slide-25 .vt-tokps1 {
+#slide-27 .vt-tokps1 {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 700;
   fill: var(--text-muted);
 }
 
-#slide-25 .vt-tokps2 {
+#slide-27 .vt-tokps2 {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 800;
@@ -19481,27 +19487,27 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
 }
 
 /* --- Salida estática se apaga cuando llega el token --- */
-#slide-25:has(.vt-j1.step-active) .vt-exit-static1 {
+#slide-27:has(.vt-j1.step-active) .vt-exit-static1 {
   opacity: 0.1;
 }
 
-#slide-25:has(.vt-j2.step-active) .vt-exit-static2 {
+#slide-27:has(.vt-j2.step-active) .vt-exit-static2 {
   opacity: 0.1;
 }
 
 /* --- Franja de espera y veredicto --- */
-#slide-25 .vt-strip {
+#slide-27 .vt-strip {
   fill: var(--bg-surface);
   stroke: var(--border-subtle);
   stroke-width: 1.5;
 }
 
-#slide-25 .vt-strip-static {
+#slide-27 .vt-strip-static {
   stroke-dasharray: 7 6;
   transition: opacity 0.4s ease;
 }
 
-#slide-25 .vt-strip-wait {
+#slide-27 .vt-strip-wait {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -19510,22 +19516,22 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
   transition: opacity 0.4s ease;
 }
 
-#slide-25 .vt-verdict {
+#slide-27 .vt-verdict {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
 }
 
-#slide-25 .vt-verdict.step-active {
+#slide-27 .vt-verdict.step-active {
   opacity: 1;
 }
 
-#slide-25 .vt-strip-lit {
+#slide-27 .vt-strip-lit {
   fill: rgba(16, 185, 129, 0.08);
   stroke: #059669;
   stroke-width: 1.6;
 }
 
-#slide-25 .vt-verdict-main {
+#slide-27 .vt-verdict-main {
   font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 800;
@@ -19533,44 +19539,44 @@ body.deck-hardware-part1.theme-dark #slide-37:has(.updated-model.step-active) .c
   letter-spacing: 0.02em;
 }
 
-#slide-25 .vt-strip-l1 {
+#slide-27 .vt-strip-l1 {
   font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
 }
 
-#slide-25 .vt-strip-l2 {
+#slide-27 .vt-strip-l2 {
   font-family: var(--font-sans);
   font-size: 12.5px;
   font-weight: 600;
   fill: var(--text-muted);
 }
 
-#slide-25:has(.vt-verdict.step-active) .vt-strip-static,
-#slide-25:has(.vt-verdict.step-active) .vt-strip-wait {
+#slide-27:has(.vt-verdict.step-active) .vt-strip-static,
+#slide-27:has(.vt-verdict.step-active) .vt-strip-wait {
   opacity: 0;
 }
 
-#slide-25 .vt-cap-final {
+#slide-27 .vt-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
 }
 
-#slide-25:has(.vt-verdict.step-active) .vt-cap-final {
+#slide-27:has(.vt-verdict.step-active) .vt-cap-final {
   opacity: 1;
 }
 
 /* --- Paso activo clicable --- */
-#slide-25 .step {
+#slide-27 .step {
   cursor: pointer;
 }
 
 /* ================================================================
    SLIDE 25 — Overview e impresión: estado final (viajes completados)
    ================================================================ */
-body.overview-mode #slide-25 .vt-token1,
-body.overview-mode #slide-25 .vt-token2 {
+body.overview-mode #slide-27 .vt-token1,
+body.overview-mode #slide-27 .vt-token2 {
   opacity: 1 !important;
   offset-distance: 100% !important;
   animation: none !important;
@@ -19578,72 +19584,72 @@ body.overview-mode #slide-25 .vt-token2 {
 
 @media print {
 
-  #slide-25 .vt-token1,
-  #slide-25 .vt-token2 {
+  #slide-27 .vt-token1,
+  #slide-27 .vt-token2 {
     opacity: 1 !important;
     offset-distance: 100% !important;
     animation: none !important;
   }
 }
 
-body.overview-mode #slide-25 .vt-arr1,
-body.overview-mode #slide-25 .vt-arr2,
-body.overview-mode #slide-25 .vt-exit1,
-body.overview-mode #slide-25 .vt-exit2 {
+body.overview-mode #slide-27 .vt-arr1,
+body.overview-mode #slide-27 .vt-arr2,
+body.overview-mode #slide-27 .vt-exit1,
+body.overview-mode #slide-27 .vt-exit2 {
   opacity: 1 !important;
   animation: none !important;
 }
 
 @media print {
 
-  #slide-25 .vt-arr1,
-  #slide-25 .vt-arr2,
-  #slide-25 .vt-exit1,
-  #slide-25 .vt-exit2 {
+  #slide-27 .vt-arr1,
+  #slide-27 .vt-arr2,
+  #slide-27 .vt-exit1,
+  #slide-27 .vt-exit2 {
     opacity: 1 !important;
     animation: none !important;
   }
 }
 
-body.overview-mode #slide-25 .vt-exit-static,
-body.overview-mode #slide-25 .vt-exit-wait,
-body.overview-mode #slide-25 .vt-strip-static,
-body.overview-mode #slide-25 .vt-strip-wait {
+body.overview-mode #slide-27 .vt-exit-static,
+body.overview-mode #slide-27 .vt-exit-wait,
+body.overview-mode #slide-27 .vt-strip-static,
+body.overview-mode #slide-27 .vt-strip-wait {
   opacity: 0 !important;
 }
 
 @media print {
 
-  #slide-25 .vt-exit-static,
-  #slide-25 .vt-exit-wait,
-  #slide-25 .vt-strip-static,
-  #slide-25 .vt-strip-wait {
+  #slide-27 .vt-exit-static,
+  #slide-27 .vt-exit-wait,
+  #slide-27 .vt-strip-static,
+  #slide-27 .vt-strip-wait {
     opacity: 0 !important;
   }
 }
 
-body.overview-mode #slide-25 .vt-route1,
-body.overview-mode #slide-25 .vt-route2 {
+body.overview-mode #slide-27 .vt-route1,
+body.overview-mode #slide-27 .vt-route2 {
   stroke: #d97706;
   opacity: 1 !important;
 }
 
 @media print {
 
-  #slide-25 .vt-route1,
-  #slide-25 .vt-route2 {
+  #slide-27 .vt-route1,
+  #slide-27 .vt-route2 {
     stroke: #d97706;
     opacity: 1 !important;
   }
 }
 
-body.overview-mode #slide-25 .vt-cap-final {
+body.overview-mode #slide-27 .vt-cap-final {
   opacity: 1 !important;
 }
 
 @media print {
 
-  #slide-25 .vt-cap-final {
+  #slide-27 .vt-cap-final {
     opacity: 1 !important;
   }
 }
@@ -20830,7 +20836,7 @@ body.theme-dark .comp-footer-text strong {
 /* ==========================================================================
    SLIDE 13c: ROMPIENDO EL ABISMO DE LOS 2-3 BITS (GSQ + RCO)
    ========================================================================== */
-.deck-hardware-part1 #slide-13-gsq-rco .slide-content {
+.deck-hardware-part1 #slide-15 .slide-content {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -21428,8 +21434,8 @@ body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.autoround-deck 
 }
 
 /* Cluster centrado con sesgo óptico del deck (+38: aire abajo = arriba + 38) — solo Modo Charla */
-body.deck-hardware-part1:not(.mode-document) #slide-14 .slide-content,
-body.deck-hardware-part1:not(.mode-document) #slide-15 .slide-content {
+body.deck-hardware-part1:not(.mode-document) #slide-16 .slide-content,
+body.deck-hardware-part1:not(.mode-document) #slide-17 .slide-content {
   justify-content: center !important;
   padding-bottom: 2.4rem;
 }
@@ -21854,7 +21860,7 @@ body.deck-sdlc-part2:not(.mode-document) #slide-inception-greenfield-brownfield 
 /* ==========================================================================
    PARTE 1 — Slide 27b: resumen de estrategias de aceleración (variante goldilocks)
    ========================================================================== */
-#slide-27b .goldilocks-table td {
+#slide-35 .goldilocks-table td {
   white-space: normal;
   line-height: 1.35;
   vertical-align: top;
@@ -21862,12 +21868,12 @@ body.deck-sdlc-part2:not(.mode-document) #slide-inception-greenfield-brownfield 
   font-size: 0.98rem;
 }
 
-#slide-27b .goldilocks-table th {
+#slide-35 .goldilocks-table th {
   padding: 0.9rem 0.65rem;
   font-size: 0.85rem;
 }
 
-#slide-27b .goldilocks-table td.acel-how {
+#slide-35 .goldilocks-table td.acel-how {
   font-family: var(--font-sans);
   font-size: 1rem;
   color: var(--text-main);
@@ -21875,52 +21881,52 @@ body.deck-sdlc-part2:not(.mode-document) #slide-inception-greenfield-brownfield 
   max-width: 560px;
 }
 
-#slide-27b .goldilocks-table td.acel-gain {
+#slide-35 .goldilocks-table td.acel-gain {
   font-weight: 700;
   color: #15803d;
   font-size: 1.08rem;
   white-space: nowrap;
 }
 
-#slide-27b .goldilocks-table td.acel-req,
-#slide-27b .goldilocks-table td.acel-ideal {
+#slide-35 .goldilocks-table td.acel-req,
+#slide-35 .goldilocks-table td.acel-ideal {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   color: var(--text-muted);
   min-width: 210px;
 }
 
-#slide-27b .goldilocks-table td.col-name {
+#slide-35 .goldilocks-table td.col-name {
   font-size: 1.08rem;
   white-space: nowrap;
 }
 
-#slide-27b .goldilocks-table-card {
+#slide-35 .goldilocks-table-card {
   width: 100%;
   padding: 0.4rem 1.15rem;
 }
 
-#slide-27b .slide-content {
+#slide-35 .slide-content {
   justify-content: center;
 }
 
-#slide-27b .goldilocks-deck {
+#slide-35 .goldilocks-deck {
   gap: 1.1rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-27b .slide-content {
+body.deck-hardware-part1:not(.mode-document) #slide-35 .slide-content {
   justify-content: flex-start !important;
   height: 100% !important;
   padding-top: 2.2rem;
   padding-bottom: 5.2rem;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-27b .goldilocks-deck {
+body.deck-hardware-part1:not(.mode-document) #slide-35 .goldilocks-deck {
   flex: 1;
   justify-content: center;
 }
 
-body.theme-dark #slide-27b .goldilocks-table td.acel-gain {
+body.theme-dark #slide-35 .goldilocks-table td.acel-gain {
   color: #86efac;
 }
 
