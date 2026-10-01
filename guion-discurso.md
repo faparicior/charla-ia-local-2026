@@ -16,7 +16,7 @@
 
 El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo convierten en software; la gobernanza impide que la IA lo destruya»*.
 
-**El recurso de las estaciones**: la slide 9: **tablero estático en Modo Charla** (solo Lean Inception + User Story Mapping encendidas, como en la estación 19; → salta directo al taller) y **recorrido paso a paso (9 clics) reservado al Modo Documento**, donde se ve el mapa completo. Cinco **checkpoints** (19, 23, 25, 30 y 36) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
+**El recurso de las estaciones**: la slide 9: **tablero estático en Modo Charla** (solo Lean Inception + User Story Mapping encendidas, como en la estación 19; → salta directo al taller) y **recorrido paso a paso (9 clics) reservado al Modo Documento**, donde se ve el mapa completo. Cinco **checkpoints** (19, 23, 25, 30 y 36) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Visibles también en Modo Documento.
 
 ## Bloque A — Apertura (1-9): el porqué, el destino y el marco
 
@@ -163,7 +163,7 @@ Criterio: lo que es **anatomía interna, investigación de frontera o caso hist�
 
 **Candidata:** 21 (Flowchart de decisiones) si el tiempo aprieta.
 
-**Se quedan:** síntesis Embudo (4), intro E2E (6 —  el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/23/25/30/36 — ocultos en Documento por diseño), franja G/B (18), 24-27, TDD (37), quote (41).
+**Se quedan:** síntesis Embudo (4), intro E2E (6 —  el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/23/25/30/36 — visibles también en Modo Documento), franja G/B (18), 24-27, TDD (37), quote (41).
 
 ### Mecanismo aplicado
 
