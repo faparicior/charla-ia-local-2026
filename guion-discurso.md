@@ -12,13 +12,13 @@
 
 ---
 
-# PARTE 2 — El Ciclo de Desarrollo con IA (40 slides)
+# PARTE 2 — El Ciclo de Desarrollo con IA (41 slides · TEMPORAL: comparación embudo interactivo 4 vs esquemático 5 — elegir una y re-renumerar)
 
 El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo convierten en software; la gobernanza impide que la IA lo destruya»*.
 
-**El recurso de las estaciones**: la slide 8 presenta el mapa interactivo (9 pasos, clic a clic). Cuatro **checkpoints** (18, 23, 28 y 34) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
+**El recurso de las estaciones**: la slide 9 presenta el mapa interactivo (9 pasos, clic a clic). Cuatro **checkpoints** (19, 24, 29 y 35) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
 
-## Bloque A — Apertura (1-8): el porqué, el destino y el marco
+## Bloque A — Apertura (1-9): el porqué, el destino y el marco
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
@@ -26,77 +26,78 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 | 2 | **Paradigma Cloud** | API token, fuerza bruta: potencia a cambio de control y coste. |
 | 3 | **Paradigma Local** | Tracción, control, coste cero. |
 | **4** | **El Embudo del Dominio** 🖱️ | Síntesis E2E interactiva: usuario + 3 Journeys → barreras BR/INV → entidades & máquina de estado → respuesta/notificación. Pills de visión (completa/reservar/cuota/ilegal). |
-| **5** | **El Viaje de una Petición E2E** 🖱️ | INTRO del destino: Usuario → Controlador → Caso de Uso (BR) → Dominio (INV) → Persistencia. *Filtro de audiencia*: 👔 negocio / 🛠️ técnica / 🌐 compartida. *"El código sirve al negocio; aquí colaboran las dos visiones."* |
-| 6 | **Los Tres Pilares** | Marco: proceso + gobernanza + ergonomía (AX). |
-| 7 | **Pipeline: 5 Fases Disciplinadas** | El esqueleto: Inception → Especificación → Dominio → Construcción → Evolución. |
-| 8 | **El Mapa Real del SDLC** 🖱️ | Mapa interactivo: 9 pasos clic a clic, silueta completa siempre visible. *La promesa de la charla hecha imagen.* |
+| **5** | **El Embudo del Dominio — Versión Esquemática** ⚖️ | **COMPARACIÓN PENDIENTE con la 4**: mismo contenido, lenguaje de la 27 de la Parte 1 — corredor único, 4 pasos que evolucionan (reserva ✅ → cuota ⚠️ → ilegal 🛑 → veredicto 🏁), sin JS propio. Ensayar las dos y elegir; al quitar la sobrante, re-renumerar. |
+| **6** | **El Viaje de una Petición E2E** 🖱️ | INTRO del destino: Usuario → Controlador → Caso de Uso (BR) → Dominio (INV) → Persistencia. *Filtro de audiencia*: 👔 negocio / 🛠️ técnica / 🌐 compartida. *"El código sirve al negocio; aquí colaboran las dos visiones."* |
+| 7 | **Los Tres Pilares** | Marco: proceso + gobernanza + ergonomía (AX). |
+| 8 | **Pipeline: 5 Fases Disciplinadas** | El esqueleto: Inception → Especificación → Dominio → Construcción → Evolución. |
+| 9 | **El Mapa Real del SDLC** 🖱️ | Mapa interactivo: 9 pasos clic a clic, silueta completa siempre visible. *La promesa de la charla hecha imagen.* |
 
-**Puente A→B (8→9):** *"Entramos en la Fase 1: el taller de Inception, paso a paso."*
+**Puente A→B (9→10):** *"Entramos en la Fase 1: el taller de Inception, paso a paso."*
 
-## Bloque B — Fase 1: Inception Workshop (9-17)
-
-| # | Slide | Qué contar |
-|---|-------|-----------|
-| 9 | **Paso 1: Matriz de Fronteras (IS/IS NOT)** | Anclar qué es y qué NO es el producto. |
-| 10 | **Paso 2: Tablero de Tradeoffs** | Prioridades relativas pactadas antes de descubrir (Regla de Oro 1-7). |
-| 11 | **Paso 3: User Personas** | ¿Para qué artesano diseñamos? |
-| 12 | **Paso 4: Mapa de Empatía** | Dolores y alegrías antes de diseñar la experiencia. |
-| 13 | **Paso 5: User Journey Mapping** | El recorrido E2E: los gaps guían la solución. |
-| 14 | **Paso 6: Feature Brainstorming** | Las features brotan de los gaps del journey, no del vacío. |
-| 15 | **Paso 7: Secuenciador de Olas** | Wave 1/2/3 por valor, esfuerzo y dependencias. |
-| 16 | **Paso 8: Contrato MVP** | El "system prompt supremo": hipótesis, alcance, falsación. |
-| 17 | **Greenfield vs. Brownfield** | Charla = franja de flujo: 🌱 1→8 vs 🏭 desde el código 1→3→**6⇄5**→7 (swap 6⇄5; 2·4 diferidos). Documento = tabla 8v8 interactiva. |
-
-**Puente B→C (17→18→19):** *"El taller da el mapa... y la estación del mapa (17) lo re-clava: **estamos aquí — Fase 2**. La especificación viva lo ejecuta."*
-
-## Bloque C — Fases 2, 2b y 3: de la especificación al dominio (19-27)
+## Bloque B — Fase 1: Inception Workshop (10-18)
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
-| 19 | **Fase 2 · 1. Diagrama de Secuencia** | El flujo como secuencia con bloques `rect` por método. |
-| 20 | **Fase 2 · 2. Flowchart de Decisiones** | La lógica ramificada y los outcomes. |
-| 21 | **Fase 2 · 3. Ciclo de Vida (FSM)** | El `stateDiagram-v2` de la entidad. ⚠️ *Este diagrama ES el artefacto de la Fase 3.* |
-| 22 | **Fase 2b: Features (Slicing Vertical)** | `/create-features`: cada feature = un ciclo TDD completo (contrato de errores HTTP + checklist). |
-| **23** | **📍 Checkpoint del mapa: Fase 3** | Estación: todo lo anterior encendido, **Dominio brillando**. *"Con las features listas, blindamos el dominio."* |
-| 24 | **Fase 3: Ciclo de Vida de la Entidad** | Del FSM (21) al contrato formal: FSM + matriz de transiciones. |
-| 25 | **Fase 3: Reglas vs. Invariantes** | BR (orquestación, flexible) vs INV (cero tolerancia, rollback). |
-| 26 | **Fase 3: Plantilla de Regla (BR)** | Anatomía de una BR real (BR-004 free tier). |
-| 27 | **Fase 3: Plantilla de Invariante (INV)** | Anatomía de una INV real. |
+| 10 | **Paso 1: Matriz de Fronteras (IS/IS NOT)** | Anclar qué es y qué NO es el producto. |
+| 11 | **Paso 2: Tablero de Tradeoffs** | Prioridades relativas pactadas antes de descubrir (Regla de Oro 1-7). |
+| 12 | **Paso 3: User Personas** | ¿Para qué artesano diseñamos? |
+| 13 | **Paso 4: Mapa de Empatía** | Dolores y alegrías antes de diseñar la experiencia. |
+| 14 | **Paso 5: User Journey Mapping** | El recorrido E2E: los gaps guían la solución. |
+| 15 | **Paso 6: Feature Brainstorming** | Las features brotan de los gaps del journey, no del vacío. |
+| 16 | **Paso 7: Secuenciador de Olas** | Wave 1/2/3 por valor, esfuerzo y dependencias. |
+| 17 | **Paso 8: Contrato MVP** | El "system prompt supremo": hipótesis, alcance, falsación. |
+| 18 | **Greenfield vs. Brownfield** | Charla = franja de flujo: 🌱 1→8 vs 🏭 desde el código 1→3→**6⇄5**→7 (swap 6⇄5; 2·4 diferidos). Documento = tabla 8v8 interactiva. |
 
-**Puente C→D (27→28→29):** *"El dominio está blindado... ¿quién garantiza que se respeta? → Los ADRs (28-33) y la estación de la 34 lo clavan."*
+**Puente B→C (18→19→20):** *"El taller da el mapa... y la estación del mapa (18) lo re-clava: **estamos aquí — Fase 2**. La especificación viva lo ejecuta."*
 
-## Bloque D — Gobernanza y Fases 4-5 (29-37)
-
-| # | Slide | Qué contar |
-|---|-------|-----------|
-| 29 | **La Fricción: ADRs vs. Pre-entrenamiento** | El conocimiento del repo compite con el pre-entrenado. |
-| 30 | **Guardrail Tax (Next.js 16.3+)** | Caso real: "This is NOT the Next.js you know". |
-| 31 | **El Artefacto Inyectado (AGENTS.md)** | Cómo se materializa el guardrail. |
-| 32 | **El Ciclo Canónico de un ADR** | De la duda a la ley. |
-| 33 | **Gobernanza en Acción (Decision Tree ADR)** | De la intención a la ruta óptima. |
-| **34** | **📍 Checkpoint del mapa: Fase 4** | Estación: banda ADR ya encendida + **Construcción TDD brillando** (ámbar). *"¿Quién garantiza que se respeta? → Estamos en Fase 4: a construir."* |
-| 35 | **Evolución sin Drift: TDD Híbrido** | Fases 4-5: `/implement-flow` (TDD) + `/modify-flow` (cambio) + `/audit-docs` (cero drift). |
-| 36 | **El Ciclo Canónico del SDLC** | *Puente: "el pipeline de la 7, ahora como pilar canónico".* |
-| 37 | **Producto en Acción (Decision Tree)** | De la necesidad al artefacto. |
-
-**Puente D→E (37→38):** *"Ya tenemos gobernanza y ciclo. ¿Dónde viven los artefactos? → El repositorio."*
-
-## Bloque E — Cierre técnico (38-40)
+## Bloque C — Fases 2, 2b y 3: de la especificación al dominio (20-28)
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
-| 38 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
-| 39 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
-| 40 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
+| 20 | **Fase 2 · 1. Diagrama de Secuencia** | El flujo como secuencia con bloques `rect` por método. |
+| 21 | **Fase 2 · 2. Flowchart de Decisiones** | La lógica ramificada y los outcomes. |
+| 22 | **Fase 2 · 3. Ciclo de Vida (FSM)** | El `stateDiagram-v2` de la entidad. ⚠️ *Este diagrama ES el artefacto de la Fase 3.* |
+| 23 | **Fase 2b: Features (Slicing Vertical)** | `/create-features`: cada feature = un ciclo TDD completo (contrato de errores HTTP + checklist). |
+| **24** | **📍 Checkpoint del mapa: Fase 3** | Estación: todo lo anterior encendido, **Dominio brillando**. *"Con las features listas, blindamos el dominio."* |
+| 25 | **Fase 3: Ciclo de Vida de la Entidad** | Del FSM (22) al contrato formal: FSM + matriz de transiciones. |
+| 26 | **Fase 3: Reglas vs. Invariantes** | BR (orquestación, flexible) vs INV (cero tolerancia, rollback). |
+| 27 | **Fase 3: Plantilla de Regla (BR)** | Anatomía de una BR real (BR-004 free tier). |
+| 28 | **Fase 3: Plantilla de Invariante (INV)** | Anatomía de una INV real. |
+
+**Puente C→D (28→29→30):** *"El dominio está blindado... ¿quién garantiza que se respeta? → Los ADRs (29-34) y la estación de la 35 lo clavan."*
+
+## Bloque D — Gobernanza y Fases 4-5 (30-38)
+
+| # | Slide | Qué contar |
+|---|-------|-----------|
+| 30 | **La Fricción: ADRs vs. Pre-entrenamiento** | El conocimiento del repo compite con el pre-entrenado. |
+| 31 | **Guardrail Tax (Next.js 16.3+)** | Caso real: "This is NOT the Next.js you know". |
+| 32 | **El Artefacto Inyectado (AGENTS.md)** | Cómo se materializa el guardrail. |
+| 33 | **El Ciclo Canónico de un ADR** | De la duda a la ley. |
+| 34 | **Gobernanza en Acción (Decision Tree ADR)** | De la intención a la ruta óptima. |
+| **35** | **📍 Checkpoint del mapa: Fase 4** | Estación: banda ADR ya encendida + **Construcción TDD brillando** (ámbar). *"¿Quién garantiza que se respeta? → Estamos en Fase 4: a construir."* |
+| 36 | **Evolución sin Drift: TDD Híbrido** | Fases 4-5: `/implement-flow` (TDD) + `/modify-flow` (cambio) + `/audit-docs` (cero drift). |
+| 37 | **El Ciclo Canónico del SDLC** | *Puente: "el pipeline de la 8, ahora como pilar canónico".* |
+| 38 | **Producto en Acción (Decision Tree)** | De la necesidad al artefacto. |
+
+**Puente D→E (38→39):** *"Ya tenemos gobernanza y ciclo. ¿Dónde viven los artefactos? → El repositorio."*
+
+## Bloque E — Cierre técnico (39-41)
+
+| # | Slide | Qué contar |
+|---|-------|-----------|
+| 39 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
+| 40 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
+| 41 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
 
 ## Cheat-sheet de puentes hablados (Parte 2)
 
-1. 8→9: *"del mapa al taller"* · 17→18: *"el taller da el mapa; la estación lo re-clava"*
-2. 21→22: *"el FSM dice DÓNDE; el slicing dice en qué ORDEN"* · 22→23: *"features listas → estación: el dominio"*
-3. 27→28: *"¿quién blinda esto? → la banda ADR"* (el salto temático grande, ahora visualizado)
-4. 33→34: *"el ADR gobierna; la estación clava la Fase 4"* · 34→35: *"a construir: TDD + cambio sin drift"*
-5. 35→36: *"todo ese trabajo se ordena en el ciclo canónico"* · 36→37: *"el índice gobierna el flujo"*
-6. 37→38: *"¿dónde viven los artefactos? → el repo"* (la petición viva ya se vio en la síntesis de la 4) · 38→39: pausa → quote
+1. 9→10: *"del mapa al taller"* · 18→19: *"el taller da el mapa; la estación lo re-clava"*
+2. 22→23: *"el FSM dice DÓNDE; el slicing dice en qué ORDEN"* · 23→24: *"features listas → estación: el dominio"*
+3. 28→29: *"¿quién blinda esto? → la banda ADR"* (el salto temático grande, ahora visualizado)
+4. 34→35: *"el ADR gobierna; la estación clava la Fase 4"* · 35→36: *"a construir: TDD + cambio sin drift"*
+5. 36→37: *"todo ese trabajo se ordena en el ciclo canónico"* · 37→38: *"el índice gobierna el flujo"*
+6. 38→39: *"¿dónde viven los artefactos? → el repo"* (la petición viva ya se vio en la síntesis de la 4) · 39→40: pausa → quote
 
 ---
 
@@ -155,13 +156,13 @@ Criterio: lo que es **anatomía interna, investigación de frontera o caso hist�
 
 | Pos | Slide | Por qué |
 |-----|-------|---------|
-| 26-27 | Plantillas BR e INV | Anatomía; la 24 ya fija el concepto BR vs INV |
-| 36 | El Ciclo Canónico del SDLC | Repite el ciclo de las 6-8; puente directo 33→35 |
-| 37 | Producto en Acción (Decision Tree) | Cima del refrito: re-enruta lo que el mapa (8) ya enseña; hoy se atraviesa rápido verbalmente |
+| 27-28 | Plantillas BR e INV | Anatomía; la 25 ya fija el concepto BR vs INV |
+| 37 | El Ciclo Canónico del SDLC | Repite el ciclo de las 7-9; puente directo 34→36 |
+| 38 | Producto en Acción (Decision Tree) | Cima del refrito: re-enruta lo que el mapa (9) ya enseña; hoy se atraviesa rápido verbalmente |
 
-**Candidata:** 20 (Flowchart de decisiones) si el tiempo aprieta.
+**Candidata:** 21 (Flowchart de decisiones) si el tiempo aprieta.
 
-**Se quedan:** síntesis Embudo (4), intro E2E (5 — el filtro de audiencia como dispositivo de colaboración), mapa (8), checkpoints (18/23/28/34 — ocultos en Documento por diseño), franja G/B (17), 22-25, TDD (35), quote (39).
+**Se quedan:** síntesis Embudo (4), intro E2E (6 — el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/24/29/35 — ocultos en Documento por diseño), franja G/B (18), 23-26, TDD (36), quote (40).
 
 ### Mecanismo aplicado
 
@@ -172,6 +173,6 @@ Clase `doc-only` en la `<section>` (reutiliza el CSS existente de Modo Charla/Do
 # Estado técnico actual
 
 - **Parte 1: 45 slides (contador 45)**, IDs renumerados para coincidir con el contador (era `slide-27b`, ahora `slide-35`) — caso DeepSeek al final del bloque de aceleración (33-34) y **slide 35 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica"). **14 slides ocultas en Modo Charla** (clase `doc-only` en la sección; la charla recorre 31), visibles en Documento y en el PDF exportado en Documento.
-- **Parte 2: 40 slides, IDs renumerados slide-0..slide-40 == contador (mismo criterio que Parte 1); CSS de componentes prefijado por deck (`body.deck-hardware-part1` / `body.deck-sdlc-part2`) para aislar los estilos entre decks** — 4 **checkpoints del mapa** (18 · 23 · 28 · **34 Fase 4**: banda ADR ya encendida + Construcción TDD brillando): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; ocultos en Documento. El Viaje E2E **tras la síntesis (5)**: el puente negocio ↔ técnica tras los paradigmas; el cierre verbal recupera la imagen ("ahora la leéis entera"). CK4 (34) + TDD (35) van ANTES del Ciclo Canónico (36) y Producto (37); luego Conexión (38), Quote (39), Q&A (40). Cliente local eliminado.
-- **Slide 4 — síntesis E2E interactiva "El Embudo del Dominio"** (`slide-domain-funnel`, hoy `slide-4`; nació al final tras Q&A y se reubicó entre el paradigma local y el viaje E2E, como mapa de llegada del bloque de apertura): SVG interactivo con el sistema flow-* de la slide journey — 1 usuario con 3 Journeys cuyos flujos cruzan las 2 barreras de validación (**BR** en Caso de Uso, **INV** en Dominio), llegan a **entidades & máquina de estado** (borrador→activa→cerrada + transición ilegal reaservar()✗) y acaban en **respuesta o notificación** (201+email/UI · 402 aviso elegante · 409 estado intacto). Pills de vista (all/j1/j2/j3) + estaciones clicables con takeaway; estados de vista en CSS puro (clase `view-*` en la sección), cables animados reutilizando `.flow-path-wire`.
+- **Parte 2: 41 slides (TEMPORAL: comparación embudo interactivo 4 vs esquemático 5), IDs renumerados slide-0..slide-41 == contador (mismo criterio que Parte 1); CSS de componentes prefijado por deck (`body.deck-hardware-part1` / `body.deck-sdlc-part2`) para aislar los estilos entre decks** — 4 **checkpoints del mapa** (19 · 24 · 29 · **35 Fase 4**: banda ADR ya encendida + Construcción TDD brillando): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; ocultos en Documento. El Viaje E2E **tras la síntesis (6)**: el puente negocio ↔ técnica tras los paradigmas; el cierre verbal recupera la imagen ("ahora la leéis entera"). CK4 (35) + TDD (36) van ANTES del Ciclo Canónico (37) y Producto (38); luego Conexión (39), Quote (40), Q&A (41). Cliente local eliminado.
+- **Slide 4 — síntesis E2E interactiva "El Embudo del Dominio"** (`slide-domain-funnel`, hoy `slide-4`; nació al final tras Q&A y se reubicó entre el paradigma local y el viaje E2E, como mapa de llegada del bloque de apertura) + **su hermana en la 5** — "Versión Esquemática" (`slide-embudo-esquema` → `slide-5`): mismo contenido con el lenguaje de la 27 de la Parte 1 (corredor único, chip viajero por CSS Motion Path, 4 pasos: reserva ✅ → cuota ⚠️ → ilegal 🛑 → veredicto 🏁; sin JS propio, pura coreografía CSS sobre el motor `.step`). ⚖️ **COMPARACIÓN PENDIENTE**: elegir 4 o 5 en el ensayo, borrar la sobrante y re-renumerar: SVG interactivo con el sistema flow-* de la slide journey — 1 usuario con 3 Journeys cuyos flujos cruzan las 2 barreras de validación (**BR** en Caso de Uso, **INV** en Dominio), llegan a **entidades & máquina de estado** (borrador→activa→cerrada + transición ilegal reaservar()✗) y acaban en **respuesta o notificación** (201+email/UI · 402 aviso elegante · 409 estado intacto). Pills de vista (all/j1/j2/j3) + estaciones clicables con takeaway; estados de vista en CSS puro (clase `view-*` en la sección), cables animados reutilizando `.flow-path-wire`.
 - Coherencia: back-bars encadenados slide a slide en ambos decks; banners `SLIDE N` renumerados a posición real.
