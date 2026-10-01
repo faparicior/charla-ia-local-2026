@@ -19835,7 +19835,7 @@ body.deck-sdlc-part2:not(.mode-document) #slide-9:has(.step[data-step="9"].step-
 /* Contador de pasos en la barra del panel (N iluminados / 9) */
 body.deck-sdlc-part2.mode-document #slide-9 .sdlc-map-progress {
   visibility: hidden;
-}body.deck-sdlc-part2 #slide-9 .map-step-counter::after { content: "▶ 0 / 9 · Pulsa: Fase 1 · Discovery"; }body.deck-sdlc-part2 #slide-9[data-active-steps="1"] .map-step-counter::after { content: "1 / 9 · Fase 1 · Discovery"; }body.deck-sdlc-part2 #slide-9[data-active-steps="2"] .map-step-counter::after { content: "2 / 9 · Gobierno ADR"; }body.deck-sdlc-part2 #slide-9[data-active-steps="3"] .map-step-counter::after { content: "3 / 9 · Fase 2 · Specs"; }body.deck-sdlc-part2 #slide-9[data-active-steps="4"] .map-step-counter::after { content: "4 / 9 · Fase 2b · Features"; }body.deck-sdlc-part2 #slide-9[data-active-steps="5"] .map-step-counter::after { content: "5 / 9 · Fase 3 · Dominio"; }body.deck-sdlc-part2 #slide-9[data-active-steps="6"] .map-step-counter::after { content: "6 / 9 · Fase 4 · TDD"; }body.deck-sdlc-part2 #slide-9[data-active-steps="7"] .map-step-counter::after { content: "7 / 9 · Fase 5+ · Evolución"; }body.deck-sdlc-part2 #slide-9[data-active-steps="8"] .map-step-counter::after { content: "8 / 9 · Operaciones"; }body.deck-sdlc-part2 #slide-9[data-active-steps="9"] .map-step-counter::after { content: "9 / 9 · Ciclo completo"; }
+}body.deck-sdlc-part2 #slide-9 .map-step-counter::after { content: "▶ 0 / 9 · Pulsa: Fase 1 · Discovery"; }body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step-counter::after { content: "📍 Estamos aquí · Fase 1 · Inception"; }body.deck-sdlc-part2 #slide-9[data-active-steps="1"] .map-step-counter::after { content: "1 / 9 · Fase 1 · Discovery"; }body.deck-sdlc-part2 #slide-9[data-active-steps="2"] .map-step-counter::after { content: "2 / 9 · Gobierno ADR"; }body.deck-sdlc-part2 #slide-9[data-active-steps="3"] .map-step-counter::after { content: "3 / 9 · Fase 2 · Specs"; }body.deck-sdlc-part2 #slide-9[data-active-steps="4"] .map-step-counter::after { content: "4 / 9 · Fase 2b · Features"; }body.deck-sdlc-part2 #slide-9[data-active-steps="5"] .map-step-counter::after { content: "5 / 9 · Fase 3 · Dominio"; }body.deck-sdlc-part2 #slide-9[data-active-steps="6"] .map-step-counter::after { content: "6 / 9 · Fase 4 · TDD"; }body.deck-sdlc-part2 #slide-9[data-active-steps="7"] .map-step-counter::after { content: "7 / 9 · Fase 5+ · Evolución"; }body.deck-sdlc-part2 #slide-9[data-active-steps="8"] .map-step-counter::after { content: "8 / 9 · Operaciones"; }body.deck-sdlc-part2 #slide-9[data-active-steps="9"] .map-step-counter::after { content: "9 / 9 · Ciclo completo"; }
 
 /* ==========================================================================
    OVERVIEW & IMPRESIÓN: mapa completo iluminado
@@ -22547,6 +22547,11 @@ body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky {
 body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky:not(.step-active):hover {
   opacity: 1;
   filter: none;
+}
+
+/* Modo Documento oculta lo que solo tiene sentido en Charla */
+body.mode-document .charla-only {
+  display: none !important;
 }
 
 </style>
@@ -28599,6 +28604,12 @@ function initDeck() {
     document.body.classList.toggle('mode-document', isDocumentMode);
     localStorage.setItem('deck-doc-mode', isDocumentMode ? 'true' : 'false');
     updateDualModeUI();
+    // Al volver a Modo Charla, resetear el recorrido de las slides con pasos
+    // reservados a Documento (el mapa vuelve a su estado estático de tablero)
+    if (!isDocumentMode && slides[currentIndex]?.hasAttribute('data-steps-doc-only')) {
+      slides[currentIndex].querySelectorAll('.step.step-active').forEach(el => el.classList.remove('step-active'));
+      updateStepsStatus(slides[currentIndex]);
+    }
     // Al volver a Modo Charla desde una slide doc-only, ir a la visible más cercana
     if (!isDocumentMode && isSlideHidden(slides[currentIndex])) {
       goToSlide(nearestVisibleIndex(currentIndex, 'forward'), true, 'forward');
@@ -28718,7 +28729,12 @@ function initDeck() {
         slide.classList.add('active');
         const steps = Array.from(slide.querySelectorAll('.step'));
         if (steps.length > 0) {
-          if (direction === 'backward') {
+          // En slides con recorrido reservado a Documento (data-steps-doc-only),
+          // entrar en Charla deja siempre el tablero estático (sin pasos activos),
+          // venga de donde venga; la entrada "backward = estado final" se reserva
+          // a Modo Documento y a las slides normales.
+          const stepsDocOnly = slide.hasAttribute('data-steps-doc-only');
+          if (direction === 'backward' && (isDocumentMode || !stepsDocOnly)) {
             steps.forEach(s => s.classList.add('step-active'));
           } else {
             steps.forEach(s => s.classList.remove('step-active'));
@@ -28785,7 +28801,9 @@ function initDeck() {
       toggleOverview(false);
     }
     const activeSlide = slides[currentIndex];
-    if (activeSlide) {
+    // Slides con recorrido reservado al Modo Documento (p. ej. el mapa): en
+    // Modo Charla los pasos no consumen pulsaciones y se avanza directamente
+    if (activeSlide && (isDocumentMode || !activeSlide.hasAttribute('data-steps-doc-only'))) {
       const nextUnactiveStep = activeSlide.querySelector('.step:not(.step-active)');
       if (nextUnactiveStep) {
         nextUnactiveStep.classList.add('step-active');
@@ -28808,7 +28826,7 @@ function initDeck() {
       toggleOverview(false);
     }
     const activeSlide = slides[currentIndex];
-    if (activeSlide) {
+    if (activeSlide && (isDocumentMode || !activeSlide.hasAttribute('data-steps-doc-only'))) {
       const activeSteps = Array.from(activeSlide.querySelectorAll('.step.step-active'));
       if (activeSteps.length > 0) {
         activeSteps[activeSteps.length - 1].classList.remove('step-active');

@@ -59,6 +59,12 @@ function initDeck() {
     document.body.classList.toggle('mode-document', isDocumentMode);
     localStorage.setItem('deck-doc-mode', isDocumentMode ? 'true' : 'false');
     updateDualModeUI();
+    // Al volver a Modo Charla, resetear el recorrido de las slides con pasos
+    // reservados a Documento (el mapa vuelve a su estado estático de tablero)
+    if (!isDocumentMode && slides[currentIndex]?.hasAttribute('data-steps-doc-only')) {
+      slides[currentIndex].querySelectorAll('.step.step-active').forEach(el => el.classList.remove('step-active'));
+      updateStepsStatus(slides[currentIndex]);
+    }
     // Al volver a Modo Charla desde una slide doc-only, ir a la visible más cercana
     if (!isDocumentMode && isSlideHidden(slides[currentIndex])) {
       goToSlide(nearestVisibleIndex(currentIndex, 'forward'), true, 'forward');
@@ -178,7 +184,12 @@ function initDeck() {
         slide.classList.add('active');
         const steps = Array.from(slide.querySelectorAll('.step'));
         if (steps.length > 0) {
-          if (direction === 'backward') {
+          // En slides con recorrido reservado a Documento (data-steps-doc-only),
+          // entrar en Charla deja siempre el tablero estático (sin pasos activos),
+          // venga de donde venga; la entrada "backward = estado final" se reserva
+          // a Modo Documento y a las slides normales.
+          const stepsDocOnly = slide.hasAttribute('data-steps-doc-only');
+          if (direction === 'backward' && (isDocumentMode || !stepsDocOnly)) {
             steps.forEach(s => s.classList.add('step-active'));
           } else {
             steps.forEach(s => s.classList.remove('step-active'));
@@ -245,7 +256,9 @@ function initDeck() {
       toggleOverview(false);
     }
     const activeSlide = slides[currentIndex];
-    if (activeSlide) {
+    // Slides con recorrido reservado al Modo Documento (p. ej. el mapa): en
+    // Modo Charla los pasos no consumen pulsaciones y se avanza directamente
+    if (activeSlide && (isDocumentMode || !activeSlide.hasAttribute('data-steps-doc-only'))) {
       const nextUnactiveStep = activeSlide.querySelector('.step:not(.step-active)');
       if (nextUnactiveStep) {
         nextUnactiveStep.classList.add('step-active');
@@ -268,7 +281,7 @@ function initDeck() {
       toggleOverview(false);
     }
     const activeSlide = slides[currentIndex];
-    if (activeSlide) {
+    if (activeSlide && (isDocumentMode || !activeSlide.hasAttribute('data-steps-doc-only'))) {
       const activeSteps = Array.from(activeSlide.querySelectorAll('.step.step-active'));
       if (activeSteps.length > 0) {
         activeSteps[activeSteps.length - 1].classList.remove('step-active');

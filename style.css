@@ -19816,7 +19816,7 @@ body.deck-sdlc-part2:not(.mode-document) #slide-9:has(.step[data-step="9"].step-
 /* Contador de pasos en la barra del panel (N iluminados / 9) */
 body.deck-sdlc-part2.mode-document #slide-9 .sdlc-map-progress {
   visibility: hidden;
-}body.deck-sdlc-part2 #slide-9 .map-step-counter::after { content: "▶ 0 / 9 · Pulsa: Fase 1 · Discovery"; }body.deck-sdlc-part2 #slide-9[data-active-steps="1"] .map-step-counter::after { content: "1 / 9 · Fase 1 · Discovery"; }body.deck-sdlc-part2 #slide-9[data-active-steps="2"] .map-step-counter::after { content: "2 / 9 · Gobierno ADR"; }body.deck-sdlc-part2 #slide-9[data-active-steps="3"] .map-step-counter::after { content: "3 / 9 · Fase 2 · Specs"; }body.deck-sdlc-part2 #slide-9[data-active-steps="4"] .map-step-counter::after { content: "4 / 9 · Fase 2b · Features"; }body.deck-sdlc-part2 #slide-9[data-active-steps="5"] .map-step-counter::after { content: "5 / 9 · Fase 3 · Dominio"; }body.deck-sdlc-part2 #slide-9[data-active-steps="6"] .map-step-counter::after { content: "6 / 9 · Fase 4 · TDD"; }body.deck-sdlc-part2 #slide-9[data-active-steps="7"] .map-step-counter::after { content: "7 / 9 · Fase 5+ · Evolución"; }body.deck-sdlc-part2 #slide-9[data-active-steps="8"] .map-step-counter::after { content: "8 / 9 · Operaciones"; }body.deck-sdlc-part2 #slide-9[data-active-steps="9"] .map-step-counter::after { content: "9 / 9 · Ciclo completo"; }
+}body.deck-sdlc-part2 #slide-9 .map-step-counter::after { content: "▶ 0 / 9 · Pulsa: Fase 1 · Discovery"; }body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step-counter::after { content: "📍 Estamos aquí · Fase 1 · Inception"; }body.deck-sdlc-part2 #slide-9[data-active-steps="1"] .map-step-counter::after { content: "1 / 9 · Fase 1 · Discovery"; }body.deck-sdlc-part2 #slide-9[data-active-steps="2"] .map-step-counter::after { content: "2 / 9 · Gobierno ADR"; }body.deck-sdlc-part2 #slide-9[data-active-steps="3"] .map-step-counter::after { content: "3 / 9 · Fase 2 · Specs"; }body.deck-sdlc-part2 #slide-9[data-active-steps="4"] .map-step-counter::after { content: "4 / 9 · Fase 2b · Features"; }body.deck-sdlc-part2 #slide-9[data-active-steps="5"] .map-step-counter::after { content: "5 / 9 · Fase 3 · Dominio"; }body.deck-sdlc-part2 #slide-9[data-active-steps="6"] .map-step-counter::after { content: "6 / 9 · Fase 4 · TDD"; }body.deck-sdlc-part2 #slide-9[data-active-steps="7"] .map-step-counter::after { content: "7 / 9 · Fase 5+ · Evolución"; }body.deck-sdlc-part2 #slide-9[data-active-steps="8"] .map-step-counter::after { content: "8 / 9 · Operaciones"; }body.deck-sdlc-part2 #slide-9[data-active-steps="9"] .map-step-counter::after { content: "9 / 9 · Ciclo completo"; }
 
 /* ==========================================================================
    OVERVIEW & IMPRESIÓN: mapa completo iluminado
@@ -22528,4 +22528,9 @@ body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky {
 body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky:not(.step-active):hover {
   opacity: 1;
   filter: none;
+}
+
+/* Modo Documento oculta lo que solo tiene sentido en Charla */
+body.mode-document .charla-only {
+  display: none !important;
 }
