@@ -16,7 +16,7 @@
 
 El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo convierten en software; la gobernanza impide que la IA lo destruya»*.
 
-**El recurso de las estaciones**: la slide 9 presenta el mapa interactivo (9 pasos, clic a clic). Cinco **checkpoints** (19, 23, 25, 30 y 36) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
+**El recurso de las estaciones**: la slide 9 presenta el mapa interactivo (10 pasos: 9 estaciones + el paso 10 que ilumina el Inception con 📍 "estamos aquí" — al pasar a la 10 ya entramos centrados). Cinco **checkpoints** (19, 23, 25, 30 y 36) re-clavan el mapa entre bloques con la fase actual brillando y la etiqueta 📍 *"Estamos aquí"* — el público nunca pierde el hilo de dónde está. Ocultos en Documento.
 
 ## Bloque A — Apertura (1-9): el porqué, el destino y el marco
 
@@ -93,7 +93,7 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 
 ## Cheat-sheet de puentes hablados (Parte 2)
 
-1. 9→10: *"del mapa al taller"* · 18→19: *"el taller da el mapa; la estación lo re-clava"*
+1. 9→10: *"el mapa acaba señalando el Inception: entramos al taller"* · 18→19: *"el taller da el mapa; la estación lo re-clava"*
 2. 22→23: *"la FSM dice DÓNDE; la estación 2b lo clava: a trocear"* · 24→25: *"features listas → estación: el dominio"*
 3. 29→30: *"¿quién blinda esto? → la banda ADR"* (el salto temático grande, ahora visualizado)
 4. 35→36: *"el ADR gobierna; la estación clava la Fase 4"* · 36→37: *"a construir: TDD + cambio sin drift"*

@@ -22515,3 +22515,17 @@ body.deck-sdlc-part2.overview-mode #slide-5 .fd-chip {
   75% { opacity: 1; }
   100% { opacity: 1; }
 }
+
+/* ================================================================
+   SLIDE 9 — ARRANQUE: Fase 1 (Inception + User Story Mapping) ya
+   encendida de serie, como se ve en la estación 19; el resto del
+   mapa en silueta hasta que el recorrido ilumina paso a paso.
+   ================================================================ */
+body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky {
+  opacity: 1;
+  filter: none;
+}
+body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky:not(.step-active):hover {
+  opacity: 1;
+  filter: none;
+}
