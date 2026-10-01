@@ -22148,7 +22148,7 @@ body.deck-sdlc-part2 #slide-5 .fd-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) .fd-cap-final {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) .fd-cap-final {
   opacity: 1;
 }
 
@@ -22394,78 +22394,81 @@ body.deck-sdlc-part2 #slide-5 .fd-j3.step-active .fd-aviso-lit3 {
 }
 
 /* --- Pasos excluyentes: el paso nuevo apaga los anteriores --- */
-body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-active) .fd-j1 {
+body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-current) .fd-j1 {
   opacity: 0;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-active) :is(.fd-j1, .fd-j2) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-current) :is(.fd-j2, .fd-j3) {
   opacity: 0;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) :is(.fd-j1, .fd-j2, .fd-j3) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-current) :is(.fd-j1, .fd-j2) {
+  opacity: 0;
+}
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) :is(.fd-j1, .fd-j2, .fd-j3) {
   opacity: 0;
 }
 
 /* --- Atenuación del escenario según el paso activo --- */
-body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-active) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-current) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
   opacity: 0.08;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-active) .fd-state-borrador,
-body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-active) .fd-arrow-legal1 {
+body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-current) .fd-state-borrador,
+body.deck-sdlc-part2 #slide-5:has(.fd-j1.step-current) .fd-arrow-legal1 {
   opacity: 0.15;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-active) :is(.fd-route-seg2, .fd-route-seg3, .fd-route-seg4) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-current) :is(.fd-route-seg2, .fd-route-seg3, .fd-route-seg4) {
   opacity: 0.12;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-active) :is(.fd-gate-inv, .fd-gate-name-inv, .fd-gate-desc-inv) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-current) :is(.fd-gate-inv, .fd-gate-name-inv, .fd-gate-desc-inv) {
   opacity: 0.3;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-active) .fd-fsm-zone {
+body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-current) .fd-fsm-zone {
   opacity: 0.2;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-active) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-current) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
   opacity: 0.08;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-active) :is(.fd-aviso-402, .fd-lead-br, .fd-aviso-s-402) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j2.step-current) :is(.fd-aviso-402, .fd-lead-br, .fd-aviso-s-402) {
   opacity: 0.03;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-active) :is(.fd-route-seg3, .fd-route-seg4) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-current) :is(.fd-route-seg3, .fd-route-seg4) {
   opacity: 0.12;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-active) .fd-fsm-zone {
+body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-current) .fd-fsm-zone {
   opacity: 0.25;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-active) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-current) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
   opacity: 0.08;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-active) :is(.fd-aviso-409, .fd-lead-inv, .fd-aviso-s-409) {
+body.deck-sdlc-part2 #slide-5:has(.fd-j3.step-current) :is(.fd-aviso-409, .fd-lead-inv, .fd-aviso-s-409) {
   opacity: 0.03;
 }
 
 /* --- El veredicto restaura el escenario completo (síntesis final) --- */
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) :is(.fd-route-seg2, .fd-route-seg3, .fd-route-seg4) {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) :is(.fd-route-seg2, .fd-route-seg3, .fd-route-seg4) {
   opacity: 0.55;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) :is(.fd-gate-inv, .fd-gate-name-inv, .fd-gate-desc-inv) {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) :is(.fd-gate-inv, .fd-gate-name-inv, .fd-gate-desc-inv) {
   opacity: 1;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) .fd-fsm-zone {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) .fd-fsm-zone {
   opacity: 1;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) :is(.fd-out-static, .fd-out-wait, .fd-out-label) {
   opacity: 1;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) :is(.fd-aviso-402, .fd-aviso-409, .fd-aviso-s-402, .fd-aviso-s-409, .fd-lead-br) {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) :is(.fd-aviso-402, .fd-aviso-409, .fd-aviso-s-402, .fd-aviso-s-409, .fd-lead-br) {
   opacity: 1;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) .fd-state-borrador {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) .fd-state-borrador {
   opacity: 1;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) .fd-arrow-legal1 {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) .fd-arrow-legal1 {
   opacity: 0.4;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) .fd-lead-inv {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) .fd-lead-inv {
   opacity: 0.3;
 }
-body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-active) :is(.fd-strip-static, .fd-strip-wait) {
+body.deck-sdlc-part2 #slide-5:has(.fd-verdict.step-current) :is(.fd-strip-static, .fd-strip-wait) {
   opacity: 0;
 }
 
