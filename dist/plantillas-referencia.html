@@ -19773,62 +19773,62 @@ body.deck-sdlc-part2.theme-dark #slide-9 .band-slate   { --ac:#cbd5e1; --edge:#a
    ========================================================================== */
 
 /* Todo el mapa en silueta tenue hasta que su paso se activa */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step {
+body.deck-sdlc-part2 #slide-9 .map-step {
   opacity: 0.2;
   filter: grayscale(0.9);
   transition: opacity 0.55s ease, filter 0.55s ease;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.step-active {
+body.deck-sdlc-part2 #slide-9 .map-step.step-active {
   opacity: 1;
   filter: none;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step:not(.step-active):hover {
+body.deck-sdlc-part2 #slide-9 .map-step:not(.step-active):hover {
   opacity: 0.4;
   filter: grayscale(0.5);
 }
 
 /* El pill del paso 8 se ve desde el principio como asequimiento */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step-reveal {
+body.deck-sdlc-part2 #slide-9 .map-step-reveal {
   opacity: 0.55;
   filter: none;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step-reveal.step-active {
+body.deck-sdlc-part2 #slide-9 .map-step-reveal.step-active {
   opacity: 1;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.step-current {
+body.deck-sdlc-part2 #slide-9 .map-step.step-current {
   filter: drop-shadow(0 0 10px var(--tintline));
 }
 
 /* Cajas: siempre visibles en silueta; al activar el paso, pop animado */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.step-active .pop {
+body.deck-sdlc-part2 #slide-9 .map-step.step-active .pop {
   animation: mapPopIn 0.55s var(--ease-spring) var(--d, 0s) both;
 }
 
 /* Flechas sólidas: al activar, se dibujan */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.step-active .map-flow {
+body.deck-sdlc-part2 #slide-9 .map-step.step-active .map-flow {
   animation: mapDraw 0.65s ease-out var(--d, 0s) both;
 }
 
 /* Flechas discontinuas: al activar, fade in */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.step-active .map-dash {
+body.deck-sdlc-part2 #slide-9 .map-step.step-active .map-dash {
   animation: mapFadeIn 0.5s ease var(--d, 0s) both;
 }
 
 /* Puntas de flecha: aparecen al final del trazado */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.step-active .map-head {
+body.deck-sdlc-part2 #slide-9 .map-step.step-active .map-head {
   animation: mapHeadIn 0.35s var(--ease-spring) var(--d, 0s) both;
 }
 
 /* Paso 8: barrido de luz + pulso de las bandas */
-body.deck-sdlc-part2:not(.mode-document) #slide-9:has(.step[data-step="9"].step-active) .map-sweep {
+body.deck-sdlc-part2 #slide-9:has(.step[data-step="9"].step-active) .map-sweep {
   animation: mapSweep 1.9s ease-in-out 0.15s both;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-9:has(.step[data-step="9"].step-active) .map-band-bg {
+body.deck-sdlc-part2 #slide-9:has(.step[data-step="9"].step-active) .map-band-bg {
   animation: bandGlowPulse 1.05s ease-in-out var(--pd, 0s) 2;
 }
 
@@ -22540,11 +22540,11 @@ body.deck-sdlc-part2.overview-mode #slide-5 .fd-chip {
    encendida de serie, como se ve en la estación 19; el resto del
    mapa en silueta hasta que el recorrido ilumina paso a paso.
    ================================================================ */
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky {
+body.deck-sdlc-part2 #slide-9 .map-step.band-sky {
   opacity: 1;
   filter: none;
 }
-body.deck-sdlc-part2:not(.mode-document) #slide-9 .map-step.band-sky:not(.step-active):hover {
+body.deck-sdlc-part2 #slide-9 .map-step.band-sky:not(.step-active):hover {
   opacity: 1;
   filter: none;
 }
