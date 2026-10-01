@@ -22436,6 +22436,201 @@ body.theme-dark .crash-hero-gif {
 
 
 
+/* ==========================================================================
+   SLIDE slide-domain-funnel — EL EMBUDO DEL DOMINIO
+   (Journeys → Barreras BR/INV → Entidades & Máquina de Estado → Respuesta)
+   Reutiliza el sistema flow-* de la slide journey (barra de perspectiva,
+   estaciones, wires animados). Los estados de vista son CSS puro: el JS solo
+   alterna la clase view-all / view-j1 / view-j2 / view-j3 en la <section>.
+   ========================================================================== */
+
+#slide-domain-funnel .flow-svg-viewport {
+  height: 545px;
+}
+
+#slide-domain-funnel .flow-svg-viewport svg {
+  max-height: 525px;
+}
+
+/* ---------- Base (view-all): todo visible con jerarquía tenue ---------- */
+#slide-domain-funnel .fn-wire {
+  opacity: 0.55;
+  transition: opacity 0.35s ease, stroke 0.35s ease, stroke-width 0.35s ease, filter 0.35s ease;
+}
+
+#slide-domain-funnel #fn-w-return {
+  opacity: 0.85;
+}
+
+#slide-domain-funnel .fn-vchip,
+#slide-domain-funnel .fn-outcome,
+#slide-domain-funnel .fn-trans {
+  opacity: 0.55;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+}
+
+#slide-domain-funnel .fn-jcard {
+  cursor: pointer;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+#slide-domain-funnel .fn-jcard:hover {
+  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.55));
+}
+
+/* ---------- VISTA J1: Reservar evento (verde) ---------- */
+#slide-domain-funnel.view-j1 .fn-wire {
+  opacity: 0.1;
+}
+
+#slide-domain-funnel.view-j1 .fn-j1-wire {
+  opacity: 1;
+  stroke: #059669;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 5px rgba(5, 150, 105, 0.5));
+}
+
+#slide-domain-funnel.view-j1 .fn-vchip {
+  opacity: 0.15;
+}
+
+#slide-domain-funnel.view-j1 #fn-vj1,
+#slide-domain-funnel.view-j1 #fn-vi1 {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(5, 150, 105, 0.65));
+}
+
+#slide-domain-funnel.view-j1 .fn-outcome {
+  opacity: 0.12;
+}
+
+#slide-domain-funnel.view-j1 #fn-out-j1 {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(5, 150, 105, 0.45));
+}
+
+#slide-domain-funnel.view-j1 .fn-jcard {
+  opacity: 0.3;
+  filter: grayscale(0.7);
+}
+
+#slide-domain-funnel.view-j1 #fn-jc-j1 {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(5, 150, 105, 0.55));
+}
+
+#slide-domain-funnel.view-j1 .fn-trans {
+  opacity: 0.15;
+}
+
+#slide-domain-funnel.view-j1 #fn-trans-legal-a {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(5, 150, 105, 0.7));
+}
+
+/* ---------- VISTA J2: Exceder cuota (ámbar, frena en BR) ---------- */
+#slide-domain-funnel.view-j2 .fn-wire {
+  opacity: 0.1;
+}
+
+#slide-domain-funnel.view-j2 .fn-j2-wire {
+  opacity: 1;
+  stroke: #d97706;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 5px rgba(217, 119, 6, 0.5));
+}
+
+#slide-domain-funnel.view-j2 .fn-vchip {
+  opacity: 0.15;
+}
+
+#slide-domain-funnel.view-j2 #fn-vj2 {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(217, 119, 6, 0.65));
+}
+
+#slide-domain-funnel.view-j2 .fn-outcome {
+  opacity: 0.12;
+}
+
+#slide-domain-funnel.view-j2 #fn-out-j2 {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(217, 119, 6, 0.45));
+}
+
+#slide-domain-funnel.view-j2 .fn-jcard {
+  opacity: 0.3;
+  filter: grayscale(0.7);
+}
+
+#slide-domain-funnel.view-j2 #fn-jc-j2 {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(217, 119, 6, 0.55));
+}
+
+#slide-domain-funnel.view-j2 .fn-trans {
+  opacity: 0.12;
+}
+
+/* ---------- VISTA J3: Transición ilegal (rojo, frena en INV) ---------- */
+#slide-domain-funnel.view-j3 .fn-wire {
+  opacity: 0.1;
+}
+
+#slide-domain-funnel.view-j3 .fn-j3-wire {
+  opacity: 1;
+  stroke: #dc2626;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 5px rgba(220, 38, 38, 0.5));
+}
+
+#slide-domain-funnel.view-j3 .fn-vchip {
+  opacity: 0.15;
+}
+
+#slide-domain-funnel.view-j3 #fn-vj3,
+#slide-domain-funnel.view-j3 #fn-vi3 {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(220, 38, 38, 0.6));
+}
+
+#slide-domain-funnel.view-j3 .fn-outcome {
+  opacity: 0.12;
+}
+
+#slide-domain-funnel.view-j3 #fn-out-j3 {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.45));
+}
+
+#slide-domain-funnel.view-j3 .fn-jcard {
+  opacity: 0.3;
+  filter: grayscale(0.7);
+}
+
+#slide-domain-funnel.view-j3 #fn-jc-j3 {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(220, 38, 38, 0.55));
+}
+
+#slide-domain-funnel.view-j3 .fn-trans {
+  opacity: 0.15;
+}
+
+#slide-domain-funnel.view-j3 #fn-trans-illegal {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(220, 38, 38, 0.7));
+}
+
+/* ---------- Tema oscuro ---------- */
+body.theme-dark #slide-domain-funnel #fn-return-label text {
+  fill: #c7d2fe;
+}
+
+body.theme-dark #slide-domain-funnel #fn-w-return {
+  stroke: #818cf8;
+}
+
 </style>
 </head>
 
@@ -23387,6 +23582,20 @@ function initDeck() {
     if (!crashImg || !crashImg.parentNode) return;
     const parent = crashImg.parentNode;
     const clone = crashImg.cloneNode(true);
+    const src = crashImg.getAttribute('src');
+    if (src) {
+      if (src.startsWith('data:')) {
+        clone.src = '';
+        parent.replaceChild(clone, crashImg);
+        requestAnimationFrame(() => {
+          clone.src = src;
+        });
+        return;
+      } else {
+        const cleanSrc = src.split('?')[0];
+        clone.src = cleanSrc + '?t=' + Date.now();
+      }
+    }
     parent.replaceChild(clone, crashImg);
   }
 

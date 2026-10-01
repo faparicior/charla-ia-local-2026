@@ -78,6 +78,20 @@ function initDeck() {
     if (!crashImg || !crashImg.parentNode) return;
     const parent = crashImg.parentNode;
     const clone = crashImg.cloneNode(true);
+    const src = crashImg.getAttribute('src');
+    if (src) {
+      if (src.startsWith('data:')) {
+        clone.src = '';
+        parent.replaceChild(clone, crashImg);
+        requestAnimationFrame(() => {
+          clone.src = src;
+        });
+        return;
+      } else {
+        const cleanSrc = src.split('?')[0];
+        clone.src = cleanSrc + '?t=' + Date.now();
+      }
+    }
     parent.replaceChild(clone, crashImg);
   }
 

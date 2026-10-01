@@ -41,7 +41,7 @@
         </p>
 
         <div class="crash-hero-stage" id="car-crash-box" title="Haz click para reiniciar la animación">
-          <img id="car-crash-img" src="script/img/car-crash-crash.gif" alt="Coche chocando - Accidentes de ruta superados" class="crash-hero-gif">
+          <img id="car-crash-img" src="script/img/car-crash-crash-meme.gif" alt="Coche chocando - Accidentes de ruta superados" class="crash-hero-gif">
         </div>
       </div>
     </section>
@@ -5501,6 +5501,288 @@
 
 
 
+    <!-- ====================================================================
+         SLIDE 40: SÍNTESIS E2E — EL EMBUDO DEL DOMINIO
+         (Journeys → Barreras BR/INV → Entidades & Máquina de Estado → Respuesta)
+         Interactiva: 3 vistas de Journey + estaciones explicables (click).
+         ==================================================================== -->
+    <section class="slide view-all" id="slide-domain-funnel">
+      <div class="slide-content" style="gap: 0.55rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-qa-debate" class="deck-back-btn">← Preguntas &amp; Debate</a>
+          <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">Síntesis E2E • Del Journey a la Respuesta</span>
+        </div>
+        <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
+          El Embudo del Dominio • Un usuario, tres Journeys, dos barreras, una sola tubería
+        </div>
+        <h2 style="margin-bottom: 0.05rem;">
+          Del Journey a la Respuesta: <span class="serif-italic" style="color: #6366f1;">El Embudo del Dominio</span>
+        </h2>
+        <p class="subtitle" style="margin-top: -0.3rem; margin-bottom: 0.15rem; font-size: 1.02rem;">
+          Cada flujo que el usuario dispara (sus <strong>Journeys</strong>) cruza las mismas dos barreras de validación —
+          <strong>Reglas de Negocio</strong> e <strong>Invariantes</strong> — antes de tocar las <strong>entidades</strong> y la
+          <strong>máquina de estado</strong>. Al final siempre hay una <strong>respuesta</strong> o una <strong>notificación</strong>.
+        </p>
+
+        <!-- Barra de exploración: Visión completa / 3 Journeys -->
+        <div class="flow-perspective-bar">
+          <div class="perspective-left">
+            <span class="perspective-label">Explora un Journey:</span>
+            <div class="perspective-pills">
+              <button type="button" class="perspective-btn active" id="fn-btn-all" onclick="setFunnelView('all')">
+                🌐 Visión Completa
+              </button>
+              <button type="button" class="perspective-btn" id="fn-btn-j1" onclick="setFunnelView('j1')">
+                ✅ Reservar evento
+              </button>
+              <button type="button" class="perspective-btn" id="fn-btn-j2" onclick="setFunnelView('j2')">
+                ⚠️ Exceder cuota
+              </button>
+              <button type="button" class="perspective-btn" id="fn-btn-j3" onclick="setFunnelView('j3')">
+                🛑 Transición ilegal
+              </button>
+            </div>
+          </div>
+          <div class="perspective-takeaway" id="fn-takeaway">
+            <span id="fn-takeaway-text">
+              🌐 <strong>Visión Compartida:</strong> TRES journeys distintos, UNA sola tubería. Todas las peticiones cruzan las mismas barreras — <strong>BR</strong> (Caso de Uso) e <strong>INV</strong> (Dominio). Ahí vive el negocio, no en la pantalla.
+            </span>
+          </div>
+        </div>
+
+        <!-- Lienzo SVG: el embudo completo -->
+        <div class="flow-svg-viewport">
+          <svg id="funnel-svg" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama interactivo: un usuario con tres Journeys cuyos flujos cruzan dos barreras de validación (Reglas de Negocio e Invariantes), llegan a las entidades y a la máquina de estado, y acaban en una respuesta o notificación.">
+            <defs>
+              <marker id="fn-arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8" />
+              </marker>
+              <marker id="fn-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#059669" />
+              </marker>
+              <marker id="fn-arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#d97706" />
+              </marker>
+              <marker id="fn-arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#dc2626" />
+              </marker>
+              <marker id="fn-arr-indigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#4f46e5" />
+              </marker>
+            </defs>
+
+            <!-- ================= CABLES (bajo las estaciones) ================= -->
+            <g class="fn-wires">
+              <!-- Usuario → Barrera BR (un cable por Journey) -->
+              <path id="fn-w-j1-a" class="flow-path-wire fn-wire fn-j1-wire" d="M 218,118 L 252,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j2-a" class="flow-path-wire fn-wire fn-j2-wire" d="M 218,178 L 252,178" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j3-a" class="flow-path-wire fn-wire fn-j3-wire" d="M 218,238 L 252,238" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+
+              <!-- BR → INV (solo los que pasan la barrera 1) -->
+              <path id="fn-w-j1-b" class="flow-path-wire fn-wire fn-j1-wire" d="M 453,118 L 487,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j3-b" class="flow-path-wire fn-wire fn-j3-wire" d="M 453,238 L 487,238" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+
+              <!-- INV → Entidades/Estado → Salidas (solo los que pasan las dos barreras) -->
+              <path id="fn-w-j1-c" class="flow-path-wire fn-wire fn-j1-wire" d="M 688,118 L 722,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j1-d" class="flow-path-wire fn-wire fn-j1-wire" d="M 943,118 L 977,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+
+              <!-- Salidas de rechazo / resultado hacia las tarjetas de outcome -->
+              <path id="fn-w-j2-out" class="flow-path-wire fn-wire fn-j2-wire" d="M 355,290 L 355,314" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#fn-arr-amber)" />
+              <path id="fn-w-j3-out" class="flow-path-wire fn-wire fn-j3-wire" d="M 590,290 L 590,314" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#fn-arr-red)" />
+              <path id="fn-w-j1-out" class="flow-path-wire fn-wire fn-j1-wire" d="M 1080,290 L 1080,314" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
+
+              <!-- Cierre del ciclo: de la salida de vuelta al usuario -->
+              <path id="fn-w-return" class="flow-path-wire" d="M 1075,376 L 1075,394 Q 1075,404 1063,404 L 132,404 Q 120,404 120,392 L 120,294" fill="none" stroke="#4f46e5" stroke-width="2.5" opacity="0.85" marker-end="url(#fn-arr-indigo)" />
+            </g>
+
+            <g id="fn-return-label">
+              <rect x="320" y="392" width="560" height="24" rx="12" fill="var(--bg-surface)" stroke="#4f46e5" stroke-width="1.5" />
+              <text x="600" y="408" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="800" letter-spacing="0.03em">↩ CIERRE DEL CICLO: respuesta o notificación SIEMPRE llegan al usuario</text>
+            </g>
+
+            <!-- ================= OUTCOMES POR JOURNEY (y 318..376) ================= -->
+            <g class="fn-outcome" id="fn-out-j1">
+              <rect x="983" y="318" width="195" height="58" rx="12" fill="rgba(5, 150, 105, 0.08)" stroke="#059669" stroke-width="1.5" />
+              <text x="995" y="336" font-size="11" font-weight="800" fill="#047857">✅ 201 CREATED</text>
+              <text x="995" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">📬 Email de confirmación</text>
+              <text x="995" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">💻 UI actualizada al instante</text>
+            </g>
+            <g class="fn-outcome" id="fn-out-j2">
+              <rect x="258" y="318" width="195" height="58" rx="12" fill="rgba(217, 119, 6, 0.08)" stroke="#d97706" stroke-width="1.5" />
+              <text x="270" y="336" font-size="11" font-weight="800" fill="#b45309">⚠️ AVISO ELEGANTE · 402</text>
+              <text x="270" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">“Has superado tu cuota Free”</text>
+              <text x="270" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">→ modal upgrade. El dominio ni se entera.</text>
+            </g>
+            <g class="fn-outcome" id="fn-out-j3">
+              <rect x="493" y="318" width="195" height="58" rx="12" fill="rgba(220, 38, 38, 0.07)" stroke="#dc2626" stroke-width="1.5" />
+              <text x="505" y="336" font-size="11" font-weight="800" fill="#b91c1c">🛑 409 CONFLICT</text>
+              <text x="505" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">“El evento ya está cerrado”</text>
+              <text x="505" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">→ estado intacto. Cero tolerancia.</text>
+            </g>
+
+            <!-- ================= ESTACIÓN 1: USUARIO & JOURNEYS ================= -->
+            <g class="flow-station station-node" id="fn-st-user">
+              <rect class="outer-box" x="18" y="28" width="200" height="262" rx="16" fill="var(--bg-surface)" stroke="#6366f1" stroke-width="3" />
+              <rect x="18" y="28" width="200" height="50" rx="16" fill="rgba(99, 102, 241, 0.12)" />
+              <text x="34" y="62" font-size="20">👤</text>
+              <text x="62" y="54" font-size="14" font-weight="800" fill="#4338ca" class="svg-node-title">USUARIO</text>
+              <text x="62" y="70" font-size="10.5" font-weight="600" fill="var(--text-muted)">Sus Journeys (Inception)</text>
+
+              <!-- Tarjetas de Journey (clicables: equivalen a los pills superiores) -->
+              <g class="fn-jcard" id="fn-jc-j1" data-journey="j1">
+                <rect x="32" y="92" width="172" height="50" rx="10" fill="rgba(5, 150, 105, 0.08)" stroke="#059669" stroke-width="1.5" />
+                <text x="42" y="113" font-size="11.5" font-weight="700" fill="#047857">✅ “Reservar el evento”</text>
+                <text x="42" y="130" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 1 · happy path</text>
+              </g>
+              <g class="fn-jcard" id="fn-jc-j2" data-journey="j2">
+                <rect x="32" y="152" width="172" height="50" rx="10" fill="rgba(217, 119, 6, 0.08)" stroke="#d97706" stroke-width="1.5" />
+                <text x="42" y="173" font-size="11.5" font-weight="700" fill="#b45309">⚠️ “Exceder mi cuota”</text>
+                <text x="42" y="190" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 2 · límite de plan</text>
+              </g>
+              <g class="fn-jcard" id="fn-jc-j3" data-journey="j3">
+                <rect x="32" y="212" width="172" height="50" rx="10" fill="rgba(220, 38, 38, 0.07)" stroke="#dc2626" stroke-width="1.5" />
+                <text x="42" y="233" font-size="11.5" font-weight="700" fill="#b91c1c">🛑 “Reactivar lo cerrado”</text>
+                <text x="42" y="250" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 3 · estado imposible</text>
+              </g>
+
+              <text x="34" y="282" font-size="9.5" font-style="italic" fill="var(--text-muted)">Cada Journey dispara UN flujo E2E</text>
+            </g>
+
+            <!-- ================= ESTACIÓN 2: BARRERA BR ================= -->
+            <g class="flow-station station-node" id="fn-st-br">
+              <rect class="outer-box" x="258" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#d97706" stroke-width="2.5" />
+              <rect x="258" y="28" width="195" height="50" rx="16" fill="rgba(217, 119, 6, 0.14)" />
+              <text x="274" y="62" font-size="20">⭐</text>
+              <text x="302" y="54" font-size="13.5" font-weight="800" fill="#92400e" class="svg-node-title">BARRERA 1 · BR</text>
+              <text x="302" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Reglas de Negocio</text>
+
+              <rect x="272" y="88" width="167" height="24" rx="7" fill="#d97706" />
+              <text x="355" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">CASO DE USO · APLICACIÓN</text>
+
+              <g transform="translate(274, 132)">
+                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Permiso de rol?</text>
+                <text x="0" y="18" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Cuota del plan?</text>
+                <text x="0" y="36" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Política del evento?</text>
+              </g>
+
+              <line x1="274" y1="184" x2="437" y2="184" stroke="rgba(0,0,0,0.08)" />
+              <text x="274" y="204" font-size="9.5" font-weight="800" fill="#b45309">⚖️ VEREDICTO POR JOURNEY:</text>
+
+              <g class="fn-vchip" id="fn-vj1">
+                <rect x="272" y="212" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
+                <text x="355" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reservar → pasa</text>
+              </g>
+              <g class="fn-vchip" id="fn-vj2">
+                <rect x="272" y="234" width="167" height="18" rx="9" fill="rgba(217, 119, 6, 0.12)" stroke="#d97706" stroke-width="1" />
+                <text x="355" y="247" text-anchor="middle" font-size="9" font-weight="700" fill="#b45309">⚠️ Cuota → 402 aquí</text>
+              </g>
+              <g class="fn-vchip" id="fn-vj3">
+                <rect x="272" y="256" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
+                <text x="355" y="269" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reactivar → pasa</text>
+              </g>
+            </g>
+
+            <!-- ================= ESTACIÓN 3: BARRERA INV ================= -->
+            <g class="flow-station station-node" id="fn-st-inv">
+              <rect class="outer-box" x="493" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#7c3aed" stroke-width="2.5" />
+              <rect x="493" y="28" width="195" height="50" rx="16" fill="rgba(124, 58, 237, 0.14)" />
+              <text x="509" y="62" font-size="20">🛡️</text>
+              <text x="537" y="54" font-size="13.5" font-weight="800" fill="#6d28d9" class="svg-node-title">BARRERA 2 · INV</text>
+              <text x="537" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Invariantes · Dominio</text>
+
+              <rect x="507" y="88" width="167" height="24" rx="7" fill="#7c3aed" />
+              <text x="590" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">NÚCLEO DEL SOFTWARE</text>
+
+              <g transform="translate(509, 132)">
+                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Transición legal?</text>
+                <text x="0" y="18" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Estado íntegro?</text>
+                <text x="0" y="36" font-size="11" font-weight="600" fill="#dc2626">• Cero tolerancia</text>
+              </g>
+
+              <line x1="509" y1="184" x2="672" y2="184" stroke="rgba(0,0,0,0.08)" />
+              <text x="509" y="204" font-size="9.5" font-weight="800" fill="#6d28d9">⚖️ VEREDICTO POR JOURNEY:</text>
+
+              <g class="fn-vchip" id="fn-vi1">
+                <rect x="507" y="212" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
+                <text x="590" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reservar → pasa</text>
+              </g>
+              <g class="fn-vchip" id="fn-vi2">
+                <rect x="507" y="234" width="167" height="18" rx="9" fill="rgba(100, 116, 139, 0.12)" stroke="#94a3b8" stroke-width="1" />
+                <text x="590" y="247" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">— la cuota frenó antes</text>
+              </g>
+              <g class="fn-vchip" id="fn-vi3">
+                <rect x="507" y="256" width="167" height="18" rx="9" fill="rgba(220, 38, 38, 0.10)" stroke="#dc2626" stroke-width="1" />
+                <text x="590" y="269" text-anchor="middle" font-size="9" font-weight="700" fill="#b91c1c">🛑 Reactivar → 409 aquí</text>
+              </g>
+            </g>
+
+            <!-- ================= ESTACIÓN 4: ENTIDADES & MÁQUINA DE ESTADO ================= -->
+            <g class="flow-station station-node" id="fn-st-estado">
+              <rect class="outer-box" x="728" y="28" width="215" height="262" rx="16" fill="var(--bg-surface)" stroke="#059669" stroke-width="2.5" />
+              <rect x="728" y="28" width="215" height="50" rx="16" fill="rgba(5, 150, 105, 0.14)" />
+              <text x="744" y="62" font-size="20">📦</text>
+              <text x="772" y="54" font-size="13" font-weight="800" fill="#047857" class="svg-node-title">ENTIDADES &amp; MÁQUINA</text>
+              <text x="772" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Reserva · Aggregate</text>
+
+              <rect x="742" y="88" width="187" height="24" rx="7" fill="#059669" />
+              <text x="835" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">⚙️ MÁQUINA DE ESTADO</text>
+
+              <!-- Estados -->
+              <g class="fn-state-pill" id="fn-state-borrador">
+                <rect x="756" y="118" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
+                <text x="811" y="135" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">borrador</text>
+              </g>
+              <g class="fn-state-pill" id="fn-state-activa">
+                <rect x="756" y="176" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
+                <text x="811" y="193" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">activa</text>
+              </g>
+              <g class="fn-state-pill" id="fn-state-cerrada">
+                <rect x="756" y="234" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
+                <text x="811" y="251" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">cerrada</text>
+              </g>
+
+              <!-- Transiciones legales -->
+              <path id="fn-trans-legal-a" class="fn-trans" d="M 811,144 L 811,170" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
+              <text x="826" y="162" font-size="9.5" font-weight="700" fill="#059669">reservar()</text>
+              <path id="fn-trans-legal-b" class="fn-trans" d="M 811,202 L 811,228" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
+              <text x="826" y="220" font-size="9.5" font-weight="700" fill="#059669">cerrar()</text>
+
+              <!-- Transición ilegal: cerrada → activa (reaservar) -->
+              <path id="fn-trans-illegal" class="fn-trans" d="M 866,247 Q 908,219 870,191" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#fn-arr-red)" />
+              <text x="878" y="205" font-size="9.5" font-weight="700" fill="#dc2626">reaservar()</text>
+              <circle cx="902" cy="219" r="9" fill="#dc2626" />
+              <text x="902" y="223" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">✗</text>
+
+              <text x="742" y="282" font-size="9.5" font-style="italic" fill="var(--text-muted)">Solo transiciones legales cambian el estado</text>
+            </g>
+
+            <!-- ================= ESTACIÓN 5: RESPUESTA & NOTIFICACIONES ================= -->
+            <g class="flow-station station-node" id="fn-st-sal">
+              <rect class="outer-box" x="983" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="2.5" />
+              <rect x="983" y="28" width="195" height="50" rx="16" fill="rgba(2, 132, 199, 0.12)" />
+              <text x="999" y="62" font-size="20">💬</text>
+              <text x="1027" y="54" font-size="13" font-weight="800" fill="#0369a1" class="svg-node-title">RESPUESTA &amp; AVISOS</text>
+              <text x="1027" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Salida del sistema</text>
+
+              <rect x="997" y="88" width="167" height="24" rx="7" fill="#0284c7" />
+              <text x="1080" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">📬 LO QUE RECIBE EL USUARIO</text>
+
+              <g transform="translate(999, 136)">
+                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• 201 Created / 4xx elegante</text>
+                <text x="0" y="20" font-size="11" font-weight="600" fill="var(--text-main)">• 📬 Email &amp; webhook</text>
+                <text x="0" y="40" font-size="11" font-weight="600" fill="var(--text-main)">• 💻 UI sincronizada</text>
+              </g>
+
+              <line x1="999" y1="196" x2="1162" y2="196" stroke="rgba(0,0,0,0.08)" />
+              <text x="999" y="220" font-size="11" font-weight="700" fill="#0369a1">Éxito o aviso:</text>
+              <text x="999" y="238" font-size="11.5" font-weight="800" fill="#0369a1">SIEMPRE hay respuesta.</text>
+              <text x="999" y="258" font-size="9.5" font-style="italic" fill="var(--text-muted)">Nada se queda en silencio.</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
 </main>
 
   <!-- ====================================================================
@@ -5884,6 +6166,74 @@
       });
     })();
 </script>
+
+  <script>
+    // =========================================================================
+    // SLIDE 40 (slide-domain-funnel): EL EMBUDO DEL DOMINIO
+    // Vistas por Journey: 'all' | 'j1' (reservar) | 'j2' (cuota) | 'j3' (ilegal)
+    // El JS alterna la clase view-* en la <section> y los pills; el CSS puro
+    // enciende/apaga wires, veredictos, transiciones y outcomes.
+    // =========================================================================
+    window.setFunnelView = function (mode) {
+      const slide = document.getElementById("slide-domain-funnel");
+      if (!slide) return;
+      slide.classList.remove("view-all", "view-j1", "view-j2", "view-j3");
+      slide.classList.add("view-" + mode);
+
+      ["all", "j1", "j2", "j3"].forEach((m) => {
+        const btn = document.getElementById("fn-btn-" + m);
+        if (btn) btn.classList.toggle("active", m === mode);
+      });
+
+      const takeaway = document.getElementById("fn-takeaway-text");
+      const MSG = {
+        all: "🌐 <strong>Visión Compartida:</strong> TRES journeys distintos, UNA sola tubería. Todas las peticiones cruzan las mismas barreras — <strong>BR</strong> (Caso de Uso) e <strong>INV</strong> (Dominio). Ahí vive el negocio, no en la pantalla.",
+        j1: "✅ <strong>Reservar evento:</strong> BR valida permisos y cuota, la INV autoriza la transición <code>borrador → activa</code>, la entidad persiste y el usuario recibe <strong>201 Created</strong> + email de confirmación. Ciclo cerrado.",
+        j2: "⚠️ <strong>Cuota superada:</strong> la barrera BR para el flujo <strong>antes</strong> de tocar el dominio. Aviso elegante (402 → modal upgrade): el sistema no se ensucia y el usuario sabe qué hacer.",
+        j3: "🛑 <strong>Transición ilegal:</strong> BR pasa, pero la INV frena en seco (cerrar lo ya cerrado): <strong>409 Conflict</strong>. El estado queda intacto — cero tolerancia, coherencia sagrada."
+      };
+      if (takeaway) takeaway.innerHTML = MSG[mode] || MSG.all;
+
+      // Estaciones activas por vista; el resto se atenúan
+      const activas = {
+        all: null,
+        j1: ["fn-st-user", "fn-st-br", "fn-st-inv", "fn-st-estado", "fn-st-sal"],
+        j2: ["fn-st-user", "fn-st-br"],
+        j3: ["fn-st-user", "fn-st-br", "fn-st-inv", "fn-st-estado"]
+      }[mode];
+
+      slide.querySelectorAll(".flow-station").forEach((st) => {
+        st.classList.toggle("flow-dimmed", !!activas && !activas.includes(st.id));
+      });
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Tarjetas de Journey dentro del SVG → equivalen a los pills superiores
+      document.querySelectorAll("#slide-domain-funnel .fn-jcard").forEach((card) => {
+        card.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const j = card.getAttribute("data-journey");
+          if (j) setFunnelView(j);
+        });
+      });
+
+      // Click en estaciones → explicación de su rol en el takeaway
+      const ROLES = {
+        "fn-st-user": "👤 <strong>Usuario &amp; Journeys:</strong> Tres necesidades reales declaradas en Inception. Cada Journey es un flujo E2E: mismo origen, misma tubería.",
+        "fn-st-br": "⭐ <strong>Barrera 1 — Reglas de Negocio (Caso de Uso):</strong> Permisos, cuotas y políticas. Si algo falla aquí, avisa con elegancia: el dominio ni se entera.",
+        "fn-st-inv": "🛡️ <strong>Barrera 2 — Invariantes (Dominio):</strong> Cero tolerancia. Solo dejan pasar transiciones legales; protegen la coherencia del modelo.",
+        "fn-st-estado": "📦 <strong>Entidades &amp; Máquina de Estado:</strong> La entidad Reserva solo cambia por transiciones legales (borrador → activa → cerrada). El estado nunca se corrompe.",
+        "fn-st-sal": "💬 <strong>Respuesta &amp; Notificaciones:</strong> Salida del sistema: 201/4xx al cliente, email/webhook y UI sincronizada. Éxito o aviso: siempre hay respuesta."
+      };
+      document.querySelectorAll("#slide-domain-funnel .flow-station").forEach((st) => {
+        st.addEventListener("click", () => {
+          const t = document.getElementById("fn-takeaway-text");
+          if (t && ROLES[st.id]) t.innerHTML = ROLES[st.id];
+        });
+      });
+    });
+  </script>
+
 </body>
 
 </html>
