@@ -12,7 +12,7 @@
 
 ---
 
-# PARTE 2 — El Ciclo de Desarrollo con IA (43 slides · TEMPORAL: comparación embudo interactivo 4 vs esquemático 5 — elegir una y re-renumerar)
+# PARTE 2 — El Ciclo de Desarrollo con IA (43 slides · Charla usa la 5 esquemática; la 4 interactiva queda solo en Documento)
 
 El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo convierten en software; la gobernanza impide que la IA lo destruya»*.
 
@@ -25,8 +25,8 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 | 1 | **El Embudo del SDLC: Del Caos a la Certeza** | Hook: variabilidad de la IA → reducirla con proceso. |
 | 2 | **Paradigma Cloud** | API token, fuerza bruta: potencia a cambio de control y coste. |
 | 3 | **Paradigma Local** | Tracción, control, coste cero. |
-| **4** | **El Embudo del Dominio** 🖱️ | Síntesis E2E interactiva: usuario + 3 Journeys → barreras BR/INV → entidades & máquina de estado → respuesta/notificación. Pills de visión (completa/reservar/cuota/ilegal). |
-| **5** | **El Embudo del Dominio — Versión Esquemática** ⚖️ | **COMPARACIÓN PENDIENTE con la 4**: mismo contenido, lenguaje de la 28 de la Parte 1 — corredor único, 4 pasos que evolucionan (reserva ✅ → cuota ⚠️ → ilegal 🛑 → veredicto 🏁), sin JS propio. Ensayar las dos y elegir; al quitar la sobrante, re-renumerar. |
+| **4** | **El Embudo del Dominio** 🖱️ | **SOLO DOCUMENTO** (doc-only). Síntesis E2E interactiva: usuario + 3 Journeys → barreras BR/INV → entidades & máquina de estado → respuesta/notificación. Pills de visión (completa/reservar/cuota/ilegal). |
+| **5** | **El Embudo del Dominio — Versión Esquemática** 🖱️ | **LA SÍNTESIS DE CHARLA**: corredor único, 4 pasos que evolucionan **cuota ⚠️ (frena BR) → ilegal 🛑 (frena INV) → reserva ✅ (lo consigue) → veredicto 🏁** — se va parando hasta que consigue su objetivo. Sin JS propio. |
 | **6** | **El Viaje de una Petición E2E** 🖱️ | INTRO del destino: Usuario → Controlador → Caso de Uso (BR) → Dominio (INV) → Persistencia. *Filtro de audiencia*: 👔 negocio / 🛠️ técnica / 🌐 compartida. *"El código sirve al negocio; aquí colaboran las dos visiones."* |
 | 7 | **Los Tres Pilares** | Marco: proceso + gobernanza + ergonomía (AX). |
 | 8 | **Pipeline: 5 Fases Disciplinadas** | El esqueleto: Inception → Especificación → Dominio → Construcción → Evolución. |
@@ -154,17 +154,18 @@ Criterio: lo que es **anatomía interna, investigación de frontera o caso hist�
 
 **Se quedan en la charla sí o sí:** 14 (El Equilibrista), 18 (DeltaNet), 23-28 (densos/MoE, viaje del token, timeline), 35 (Cuatro Vías), 36-39 (ricitos, escogiendo, Qwen 3.8 Flash Next), 41-45 (decisión, aparato, drama GB10, hackers, dupla final). La 8 (GPUs de terceros) también se queda.
 
-### Parte 2 — candidatas a ocultar (PENDIENTE de decidir)
+### Parte 2 — ocultas en Modo Charla (aplicado) y candidatas
 
 | Pos | Slide | Por qué |
 |-----|-------|---------|
 | 28-29 | Plantillas BR e INV | Anatomía; la 26 ya fija el concepto BR vs INV |
+| **4** | El Embudo del Dominio (interactivo) | OCULTA en Charla: la síntesis se cuenta con la 5 esquemática; la 4 queda para la lectura en Documento |
 | 39 | El Ciclo Canónico del SDLC | Repite el ciclo de las 7-9; puente directo 35→37 |
 | 40 | Producto en Acción (Decision Tree) | Cima del refrito: re-enruta lo que el mapa (9) ya enseña; hoy se atraviesa rápido verbalmente |
 
 **Candidata:** 21 (Flowchart de decisiones) si el tiempo aprieta.
 
-**Se quedan:** síntesis Embudo (4), intro E2E (6 —   el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/23/25/30/36/38 — visibles también en Modo Documento), franja G/B (18), 24-27, TDD (37), quote (42).
+**Se quedan:** síntesis Embudo (**5** esquemática — la 4 interactiva queda oculta, solo Documento), intro E2E (6 — el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/23/25/30/36/38 — visibles también en Modo Documento), franja G/B (18), 24-27, TDD (37), quote (42).
 
 ### Mecanismo aplicado
 
@@ -175,6 +176,8 @@ Clase `doc-only` en la `<section>` (reutiliza el CSS existente de Modo Charla/Do
 # Estado técnico actual
 
 - **Parte 1: 45 slides (contador 45)**, IDs renumerados para coincidir con el contador (era `slide-27b`, ahora `slide-35`) — caso DeepSeek al final del bloque de aceleración (33-34) y **slide 35 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica"). **14 slides ocultas en Modo Charla** (clase `doc-only` en la sección; la charla recorre 31), visibles en Documento y en el PDF exportado en Documento.
-- **Parte 2: 42 slides (TEMPORAL: comparación embudo interactivo 4 vs esquemático 5), IDs renumerados slide-0..slide-43 == contador (mismo criterio que Parte 1); CSS de componentes prefijado por deck (`body.deck-hardware-part1` / `body.deck-sdlc-part2`) para aislar los estilos entre decks** — 6 **checkpoints del mapa** (19 · 23 · 25 · 30 · **36 Fase 4** · **38 Fase 5+**: TDD encendida + Cambio Guiado brillando): banda ADR ya encendida + Construcción TDD brillando; **23 Fase 2b**: Specs encendida + Features brillando en fucsia): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; ocultos en Documento. El Viaje E2E **tras la síntesis (6)**: el puente negocio ↔ técnica tras los paradigmas; el cierre verbal recupera la imagen ("ahora la leéis entera"). CK4 (36) + TDD (37) van ANTES del Ciclo Canónico (39) y Producto (40); luego Conexión (41), Quote (42), Q&A (43). Cliente local eliminado.
-- **Slide 4 — síntesis E2E interactiva "El Embudo del Dominio"** (`slide-domain-funnel`, hoy `slide-4`; nació al final tras Q&A y se reubicó entre el paradigma local y el viaje E2E, como mapa de llegada del bloque de apertura) + **su hermana en la 5** — "Versión Esquemática" (`slide-embudo-esquema` → `slide-5`): mismo contenido con el lenguaje de la 28 de la Parte 1 (corredor único, chip viajero por CSS Motion Path, 4 pasos: reserva ✅ → cuota ⚠️ → ilegal 🛑 → veredicto 🏁; sin JS propio, pura coreografía CSS sobre el motor `.step`). ⚖️ **COMPARACIÓN PENDIENTE**: elegir 4 o 5 en el ensayo, borrar la sobrante y re-renumerar: SVG interactivo con el sistema flow-* de la slide journey — 1 usuario con 3 Journeys cuyos flujos cruzan las 2 barreras de validación (**BR** en Caso de Uso, **INV** en Dominio), llegan a **entidades & máquina de estado** (borrador→activa→cerrada + transición ilegal reaservar()✗) y acaban en **respuesta o notificación** (201+email/UI · 402 aviso elegante · 409 estado intacto). Pills de vista (all/j1/j2/j3) + estaciones clicables con takeaway; estados de vista en CSS puro (clase `view-*` en la sección), cables animados reutilizando `.flow-path-wire`.
+- **Parte 2: 43 slides (Charla = la 5 esquemática; la 4 interactiva solo en Documento), IDs renumerados slide-0..slide-43 == contador (mismo criterio que Parte 1); CSS de componentes prefijado por deck (`body.deck-hardware-part1` / `body.deck-sdlc-part2`) para aislar los estilos entre decks** — 6 **checkpoints del mapa** (19 · 23 · 25 · 30 · **36 Fase 4** · **38 Fase 5+**: TDD encendida + Cambio Guiado brillando): banda ADR ya encendida + Construcción TDD brillando; **23 Fase 2b**: Specs encendida + Features brillando en fucsia): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; visibles también en Documento. El Viaje E2E **tras la síntesis (6)**: el puente negocio ↔ técnica tras los paradigmas; el cierre verbal recupera la imagen ("ahora la leéis entera"). CK4 (36) + TDD (37) van ANTES del Ciclo Canónico (39) y Producto (40); luego Conexión (41), Quote (42), Q&A (43). Cliente local eliminado.
+- **Slides 4 y 5 — la síntesis E2E "El Embudo del Dominio"** (DECIDIDO: **la 5 es la de Charla**; la 4 queda solo en Documento):
+  - **La 5 — "Versión Esquemática"**: corredor único con el lenguaje de la 27 de la Parte 1 (el Viaje del Token) — chip viajero por CSS Motion Path, **4 pasos que evolucionan: cuota ⚠️ (frena BR) → ilegal 🛑 (frena INV) → reserva ✅ (lo consigue: 201 + 📬 + 💻) → veredicto 🏁** — se va parando hasta que consigue su objetivo; dos barreras simbólicas (⭐ BR / 🛡️ INV), trio FSM, avisos elegantes 402/409; **sin JS propio** (pura coreografía CSS sobre el motor `.step`; pasos excluyentes; el veredicto restaura el escenario).
+  - **La 4 — la interactiva** (`slide-domain-funnel`; nació al final tras Q&A y se reubicó tras el paradigma local): SVG con el sistema flow-* de la slide journey — 1 usuario con 3 Journeys cuyos flujos cruzan las 2 barreras de validación (**BR** en Caso de Uso, **INV** en Dominio), llegan a **entidades & máquina de estado** (borrador→activa→cerrada + transición ilegal reaservar()✗) y acaban en **respuesta o notificación** (201+email/UI · 402 aviso elegante · 409 estado intacto). Pills de vista (all/j1/j2/j3) + estaciones clicables con takeaway; `doc-only` desde hoy.
 - Coherencia: back-bars encadenados slide a slide en ambos decks; banners `SLIDE N` renumerados a posición real.

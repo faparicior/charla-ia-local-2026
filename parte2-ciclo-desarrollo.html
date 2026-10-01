@@ -157,7 +157,7 @@
          (Journeys → Barreras BR/INV → Entidades & Máquina de Estado → Respuesta)
          Interactiva: 3 vistas de Journey + estaciones explicables (click).
          ==================================================================== -->
-    <section class="slide view-all" id="slide-4">
+    <section class="slide view-all doc-only" id="slide-4">
       <div class="slide-content" style="gap: 0.55rem;">
         <div class="deck-back-bar">
           <a href="#slide-3" class="deck-back-btn">← Paradigma Local</a>
@@ -510,36 +510,10 @@
 
               <!-- Franja de estado -->
               <rect class="fd-strip fd-strip-static" x="16" y="506" width="1368" height="86" rx="16" />
-              <text class="fd-strip-wait" x="700" y="556" text-anchor="middle">ESTADO: EN ESPERA — PULSA SIGUIENTE ▶ (4 PASOS: RESERVA ✅ → CUOTA ⚠️ → ILEGAL 🛑 → VEREDICTO 🏁)</text>
+              <text class="fd-strip-wait" x="700" y="556" text-anchor="middle">ESTADO: EN ESPERA — PULSA SIGUIENTE ▶ (4 PASOS: CUOTA ⚠️ → ILEGAL 🛑 → RESERVA ✅ → VEREDICTO 🏁)</text>
 
-              <!-- ============ PASO 1: RESERVA FELIZ ✅ ============ -->
-              <g class="fd-j1 step" data-step="1">
-                <g class="fd-chip fd-chip1">
-                  <rect class="fd-chip-box fd-chip-box-emerald" x="-20" y="-20" width="40" height="40" rx="10" />
-                  <text class="fd-chip-emoji" x="0" y="7" text-anchor="middle">✅</text>
-                </g>
-                <g class="fd-mark fd-ok-br">
-                  <circle class="fd-mark-circle fd-mark-ok" cx="416" cy="250" r="16" />
-                  <text class="fd-mark-t" x="416" y="256" text-anchor="middle">✓</text>
-                </g>
-                <g class="fd-mark fd-ok-inv">
-                  <circle class="fd-mark-circle fd-mark-ok" cx="708" cy="250" r="16" />
-                  <text class="fd-mark-t" x="708" y="256" text-anchor="middle">✓</text>
-                </g>
-                <line class="fd-arrow-lit fd-arrow-lit1" x1="1061" y1="180" x2="1061" y2="216" />
-                <g class="fd-activa-lit">
-                  <rect class="fd-activa-lit-box" x="956" y="224" width="210" height="52" rx="26" />
-                  <text class="fd-activa-lit-t" x="1061" y="257" text-anchor="middle">activa</text>
-                </g>
-                <g class="fd-out-lit fd-out-lit1">
-                  <rect class="fd-out-lit-box fd-out-lit-emerald" x="1248" y="210" width="148" height="80" rx="14" />
-                  <text class="fd-out-lit-main" x="1322" y="242" text-anchor="middle">✅ 201</text>
-                  <text class="fd-out-lit-sub" x="1322" y="272" text-anchor="middle">📬 + 💻</text>
-                </g>
-              </g>
-
-              <!-- ============ PASO 2: CUOTA EXCEDIDA ⚠️ ============ -->
-              <g class="fd-j2 step" data-step="2">
+              <!-- ============ PASO 1: CUOTA EXCEDIDA ⚠️ ============ -->
+              <g class="fd-j2 step" data-step="1">
                 <g class="fd-chip fd-chip2">
                   <rect class="fd-chip-box fd-chip-box-amber" x="-20" y="-20" width="40" height="40" rx="10" />
                   <text class="fd-chip-emoji" x="0" y="7" text-anchor="middle">⚠️</text>
@@ -556,8 +530,8 @@
                 </g>
               </g>
 
-              <!-- ============ PASO 3: TRANSICIÓN ILEGAL 🛑 ============ -->
-              <g class="fd-j3 step" data-step="3">
+                <!-- ============ PASO 2: TRANSICIÓN ILEGAL 🛑 ============ -->
+              <g class="fd-j3 step" data-step="2">
                 <g class="fd-chip fd-chip3">
                   <rect class="fd-chip-box fd-chip-box-red" x="-20" y="-20" width="40" height="40" rx="10" />
                   <text class="fd-chip-emoji" x="0" y="7" text-anchor="middle">🛑</text>
@@ -582,7 +556,33 @@
                 </g>
               </g>
 
-              <!-- ============ PASO 4: VEREDICTO 🏁 ============ -->
+                <!-- ============ PASO 3: RESERVA FELIZ ✅ ============ -->
+              <g class="fd-j1 step" data-step="3">
+                <g class="fd-chip fd-chip1">
+                  <rect class="fd-chip-box fd-chip-box-emerald" x="-20" y="-20" width="40" height="40" rx="10" />
+                  <text class="fd-chip-emoji" x="0" y="7" text-anchor="middle">✅</text>
+                </g>
+                <g class="fd-mark fd-ok-br">
+                  <circle class="fd-mark-circle fd-mark-ok" cx="416" cy="250" r="16" />
+                  <text class="fd-mark-t" x="416" y="256" text-anchor="middle">✓</text>
+                </g>
+                <g class="fd-mark fd-ok-inv">
+                  <circle class="fd-mark-circle fd-mark-ok" cx="708" cy="250" r="16" />
+                  <text class="fd-mark-t" x="708" y="256" text-anchor="middle">✓</text>
+                </g>
+                <line class="fd-arrow-lit fd-arrow-lit1" x1="1061" y1="180" x2="1061" y2="216" />
+                <g class="fd-activa-lit">
+                  <rect class="fd-activa-lit-box" x="956" y="224" width="210" height="52" rx="26" />
+                  <text class="fd-activa-lit-t" x="1061" y="257" text-anchor="middle">activa</text>
+                </g>
+                <g class="fd-out-lit fd-out-lit1">
+                  <rect class="fd-out-lit-box fd-out-lit-emerald" x="1248" y="210" width="148" height="80" rx="14" />
+                  <text class="fd-out-lit-main" x="1322" y="242" text-anchor="middle">✅ 201</text>
+                  <text class="fd-out-lit-sub" x="1322" y="272" text-anchor="middle">📬 + 💻</text>
+                </g>
+              </g>
+
+                <!-- ============ PASO 4: VEREDICTO 🏁 ============ -->
               <g class="fd-verdict step" data-step="4">
                 <rect class="fd-strip-lit" x="16" y="506" width="1368" height="86" rx="16" />
                 <text class="fd-verdict-main" x="44" y="546">🏁 3 JOURNEYS · 1 TUBERÍA: BR FILTRA, INV BLINDA</text>
@@ -591,6 +591,7 @@
                 <text class="fd-verdict-r2" x="1372" y="560" text-anchor="end">⚠️/🛑 aviso = 402/409, sin romper nada</text>
                 <text class="fd-verdict-r3" x="1372" y="586" text-anchor="end">siempre hay respuesta</text>
               </g>
+
             </svg>
           </div>
           <div class="hospital-caption-bar">
