@@ -41,7 +41,7 @@
         </p>
 
         <div class="crash-hero-stage" id="car-crash-box" title="Haz click para reiniciar la animación">
-          <img id="car-crash-img" src="script/img/car-crash-crash-meme.gif" alt="Coche chocando - Accidentes de ruta superados" class="crash-hero-gif">
+          <img id="car-crash-img" src="script/img/car-crash-crash-meme-2.gif" alt="Coche chocando - Accidentes de ruta superados" class="crash-hero-gif">
         </div>
       </div>
     </section>
@@ -104,7 +104,7 @@
 <!-- ====================================================================
          SLIDE SPECIAL 2: PARADIGMA CLOUD — API TOKEN & FUERZA BRUTA
          ==================================================================== -->
-    <section class="slide" id="slide-drifting-cloud-sonnet">
+    <section class="slide" id="slide-2">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
           <a href="#slide-1" class="deck-back-btn">← El Embudo</a>
@@ -129,10 +129,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 3: PARADIGMA LOCAL — HARDWARE LOCAL & TRACCIÓN DISCIPLINADA
          ==================================================================== -->
-    <section class="slide" id="slide-drifting-local-adr">
+    <section class="slide" id="slide-3">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-drifting-cloud-sonnet" class="deck-back-btn">← Paradigma Cloud</a>
+          <a href="#slide-2" class="deck-back-btn">← Paradigma Cloud</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0284c7;">Parte 2 • Paradigma 2 • Hardware Local &amp; ADRs</span>
         </div>
         <h2>Paradigma Local: <span class="serif-italic" style="color: #0284c7;">Tracci&oacute;n, Control &amp; Coste Cero</span></h2>
@@ -152,13 +152,295 @@
 
 
 
-<!-- ====================================================================
-         SLIDE 4: EL VIAJE DE UNA HISTORIA: DEL USER JOURNEY AL DOMINIO
+    <!-- ====================================================================
+         SLIDE 4: SÍNTESIS E2E — EL EMBUDO DEL DOMINIO
+         (Journeys → Barreras BR/INV → Entidades & Máquina de Estado → Respuesta)
+         Interactiva: 3 vistas de Journey + estaciones explicables (click).
          ==================================================================== -->
-            <section class="slide" id="slide-journey-ddd-flow">
+    <section class="slide view-all" id="slide-4">
+      <div class="slide-content" style="gap: 0.55rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-3" class="deck-back-btn">← Paradigma Local</a>
+          <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">Síntesis E2E • Del Journey a la Respuesta</span>
+        </div>
+        <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
+          El Embudo del Dominio • Un usuario, tres Journeys, dos barreras, una sola tubería
+        </div>
+        <h2 style="margin-bottom: 0.05rem;">
+          Del Journey a la Respuesta: <span class="serif-italic" style="color: #6366f1;">El Embudo del Dominio</span>
+        </h2>
+        <p class="subtitle" style="margin-top: -0.3rem; margin-bottom: 0.15rem; font-size: 1.02rem;">
+          Cada flujo que el usuario dispara (sus <strong>Journeys</strong>) cruza las mismas dos barreras de validación —
+          <strong>Reglas de Negocio</strong> e <strong>Invariantes</strong> — antes de tocar las <strong>entidades</strong> y la
+          <strong>máquina de estado</strong>. Al final siempre hay una <strong>respuesta</strong> o una <strong>notificación</strong>.
+        </p>
+
+        <!-- Barra de exploración: Visión completa / 3 Journeys -->
+        <div class="flow-perspective-bar">
+          <div class="perspective-left">
+            <span class="perspective-label">Explora un Journey:</span>
+            <div class="perspective-pills">
+              <button type="button" class="perspective-btn active" id="fn-btn-all" onclick="setFunnelView('all')">
+                🌐 Visión Completa
+              </button>
+              <button type="button" class="perspective-btn" id="fn-btn-j1" onclick="setFunnelView('j1')">
+                ✅ Reservar evento
+              </button>
+              <button type="button" class="perspective-btn" id="fn-btn-j2" onclick="setFunnelView('j2')">
+                ⚠️ Exceder cuota
+              </button>
+              <button type="button" class="perspective-btn" id="fn-btn-j3" onclick="setFunnelView('j3')">
+                🛑 Transición ilegal
+              </button>
+            </div>
+          </div>
+          <div class="perspective-takeaway" id="fn-takeaway">
+            <span id="fn-takeaway-text">
+              🌐 <strong>Visión Compartida:</strong> TRES journeys distintos, UNA sola tubería. Todas las peticiones cruzan las mismas barreras — <strong>BR</strong> (Caso de Uso) e <strong>INV</strong> (Dominio). Ahí vive el negocio, no en la pantalla.
+            </span>
+          </div>
+        </div>
+
+        <!-- Lienzo SVG: el embudo completo -->
+        <div class="flow-svg-viewport">
+          <svg id="funnel-svg" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama interactivo: un usuario con tres Journeys cuyos flujos cruzan dos barreras de validación (Reglas de Negocio e Invariantes), llegan a las entidades y a la máquina de estado, y acaban en una respuesta o notificación.">
+            <defs>
+              <marker id="fn-arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8" />
+              </marker>
+              <marker id="fn-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#059669" />
+              </marker>
+              <marker id="fn-arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#d97706" />
+              </marker>
+              <marker id="fn-arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#dc2626" />
+              </marker>
+              <marker id="fn-arr-indigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9 z" fill="#4f46e5" />
+              </marker>
+            </defs>
+
+            <!-- ================= CABLES (bajo las estaciones) ================= -->
+            <g class="fn-wires">
+              <!-- Usuario → Barrera BR (un cable por Journey) -->
+              <path id="fn-w-j1-a" class="flow-path-wire fn-wire fn-j1-wire" d="M 218,118 L 252,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j2-a" class="flow-path-wire fn-wire fn-j2-wire" d="M 218,178 L 252,178" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j3-a" class="flow-path-wire fn-wire fn-j3-wire" d="M 218,238 L 252,238" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+
+              <!-- BR → INV (solo los que pasan la barrera 1) -->
+              <path id="fn-w-j1-b" class="flow-path-wire fn-wire fn-j1-wire" d="M 453,118 L 487,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j3-b" class="flow-path-wire fn-wire fn-j3-wire" d="M 453,238 L 487,238" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+
+              <!-- INV → Entidades/Estado → Salidas (solo los que pasan las dos barreras) -->
+              <path id="fn-w-j1-c" class="flow-path-wire fn-wire fn-j1-wire" d="M 688,118 L 722,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+              <path id="fn-w-j1-d" class="flow-path-wire fn-wire fn-j1-wire" d="M 943,118 L 977,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
+
+              <!-- Salidas de rechazo / resultado hacia las tarjetas de outcome -->
+              <path id="fn-w-j2-out" class="flow-path-wire fn-wire fn-j2-wire" d="M 355,290 L 355,314" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#fn-arr-amber)" />
+              <path id="fn-w-j3-out" class="flow-path-wire fn-wire fn-j3-wire" d="M 590,290 L 590,314" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#fn-arr-red)" />
+              <path id="fn-w-j1-out" class="flow-path-wire fn-wire fn-j1-wire" d="M 1080,290 L 1080,314" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
+
+              <!-- Cierre del ciclo: de la salida de vuelta al usuario -->
+              <path id="fn-w-return" class="flow-path-wire" d="M 1075,376 L 1075,394 Q 1075,404 1063,404 L 132,404 Q 120,404 120,392 L 120,294" fill="none" stroke="#4f46e5" stroke-width="2.5" opacity="0.85" marker-end="url(#fn-arr-indigo)" />
+            </g>
+
+            <g id="fn-return-label">
+              <rect x="320" y="392" width="560" height="24" rx="12" fill="var(--bg-surface)" stroke="#4f46e5" stroke-width="1.5" />
+              <text x="600" y="408" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="800" letter-spacing="0.03em">↩ CIERRE DEL CICLO: respuesta o notificación SIEMPRE llegan al usuario</text>
+            </g>
+
+            <!-- ================= OUTCOMES POR JOURNEY (y 318..376) ================= -->
+            <g class="fn-outcome" id="fn-out-j1">
+              <rect x="983" y="318" width="195" height="58" rx="12" fill="rgba(5, 150, 105, 0.08)" stroke="#059669" stroke-width="1.5" />
+              <text x="995" y="336" font-size="11" font-weight="800" fill="#047857">✅ 201 CREATED</text>
+              <text x="995" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">📬 Email de confirmación</text>
+              <text x="995" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">💻 UI actualizada al instante</text>
+            </g>
+            <g class="fn-outcome" id="fn-out-j2">
+              <rect x="258" y="318" width="195" height="58" rx="12" fill="rgba(217, 119, 6, 0.08)" stroke="#d97706" stroke-width="1.5" />
+              <text x="270" y="336" font-size="11" font-weight="800" fill="#b45309">⚠️ AVISO ELEGANTE · 402</text>
+              <text x="270" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">“Has superado tu cuota Free”</text>
+              <text x="270" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">→ modal upgrade. El dominio ni se entera.</text>
+            </g>
+            <g class="fn-outcome" id="fn-out-j3">
+              <rect x="493" y="318" width="195" height="58" rx="12" fill="rgba(220, 38, 38, 0.07)" stroke="#dc2626" stroke-width="1.5" />
+              <text x="505" y="336" font-size="11" font-weight="800" fill="#b91c1c">🛑 409 CONFLICT</text>
+              <text x="505" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">“El evento ya está cerrado”</text>
+              <text x="505" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">→ estado intacto. Cero tolerancia.</text>
+            </g>
+
+            <!-- ================= ESTACIÓN 1: USUARIO & JOURNEYS ================= -->
+            <g class="flow-station station-node" id="fn-st-user">
+              <rect class="outer-box" x="18" y="28" width="200" height="262" rx="16" fill="var(--bg-surface)" stroke="#6366f1" stroke-width="3" />
+              <rect x="18" y="28" width="200" height="50" rx="16" fill="rgba(99, 102, 241, 0.12)" />
+              <text x="34" y="62" font-size="20">👤</text>
+              <text x="62" y="54" font-size="14" font-weight="800" fill="#4338ca" class="svg-node-title">USUARIO</text>
+              <text x="62" y="70" font-size="10.5" font-weight="600" fill="var(--text-muted)">Sus Journeys (Inception)</text>
+
+              <!-- Tarjetas de Journey (clicables: equivalen a los pills superiores) -->
+              <g class="fn-jcard" id="fn-jc-j1" data-journey="j1">
+                <rect x="32" y="92" width="172" height="50" rx="10" fill="rgba(5, 150, 105, 0.08)" stroke="#059669" stroke-width="1.5" />
+                <text x="42" y="113" font-size="11.5" font-weight="700" fill="#047857">✅ “Reservar el evento”</text>
+                <text x="42" y="130" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 1 · happy path</text>
+              </g>
+              <g class="fn-jcard" id="fn-jc-j2" data-journey="j2">
+                <rect x="32" y="152" width="172" height="50" rx="10" fill="rgba(217, 119, 6, 0.08)" stroke="#d97706" stroke-width="1.5" />
+                <text x="42" y="173" font-size="11.5" font-weight="700" fill="#b45309">⚠️ “Exceder mi cuota”</text>
+                <text x="42" y="190" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 2 · límite de plan</text>
+              </g>
+              <g class="fn-jcard" id="fn-jc-j3" data-journey="j3">
+                <rect x="32" y="212" width="172" height="50" rx="10" fill="rgba(220, 38, 38, 0.07)" stroke="#dc2626" stroke-width="1.5" />
+                <text x="42" y="233" font-size="11.5" font-weight="700" fill="#b91c1c">🛑 “Reactivar lo cerrado”</text>
+                <text x="42" y="250" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 3 · estado imposible</text>
+              </g>
+
+              <text x="34" y="282" font-size="9.5" font-style="italic" fill="var(--text-muted)">Cada Journey dispara UN flujo E2E</text>
+            </g>
+
+            <!-- ================= ESTACIÓN 2: BARRERA BR ================= -->
+            <g class="flow-station station-node" id="fn-st-br">
+              <rect class="outer-box" x="258" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#d97706" stroke-width="2.5" />
+              <rect x="258" y="28" width="195" height="50" rx="16" fill="rgba(217, 119, 6, 0.14)" />
+              <text x="274" y="62" font-size="20">⭐</text>
+              <text x="302" y="54" font-size="13.5" font-weight="800" fill="#92400e" class="svg-node-title">BARRERA 1 · BR</text>
+              <text x="302" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Reglas de Negocio</text>
+
+              <rect x="272" y="88" width="167" height="24" rx="7" fill="#d97706" />
+              <text x="355" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">CASO DE USO · APLICACIÓN</text>
+
+              <g transform="translate(274, 132)">
+                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Permiso de rol?</text>
+                <text x="0" y="18" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Cuota del plan?</text>
+                <text x="0" y="36" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Política del evento?</text>
+              </g>
+
+              <line x1="274" y1="184" x2="437" y2="184" stroke="rgba(0,0,0,0.08)" />
+              <text x="274" y="204" font-size="9.5" font-weight="800" fill="#b45309">⚖️ VEREDICTO POR JOURNEY:</text>
+
+              <g class="fn-vchip" id="fn-vj1">
+                <rect x="272" y="212" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
+                <text x="355" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reservar → pasa</text>
+              </g>
+              <g class="fn-vchip" id="fn-vj2">
+                <rect x="272" y="234" width="167" height="18" rx="9" fill="rgba(217, 119, 6, 0.12)" stroke="#d97706" stroke-width="1" />
+                <text x="355" y="247" text-anchor="middle" font-size="9" font-weight="700" fill="#b45309">⚠️ Cuota → 402 aquí</text>
+              </g>
+              <g class="fn-vchip" id="fn-vj3">
+                <rect x="272" y="256" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
+                <text x="355" y="269" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reactivar → pasa</text>
+              </g>
+            </g>
+
+            <!-- ================= ESTACIÓN 3: BARRERA INV ================= -->
+            <g class="flow-station station-node" id="fn-st-inv">
+              <rect class="outer-box" x="493" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#7c3aed" stroke-width="2.5" />
+              <rect x="493" y="28" width="195" height="50" rx="16" fill="rgba(124, 58, 237, 0.14)" />
+              <text x="509" y="62" font-size="20">🛡️</text>
+              <text x="537" y="54" font-size="13.5" font-weight="800" fill="#6d28d9" class="svg-node-title">BARRERA 2 · INV</text>
+              <text x="537" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Invariantes · Dominio</text>
+
+              <rect x="507" y="88" width="167" height="24" rx="7" fill="#7c3aed" />
+              <text x="590" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">NÚCLEO DEL SOFTWARE</text>
+
+              <g transform="translate(509, 132)">
+                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Transición legal?</text>
+                <text x="0" y="18" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Estado íntegro?</text>
+                <text x="0" y="36" font-size="11" font-weight="600" fill="#dc2626">• Cero tolerancia</text>
+              </g>
+
+              <line x1="509" y1="184" x2="672" y2="184" stroke="rgba(0,0,0,0.08)" />
+              <text x="509" y="204" font-size="9.5" font-weight="800" fill="#6d28d9">⚖️ VEREDICTO POR JOURNEY:</text>
+
+              <g class="fn-vchip" id="fn-vi1">
+                <rect x="507" y="212" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
+                <text x="590" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reservar → pasa</text>
+              </g>
+              <g class="fn-vchip" id="fn-vi2">
+                <rect x="507" y="234" width="167" height="18" rx="9" fill="rgba(100, 116, 139, 0.12)" stroke="#94a3b8" stroke-width="1" />
+                <text x="590" y="247" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">— la cuota frenó antes</text>
+              </g>
+              <g class="fn-vchip" id="fn-vi3">
+                <rect x="507" y="256" width="167" height="18" rx="9" fill="rgba(220, 38, 38, 0.10)" stroke="#dc2626" stroke-width="1" />
+                <text x="590" y="269" text-anchor="middle" font-size="9" font-weight="700" fill="#b91c1c">🛑 Reactivar → 409 aquí</text>
+              </g>
+            </g>
+
+            <!-- ================= ESTACIÓN 4: ENTIDADES & MÁQUINA DE ESTADO ================= -->
+            <g class="flow-station station-node" id="fn-st-estado">
+              <rect class="outer-box" x="728" y="28" width="215" height="262" rx="16" fill="var(--bg-surface)" stroke="#059669" stroke-width="2.5" />
+              <rect x="728" y="28" width="215" height="50" rx="16" fill="rgba(5, 150, 105, 0.14)" />
+              <text x="744" y="62" font-size="20">📦</text>
+              <text x="772" y="54" font-size="13" font-weight="800" fill="#047857" class="svg-node-title">ENTIDADES &amp; MÁQUINA</text>
+              <text x="772" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Reserva · Aggregate</text>
+
+              <rect x="742" y="88" width="187" height="24" rx="7" fill="#059669" />
+              <text x="835" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">⚙️ MÁQUINA DE ESTADO</text>
+
+              <!-- Estados -->
+              <g class="fn-state-pill" id="fn-state-borrador">
+                <rect x="756" y="118" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
+                <text x="811" y="135" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">borrador</text>
+              </g>
+              <g class="fn-state-pill" id="fn-state-activa">
+                <rect x="756" y="176" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
+                <text x="811" y="193" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">activa</text>
+              </g>
+              <g class="fn-state-pill" id="fn-state-cerrada">
+                <rect x="756" y="234" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
+                <text x="811" y="251" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">cerrada</text>
+              </g>
+
+              <!-- Transiciones legales -->
+              <path id="fn-trans-legal-a" class="fn-trans" d="M 811,144 L 811,170" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
+              <text x="826" y="162" font-size="9.5" font-weight="700" fill="#059669">reservar()</text>
+              <path id="fn-trans-legal-b" class="fn-trans" d="M 811,202 L 811,228" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
+              <text x="826" y="220" font-size="9.5" font-weight="700" fill="#059669">cerrar()</text>
+
+              <!-- Transición ilegal: cerrada → activa (reaservar) -->
+              <path id="fn-trans-illegal" class="fn-trans" d="M 866,247 Q 908,219 870,191" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#fn-arr-red)" />
+              <text x="878" y="205" font-size="9.5" font-weight="700" fill="#dc2626">reaservar()</text>
+              <circle cx="902" cy="219" r="9" fill="#dc2626" />
+              <text x="902" y="223" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">✗</text>
+
+              <text x="742" y="282" font-size="9.5" font-style="italic" fill="var(--text-muted)">Solo transiciones legales cambian el estado</text>
+            </g>
+
+            <!-- ================= ESTACIÓN 5: RESPUESTA & NOTIFICACIONES ================= -->
+            <g class="flow-station station-node" id="fn-st-sal">
+              <rect class="outer-box" x="983" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="2.5" />
+              <rect x="983" y="28" width="195" height="50" rx="16" fill="rgba(2, 132, 199, 0.12)" />
+              <text x="999" y="62" font-size="20">💬</text>
+              <text x="1027" y="54" font-size="13" font-weight="800" fill="#0369a1" class="svg-node-title">RESPUESTA &amp; AVISOS</text>
+              <text x="1027" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Salida del sistema</text>
+
+              <rect x="997" y="88" width="167" height="24" rx="7" fill="#0284c7" />
+              <text x="1080" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">📬 LO QUE RECIBE EL USUARIO</text>
+
+              <g transform="translate(999, 136)">
+                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• 201 Created / 4xx elegante</text>
+                <text x="0" y="20" font-size="11" font-weight="600" fill="var(--text-main)">• 📬 Email &amp; webhook</text>
+                <text x="0" y="40" font-size="11" font-weight="600" fill="var(--text-main)">• 💻 UI sincronizada</text>
+              </g>
+
+              <line x1="999" y1="196" x2="1162" y2="196" stroke="rgba(0,0,0,0.08)" />
+              <text x="999" y="220" font-size="11" font-weight="700" fill="#0369a1">Éxito o aviso:</text>
+              <text x="999" y="238" font-size="11.5" font-weight="800" fill="#0369a1">SIEMPRE hay respuesta.</text>
+              <text x="999" y="258" font-size="9.5" font-style="italic" fill="var(--text-muted)">Nada se queda en silencio.</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+<!-- ====================================================================
+         SLIDE 5: EL VIAJE DE UNA HISTORIA: DEL USER JOURNEY AL DOMINIO
+         ==================================================================== -->
+            <section class="slide" id="slide-5">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-drifting-local-adr" class="deck-back-btn">← Paradigma Local</a>
+          <a href="#slide-4" class="deck-back-btn">← El Embudo del Dominio</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">El Puente Negocio ↔ Técnica • Colaboración</span>
         </div>
         <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
@@ -421,10 +703,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 4: LOS TRES PILARES DEL CÓDIGO CON IA
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-intro">
+    <section class="slide" id="slide-6">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-journey-ddd-flow" class="deck-back-btn">← El Viaje de una Petición</a>
+          <a href="#slide-5" class="deck-back-btn">← El Viaje de una Petición</a>
           <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0369a1;">Parte 2 • Tres Pilares de Calidad</span>
         </div>
         <h2>Los Tres Pilares: <span class="serif-italic" style="color: #0284c7;">Código de Calidad con IA</span></h2>
@@ -513,12 +795,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 6: PIPELINE SDLC DE 5 FASES (TIMELINE ALTERNADO PODADO)
+         SLIDE 7: PIPELINE SDLC DE 5 FASES (TIMELINE ALTERNADO PODADO)
          ==================================================================== -->
-    <section class="slide" id="slide-1-pipeline">
+    <section class="slide" id="slide-7">
       <div class="slide-content" style="gap: 1.25rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-intro" class="deck-back-btn">← Los Tres Pilares</a>
+          <a href="#slide-6" class="deck-back-btn">← Los Tres Pilares</a>
           <span class="deck-part-badge">Parte 2 • Pipeline SDLC en 5 Fases</span>
         </div>
         <h2>El Ciclo de Desarrollo con IA: <span class="serif-italic" style="color: #6366f1;">5 Fases Disciplinadas</span></h2>
@@ -693,13 +975,13 @@
 
 
 <!-- ====================================================================
-         SLIDE 7: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
+         SLIDE 8: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
          Recreación del diagrama de docs/SDLC-WORKFLOW-DIRECTORY.md (con Fase 2b Features)
          ==================================================================== -->
-    <section class="slide" id="slide-sdlc-map">
+    <section class="slide" id="slide-8">
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5;">Parte 2 • Mapa Vivo
             del Workflow</span>
         </div>
@@ -957,12 +1239,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 8: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
+         SLIDE 9: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step1-boundaries">
+    <section class="slide" id="slide-9">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0369a1;">Fase 1: Inception • Paso 1 de 8</span>
         </div>
         <h2>Paso 1: Matriz de Fronteras <span class="serif-italic" style="color: #0284c7;">(IS / IS NOT)</span></h2>
@@ -1143,12 +1425,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 9: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
+         SLIDE 10: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step2-tradeoffs">
+    <section class="slide" id="slide-10">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">Fase 1: Inception • Paso 2 de 8</span>
         </div>
         <h2>Paso 2: Tablero de Tradeoffs <span class="serif-italic" style="color: #8b5cf6;">(Sliders)</span></h2>
@@ -1371,12 +1653,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 10: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
+         SLIDE 11: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step3-personas">
+    <section class="slide" id="slide-11">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 1 • Inception
             Workshop • Paso 3</span>
         </div>
@@ -1539,12 +1821,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 11: PASO 4 - MAPA DE EMPATÍA (CONSOLA MARKDOWN)
+         SLIDE 12: PASO 4 - MAPA DE EMPATÍA (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step4-empathy">
+    <section class="slide" id="slide-12">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #92400e;">Fase 1 • Inception
             Workshop • Paso 4</span>
         </div>
@@ -1701,12 +1983,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 12: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
+         SLIDE 13: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step5-journeys">
+    <section class="slide" id="slide-13">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0e7490;">Fase 1 • Inception
             Workshop • Paso 5</span>
         </div>
@@ -1898,12 +2180,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 13: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
+         SLIDE 14: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step6-brainstorming">
+    <section class="slide" id="slide-14">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5;">Fase 1 • Inception
             Workshop • Paso 6</span>
         </div>
@@ -2073,12 +2355,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 14: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
+         SLIDE 15: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step7-sequencing">
+    <section class="slide" id="slide-15">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(236, 72, 153, 0.15); color: #be185d;">Fase 1 • Inception
             Workshop • Paso 7</span>
         </div>
@@ -2262,12 +2544,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 15: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
+         SLIDE 16: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide" id="slide-step8-canvas">
+    <section class="slide" id="slide-16">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(5, 150, 105, 0.15); color: #047857;">Fase 1 • Inception
             Workshop • Paso 8</span>
         </div>
@@ -2454,12 +2736,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 16: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
+         SLIDE 17: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
          ==================================================================== -->
-    <section class="slide" id="slide-inception-greenfield-brownfield">
+    <section class="slide" id="slide-17">
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0369a1;">Fase 1 • Inception
             Workshop • Metodología</span>
         </div>
@@ -2806,12 +3088,12 @@
 
 
 <!-- ====================================================================
-     SLIDE 17: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 2
+     SLIDE 18: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 2
      ==================================================================== -->
-<section class="slide map-checkpoint" id="slide-map-ckpt-1">
+<section class="slide map-checkpoint" id="slide-18">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-inception-greenfield-brownfield" class="deck-back-btn">← Greenfield vs. Brownfield</a>
+          <a href="#slide-17" class="deck-back-btn">← Greenfield vs. Brownfield</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.14); color: #6d28d9;">Estación del Mapa • Entrando en Fase 2</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #6d28d9; border-color: rgba(139, 92, 246, 0.3);">📍 Estamos Aquí • Fase 2: Especificación Viva</div>
@@ -2822,12 +3104,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 18: FASE 2 (1 DE 3) - DIAGRAMA DE SECUENCIA E2E (MERMAID LIVE)
+         SLIDE 19: FASE 2 (1 DE 3) - DIAGRAMA DE SECUENCIA E2E (MERMAID LIVE)
          ==================================================================== -->
-    <section class="slide" id="slide-phase2-diagram1-sequence">
+    <section class="slide" id="slide-19">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-map-ckpt-1" class="deck-back-btn">← Estación: Mapa · Fase 2</a>
+          <a href="#slide-18" class="deck-back-btn">← Estación: Mapa · Fase 2</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama
             1 de 3: Secuencia E2E</span>
         </div>
@@ -2968,12 +3250,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 19: FASE 2 (2 DE 3) - FLOWCHART DE BIFURCACIONES & DECISIONES (MERMAID LIVE)
+         SLIDE 20: FASE 2 (2 DE 3) - FLOWCHART DE BIFURCACIONES & DECISIONES (MERMAID LIVE)
          ==================================================================== -->
-    <section class="slide" id="slide-phase2-diagram2-flowchart">
+    <section class="slide" id="slide-20">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama
             2 de 3: Flowchart &amp; Decisiones</span>
         </div>
@@ -3117,12 +3399,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 20: FASE 2 (3 DE 3) - CICLO DE VIDA DE LA ENTIDAD / FSM (MERMAID LIVE)
+         SLIDE 21: FASE 2 (3 DE 3) - CICLO DE VIDA DE LA ENTIDAD / FSM (MERMAID LIVE)
          ==================================================================== -->
-    <section class="slide" id="slide-phase2-diagram3-state">
+    <section class="slide" id="slide-21">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama
             3 de 3: Máquina de Estados FSM</span>
         </div>
@@ -3254,12 +3536,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 21: FASE 2B - FEATURES & SLICING (/create-features, SLICES VERTICALES + ERRORES HTTP)
+         SLIDE 22: FASE 2B - FEATURES & SLICING (/create-features, SLICES VERTICALES + ERRORES HTTP)
          ==================================================================== -->
-        <section class="slide" id="slide-phase2b-features">
+        <section class="slide" id="slide-22">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-phase2-diagram3-state" class="deck-back-btn">← Diagrama de Estados</a>
+          <a href="#slide-21" class="deck-back-btn">← Diagrama de Estados</a>
           <span class="deck-part-badge" style="background: rgba(217, 70, 239, 0.15); color: #a21caf;">Fase 2b • Features
             &amp; Slicing</span>
         </div>
@@ -3422,12 +3704,12 @@
 
 
 <!-- ====================================================================
-     SLIDE 22: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 3
+     SLIDE 23: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 3
      ==================================================================== -->
-<section class="slide map-checkpoint" id="slide-map-ckpt-2">
+<section class="slide map-checkpoint" id="slide-23">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-phase2b-features" class="deck-back-btn">← Fase 2b: Features</a>
+          <a href="#slide-22" class="deck-back-btn">← Fase 2b: Features</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.14); color: #047857;">Estación del Mapa • Entrando en Fase 3</span>
         </div>
         <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #047857; border-color: rgba(16, 185, 129, 0.3);">📍 Estamos Aquí • Fase 3: Modelo DDD Rico</div>
@@ -3438,12 +3720,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 23: FASE 3 - MODELO DDD RICO (/create-entity-lifecycle, FSM + INV/BR + DOMAIN EVENTS)
+         SLIDE 24: FASE 3 - MODELO DDD RICO (/create-entity-lifecycle, FSM + INV/BR + DOMAIN EVENTS)
          ==================================================================== -->
-    <section class="slide" id="slide-phase3-entity-lifecycle">
+    <section class="slide" id="slide-24">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-map-ckpt-2" class="deck-back-btn">← Estación: Mapa · Fase 3</a>
+          <a href="#slide-23" class="deck-back-btn">← Estación: Mapa · Fase 3</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 3 • Modelo DDD
             Rico</span>
         </div>
@@ -3591,12 +3873,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 24: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
+         SLIDE 25: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
          ==================================================================== -->
-    <section class="slide" id="slide-phase2-invariants">
+    <section class="slide" id="slide-25">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 3 • Modelado
             Formal &amp; Contratos</span>
         </div>
@@ -3757,12 +4039,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 25: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
+         SLIDE 26: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
          ==================================================================== -->
-    <section class="slide" id="slide-phase2-br-template">
+    <section class="slide" id="slide-26">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(59, 130, 246, 0.15); color: #1d4ed8;">Fase 3 •
             Modelo DDD Rico (BR-XXX)</span>
         </div>
@@ -3904,12 +4186,12 @@
 
 
 <!-- ====================================================================
-         SLIDE 26: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
+         SLIDE 27: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
          ==================================================================== -->
-    <section class="slide" id="slide-phase2-inv-template">
+    <section class="slide" id="slide-27">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1-pipeline" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-7" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(239, 68, 68, 0.15); color: #b91c1c;">Fase 3 • Invariante
             de Dominio (INV-XXX)</span>
         </div>
@@ -4058,12 +4340,12 @@
 
 
 <!-- ====================================================================
-     SLIDE 27: CHECKPOINT · ESTACIÓN DEL MAPA — GOBERNANZA
+     SLIDE 28: CHECKPOINT · ESTACIÓN DEL MAPA — GOBERNANZA
      ==================================================================== -->
-<section class="slide map-checkpoint" id="slide-map-ckpt-3">
+<section class="slide map-checkpoint" id="slide-28">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-phase2-inv-template" class="deck-back-btn">← Fase 3: Plantilla INV</a>
+          <a href="#slide-27" class="deck-back-btn">← Fase 3: Plantilla INV</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.14); color: #4338ca;">Estación del Mapa • Gobernanza</span>
         </div>
         <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">📍 Estamos Aquí • Gobernanza: ADRs</div>
@@ -4076,10 +4358,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 24: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-friction">
+    <section class="slide" id="slide-29">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-map-ckpt-3" class="deck-back-btn">← Estación: Mapa · Gobernanza</a>
+          <a href="#slide-28" class="deck-back-btn">← Estación: Mapa · Gobernanza</a>
           <span class="deck-part-badge" style="background: rgba(56, 189, 248, 0.15); color: #0369a1;">Pilar 2 •
             Ergonomía para IA (AX)</span>
         </div>
@@ -4154,10 +4436,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 25: CASO REAL NEXT.JS - EL GUARDRAIL TAX EN LA PRENSA
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-case-nextjs">
+    <section class="slide" id="slide-30">
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-friction" class="deck-back-btn">← La Fricción (AX)</a>
+          <a href="#slide-29" class="deck-back-btn">← La Fricción (AX)</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">Pilar 1 • Caso
             Real en Producción</span>
         </div>
@@ -4278,10 +4560,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 26: CASO REAL NEXT.JS - EL DOCUMENTO INYECTADO (AGENTS.MD)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-case-file">
+    <section class="slide" id="slide-31">
       <div class="slide-content" style="gap: 0.75rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-case-nextjs" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
+          <a href="#slide-30" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">Pilar 1 • El Documento Inyectado</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #6d28d9; border-color: rgba(139, 92, 246, 0.3);">
@@ -4389,10 +4671,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 27: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-timeline">
+    <section class="slide" id="slide-32">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-case-file" class="deck-back-btn">← Archivo AGENTS.md</a>
+          <a href="#slide-31" class="deck-back-btn">← Archivo AGENTS.md</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #92400e;">Pilar 1 • Timeline
             Canónico</span>
         </div>
@@ -4572,10 +4854,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 28: PILAR 1 - ÁRBOL DE DECISIÓN DE GOBERNANZA (DE IZQ A DER)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-adr-decision-tree">
+    <section class="slide" id="slide-33">
       <div class="slide-content" style="gap: 1.1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-timeline" class="deck-back-btn">← Timeline Canónico</a>
+          <a href="#slide-32" class="deck-back-btn">← Timeline Canónico</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #92400e;">Pilar 1 • Matriz
             de Decisión</span>
         </div>
@@ -4714,12 +4996,185 @@
 
 
 <!-- ====================================================================
+     SLIDE 37: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 4
+     ==================================================================== -->
+<section class="slide map-checkpoint" id="slide-34">
+      <div class="slide-content">
+        <div class="deck-back-bar">
+          <a href="#slide-33" class="deck-back-btn">← Gobernanza ADR</a>
+          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.14); color: #b45309;">Estación del Mapa • Entrando en Fase 4</span>
+        </div>
+        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #b45309; border-color: rgba(245, 158, 11, 0.3);">📍 Estamos Aquí • Fase 4: Construcción TDD</div>
+        <p class="map-ckpt-kicker">Del mapa al código: cada feature (2b) es un ciclo TDD completo — y cuando algo cambie, la Fase 5 (/modify-flow) te devuelve al mapa.</p>
+        <div class="sdlc-map-panel map-ckpt-host" data-map-lit="1,2,3,4,5" data-map-here="6"></div>
+      </div>
+    </section>
+
+<!-- ====================================================================
+         SLIDE 38: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+         ==================================================================== -->
+    <section class="slide" id="slide-35">
+      <div class="slide-content">
+<div class="deck-back-bar">
+          <a href="#slide-34" class="deck-back-btn">← Estación: Mapa · Fase 4</a>
+        </div>
+        <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
+        <h2>Evolución sin Drift: <span class="serif-italic" style="color: #b45309;">TDD Híbrido y Living Docs</span></h2>
+        <p class="subtitle" style="margin-top: -0.85rem;">
+          Escribir código capa por capa guiado por tests que fallan y sincronizar la documentación en el mismo commit.
+        </p>
+
+        <div class="sdlc-build-deck">
+
+          <div class="sdlc-build-split">
+
+            <!-- Columna Izquierda: TDD Híbrido por Capas DDD -->
+            <div class="sdlc-tdd-card">
+              <div class="sdlc-step-header">
+                <div class="sdlc-col-title">🧪 TDD Híbrido Capa por Capa</div>
+                <span class="sdlc-phase-badge amber">Fase 4 • /implement-flow</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+                El código de producción no se genera de golpe: se construye en capas estrictas donde cada capa valida a
+                la anterior. Cada <strong>feature (2b)</strong> aporta su checklist y su contrato de errores HTTP; el <strong>modelo (Fase 3)</strong> blinda las invariantes.
+              </p>
+
+              <div class="sdlc-tdd-timeline">
+
+                <!-- Paso 1 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">1. E2E Test (Falla) <code>Goal Post</code></div>
+                    <div class="sdlc-tdd-desc">Define el criterio de aceptación del flujo completo antes de tocar nada.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">2. Dominio Puro <code>domain/</code></div>
+                    <div class="sdlc-tdd-desc">Tests de unidad sobre Entidades, Value Objects e Invariantes sin
+                      dependencias externas.</div>
+                  </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">3. Casos de Uso <code>application/</code></div>
+                    <div class="sdlc-tdd-desc">Orquestación del flujo, puertos de salida y servicios de aplicación.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">4. Infraestructura &amp; Eventos <code>infrastructure/</code></div>
+                    <div class="sdlc-tdd-desc">Tests de integración con Kafka consumers/producers, repositorios y Feign
+                      clients.</div>
+                  </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="sdlc-tdd-node">
+                  <span class="sdlc-tdd-status">🚀 🟢</span>
+                  <div class="sdlc-tdd-info">
+                    <div class="sdlc-tdd-layer">5. API &amp; Controllers <code>api/</code></div>
+                    <div class="sdlc-tdd-desc">Endpoints HTTP, serialización y validación. <strong>¡El test E2E pasa a
+                        verde!</strong></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Modify Flow & Living Docs -->
+            <div class="sdlc-right-stack">
+
+              <!-- Panel 1: Modify Flow -->
+              <div class="sdlc-mini-panel c-rose">
+                <div class="sdlc-mini-title">
+                  <span>🔄 Gestión del Cambio</span>
+                  <span class="sdlc-phase-badge rose">Fase 5+ • /modify-flow</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                  Protocolo estricto para modificar comportamiento existente:
+                </p>
+                <div class="sdlc-workflow-steps">
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">1.</span>
+                    <span><strong>Leer docs y código real:</strong> Verifica contra el repositorio antes de proponer
+                      cambios.</span>
+                  </div>
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">2.</span>
+                    <span><strong>Redactar <code>proposal.md</code>:</strong> Rationale (As a / I want / So that) +
+                      Contraste código actual vs deseado.</span>
+                  </div>
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">3.</span>
+                    <span><strong>Plan por fases DDD:</strong> Tareas acotadas con tests ejecutados con herramientas
+                      reales (Maven, pytest).</span>
+                  </div>
+                  <div class="sdlc-wf-step">
+                    <span class="sdlc-wf-num">4.</span>
+                    <span><strong>Actualización in-place:</strong> Modifica los diagramas y docs existentes en el mismo
+                      commit.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2: Anti-Drift Audit -->
+              <div class="sdlc-mini-panel c-cyan">
+                <div class="sdlc-mini-title">
+                  <span>🛡️ Cero Drift de Documentación</span>
+                  <span class="yarn-badge green">/audit-docs</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                  El mayor problema de la documentación tradicional es que envejece. La IA audita el código real
+                  periódicamente y clasifica:
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                  <span class="sdlc-phase-badge green">✅ Confirmed</span>
+                  <span class="sdlc-phase-badge amber">⚠️ Stale</span>
+                  <span class="sdlc-phase-badge rose">❌ Missing</span>
+                  <span class="sdlc-phase-badge purple">➕ Undocumented</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
+                  Permite hacer barridos pre-release o auditorías por bounded context para garantizar que el modelo
+                  siempre lee especificaciones veraces.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Banner Inferior -->
+          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
+            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🛡️</div>
+            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
+              <strong>El Círculo Virtuoso:</strong> El test define la intención, la IA escribe la solución, el
+              compilador valida la realidad y la auditoría garantiza que la documentación nunca envejece.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+<!-- ====================================================================
          SLIDE SPECIAL 29: PILAR 2 - TIMELINE HORIZONTAL DEL SDLC (6 FASES)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-sdlc-timeline">
+    <section class="slide" id="slide-36">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-adr-decision-tree" class="deck-back-btn">← Gobernanza ADR</a>
+          <a href="#slide-35" class="deck-back-btn">← TDD Híbrido</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Pilar 2 • Timeline
             de Producto</span>
         </div>
@@ -4931,10 +5386,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 30: PILAR 2 - MATRIZ DE DECISIÓN DE PRODUCTO (4 RUTAS)
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-sdlc-decision-tree">
+    <section class="slide" id="slide-37">
       <div class="slide-content" style="gap: 1.1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-sdlc-timeline" class="deck-back-btn">← Timeline SDLC</a>
+          <a href="#slide-36" class="deck-back-btn">← Ciclo Canónico SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Pilar 2 • Matriz
             de Producto</span>
         </div>
@@ -5107,10 +5562,10 @@
 <!-- ====================================================================
          SLIDE SPECIAL 31: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
          ==================================================================== -->
-    <section class="slide" id="slide-pillar-bridge-enlace">
+    <section class="slide" id="slide-38">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-pillar-sdlc-decision-tree" class="deck-back-btn">← Matriz de Producto</a>
+          <a href="#slide-37" class="deck-back-btn">← Matriz de Producto</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">La Conexión •
             Arquitectura Viva</span>
         </div>
@@ -5266,179 +5721,7 @@
 
 
 
-<!-- ====================================================================
-     SLIDE 36: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 4
-     ==================================================================== -->
-<section class="slide map-checkpoint" id="slide-map-ckpt-4">
-      <div class="slide-content">
-        <div class="deck-back-bar">
-          <a href="#slide-pillar-bridge-enlace" class="deck-back-btn">← La Conexión</a>
-          <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.14); color: #b45309;">Estación del Mapa • Entrando en Fase 4</span>
-        </div>
-        <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #b45309; border-color: rgba(245, 158, 11, 0.3);">📍 Estamos Aquí • Fase 4: Construcción TDD</div>
-        <p class="map-ckpt-kicker">Del mapa al código: cada feature (2b) es un ciclo TDD completo — y cuando algo cambie, la Fase 5 (/modify-flow) te devuelve al mapa.</p>
-        <div class="sdlc-map-panel map-ckpt-host" data-map-lit="1,2,3,4,5" data-map-here="6"></div>
-      </div>
-    </section>
 
-<!-- ====================================================================
-         SLIDE 37: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
-         ==================================================================== -->
-    <section class="slide" id="slide-tdd-hybrid-evolution">
-      <div class="slide-content">
-<div class="deck-back-bar">
-          <a href="#slide-map-ckpt-4" class="deck-back-btn">← Estación: Mapa · Fase 4</a>
-        </div>
-        <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
-        <h2>Evolución sin Drift: <span class="serif-italic" style="color: #b45309;">TDD Híbrido y Living Docs</span></h2>
-        <p class="subtitle" style="margin-top: -0.85rem;">
-          Escribir código capa por capa guiado por tests que fallan y sincronizar la documentación en el mismo commit.
-        </p>
-
-        <div class="sdlc-build-deck">
-
-          <div class="sdlc-build-split">
-
-            <!-- Columna Izquierda: TDD Híbrido por Capas DDD -->
-            <div class="sdlc-tdd-card">
-              <div class="sdlc-step-header">
-                <div class="sdlc-col-title">🧪 TDD Híbrido Capa por Capa</div>
-                <span class="sdlc-phase-badge amber">Fase 4 • /implement-flow</span>
-              </div>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
-                El código de producción no se genera de golpe: se construye en capas estrictas donde cada capa valida a
-                la anterior. Cada <strong>feature (2b)</strong> aporta su checklist y su contrato de errores HTTP; el <strong>modelo (Fase 3)</strong> blinda las invariantes.
-              </p>
-
-              <div class="sdlc-tdd-timeline">
-
-                <!-- Paso 1 -->
-                <div class="sdlc-tdd-node">
-                  <span class="sdlc-tdd-status">🔴</span>
-                  <div class="sdlc-tdd-info">
-                    <div class="sdlc-tdd-layer">1. E2E Test (Falla) <code>Goal Post</code></div>
-                    <div class="sdlc-tdd-desc">Define el criterio de aceptación del flujo completo antes de tocar nada.
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Paso 2 -->
-                <div class="sdlc-tdd-node">
-                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
-                  <div class="sdlc-tdd-info">
-                    <div class="sdlc-tdd-layer">2. Dominio Puro <code>domain/</code></div>
-                    <div class="sdlc-tdd-desc">Tests de unidad sobre Entidades, Value Objects e Invariantes sin
-                      dependencias externas.</div>
-                  </div>
-                </div>
-
-                <!-- Paso 3 -->
-                <div class="sdlc-tdd-node">
-                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
-                  <div class="sdlc-tdd-info">
-                    <div class="sdlc-tdd-layer">3. Casos de Uso <code>application/</code></div>
-                    <div class="sdlc-tdd-desc">Orquestación del flujo, puertos de salida y servicios de aplicación.
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Paso 4 -->
-                <div class="sdlc-tdd-node">
-                  <span class="sdlc-tdd-status">🔴 ➔ 🟢</span>
-                  <div class="sdlc-tdd-info">
-                    <div class="sdlc-tdd-layer">4. Infraestructura &amp; Eventos <code>infrastructure/</code></div>
-                    <div class="sdlc-tdd-desc">Tests de integración con Kafka consumers/producers, repositorios y Feign
-                      clients.</div>
-                  </div>
-                </div>
-
-                <!-- Paso 5 -->
-                <div class="sdlc-tdd-node">
-                  <span class="sdlc-tdd-status">🚀 🟢</span>
-                  <div class="sdlc-tdd-info">
-                    <div class="sdlc-tdd-layer">5. API &amp; Controllers <code>api/</code></div>
-                    <div class="sdlc-tdd-desc">Endpoints HTTP, serialización y validación. <strong>¡El test E2E pasa a
-                        verde!</strong></div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Columna Derecha: Modify Flow & Living Docs -->
-            <div class="sdlc-right-stack">
-
-              <!-- Panel 1: Modify Flow -->
-              <div class="sdlc-mini-panel c-rose">
-                <div class="sdlc-mini-title">
-                  <span>🔄 Gestión del Cambio</span>
-                  <span class="sdlc-phase-badge rose">Fase 5+ • /modify-flow</span>
-                </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
-                  Protocolo estricto para modificar comportamiento existente:
-                </p>
-                <div class="sdlc-workflow-steps">
-                  <div class="sdlc-wf-step">
-                    <span class="sdlc-wf-num">1.</span>
-                    <span><strong>Leer docs y código real:</strong> Verifica contra el repositorio antes de proponer
-                      cambios.</span>
-                  </div>
-                  <div class="sdlc-wf-step">
-                    <span class="sdlc-wf-num">2.</span>
-                    <span><strong>Redactar <code>proposal.md</code>:</strong> Rationale (As a / I want / So that) +
-                      Contraste código actual vs deseado.</span>
-                  </div>
-                  <div class="sdlc-wf-step">
-                    <span class="sdlc-wf-num">3.</span>
-                    <span><strong>Plan por fases DDD:</strong> Tareas acotadas con tests ejecutados con herramientas
-                      reales (Maven, pytest).</span>
-                  </div>
-                  <div class="sdlc-wf-step">
-                    <span class="sdlc-wf-num">4.</span>
-                    <span><strong>Actualización in-place:</strong> Modifica los diagramas y docs existentes en el mismo
-                      commit.</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 2: Anti-Drift Audit -->
-              <div class="sdlc-mini-panel c-cyan">
-                <div class="sdlc-mini-title">
-                  <span>🛡️ Cero Drift de Documentación</span>
-                  <span class="yarn-badge green">/audit-docs</span>
-                </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
-                  El mayor problema de la documentación tradicional es que envejece. La IA audita el código real
-                  periódicamente y clasifica:
-                </p>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.2rem;">
-                  <span class="sdlc-phase-badge green">✅ Confirmed</span>
-                  <span class="sdlc-phase-badge amber">⚠️ Stale</span>
-                  <span class="sdlc-phase-badge rose">❌ Missing</span>
-                  <span class="sdlc-phase-badge purple">➕ Undocumented</span>
-                </div>
-                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
-                  Permite hacer barridos pre-release o auditorías por bounded context para garantizar que el modelo
-                  siempre lee especificaciones veraces.
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- Banner Inferior -->
-          <div class="chosen-synergy-banner" style="margin-top: 0; padding: 0.9rem 1.4rem;">
-            <div class="chosen-synergy-icon" style="font-size: 1.5rem;">🛡️</div>
-            <div class="chosen-synergy-text" style="font-size: 0.98rem;">
-              <strong>El Círculo Virtuoso:</strong> El test define la intención, la IA escribe la solución, el
-              compilador valida la realidad y la auditoría garantiza que la documentación nunca envejece.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
 
 
@@ -5447,9 +5730,9 @@
 
 
 <!-- ====================================================================
-         SLIDE 38: CITA EDITORIAL
+         SLIDE 39: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-editorial-quote">
+    <section class="slide" id="slide-39">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -5468,9 +5751,9 @@
 
 
 <!-- ====================================================================
-         SLIDE 39: CIERRE & Q&A
+         SLIDE 40: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-qa-debate">
+    <section class="slide" id="slide-40">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -5491,7 +5774,7 @@
           </div>
         </div>
         <div style="margin-top: 1.2rem; text-align: center;">
-          <a href="#slide-editorial-quote" class="deck-back-btn" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5; border-color: rgba(99, 102, 241, 0.3); font-weight: 700; padding: 0.5rem 1.2rem;">
+          <a href="#slide-39" class="deck-back-btn" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5; border-color: rgba(99, 102, 241, 0.3); font-weight: 700; padding: 0.5rem 1.2rem;">
             ← Frase de Cierre</a>
         </div>
       </div>
@@ -5500,288 +5783,6 @@
     
 
 
-
-    <!-- ====================================================================
-         SLIDE 40: SÍNTESIS E2E — EL EMBUDO DEL DOMINIO
-         (Journeys → Barreras BR/INV → Entidades & Máquina de Estado → Respuesta)
-         Interactiva: 3 vistas de Journey + estaciones explicables (click).
-         ==================================================================== -->
-    <section class="slide view-all" id="slide-domain-funnel">
-      <div class="slide-content" style="gap: 0.55rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-qa-debate" class="deck-back-btn">← Preguntas &amp; Debate</a>
-          <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">Síntesis E2E • Del Journey a la Respuesta</span>
-        </div>
-        <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
-          El Embudo del Dominio • Un usuario, tres Journeys, dos barreras, una sola tubería
-        </div>
-        <h2 style="margin-bottom: 0.05rem;">
-          Del Journey a la Respuesta: <span class="serif-italic" style="color: #6366f1;">El Embudo del Dominio</span>
-        </h2>
-        <p class="subtitle" style="margin-top: -0.3rem; margin-bottom: 0.15rem; font-size: 1.02rem;">
-          Cada flujo que el usuario dispara (sus <strong>Journeys</strong>) cruza las mismas dos barreras de validación —
-          <strong>Reglas de Negocio</strong> e <strong>Invariantes</strong> — antes de tocar las <strong>entidades</strong> y la
-          <strong>máquina de estado</strong>. Al final siempre hay una <strong>respuesta</strong> o una <strong>notificación</strong>.
-        </p>
-
-        <!-- Barra de exploración: Visión completa / 3 Journeys -->
-        <div class="flow-perspective-bar">
-          <div class="perspective-left">
-            <span class="perspective-label">Explora un Journey:</span>
-            <div class="perspective-pills">
-              <button type="button" class="perspective-btn active" id="fn-btn-all" onclick="setFunnelView('all')">
-                🌐 Visión Completa
-              </button>
-              <button type="button" class="perspective-btn" id="fn-btn-j1" onclick="setFunnelView('j1')">
-                ✅ Reservar evento
-              </button>
-              <button type="button" class="perspective-btn" id="fn-btn-j2" onclick="setFunnelView('j2')">
-                ⚠️ Exceder cuota
-              </button>
-              <button type="button" class="perspective-btn" id="fn-btn-j3" onclick="setFunnelView('j3')">
-                🛑 Transición ilegal
-              </button>
-            </div>
-          </div>
-          <div class="perspective-takeaway" id="fn-takeaway">
-            <span id="fn-takeaway-text">
-              🌐 <strong>Visión Compartida:</strong> TRES journeys distintos, UNA sola tubería. Todas las peticiones cruzan las mismas barreras — <strong>BR</strong> (Caso de Uso) e <strong>INV</strong> (Dominio). Ahí vive el negocio, no en la pantalla.
-            </span>
-          </div>
-        </div>
-
-        <!-- Lienzo SVG: el embudo completo -->
-        <div class="flow-svg-viewport">
-          <svg id="funnel-svg" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama interactivo: un usuario con tres Journeys cuyos flujos cruzan dos barreras de validación (Reglas de Negocio e Invariantes), llegan a las entidades y a la máquina de estado, y acaban en una respuesta o notificación.">
-            <defs>
-              <marker id="fn-arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8" />
-              </marker>
-              <marker id="fn-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#059669" />
-              </marker>
-              <marker id="fn-arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#d97706" />
-              </marker>
-              <marker id="fn-arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#dc2626" />
-              </marker>
-              <marker id="fn-arr-indigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,1 L9,5 L0,9 z" fill="#4f46e5" />
-              </marker>
-            </defs>
-
-            <!-- ================= CABLES (bajo las estaciones) ================= -->
-            <g class="fn-wires">
-              <!-- Usuario → Barrera BR (un cable por Journey) -->
-              <path id="fn-w-j1-a" class="flow-path-wire fn-wire fn-j1-wire" d="M 218,118 L 252,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-              <path id="fn-w-j2-a" class="flow-path-wire fn-wire fn-j2-wire" d="M 218,178 L 252,178" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-              <path id="fn-w-j3-a" class="flow-path-wire fn-wire fn-j3-wire" d="M 218,238 L 252,238" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-
-              <!-- BR → INV (solo los que pasan la barrera 1) -->
-              <path id="fn-w-j1-b" class="flow-path-wire fn-wire fn-j1-wire" d="M 453,118 L 487,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-              <path id="fn-w-j3-b" class="flow-path-wire fn-wire fn-j3-wire" d="M 453,238 L 487,238" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-
-              <!-- INV → Entidades/Estado → Salidas (solo los que pasan las dos barreras) -->
-              <path id="fn-w-j1-c" class="flow-path-wire fn-wire fn-j1-wire" d="M 688,118 L 722,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-              <path id="fn-w-j1-d" class="flow-path-wire fn-wire fn-j1-wire" d="M 943,118 L 977,118" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#fn-arr-gray)" />
-
-              <!-- Salidas de rechazo / resultado hacia las tarjetas de outcome -->
-              <path id="fn-w-j2-out" class="flow-path-wire fn-wire fn-j2-wire" d="M 355,290 L 355,314" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#fn-arr-amber)" />
-              <path id="fn-w-j3-out" class="flow-path-wire fn-wire fn-j3-wire" d="M 590,290 L 590,314" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#fn-arr-red)" />
-              <path id="fn-w-j1-out" class="flow-path-wire fn-wire fn-j1-wire" d="M 1080,290 L 1080,314" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
-
-              <!-- Cierre del ciclo: de la salida de vuelta al usuario -->
-              <path id="fn-w-return" class="flow-path-wire" d="M 1075,376 L 1075,394 Q 1075,404 1063,404 L 132,404 Q 120,404 120,392 L 120,294" fill="none" stroke="#4f46e5" stroke-width="2.5" opacity="0.85" marker-end="url(#fn-arr-indigo)" />
-            </g>
-
-            <g id="fn-return-label">
-              <rect x="320" y="392" width="560" height="24" rx="12" fill="var(--bg-surface)" stroke="#4f46e5" stroke-width="1.5" />
-              <text x="600" y="408" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="800" letter-spacing="0.03em">↩ CIERRE DEL CICLO: respuesta o notificación SIEMPRE llegan al usuario</text>
-            </g>
-
-            <!-- ================= OUTCOMES POR JOURNEY (y 318..376) ================= -->
-            <g class="fn-outcome" id="fn-out-j1">
-              <rect x="983" y="318" width="195" height="58" rx="12" fill="rgba(5, 150, 105, 0.08)" stroke="#059669" stroke-width="1.5" />
-              <text x="995" y="336" font-size="11" font-weight="800" fill="#047857">✅ 201 CREATED</text>
-              <text x="995" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">📬 Email de confirmación</text>
-              <text x="995" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">💻 UI actualizada al instante</text>
-            </g>
-            <g class="fn-outcome" id="fn-out-j2">
-              <rect x="258" y="318" width="195" height="58" rx="12" fill="rgba(217, 119, 6, 0.08)" stroke="#d97706" stroke-width="1.5" />
-              <text x="270" y="336" font-size="11" font-weight="800" fill="#b45309">⚠️ AVISO ELEGANTE · 402</text>
-              <text x="270" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">“Has superado tu cuota Free”</text>
-              <text x="270" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">→ modal upgrade. El dominio ni se entera.</text>
-            </g>
-            <g class="fn-outcome" id="fn-out-j3">
-              <rect x="493" y="318" width="195" height="58" rx="12" fill="rgba(220, 38, 38, 0.07)" stroke="#dc2626" stroke-width="1.5" />
-              <text x="505" y="336" font-size="11" font-weight="800" fill="#b91c1c">🛑 409 CONFLICT</text>
-              <text x="505" y="352" font-size="9.5" font-weight="600" fill="var(--text-main)">“El evento ya está cerrado”</text>
-              <text x="505" y="366" font-size="9.5" font-weight="600" fill="var(--text-main)">→ estado intacto. Cero tolerancia.</text>
-            </g>
-
-            <!-- ================= ESTACIÓN 1: USUARIO & JOURNEYS ================= -->
-            <g class="flow-station station-node" id="fn-st-user">
-              <rect class="outer-box" x="18" y="28" width="200" height="262" rx="16" fill="var(--bg-surface)" stroke="#6366f1" stroke-width="3" />
-              <rect x="18" y="28" width="200" height="50" rx="16" fill="rgba(99, 102, 241, 0.12)" />
-              <text x="34" y="62" font-size="20">👤</text>
-              <text x="62" y="54" font-size="14" font-weight="800" fill="#4338ca" class="svg-node-title">USUARIO</text>
-              <text x="62" y="70" font-size="10.5" font-weight="600" fill="var(--text-muted)">Sus Journeys (Inception)</text>
-
-              <!-- Tarjetas de Journey (clicables: equivalen a los pills superiores) -->
-              <g class="fn-jcard" id="fn-jc-j1" data-journey="j1">
-                <rect x="32" y="92" width="172" height="50" rx="10" fill="rgba(5, 150, 105, 0.08)" stroke="#059669" stroke-width="1.5" />
-                <text x="42" y="113" font-size="11.5" font-weight="700" fill="#047857">✅ “Reservar el evento”</text>
-                <text x="42" y="130" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 1 · happy path</text>
-              </g>
-              <g class="fn-jcard" id="fn-jc-j2" data-journey="j2">
-                <rect x="32" y="152" width="172" height="50" rx="10" fill="rgba(217, 119, 6, 0.08)" stroke="#d97706" stroke-width="1.5" />
-                <text x="42" y="173" font-size="11.5" font-weight="700" fill="#b45309">⚠️ “Exceder mi cuota”</text>
-                <text x="42" y="190" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 2 · límite de plan</text>
-              </g>
-              <g class="fn-jcard" id="fn-jc-j3" data-journey="j3">
-                <rect x="32" y="212" width="172" height="50" rx="10" fill="rgba(220, 38, 38, 0.07)" stroke="#dc2626" stroke-width="1.5" />
-                <text x="42" y="233" font-size="11.5" font-weight="700" fill="#b91c1c">🛑 “Reactivar lo cerrado”</text>
-                <text x="42" y="250" font-size="9" font-weight="500" fill="var(--text-muted)">Journey 3 · estado imposible</text>
-              </g>
-
-              <text x="34" y="282" font-size="9.5" font-style="italic" fill="var(--text-muted)">Cada Journey dispara UN flujo E2E</text>
-            </g>
-
-            <!-- ================= ESTACIÓN 2: BARRERA BR ================= -->
-            <g class="flow-station station-node" id="fn-st-br">
-              <rect class="outer-box" x="258" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#d97706" stroke-width="2.5" />
-              <rect x="258" y="28" width="195" height="50" rx="16" fill="rgba(217, 119, 6, 0.14)" />
-              <text x="274" y="62" font-size="20">⭐</text>
-              <text x="302" y="54" font-size="13.5" font-weight="800" fill="#92400e" class="svg-node-title">BARRERA 1 · BR</text>
-              <text x="302" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Reglas de Negocio</text>
-
-              <rect x="272" y="88" width="167" height="24" rx="7" fill="#d97706" />
-              <text x="355" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">CASO DE USO · APLICACIÓN</text>
-
-              <g transform="translate(274, 132)">
-                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Permiso de rol?</text>
-                <text x="0" y="18" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Cuota del plan?</text>
-                <text x="0" y="36" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Política del evento?</text>
-              </g>
-
-              <line x1="274" y1="184" x2="437" y2="184" stroke="rgba(0,0,0,0.08)" />
-              <text x="274" y="204" font-size="9.5" font-weight="800" fill="#b45309">⚖️ VEREDICTO POR JOURNEY:</text>
-
-              <g class="fn-vchip" id="fn-vj1">
-                <rect x="272" y="212" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
-                <text x="355" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reservar → pasa</text>
-              </g>
-              <g class="fn-vchip" id="fn-vj2">
-                <rect x="272" y="234" width="167" height="18" rx="9" fill="rgba(217, 119, 6, 0.12)" stroke="#d97706" stroke-width="1" />
-                <text x="355" y="247" text-anchor="middle" font-size="9" font-weight="700" fill="#b45309">⚠️ Cuota → 402 aquí</text>
-              </g>
-              <g class="fn-vchip" id="fn-vj3">
-                <rect x="272" y="256" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
-                <text x="355" y="269" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reactivar → pasa</text>
-              </g>
-            </g>
-
-            <!-- ================= ESTACIÓN 3: BARRERA INV ================= -->
-            <g class="flow-station station-node" id="fn-st-inv">
-              <rect class="outer-box" x="493" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#7c3aed" stroke-width="2.5" />
-              <rect x="493" y="28" width="195" height="50" rx="16" fill="rgba(124, 58, 237, 0.14)" />
-              <text x="509" y="62" font-size="20">🛡️</text>
-              <text x="537" y="54" font-size="13.5" font-weight="800" fill="#6d28d9" class="svg-node-title">BARRERA 2 · INV</text>
-              <text x="537" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Invariantes · Dominio</text>
-
-              <rect x="507" y="88" width="167" height="24" rx="7" fill="#7c3aed" />
-              <text x="590" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">NÚCLEO DEL SOFTWARE</text>
-
-              <g transform="translate(509, 132)">
-                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Transición legal?</text>
-                <text x="0" y="18" font-size="11" font-weight="600" fill="var(--text-main)">• ¿Estado íntegro?</text>
-                <text x="0" y="36" font-size="11" font-weight="600" fill="#dc2626">• Cero tolerancia</text>
-              </g>
-
-              <line x1="509" y1="184" x2="672" y2="184" stroke="rgba(0,0,0,0.08)" />
-              <text x="509" y="204" font-size="9.5" font-weight="800" fill="#6d28d9">⚖️ VEREDICTO POR JOURNEY:</text>
-
-              <g class="fn-vchip" id="fn-vi1">
-                <rect x="507" y="212" width="167" height="18" rx="9" fill="rgba(5, 150, 105, 0.12)" stroke="#059669" stroke-width="1" />
-                <text x="590" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">✅ Reservar → pasa</text>
-              </g>
-              <g class="fn-vchip" id="fn-vi2">
-                <rect x="507" y="234" width="167" height="18" rx="9" fill="rgba(100, 116, 139, 0.12)" stroke="#94a3b8" stroke-width="1" />
-                <text x="590" y="247" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">— la cuota frenó antes</text>
-              </g>
-              <g class="fn-vchip" id="fn-vi3">
-                <rect x="507" y="256" width="167" height="18" rx="9" fill="rgba(220, 38, 38, 0.10)" stroke="#dc2626" stroke-width="1" />
-                <text x="590" y="269" text-anchor="middle" font-size="9" font-weight="700" fill="#b91c1c">🛑 Reactivar → 409 aquí</text>
-              </g>
-            </g>
-
-            <!-- ================= ESTACIÓN 4: ENTIDADES & MÁQUINA DE ESTADO ================= -->
-            <g class="flow-station station-node" id="fn-st-estado">
-              <rect class="outer-box" x="728" y="28" width="215" height="262" rx="16" fill="var(--bg-surface)" stroke="#059669" stroke-width="2.5" />
-              <rect x="728" y="28" width="215" height="50" rx="16" fill="rgba(5, 150, 105, 0.14)" />
-              <text x="744" y="62" font-size="20">📦</text>
-              <text x="772" y="54" font-size="13" font-weight="800" fill="#047857" class="svg-node-title">ENTIDADES &amp; MÁQUINA</text>
-              <text x="772" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Reserva · Aggregate</text>
-
-              <rect x="742" y="88" width="187" height="24" rx="7" fill="#059669" />
-              <text x="835" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">⚙️ MÁQUINA DE ESTADO</text>
-
-              <!-- Estados -->
-              <g class="fn-state-pill" id="fn-state-borrador">
-                <rect x="756" y="118" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
-                <text x="811" y="135" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">borrador</text>
-              </g>
-              <g class="fn-state-pill" id="fn-state-activa">
-                <rect x="756" y="176" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
-                <text x="811" y="193" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">activa</text>
-              </g>
-              <g class="fn-state-pill" id="fn-state-cerrada">
-                <rect x="756" y="234" width="110" height="26" rx="13" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5" />
-                <text x="811" y="251" text-anchor="middle" font-size="11.5" font-weight="700" fill="#047857">cerrada</text>
-              </g>
-
-              <!-- Transiciones legales -->
-              <path id="fn-trans-legal-a" class="fn-trans" d="M 811,144 L 811,170" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
-              <text x="826" y="162" font-size="9.5" font-weight="700" fill="#059669">reservar()</text>
-              <path id="fn-trans-legal-b" class="fn-trans" d="M 811,202 L 811,228" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#fn-arr-green)" />
-              <text x="826" y="220" font-size="9.5" font-weight="700" fill="#059669">cerrar()</text>
-
-              <!-- Transición ilegal: cerrada → activa (reaservar) -->
-              <path id="fn-trans-illegal" class="fn-trans" d="M 866,247 Q 908,219 870,191" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#fn-arr-red)" />
-              <text x="878" y="205" font-size="9.5" font-weight="700" fill="#dc2626">reaservar()</text>
-              <circle cx="902" cy="219" r="9" fill="#dc2626" />
-              <text x="902" y="223" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">✗</text>
-
-              <text x="742" y="282" font-size="9.5" font-style="italic" fill="var(--text-muted)">Solo transiciones legales cambian el estado</text>
-            </g>
-
-            <!-- ================= ESTACIÓN 5: RESPUESTA & NOTIFICACIONES ================= -->
-            <g class="flow-station station-node" id="fn-st-sal">
-              <rect class="outer-box" x="983" y="28" width="195" height="262" rx="16" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="2.5" />
-              <rect x="983" y="28" width="195" height="50" rx="16" fill="rgba(2, 132, 199, 0.12)" />
-              <text x="999" y="62" font-size="20">💬</text>
-              <text x="1027" y="54" font-size="13" font-weight="800" fill="#0369a1" class="svg-node-title">RESPUESTA &amp; AVISOS</text>
-              <text x="1027" y="70" font-size="10" font-weight="600" fill="var(--text-muted)">Salida del sistema</text>
-
-              <rect x="997" y="88" width="167" height="24" rx="7" fill="#0284c7" />
-              <text x="1080" y="104" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff" letter-spacing="0.03em">📬 LO QUE RECIBE EL USUARIO</text>
-
-              <g transform="translate(999, 136)">
-                <text x="0" y="0" font-size="11" font-weight="600" fill="var(--text-main)">• 201 Created / 4xx elegante</text>
-                <text x="0" y="20" font-size="11" font-weight="600" fill="var(--text-main)">• 📬 Email &amp; webhook</text>
-                <text x="0" y="40" font-size="11" font-weight="600" fill="var(--text-main)">• 💻 UI sincronizada</text>
-              </g>
-
-              <line x1="999" y1="196" x2="1162" y2="196" stroke="rgba(0,0,0,0.08)" />
-              <text x="999" y="220" font-size="11" font-weight="700" fill="#0369a1">Éxito o aviso:</text>
-              <text x="999" y="238" font-size="11.5" font-weight="800" fill="#0369a1">SIEMPRE hay respuesta.</text>
-              <text x="999" y="258" font-size="9.5" font-style="italic" fill="var(--text-muted)">Nada se queda en silencio.</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
 
 </main>
 
@@ -5922,7 +5923,7 @@
     (function () {
       const bannerText = document.getElementById('scenario-banner-text');
       const bannerBadge = document.getElementById('scenario-banner-badge');
-      const cards = document.querySelectorAll('#slide-inception-greenfield-brownfield .scenario-step-card');
+      const cards = document.querySelectorAll('#slide-17 .scenario-step-card');
       const tabAll = document.getElementById('tab-scen-all');
       const tabCore = document.getElementById('tab-scen-core');
       const tabSwap = document.getElementById('tab-scen-swap');
@@ -6004,7 +6005,7 @@
       cards.forEach(card => {
         const step = card.getAttribute('data-step');
         card.addEventListener('mouseenter', () => {
-          document.querySelectorAll(`#slide-inception-greenfield-brownfield .scenario-step-card[data-step="${step}"]`).forEach(c => {
+          document.querySelectorAll(`#slide-17 .scenario-step-card[data-step="${step}"]`).forEach(c => {
             c.classList.add('is-linked-hover');
           });
           if (stepAdvice[step] && bannerText) {
@@ -6016,7 +6017,7 @@
         });
 
         card.addEventListener('mouseleave', () => {
-          document.querySelectorAll('#slide-inception-greenfield-brownfield .scenario-step-card').forEach(c => {
+          document.querySelectorAll('#slide-17 .scenario-step-card').forEach(c => {
             c.classList.remove('is-linked-hover');
           });
           updateModeUI(currentMode);
@@ -6058,9 +6059,9 @@
       if (btnTech) btnTech.classList.toggle("active", mode === "tech");
 
       const takeawayEl = document.getElementById("perspective-takeaway-text");
-      const stations = document.querySelectorAll("#slide-journey-ddd-flow .flow-station");
-      const bizBadges = document.querySelectorAll("#slide-journey-ddd-flow .role-biz-badge");
-      const techBadges = document.querySelectorAll("#slide-journey-ddd-flow .role-tech-badge");
+      const stations = document.querySelectorAll("#slide-5 .flow-station");
+      const bizBadges = document.querySelectorAll("#slide-5 .role-biz-badge");
+      const techBadges = document.querySelectorAll("#slide-5 .role-tech-badge");
 
       stations.forEach(s => {
         s.classList.remove("flow-dimmed", "flow-highlight-biz", "flow-highlight-tech");
@@ -6122,7 +6123,7 @@
 
     // Click en cualquier estación para explicar su rol
     document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll("#slide-journey-ddd-flow .flow-station").forEach(station => {
+      document.querySelectorAll("#slide-5 .flow-station").forEach(station => {
         station.addEventListener("click", () => {
           const id = station.id;
           const takeawayEl = document.getElementById("perspective-takeaway-text");
@@ -6146,7 +6147,7 @@
 <script>
     // Checkpoints del mapa SDLC: clona el panel de la slide 6 y fija el estado "estamos aquí"
     (function () {
-      const srcPanel = document.querySelector('#slide-sdlc-map .sdlc-map-panel');
+      const srcPanel = document.querySelector('#slide-8 .sdlc-map-panel');
       if (!srcPanel) return;
       document.querySelectorAll('.map-ckpt-host').forEach(host => {
         const lit = (host.getAttribute('data-map-lit') || '').split(',').filter(Boolean).map(Number);
@@ -6169,13 +6170,13 @@
 
   <script>
     // =========================================================================
-    // SLIDE 40 (slide-domain-funnel): EL EMBUDO DEL DOMINIO
+    // SLIDE 40 (slide-4): EL EMBUDO DEL DOMINIO
     // Vistas por Journey: 'all' | 'j1' (reservar) | 'j2' (cuota) | 'j3' (ilegal)
     // El JS alterna la clase view-* en la <section> y los pills; el CSS puro
     // enciende/apaga wires, veredictos, transiciones y outcomes.
     // =========================================================================
     window.setFunnelView = function (mode) {
-      const slide = document.getElementById("slide-domain-funnel");
+      const slide = document.getElementById("slide-4");
       if (!slide) return;
       slide.classList.remove("view-all", "view-j1", "view-j2", "view-j3");
       slide.classList.add("view-" + mode);
@@ -6209,7 +6210,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       // Tarjetas de Journey dentro del SVG → equivalen a los pills superiores
-      document.querySelectorAll("#slide-domain-funnel .fn-jcard").forEach((card) => {
+      document.querySelectorAll("#slide-4 .fn-jcard").forEach((card) => {
         card.addEventListener("click", (e) => {
           e.stopPropagation();
           const j = card.getAttribute("data-journey");
@@ -6225,7 +6226,7 @@
         "fn-st-estado": "📦 <strong>Entidades &amp; Máquina de Estado:</strong> La entidad Reserva solo cambia por transiciones legales (borrador → activa → cerrada). El estado nunca se corrompe.",
         "fn-st-sal": "💬 <strong>Respuesta &amp; Notificaciones:</strong> Salida del sistema: 201/4xx al cliente, email/webhook y UI sincronizada. Éxito o aviso: siempre hay respuesta."
       };
-      document.querySelectorAll("#slide-domain-funnel .flow-station").forEach((st) => {
+      document.querySelectorAll("#slide-4 .flow-station").forEach((st) => {
         st.addEventListener("click", () => {
           const t = document.getElementById("fn-takeaway-text");
           if (t && ROLES[st.id]) t.innerHTML = ROLES[st.id];
