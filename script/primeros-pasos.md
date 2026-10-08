@@ -11,6 +11,10 @@ Documentación técnica, enlaces a foros oficiales de NVIDIA, incidencias en Git
   - Inferencia out-of-the-box con Ollama / vLLM.
   - Soporte nativo de cuantización en coma flotante de 4 bits (**NVFP4** en unidades Tensor `tcgen05`).
   - Capacidad para correr modelos masivos de 70B–72B y MoE densos sin necesidad de clusters SXM multitarjeta.
+- **La Burbuja de Precios (Octubre 2026)**:
+  - Ver detalle en [`referencia-precios-hardware-128gb.md`](../referencia-precios-hardware-128gb.md).
+hoy  - La DGX Spark pasó de $3,999 a $6,950 (+73.8%, agotada), el Framework Desktop de $1,999 a $3,449 (+72.5%, agotado) y un Mac Studio M5 Max de 128 GB se sitúa en $5,099.
+  - La compra de hardware local de 128 GB deja de ser una alternativa accesible frente al cloud, obligando a replantear el retorno de inversión y virar hacia el alquiler on-demand de GPUs dedicadas (H200).
 
 ---
 

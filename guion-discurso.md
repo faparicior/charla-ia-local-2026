@@ -1,7 +1,7 @@
 # 🎤 Guion de Discurso — AI Local Crafters
 
 > Charla en dos partes · Decks HTML 1920×1080
-> Parte 1: `index.html` (45 secciones · contador 45, hardware & modelos) · Parte 2: `parte2-ciclo-desarrollo.html` (**40 slides — incluye 4 checkpoints del mapa y la síntesis E2E interactiva**)
+> Parte 1: `index.html` (48 secciones · contador dinámico, hardware & modelos) · Parte 2: `parte2-ciclo-desarrollo.html` (**40 slides — incluye 4 checkpoints del mapa y la síntesis E2E interactiva**)
 > Presentar desde `dist/` (`python3 bundle.py` reempaqueta). Recarga forzada (Ctrl+Shift+R) si acabas de editar.
 
 **Teclas de modo** (idénticas en ambas partes):
@@ -103,7 +103,7 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 
 ---
 
-# PARTE 1 — Hardware & Modelos (45 secciones · contador 45) · Evaluación
+# PARTE 1 — Hardware & Modelos (48 secciones · contador dinámico) · Evaluación
 
 > ℹ️ **Numeración**: tras la renumeración, en ambas partes el ID de la slide == el contador en pantalla == las posiciones de estas tablas (en Parte 2 el prólogo es la 0). Ej.: la Matriz de Pesos = slide-36 = contador 36.
 
@@ -175,7 +175,12 @@ Clase `doc-only` en la `<section>` (reutiliza el CSS existente de Modo Charla/Do
 
 # Estado técnico actual
 
-- **Parte 1: 45 slides (contador 45)**, IDs renumerados para coincidir con el contador (era `slide-27b`, ahora `slide-35`) — caso DeepSeek al final del bloque de aceleración (33-34) y **slide 35 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica"). **14 slides ocultas en Modo Charla** (clase `doc-only` en la sección; la charla recorre 31), visibles en Documento y en el PDF exportado en Documento.
+- **REORIENTACIÓN NARRATIVA (8 oct 2026) — «Dueño del modelo, no del silicio»:** tras la escalada de precios del hardware 128 GB+ (ver `referencia-precios-hardware-128gb.md`), la Parte 1 se reencuadra: la idea (pesos abiertos + privacidad + control) sobrevive, pero el runtime pasa a ser fungible. Tres slides nuevas:
+  - **slide-3b · «El choque de precios II: la caja se disparó»** (tras la s3, posición 4): tabla `editorial-table` con el mercado Oct 2026 (Framework $1.999→$3.449 agotada; DGX Spark +74% → $6.950 agotado + recorte 64 GB a $4.999; Bosgame/Minisforum $3.099–3.799; GMKtec agotado; Mac Studio M5 Max $5.099 (+$1.600 por 64 GB, $25/GB); M5 Ultra 256 GB $9.499; Gorgon Halo 192 GB $6.799) + remate: el ticket de entrada pasó de $2.000 a $5.000–7.000. Fila DGX destacada con `highlight-row`.
+  - **slide-46 · «¿Y si no puedes comprártelo? La escalera de 2026»** (tras la s45): 3 peldaños (equipo que ya tienes · GPU alquilada por horas ~1–3,5 €/h H200 · caja propia cuando baje el pico) + matiz honesto (el alquiler también puede subir, pero pagas por uso). Componente `ladder-*` nuevo en `style.css`.
+  - **slide-47 · «Dueño del modelo, no del silicio»** (cierre): 3 tarjetas tesis (el software llegó · el silicio se desató · los pesos te salvan) + quote-box («Yo llegué a tiempo — vosotros podéis empezar por el peldaño que toque») + `deck-transition-box` (movida desde la s45).
+  - Pendiente de este reenfoque: retitular s41 como caso personal («Llegué a tiempo»), s6 («alquilar o poseer»), s9 (pivote alquiler) y portada s1 en castellano.
+- **Parte 1: 48 slides (contador dinámico)**, IDs renumerados para coincidir con el contador (era `slide-27b`, ahora `slide-35`) — caso DeepSeek al final del bloque de aceleración (33-34) y **slide 35 "Las Cuatro Vías de Aceleración: ¿Cuándo usar qué?"** (clon del sistema goldilocks: tabla con ganancias reales ×3 / ~3× / +60-85% / ~3.4× + banner "La Regla Práctica"). **14 slides ocultas en Modo Charla** (clase `doc-only` en la sección; la charla recorre 34), visibles en Documento y en el PDF exportado en Documento.
 - **Parte 2: 43 slides (Charla = la 5 esquemática; la 4 interactiva solo en Documento), IDs renumerados slide-0..slide-43 == contador (mismo criterio que Parte 1); CSS de componentes prefijado por deck (`body.deck-hardware-part1` / `body.deck-sdlc-part2`) para aislar los estilos entre decks** — 6 **checkpoints del mapa** (19 · 23 · 25 · 30 · **36 Fase 4** · **38 Fase 5+**: TDD encendida + Cambio Guiado brillando): banda ADR ya encendida + Construcción TDD brillando; **23 Fase 2b**: Specs encendida + Features brillando en fucsia): clon runtime del panel del mapa (sin tocar slides.js: el clon pierde la clase `step` para que el motor no interfiera; el CSS del mapa se copió re-scoped a `.map-ckpt-host`); contador del mapa repurposed como etiqueta 📍 "Estamos aquí"; visibles también en Documento. El Viaje E2E **tras la síntesis (6)**: el puente negocio ↔ técnica tras los paradigmas; el cierre verbal recupera la imagen ("ahora la leéis entera"). CK4 (36) + TDD (37) van ANTES del Ciclo Canónico (39) y Producto (40); luego Conexión (41), Quote (42), Q&A (43). Cliente local eliminado.
 - **Slides 4 y 5 — la síntesis E2E "El Embudo del Dominio"** (DECIDIDO: **la 5 es la de Charla**; la 4 queda solo en Documento):
   - **La 5 — "Versión Esquemática"**: corredor único con el lenguaje de la 27 de la Parte 1 (el Viaje del Token) — chip viajero por CSS Motion Path, **4 pasos que evolucionan: cuota ⚠️ (frena BR) → ilegal 🛑 (frena INV) → reserva ✅ (lo consigue: 201 + 📬 + 💻) → veredicto 🏁** — se va parando hasta que consigue su objetivo; dos barreras simbólicas (⭐ BR / 🛡️ INV), trio FSM, avisos elegantes 402/409; **sin JS propio** (pura coreografía CSS sobre el motor `.step`; pasos excluyentes; el veredicto restaura el escenario).

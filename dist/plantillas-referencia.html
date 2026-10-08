@@ -22553,6 +22553,167 @@ body.mode-document .charla-only {
   display: none !important;
 }
 
+/* ==========================================================================
+   SLIDES 3B / 46 / 47 — CHOQUE DEL SILICIO, ESCALERA 2026 Y CIERRE (Parte 1)
+   ========================================================================== */
+
+/* Slide 46: Escalera de 2026 (3 peldaños en subida) */
+body.deck-hardware-part1 #slide-46 .ladder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.4rem;
+  width: 100%;
+  align-items: start;
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step:nth-child(2) {
+  margin-top: 1.3rem;
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step:nth-child(3) {
+  margin-top: 2.6rem;
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step-focus {
+  border: 2px solid #ea580c;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.12);
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step-num {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: #ea580c;
+  color: #ffffff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step:not(.ladder-step-focus) .ladder-step-num {
+  background: var(--border-focus);
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step-cost {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c2410c;
+  background: rgba(234, 88, 12, 0.1);
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  width: fit-content;
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-step-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+body.deck-hardware-part1 #slide-46 .ladder-honest-note {
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+body.theme-dark #slide-46 .ladder-step {
+  background: var(--bg-surface);
+}
+
+body.theme-dark #slide-46 .ladder-step-desc,
+body.theme-dark #slide-46 .ladder-step-title {
+  color: var(--text-main);
+}
+
+/* Slide 47: Cierre — Dueño del modelo, no del silicio */
+body.deck-hardware-part1 #slide-47 .closing-thesis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-thesis-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+body.deck-hardware-part1 #slide-47 .closing-thesis-card strong {
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+body.deck-hardware-part1 #slide-47 .closing-thesis-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+body.deck-hardware-part1 #slide-47 .closing-thesis-icon {
+  font-size: 1.5rem;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-quote {
+  margin-top: 1.2rem;
+  gap: 1.2rem;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-quote .quote-text {
+  font-size: 1.45rem;
+}
+
+body.theme-dark #slide-47 .closing-thesis-card p {
+  color: var(--text-muted);
+}
+
+/* Centrado vertical con bias óptico (solo Modo Charla; aire abajo = aire arriba + ~38px) */
+body:not(.mode-document).deck-hardware-part1 #slide-46 .ladder-grid {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-46 .ladder-honest-note {
+  margin-bottom: auto;
+  padding-bottom: 2.4rem;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-47 .closing-thesis-grid {
+  margin-top: auto;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-47 .deck-transition-box {
+  margin-bottom: auto;
+  padding-bottom: 2.4rem;
+}
+
 </style>
 </head>
 

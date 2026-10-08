@@ -195,7 +195,7 @@ def main():
         bundle_presentation(Path("templates.html"), tmpl_out)
 
         print("\n🎉 ¡Todos los paquetes han sido generados en la carpeta dist/!")
-        print("   1. dist/charla-parte1-hardware-modelos.html (Parte 1: 45 slides)")
+        print("   1. dist/charla-parte1-hardware-modelos.html (Parte 1: 48 slides)")
         print("   2. dist/charla-parte2-ciclo-desarrollo.html (Parte 2: 43 slides (charla: 5 esquemática · la 4 interactiva solo en Documento))")
         print("   3. dist/plantillas-referencia.html          (Plantillas: 8 slides)")
 
