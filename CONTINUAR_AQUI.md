@@ -1,7 +1,9 @@
 # 🚀 AI Local Crafters — Estado del Proyecto y Hoja de Ruta
 
-> **Fecha de actualización:** 7 de Septiembre de 2026 (22:45)  
+> **Fecha de actualización:** 8 de Octubre de 2026  
 > **Propósito:** Documento de contexto para retomar el trabajo en un chat nuevo sin perder nada de contexto.
+
+> ⚠️ **RENUMERACIÓN PARTE 1 (8 oct 2026):** tras insertar la slide 4 («El choque de precios II: la caja se disparó»), los ids de `index.html` están renumerados para que **id = posición = contador** (48 slides contiguas, `slide-1`..`slide-48`). Equivalencias y detalles en `guion-discurso.md` (sección «Estado técnico actual»). Los mensajes históricos de este documento conservan la numeración de su fecha.
 
 ---
 
