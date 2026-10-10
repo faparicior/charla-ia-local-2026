@@ -16,15 +16,20 @@ Comunidades como **r/ClaudeAI**, **r/ChatGPT** y el **OpenAI Developer Community
 
 ### A. La comunidad de Reddit detecta degradación (r/ClaudeAI & r/ChatGPT)
 * **Megathreads de incidencias periódicas en `r/ClaudeAI`:**  
-  A lo largo de 2026 (con picos documentados en **agosto, septiembre y octubre de 2026**), la comunidad abrió hilos masivos como *"Discussion Hub: Degraded Performance / Is Claude getting dumber?"*. Los usuarios documentaron que en momentos de inestabilidad o picos de tráfico, el modelo perdía coherencia y reducía su capacidad de seguir instrucciones complejas.
-* **Quejas en `r/ChatGPT` sobre "nerfeos" y versiones en 2026:**  
-  Durante el verano de 2026 (destacando debates en agosto alrededor de iteraciones como *GPT-5.6 Sol*), usuarios en Reddit reportaron que el modelo se sentía súbitamente rígido, excesivamente prudente y con una degradación palpable frente a versiones de meses previos.
+  A lo largo de 2026 (con picos documentados en agosto y septiembre), la comunidad abrió hilos masivos de seguimiento ante caídas de calidad:
+  - Hilo del 18 de agosto de 2026: [Discussion Hub for new Claude incident: Degraded performance for multiple models on Aug 18, 2026](https://www.reddit.com/r/ClaudeAI/comments/1vrtyin/discussion_hub_for_new_claude_incident_degraded/)
+  - Hilo del 5 de agosto de 2026: [Discussion Hub: Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5](https://www.reddit.com/r/ClaudeAI/comments/1vg0111/discussion_hub_for_new_claude_incident_degraded/)
+* **Quejas en `r/ChatGPT` sobre "nerfeos" y enrutamiento forzado en 2026:**  
+  - Hilo del 6 de agosto de 2026: [GPT 5.6 Sol High and X-High (Web Chat) feels severely nerfed since 08/06/2026 update](https://www.reddit.com/r/ChatGPT/comments/1vl1anl/gpt_56_sol_high_and_xhigh_web_chat_feels_severely/) – Debate con más de 100 votos sobre la degradación repentina del modelo en razonamiento complejo.
+  - Hilo sobre enrutador forzado (*Auto*): [Unable to change model, alway stays Auto](https://www.reddit.com/r/ChatGPT/comments/1uufqk9/unable_to_change_model_alway_stays_auto/) – Quejas por la imposibilidad de evitar el enrutador automático de OpenAI.
+  - Hilo sobre declive cualitativo general: [I’m in utter disbelief. I felt ChatGPT has gotten bad lately](https://www.reddit.com/r/ChatGPT/comments/1w1me23/im_in_utter_disbelief_i_felt_chatgpt_has_gotten/)
 
 ### B. El descubrimiento técnico en foros de OpenAI: *Silent Routing* y degradaciones encubiertas
-* **Foro de Desarrolladores de OpenAI (OpenAI Community - 2026):**  
-  Desarrolladores avanzados comenzaron a usar herramientas de inspección y proxies locales (como *CLIProxyAPI*) para monitorizar los encabezados y metadatos JSON devueltos por el backend.
+* **Foro de Desarrolladores de OpenAI (OpenAI Community - Octubre 2026):**  
+  Desarrolladores avanzados comenzaron a usar herramientas de inspección y proxies locales (como *CLIProxyAPI*) para monitorizar los encabezados y metadatos JSON devueltos por el backend:
+  - Hilo oficial del foro (9 de octubre de 2026): [Persistent capacity failures and possible account-level routing issue](https://community.openai.com/t/persistent-capacity-failures-and-possible-account-level-routing-issue/1404987)
 * **El hallazgo:**  
-  Descubrieron que peticiones teóricamente enviadas a modelos insignia de máxima capacidad eran redirigidas internamente a modelos más ligeros o versiones reducidas (*"stealth downgrades"* hacia variantes como `gpt-5.6-luna` o modelos mini) cuando el clúster se saturaba o arrojaba el error *"Selected model is at capacity"*.
+  Descubrieron que peticiones teóricamente enviadas a modelos insignia eran redirigidas internamente a clústeres degradados o modelos más ligeros (*"stealth downgrades"* hacia variantes como `gpt-5.6-luna` o modelos mini) cuando el clúster se saturaba o arrojaba el error *"Selected model is at capacity"*.
 * **La consecuencia:**  
   Los desarrolladores experimentaban una degradación instantánea de calidad sin aviso previo en la interfaz.
 
@@ -105,8 +110,15 @@ Para desarrolladores y artesanos del software (*AI Local Crafters*), los acontec
 
 ---
 
-### Fuentes y Referencias (2026)
-- **Anthropic Engineering (23 de abril de 2026):** [An update on recent Claude Code quality reports](https://www.anthropic.com/engineering/an-update-on-recent-claude-code-quality-reports)
-- **Comunidad Reddit r/ClaudeAI (2026):** Discusiones y megathreads sobre rendimiento y estabilidad ([r/ClaudeAI Performance Discussions](https://www.reddit.com/r/ClaudeAI/))
-- **Comunidad Reddit r/ChatGPT (2026):** Debates de degradación de modelos, enrutamiento y versiones 2026 ([r/ChatGPT](https://www.reddit.com/r/ChatGPT/))
-- **OpenAI Developer Community (2026):** Análisis de proxies de enrutamiento y errores de capacidad de modelos ([OpenAI Community Forum](https://community.openai.com/))
+### Fuentes y Enlaces Específicos (2026)
+- **Anthropic Engineering Blog (Post-mortem Oficial - 23 de abril de 2026):**  
+  [An update on recent Claude Code quality reports](https://www.anthropic.com/engineering/an-update-on-recent-claude-code-quality-reports)
+- **Reddit r/ClaudeAI (Megathreads de degradación técnica de 2026):**  
+  - [Discussion Hub: Degraded performance for multiple models (18 de agosto de 2026)](https://www.reddit.com/r/ClaudeAI/comments/1vrtyin/discussion_hub_for_new_claude_incident_degraded/)  
+  - [Discussion Hub: Degraded performance on Claude Mythos 5, Fable 5, Opus 5 (5 de agosto de 2026)](https://www.reddit.com/r/ClaudeAI/comments/1vg0111/discussion_hub_for_new_claude_incident_degraded/)
+- **Reddit r/ChatGPT (Hilos de nerfeos y enrutamiento en 2026):**  
+  - [GPT 5.6 Sol High and X-High feels severely nerfed since 08/06/2026 update (6 de agosto de 2026)](https://www.reddit.com/r/ChatGPT/comments/1vl1anl/gpt_56_sol_high_and_xhigh_web_chat_feels_severely/)  
+  - [Unable to change model, alway stays Auto (Enrutador forzado en ChatGPT)](https://www.reddit.com/r/ChatGPT/comments/1uufqk9/unable_to_change_model_alway_stays_auto/)  
+  - [I’m in utter disbelief. I felt ChatGPT has gotten bad lately, but this is on another level!](https://www.reddit.com/r/ChatGPT/comments/1w1me23/im_in_utter_disbelief_i_felt_chatgpt_has_gotten/)
+- **OpenAI Developer Community (Análisis técnico de fallos de enrutamiento y capacidad - Octubre 2026):**  
+  - [Persistent capacity failures and possible account-level routing issue (9 de octubre de 2026)](https://community.openai.com/t/persistent-capacity-failures-and-possible-account-level-routing-issue/1404987)
