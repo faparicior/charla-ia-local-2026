@@ -3493,9 +3493,164 @@
     </section>
 
 <!-- ====================================================================
-         SLIDE 31: EL MAPA DE RENDIMIENTO — NVIDIA VS APPLE VS AMD
+         SLIDE 29: ANATOMÍA DEL SILICIO — CÓMPUTO VS BUS DE MEMORIA
          ==================================================================== -->
     <section class="slide" id="slide-29">
+      <div class="slide-content">
+        <div class="tag">Rendimiento · Anatomía del Silicio</div>
+        <h2>Prefill vs. Decode: <span class="serif-italic" style="color: #ea580c;">el cuello de botella en el silicio</span></h2>
+        <p class="subtitle" style="margin-top: -0.7rem;">
+          Por qué el mismo chip gana en el prompt y pierde en la respuesta: cómputo matricial paralelo vs. ancho de banda de memoria.
+        </p>
+
+        <div class="silicon-duel-grid">
+          <!-- Panel Izquierdo: PREFILL (Compute-bound) -->
+          <div class="silicon-panel silicon-prefill">
+            <div class="silicon-panel-header">
+              <div class="silicon-badge prefill-badge">⚙️ FASE 1: PREFILL</div>
+              <span class="silicon-phase-label">Ingesta del Prompt · TTFT</span>
+            </div>
+
+            <div class="silicon-diagram">
+              <svg viewBox="0 0 460 210" class="silicon-svg" aria-label="Diagrama de cómputo paralelo masivo en Prefill">
+                <defs>
+                  <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ea580c"/>
+                    <stop offset="100%" stop-color="#f97316"/>
+                  </linearGradient>
+                </defs>
+                <!-- Prompt entrante en paralelo -->
+                <rect x="20" y="15" width="420" height="34" rx="8" fill="rgba(234, 88, 12, 0.08)" stroke="#ea580c" stroke-width="1.5"/>
+                <text x="230" y="37" text-anchor="middle" font-size="13" font-weight="800" fill="#c2410c" font-family="var(--font-mono)">32.000 TOKENS DE PROMPT (ENTRADA PARALELA)</text>
+                
+                <!-- Flechas paralelas cayendo -->
+                <path d="M 60 52 L 60 76 M 145 52 L 145 76 M 230 52 L 230 76 M 315 52 L 315 76 M 400 52 L 400 76" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="3,3"/>
+                <polygon points="60,82 56,74 64,74" fill="#ea580c"/>
+                <polygon points="145,82 141,74 149,74" fill="#ea580c"/>
+                <polygon points="230,82 226,74 234,74" fill="#ea580c"/>
+                <polygon points="315,82 311,74 319,74" fill="#ea580c"/>
+                <polygon points="400,82 396,74 404,74" fill="#ea580c"/>
+
+                <!-- Bloque Tensor Cores -->
+                <rect x="20" y="85" width="420" height="58" rx="10" fill="url(#pGrad)"/>
+                <text x="230" y="110" text-anchor="middle" font-size="14" font-weight="900" fill="#ffffff">⚡ MULTIPLICACIÓN MATRICIAL MASIVA</text>
+                <text x="230" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="rgba(255,255,255,0.9)" font-family="var(--font-mono)">Tensor Cores FP4 / FP8 · Millones de Operaciones / s</text>
+
+                <!-- Flecha hacia KV Cache -->
+                <path d="M 230 145 L 230 162" stroke="#ea580c" stroke-width="2.5"/>
+                <polygon points="230,168 226,160 234,160" fill="#ea580c"/>
+
+                <!-- Salida: KV Cache lista -->
+                <rect x="70" y="170" width="320" height="30" rx="6" fill="rgba(234, 88, 12, 0.12)" stroke="#ea580c" stroke-width="1.5"/>
+                <text x="230" y="190" text-anchor="middle" font-size="12" font-weight="800" fill="#c2410c" font-family="var(--font-mono)">💾 KV CACHE CONSTRUIDA EN MEMORIA</text>
+              </svg>
+            </div>
+
+            <div class="silicon-metrics">
+              <div class="silicon-metric-row">
+                <span class="metric-key">Naturaleza:</span>
+                <span class="metric-val"><strong>Compute-Bound</strong> (limitado por cómputo)</span>
+              </div>
+              <div class="silicon-metric-row">
+                <span class="metric-key">Cuello de botella:</span>
+                <span class="metric-val highlight-orange">TFLOPs brutos de los Tensor Cores</span>
+              </div>
+              <div class="silicon-metric-row">
+                <span class="metric-key">Quién domina:</span>
+                <span class="metric-val">👑 <strong>NVIDIA Blackwell</strong> (~7.600 tok/s en 8B)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel Derecho: DECODE (Memory-bound) -->
+          <div class="silicon-panel silicon-decode">
+            <div class="silicon-panel-header">
+              <div class="silicon-badge decode-badge">🌊 FASE 2: DECODE</div>
+              <span class="silicon-phase-label">Generación de la Respuesta · tok/s</span>
+            </div>
+
+            <div class="silicon-diagram">
+              <svg viewBox="0 0 460 210" class="silicon-svg" aria-label="Diagrama de cuello de botella de memoria en Decode">
+                <defs>
+                  <linearGradient id="dGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0284c7"/>
+                    <stop offset="100%" stop-color="#2563eb"/>
+                  </linearGradient>
+                </defs>
+                <!-- Silo de Pesos en RAM -->
+                <rect x="20" y="15" width="420" height="34" rx="8" fill="rgba(2, 132, 199, 0.08)" stroke="#0284c7" stroke-width="1.5"/>
+                <text x="230" y="37" text-anchor="middle" font-size="13" font-weight="800" fill="#0369a1" font-family="var(--font-mono)">40 GB DE PESOS DEL MODELO EN RAM (70B Q4)</text>
+
+                <!-- Tubería de ancho de banda -->
+                <path d="M 120 52 L 120 72 L 200 82 M 340 52 L 340 72 L 260 82" stroke="#0284c7" stroke-width="2" stroke-dasharray="3,3"/>
+                <rect x="170" y="85" width="120" height="42" rx="8" fill="url(#dGrad)"/>
+                <text x="230" y="104" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" font-family="var(--font-mono)">BUS DE MEMORIA</text>
+                <text x="230" y="118" text-anchor="middle" font-size="12" font-weight="900" fill="#bae6fd">GB/s</text>
+
+                <!-- Goteo token a token -->
+                <path d="M 230 130 L 230 148" stroke="#0284c7" stroke-width="2.5"/>
+                <polygon points="230,154 226,146 234,146" fill="#0284c7"/>
+
+                <!-- Cinta transportadora de tokens secuenciales -->
+                <rect x="30" y="160" width="400" height="40" rx="8" fill="rgba(2, 132, 199, 0.08)" stroke="#0284c7" stroke-width="1.5"/>
+                <g transform="translate(60, 168)">
+                  <rect x="0" y="0" width="60" height="24" rx="5" fill="#0284c7"/>
+                  <text x="30" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" font-family="var(--font-mono)">Token 1</text>
+                </g>
+                <text x="145" y="184" text-anchor="middle" font-size="13" font-weight="800" fill="#0284c7">→</text>
+                <g transform="translate(170, 168)">
+                  <rect x="0" y="0" width="60" height="24" rx="5" fill="#0284c7"/>
+                  <text x="30" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" font-family="var(--font-mono)">Token 2</text>
+                </g>
+                <text x="255" y="184" text-anchor="middle" font-size="13" font-weight="800" fill="#0284c7">→</text>
+                <g transform="translate(280, 168)">
+                  <rect x="0" y="0" width="60" height="24" rx="5" fill="#0284c7"/>
+                  <text x="30" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" font-family="var(--font-mono)">Token 3</text>
+                </g>
+                <text x="365" y="184" text-anchor="middle" font-size="13" font-weight="800" fill="#0284c7">...</text>
+              </svg>
+            </div>
+
+            <div class="silicon-metrics">
+              <div class="silicon-metric-row">
+                <span class="metric-key">Naturaleza:</span>
+                <span class="metric-val"><strong>Memory-Bound</strong> (limitado por memoria)</span>
+              </div>
+              <div class="silicon-metric-row">
+                <span class="metric-key">Cuello de botella:</span>
+                <span class="metric-val highlight-blue">Ancho de banda del bus (GB/s)</span>
+              </div>
+              <div class="silicon-metric-row">
+                <span class="metric-key">Quién domina:</span>
+                <span class="metric-val">👑 <strong>Apple Silicon</strong> (546 GB/s → 1,2 TB/s)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra Inferior Común: La Ley Física de la Memoria -->
+        <div class="silicon-law-bar">
+          <div class="silicon-law-formula">
+            <code>Velocidad máxima (tok/s) ≈ Ancho de banda de memoria (GB/s) ÷ Tamaño del modelo (GB)</code>
+          </div>
+          <div class="silicon-law-cases">
+            <span>70B en 4-bit (~40 GB):</span>
+            <span class="case-item">273 GB/s (Spark) → <strong>~6,8 tok/s</strong></span>
+            <span class="case-divider">·</span>
+            <span class="case-item">546 GB/s (M4 Max) → <strong>~13,6 tok/s</strong></span>
+            <span class="case-divider">·</span>
+            <span class="case-item">1,2 TB/s (M5 Ultra) → <strong>~30 tok/s</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<!-- ====================================================================
+         SLIDE 32: EL MAPA DE RENDIMIENTO — NVIDIA VS APPLE VS AMD
+         ==================================================================== -->
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <p class="src-stamp">Benchmarks de comunidad · Ago–Oct 2026 · r/LocalLLaMA · vLLM / MLX / llama.cpp</p>
         <div class="tag">Rendimiento · Mapa del Silicio 128 GB+</div>
@@ -3571,9 +3726,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 30: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 31: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -3844,9 +3999,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 31: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 32: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-31">
+    <section class="slide doc-only" id="slide-32">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -3962,9 +4117,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 32: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 33: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-32">
+    <section class="slide doc-only" id="slide-33">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + Experto</span></h2>
@@ -4085,9 +4240,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 33: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 34: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-33">
+    <section class="slide doc-only" id="slide-34">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -4227,7 +4382,7 @@
 <!-- ====================================================================
          SLIDE 31B: ESTRATEGIA DFLASH 2 (GRAFOS MULTI-CANDIDATO & PATH SELECTOR)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-34">
+    <section class="slide doc-only" id="slide-35">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash 2</div>
         <h2>Estrategia DFlash 2: <span class="serif-italic" style="color: #be123c;">Grafos sin Tail Decay</span></h2>
@@ -4378,9 +4533,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 35: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 36: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-35">
+    <section class="slide doc-only" id="slide-36">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -4586,9 +4741,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 36: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 37: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-36">
+    <section class="slide doc-only" id="slide-37">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De PTX a integración nativa</span></h2>
@@ -4690,7 +4845,7 @@
 <!-- ====================================================================
          SLIDE 27 · B: RESUMEN DE ESTRATEGIAS DE ACELERACIÓN (¿CUÁNDO USAR QUÉ?)
          ==================================================================== -->
-<section class="slide doc-only" id="slide-37">
+<section class="slide doc-only" id="slide-38">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • Resumen Comparativo</div>
         <h2>Las Cuatro Vías de Aceleración: <span class="serif-italic" style="color: #15803d;">¿Cuándo usar qué?</span></h2>
@@ -4764,9 +4919,9 @@
       </div>
     </section>
 <!-- ====================================================================
-         SLIDE 38: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 39: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
          ==================================================================== -->
-    <section class="slide" id="slide-38">
+    <section class="slide" id="slide-39">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #15803d;">La Zona Ricitos de Oro</span></h2>
@@ -4939,9 +5094,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 39: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
+         SLIDE 40: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide" id="slide-39">
+    <section class="slide" id="slide-40">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -5193,9 +5348,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 40: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
+         SLIDE 41: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
          ==================================================================== -->
-    <section class="slide" id="slide-40">
+    <section class="slide" id="slide-41">
       <div class="slide-content">
         <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
         <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
@@ -5315,9 +5470,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 41: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
+         SLIDE 42: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-41">
+    <section class="slide doc-only" id="slide-42">
       <div class="slide-content">
         <div class="tag">Qwen 3.8 Flash Next &bull; Anatom&iacute;a</div>
         <h2>Por dentro: <span class="serif-italic">cinco piezas en 48 capas</span></h2>
@@ -5443,9 +5598,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 42: LA DECISIÓN: LAS "CALCULASIONES"
+         SLIDE 43: LA DECISIÓN: LAS "CALCULASIONES"
          ==================================================================== -->
-    <section class="slide" id="slide-42">
+    <section class="slide" id="slide-43">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
@@ -5490,9 +5645,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 43: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
+         SLIDE 44: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
          ==================================================================== -->
-    <section class="slide" id="slide-43">
+    <section class="slide" id="slide-44">
       <div class="slide-content">
         <div class="tag">Vivencia Personal • Caso de Estudio</div>
         <h2>¡Llegó el Aparato! <span class="serif-italic" style="color: #ea580c;">(llegué a tiempo)</span></h2>
@@ -5571,9 +5726,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 44: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
+         SLIDE 45: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
          ==================================================================== -->
-    <section class="slide" id="slide-44">
+    <section class="slide" id="slide-45">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -5659,9 +5814,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 45: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
+         SLIDE 46: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
-    <section class="slide" id="slide-45">
+    <section class="slide" id="slide-46">
       <div class="slide-content">
         <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
         <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
@@ -5706,9 +5861,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 46: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         SLIDE 47: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
          ==================================================================== -->
-    <section class="slide" id="slide-46">
+    <section class="slide" id="slide-47">
       <div class="slide-content">
         <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
         <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
@@ -5831,9 +5986,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 47: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
+         SLIDE 48: LA DUPLA ESCOGIDA — FICHAS TÉCNICAS HUGGING FACE (122B & 35B)
          ==================================================================== -->
-    <section class="slide" id="slide-47">
+    <section class="slide" id="slide-48">
       <div class="slide-content">
         <div class="tag">Model Selection • Stack Definitivo en Local</div>
         <h2>Los 2 Modelos Escogidos: <span class="serif-italic" style="color: #ea580c;">Inteligencia &amp; Código</span>
@@ -6047,9 +6202,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 48: LA ESCALERA DE 2026 — ¿Y SI NO PUEDES COMPRÁRTELO?
+         SLIDE 49: LA ESCALERA DE 2026 — ¿Y SI NO PUEDES COMPRÁRTELO?
          ==================================================================== -->
-    <section class="slide" id="slide-48">
+    <section class="slide" id="slide-49">
       <div class="slide-content">
         <div class="tag">La Decisión · Octubre 2026</div>
         <h2>¿Y si no puedes comprártelo? <span class="serif-italic" style="color: #ea580c;">La escalera de 2026</span>
@@ -6105,9 +6260,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 49: CIERRE — DUEÑO DEL MODELO, NO DEL SILICIO
+         SLIDE 50: CIERRE — DUEÑO DEL MODELO, NO DEL SILICIO
          ==================================================================== -->
-    <section class="slide" id="slide-49">
+    <section class="slide" id="slide-50">
       <div class="slide-content">
         <div class="tag">Cierre</div>
         <h2>Dueño del modelo, <span class="serif-italic" style="color: #ea580c;">no del silicio</span></h2>
@@ -6231,9 +6386,9 @@
       </div>
     </section>
 <!-- ====================================================================
-         SLIDE 50: LA NUBE EN 2026 — RUTAS OCULTAS Y MODELOS QUE CAMBIAN
+         SLIDE 51: LA NUBE EN 2026 — RUTAS OCULTAS Y MODELOS QUE CAMBIAN
          ==================================================================== -->
-    <section class="slide" id="slide-50">
+    <section class="slide" id="slide-51">
       <div class="slide-content">
         <p class="src-stamp">Informes de amenazas e investigación regulatoria · Feb–Oct 2026</p>
         <div class="tag">Prensa y Análisis · Privacidad</div>
@@ -6323,9 +6478,9 @@
     </section>
 
 <!-- ====================================================================
-         SLIDE 51: EL NERFEO — TU MODELO CAMBIA BAJO TUS PIES
+         SLIDE 52: EL NERFEO — TU MODELO CAMBIA BAJO TUS PIES
          ==================================================================== -->
-    <section class="slide" id="slide-51">
+    <section class="slide" id="slide-52">
       <div class="slide-content">
         <p class="src-stamp">Post-mortems oficiales y detección de la comunidad · Abr–Oct 2026</p>
         <div class="tag">Prensa y Análisis · Variabilidad</div>
@@ -6417,9 +6572,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 52: CIERRE MOTIVACIONAL — LA FRASE, EN SOLEDAD
+         SLIDE 53: CIERRE MOTIVACIONAL — LA FRASE, EN SOLEDAD
          ==================================================================== -->
-    <section class="slide" id="slide-52">
+    <section class="slide" id="slide-53">
       <div class="slide-content">
         <div class="finale-quote">
           <div class="finale-mark">❝</div>
@@ -6441,7 +6596,7 @@
   <footer id="hud">
     <div class="hud-left">
       <div class="slide-counter">
-        <span id="slide-current">1</span> / <span id="slide-total">52</span>
+        <span id="slide-current">1</span> / <span id="slide-total">53</span>
       </div>
       <button class="hud-btn" id="btn-prev" title="Anterior (← / Shift+Espacio)">‹</button>
       <button class="hud-btn" id="btn-next" title="Siguiente (→ / Espacio)">›</button>
