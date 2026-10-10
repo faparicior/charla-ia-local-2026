@@ -22862,6 +22862,37 @@ body.deck-hardware-part1 .editorial-table td.win-cell {
   background: rgba(234, 88, 12, 0.08);
 }
 
+/* Tabla de carreras: filas uniformes (la medalla grande no debe inflar su fila) */
+body.deck-hardware-part1 .race-table td {
+  line-height: 2.4rem;
+}
+
+body.deck-hardware-part1 .race-table td:first-child {
+  font-size: 1.2rem;
+}
+
+/* Sub-etiqueta del modelo en las celdas MoE (Qwen 3.8 / DeepSeek) */
+body.deck-hardware-part1 .race-table .cell-note {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: #6b7280;
+  margin-top: 0.1rem;
+}
+
+/* Celdas sin datos públicos (n.d.) */
+body.deck-hardware-part1 .race-table td.na-cell,
+body.deck-hardware-part1 .race-table td.na-cell .cell-note {
+  color: #9ca3af;
+}
+
+/* Kicker de contexto solo en Modo Documento: en Charla es ruido y roba altura
+   (reutilizable por otras slides con la clase kicker-doc-only) */
+body:not(.mode-document) .kicker-doc-only {
+  display: none;
+}
+
 /* ==========================================================================
    PREFILL VS DECODE (pd-*) Y EL MUNDO CLOUD (cloud-*) — componentes por clase
    (sin ids de slide: inmunes a renumeraciones)
@@ -23029,9 +23060,9 @@ body:not(.mode-document).deck-hardware-part1 .pd-wrap {
 }
 
 /* s29 (tabla de rendimiento): bias recalibrado tras añadir la columna 200k
-   (gap↑ 114 · gap↓ 152 · bias +38) */
+   y pasar el kicker a Modo Documento (gap↑ ~178 · gap↓ ~216 · bias +38) */
 body:not(.mode-document).deck-hardware-part1 #slide-29 .pd-wrap {
-  padding-bottom: 9.9rem;
+  padding-bottom: 8.2rem;
 }
 
 </style>

@@ -3491,14 +3491,16 @@
         <div class="pd-wrap">
 
         <div class="table-container">
-          <table class="editorial-table">
+          <table class="editorial-table race-table">
             <thead>
               <tr>
                 <th>Plataforma</th>
                 <th>Ancho de banda</th>
                 <th>Prefill 32k (70B)</th>
                 <th>Prefill 200k (70B)</th>
+                <th>Prefill 200k · MoE</th>
                 <th>Decode 70B denso</th>
+                <th>Decode · MoE</th>
               </tr>
             </thead>
             <tbody>
@@ -3507,34 +3509,42 @@
                 <td class="model-name">273 GB/s</td>
                 <td class="mono-price win-cell">~15,6 s <span class="win-medal">🥇</span></td>
                 <td class="mono-price win-cell">~2m 40s <span class="win-medal">🥇</span></td>
+                <td class="mono-price win-cell">~1m 21s <span class="win-medal">🥇</span><span class="cell-note">Qwen 3.8 Flash-Next</span></td>
                 <td class="mono-price">3,5–5 tok/s</td>
+                <td class="mono-price">35–42 tok/s<span class="cell-note">Qwen 3.8</span></td>
               </tr>
               <tr>
                 <td>AMD Strix Halo (AI Max+ 395)</td>
                 <td class="model-name">~256 GB/s</td>
                 <td class="mono-price">1m 18s</td>
                 <td class="mono-price">~10m 20s</td>
+                <td class="mono-price">~2m 25s<span class="cell-note">Qwen 3.8</span></td>
                 <td class="mono-price">5–7 tok/s</td>
+                <td class="mono-price">40–70 tok/s<span class="cell-note">Qwen 3.8 · MTP</span></td>
               </tr>
               <tr>
-                <td>Apple Mac Studio M4 Max</td>
+                <td>Mac Studio M4 Max</td>
                 <td class="model-name">546 GB/s</td>
                 <td class="mono-price">2m 11s</td>
                 <td class="mono-price"><mark class="highlighter">~18m 20s</mark></td>
+                <td class="mono-price na-cell">n.d.<span class="cell-note">sin datos públicos</span></td>
                 <td class="mono-price">12–15 tok/s</td>
+                <td class="mono-price na-cell">n.d.<span class="cell-note">sin datos públicos</span></td>
               </tr>
               <tr>
-                <td>Apple Mac Studio M5 Ultra (256 GB)</td>
+                <td>Mac Studio M5 Ultra (256 GB)</td>
                 <td class="model-name">1,2 TB/s</td>
                 <td class="mono-price">~30 s</td>
                 <td class="mono-price">~4m</td>
+                <td class="mono-price">~4m 50s<span class="cell-note">DeepSeek V4-Flash</span></td>
                 <td class="mono-price win-cell">25–30 tok/s <span class="win-medal">🥇</span></td>
+                <td class="mono-price win-cell">60–68 tok/s <span class="win-medal">🥇</span><span class="cell-note">DeepSeek V4-Flash</span></td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p class="subtitle" style="margin-top: 1rem;">
+        <p class="subtitle kicker-doc-only" style="margin-top: 1rem;">
           Y a contexto masivo, la arquitectura pesa tanto como el silicio: con <strong>Qwen 3.8</strong>
           (KV ligera + Tensor Cores), el Spark baja el prefill de 200k a <mark class="highlighter">~1m 21s</mark>
           y el decode no degrada (~35–42 tok/s).
