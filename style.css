@@ -22780,15 +22780,15 @@ body.deck-hardware-part1 .finale-quote {
   align-items: center;
   justify-content: center;
   padding-bottom: 12rem;
-  gap: 1.6rem;
+  gap: 1.9rem;
   text-align: center;
-  max-width: 1250px;
+  max-width: 1640px;
   margin: 0 auto;
   width: 100%;
 }
 
 body.deck-hardware-part1 .finale-mark {
-  font-size: 5rem;
+  font-size: 7rem;
   line-height: 1;
   color: #ea580c;
   font-family: var(--font-serif, Georgia, serif);
@@ -22796,7 +22796,7 @@ body.deck-hardware-part1 .finale-mark {
 }
 
 body.deck-hardware-part1 .finale-text {
-  font-size: 3.1rem;
+  font-size: 4.6rem;
   line-height: 1.5;
   color: var(--text-main);
   font-weight: 300;
@@ -22810,8 +22810,8 @@ body.deck-hardware-part1 .finale-text strong {
 
 body.deck-hardware-part1 .finale-text .finale-personal {
   display: inline-block;
-  margin-top: 1.1rem;
-  font-size: 2.05rem;
+  margin-top: 1.4rem;
+  font-size: 2.8rem;
   color: var(--text-muted);
 }
 
@@ -22820,7 +22820,7 @@ body.deck-hardware-part1 .finale-text .finale-personal .serif-italic {
 }
 
 body.deck-hardware-part1 .finale-author {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
