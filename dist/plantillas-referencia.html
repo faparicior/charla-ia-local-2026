@@ -7142,12 +7142,10 @@ body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-spec-row .spec-va
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.3);
-  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s;
+  transition: opacity 0.35s ease, visibility 0.35s;
 }body.deck-hardware-part1 #slide-45 .card-obsolete-overlay.step-active {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
 }body.deck-hardware-part1 #slide-45 .obsolete-stamp {
   font-family: var(--font-mono);
   font-size: 2.2rem;
@@ -7158,10 +7156,15 @@ body.deck-hardware-part1:not(.mode-document) #slide-45 .chosen-spec-row .spec-va
   border-radius: 14px;
   padding: 0.6rem 1.8rem;
   text-transform: uppercase;
-  transform: rotate(-12deg);
+  transform: rotate(-12deg) scale(1.3);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25), inset 0 0 12px rgba(220, 38, 38, 0.15);
   background: rgba(255, 255, 255, 0.95);
   user-select: none;
+}
+
+body.deck-hardware-part1 #slide-45 .card-obsolete-overlay.step-active .obsolete-stamp {
+  transform: rotate(-12deg) scale(1);
 }
 
 body.deck-hardware-part1.theme-dark #slide-45 .obsolete-stamp {
@@ -7169,6 +7172,11 @@ body.deck-hardware-part1.theme-dark #slide-45 .obsolete-stamp {
   color: #ef4444;
   border-color: #ef4444;
   box-shadow: 0 10px 30px rgba(239, 68, 68, 0.45);
+}
+
+/* s45: ancla de posicionamiento — la tinta del sello queda dentro de la tarjeta */
+body.deck-hardware-part1 #slide-45 .chosen-card {
+  position: relative;
 }body.deck-hardware-part1 /* En Step 1 (sello activo, pero Step 2 inactivo): Qwen 3.5 muestra badge inline OBSOLETO y tachado */
 #slide-45 .card-inline-obsolete-tag {
   display: none;
@@ -22613,6 +22621,44 @@ body.overview-mode #slide-6 .meme-expensive {
     display: flex !important;
   }
 }
+
+/* ==========================================================================
+   SLIDE 45 — LA DUPLA ESCOGIDA: tipografía para proyector (solo Modo Charla)
+   El banner de sinergia se reserva a Modo Documento; las fichas suben tamaño
+   ========================================================================== */
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-synergy-banner {
+  display: none;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-45 .model-title-text {
+  font-size: 2.35rem;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-hf-link {
+  font-size: 1.02rem;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-role-badge,
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-quant-badge {
+  font-size: 0.98rem;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-role-desc {
+  font-size: 1.48rem;
+  line-height: 1.5;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-spec-row {
+  font-size: 1.38rem;
+  line-height: 1.35;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-spec-table {
+  gap: 0;
+}
+
 
 </style>
 </head>
