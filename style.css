@@ -22348,20 +22348,20 @@ body.deck-hardware-part1 #slide-46 .ladder-grid {
 body.deck-hardware-part1 #slide-46 .ladder-step {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 1.1rem 1.3rem;
+  border-radius: 16px;
+  padding: 1.5rem 1.7rem;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.75rem;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step:nth-child(2) {
-  margin-top: 1.3rem;
+  margin-top: 3.2rem;
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step:nth-child(3) {
-  margin-top: 2.6rem;
+  margin-top: 6.4rem;
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step-focus {
@@ -22370,8 +22370,8 @@ body.deck-hardware-part1 #slide-46 .ladder-step-focus {
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step-num {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.7rem;
+  height: 2.7rem;
   border-radius: 50%;
   background: #ea580c;
   color: #ffffff;
@@ -22379,7 +22379,7 @@ body.deck-hardware-part1 #slide-46 .ladder-step-num {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
 
@@ -22388,13 +22388,13 @@ body.deck-hardware-part1 #slide-46 .ladder-step:not(.ladder-step-focus) .ladder-
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step-title {
-  font-size: 1.15rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step-cost {
-  font-size: 0.85rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: #c2410c;
   background: rgba(234, 88, 12, 0.1);
@@ -22405,15 +22405,19 @@ body.deck-hardware-part1 #slide-46 .ladder-step-cost {
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-step-desc {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.24rem;
+  line-height: 1.55;
   color: var(--text-main);
 }
 
 body.deck-hardware-part1 #slide-46 .ladder-honest-note {
-  font-size: 0.95rem;
+  font-size: 1.12rem;
+  line-height: 1.55;
   text-align: center;
-  margin-top: 0.4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.8rem;
 }
 
 body.theme-dark #slide-46 .ladder-step {
@@ -22476,7 +22480,6 @@ body.theme-dark #slide-47 .closing-thesis-card p {
 /* Centrado vertical con bias óptico (solo Modo Charla; aire abajo = aire arriba + ~38px) */
 body:not(.mode-document).deck-hardware-part1 #slide-46 .ladder-grid {
   margin-top: auto;
-  margin-bottom: auto;
 }
 
 body:not(.mode-document).deck-hardware-part1 #slide-46 .ladder-honest-note {
