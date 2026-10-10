@@ -3,7 +3,7 @@
 > **Fecha de actualización:** 8 de Octubre de 2026  
 > **Propósito:** Documento de contexto para retomar el trabajo en un chat nuevo sin perder nada de contexto.
 
-> ⚠️ **RENUMERACIÓN PARTE 1 (8 oct 2026):** la Parte 1 quedó reorientada narrativamente («Dueño del modelo, no del silicio») con la tabla de precios como slide 4 y la escalera + cierre nuevos al final. La slide «Evaluación Radar de las 4 Alternativas» fue ELIMINADA (con su CSS). Tras ambas operaciones, los ids de `index.html` están renumerados para que **id = posición = contador** (47 slides contiguas, `slide-1`..`slide-47`). Equivalencias y detalles en `guion-discurso.md` (sección «Estado técnico actual»). Los mensajes históricos de este documento conservan la numeración de su fecha.
+> ⚠️ **RENUMERACIÓN PARTE 1 (8 oct 2026):** la Parte 1 quedó reorientada narrativamente («Dueño del modelo, no del silicio») con la tabla de precios como slide 4 y la escalera + cierre nuevos al final. La slide «Evaluación Radar de las 4 Alternativas» fue ELIMINADA (con su CSS). Tras ambas operaciones, los ids de `index.html` están renumerados para que **id = posición = contador** (48 slides contiguas, `slide-1`..`slide-48`; la 47 = cierre resumen con gráfico, la 48 = la frase motivacional). Equivalencias y detalles en `guion-discurso.md` (sección «Estado técnico actual»). Los mensajes históricos de este documento conservan la numeración de su fecha.
 
 ---
 
