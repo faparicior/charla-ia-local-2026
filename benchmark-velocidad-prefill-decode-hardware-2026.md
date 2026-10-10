@@ -35,7 +35,57 @@ Mediciones recopiladas en benchmarks de los últimos 3 meses (agosto–octubre 2
 
 ---
 
-## 3. Radiografía por Plataforma
+## 3. Escalar a Contexto Masivo: ¿Qué pasa a 100k y 200k tokens?
+
+Al pasar de 32k a **100k** o **200k tokens** (lectura de repositorios enteros, libros o logs masivos), entran en juego dos problemas críticos que cambian las reglas del juego:
+1. **La penalización de tiempo de Prefill (TTFT):** Los Transformers con atención completa tradicional escalan cuadráticamente o requieren algoritmos de chunking en memoria.
+2. **El secuestro de memoria por la KV Cache:** La memoria consumida por la KV Cache compite directamente con los pesos del modelo dentro de los 128 GB unificados.
+
+### A. Tiempos de Espera de Prefill: 32k vs. 100k vs. 200k
+
+| Hardware | Modelo / Arquitectura | Tiempo a 32k | Tiempo a 100k | Tiempo a 200k | Experiencia de Usuario |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **NVIDIA DGX Spark**<br>*(273 GB/s, Blackwell)* | **Qwen 3.8 Flash-Next** *(Híbrido GDN+QSA)*<br>**Llama 3.3 70B** *(Atención Estándar GQA)*<br>**Llama 3.1 8B** *(Pequeño)* | **~12 s**<br>~15 s<br>~4 s | **~33 s**<br>~55 s<br>~13 s | **~81 s (1m 21s)**<br>~160 s (2m 40s)<br>~28 s | **Viable.** El modelo híbrido tarda poco más de 1 minuto en digerir 200.000 tokens gracias a los Tensor Cores. |
+| **Apple Mac Studio M5 Ultra**<br>*(1.2 TB/s)* | **DeepSeek V4-Flash / MoE**<br>**Llama 3.3 70B** *(Atención Estándar GQA)* | ~41 s<br>~30 s | ~130 s (2m 10s)<br>~105 s (1m 45s) | ~290 s (4m 50s)<br>~240 s (4m 00s) | **Aceptable.** 4 minutos de espera inicial a 200k. Requiere paciencia antes de empezar el chat. |
+| **AMD Strix Halo**<br>*(~256 GB/s, 40 CUs)* | **Qwen 3.8 Flash-Next** *(Halogen / MTP)*<br>**Llama 3.3 70B** *(Atención Estándar)* | **~22 s**<br>~78 s (1m 18s) | **~65 s (1m 05s)**<br>~270 s (4m 30s) | **~145 s (2m 25s)**<br>~620 s (10m 20s) | **Bifurcación:** Con Qwen 3.8 Flash-Next es asumible (2,5 min); con Llama 70B tradicional se vuelve inusable (>10 min). |
+| **Apple Mac Studio M4 Max**<br>*(546 GB/s)* | **Llama 3.3 70B** *(Atención Estándar GQA)*<br>**Qwen 2.5 32B** | ~131 s (2m 11s)<br>~73 s (1m 13s) | **~480 s (8 min)**<br>~250 s (4m 10s) | **~1.100 s (18m 20s)**<br>~560 s (9m 20s) | **Inutilizable a 200k en 70B:** Esperar casi 20 minutos solo para el primer token rompe cualquier flujo de trabajo interactivo. |
+
+---
+
+### B. El Drama de la Memoria: ¿Cabe la KV Cache en 128 GB?
+
+A 100k y 200k tokens, el consumo de memoria de la KV Cache es gigantesco en arquitecturas estándar:
+
+* **En un modelo tradicional como Llama 3.3 70B (GQA):**
+  - Consumo de KV Cache por token: $\approx 320 \text{ KB / token}$ (en FP16) o $\approx 160 \text{ KB / token}$ (en FP8).
+  - **A 100k tokens:** La KV Cache sola ocupa **~16 GB (FP8)** o **~32 GB (FP16)**.
+  - **A 200k tokens:** La KV Cache sola ocupa **~32 GB (FP8)** o **~64 GB (FP16)**.
+  - **El choque frontal:** Si el modelo 70B ocupa ~40 GB y le sumas 64 GB de KV Cache más el espacio del sistema operativo y los buffers, estás en **115–120 GB**. Si tienes 128 GB de memoria unificada, estás a milímetros del **Out-Of-Memory (OOM)** o de que el sistema empiece a paginar a disco (*swap*), destruyendo el rendimiento.
+
+* **En una arquitectura híbrida moderna como Qwen 3.8 Flash-Next (GDN + QSA):**
+  - **3 de cada 4 capas son GDN (Gated DeltaNet):** Son capas de atención lineal recurrentes de estado fijo. **No generan KV Cache.**
+  - **1 de cada 4 capas es QSA (Sparse Attention):** Solo consulta los bloques clave del contexto mediante un indexer ligero.
+  - Consumo de KV Cache: Apenas **14,7 KB / token**.
+  - **A 100k tokens:** La KV Cache solo ocupa **~1,47 GB**.
+  - **A 200k tokens:** La KV Cache solo ocupa **~2,94 GB**.
+  - **Resultado:** El modelo completo (98 GiB) más 200k de contexto ocupa **~101 GiB**, dejando **~27 GB completamente libres** en una estación de 128 GB (como la DGX Spark o el Mac Studio).
+
+---
+
+### C. El Colapso del Decode a 200k tokens
+
+En los Transformers estándar, para generar un nuevo token la GPU debe leer de la memoria **los pesos del modelo MÁS toda la KV Cache acumulada**:
+
+$$\text{Memoria leída por token a 200k} = \text{Pesos (40 GB)} + \text{KV Cache (64 GB)} = \mathbf{104 \text{ GB por cada token}}$$
+
+* En un bus de **273 GB/s** (DGX Spark): $273 / 104 \approx \mathbf{2,6 \text{ tok/s}}$ (el decode se arrastra).
+* En un bus de **546 GB/s** (M4 Max): $546 / 104 \approx \mathbf{5,2 \text{ tok/s}}$.
+
+En cambio, con arquitecturas híbridas (como Qwen 3.8 Flash-Next), al ser la KV Cache de solo ~3 GB, la memoria a leer apenas sube de peso: el decode a 200k se mantiene en **~35–42 tok/s en DGX Spark** y **~40–70 tok/s en Strix Halo**, sin sufrir degradación.
+
+---
+
+## 4. Radiografía por Plataforma
 
 ### A. NVIDIA DGX Spark (Blackwell GB10)
 * **Punto Fuerte (Prefill demoledor):** Los núcleos tensores Blackwell de 5ª generación y el soporte nativo de tipos numéricos microscópicos (FP4/MXFP4) permiten ingestar prompts masivos (32k–200k tokens) a velocidades de **miles de tokens por segundo**. El *Time-To-First-Token (TTFT)* es casi instantáneo.
@@ -66,7 +116,7 @@ Mediciones recopiladas en benchmarks de los últimos 3 meses (agosto–octubre 2
 
 ---
 
-## 4. Comparativa de Hilos y Discusiones de la Comunidad (Julio – Octubre 2026)
+## 5. Comparativa de Hilos y Discusiones de la Comunidad (Julio – Octubre 2026)
 
 Hilos específicos de Reddit donde los usuarios han publicado sus mediciones reproducibles:
 
@@ -84,7 +134,7 @@ Hilos específicos de Reddit donde los usuarios han publicado sus mediciones rep
 
 ---
 
-## 5. Resumen para la Charla (*Takeaways* Clave)
+## 6. Resumen para la Charla (*Takeaways* Clave)
 
 1. **Si tu prioridad es procesar documentos gigantes (RAG / agentes con mucho contexto):**  
    - Necesitas **velocidad de Prefill**. La **NVIDIA DGX Spark** es imbatible procesando miles de tokens de contexto por segundo gracias a los Tensor Cores Blackwell.
