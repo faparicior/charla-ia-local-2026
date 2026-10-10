@@ -22448,39 +22448,59 @@ body.theme-dark #slide-46 .ladder-step-title {
   color: var(--text-main);
 }
 
-/* Slide 47: Cierre — Dueño del modelo, no del silicio */
-body.deck-hardware-part1 #slide-47 .closing-thesis-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.4rem;
+/* Slide 47: Cierre — 3 bandas a todo lo ancho (software → silicio → pesos) */
+body.deck-hardware-part1 #slide-47 .closing-statements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
   width: 100%;
 }
 
-body.deck-hardware-part1 #slide-47 .closing-thesis-card {
+body.deck-hardware-part1 #slide-47 .closing-statement {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--text-main);
+  border-radius: 16px;
+  padding: 1.05rem 1.6rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
-body.deck-hardware-part1 #slide-47 .closing-thesis-card strong {
-  font-size: 1.05rem;
-  color: var(--text-main);
-}
-
-body.deck-hardware-part1 #slide-47 .closing-thesis-card p {
-  margin: 0;
-  color: var(--text-muted);
-}
-
-body.deck-hardware-part1 #slide-47 .closing-thesis-icon {
+body.deck-hardware-part1 #slide-47 .closing-statement-num {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--border-focus);
+  color: #ffffff;
+  font-weight: 800;
   font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-statement:nth-child(2) .closing-statement-num {
+  background: #ea580c;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-statement:nth-child(3) .closing-statement-num {
+  background: #10b981;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-statement-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+body.deck-hardware-part1 #slide-47 .closing-statement-desc {
+  font-size: 1.28rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-top: 0.3rem;
 }
 
 body.deck-hardware-part1 #slide-47 .closing-quote {
@@ -22492,9 +22512,6 @@ body.deck-hardware-part1 #slide-47 .closing-quote .quote-text {
   font-size: 1.45rem;
 }
 
-body.theme-dark #slide-47 .closing-thesis-card p {
-  color: var(--text-muted);
-}
 
 /* Centrado vertical con bias óptico (solo Modo Charla; aire abajo = aire arriba + ~38px) */
 body:not(.mode-document).deck-hardware-part1 #slide-46 .ladder-grid {
@@ -22506,7 +22523,7 @@ body:not(.mode-document).deck-hardware-part1 #slide-46 .ladder-honest-note {
   padding-bottom: 2.4rem;
 }
 
-body:not(.mode-document).deck-hardware-part1 #slide-47 .closing-thesis-grid {
+body:not(.mode-document).deck-hardware-part1 #slide-47 .closing-statements {
   margin-top: auto;
 }
 
