@@ -3497,48 +3497,47 @@
                 <th>Plataforma</th>
                 <th>Ancho de banda</th>
                 <th>Prefill 32k (70B)</th>
+                <th>Prefill 200k (70B)</th>
                 <th>Decode 70B denso</th>
-                <th>Perfil ganador</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="highlight-row">
+              <tr>
                 <td>NVIDIA DGX Spark (GB10)</td>
                 <td class="model-name">273 GB/s</td>
-                <td class="mono-price">~15,6 s 🥇</td>
+                <td class="mono-price win-cell">~15,6 s <span class="win-medal">🥇</span></td>
+                <td class="mono-price win-cell">~2m 40s <span class="win-medal">🥇</span></td>
                 <td class="mono-price">3,5–5 tok/s</td>
-                <td>⚙️ Prefill: Tensor Cores FP4/FP8</td>
               </tr>
               <tr>
                 <td>AMD Strix Halo (AI Max+ 395)</td>
                 <td class="model-name">~256 GB/s</td>
                 <td class="mono-price">1m 18s</td>
+                <td class="mono-price">~10m 20s</td>
                 <td class="mono-price">5–7 tok/s</td>
-                <td>⚖️ Equilibrio (brilla con MTP)</td>
               </tr>
               <tr>
                 <td>Apple Mac Studio M4 Max</td>
                 <td class="model-name">546 GB/s</td>
                 <td class="mono-price">2m 11s</td>
+                <td class="mono-price"><mark class="highlighter">~18m 20s</mark></td>
                 <td class="mono-price">12–15 tok/s</td>
-                <td>🚶 Decode ágil</td>
               </tr>
               <tr>
                 <td>Apple Mac Studio M5 Ultra (256 GB)</td>
                 <td class="model-name">1,2 TB/s</td>
                 <td class="mono-price">~30 s</td>
-                <td class="mono-price">25–30 tok/s 🥇</td>
-                <td>👑 Decode + memoria brutal</td>
+                <td class="mono-price">~4m</td>
+                <td class="mono-price win-cell">25–30 tok/s <span class="win-medal">🥇</span></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <p class="subtitle" style="margin-top: 1rem;">
-          Y a contexto masivo, la arquitectura del modelo pesa tanto como el silicio. A <strong>200k tokens</strong>
-          (70B estándar): Spark <strong>~2m 40s</strong> · M5 Ultra ~4m · Strix Halo ~10m 20s · M4 Max
-          <mark class="highlighter">~18m 20s — inusable</mark>. Con <strong>Qwen 3.8 (KV ligera + Tensor Cores)</strong>,
-          el Spark lo baja a <strong>~1m 21s</strong>.
+          Y a contexto masivo, la arquitectura pesa tanto como el silicio: con <strong>Qwen 3.8</strong>
+          (KV ligera + Tensor Cores), el Spark baja el prefill de 200k a <mark class="highlighter">~1m 21s</mark>
+          y el decode no degrada (~35–42 tok/s).
         </p>
         </div>
       </div>
