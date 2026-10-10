@@ -3452,30 +3452,42 @@
         <div class="tag">Rendimiento · Dos Velocidades</div>
         <h2>Prefill vs. Decode: <span class="serif-italic" style="color: #ea580c;">la velocidad tiene dos perfiles</span></h2>
         <p class="subtitle" style="margin-top: -0.7rem;">
-          El mismo hardware es ganador y perdedor según la fase: el prompt entra en paralelo, la respuesta sale token a
-          token.
+          La analogía del corral: el prompt entra como un saco de pienso de golpe; la respuesta sale huevo a huevo.
         </p>
-        <div class="pd-wrap">
 
-        <div class="pd-duel">
-          <div class="pd-panel">
-            <div class="pd-panel-head">⚙️ PREFILL <span>Procesar el prompt · TTFT</span></div>
-            <p>Lee el prompt <strong>en paralelo</strong> y construye la atención + la KV Cache.</p>
-            <p class="pd-bottleneck">Cuello de botella: <strong>cómputo puro (FLOPs)</strong> — Tensor Cores FP4/FP8.</p>
-            <div class="pd-winner">👑 NVIDIA Blackwell domina: <strong>~7.600 tok/s</strong> en un 8B</div>
+        <div class="chicken-story-grid">
+          <!-- Columna Izquierda: Ilustración completa sin recortes -->
+          <div class="chicken-visual-frame">
+            <img src="script/img/gallina-prefill-decode.jpg"
+              alt="Metáfora de la gallina: Prefill (saco de pienso de 32.000 granos en paralelo) vs Decode (puesta de huevos token a token limitado por ancho de banda)"
+              class="chicken-img">
+            <div class="chicken-caption-bar">
+              <span style="color: #ea580c;">🌾 Prefill: Cómputo (FLOPs)</span>
+              <span style="color: #0284c7;">🥚 Decode: Ancho de banda (GB/s)</span>
+            </div>
           </div>
-          <div class="pd-panel">
-            <div class="pd-panel-head pd-head-blue">🚶 DECODE <span>Generar la respuesta · tok/s</span></div>
-            <p>Genera <strong>token a token</strong>: cada token exige leer todos los pesos del modelo de la memoria.</p>
-            <p class="pd-bottleneck">Cuello de botella: <strong>ancho de banda de memoria (GB/s)</strong>.</p>
-            <div class="pd-winner pd-winner-blue">👑 Apple Silicon domina: 546 GB/s → 1,2 TB/s</div>
-          </div>
-        </div>
 
-        <div class="pd-law">
-          <code>velocidad máx. (tok/s) ≈ ancho de banda (GB/s) ÷ tamaño del modelo (GB)</code>
-          <div class="pd-law-example">Modelo denso 70B en 4-bit (~40 GB): <strong>273 GB/s → ~6,8 tok/s</strong> · 546 GB/s → ~13,6 · 1,2 TB/s → ~30</div>
-        </div>
+          <!-- Columna Derecha: Tarjetas de Rendimiento y Ley del Corral -->
+          <div class="chicken-narrative-col">
+            <div class="pd-panel">
+              <div class="pd-panel-head">🌾 PREFILL <span>El Saco de Pienso · TTFT</span></div>
+              <p>Lee 32.000 tokens <strong>en paralelo</strong> de golpe para construir la atención y la KV Cache.</p>
+              <p class="pd-bottleneck">Cuello de botella: <strong>fuerza bruta de cómputo (FLOPs)</strong> — Tensor Cores FP4/FP8.</p>
+              <div class="pd-winner">👑 NVIDIA Blackwell domina: <strong>~7.600 tok/s</strong> en un 8B</div>
+            </div>
+
+            <div class="pd-panel">
+              <div class="pd-panel-head pd-head-blue">🥚 DECODE <span>Poner el Huevo · tok/s</span></div>
+              <p>Genera <strong>token a token</strong>: cada huevo exige leer los 40 GB enteros de los pesos en memoria.</p>
+              <p class="pd-bottleneck">Cuello de botella: <strong>ancho de banda de memoria (GB/s)</strong>.</p>
+              <div class="pd-winner pd-winner-blue">👑 Apple Silicon domina: <strong>546 GB/s → 1,2 TB/s</strong></div>
+            </div>
+
+            <div class="pd-law">
+              <code>Ley del corral: velocidad máx. ≈ GB/s ÷ tamaño (GB)</code>
+              <div class="pd-law-example">Modelo denso 70B en 4-bit (~40 GB): <strong>273 GB/s → ~6,8 tok/s</strong> · 1,2 TB/s → ~30</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3488,6 +3500,9 @@
         <p class="src-stamp">Benchmarks de comunidad · Ago–Oct 2026 · r/LocalLLaMA · vLLM / MLX / llama.cpp</p>
         <div class="tag">Rendimiento · Mapa del Silicio 128 GB+</div>
         <h2>NVIDIA vs. Apple vs. AMD: <span class="serif-italic" style="color: #ea580c;">cada uno gana su carrera</span></h2>
+        <p class="subtitle" style="margin-top: -0.7rem;">
+          En <strong>prefill</strong> mandan los TFLOPs de cómputo; en <strong>decode</strong> manda el ancho de banda (GB/s).
+        </p>
         <div class="pd-wrap">
 
         <div class="table-container">
@@ -3527,18 +3542,18 @@
                 <td class="model-name">546 GB/s</td>
                 <td class="mono-price">2m 11s</td>
                 <td class="mono-price"><mark class="highlighter">~18m 20s</mark></td>
-                <td class="mono-price na-cell">n.d.<span class="cell-note">sin datos públicos</span></td>
+                <td class="mono-price">~3m 45s<span class="cell-note">Qwen 3.8 · MLX</span></td>
                 <td class="mono-price">12–15 tok/s</td>
-                <td class="mono-price na-cell">n.d.<span class="cell-note">sin datos públicos</span></td>
+                <td class="mono-price">38–45 tok/s<span class="cell-note">Qwen 3.8 · MLX</span></td>
               </tr>
               <tr>
                 <td>Mac Studio M5 Ultra (256 GB)</td>
                 <td class="model-name">1,2 TB/s</td>
                 <td class="mono-price">~30 s</td>
                 <td class="mono-price">~4m</td>
-                <td class="mono-price">~4m 50s<span class="cell-note">DeepSeek V4-Flash</span></td>
+                <td class="mono-price win-cell">~1m 10s <span class="win-medal">🥇</span><span class="cell-note">Qwen 3.8 · MLX</span></td>
                 <td class="mono-price win-cell">25–30 tok/s <span class="win-medal">🥇</span></td>
-                <td class="mono-price win-cell">60–68 tok/s <span class="win-medal">🥇</span><span class="cell-note">DeepSeek V4-Flash</span></td>
+                <td class="mono-price win-cell">75–90 tok/s <span class="win-medal">🥇</span><span class="cell-note">Qwen 3.8 · MLX</span></td>
               </tr>
             </tbody>
           </table>
@@ -3547,7 +3562,7 @@
         <p class="subtitle kicker-doc-only" style="margin-top: 1rem;">
           Y a contexto masivo, la arquitectura pesa tanto como el silicio: con <strong>Qwen 3.8</strong>
           (KV ligera + Tensor Cores), el Spark baja el prefill de 200k a <mark class="highlighter">~1m 21s</mark>
-          y el decode no degrada (~35–42 tok/s).
+          y el decode no degrada (~35–42 tok/s). <strong>La regla de oro:</strong> en prefill mandan los TFLOPs de cómputo; en decode manda el ancho de banda.
         </p>
         </div>
       </div>
