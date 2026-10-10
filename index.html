@@ -6211,44 +6211,181 @@
          ==================================================================== -->
     <section class="slide" id="slide-50">
       <div class="slide-content">
-        <div class="tag">El Mundo Cloud · Octubre 2026</div>
-        <h2>Y la nube, encima, <span class="serif-italic" style="color: #ea580c;">ya no es de fiar</span></h2>
-        <p class="subtitle" style="margin-top: -0.7rem;">
-          Dos pecados documentados este año: no sabes a quién le hablas… ni qué modelo te está respondiendo.
-        </p>
-        <div class="pd-wrap">
+        <p class="src-stamp">Informes de amenazas e investigación regulatoria · Feb–Oct 2026</p>
+        <div class="tag">Prensa y Análisis · Privacidad</div>
+        <h2>El espionaje de modelos: <span class="serif-italic" style="color: #ea580c;">destilación y rutas ocultas</span></h2>
 
-        <div class="cloud-sins">
-          <div class="cloud-sin">
-            <div class="cloud-sin-head">🔒 Rutas ocultas <span class="cloud-sin-tag">Privacidad</span></div>
-            <ul>
-              <li><strong>Destilación industrial (Anthropic, Feb–Sep 2026):</strong> 7 laboratorios chinos implicados;
-                24.000+ cuentas fraudulentas y <strong>151M de interacciones</strong> (Alibaba) para clonar el
-                razonamiento de Claude.</li>
-              <li><strong>El caso Moonshot AI:</strong> desviaba <mark class="highlighter">en tiempo real los prompts
-                de sus propios usuarios a los servidores de Claude</mark> y revendía la respuesta como si fuera suya.</li>
-              <li><strong>Y por defecto:</strong> tu conversación entrena sus modelos (salvo opt-out explícito o
-                licencias enterprise).</li>
-            </ul>
+        <div class="press-grid">
+
+    <!-- 1. Informe de amenazas Anthropic -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Anthropic · Threat Report</span>
+                <span class="press-date">Sep 2026</span>
+              </div>
+              <span class="tag">Investigación</span>
+            </div>
+            <div class="press-headline">«7 laboratorios chinos destilaron Claude a escala industrial»</div>
+            <p class="press-desc">
+              Campañas con <mark class="highlighter">24.000+ cuentas fraudulentas</mark> y
+              <mark class="highlighter">151M de interacciones</mark> (Alibaba) para clonar razonamiento,
+              código y cadenas de pensamiento.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://www.anthropic.com/news/detecting-countering-misuse-of-ai" target="_blank" rel="noopener noreferrer">🔗 anthropic.com/detecting-countering-misuse-of-ai ↗</a>
+            </div>
           </div>
-          <div class="cloud-sin">
-            <div class="cloud-sin-head">📉 Bajo tus pies <span class="cloud-sin-tag">Variabilidad</span></div>
-            <ul>
-              <li><strong>Anthropic (post-mortem, abr 2026):</strong> 3 experimentos degradaron Claude Code —
-                razonamiento High→Medium, amnesia de caché de sesión, concisión forzada en el system prompt.</li>
-              <li><strong>OpenAI (stealth downgrades):</strong> la comunidad cazó con proxies cómo el flagship se
-                <mark class="highlighter">reenrutaba a variantes degradadas (gpt-5.6-luna)</mark> sin avisar en la
-                interfaz.</li>
-              <li><strong>Consecuencia:</strong> no controlas qué modelo responde, ni cuándo cambia, ni con qué
-                calidad.</li>
-            </ul>
+
+    <!-- 2. Ruteo oculto Moonshot -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Anthropic · Informe ampliado</span>
+                <span class="press-date">Sep 2026</span>
+              </div>
+              <span class="tag">Ruteo Oculto</span>
+            </div>
+            <div class="press-headline">«Moonshot AI desviaba los prompts de sus usuarios a Claude… y revendía la respuesta»</div>
+            <p class="press-desc">
+              En tiempo real, <mark class="highlighter">las consultas de sus propios clientes iban a los servidores
+              de Claude</mark> y volvían al usuario presentadas como producción de su propia IA.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://www.anthropic.com/news/detecting-countering-misuse-of-ai" target="_blank" rel="noopener noreferrer">🔗 anthropic.com/detecting-countering-misuse-of-ai ↗</a>
+            </div>
           </div>
+
+    <!-- 3. Inspección de la CAC -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Cyberspace Admin. of China</span>
+                <span class="press-date">Oct 2026</span>
+              </div>
+              <span class="tag">Inspección</span>
+            </div>
+            <div class="press-headline">«China interroga a DeepSeek y Moonshot: sus usuarios hablaban con EE.UU.»</div>
+            <p class="press-desc">
+              Al desviar prompts locales hacia servidores americanos, <mark class="highlighter">información sensible
+              corporativa y gubernamental quedó expuesta</mark>; la CAC abre inspecciones por seguridad nacional.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer">🔗 thehackernews.com · cobertura CAC ↗</a>
+            </div>
+          </div>
+
+    <!-- 4. Alerta conjunta EE.UU. -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">NSA · CISA · FBI</span>
+                <span class="press-date">Sep 2026</span>
+              </div>
+              <span class="tag">Alerta Conjunta</span>
+            </div>
+            <div class="press-headline">«EE.UU. confirma el ataque sistemático a los modelos frontera occidentales»</div>
+            <p class="press-desc">
+              Alerta de inteligencia conjunta: <mark class="highlighter">DeepSeek y Alibaba atacan
+              sistemáticamente</mark> los modelos frontera mediante destilación no autorizada.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://www.cisa.gov" target="_blank" rel="noopener noreferrer">🔗 cisa.gov · alerta conjunta ↗</a>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
 
-        <p class="subtitle cloud-sin-takeaway">
-          Con <strong>pesos abiertos</strong> eliges versión, runtime y qué datos tocan — <strong>y nadie reenruta tus
-          prompts.</strong>
-        </p>
+<!-- ====================================================================
+         SLIDE 51: EL NERFEO — TU MODELO CAMBIA BAJO TUS PIES
+         ==================================================================== -->
+    <section class="slide" id="slide-51">
+      <div class="slide-content">
+        <p class="src-stamp">Post-mortems oficiales y detección de la comunidad · Abr–Oct 2026</p>
+        <div class="tag">Prensa y Análisis · Variabilidad</div>
+        <h2>El nerfeo: <span class="serif-italic" style="color: #ea580c;">tu modelo cambia bajo tus pies</span></h2>
+
+        <div class="press-grid">
+
+    <!-- 1. Post-mortem Anthropic -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Anthropic Engineering</span>
+                <span class="press-date">23 Abr 2026</span>
+              </div>
+              <span class="tag">Post-mortem</span>
+            </div>
+            <div class="press-headline">«Anthropic reconoce la caída de calidad: 3 experimentos degradaron Claude Code»</div>
+            <p class="press-desc">
+              Razonamiento High→Medium, amnesia de caché de sesión y concisión forzada en el system prompt.
+              <mark class="highlighter">Revertidos entre el 7 y el 20 de abril</mark> tras las quejas masivas.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://www.anthropic.com/engineering/an-update-on-recent-claude-code-quality-reports" target="_blank" rel="noopener noreferrer">🔗 anthropic.com/engineering/claude-code-quality ↗</a>
+            </div>
+          </div>
+
+    <!-- 2. Stealth downgrades OpenAI -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">OpenAI Community</span>
+                <span class="press-date">9 Oct 2026</span>
+              </div>
+              <span class="tag">Silent Routing</span>
+            </div>
+            <div class="press-headline">«Downgrades encubiertos: el flagship se reenruta sin avisar»</div>
+            <p class="press-desc">
+              Con proxies locales, los desarrolladores cazaron <mark class="highlighter">rutas hacia variantes
+              degradadas (gpt-5.6-luna)</mark> cuando el clúster devolvía "selected model is at capacity".
+            </p>
+            <div class="press-footer-link">
+              <a href="https://community.openai.com/t/persistent-capacity-failures-and-possible-account-level-routing-issue/1404987" target="_blank" rel="noopener noreferrer">🔗 community.openai.com/…/1404987 ↗</a>
+            </div>
+          </div>
+
+    <!-- 3. r/ChatGPT nerfeo -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reddit · r/ChatGPT</span>
+                <span class="press-date">6 Ago 2026</span>
+              </div>
+              <span class="tag">Nerfeo</span>
+            </div>
+            <div class="press-headline">«GPT 5.6 Sol High feels severely nerfed since 08/06»</div>
+            <p class="press-desc">
+              Más de 100 votos denunciando la caída repentina del razonamiento complejo, con quejas por el
+              <mark class="highlighter">enrutador Auto ineludible</mark>: no puedes fijar el modelo.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://www.reddit.com/r/ChatGPT/comments/1vl1anl/gpt_56_sol_high_and_xhigh_web_chat_feels_severely/" target="_blank" rel="noopener noreferrer">🔗 reddit.com/r/ChatGPT/…/1vl1anl ↗</a>
+            </div>
+          </div>
+
+    <!-- 4. r/ClaudeAI degradación -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reddit · r/ClaudeAI</span>
+                <span class="press-date">18 Ago 2026</span>
+              </div>
+              <span class="tag">Degradación</span>
+            </div>
+            <div class="press-headline">«Discussion Hub: degraded performance for multiple models»</div>
+            <p class="press-desc">
+              Hilos masivos de seguimiento con picos documentados en agosto y septiembre:
+              <mark class="highlighter">la comunidad mide el rendimiento del modelo día a día</mark> porque ya no
+              se fía.
+            </p>
+            <div class="press-footer-link">
+              <a href="https://www.reddit.com/r/ClaudeAI/comments/1vrtyin/discussion_hub_for_new_claude_incident_degraded/" target="_blank" rel="noopener noreferrer">🔗 reddit.com/r/ClaudeAI/…/1vrtyin ↗</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -6256,9 +6393,9 @@
 
     
 <!-- ====================================================================
-         SLIDE 51: CIERRE MOTIVACIONAL — LA FRASE, EN SOLEDAD
+         SLIDE 52: CIERRE MOTIVACIONAL — LA FRASE, EN SOLEDAD
          ==================================================================== -->
-    <section class="slide" id="slide-51">
+    <section class="slide" id="slide-52">
       <div class="slide-content">
         <div class="finale-quote">
           <div class="finale-mark">❝</div>
