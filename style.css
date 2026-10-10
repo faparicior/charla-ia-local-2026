@@ -22660,3 +22660,61 @@ body:not(.mode-document).deck-hardware-part1 #slide-45 .chosen-spec-table {
   gap: 0;
 }
 
+
+/* ==========================================================================
+   SLIDE 48 — CIERRE MOTIVACIONAL: LA FRASE, EN SOLEDAD
+   ========================================================================== */
+body.deck-hardware-part1 #slide-48 .finale-quote {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 12rem;
+  gap: 1.6rem;
+  text-align: center;
+  max-width: 1250px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+body.deck-hardware-part1 #slide-48 .finale-mark {
+  font-size: 4.2rem;
+  line-height: 1;
+  color: #ea580c;
+  font-family: var(--font-serif, Georgia, serif);
+  opacity: 0.85;
+}
+
+body.deck-hardware-part1 #slide-48 .finale-text {
+  font-size: 2.55rem;
+  line-height: 1.5;
+  color: var(--text-main);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+body.deck-hardware-part1 #slide-48 .finale-text strong {
+  font-weight: 800;
+  color: #ea580c;
+}
+
+body.deck-hardware-part1 #slide-48 .finale-text .finale-personal {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 1.65rem;
+  color: var(--text-muted);
+}
+
+body.deck-hardware-part1 #slide-48 .finale-text .finale-personal .serif-italic {
+  color: var(--text-main);
+}
+
+body.deck-hardware-part1 #slide-48 .finale-author {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ea580c;
+}
