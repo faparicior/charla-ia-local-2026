@@ -18092,38 +18092,38 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
   width: 100%;
   height: 100%;
   display: block;
-}body.deck-hardware-part1 #slide-24 .step,body.deck-hardware-part1 #slide-26 .step {
+}body.deck-hardware-part1 #slide-23 .step,body.deck-hardware-part1 #slide-25 .step {
   cursor: pointer;
 }body.deck-hardware-part1 /* --- Tipografía y colores estáticos del SVG --- */
-#slide-24 .dp-label,body.deck-hardware-part1 #slide-26 .mp-label {
+#slide-23 .dp-label,body.deck-hardware-part1 #slide-25 .mp-label {
   font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 700;
   fill: var(--text-muted);
   letter-spacing: 0.05em;
-}body.deck-hardware-part1 #slide-24 .dp-panel,body.deck-hardware-part1 #slide-26 .mp-panel {
+}body.deck-hardware-part1 #slide-23 .dp-panel,body.deck-hardware-part1 #slide-25 .mp-panel {
   fill: var(--bg-surface);
   stroke: var(--border-medium);
   stroke-width: 1.6;
   transition: stroke 0.5s ease;
-}body.deck-hardware-part1 #slide-24 .dp-mini,body.deck-hardware-part1 #slide-26 .mp-mini {
+}body.deck-hardware-part1 #slide-23 .dp-mini,body.deck-hardware-part1 #slide-25 .mp-mini {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
   fill: var(--text-dim);
   letter-spacing: 0.08em;
-}body.deck-hardware-part1 #slide-24 .dp-pill-title,body.deck-hardware-part1 #slide-26 .mp-pill-title {
+}body.deck-hardware-part1 #slide-23 .dp-pill-title,body.deck-hardware-part1 #slide-25 .mp-pill-title {
   font-family: var(--font-mono);
   font-size: 16px;
   font-weight: 800;
   fill: #b45309;
-}body.deck-hardware-part1 #slide-24 .dp-pill-sub,body.deck-hardware-part1 #slide-26 .mp-pill-sub {
+}body.deck-hardware-part1 #slide-23 .dp-pill-sub,body.deck-hardware-part1 #slide-25 .mp-pill-sub {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* --- Cajitas apagadas (estado inicial) --- */
-#slide-24 .dp-cell,body.deck-hardware-part1 #slide-26 .mp-cell {
+#slide-23 .dp-cell,body.deck-hardware-part1 #slide-25 .mp-cell {
   fill: var(--bg-surface-elevated);
   stroke: var(--border-medium);
   stroke-width: 1.4;
@@ -18131,14 +18131,14 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
     filter 0.45s ease, stroke-width 0.45s ease;
   transition-delay: var(--d, 0ms);
 }body.deck-hardware-part1 /* --- Franja inferior en espera --- */
-#slide-24 .dp-strip,body.deck-hardware-part1 #slide-26 .mp-strip {
+#slide-23 .dp-strip,body.deck-hardware-part1 #slide-25 .mp-strip {
   fill: var(--bg-surface);
   stroke: var(--border-subtle);
   stroke-width: 1.5;
-}body.deck-hardware-part1 #slide-24 .dp-strip-static,body.deck-hardware-part1 #slide-26 .mp-strip-static {
+}body.deck-hardware-part1 #slide-23 .dp-strip-static,body.deck-hardware-part1 #slide-25 .mp-strip-static {
   stroke-dasharray: 7 6;
   transition: opacity 0.4s ease;
-}body.deck-hardware-part1 #slide-24 .dp-strip-wait,body.deck-hardware-part1 #slide-26 .mp-strip-wait {
+}body.deck-hardware-part1 #slide-23 .dp-strip-wait,body.deck-hardware-part1 #slide-25 .mp-strip-wait {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -18146,71 +18146,71 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
   letter-spacing: 0.06em;
   transition: opacity 0.4s ease;
 }body.deck-hardware-part1 /* --- Router estático (MoE) --- */
-#slide-26 .mp-router {
+#slide-25 .mp-router {
   fill: var(--bg-surface);
   stroke: #0284c7;
   stroke-width: 1.6;
   transition: fill 0.45s ease, stroke 0.45s ease, filter 0.45s ease;
-}body.deck-hardware-part1 #slide-26 .mp-router-title {
+}body.deck-hardware-part1 #slide-25 .mp-router-title {
   font-family: var(--font-mono);
   font-size: 14.5px;
   font-weight: 800;
   fill: #0284c7;
-}body.deck-hardware-part1 #slide-26 .mp-router-sub {
+}body.deck-hardware-part1 #slide-25 .mp-router-sub {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 600;
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* --- PASO 1: la petición (oculta hasta activarse) --- */
-#slide-24 .dp-request,body.deck-hardware-part1 #slide-26 .mp-request {
+#slide-23 .dp-request,body.deck-hardware-part1 #slide-25 .mp-request {
   opacity: 0;
   transform: translateX(-46px);
   transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
-}body.deck-hardware-part1 #slide-24 .dp-request.step-active,body.deck-hardware-part1 #slide-26 .mp-request.step-active {
+}body.deck-hardware-part1 #slide-23 .dp-request.step-active,body.deck-hardware-part1 #slide-25 .mp-request.step-active {
   opacity: 1;
   transform: translateX(0);
-}body.deck-hardware-part1 #slide-24 .dp-pill,body.deck-hardware-part1 #slide-26 .mp-pill {
+}body.deck-hardware-part1 #slide-23 .dp-pill,body.deck-hardware-part1 #slide-25 .mp-pill {
   fill: rgba(245, 158, 11, 0.12);
   stroke: #f59e0b;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-24 .dp-arrow,body.deck-hardware-part1 #slide-26 .mp-arrow {
+}body.deck-hardware-part1 #slide-23 .dp-arrow,body.deck-hardware-part1 #slide-25 .mp-arrow {
   stroke: var(--text-muted);
   stroke-width: 2.4;
-}body.deck-hardware-part1 #slide-24 .dp-arrowhead,body.deck-hardware-part1 #slide-26 .mp-arrowhead {
+}body.deck-hardware-part1 #slide-23 .dp-arrowhead,body.deck-hardware-part1 #slide-25 .mp-arrowhead {
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* --- PASO 2: superposición luminosa (oculta hasta activarse) --- */
-#slide-24 .dp-lights,body.deck-hardware-part1 #slide-26 .mp-lights {
+#slide-23 .dp-lights,body.deck-hardware-part1 #slide-25 .mp-lights {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
-}body.deck-hardware-part1 #slide-24 .dp-lights.step-active,body.deck-hardware-part1 #slide-26 .mp-lights.step-active {
+}body.deck-hardware-part1 #slide-23 .dp-lights.step-active,body.deck-hardware-part1 #slide-25 .mp-lights.step-active {
   opacity: 1;
 }body.deck-hardware-part1 /* --- Franja inferior iluminada --- */
-#slide-24 .dp-strip-lit {
+#slide-23 .dp-strip-lit {
   fill: rgba(245, 158, 11, 0.09);
   stroke: #d97706;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-26 .mp-strip-lit {
+}body.deck-hardware-part1 #slide-25 .mp-strip-lit {
   fill: rgba(16, 185, 129, 0.09);
   stroke: #059669;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-24 .dp-count {
+}body.deck-hardware-part1 #slide-23 .dp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
   fill: #b45309;
   letter-spacing: 0.03em;
-}body.deck-hardware-part1 #slide-26 .mp-count {
+}body.deck-hardware-part1 #slide-25 .mp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
   fill: #059669;
   letter-spacing: 0.03em;
-}body.deck-hardware-part1 #slide-24 .dp-strip-l1,body.deck-hardware-part1 #slide-26 .mp-strip-l1 {
+}body.deck-hardware-part1 #slide-23 .dp-strip-l1,body.deck-hardware-part1 #slide-25 .mp-strip-l1 {
   font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
-}body.deck-hardware-part1 #slide-24 .dp-strip-l2,body.deck-hardware-part1 #slide-26 .mp-strip-l2 {
+}body.deck-hardware-part1 #slide-23 .dp-strip-l2,body.deck-hardware-part1 #slide-25 .mp-strip-l2 {
   font-family: var(--font-sans);
   font-size: 12.5px;
   font-weight: 600;
@@ -18218,134 +18218,134 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
 }body.deck-hardware-part1 /* ================================================================
    SLIDE 23 — DENSO: al activar el paso 2 se encienden las 48
    ================================================================ */
-#slide-24:has(.dp-lights.step-active) .dp-cell {
+#slide-23:has(.dp-lights.step-active) .dp-cell {
   fill: rgba(245, 158, 11, 0.2);
   stroke: #d97706;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45));
-}body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-panel {
+}body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-panel {
   stroke: #d97706;
-}body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-strip-static,body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-strip-wait {
+}body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-strip-static,body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-strip-wait {
   opacity: 0;
-}body.deck-hardware-part1 #slide-24 .dp-glow {
+}body.deck-hardware-part1 #slide-23 .dp-glow {
   fill: rgba(245, 158, 11, 0.05);
   stroke: #d97706;
   stroke-width: 2.5;
   filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
-}body.deck-hardware-part1 #slide-24 .dp-cap-final {
+}body.deck-hardware-part1 #slide-23 .dp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
-}body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-cap-final {
+}body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-cap-final {
   opacity: 1;
 }body.deck-hardware-part1 /* ================================================================
-   SLIDE 24 — MoE: el router se activa y enciende 5 de 48
+   SLIDE 25 — MoE: el router se activa y enciende 5 de 48
    ================================================================ */
-#slide-26:has(.mp-lights.step-active) .mp-cell {
+#slide-25:has(.mp-lights.step-active) .mp-cell {
   opacity: 0.42;
-}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-cell.mp-on {
+}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-cell.mp-on {
   opacity: 1;
   fill: rgba(16, 185, 129, 0.18);
   stroke: #059669;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
-}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-router {
+}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-router {
   fill: rgba(2, 132, 199, 0.14);
   stroke-width: 2.2;
   filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.5));
-}body.deck-hardware-part1 #slide-26 .mp-fanline {
+}body.deck-hardware-part1 #slide-25 .mp-fanline {
   stroke: #059669;
   stroke-width: 2;
   stroke-dasharray: 7 6;
   opacity: 0;
   transition: opacity 0.4s ease;
   transition-delay: var(--d, 0ms);
-}body.deck-hardware-part1 #slide-26 .mp-fandot {
+}body.deck-hardware-part1 #slide-25 .mp-fandot {
   fill: #059669;
   opacity: 0;
   transition: opacity 0.4s ease;
   transition-delay: var(--d, 0ms);
-}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-fanline {
+}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-fanline {
   opacity: 0.7;
-}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-fandot {
+}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-fandot {
   opacity: 0.9;
-}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-strip-static,body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-strip-wait {
+}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-strip-static,body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-strip-wait {
   opacity: 0;
-}body.deck-hardware-part1 #slide-26 .mp-cap-final {
+}body.deck-hardware-part1 #slide-25 .mp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
-}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-cap-final {
+}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-cap-final {
   opacity: 1;
 }
 
 /* ================================================================
    SLIDES 23 & 24 — Overview e impresión: estado final encendido
    ================================================================ */
-body.deck-hardware-part1.overview-mode #slide-24 .dp-request,
-body.deck-hardware-part1.overview-mode #slide-26 .mp-request {
+body.deck-hardware-part1.overview-mode #slide-23 .dp-request,
+body.deck-hardware-part1.overview-mode #slide-25 .mp-request {
   opacity: 1 !important;
   transform: none !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-24 .dp-request,body.deck-hardware-part1 #slide-26 .mp-request {
+@media print {body.deck-hardware-part1 #slide-23 .dp-request,body.deck-hardware-part1 #slide-25 .mp-request {
     opacity: 1 !important;
     transform: none !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-24 .dp-lights,
-body.deck-hardware-part1.overview-mode #slide-26 .mp-lights {
+body.deck-hardware-part1.overview-mode #slide-23 .dp-lights,
+body.deck-hardware-part1.overview-mode #slide-25 .mp-lights {
   opacity: 1 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-24 .dp-lights,body.deck-hardware-part1 #slide-26 .mp-lights {
+@media print {body.deck-hardware-part1 #slide-23 .dp-lights,body.deck-hardware-part1 #slide-25 .mp-lights {
     opacity: 1 !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-24 .dp-cell {
+body.deck-hardware-part1.overview-mode #slide-23 .dp-cell {
   fill: rgba(245, 158, 11, 0.2) !important;
   stroke: #d97706 !important;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-24 .dp-cell {
+@media print {body.deck-hardware-part1 #slide-23 .dp-cell {
     fill: rgba(245, 158, 11, 0.2) !important;
     stroke: #d97706 !important;
     filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-26 .mp-cell.mp-on {
+body.deck-hardware-part1.overview-mode #slide-25 .mp-cell.mp-on {
   fill: rgba(16, 185, 129, 0.18) !important;
   stroke: #059669 !important;
   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-26 .mp-cell.mp-on {
+@media print {body.deck-hardware-part1 #slide-25 .mp-cell.mp-on {
     fill: rgba(16, 185, 129, 0.18) !important;
     stroke: #059669 !important;
     filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-24 .dp-strip-static,
-body.deck-hardware-part1.overview-mode #slide-24 .dp-strip-wait,
-body.deck-hardware-part1.overview-mode #slide-26 .mp-strip-static,
-body.deck-hardware-part1.overview-mode #slide-26 .mp-strip-wait {
+body.deck-hardware-part1.overview-mode #slide-23 .dp-strip-static,
+body.deck-hardware-part1.overview-mode #slide-23 .dp-strip-wait,
+body.deck-hardware-part1.overview-mode #slide-25 .mp-strip-static,
+body.deck-hardware-part1.overview-mode #slide-25 .mp-strip-wait {
   opacity: 0 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-24 .dp-strip-static,body.deck-hardware-part1 #slide-24 .dp-strip-wait,body.deck-hardware-part1 #slide-26 .mp-strip-static,body.deck-hardware-part1 #slide-26 .mp-strip-wait {
+@media print {body.deck-hardware-part1 #slide-23 .dp-strip-static,body.deck-hardware-part1 #slide-23 .dp-strip-wait,body.deck-hardware-part1 #slide-25 .mp-strip-static,body.deck-hardware-part1 #slide-25 .mp-strip-wait {
     opacity: 0 !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-24 .dp-cap-final,
-body.deck-hardware-part1.overview-mode #slide-26 .mp-cap-final {
+body.deck-hardware-part1.overview-mode #slide-23 .dp-cap-final,
+body.deck-hardware-part1.overview-mode #slide-25 .mp-cap-final {
   opacity: 1 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-24 .dp-cap-final,body.deck-hardware-part1 #slide-26 .mp-cap-final {
+@media print {body.deck-hardware-part1 #slide-23 .dp-cap-final,body.deck-hardware-part1 #slide-25 .mp-cap-final {
     opacity: 1 !important;
   }
 }
