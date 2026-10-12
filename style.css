@@ -23055,7 +23055,7 @@ body.deck-hardware-part1 #slide-13 .sensitivity-card.step-active {
 /* s14: el equilibrista entra como protagonista CENTRADO y al pulsar planea a su
    columna mientras la tabla de compensación aparece; la tabla entra deslizada */
 body.deck-hardware-part1:not(.mode-document) #slide-14 .tightrope-visual-card {
-  transform: translateX(367px) scale(1.16);
+  transform: translate(367px, -90px) scale(1.16);
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
