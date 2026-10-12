@@ -1107,47 +1107,63 @@
                   <circle cx="341" cy="89" r="4" fill="#334155" stroke="#ffffff" stroke-width="1.5"/>
                   <text x="358" y="93" font-size="10.5" font-weight="700" fill="#475569">l&iacute;nea = calidad retenida</text>
 
-    <!-- zona sweet spot (AutoRound + NVFP4) -->
-                  <rect x="200" y="60" width="120" height="292" rx="10" fill="#22c55e" opacity="0.08"/>
-                  <text x="260" y="56" text-anchor="middle" font-size="11" font-weight="800" fill="#15803d">&#127942; cabe en 128 GB</text>
-
-    <!-- umbral de colapso 90% -->
+    <!-- umbral de colapso 90% (la línea siempre visible; la etiqueta llega con Q3) -->
                   <line x1="60" y1="292" x2="456" y2="292" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 4"/>
-                  <text x="456" y="305" text-anchor="end" font-size="10" font-weight="800" fill="#dc2626">90% &middot; zona de colapso</text>
 
-    <!-- barras de VRAM -->
-                  <rect x="92"  y="96"  width="36" height="256" rx="6" fill="url(#qzSlate)"/>
-                  <rect x="152" y="224" width="36" height="128" rx="6" fill="url(#qzBlue)"/>
-                  <rect x="212" y="280" width="36" height="72"  rx="6" fill="url(#qzGreen)"/>
-                  <rect x="272" y="284" width="36" height="68"  rx="6" fill="url(#qzGreen)"/>
-                  <rect x="332" y="280" width="36" height="72"  rx="6" fill="url(#qzAmber)"/>
-                  <rect x="392" y="297" width="36" height="55"  rx="6" fill="url(#qzRed)"/>
-                  <g text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">
-                    <text x="110" y="116">244</text><text x="170" y="244">122</text>
-                    <text x="230" y="300">69</text><text x="290" y="304">65</text>
-                    <text x="350" y="300">69</text><text x="410" y="317">52</text>
+    <!-- barra base BF16 -->
+                  <rect x="92" y="96" width="36" height="256" rx="6" fill="url(#qzSlate)"/>
+                  <text x="110" y="116" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">244</text>
+
+    <!-- paso 1 · FP8 -->
+                  <g class="step en-step en-s1">
+                    <rect x="152" y="224" width="36" height="128" rx="6" fill="url(#qzBlue)"/>
+                    <text x="170" y="244" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">122</text>
+                    <line x1="110" y1="90" x2="170" y2="98" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="170" cy="98" r="5" fill="#1d4ed8" stroke="#ffffff" stroke-width="1.5"/>
+                    <text x="170" y="86" text-anchor="middle" font-size="11" font-weight="800" fill="#1d4ed8">99,6%</text>
                   </g>
 
-    <!-- linea de calidad -->
-                  <polyline points="110,90 170,98 230,120 290,126 350,151 410,289" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
-                  <g stroke="#ffffff" stroke-width="1.5">
-                    <circle cx="110" cy="90"  r="5" fill="#64748b"/>
-                    <circle cx="170" cy="98"  r="5" fill="#1d4ed8"/>
-                    <circle cx="230" cy="120" r="5" fill="#15803d"/>
-                    <circle cx="290" cy="126" r="5" fill="#15803d"/>
-                    <circle cx="350" cy="151" r="5" fill="#d97706"/>
-                    <circle cx="410" cy="289" r="5" fill="#dc2626"/>
+    <!-- paso 2 · AutoRound + NVFP4 (la zona dulce sube con ellas) -->
+                  <g class="step en-step en-s2">
+                    <rect x="200" y="60" width="120" height="292" rx="10" fill="#22c55e" opacity="0.08"/>
+                    <text x="260" y="56" text-anchor="middle" font-size="11" font-weight="800" fill="#15803d">&#127942; cabe en 128 GB</text>
+                    <rect x="212" y="280" width="36" height="72"  rx="6" fill="url(#qzGreen)"/>
+                    <text x="230" y="300" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">69</text>
+                    <rect x="272" y="284" width="36" height="68"  rx="6" fill="url(#qzGreen)"/>
+                    <text x="290" y="304" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">65</text>
+                    <line x1="170" y1="98" x2="230" y2="120" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="230" cy="120" r="5" fill="#15803d" stroke="#ffffff" stroke-width="1.5"/>
+                    <text x="230" y="108" text-anchor="middle" font-size="11" font-weight="800" fill="#15803d">98,4%</text>
+                    <line x1="230" y1="120" x2="290" y2="126" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="290" cy="126" r="5" fill="#15803d" stroke="#ffffff" stroke-width="1.5"/>
+                    <text x="290" y="114" text-anchor="middle" font-size="11" font-weight="800" fill="#15803d">98,1%</text>
                   </g>
-                  <g text-anchor="middle" font-size="11" font-weight="800">
-                    <text x="110" y="78"  fill="#475569">100%</text>
-                    <text x="170" y="86"  fill="#1d4ed8">99,6%</text>
-                    <text x="230" y="108" fill="#15803d">98,4%</text>
-                    <text x="290" y="114" fill="#15803d">98,1%</text>
-                    <text x="350" y="139" fill="#d97706">96,8%</text>
-                    <text x="410" y="277" fill="#dc2626">89,5%</text>
+
+    <!-- paso 3 · Q4_K_M -->
+                  <g class="step en-step en-s3">
+                    <rect x="332" y="280" width="36" height="72"  rx="6" fill="url(#qzAmber)"/>
+                    <text x="350" y="300" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">69</text>
+                    <line x1="290" y1="126" x2="350" y2="151" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="350" cy="151" r="5" fill="#d97706" stroke="#ffffff" stroke-width="1.5"/>
+                    <text x="350" y="139" text-anchor="middle" font-size="11" font-weight="800" fill="#d97706">96,8%</text>
                   </g>
+
+    <!-- paso 4 · Q3 (etiqueta de la zona de colapso) -->
+                  <g class="step en-step en-s4">
+                    <rect x="392" y="297" width="36" height="55"  rx="6" fill="url(#qzRed)"/>
+                    <text x="410" y="317" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">52</text>
+                    <line x1="350" y1="151" x2="410" y2="289" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="410" cy="289" r="5" fill="#dc2626" stroke="#ffffff" stroke-width="1.5"/>
+                    <text x="410" y="277" text-anchor="middle" font-size="11" font-weight="800" fill="#dc2626">89,5%</text>
+                    <text x="456" y="305" text-anchor="end" font-size="10" font-weight="800" fill="#dc2626">90% &middot; zona de colapso</text>
+                  </g>
+
+    <!-- punto de partida de la línea de calidad (BF16) -->
+                  <circle cx="110" cy="90" r="5" fill="#64748b" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="110" y="78" text-anchor="middle" font-size="11" font-weight="800" fill="#475569">100%</text>
 
     <!-- eje base -->
+<!-- eje base -->
                   <line x1="60" y1="352" x2="456" y2="352" stroke="#94a3b8" stroke-width="1.5"/>
                   <g text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">
                     <text x="110" y="368">BF16</text><text x="170" y="368">FP8</text>
@@ -1160,22 +1176,22 @@
             </div>
 
             <div class="engram-right engram-right-dense">
-              <div class="memory-pillar-card">
+              <div class="memory-pillar-card enc-1">
                 <div class="memory-pillar-title"><span>1.</span><span>&#128142; FP8 &mdash; el clon exacto</span></div>
                 <div class="memory-card-highlight-pill">99,6% de calidad &middot; 122 GB: impecable, pero solo vive en un datacenter.</div>
               </div>
 
-              <div class="memory-pillar-card highlight">
+              <div class="memory-pillar-card enc-2 highlight">
                 <div class="memory-pillar-title"><span>2.</span><span>&#127775; INT4 &mdash; el punto dulce de 128 GB</span></div>
                 <div class="memory-card-highlight-pill">AutoRound 98,4% &middot; NVFP4 98,1% &middot; 65&ndash;69 GB (3,5&times; m&aacute;s ligero): cabe en 128 con aire para la KV.</div>
               </div>
 
-              <div class="memory-pillar-card">
+              <div class="memory-pillar-card enc-3">
                 <div class="memory-pillar-title"><span>3.</span><span>&#9881;&#65039; Q4 GGUF &mdash; el est&aacute;ndar local</span></div>
                 <div class="memory-card-highlight-pill">96,8% &middot; 69 GB &middot; el formato de Ollama/Mac: &minus;3,3% en c&oacute;digo.</div>
               </div>
 
-              <div class="memory-pillar-card">
+              <div class="memory-pillar-card enc-4">
                 <div class="memory-pillar-title"><span>4.</span><span>&#9888;&#65039; Q3 &mdash; la zona roja</span></div>
                 <div class="memory-card-highlight-pill">&lt;90% &middot; 52 GB &middot; colapso: par&eacute;ntesis sin cerrar, imports inventados, bucles infinitos.</div>
               </div>

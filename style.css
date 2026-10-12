@@ -17793,6 +17793,58 @@ body.deck-hardware-part1:not(.mode-document) .engram-right-dense .memory-card-hi
   padding: 0.95rem 1.15rem;
 }
 
+/* s12: recorrido por pasos — barras + línea de calidad progresivas
+   (4 pasos: FP8 · AutoRound+NVFP4 juntos · Q4_K_M · Q3) */
+body.deck-hardware-part1 #slide-12 .en-step {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.deck-hardware-part1 #slide-12 .en-step.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+/* Las 4 tarjetas de la derecha aparecen con su paso (mismo disparador del gráfico) */
+body.deck-hardware-part1 #slide-12 .enc-1,
+body.deck-hardware-part1 #slide-12 .enc-2,
+body.deck-hardware-part1 #slide-12 .enc-3,
+body.deck-hardware-part1 #slide-12 .enc-4 {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+body.deck-hardware-part1 #slide-12:has(.en-s1.step-active) .enc-1,
+body.deck-hardware-part1 #slide-12:has(.en-s2.step-active) .enc-2,
+body.deck-hardware-part1 #slide-12:has(.en-s3.step-active) .enc-3,
+body.deck-hardware-part1 #slide-12:has(.en-s4.step-active) .enc-4 {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-12 .enc-1,
+body.overview-mode #slide-12 .enc-2,
+body.overview-mode #slide-12 .enc-3,
+body.overview-mode #slide-12 .enc-4 {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-12 .enc-1,
+  body.deck-hardware-part1 #slide-12 .enc-2,
+  body.deck-hardware-part1 #slide-12 .enc-3,
+  body.deck-hardware-part1 #slide-12 .enc-4 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* s15 doc: analogias un poco mas compactas (3 tarjetas + extras deben caber) */
 body.mode-document .engram-right .memory-analogy-box {
   font-size: 1.02rem;
