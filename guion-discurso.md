@@ -1,7 +1,7 @@
 # 🎤 Guion de Discurso — AI Local Crafters
 
 > Charla en dos partes · Decks HTML 1920×1080
-> Parte 1: `index.html` (48 secciones · contador dinámico, hardware & modelos) · Parte 2: `parte2-ciclo-desarrollo.html` (**40 slides — incluye 4 checkpoints del mapa y la síntesis E2E interactiva**)
+> Parte 1: `index.html` (53 secciones · contador dinámico, hardware & modelos) · Parte 2: `parte2-ciclo-desarrollo.html` (**45 slides · 17 visibles en Charla — 7 checkpoints del mapa, la síntesis E2E interactiva y la estación del ecosistema completo**)
 > Presentar desde `dist/` (`python3 bundle.py` reempaqueta). Recarga forzada (Ctrl+Shift+R) si acabas de editar.
 
 **Teclas de modo** (idénticas en ambas partes):
@@ -78,26 +78,27 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 | 35 | **Gobernanza en Acción (Decision Tree ADR)** | De la intención a la ruta óptima. |
 | **36** | **📍 Checkpoint del mapa: Fase 4** | Estación: banda ADR ya encendida + **Construcción TDD brillando** (ámbar). *"¿Quién garantiza que se respeta? → Estamos en Fase 4: a construir."* |
 | 37 | **Evolución sin Drift: TDD Híbrido** | Fases 4-5: `/implement-flow` (TDD) + `/modify-flow` (cambio) + `/audit-docs` (cero drift). |
-| **38** | **📍 Checkpoint del mapa: Fase 5+** | Estación: TDD ya encendida + **Cambio Guiado brillando** (carmesí). *"El ciclo no acaba al desplegar: cuando algo cambie, /modify-flow te devuelve al mapa — cero drift."* |
-| 39 | **El Ciclo Canónico del SDLC** | *Puente: "el pipeline de la 8, ahora como pilar canónico".* |
-| 40 | **Producto en Acción (Decision Tree)** | De la necesidad al artefacto. |
+| **38** | **✨ Estación del Mapa: Ecosistema Completo** (NUEVA, 10 oct) | Estación: **los 9 pasos encendidos a la vez** (Fases 1–5+ + ADR + operaciones + pill final). *"Así sube el ecosistema entero: del /inception-workshop al /modify-flow, todo vivo."* |
+| **39** | **📍 Checkpoint del mapa: Fase 5+** (doc-only) | Estación: TDD ya encendida + **Cambio Guiado brillando** (carmesí). *"El ciclo no acaba al desplegar: cuando algo cambie, /modify-flow te devuelve al mapa — cero drift."* |
+| 40 | **El Ciclo Canónico del SDLC** | *Puente: "el pipeline de la 8, ahora como pilar canónico".* |
+| 41 | **Producto en Acción (Decision Tree)** | De la necesidad al artefacto. |
 
-**Puente D→E (40→41):** *"Ya tenemos gobernanza y ciclo. ¿Dónde viven los artefactos? → El repositorio."*
+**Puente D→E (41→42):** *"Ya tenemos gobernanza y ciclo. ¿Dónde viven los artefactos? → El repositorio."*
 
-## Bloque E — Cierre técnico (41-43)
+## Bloque E — Cierre técnico (42-44)
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
-| 41 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
-| 42 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
-| 43 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
+| 42 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
+| 43 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
+| 44 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
 
 ## Cheat-sheet de puentes hablados (Parte 2)
 
 1. 9→10: *"el mapa ya está señalando el Inception: entramos al taller"* · 18→19: *"el taller da el mapa; la estación lo re-clava"*
 2. 22→23: *"la FSM dice DÓNDE; la estación 2b lo clava: a trocear"* · 24→25: *"features listas → estación: el dominio"*
 3. 29→30: *"¿quién blinda esto? → la banda ADR"* (el salto temático grande, ahora visualizado)
-4. 35→36: *"el ADR gobierna; la estación clava la Fase 4"* · 36→37: *"a construir: TDD + cambio sin drift"*
+4. 35→36: *"el ADR gobierna; la estación clava la Fase 4"* · 36→37: *"a construir: TDD + cambio sin drift"* · 37→38: *"mira el mapa entero: así sube el ecosistema"*
 5. 37→39: *"todo ese trabajo se ordena en el ciclo canónico"* · 39→40: *"el índice gobierna el flujo"*
 6. 40→41: *"¿dónde viven los artefactos? → el repo"* (la petición viva ya se vio en la síntesis de la 4) · 41→42: pausa → quote
 
