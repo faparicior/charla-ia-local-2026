@@ -23072,10 +23072,12 @@ body:not(.mode-document).deck-hardware-part1 .pd-wrap {
   padding-bottom: 2.6rem;
 }
 
-/* s29 (tabla de rendimiento): bias recalibrado tras añadir la columna 200k
-   y pasar el kicker a Modo Documento (gap↑ ~178 · gap↓ ~216 · bias +38) */
-body:not(.mode-document).deck-hardware-part1 #slide-30 .pd-wrap {
-  padding-bottom: 8.2rem;
+/* Tabla de carreras (única slide con .pd-wrap): sesgo óptico con el subtítulo
+   «En prefill mandan los TFLOPs…». El bloque título+subtítulo+tabla deja el hueco
+   justo: el auto-margin clampa aquí y el bias se queda en +20 (dentro del rango
+   aceptado 20-55). Padding mayor no mueve el clúster (clamp). */
+body:not(.mode-document).deck-hardware-part1 .pd-wrap {
+  padding-bottom: 14rem;
 }
 
 /* s28: Layout 2 columnas de la gallina (analogía Prefill vs Decode) */
