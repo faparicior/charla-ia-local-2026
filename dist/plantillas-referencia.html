@@ -23072,9 +23072,12 @@ body.deck-hardware-part1 #slide-13 .sensitivity-card.step-active {
 }
 
 /* s14: el equilibrista entra como protagonista CENTRADO y al pulsar planea a su
-   columna mientras la tabla de compensación aparece; la tabla entra deslizada */
+   columna mientras la tabla de compensación aparece; la tabla entra deslizada.
+   (translateX medido con Playwright: la caja en reposo centra en x=417.6 del
+   canvas, así que 960-417.6 = 542px para centrar de verdad; el 367 antiguo
+   la dejaba ~175px a la izquierda del centro) */
 body.deck-hardware-part1:not(.mode-document) #slide-14 .tightrope-visual-card {
-  transform: translate(367px, -90px) scale(1.16);
+  transform: translate(542px, -90px) scale(1.16);
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
@@ -23578,6 +23581,117 @@ body.deck-hardware-part1 #slide-29 .case-item strong {
 
 body.deck-hardware-part1 #slide-29 .case-divider {
   color: var(--text-dim);
+}
+
+/* ==========================================================================
+   s12 — ENTRADA DE LA FORJA (solo Modo Charla): la imagen de la forja de la
+   cuantización abre la slide como gancho emocional; el primer clic la disuelve
+   y revela la gráfica del peaje (los en-steps siguen su curso normal).
+   En Modo Documento la forja queda como banner estático sobre la gráfica.
+   ========================================================================== */
+.forja-intro {
+  display: flex;
+  justify-content: center;
+}
+
+.forja-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 1150px;
+}
+
+.forja-img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
+}
+
+.forja-caption {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 1100px;
+}
+
+.forja-caption strong {
+  color: var(--text-main);
+}
+
+body:not(.mode-document) #slide-12 .forja-intro {
+  position: absolute;
+  top: 12.2rem;
+  left: 5rem;
+  right: 5rem;
+  bottom: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s;
+  cursor: pointer;
+}
+
+body:not(.mode-document) #slide-12 .forja-intro:hover .forja-img {
+  border-color: var(--border-strong, #94a3b8);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
+}
+
+body:not(.mode-document) #slide-12 .forja-img {
+  max-height: 620px;
+}
+
+body:not(.mode-document) #slide-12:has(.step.step-active) .forja-intro {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body:not(.mode-document) #slide-12 .engram-deck {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.55s ease 0.12s, visibility 0.55s 0.12s;
+}
+
+body:not(.mode-document) #slide-12:has(.step.step-active) .engram-deck {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.overview-mode #slide-12 .forja-intro {
+  display: none;
+}
+
+body.overview-mode #slide-12 .engram-deck {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-12 .forja-intro {
+    display: none;
+  }
+
+  body.deck-hardware-part1 #slide-12 .engram-deck {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* s12 modo documento: la tabla completa ES la versión documento (comentario en el
+   HTML); el gráfico en doc solo enseñaba la barra base y con el banner ya no cabe.
+   Doc = forja (banner) + tabla; el gráfico interactivo queda para Modo Charla */
+body.mode-document #slide-12 .engram-layout {
+  display: none;
 }
 
 </style>
