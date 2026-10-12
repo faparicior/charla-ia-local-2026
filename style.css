@@ -18432,7 +18432,7 @@ body.deck-hardware-part1.overview-mode #slide-26 .mp-cap-final {
 /* ============================================================
    SLIDE 36: Layout Split (Meme Gato Cálculos a la Izquierda + Razonamiento a la Derecha)
    ============================================================ */
-body.deck-hardware-part1 #slide-42 .calculasiones-layout-split {
+body.deck-hardware-part1 #slide-43 .calculasiones-layout-split {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
   gap: 3rem;
@@ -18443,7 +18443,7 @@ body.deck-hardware-part1 #slide-42 .calculasiones-layout-split {
   margin-top: 0.8rem;
 }
 
-body.deck-hardware-part1 #slide-42 .calculasiones-visual-stage {
+body.deck-hardware-part1 #slide-43 .calculasiones-visual-stage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18451,11 +18451,11 @@ body.deck-hardware-part1 #slide-42 .calculasiones-visual-stage {
   height: 100%;
 }
 
-body.deck-hardware-part1 #slide-42 .calculasiones-card-spotlight {
+body.deck-hardware-part1 #slide-43 .calculasiones-card-spotlight {
   display: contents;
 }
 
-body.deck-hardware-part1 #slide-42 .gato-hero-img {
+body.deck-hardware-part1 #slide-43 .gato-hero-img {
   width: 100%;
   max-width: 680px;
   max-height: 660px;
@@ -18466,14 +18466,14 @@ body.deck-hardware-part1 #slide-42 .gato-hero-img {
   display: block;
 }
 
-body.deck-hardware-part1 #slide-42 .calculasiones-cards-column {
+body.deck-hardware-part1 #slide-43 .calculasiones-cards-column {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
   justify-content: center;
 }
 
-body.deck-hardware-part1 #slide-42 .calc-reason-card {
+body.deck-hardware-part1 #slide-43 .calc-reason-card {
   display: flex;
   gap: 1.4rem;
   align-items: flex-start;
@@ -18485,17 +18485,17 @@ body.deck-hardware-part1 #slide-42 .calc-reason-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-body.deck-hardware-part1 #slide-42 .calc-reason-card:hover {
+body.deck-hardware-part1 #slide-43 .calc-reason-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
-body.deck-hardware-part1 #slide-42 .calc-reason-card.highlight {
+body.deck-hardware-part1 #slide-43 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.35);
   background: linear-gradient(145deg, #ffffff 0%, rgba(234, 88, 12, 0.03) 100%);
 }
 
-body.deck-hardware-part1 #slide-42 .calc-reason-num {
+body.deck-hardware-part1 #slide-43 .calc-reason-num {
   flex: 0 0 auto;
   width: 52px;
   height: 52px;
@@ -18510,13 +18510,13 @@ body.deck-hardware-part1 #slide-42 .calc-reason-num {
   font-family: var(--font-mono);
 }
 
-body.deck-hardware-part1 #slide-42 .calc-reason-title {
+body.deck-hardware-part1 #slide-43 .calc-reason-title {
   font-weight: 800;
   font-size: 1.28rem;
   margin-bottom: 0.45rem;
 }
 
-body.deck-hardware-part1 #slide-42 .calc-reason-card p {
+body.deck-hardware-part1 #slide-43 .calc-reason-card p {
   font-size: 1.1rem;
   color: #525660;
   line-height: 1.55;
@@ -18524,23 +18524,23 @@ body.deck-hardware-part1 #slide-42 .calc-reason-card p {
 }
 
 /* Modo oscuro Slide 36 */
-body.deck-hardware-part1.theme-dark #slide-42 .gato-hero-img {
+body.deck-hardware-part1.theme-dark #slide-43 .gato-hero-img {
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
 }
 
-body.deck-hardware-part1.theme-dark #slide-42 .calc-reason-card {
+body.deck-hardware-part1.theme-dark #slide-43 .calc-reason-card {
   background: #23262c;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body.deck-hardware-part1.theme-dark #slide-42 .calc-reason-card.highlight {
+body.deck-hardware-part1.theme-dark #slide-43 .calc-reason-card.highlight {
   border-color: rgba(234, 88, 12, 0.4);
   background: linear-gradient(145deg, #23262c 0%, rgba(234, 88, 12, 0.1) 100%);
 }
 
-body.deck-hardware-part1.theme-dark #slide-42 .calc-reason-card p {
+body.deck-hardware-part1.theme-dark #slide-43 .calc-reason-card p {
   color: #b8bcc4;
 }
 
