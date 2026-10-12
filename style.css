@@ -23052,6 +23052,40 @@ body.deck-hardware-part1 #slide-13 .sensitivity-card.step-active {
   transform: none;
 }
 
+/* s14: el equilibrista entra como protagonista (zoom amable) y se acomoda a su
+   caja cuando la tabla de compensación aparece; la tabla entra deslizada */
+body.deck-hardware-part1:not(.mode-document) #slide-14 .tightrope-visual-card {
+  transform: scale(1.16);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+body.deck-hardware-part1 #slide-14:has(.compensation-table-card.step-active) .tightrope-visual-card {
+  transform: scale(1);
+}
+
+body.deck-hardware-part1 #slide-14 .compensation-table-card {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.5s ease 0.18s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+body.deck-hardware-part1 #slide-14 .compensation-table-card.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-14 .tightrope-visual-card {
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-14 .tightrope-visual-card {
+    transform: none !important;
+  }
+}
+
 /* s13 encaje vertical: el SVG a su aspecto (960×260) y el bloque centrado con sesgo */
 body.deck-hardware-part1 .engram-svg-fit {
   height: auto;
