@@ -22976,6 +22976,78 @@ body.overview-mode #slide-11 .kv-pillar-step {
   }
 }
 
+/* s13: la trampa del benchmark por pasos — izquierda al entrar; el efecto dominó
+   se deriva en 3 pulsos (bien → se desvía → se desvía → no hay manera) */
+body.deck-hardware-part1 #slide-13 .en-step {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.deck-hardware-part1 #slide-13 .en-step.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+/* El remate del badge ((0,98)^50 ≈ 36%) llega con el último paso */
+body.deck-hardware-part1:not(.mode-document) #slide-13 .vram-capacity-badge {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+
+body.deck-hardware-part1 #slide-13:has(.en-r4.step-active) .vram-capacity-badge {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-13 .vram-capacity-badge {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-13 .vram-capacity-badge {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Título hero de la s13 más grande para proyección */
+body.deck-hardware-part1 .hero-gauge-title {
+  font-size: 1.35rem;
+}
+
+/* Tarjetas del semáforo más legibles SOLO en Modo Charla (Documento las deja como están) */
+body.deck-hardware-part1:not(.mode-document) .sensitivity-title {
+  font-size: 1.12rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) .sensitivity-desc {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+body.deck-hardware-part1:not(.mode-document) .sensitivity-tag {
+  font-size: 0.85rem;
+}
+
+/* s13 encaje vertical: el SVG a su aspecto (960×260) y el bloque centrado con sesgo */
+body.deck-hardware-part1 .engram-svg-fit {
+  height: auto;
+}
+
+body.deck-hardware-part1 .engram-card-fit .engram-stage {
+  flex: 0 0 auto;
+}
+
+body:not(.mode-document).deck-hardware-part1 #slide-13 .engram-deck {
+  justify-content: center;
+  padding-bottom: 8.35rem;
+}
+
 /* Kicker de contexto solo en Modo Documento: en Charla es ruido y roba altura
    (reutilizable por otras slides con la clase kicker-doc-only) */
 body:not(.mode-document) .kicker-doc-only {
