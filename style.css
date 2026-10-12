@@ -22868,6 +22868,19 @@ body.deck-hardware-part1 .race-table td.na-cell .cell-note {
   color: #9ca3af;
 }
 
+/* SLIDE 11 — El tanque arranca solo con los pesos (azul): KV Cache + buffer
+   aparecen juntos al pulsar 'siguiente' (motor de pasos .step, 1 paso;
+   overview e impresión los muestran siempre: reglas genéricas !important) */
+body.deck-hardware-part1 #slide-11 .mem-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+body.deck-hardware-part1 #slide-11 .mem-reveal.step-active {
+  opacity: 1;
+  transform: none;
+}
+
 /* Kicker de contexto solo en Modo Documento: en Charla es ruido y roba altura
    (reutilizable por otras slides con la clase kicker-doc-only) */
 body:not(.mode-document) .kicker-doc-only {
