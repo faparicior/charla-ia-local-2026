@@ -4502,14 +4502,6 @@ body.theme-dark .goldilocks-banner-title {
 /* ==========================================================================
    SLIDE: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
    ========================================================================== */
-.quant-loss-deck {
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-  width: 100%;
-  margin-top: 0.15rem;
-}
-
 /* Barra de 4 escalones del espectro de precisión */
 .quant-spectrum-grid {
   display: grid;
@@ -4621,119 +4613,6 @@ body.theme-dark .quant-step-badge.red {
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.35;
-}
-
-/* Tabla Visual de Pérdida de Precisión */
-.quant-loss-table-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: 14px;
-  padding: 0.9rem 1.25rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
-}
-
-.quant-loss-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.quant-loss-table th {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.65rem 0.6rem;
-  border-bottom: 2px solid var(--border-medium);
-  white-space: nowrap;
-}
-
-.quant-loss-table td {
-  padding: 0.6rem 0.6rem;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.86rem;
-}
-
-.quant-loss-table tr:last-child td {
-  border-bottom: none;
-}
-
-.quant-loss-table td.col-format {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.quant-loss-table td.col-vram {
-  font-family: var(--font-mono);
-  font-weight: 700;
-}
-
-.quant-retention-bar-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  width: 100%;
-}
-
-.quant-retention-track {
-  flex: 1;
-  height: 8px;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-body.theme-dark .quant-retention-track {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.quant-retention-fill {
-  height: 100%;
-  border-radius: 4px;
-}
-
-.quant-retention-fill.green {
-  background: #16a34a;
-}
-
-.quant-retention-fill.blue {
-  background: #0284c7;
-}
-
-.quant-retention-fill.amber {
-  background: #d97706;
-}
-
-.quant-retention-fill.red {
-  background: #dc2626;
-}
-
-.quant-retention-val {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 800;
-  width: 48px;
-  text-align: right;
-}
-
-.quant-loss-table tr.highlight-goldilocks {
-  background: rgba(34, 197, 94, 0.1) !important;
-  font-weight: 600;
-}
-
-body.theme-dark .quant-loss-table tr.highlight-goldilocks {
-  background: rgba(34, 197, 94, 0.16) !important;
-}
-
-.quant-loss-table tr.highlight-danger {
-  background: rgba(220, 38, 38, 0.08) !important;
-}
-
-body.theme-dark .quant-loss-table tr.highlight-danger {
-  background: rgba(220, 38, 38, 0.14) !important;
 }
 
 /* 3 Conclusiones Inferiores */
@@ -16534,7 +16413,6 @@ body.deck-hardware-part1 .chosen-synergy-badge {
 
 /* ---- A. RITMO VERTICAL: decks verticales llenan la altura ---- */
 body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.goldilocks-deck,
-body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.quant-loss-deck,
 body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.domino-deck,
 body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.nvfp4-pipeline-deck,
 body.deck-hardware-part1 .slide:not(.slide-hero) .slide-content>.autoround-deck,
@@ -16606,10 +16484,6 @@ body.deck-hardware-part1 .quant-spectrum-grid {
   flex: 1 1 0;
   min-height: 0;
   align-content: center;
-}
-
-body.deck-hardware-part1 .quant-loss-deck>.quant-loss-table-card {
-  flex-shrink: 0;
 }
 
 /* s16 dominó: filas llenan la altura; canvas visual crece; sensitivity centrada */
@@ -16867,26 +16741,8 @@ body.deck-hardware-part1 .goldilocks-table tr.row-muted td.col-note {
   color: #6b7280;
 }
 
-/* s15: tabla benchmark más grande; deltas grises a AA */
-body.deck-hardware-part1 .quant-loss-table {
-  font-size: 0.98rem;
-}
-
-body.deck-hardware-part1 .quant-loss-table th {
-  font-size: 0.84rem;
-}
-
-body.deck-hardware-part1 .quant-loss-table td {
-  padding: 0.62rem 0.6rem;
-  font-size: 0.98rem;
-}
-
 body.deck-hardware-part1 .editorial-table td {
   padding: 1.35rem 1.4rem;
-}
-
-body.deck-hardware-part1 .quant-loss-table td small {
-  color: #6b7280 !important;
 }
 
 /* s25: filas de specs más grandes */
@@ -16967,7 +16823,6 @@ body.theme-dark.deck-hardware-part1 .goldilocks-table td.col-params {
 }
 
 body.theme-dark.deck-hardware-part1 .goldilocks-table tr.row-muted td.col-note,
-body.theme-dark.deck-hardware-part1 .quant-loss-table td small,
 body.theme-dark.deck-hardware-part1 .memory-progression-table th {
   color: #9ca3af !important;
 }
@@ -23075,7 +22930,8 @@ body.deck-hardware-part1 #slide-13 .sensitivity-card.step-active {
    columna mientras la tabla de compensación aparece; la tabla entra deslizada.
    (translateX medido con Playwright: la caja en reposo centra en x=417.6 del
    canvas, así que 960-417.6 = 542px para centrar de verdad; el 367 antiguo
-   la dejaba ~175px a la izquierda del centro) */
+   la dejaba ~175px a la izquierda del centro. 12 oct: también en Modo Documento,
+   misma interacción en ambos modos a petición del autor) */
 body.deck-hardware-part1:not(.mode-document) #slide-14 .tightrope-visual-card {
   transform: translate(542px, -90px) scale(1.16);
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
@@ -23626,7 +23482,7 @@ body.deck-hardware-part1 #slide-29 .case-divider {
   color: var(--text-main);
 }
 
-body:not(.mode-document) #slide-12 .forja-intro {
+body.deck-hardware-part1 #slide-12 .forja-intro {
   position: absolute;
   top: 12.2rem;
   left: 5rem;
@@ -23641,27 +23497,32 @@ body:not(.mode-document) #slide-12 .forja-intro {
   cursor: pointer;
 }
 
-body:not(.mode-document) #slide-12 .forja-intro:hover .forja-img {
+/* En Modo Documento el subtítulo empuja el tablero: el overlay arranca más abajo */
+body.mode-document #slide-12 .forja-intro {
+  top: 16rem;
+}
+
+body.deck-hardware-part1 #slide-12 .forja-intro:hover .forja-img {
   border-color: var(--border-strong, #94a3b8);
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
 }
 
-body:not(.mode-document) #slide-12 .forja-img {
+body.deck-hardware-part1 #slide-12 .forja-img {
   max-height: 620px;
 }
 
-body:not(.mode-document) #slide-12:has(.step.step-active) .forja-intro {
+body.deck-hardware-part1 #slide-12:has(.step.step-active) .forja-intro {
   opacity: 0;
   visibility: hidden;
 }
 
-body:not(.mode-document) #slide-12 .engram-deck {
+body.deck-hardware-part1 #slide-12 .engram-deck {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.55s ease 0.12s, visibility 0.55s 0.12s;
 }
 
-body:not(.mode-document) #slide-12:has(.step.step-active) .engram-deck {
+body.deck-hardware-part1 #slide-12:has(.step.step-active) .engram-deck {
   opacity: 1;
   visibility: visible;
 }
@@ -23685,13 +23546,6 @@ body.overview-mode #slide-12 .engram-deck {
     opacity: 1 !important;
     visibility: visible !important;
   }
-}
-
-/* s12 modo documento: la tabla completa ES la versión documento (comentario en el
-   HTML); el gráfico en doc solo enseñaba la barra base y con el banner ya no cabe.
-   Doc = forja (banner) + tabla; el gráfico interactivo queda para Modo Charla */
-body.mode-document #slide-12 .engram-layout {
-  display: none;
 }
 
 </style>
@@ -24890,114 +24744,6 @@ body.mode-document #slide-12 .engram-layout {
             
             </div>
 
-          </div>
-
-    <!-- Versión documento: tabla completa con los números exactos -->
-          <div class="quant-loss-table-card doc-only">
-            <table class="quant-loss-table">
-              <thead>
-                <tr>
-                  <th>Formato</th>
-                  <th>VRAM (122B)</th>
-                  <th style="width: 240px;">Retenci&oacute;n Global</th>
-                  <th>MMLU (Razonamiento)</th>
-                  <th>HumanEval (C&oacute;digo)</th>
-                  <th>Diagn&oacute;stico</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-format">BF16 / FP16 (Base)</td>
-                  <td class="col-vram">~244 GB</td>
-                  <td>
-                    <div class="quant-retention-bar-wrap">
-                      <div class="quant-retention-track">
-                        <div class="quant-retention-fill green" style="width: 100%;"></div>
-                      </div>
-                      <span class="quant-retention-val" style="color: #16a34a;">100%</span>
-                    </div>
-                  </td>
-                  <td>88.4%</td>
-                  <td>84.5%</td>
-                  <td>&#128142; Original (Inviable en 1 GPU)</td>
-                </tr>
-                <tr>
-                  <td class="col-format">FP8 (Hopper / Blackwell)</td>
-                  <td class="col-vram">~122 GB</td>
-                  <td>
-                    <div class="quant-retention-bar-wrap">
-                      <div class="quant-retention-track">
-                        <div class="quant-retention-fill green" style="width: 99.6%;"></div>
-                      </div>
-                      <span class="quant-retention-val" style="color: #16a34a;">99.6%</span>
-                    </div>
-                  </td>
-                  <td>88.2% <small style="color: var(--text-dim);">(-0.2%)</small></td>
-                  <td>84.3% <small style="color: var(--text-dim);">(-0.2%)</small></td>
-                  <td>&#10024; M&aacute;xima Fidelidad (Datacenter)</td>
-                </tr>
-                <tr class="highlight-goldilocks">
-                  <td class="col-format">AutoRound INT4 (Intel)</td>
-                  <td class="col-vram" style="color: #15803d;">~69 GB</td>
-                  <td>
-                    <div class="quant-retention-bar-wrap">
-                      <div class="quant-retention-track">
-                        <div class="quant-retention-fill blue" style="width: 98.4%;"></div>
-                      </div>
-                      <span class="quant-retention-val" style="color: #0284c7;">98.4%</span>
-                    </div>
-                  </td>
-                  <td>87.2% <small style="color: var(--text-dim);">(-1.2%)</small></td>
-                  <td>83.1% <small style="color: var(--text-dim);">(-1.4%)</small></td>
-                  <td>&#127775; <strong>Sweet Spot MoE (Estaciones 128GB)</strong></td>
-                </tr>
-                <tr class="highlight-goldilocks">
-                  <td class="col-format">NVFP4 (NVIDIA Blackwell)</td>
-                  <td class="col-vram" style="color: #0284c7;">~65 GB</td>
-                  <td>
-                    <div class="quant-retention-bar-wrap">
-                      <div class="quant-retention-track">
-                        <div class="quant-retention-fill blue" style="width: 98.1%;"></div>
-                      </div>
-                      <span class="quant-retention-val" style="color: #0284c7;">98.1%</span>
-                    </div>
-                  </td>
-                  <td>87.0% <small style="color: var(--text-dim);">(-1.4%)</small></td>
-                  <td>82.8% <small style="color: var(--text-dim);">(-1.7%)</small></td>
-                  <td>&#128640; <strong>Aceleraci&oacute;n Nativa Tensor Core</strong></td>
-                </tr>
-                <tr>
-                  <td class="col-format">GGUF Q4_K_M (imatrix)</td>
-                  <td class="col-vram">~69 GB</td>
-                  <td>
-                    <div class="quant-retention-bar-wrap">
-                      <div class="quant-retention-track">
-                        <div class="quant-retention-fill amber" style="width: 96.8%;"></div>
-                      </div>
-                      <span class="quant-retention-val" style="color: #d97706;">96.8%</span>
-                    </div>
-                  </td>
-                  <td>85.9% <small style="color: var(--text-dim);">(-2.5%)</small></td>
-                  <td>81.2% <small style="color: var(--text-dim);">(-3.3%)</small></td>
-                  <td>&#9881; Est&aacute;ndar Local en Ollama / Mac</td>
-                </tr>
-                <tr class="highlight-danger">
-                  <td class="col-format">INT3 / Q3_K_M (Extremo)</td>
-                  <td class="col-vram" style="color: #dc2626;">~52 GB</td>
-                  <td>
-                    <div class="quant-retention-bar-wrap">
-                      <div class="quant-retention-track">
-                        <div class="quant-retention-fill red" style="width: 89.5%;"></div>
-                      </div>
-                      <span class="quant-retention-val" style="color: #dc2626;">&lt;90%</span>
-                    </div>
-                  </td>
-                  <td>78.5% <small style="color: var(--text-dim);">(-9.9%)</small></td>
-                  <td>71.0% <small style="color: var(--text-dim);">(-13.5%)</small></td>
-                  <td>&#10060; <strong>Inutilizable: Colapso en C&oacute;digo &amp; L&oacute;gica</strong></td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
         </div>
