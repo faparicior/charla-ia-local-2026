@@ -17798,6 +17798,20 @@ body.deck-hardware-part1:not(.mode-document) .engram-right .memory-pillar-title 
   font-size: 1.85rem;
 }
 
+/* Variante densa (s12: 4 tarjetas en la columna): pill y padding más contenidos
+   para que el texto secundario quede DENTRO de la tarjeta blanca
+   (medido: 8px de overflow con el pill de 1.62rem de las slides 14-16) */
+body.deck-hardware-part1:not(.mode-document) .engram-right-dense .memory-pillar-card {
+  padding: 1.05rem 1.35rem;
+  gap: 0.7rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) .engram-right-dense .memory-card-highlight-pill {
+  font-size: 1.28rem;
+  line-height: 1.5;
+  padding: 0.95rem 1.15rem;
+}
+
 /* s15 doc: analogias un poco mas compactas (3 tarjetas + extras deben caber) */
 body.mode-document .engram-right .memory-analogy-box {
   font-size: 1.02rem;
@@ -24534,7 +24548,7 @@ body.deck-hardware-part1 #slide-29 .case-divider {
               </div>
             </div>
 
-            <div class="engram-right">
+            <div class="engram-right engram-right-dense">
               <div class="memory-pillar-card">
                 <div class="memory-pillar-title"><span>1.</span><span>&#128142; FP8 &mdash; el clon exacto</span></div>
                 <div class="memory-card-highlight-pill">99,6% de calidad &middot; 122 GB: impecable, pero solo vive en un datacenter.</div>
