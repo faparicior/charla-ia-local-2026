@@ -23041,16 +23041,34 @@ body.deck-hardware-part1 .hero-gauge-title {
 
 /* Tarjetas del semáforo más legibles SOLO en Modo Charla (Documento las deja como están) */
 body.deck-hardware-part1:not(.mode-document) .sensitivity-title {
-  font-size: 1.12rem;
+  font-size: 1.25rem;
 }
 
 body.deck-hardware-part1:not(.mode-document) .sensitivity-desc {
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.45;
 }
 
 body.deck-hardware-part1:not(.mode-document) .sensitivity-tag {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+}
+
+/* Respiro entre la tarjeta grande y el semáforo + révela por pasos
+   (Crítica → Alta → Resistente, tras completar el gráfico) */
+body.deck-hardware-part1 .sensitivity-grid {
+  margin-top: 0.75rem;
+}
+
+body.deck-hardware-part1 #slide-13 .sensitivity-card {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.deck-hardware-part1 #slide-13 .sensitivity-card.step-active {
+  opacity: 1;
+  transform: none;
 }
 
 /* s13 encaje vertical: el SVG a su aspecto (960×260) y el bloque centrado con sesgo */
@@ -24920,7 +24938,7 @@ body.deck-hardware-part1 #slide-29 .case-divider {
     <!-- Semáforo de sensibilidad -->
           <div class="sensitivity-grid">
 
-            <div class="sensitivity-card">
+            <div class="sensitivity-card step en-sc">
               <div class="sensitivity-header">
                 <div class="sensitivity-title">
                   <span>&#128308; Modelos de Razonamiento</span>
@@ -24933,7 +24951,7 @@ body.deck-hardware-part1 #slide-29 .case-divider {
               </div>
             </div>
 
-            <div class="sensitivity-card">
+            <div class="sensitivity-card step en-sc">
               <div class="sensitivity-header">
                 <div class="sensitivity-title">
                   <span>&#128992; Modelos Peque&ntilde;os (&lt;9B)</span>
@@ -24946,7 +24964,7 @@ body.deck-hardware-part1 #slide-29 .case-divider {
               </div>
             </div>
 
-            <div class="sensitivity-card">
+            <div class="sensitivity-card step en-sc">
               <div class="sensitivity-header">
                 <div class="sensitivity-title">
                   <span>&#128994; Modelos MoE / Grandes (122B)</span>
