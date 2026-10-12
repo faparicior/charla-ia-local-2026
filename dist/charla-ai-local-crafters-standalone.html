@@ -22901,6 +22901,34 @@ body.deck-hardware-part1 #slide-11 .mem-reveal.step-active {
   transform: none;
 }
 
+/* La tarjeta KV Cache (columna derecha, ahora bajo la de Pesos) aparece con el
+   MISMO paso que el revelado del tanque: disparada por .mem-reveal vía :has().
+   Sin reflow: opacity+transform (el hueco ya está reservado). */
+body.deck-hardware-part1 #slide-11 .kv-pillar-step {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+body.deck-hardware-part1 #slide-11:has(.mem-reveal.step-active) .kv-pillar-step {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-11 .kv-pillar-step {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-11 .kv-pillar-step {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Kicker de contexto solo en Modo Documento: en Charla es ruido y roba altura
    (reutilizable por otras slides con la clase kicker-doc-only) */
 body:not(.mode-document) .kicker-doc-only {
@@ -24278,48 +24306,6 @@ body.deck-hardware-part1 #slide-29 .case-divider {
             </div>
 
             <div class="mem-tank-right">
-              <div class="memory-pillar-card highlight">
-                <div class="memory-pillar-header">
-                  <div class="memory-pillar-title">
-                    <span style="color: #ea580c;">💬</span>
-                    <span>KV Cache</span>
-                  </div>
-                  <span class="memory-pillar-badge amber">Memoria Dinámica</span>
-                </div>
-                <div class="pillar-illustration-row">
-                  <svg class="pillar-illustration-svg" viewBox="0 0 190 152" role="img" aria-label="Bloc de notas: la conversación gasta páginas que no vuelven">
-                    <rect x="46" y="30" width="122" height="100" rx="8" fill="#94a3b8" opacity="0.28"/>
-                    <rect x="40" y="32" width="122" height="100" rx="8" fill="#cbd5e1" opacity="0.65"/>
-                    <rect x="28" y="28" width="122" height="102" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="2.5"/>
-                    <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round">
-                      <path d="M40,28 v-9"/><path d="M60,28 v-9"/><path d="M80,28 v-9"/><path d="M100,28 v-9"/>
-                      <path d="M120,28 v-9"/><path d="M140,28 v-9"/>
-                    </g>
-                    <g stroke-width="3.5" stroke-linecap="round" fill="none">
-                      <path d="M42,54 q12,-4 24,0 t24,0 t22,0" stroke="#3b82f6"/>
-                      <path d="M42,70 q12,-4 24,0 t20,0" stroke="#ea580c"/>
-                      <path d="M42,86 q12,-4 24,0 t24,0 t14,0" stroke="#94a3b8"/>
-                      <path d="M42,102 q12,-4 24,0 t18,0" stroke="#cbd5e1"/>
-                      <path d="M42,116 h34" stroke="#cbd5e1"/>
-                    </g>
-                    <path d="M158,124 Q170,102 160,84" stroke="#ea580c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                    <polygon points="160,78 154,90 166,89" fill="#ea580c"/>
-                    <text x="95" y="146" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">+ tokens = + hojas gastadas</text>
-                  </svg>
-                  <div class="pillar-text-col">
-                    <div class="memory-analogy-box doc-only">
-                      📝 <strong>Analogía:</strong> como el <em>bloc de notas</em> de la conversación en directo.
-                      Cuanto más hablas, más hojas gastas.
-                    </div>
-                    <div class="memory-card-highlight-pill">
-                      📈 <strong>Multiplicativa:</strong> guarda preguntas, respuestas y PDFs para no recalcular
-                      desde cero. Crece token a token por cada usuario activo, y con contexto largo
-                      puede comerse el margen entero.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <div class="memory-pillar-card">
                 <div class="memory-pillar-header">
                   <div class="memory-pillar-title">
@@ -24369,7 +24355,49 @@ body.deck-hardware-part1 #slide-29 .case-divider {
                 </div>
               </div>
 
-    <!-- 3. Escenarios Prácticos de Concurrencia -->
+    <div class="memory-pillar-card highlight kv-pillar-step">
+                <div class="memory-pillar-header">
+                  <div class="memory-pillar-title">
+                    <span style="color: #ea580c;">💬</span>
+                    <span>KV Cache</span>
+                  </div>
+                  <span class="memory-pillar-badge amber">Memoria Dinámica</span>
+                </div>
+                <div class="pillar-illustration-row">
+                  <svg class="pillar-illustration-svg" viewBox="0 0 190 152" role="img" aria-label="Bloc de notas: la conversación gasta páginas que no vuelven">
+                    <rect x="46" y="30" width="122" height="100" rx="8" fill="#94a3b8" opacity="0.28"/>
+                    <rect x="40" y="32" width="122" height="100" rx="8" fill="#cbd5e1" opacity="0.65"/>
+                    <rect x="28" y="28" width="122" height="102" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="2.5"/>
+                    <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round">
+                      <path d="M40,28 v-9"/><path d="M60,28 v-9"/><path d="M80,28 v-9"/><path d="M100,28 v-9"/>
+                      <path d="M120,28 v-9"/><path d="M140,28 v-9"/>
+                    </g>
+                    <g stroke-width="3.5" stroke-linecap="round" fill="none">
+                      <path d="M42,54 q12,-4 24,0 t24,0 t22,0" stroke="#3b82f6"/>
+                      <path d="M42,70 q12,-4 24,0 t20,0" stroke="#ea580c"/>
+                      <path d="M42,86 q12,-4 24,0 t24,0 t14,0" stroke="#94a3b8"/>
+                      <path d="M42,102 q12,-4 24,0 t18,0" stroke="#cbd5e1"/>
+                      <path d="M42,116 h34" stroke="#cbd5e1"/>
+                    </g>
+                    <path d="M158,124 Q170,102 160,84" stroke="#ea580c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                    <polygon points="160,78 154,90 166,89" fill="#ea580c"/>
+                    <text x="95" y="146" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">+ tokens = + hojas gastadas</text>
+                  </svg>
+                  <div class="pillar-text-col">
+                    <div class="memory-analogy-box doc-only">
+                      📝 <strong>Analogía:</strong> como el <em>bloc de notas</em> de la conversación en directo.
+                      Cuanto más hablas, más hojas gastas.
+                    </div>
+                    <div class="memory-card-highlight-pill">
+                      📈 <strong>Multiplicativa:</strong> guarda preguntas, respuestas y PDFs para no recalcular
+                      desde cero. Crece token a token por cada usuario activo, y con contexto largo
+                      puede comerse el margen entero.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Escenarios Prácticos de Concurrencia -->
               <div class="memory-scenarios-deck doc-only">
                 <div class="memory-scenario-card">
                   <div class="scenario-header">

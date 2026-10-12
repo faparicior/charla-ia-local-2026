@@ -22882,6 +22882,34 @@ body.deck-hardware-part1 #slide-11 .mem-reveal.step-active {
   transform: none;
 }
 
+/* La tarjeta KV Cache (columna derecha, ahora bajo la de Pesos) aparece con el
+   MISMO paso que el revelado del tanque: disparada por .mem-reveal vía :has().
+   Sin reflow: opacity+transform (el hueco ya está reservado). */
+body.deck-hardware-part1 #slide-11 .kv-pillar-step {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+body.deck-hardware-part1 #slide-11:has(.mem-reveal.step-active) .kv-pillar-step {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-11 .kv-pillar-step {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-11 .kv-pillar-step {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Kicker de contexto solo en Modo Documento: en Charla es ruido y roba altura
    (reutilizable por otras slides con la clase kicker-doc-only) */
 body:not(.mode-document) .kicker-doc-only {
