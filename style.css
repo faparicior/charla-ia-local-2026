@@ -18092,38 +18092,38 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
   width: 100%;
   height: 100%;
   display: block;
-}body.deck-hardware-part1 #slide-23 .step,body.deck-hardware-part1 #slide-25 .step {
+}body.deck-hardware-part1 #slide-24 .step,body.deck-hardware-part1 #slide-26 .step {
   cursor: pointer;
 }body.deck-hardware-part1 /* --- Tipografía y colores estáticos del SVG --- */
-#slide-23 .dp-label,body.deck-hardware-part1 #slide-25 .mp-label {
+#slide-24 .dp-label,body.deck-hardware-part1 #slide-26 .mp-label {
   font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 700;
   fill: var(--text-muted);
   letter-spacing: 0.05em;
-}body.deck-hardware-part1 #slide-23 .dp-panel,body.deck-hardware-part1 #slide-25 .mp-panel {
+}body.deck-hardware-part1 #slide-24 .dp-panel,body.deck-hardware-part1 #slide-26 .mp-panel {
   fill: var(--bg-surface);
   stroke: var(--border-medium);
   stroke-width: 1.6;
   transition: stroke 0.5s ease;
-}body.deck-hardware-part1 #slide-23 .dp-mini,body.deck-hardware-part1 #slide-25 .mp-mini {
+}body.deck-hardware-part1 #slide-24 .dp-mini,body.deck-hardware-part1 #slide-26 .mp-mini {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
   fill: var(--text-dim);
   letter-spacing: 0.08em;
-}body.deck-hardware-part1 #slide-23 .dp-pill-title,body.deck-hardware-part1 #slide-25 .mp-pill-title {
+}body.deck-hardware-part1 #slide-24 .dp-pill-title,body.deck-hardware-part1 #slide-26 .mp-pill-title {
   font-family: var(--font-mono);
   font-size: 16px;
   font-weight: 800;
   fill: #b45309;
-}body.deck-hardware-part1 #slide-23 .dp-pill-sub,body.deck-hardware-part1 #slide-25 .mp-pill-sub {
+}body.deck-hardware-part1 #slide-24 .dp-pill-sub,body.deck-hardware-part1 #slide-26 .mp-pill-sub {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* --- Cajitas apagadas (estado inicial) --- */
-#slide-23 .dp-cell,body.deck-hardware-part1 #slide-25 .mp-cell {
+#slide-24 .dp-cell,body.deck-hardware-part1 #slide-26 .mp-cell {
   fill: var(--bg-surface-elevated);
   stroke: var(--border-medium);
   stroke-width: 1.4;
@@ -18131,14 +18131,14 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
     filter 0.45s ease, stroke-width 0.45s ease;
   transition-delay: var(--d, 0ms);
 }body.deck-hardware-part1 /* --- Franja inferior en espera --- */
-#slide-23 .dp-strip,body.deck-hardware-part1 #slide-25 .mp-strip {
+#slide-24 .dp-strip,body.deck-hardware-part1 #slide-26 .mp-strip {
   fill: var(--bg-surface);
   stroke: var(--border-subtle);
   stroke-width: 1.5;
-}body.deck-hardware-part1 #slide-23 .dp-strip-static,body.deck-hardware-part1 #slide-25 .mp-strip-static {
+}body.deck-hardware-part1 #slide-24 .dp-strip-static,body.deck-hardware-part1 #slide-26 .mp-strip-static {
   stroke-dasharray: 7 6;
   transition: opacity 0.4s ease;
-}body.deck-hardware-part1 #slide-23 .dp-strip-wait,body.deck-hardware-part1 #slide-25 .mp-strip-wait {
+}body.deck-hardware-part1 #slide-24 .dp-strip-wait,body.deck-hardware-part1 #slide-26 .mp-strip-wait {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -18146,206 +18146,206 @@ body.deck-hardware-part1.mode-document #slide-12 .slide-content>.subtitle {
   letter-spacing: 0.06em;
   transition: opacity 0.4s ease;
 }body.deck-hardware-part1 /* --- Router estático (MoE) --- */
-#slide-25 .mp-router {
+#slide-26 .mp-router {
   fill: var(--bg-surface);
   stroke: #0284c7;
   stroke-width: 1.6;
   transition: fill 0.45s ease, stroke 0.45s ease, filter 0.45s ease;
-}body.deck-hardware-part1 #slide-25 .mp-router-title {
+}body.deck-hardware-part1 #slide-26 .mp-router-title {
   font-family: var(--font-mono);
   font-size: 14.5px;
   font-weight: 800;
   fill: #0284c7;
-}body.deck-hardware-part1 #slide-25 .mp-router-sub {
+}body.deck-hardware-part1 #slide-26 .mp-router-sub {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 600;
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* --- PASO 1: la petición (oculta hasta activarse) --- */
-#slide-23 .dp-request,body.deck-hardware-part1 #slide-25 .mp-request {
+#slide-24 .dp-request,body.deck-hardware-part1 #slide-26 .mp-request {
   opacity: 0;
   transform: translateX(-46px);
   transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
-}body.deck-hardware-part1 #slide-23 .dp-request.step-active,body.deck-hardware-part1 #slide-25 .mp-request.step-active {
+}body.deck-hardware-part1 #slide-24 .dp-request.step-active,body.deck-hardware-part1 #slide-26 .mp-request.step-active {
   opacity: 1;
   transform: translateX(0);
-}body.deck-hardware-part1 #slide-23 .dp-pill,body.deck-hardware-part1 #slide-25 .mp-pill {
+}body.deck-hardware-part1 #slide-24 .dp-pill,body.deck-hardware-part1 #slide-26 .mp-pill {
   fill: rgba(245, 158, 11, 0.12);
   stroke: #f59e0b;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-23 .dp-arrow,body.deck-hardware-part1 #slide-25 .mp-arrow {
+}body.deck-hardware-part1 #slide-24 .dp-arrow,body.deck-hardware-part1 #slide-26 .mp-arrow {
   stroke: var(--text-muted);
   stroke-width: 2.4;
-}body.deck-hardware-part1 #slide-23 .dp-arrowhead,body.deck-hardware-part1 #slide-25 .mp-arrowhead {
+}body.deck-hardware-part1 #slide-24 .dp-arrowhead,body.deck-hardware-part1 #slide-26 .mp-arrowhead {
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* --- PASO 2: superposición luminosa (oculta hasta activarse) --- */
-#slide-23 .dp-lights,body.deck-hardware-part1 #slide-25 .mp-lights {
+#slide-24 .dp-lights,body.deck-hardware-part1 #slide-26 .mp-lights {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
-}body.deck-hardware-part1 #slide-23 .dp-lights.step-active,body.deck-hardware-part1 #slide-25 .mp-lights.step-active {
+}body.deck-hardware-part1 #slide-24 .dp-lights.step-active,body.deck-hardware-part1 #slide-26 .mp-lights.step-active {
   opacity: 1;
 }body.deck-hardware-part1 /* --- Franja inferior iluminada --- */
-#slide-23 .dp-strip-lit {
+#slide-24 .dp-strip-lit {
   fill: rgba(245, 158, 11, 0.09);
   stroke: #d97706;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-25 .mp-strip-lit {
+}body.deck-hardware-part1 #slide-26 .mp-strip-lit {
   fill: rgba(16, 185, 129, 0.09);
   stroke: #059669;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-23 .dp-count {
+}body.deck-hardware-part1 #slide-24 .dp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
   fill: #b45309;
   letter-spacing: 0.03em;
-}body.deck-hardware-part1 #slide-25 .mp-count {
+}body.deck-hardware-part1 #slide-26 .mp-count {
   font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 800;
   fill: #059669;
   letter-spacing: 0.03em;
-}body.deck-hardware-part1 #slide-23 .dp-strip-l1,body.deck-hardware-part1 #slide-25 .mp-strip-l1 {
+}body.deck-hardware-part1 #slide-24 .dp-strip-l1,body.deck-hardware-part1 #slide-26 .mp-strip-l1 {
   font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
-}body.deck-hardware-part1 #slide-23 .dp-strip-l2,body.deck-hardware-part1 #slide-25 .mp-strip-l2 {
+}body.deck-hardware-part1 #slide-24 .dp-strip-l2,body.deck-hardware-part1 #slide-26 .mp-strip-l2 {
   font-family: var(--font-sans);
   font-size: 12.5px;
   font-weight: 600;
   fill: var(--text-muted);
 }body.deck-hardware-part1 /* ================================================================
-   SLIDE 23 — DENSO: al activar el paso 2 se encienden las 48
+   SLIDE 24 — DENSO: al activar el paso 2 se encienden las 48
    ================================================================ */
-#slide-23:has(.dp-lights.step-active) .dp-cell {
+#slide-24:has(.dp-lights.step-active) .dp-cell {
   fill: rgba(245, 158, 11, 0.2);
   stroke: #d97706;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45));
-}body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-panel {
+}body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-panel {
   stroke: #d97706;
-}body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-strip-static,body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-strip-wait {
+}body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-strip-static,body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-strip-wait {
   opacity: 0;
-}body.deck-hardware-part1 #slide-23 .dp-glow {
+}body.deck-hardware-part1 #slide-24 .dp-glow {
   fill: rgba(245, 158, 11, 0.05);
   stroke: #d97706;
   stroke-width: 2.5;
   filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
-}body.deck-hardware-part1 #slide-23 .dp-cap-final {
+}body.deck-hardware-part1 #slide-24 .dp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
-}body.deck-hardware-part1 #slide-23:has(.dp-lights.step-active) .dp-cap-final {
+}body.deck-hardware-part1 #slide-24:has(.dp-lights.step-active) .dp-cap-final {
   opacity: 1;
 }body.deck-hardware-part1 /* ================================================================
-   SLIDE 25 — MoE: el router se activa y enciende 5 de 48
+   SLIDE 26 — MoE: el router se activa y enciende 5 de 48
    ================================================================ */
-#slide-25:has(.mp-lights.step-active) .mp-cell {
+#slide-26:has(.mp-lights.step-active) .mp-cell {
   opacity: 0.42;
-}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-cell.mp-on {
+}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-cell.mp-on {
   opacity: 1;
   fill: rgba(16, 185, 129, 0.18);
   stroke: #059669;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
-}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-router {
+}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-router {
   fill: rgba(2, 132, 199, 0.14);
   stroke-width: 2.2;
   filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.5));
-}body.deck-hardware-part1 #slide-25 .mp-fanline {
+}body.deck-hardware-part1 #slide-26 .mp-fanline {
   stroke: #059669;
   stroke-width: 2;
   stroke-dasharray: 7 6;
   opacity: 0;
   transition: opacity 0.4s ease;
   transition-delay: var(--d, 0ms);
-}body.deck-hardware-part1 #slide-25 .mp-fandot {
+}body.deck-hardware-part1 #slide-26 .mp-fandot {
   fill: #059669;
   opacity: 0;
   transition: opacity 0.4s ease;
   transition-delay: var(--d, 0ms);
-}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-fanline {
+}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-fanline {
   opacity: 0.7;
-}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-fandot {
+}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-fandot {
   opacity: 0.9;
-}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-strip-static,body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-strip-wait {
+}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-strip-static,body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-strip-wait {
   opacity: 0;
-}body.deck-hardware-part1 #slide-25 .mp-cap-final {
+}body.deck-hardware-part1 #slide-26 .mp-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
-}body.deck-hardware-part1 #slide-25:has(.mp-lights.step-active) .mp-cap-final {
+}body.deck-hardware-part1 #slide-26:has(.mp-lights.step-active) .mp-cap-final {
   opacity: 1;
 }
 
 /* ================================================================
    SLIDES 23 & 24 — Overview e impresión: estado final encendido
    ================================================================ */
-body.deck-hardware-part1.overview-mode #slide-23 .dp-request,
-body.deck-hardware-part1.overview-mode #slide-25 .mp-request {
+body.deck-hardware-part1.overview-mode #slide-24 .dp-request,
+body.deck-hardware-part1.overview-mode #slide-26 .mp-request {
   opacity: 1 !important;
   transform: none !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-23 .dp-request,body.deck-hardware-part1 #slide-25 .mp-request {
+@media print {body.deck-hardware-part1 #slide-24 .dp-request,body.deck-hardware-part1 #slide-26 .mp-request {
     opacity: 1 !important;
     transform: none !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-23 .dp-lights,
-body.deck-hardware-part1.overview-mode #slide-25 .mp-lights {
+body.deck-hardware-part1.overview-mode #slide-24 .dp-lights,
+body.deck-hardware-part1.overview-mode #slide-26 .mp-lights {
   opacity: 1 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-23 .dp-lights,body.deck-hardware-part1 #slide-25 .mp-lights {
+@media print {body.deck-hardware-part1 #slide-24 .dp-lights,body.deck-hardware-part1 #slide-26 .mp-lights {
     opacity: 1 !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-23 .dp-cell {
+body.deck-hardware-part1.overview-mode #slide-24 .dp-cell {
   fill: rgba(245, 158, 11, 0.2) !important;
   stroke: #d97706 !important;
   filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-23 .dp-cell {
+@media print {body.deck-hardware-part1 #slide-24 .dp-cell {
     fill: rgba(245, 158, 11, 0.2) !important;
     stroke: #d97706 !important;
     filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-25 .mp-cell.mp-on {
+body.deck-hardware-part1.overview-mode #slide-26 .mp-cell.mp-on {
   fill: rgba(16, 185, 129, 0.18) !important;
   stroke: #059669 !important;
   filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-25 .mp-cell.mp-on {
+@media print {body.deck-hardware-part1 #slide-26 .mp-cell.mp-on {
     fill: rgba(16, 185, 129, 0.18) !important;
     stroke: #059669 !important;
     filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-23 .dp-strip-static,
-body.deck-hardware-part1.overview-mode #slide-23 .dp-strip-wait,
-body.deck-hardware-part1.overview-mode #slide-25 .mp-strip-static,
-body.deck-hardware-part1.overview-mode #slide-25 .mp-strip-wait {
+body.deck-hardware-part1.overview-mode #slide-24 .dp-strip-static,
+body.deck-hardware-part1.overview-mode #slide-24 .dp-strip-wait,
+body.deck-hardware-part1.overview-mode #slide-26 .mp-strip-static,
+body.deck-hardware-part1.overview-mode #slide-26 .mp-strip-wait {
   opacity: 0 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-23 .dp-strip-static,body.deck-hardware-part1 #slide-23 .dp-strip-wait,body.deck-hardware-part1 #slide-25 .mp-strip-static,body.deck-hardware-part1 #slide-25 .mp-strip-wait {
+@media print {body.deck-hardware-part1 #slide-24 .dp-strip-static,body.deck-hardware-part1 #slide-24 .dp-strip-wait,body.deck-hardware-part1 #slide-26 .mp-strip-static,body.deck-hardware-part1 #slide-26 .mp-strip-wait {
     opacity: 0 !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-23 .dp-cap-final,
-body.deck-hardware-part1.overview-mode #slide-25 .mp-cap-final {
+body.deck-hardware-part1.overview-mode #slide-24 .dp-cap-final,
+body.deck-hardware-part1.overview-mode #slide-26 .mp-cap-final {
   opacity: 1 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-23 .dp-cap-final,body.deck-hardware-part1 #slide-25 .mp-cap-final {
+@media print {body.deck-hardware-part1 #slide-24 .dp-cap-final,body.deck-hardware-part1 #slide-26 .mp-cap-final {
     opacity: 1 !important;
   }
 }
@@ -18703,116 +18703,116 @@ body.deck-hardware-part1.theme-dark #slide-44:has(.updated-model.step-active) .c
   background: rgba(16, 185, 129, 0.15);
   box-shadow: 0 4px 22px rgba(16, 185, 129, 0.35);
 }body.deck-hardware-part1 /* ================================================================
-   SLIDE 25: EL VIAJE DEL TOKEN — BF16 (5 pasadas, t=4t0)
+   SLIDE 23: EL VIAJE DEL TOKEN — BF16 (5 pasadas, t=4t0)
    vs NVFP4 (3 pasadas cortas, t=t0, 4x tok/s)
    Motion path CSS + motor de pasos (.step): 3 pasos.
    ================================================================ */
 
 /* --- Tipografía estática del SVG --- */
-#slide-27 .vt-label {
+#slide-23 .vt-label {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
   fill: var(--text-muted);
   letter-spacing: 0.04em;
-}body.deck-hardware-part1 #slide-27 .vt-occ1 {
+}body.deck-hardware-part1 #slide-23 .vt-occ1 {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   fill: #b45309;
-}body.deck-hardware-part1 #slide-27 .vt-occ2 {
+}body.deck-hardware-part1 #slide-23 .vt-occ2 {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   fill: #0284c7;
-}body.deck-hardware-part1 #slide-27 .vt-block1,body.deck-hardware-part1 #slide-27 .vt-block2 {
+}body.deck-hardware-part1 #slide-23 .vt-block1,body.deck-hardware-part1 #slide-23 .vt-block2 {
   fill: var(--bg-surface);
   stroke: var(--border-medium);
   stroke-width: 1.6;
   transition: stroke 0.45s ease, filter 0.45s ease;
-}body.deck-hardware-part1 #slide-27 .vt-block2 {
+}body.deck-hardware-part1 #slide-23 .vt-block2 {
   fill: rgba(2, 132, 199, 0.05);
-}body.deck-hardware-part1 #slide-27 .vt-blocklabel {
+}body.deck-hardware-part1 #slide-23 .vt-blocklabel {
   font-family: var(--font-mono);
   font-size: 12.5px;
   font-weight: 700;
   fill: var(--text-muted);
   letter-spacing: 0.03em;
-}body.deck-hardware-part1 #slide-27 .vt-spill {
+}body.deck-hardware-part1 #slide-23 .vt-spill {
   fill: rgba(245, 158, 11, 0.12);
   stroke: #f59e0b;
   stroke-width: 1.5;
-}body.deck-hardware-part1 #slide-27 .vt-spill-title {
+}body.deck-hardware-part1 #slide-23 .vt-spill-title {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 800;
   fill: #b45309;
-}body.deck-hardware-part1 #slide-27 .vt-spill-sub {
+}body.deck-hardware-part1 #slide-23 .vt-spill-sub {
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 600;
   fill: var(--text-muted);
-}body.deck-hardware-part1 #slide-27 .vt-lead {
+}body.deck-hardware-part1 #slide-23 .vt-lead {
   stroke: var(--text-muted);
   stroke-width: 2.2;
-}body.deck-hardware-part1 #slide-27 .vt-arrowhead {
+}body.deck-hardware-part1 #slide-23 .vt-arrowhead {
   fill: var(--text-muted);
-}body.deck-hardware-part1 #slide-27 .vt-salida {
+}body.deck-hardware-part1 #slide-23 .vt-salida {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
   fill: var(--text-dim);
   letter-spacing: 0.08em;
 }body.deck-hardware-part1 /* --- Rutas (recorridos serpiente) --- */
-#slide-27 .vt-route1,body.deck-hardware-part1 #slide-27 .vt-route2 {
+#slide-23 .vt-route1,body.deck-hardware-part1 #slide-23 .vt-route2 {
   fill: none;
   stroke-width: 2.5;
   stroke-dasharray: 10 8;
   opacity: 0.55;
   transition: stroke 0.45s ease, opacity 0.45s ease;
-}body.deck-hardware-part1 #slide-27 .vt-route1 {
+}body.deck-hardware-part1 #slide-23 .vt-route1 {
   stroke: rgba(217, 119, 6, 0.55);
-}body.deck-hardware-part1 #slide-27 .vt-route2 {
+}body.deck-hardware-part1 #slide-23 .vt-route2 {
   stroke: rgba(2, 132, 199, 0.55);
-}body.deck-hardware-part1 #slide-27:has(.vt-j1.step-active) .vt-route1 {
+}body.deck-hardware-part1 #slide-23:has(.vt-j1.step-active) .vt-route1 {
   stroke: #d97706;
   opacity: 1;
-}body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-route2 {
+}body.deck-hardware-part1 #slide-23:has(.vt-j2.step-active) .vt-route2 {
   stroke: #0284c7;
   opacity: 1;
-}body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-block2 {
+}body.deck-hardware-part1 #slide-23:has(.vt-j2.step-active) .vt-block2 {
   stroke: #0284c7;
 }body.deck-hardware-part1 /* --- Salidas estáticas (marcador tenue) --- */
-#slide-27 .vt-exit-static {
+#slide-23 .vt-exit-static {
   fill: var(--bg-surface-elevated);
   stroke: var(--border-subtle);
   stroke-width: 1.4;
   stroke-dasharray: 6 5;
   transition: opacity 0.4s ease;
-}body.deck-hardware-part1 #slide-27 .vt-exit-wait {
+}body.deck-hardware-part1 #slide-23 .vt-exit-wait {
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
   fill: var(--text-dim);
 }body.deck-hardware-part1 /* --- Tokens viajeros (motion path) --- */
-#slide-27 .vt-token1,body.deck-hardware-part1 #slide-27 .vt-token2 {
+#slide-23 .vt-token1,body.deck-hardware-part1 #slide-23 .vt-token2 {
   opacity: 0;
   offset-rotate: 0deg;
-}body.deck-hardware-part1 #slide-27 .vt-token1 {
+}body.deck-hardware-part1 #slide-23 .vt-token1 {
   offset-path: path("M158,76 H752 a16,16 0 0 1 0,32 H158 a16,16 0 0 0 0,32 H752 a16,16 0 0 1 0,32 H158 a16,16 0 0 0 0,32 H752");
-}body.deck-hardware-part1 #slide-27 .vt-token2 {
+}body.deck-hardware-part1 #slide-23 .vt-token2 {
   offset-path: path("M168,312 H340 a26.5,26.5 0 0 1 0,53 H168 a26.5,26.5 0 0 0 0,53 H340");
-}body.deck-hardware-part1 #slide-27 .vt-token-chip {
+}body.deck-hardware-part1 #slide-23 .vt-token-chip {
   fill: rgba(245, 158, 11, 0.15);
   stroke: #f59e0b;
   stroke-width: 1.6;
   filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5));
-}body.deck-hardware-part1 #slide-27 .vt-token-emoji {
+}body.deck-hardware-part1 #slide-23 .vt-token-emoji {
   font-size: 15px;
-}body.deck-hardware-part1 #slide-27 .vt-j1.step-active .vt-token1 {
+}body.deck-hardware-part1 #slide-23 .vt-j1.step-active .vt-token1 {
   opacity: 1;
   animation: vtTravel1 1.6s linear forwards;
-}body.deck-hardware-part1 #slide-27 .vt-j2.step-active .vt-token2 {
+}body.deck-hardware-part1 #slide-23 .vt-j2.step-active .vt-token2 {
   opacity: 1;
   animation: vtTravel2 0.4s linear forwards;
 }
@@ -18826,19 +18826,19 @@ body.deck-hardware-part1.theme-dark #slide-44:has(.updated-model.step-active) .c
   from { offset-distance: 0%; }
   to { offset-distance: 100%; }
 }body.deck-hardware-part1 /* --- Punto de llegada + salida iluminada (aparecen al final del viaje) --- */
-#slide-27 .vt-arr1,body.deck-hardware-part1 #slide-27 .vt-arr2,body.deck-hardware-part1 #slide-27 .vt-exit1,body.deck-hardware-part1 #slide-27 .vt-exit2 {
+#slide-23 .vt-arr1,body.deck-hardware-part1 #slide-23 .vt-arr2,body.deck-hardware-part1 #slide-23 .vt-exit1,body.deck-hardware-part1 #slide-23 .vt-exit2 {
   opacity: 0;
-}body.deck-hardware-part1 #slide-27 .vt-arr1 {
+}body.deck-hardware-part1 #slide-23 .vt-arr1 {
   fill: #d97706;
-}body.deck-hardware-part1 #slide-27 .vt-arr2 {
+}body.deck-hardware-part1 #slide-23 .vt-arr2 {
   fill: #0284c7;
-}body.deck-hardware-part1 #slide-27 .vt-j1.step-active .vt-arr1 {
+}body.deck-hardware-part1 #slide-23 .vt-j1.step-active .vt-arr1 {
   animation: vtPop 0.4s var(--ease-spring) 1.5s both;
-}body.deck-hardware-part1 #slide-27 .vt-j1.step-active .vt-exit1 {
+}body.deck-hardware-part1 #slide-23 .vt-j1.step-active .vt-exit1 {
   animation: vtFadeIn 0.45s ease 1.5s both;
-}body.deck-hardware-part1 #slide-27 .vt-j2.step-active .vt-arr2 {
+}body.deck-hardware-part1 #slide-23 .vt-j2.step-active .vt-arr2 {
   animation: vtPop 0.4s var(--ease-spring) 0.35s both;
-}body.deck-hardware-part1 #slide-27 .vt-j2.step-active .vt-exit2 {
+}body.deck-hardware-part1 #slide-23 .vt-j2.step-active .vt-exit2 {
   animation: vtFadeIn 0.45s ease 0.35s both;
 }
 
@@ -18852,153 +18852,153 @@ body.deck-hardware-part1.theme-dark #slide-44:has(.updated-model.step-active) .c
   from { opacity: 0; }
   to { opacity: 1; }
 }body.deck-hardware-part1 /* --- Salidas iluminadas --- */
-#slide-27 .vt-exit-lit1 {
+#slide-23 .vt-exit-lit1 {
   fill: rgba(245, 158, 11, 0.1);
   stroke: #d97706;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-27 .vt-exit-lit2 {
+}body.deck-hardware-part1 #slide-23 .vt-exit-lit2 {
   fill: rgba(2, 132, 199, 0.1);
   stroke: #0284c7;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-27 .vt-clock1 {
+}body.deck-hardware-part1 #slide-23 .vt-clock1 {
   font-family: var(--font-mono);
   font-size: 17px;
   font-weight: 800;
   fill: #b45309;
-}body.deck-hardware-part1 #slide-27 .vt-clock2 {
+}body.deck-hardware-part1 #slide-23 .vt-clock2 {
   font-family: var(--font-mono);
   font-size: 17px;
   font-weight: 800;
   fill: #0284c7;
-}body.deck-hardware-part1 #slide-27 .vt-tokps1 {
+}body.deck-hardware-part1 #slide-23 .vt-tokps1 {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 700;
   fill: var(--text-muted);
-}body.deck-hardware-part1 #slide-27 .vt-tokps2 {
+}body.deck-hardware-part1 #slide-23 .vt-tokps2 {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 800;
   fill: #059669;
 }body.deck-hardware-part1 /* --- Salida estática se apaga cuando llega el token --- */
-#slide-27:has(.vt-j1.step-active) .vt-exit-static1,
-#slide-27:has(.vt-j1.step-active) .vt-exit-static1 + .vt-exit-wait {
+#slide-23:has(.vt-j1.step-active) .vt-exit-static1,
+#slide-23:has(.vt-j1.step-active) .vt-exit-static1 + .vt-exit-wait {
   opacity: 0.1;
-}body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-exit-static2,
-#slide-27:has(.vt-j2.step-active) .vt-exit-static2 + .vt-exit-wait {
+}body.deck-hardware-part1 #slide-23:has(.vt-j2.step-active) .vt-exit-static2,
+#slide-23:has(.vt-j2.step-active) .vt-exit-static2 + .vt-exit-wait {
   opacity: 0.1;
 }body.deck-hardware-part1 /* --- Franja de espera y veredicto --- */
-#slide-27 .vt-strip {
+#slide-23 .vt-strip {
   fill: var(--bg-surface);
   stroke: var(--border-subtle);
   stroke-width: 1.5;
-}body.deck-hardware-part1 #slide-27 .vt-strip-static {
+}body.deck-hardware-part1 #slide-23 .vt-strip-static {
   stroke-dasharray: 7 6;
   transition: opacity 0.4s ease;
-}body.deck-hardware-part1 #slide-27 .vt-strip-wait {
+}body.deck-hardware-part1 #slide-23 .vt-strip-wait {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
   fill: var(--text-dim);
   letter-spacing: 0.06em;
   transition: opacity 0.4s ease;
-}body.deck-hardware-part1 #slide-27 .vt-verdict {
+}body.deck-hardware-part1 #slide-23 .vt-verdict {
   opacity: 0;
   transition: opacity 0.5s ease 0.15s;
-}body.deck-hardware-part1 #slide-27 .vt-verdict.step-active {
+}body.deck-hardware-part1 #slide-23 .vt-verdict.step-active {
   opacity: 1;
-}body.deck-hardware-part1 #slide-27 .vt-strip-lit {
+}body.deck-hardware-part1 #slide-23 .vt-strip-lit {
   fill: rgba(16, 185, 129, 0.08);
   stroke: #059669;
   stroke-width: 1.6;
-}body.deck-hardware-part1 #slide-27 .vt-verdict-main {
+}body.deck-hardware-part1 #slide-23 .vt-verdict-main {
   font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 800;
   fill: #059669;
   letter-spacing: 0.02em;
-}body.deck-hardware-part1 #slide-27 .vt-strip-l1 {
+}body.deck-hardware-part1 #slide-23 .vt-strip-l1 {
   font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
-}body.deck-hardware-part1 #slide-27 .vt-strip-l2 {
+}body.deck-hardware-part1 #slide-23 .vt-strip-l2 {
   font-family: var(--font-sans);
   font-size: 12.5px;
   font-weight: 600;
   fill: var(--text-muted);
-}body.deck-hardware-part1 #slide-27:has(.vt-verdict.step-active) .vt-strip-static,body.deck-hardware-part1 #slide-27:has(.vt-verdict.step-active) .vt-strip-wait {
+}body.deck-hardware-part1 #slide-23:has(.vt-verdict.step-active) .vt-strip-static,body.deck-hardware-part1 #slide-23:has(.vt-verdict.step-active) .vt-strip-wait {
   opacity: 0;
-}body.deck-hardware-part1 #slide-27 .vt-cap-final {
+}body.deck-hardware-part1 #slide-23 .vt-cap-final {
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
-}body.deck-hardware-part1 #slide-27:has(.vt-verdict.step-active) .vt-cap-final {
+}body.deck-hardware-part1 #slide-23:has(.vt-verdict.step-active) .vt-cap-final {
   opacity: 1;
 }body.deck-hardware-part1 /* --- Paso activo clicable --- */
-#slide-27 .step {
+#slide-23 .step {
   cursor: pointer;
 }
 
 /* ================================================================
-   SLIDE 25 — Overview e impresión: estado final (viajes completados)
+   SLIDE 23 — Overview e impresión: estado final (viajes completados)
    ================================================================ */
-body.deck-hardware-part1.overview-mode #slide-27 .vt-token1,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-token2 {
+body.deck-hardware-part1.overview-mode #slide-23 .vt-token1,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-token2 {
   opacity: 1 !important;
   offset-distance: 100% !important;
   animation: none !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-27 .vt-token1,body.deck-hardware-part1 #slide-27 .vt-token2 {
+@media print {body.deck-hardware-part1 #slide-23 .vt-token1,body.deck-hardware-part1 #slide-23 .vt-token2 {
     opacity: 1 !important;
     offset-distance: 100% !important;
     animation: none !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-27 .vt-arr1,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-arr2,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-exit1,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-exit2 {
+body.deck-hardware-part1.overview-mode #slide-23 .vt-arr1,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-arr2,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-exit1,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-exit2 {
   opacity: 1 !important;
   animation: none !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-27 .vt-arr1,body.deck-hardware-part1 #slide-27 .vt-arr2,body.deck-hardware-part1 #slide-27 .vt-exit1,body.deck-hardware-part1 #slide-27 .vt-exit2 {
+@media print {body.deck-hardware-part1 #slide-23 .vt-arr1,body.deck-hardware-part1 #slide-23 .vt-arr2,body.deck-hardware-part1 #slide-23 .vt-exit1,body.deck-hardware-part1 #slide-23 .vt-exit2 {
     opacity: 1 !important;
     animation: none !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-27 .vt-exit-static,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-exit-wait,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-strip-static,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-strip-wait {
+body.deck-hardware-part1.overview-mode #slide-23 .vt-exit-static,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-exit-wait,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-strip-static,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-strip-wait {
   opacity: 0 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-27 .vt-exit-static,body.deck-hardware-part1 #slide-27 .vt-exit-wait,body.deck-hardware-part1 #slide-27 .vt-strip-static,body.deck-hardware-part1 #slide-27 .vt-strip-wait {
+@media print {body.deck-hardware-part1 #slide-23 .vt-exit-static,body.deck-hardware-part1 #slide-23 .vt-exit-wait,body.deck-hardware-part1 #slide-23 .vt-strip-static,body.deck-hardware-part1 #slide-23 .vt-strip-wait {
     opacity: 0 !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-27 .vt-route1,
-body.deck-hardware-part1.overview-mode #slide-27 .vt-route2 {
+body.deck-hardware-part1.overview-mode #slide-23 .vt-route1,
+body.deck-hardware-part1.overview-mode #slide-23 .vt-route2 {
   stroke: #d97706;
   opacity: 1 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-27 .vt-route1,body.deck-hardware-part1 #slide-27 .vt-route2 {
+@media print {body.deck-hardware-part1 #slide-23 .vt-route1,body.deck-hardware-part1 #slide-23 .vt-route2 {
     stroke: #d97706;
     opacity: 1 !important;
   }
 }
 
-body.deck-hardware-part1.overview-mode #slide-27 .vt-cap-final {
+body.deck-hardware-part1.overview-mode #slide-23 .vt-cap-final {
   opacity: 1 !important;
 }
 
-@media print {body.deck-hardware-part1 #slide-27 .vt-cap-final {
+@media print {body.deck-hardware-part1 #slide-23 .vt-cap-final {
     opacity: 1 !important;
   }
 }body.deck-sdlc-part2 /* ==========================================================================
@@ -23631,22 +23631,22 @@ body.overview-mode #slide-18 .hb-card-pct {
 /* s27 — El Viaje del Token: el carril NVFP4 llega con el PASO 2 (mismo latido que
    el viaje comprimido; alineado con s18: primero «cómo está» = solo BF16, luego
    aparece la diferencia). No es .step: el recorrido sigue siendo de 3 pulsos */
-body.deck-hardware-part1 #slide-27 .vt-lane2 {
+body.deck-hardware-part1 #slide-23 .vt-lane2 {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
-body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-lane2 {
+body.deck-hardware-part1 #slide-23:has(.vt-j2.step-active) .vt-lane2 {
   opacity: 1;
 }
 
-body.overview-mode #slide-27 .vt-lane2 {
+body.overview-mode #slide-23 .vt-lane2 {
   opacity: 1 !important;
 }
 
 @media print {
 
-  body.deck-hardware-part1 #slide-27 .vt-lane2 {
+  body.deck-hardware-part1 #slide-23 .vt-lane2 {
     opacity: 1 !important;
   }
 }
