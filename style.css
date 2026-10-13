@@ -23533,12 +23533,12 @@ body.overview-mode #slide-12 .engram-deck {
 
 /* ==========================================================================
    s18 — DELTANET VS ATTENTION: entrada por pasos (misma interacción en Charla
-   y Documento). Estado inicial «cómo está hoy»: 16 barras azules IDÉNTICAS
-   (4 Attention + 12 fantasmas en las posiciones futuras de los DeltaNet) y
-   gráfica derecha vacía. Pulso 1: las verdes crecen y SUSTITUYEN a las
-   fantasmas (anatomía 3:1) + bracket, píldora y leyendas. Pulso 2: la curva
-   roja del OOM (>40 GB). Pulso 3: la diferencia (azul híbrido + verde O(1))
-   y la cinta del resultado práctico.
+   la curva roja del OOM ya visible (la factura de la atención pura, ANTES de
+   que aparezcan los deltas). Pulso 1: las verdes crecen y SUSTITUYEN a las
+   fantasmas (anatomía 3:1) + bracket, píldora y leyendas. Pulso 2: la
+   diferencia (azul híbrido + verde O(1)) y la cinta del resultado práctico.
+   Los porcentajes de las tarjetas («25% / 75% de las capas») solo en la foto
+   final (hb-card-pct).
    ========================================================================== */
 body.deck-hardware-part1 #slide-18 .hb-greens rect {
   transform: scaleY(0);
@@ -23591,17 +23591,6 @@ body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-pct {
   opacity: 1;
 }
 
-body.deck-hardware-part1 #slide-18 .hb-red {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.5s ease 0.1s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
-}
-
-body.deck-hardware-part1 #slide-18 .hb-red.step-active {
-  opacity: 1;
-  transform: none;
-}
-
 body.deck-hardware-part1 #slide-18 .hb-curves {
   opacity: 0;
   transform: translateY(12px);
@@ -23620,7 +23609,8 @@ body.overview-mode #slide-18 .hb-greens rect {
 
 body.overview-mode #slide-18 .hb-fade,
 body.overview-mode #slide-18 .hb-pill-step,
-body.overview-mode #slide-18 .hb-pct {
+body.overview-mode #slide-18 .hb-pct,
+body.overview-mode #slide-18 .hb-card-pct {
   opacity: 1 !important;
 }
 
@@ -23632,7 +23622,8 @@ body.overview-mode #slide-18 .hb-pct {
 
   body.deck-hardware-part1 #slide-18 .hb-fade,
   body.deck-hardware-part1 #slide-18 .hb-pill-step,
-  body.deck-hardware-part1 #slide-18 .hb-pct {
+  body.deck-hardware-part1 #slide-18 .hb-pct,
+  body.deck-hardware-part1 #slide-18 .hb-card-pct {
     opacity: 1 !important;
   }
 }
@@ -23684,6 +23675,16 @@ body.deck-hardware-part1 #slide-18 .hb-card-step {
 body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-card-step {
   opacity: 1;
   transform: none;
+}
+
+/* los porcentajes de las tarjetas solo en la foto final (pulso 2, con las curvas) */
+body.deck-hardware-part1 #slide-18 .hb-card-pct {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.deck-hardware-part1 #slide-18:has(.hb-curves.step-active) .hb-card-pct {
+  opacity: 1;
 }
 
 body.deck-hardware-part1 #slide-18 .hb-ribbon-step {

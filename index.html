@@ -2188,14 +2188,13 @@
                   <text x="550" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">192K</text>
                   <text x="680" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">256K</text>
 
-    <!-- PASO 2: la gráfica roja del OOM (qué pasaría sin el híbrido) -->
-                  <g class="step hb-red">
-                    <path d="M 70 230 Q 360 220 650 32" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="6 4" />
-                    <circle cx="650" cy="32" r="7" fill="#ef4444" />
-                    <rect x="395" y="16" width="245" height="30" rx="7" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.5" />
-                    <rect x="395" y="16" width="245" height="30" rx="7" fill="rgba(239, 68, 68, 0.12)" />
-                    <text x="517" y="36" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="13" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
-                  </g>
+    <!-- Curva 1: 100% Attention (rampa del OOM) — visible desde el estado inicial,
+         ANTES de que aparezcan los deltas: es la factura del «cómo está hoy» -->
+                  <path d="M 70 230 Q 360 220 650 32" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="6 4" />
+                  <circle cx="650" cy="32" r="7" fill="#ef4444" />
+                  <rect x="395" y="16" width="245" height="30" rx="7" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.5" />
+                  <rect x="395" y="16" width="245" height="30" rx="7" fill="rgba(239, 68, 68, 0.12)" />
+                  <text x="517" y="36" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="13" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
 
     <!-- PASO 2: la diferencia en VRAM — híbrido 3:1 (azul) + DeltaNet plano (verde); la roja (cómo está) siempre visible -->
                   <g class="step hb-curves">
@@ -2224,7 +2223,7 @@
     <!-- Card 1: Gated Attention (Softmax O(N)) — visible desde el estado «cómo está hoy» -->
             <div class="hybrid-card card-attention">
               <div class="hybrid-card-header">
-                <span class="hybrid-card-title">Gated Attention (25% de las capas)</span>
+                <span class="hybrid-card-title">Gated Attention <span class="hb-card-pct">(25% de las capas)</span></span>
                 <span class="hybrid-badge blue">KV Cache Lineal O(N)</span>
               </div>
 
@@ -2243,7 +2242,7 @@
     <!-- Card 2: Gated DeltaNet (Recurrencia O(1)) — llega con el pulso 1 (cuando entran las verdes) -->
             <div class="hybrid-card card-deltanet hb-card-step">
               <div class="hybrid-card-header">
-                <span class="hybrid-card-title">Gated DeltaNet (75% de las capas)</span>
+                <span class="hybrid-card-title">Gated DeltaNet <span class="hb-card-pct">(75% de las capas)</span></span>
                 <span class="hybrid-badge green">Memoria Constante O(1)</span>
               </div>
 
