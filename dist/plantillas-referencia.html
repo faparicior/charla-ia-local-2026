@@ -18900,9 +18900,11 @@ body.deck-hardware-part1.theme-dark #slide-44:has(.updated-model.step-active) .c
   font-weight: 800;
   fill: #059669;
 }body.deck-hardware-part1 /* --- Salida estática se apaga cuando llega el token --- */
-#slide-27:has(.vt-j1.step-active) .vt-exit-static1 {
+#slide-27:has(.vt-j1.step-active) .vt-exit-static1,
+#slide-27:has(.vt-j1.step-active) .vt-exit-static1 + .vt-exit-wait {
   opacity: 0.1;
-}body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-exit-static2 {
+}body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-exit-static2,
+#slide-27:has(.vt-j2.step-active) .vt-exit-static2 + .vt-exit-wait {
   opacity: 0.1;
 }body.deck-hardware-part1 /* --- Franja de espera y veredicto --- */
 #slide-27 .vt-strip {
@@ -23545,6 +23547,180 @@ body.overview-mode #slide-12 .engram-deck {
   body.deck-hardware-part1 #slide-12 .engram-deck {
     opacity: 1 !important;
     visibility: visible !important;
+  }
+}
+
+/* ==========================================================================
+   s18 — DELTANET VS ATTENTION: entrada por pasos (misma interacción en Charla
+   y Documento). Estado inicial «cómo está hoy»: solo las 4 barras Gated
+   Attention (azul) a la izquierda y solo la curva roja (>40 GB crash) a la
+   derecha. Pulso 1: crecen los 3 DeltaNet de cada bloque (anatomía 3:1) con
+   el bracket, la píldora y la leyenda verde. Pulso 2: la diferencia en VRAM
+   (curva azul híbrido ~10 GB + línea verde DeltaNet O(1)).
+   ========================================================================== */
+body.deck-hardware-part1 #slide-18 .hb-greens rect {
+  transform: scaleY(0);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.deck-hardware-part1 #slide-18 .hb-greens.step-active rect {
+  transform: scaleY(1);
+}
+
+/* entrada escalonada barra a barra */
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(2) { transition-delay: 0.04s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(3) { transition-delay: 0.08s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(4) { transition-delay: 0.12s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(5) { transition-delay: 0.16s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(6) { transition-delay: 0.2s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(7) { transition-delay: 0.24s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(8) { transition-delay: 0.28s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(9) { transition-delay: 0.32s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(10) { transition-delay: 0.36s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(11) { transition-delay: 0.4s; }
+body.deck-hardware-part1 #slide-18 .hb-greens rect:nth-of-type(12) { transition-delay: 0.44s; }
+
+body.deck-hardware-part1 #slide-18 .hb-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.45s;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-greens.step-active .hb-fade {
+  opacity: 1;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-pill-step {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-pill-step {
+  opacity: 1;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-pct {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.55s;
+}
+
+body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-pct {
+  opacity: 1;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-curves {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.deck-hardware-part1 #slide-18 .hb-curves.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+/* overview e impresión: estado completo */
+body.overview-mode #slide-18 .hb-greens rect {
+  transform: scaleY(1) !important;
+}
+
+body.overview-mode #slide-18 .hb-fade,
+body.overview-mode #slide-18 .hb-pill-step,
+body.overview-mode #slide-18 .hb-pct {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-18 .hb-greens rect {
+    transform: scaleY(1) !important;
+  }
+
+  body.deck-hardware-part1 #slide-18 .hb-fade,
+  body.deck-hardware-part1 #slide-18 .hb-pill-step,
+  body.deck-hardware-part1 #slide-18 .hb-pct {
+    opacity: 1 !important;
+  }
+}
+
+/* s27 — El Viaje del Token: el carril NVFP4 llega con el PASO 2 (mismo latido que
+   el viaje comprimido; alineado con s18: primero «cómo está» = solo BF16, luego
+   aparece la diferencia). No es .step: el recorrido sigue siendo de 3 pulsos */
+body.deck-hardware-part1 #slide-27 .vt-lane2 {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.deck-hardware-part1 #slide-27:has(.vt-j2.step-active) .vt-lane2 {
+  opacity: 1;
+}
+
+body.overview-mode #slide-27 .vt-lane2 {
+  opacity: 1 !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-27 .vt-lane2 {
+    opacity: 1 !important;
+  }
+}
+
+/* s18 (2ª): estado inicial = TODO azul — 12 barras fantasma ocupan las posiciones
+   futuras de los DeltaNet y las verdes las sustituyen en el pulso 1; las tarjetas
+   conceptuales aparecen en orden (Attention visible desde el inicio, DeltaNet con
+   el pulso 1) y la cinta del resultado práctico cierra con el pulso 2 (curvas) */
+body.deck-hardware-part1 #slide-18 .hb-ghost {
+  transition: opacity 0.35s ease 0.2s;
+}
+
+body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-ghost {
+  opacity: 0;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-card-step {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease 0.25s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-card-step {
+  opacity: 1;
+  transform: none;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-ribbon-step {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.deck-hardware-part1 #slide-18:has(.hb-curves.step-active) .hb-ribbon-step {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-18 .hb-ghost {
+  opacity: 0 !important;
+}
+
+body.overview-mode #slide-18 .hb-card-step,
+body.overview-mode #slide-18 .hb-ribbon-step {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-18 .hb-ghost {
+    opacity: 0 !important;
+  }
+
+  body.deck-hardware-part1 #slide-18 .hb-card-step,
+  body.deck-hardware-part1 #slide-18 .hb-ribbon-step {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
