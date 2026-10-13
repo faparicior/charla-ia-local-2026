@@ -23552,11 +23552,12 @@ body.overview-mode #slide-12 .engram-deck {
 
 /* ==========================================================================
    s18 — DELTANET VS ATTENTION: entrada por pasos (misma interacción en Charla
-   y Documento). Estado inicial «cómo está hoy»: solo las 4 barras Gated
-   Attention (azul) a la izquierda y solo la curva roja (>40 GB crash) a la
-   derecha. Pulso 1: crecen los 3 DeltaNet de cada bloque (anatomía 3:1) con
-   el bracket, la píldora y la leyenda verde. Pulso 2: la diferencia en VRAM
-   (curva azul híbrido ~10 GB + línea verde DeltaNet O(1)).
+   y Documento). Estado inicial «cómo está hoy»: 16 barras azules IDÉNTICAS
+   (4 Attention + 12 fantasmas en las posiciones futuras de los DeltaNet) y
+   gráfica derecha vacía. Pulso 1: las verdes crecen y SUSTITUYEN a las
+   fantasmas (anatomía 3:1) + bracket, píldora y leyendas. Pulso 2: la curva
+   roja del OOM (>40 GB). Pulso 3: la diferencia (azul híbrido + verde O(1))
+   y la cinta del resultado práctico.
    ========================================================================== */
 body.deck-hardware-part1 #slide-18 .hb-greens rect {
   transform: scaleY(0);
@@ -23607,6 +23608,17 @@ body.deck-hardware-part1 #slide-18 .hb-pct {
 
 body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-pct {
   opacity: 1;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-red {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease 0.1s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+body.deck-hardware-part1 #slide-18 .hb-red.step-active {
+  opacity: 1;
+  transform: none;
 }
 
 body.deck-hardware-part1 #slide-18 .hb-curves {
@@ -23672,11 +23684,14 @@ body.overview-mode #slide-27 .vt-lane2 {
    conceptuales aparecen en orden (Attention visible desde el inicio, DeltaNet con
    el pulso 1) y la cinta del resultado práctico cierra con el pulso 2 (curvas) */
 body.deck-hardware-part1 #slide-18 .hb-ghost {
-  transition: opacity 0.35s ease 0.2s;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
 }
 
 body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-ghost {
   opacity: 0;
+  transform: scaleY(0);
 }
 
 body.deck-hardware-part1 #slide-18 .hb-card-step {

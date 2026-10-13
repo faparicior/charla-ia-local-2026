@@ -2097,7 +2097,7 @@
                   <line x1="25" y1="235" x2="715" y2="235" stroke="var(--border-medium)" stroke-width="2"
                     stroke-linecap="round" opacity="0.7" />
 
-    <!-- BLOQUES: solo las 4 capas Gated Attention visibles al entrar (estado «cómo está hoy»: 100% Attention) -->
+    <!-- BLOQUES: 16 barras azules idénticas al entrar (100% Attention, todo del mismo tamaño) -->
                   <rect x="154" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
                   <rect x="320" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
                   <rect x="486" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
@@ -2107,19 +2107,19 @@
                   <text x="696" y="150" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="26"
                     font-weight="700">···</text>
 
-    <!-- Fantasmas: 12 barras azules en las posiciones que ocuparán los DeltaNet (las verdes las sustituyen en el pulso 1) -->
-                  <rect class="hb-ghost" x="40" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="76" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="112" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="206" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="242" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="278" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="372" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="408" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="444" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="538" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="574" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="610" y="65" width="24" height="170" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+    <!-- Fantasmas: 12 barras azules idénticas a las Attention; en el pulso 1 se encogen y las verdes las sustituyen -->
+                  <rect class="hb-ghost" x="40" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="76" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="112" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="206" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="242" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="278" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="372" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="408" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="444" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="538" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="574" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="610" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
 
     <!-- PASO 1: entran los 3 Gated DeltaNet de cada bloque (anatomía 3:1) + bracket + leyenda verde -->
                   <g class="step hb-greens">
@@ -2188,12 +2188,14 @@
                   <text x="550" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">192K</text>
                   <text x="680" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">256K</text>
 
-    <!-- Curva 1: 100% Attention (Rampa empinada descontrolada) -->
-                  <path d="M 70 230 Q 360 220 650 32" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="6 4" />
-                  <circle cx="650" cy="32" r="7" fill="#ef4444" />
-                  <rect x="395" y="16" width="245" height="30" rx="7" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.5" />
-                  <rect x="395" y="16" width="245" height="30" rx="7" fill="rgba(239, 68, 68, 0.12)" />
-                  <text x="517" y="36" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="13" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
+    <!-- PASO 2: la gráfica roja del OOM (qué pasaría sin el híbrido) -->
+                  <g class="step hb-red">
+                    <path d="M 70 230 Q 360 220 650 32" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="6 4" />
+                    <circle cx="650" cy="32" r="7" fill="#ef4444" />
+                    <rect x="395" y="16" width="245" height="30" rx="7" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.5" />
+                    <rect x="395" y="16" width="245" height="30" rx="7" fill="rgba(239, 68, 68, 0.12)" />
+                    <text x="517" y="36" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="13" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
+                  </g>
 
     <!-- PASO 2: la diferencia en VRAM — híbrido 3:1 (azul) + DeltaNet plano (verde); la roja (cómo está) siempre visible -->
                   <g class="step hb-curves">
