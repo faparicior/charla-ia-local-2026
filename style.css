@@ -18488,25 +18488,12 @@ body.deck-hardware-part1 #slide-44 .trio-viewport.hardware {
   transition: padding 0.4s ease;
 }
 
-/* Estado inicial: Hardware 100% visible, entero sin recortes */
+/* Hardware: imagen completa y estática (la caja entera entra como PASO 1) */
 body.deck-hardware-part1 #slide-44 .trio-viewport.hardware img.gb10-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center center;
-  transform: scale(1);
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), object-position 0.5s ease;
-}
-
-/* Paso 1: Zoom hacia el hardware y el texto de la derecha */
-body.deck-hardware-part1 #slide-44 .trio-viewport.hardware img.gb10-img.step-active {
-  object-fit: cover;
-  object-position: 82% center;
-  transform: scale(1.18);
-}
-
-body.deck-hardware-part1 #slide-44 .trio-viewport.hardware:has(img.gb10-img.step-active) {
-  padding: 0.6rem;
 }
 
 body.deck-hardware-part1 #slide-44 .trio-viewport.model {
@@ -23760,4 +23747,53 @@ body.mode-document #slide-18 .hybrid-chart-viewport {
 body.mode-document #slide-18 .hybrid-svg-viewport svg,
 body.mode-document #slide-18 .hybrid-chart-viewport svg {
   max-height: 320px;
+}
+
+/* ==========================================================================
+   s44 — ¡LLEGÓ EL APARATO!: las tres cajas entran UNA A UNA (a petición del
+   autor). PASO 1 = Hardware · PASO 2 = «+» + Modelos · PASO 3 = «=» + Alquimia;
+   los pasos internos de la caja de modelos conservan su recorrido (PASO 4 =
+   sello ¡OBSOLETO! · PASO 5 = swap a Qwen 3.8 FlashNext). Los operadores no
+   son .step: aparecen amarrados al paso de la caja que les sigue (:has).
+   ========================================================================== */
+body.deck-hardware-part1 #slide-44 .trio-item.step {
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.deck-hardware-part1 #slide-44 .trio-item.step.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+body.deck-hardware-part1 #slide-44 .trio-operator {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.45s ease 0.15s, transform 0.5s var(--ease-spring) 0.15s;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-44:has(.item-modelos.step-active) .trio-operator.plus,
+body.deck-hardware-part1 #slide-44:has(.item-modelos.step-active) .trio-operator.plus {
+  opacity: 1;
+  transform: none;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-44:has(.item-alquimia.step-active) .trio-operator.equals,
+body.deck-hardware-part1 #slide-44:has(.item-alquimia.step-active) .trio-operator.equals {
+  opacity: 1;
+  transform: none;
+}
+
+body.overview-mode #slide-44 .trio-operator {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-44 .trio-operator {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
