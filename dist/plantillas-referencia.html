@@ -23552,12 +23552,12 @@ body.overview-mode #slide-12 .engram-deck {
 
 /* ==========================================================================
    s18 — DELTANET VS ATTENTION: entrada por pasos (misma interacción en Charla
-   y Documento). Estado inicial «cómo está hoy»: 16 barras azules IDÉNTICAS
-   (4 Attention + 12 fantasmas en las posiciones futuras de los DeltaNet) y
    la curva roja del OOM ya visible (la factura de la atención pura, ANTES de
    que aparezcan los deltas). Pulso 1: las verdes crecen y SUSTITUYEN a las
    fantasmas (anatomía 3:1) + bracket, píldora y leyendas. Pulso 2: la
    diferencia (azul híbrido + verde O(1)) y la cinta del resultado práctico.
+   Los porcentajes de las tarjetas («25% / 75% de las capas») solo en la foto
+   final (hb-card-pct).
    ========================================================================== */
 body.deck-hardware-part1 #slide-18 .hb-greens rect {
   transform: scaleY(0);
@@ -23685,34 +23685,34 @@ body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-ghost {
   transform: scaleY(0);
 }
 
-body.deck-hardware-part1 #slide-18 .hb-card-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hb-card-step {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.5s ease 0.25s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
 }
 
-body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-card-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18:has(.hb-greens.step-active) .hb-card-step {
   opacity: 1;
   transform: none;
 }
 
 /* los porcentajes de las tarjetas solo en la foto final (pulso 2, con las curvas) */
-body.deck-hardware-part1 #slide-18 .hb-card-pct {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hb-card-pct {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-body.deck-hardware-part1 #slide-18:has(.hb-curves.step-active) .hb-card-pct {
+body.deck-hardware-part1:not(.mode-document) #slide-18:has(.hb-curves.step-active) .hb-card-pct {
   opacity: 1;
 }
 
-body.deck-hardware-part1 #slide-18 .hb-ribbon-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hb-ribbon-step {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-body.deck-hardware-part1 #slide-18:has(.hb-curves.step-active) .hb-ribbon-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18:has(.hb-curves.step-active) .hb-ribbon-step {
   opacity: 1;
   transform: none;
 }
@@ -23738,6 +23738,47 @@ body.overview-mode #slide-18 .hb-ribbon-step {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* s18 (3ª): las tarjetas conceptuales son solo de Modo Documento (handout); en
+   Charla desaparecen y su altura va a las dos gráficas, que ahora son más altas
+   (viewBox 740×530). Doc = handout completo: tarjetas con sus porcentajes y
+   cinta siempre visibles */
+body:not(.mode-document) #slide-18 .hybrid-cards-grid {
+  display: none;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-visuals-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-block-stage {
+  min-height: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-svg-viewport,
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-chart-viewport {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-svg-viewport svg,
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-chart-viewport svg {
+  max-height: none;
+}
+
+/* Documento: viewport más alto para aprovechar el nuevo dibujo sin desbordar */
+body.mode-document #slide-18 .hybrid-svg-viewport,
+body.mode-document #slide-18 .hybrid-chart-viewport {
+  height: 320px;
+}
+
+body.mode-document #slide-18 .hybrid-svg-viewport svg,
+body.mode-document #slide-18 .hybrid-chart-viewport svg {
+  max-height: 320px;
 }
 
 </style>

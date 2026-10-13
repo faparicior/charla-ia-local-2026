@@ -23552,12 +23552,12 @@ body.overview-mode #slide-12 .engram-deck {
 
 /* ==========================================================================
    s18 — DELTANET VS ATTENTION: entrada por pasos (misma interacción en Charla
-   y Documento). Estado inicial «cómo está hoy»: 16 barras azules IDÉNTICAS
-   (4 Attention + 12 fantasmas en las posiciones futuras de los DeltaNet) y
    la curva roja del OOM ya visible (la factura de la atención pura, ANTES de
    que aparezcan los deltas). Pulso 1: las verdes crecen y SUSTITUYEN a las
    fantasmas (anatomía 3:1) + bracket, píldora y leyendas. Pulso 2: la
    diferencia (azul híbrido + verde O(1)) y la cinta del resultado práctico.
+   Los porcentajes de las tarjetas («25% / 75% de las capas») solo en la foto
+   final (hb-card-pct).
    ========================================================================== */
 body.deck-hardware-part1 #slide-18 .hb-greens rect {
   transform: scaleY(0);
@@ -23685,34 +23685,34 @@ body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-ghost {
   transform: scaleY(0);
 }
 
-body.deck-hardware-part1 #slide-18 .hb-card-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hb-card-step {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.5s ease 0.25s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
 }
 
-body.deck-hardware-part1 #slide-18:has(.hb-greens.step-active) .hb-card-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18:has(.hb-greens.step-active) .hb-card-step {
   opacity: 1;
   transform: none;
 }
 
 /* los porcentajes de las tarjetas solo en la foto final (pulso 2, con las curvas) */
-body.deck-hardware-part1 #slide-18 .hb-card-pct {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hb-card-pct {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-body.deck-hardware-part1 #slide-18:has(.hb-curves.step-active) .hb-card-pct {
+body.deck-hardware-part1:not(.mode-document) #slide-18:has(.hb-curves.step-active) .hb-card-pct {
   opacity: 1;
 }
 
-body.deck-hardware-part1 #slide-18 .hb-ribbon-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hb-ribbon-step {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-body.deck-hardware-part1 #slide-18:has(.hb-curves.step-active) .hb-ribbon-step {
+body.deck-hardware-part1:not(.mode-document) #slide-18:has(.hb-curves.step-active) .hb-ribbon-step {
   opacity: 1;
   transform: none;
 }
@@ -23738,6 +23738,47 @@ body.overview-mode #slide-18 .hb-ribbon-step {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* s18 (3ª): las tarjetas conceptuales son solo de Modo Documento (handout); en
+   Charla desaparecen y su altura va a las dos gráficas, que ahora son más altas
+   (viewBox 740×530). Doc = handout completo: tarjetas con sus porcentajes y
+   cinta siempre visibles */
+body:not(.mode-document) #slide-18 .hybrid-cards-grid {
+  display: none;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-visuals-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-block-stage {
+  min-height: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-svg-viewport,
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-chart-viewport {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-svg-viewport svg,
+body.deck-hardware-part1:not(.mode-document) #slide-18 .hybrid-chart-viewport svg {
+  max-height: none;
+}
+
+/* Documento: viewport más alto para aprovechar el nuevo dibujo sin desbordar */
+body.mode-document #slide-18 .hybrid-svg-viewport,
+body.mode-document #slide-18 .hybrid-chart-viewport {
+  height: 320px;
+}
+
+body.mode-document #slide-18 .hybrid-svg-viewport svg,
+body.mode-document #slide-18 .hybrid-chart-viewport svg {
+  max-height: 320px;
 }
 
 </style>
@@ -25803,7 +25844,7 @@ body.overview-mode #slide-18 .hb-ribbon-step {
               </div>
 
               <div class="hybrid-svg-viewport">
-                <svg viewBox="0 0 740 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 740 530" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="gradDeltaNet" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stop-color="#22c55e" />
@@ -25819,32 +25860,32 @@ body.overview-mode #slide-18 .hb-ribbon-step {
                   </defs>
 
     <!-- Línea Base / Eje Inferior -->
-                  <line x1="25" y1="235" x2="715" y2="235" stroke="var(--border-medium)" stroke-width="2"
+                  <line x1="25" y1="450" x2="715" y2="450" stroke="var(--border-medium)" stroke-width="2"
                     stroke-linecap="round" opacity="0.7" />
 
     <!-- BLOQUES: 16 barras azules idénticas al entrar (100% Attention, todo del mismo tamaño) -->
-                  <rect x="154" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect x="320" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect x="486" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect x="652" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect x="154" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect x="320" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect x="486" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect x="652" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
 
     <!-- Indicador continuo -->
-                  <text x="696" y="150" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="26"
+                  <text x="696" y="245" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="26"
                     font-weight="700">···</text>
 
     <!-- Fantasmas: 12 barras azules idénticas a las Attention; en el pulso 1 se encogen y las verdes las sustituyen -->
-                  <rect class="hb-ghost" x="40" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="76" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="112" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="206" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="242" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="278" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="372" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="408" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="444" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="538" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="574" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
-                  <rect class="hb-ghost" x="610" y="25" width="28" height="210" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="40" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="76" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="112" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="206" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="242" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="278" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="372" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="408" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="444" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="538" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="574" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
+                  <rect class="hb-ghost" x="610" y="45" width="28" height="405" rx="6" fill="url(#gradAttention)" filter="url(#subtleGlow)" />
 
     <!-- PASO 1: entran los 3 Gated DeltaNet de cada bloque (anatomía 3:1) + bracket + leyenda verde -->
                   <g class="step hb-greens">
@@ -25852,26 +25893,26 @@ body.overview-mode #slide-18 .hb-ribbon-step {
                       stroke-linecap="round" />
                     <text class="hb-fade" x="107" y="10" text-anchor="middle" fill="#ea580c" font-family="var(--font-mono)" font-size="12"
                       font-weight="800" letter-spacing="0.06em">BLOQUE 3:1 REPETITIVO</text>
-                    <rect x="40" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="76" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="112" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="206" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="242" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="278" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="372" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="408" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="444" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="538" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="574" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <rect x="610" y="65" width="24" height="170" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
-                    <circle class="hb-fade" cx="85" cy="278" r="8" fill="#16a34a" />
-                    <text class="hb-fade" x="105" y="283" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14"
+                    <rect x="40" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="76" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="112" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="206" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="242" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="278" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="372" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="408" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="444" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="538" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="574" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <rect x="610" y="122" width="24" height="328" rx="6" fill="url(#gradDeltaNet)" filter="url(#subtleGlow)" />
+                    <circle class="hb-fade" cx="85" cy="498" r="8" fill="#16a34a" />
+                    <text class="hb-fade" x="105" y="503" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14"
                       font-weight="700">Gated DeltaNet <tspan fill="var(--text-dim)" font-size="13">(75% • Memoria Constante O(1))</tspan></text>
                   </g>
 
     <!-- Leyenda (Attention siempre visible; el «25% •» llega con el paso 1) -->
-                  <circle cx="430" cy="278" r="8" fill="#0284c7" />
-                  <text x="450" y="283" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14"
+                  <circle cx="430" cy="498" r="8" fill="#0284c7" />
+                  <text x="450" y="503" fill="var(--text-main)" font-family="var(--font-sans)" font-size="14"
                     font-weight="700">Gated Attention <tspan class="hb-pct" fill="var(--text-dim)" font-size="13">(25% • KV Cache O(N))</tspan></text>
                 </svg>
               </div>
@@ -25889,34 +25930,34 @@ body.overview-mode #slide-18 .hb-ribbon-step {
               </div>
 
               <div class="hybrid-chart-viewport">
-                <svg viewBox="0 0 740 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 740 530" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Guías Horizontales -->
-                  <line x1="65" y1="32" x2="710" y2="32" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
-                  <text x="55" y="37" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">45 GB</text>
+                  <line x1="65" y1="45" x2="710" y2="45" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
+                  <text x="55" y="50" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">45 GB</text>
 
-                  <line x1="65" y1="98" x2="710" y2="98" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
-                  <text x="55" y="103" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">30 GB</text>
+                  <line x1="65" y1="180" x2="710" y2="180" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
+                  <text x="55" y="185" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">30 GB</text>
 
-                  <line x1="65" y1="164" x2="710" y2="164" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
-                  <text x="55" y="169" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">15 GB</text>
+                  <line x1="65" y1="315" x2="710" y2="315" stroke="var(--border-subtle)" stroke-dasharray="4 4" stroke-width="1.2" />
+                  <text x="55" y="320" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">15 GB</text>
 
-                  <line x1="65" y1="230" x2="710" y2="230" stroke="var(--border-medium)" stroke-width="2" />
-                  <text x="55" y="235" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">0 GB</text>
+                  <line x1="65" y1="450" x2="710" y2="450" stroke="var(--border-medium)" stroke-width="2" />
+                  <text x="55" y="455" text-anchor="end" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13" font-weight="700">0 GB</text>
 
     <!-- Eje Y -->
-                  <line x1="65" y1="20" x2="65" y2="230" stroke="var(--border-medium)" stroke-width="2" />
+                  <line x1="65" y1="20" x2="65" y2="450" stroke="var(--border-medium)" stroke-width="2" />
 
     <!-- Etiquetas Eje X -->
-                  <text x="70" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">1 Token</text>
-                  <text x="230" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">64K</text>
-                  <text x="390" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">128K</text>
-                  <text x="550" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">192K</text>
-                  <text x="680" y="262" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">256K</text>
+                  <text x="70" y="482" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">1 Token</text>
+                  <text x="230" y="482" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">64K</text>
+                  <text x="390" y="482" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">128K</text>
+                  <text x="550" y="482" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">192K</text>
+                  <text x="680" y="482" fill="var(--text-dim)" font-family="var(--font-mono)" font-size="13.5" font-weight="600">256K</text>
 
     <!-- Curva 1: 100% Attention (rampa del OOM) — visible desde el estado inicial,
          ANTES de que aparezcan los deltas: es la factura del «cómo está hoy» -->
-                  <path d="M 70 230 Q 360 220 650 32" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="6 4" />
-                  <circle cx="650" cy="32" r="7" fill="#ef4444" />
+                  <path d="M 70 450 Q 360 430 650 45" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="6 4" />
+                  <circle cx="650" cy="45" r="7" fill="#ef4444" />
                   <rect x="395" y="16" width="245" height="30" rx="7" fill="var(--bg-surface)" stroke="#ef4444" stroke-width="1.5" />
                   <rect x="395" y="16" width="245" height="30" rx="7" fill="rgba(239, 68, 68, 0.12)" />
                   <text x="517" y="36" text-anchor="middle" fill="#dc2626" font-family="var(--font-sans)" font-size="13" font-weight="800">100% Attention: &gt;40 GB (Crash OOM)</text>
@@ -25924,18 +25965,18 @@ body.overview-mode #slide-18 .hb-ribbon-step {
     <!-- PASO 2: la diferencia en VRAM — híbrido 3:1 (azul) + DeltaNet plano (verde); la roja (cómo está) siempre visible -->
                   <g class="step hb-curves">
                     <!-- Curva 2: Híbrido 3:1 Qwen (Crecimiento suave amortiguado 4x) -->
-                    <path d="M 70 230 Q 400 220 680 180" fill="none" stroke="#0284c7" stroke-width="4" />
-                    <circle cx="680" cy="180" r="7" fill="#0284c7" />
-                    <rect x="435" y="136" width="240" height="30" rx="7" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="1.5" />
-                    <rect x="435" y="136" width="240" height="30" rx="7" fill="rgba(2, 132, 199, 0.12)" />
-                    <text x="555" y="156" text-anchor="middle" fill="#0284c7" font-family="var(--font-sans)" font-size="13" font-weight="800">Híbrido 3:1: ~10 GB (4x Menos VRAM)</text>
+                    <path d="M 70 450 Q 400 430 680 348" fill="none" stroke="#0284c7" stroke-width="4" />
+                    <circle cx="680" cy="348" r="7" fill="#0284c7" />
+                    <rect x="435" y="258" width="240" height="30" rx="7" fill="var(--bg-surface)" stroke="#0284c7" stroke-width="1.5" />
+                    <rect x="435" y="258" width="240" height="30" rx="7" fill="rgba(2, 132, 199, 0.12)" />
+                    <text x="555" y="278" text-anchor="middle" fill="#0284c7" font-family="var(--font-sans)" font-size="13" font-weight="800">Híbrido 3:1: ~10 GB (4x Menos VRAM)</text>
 
                     <!-- Curva 3: DeltaNet (100% Constante O(1)) -->
-                    <line x1="70" y1="229" x2="690" y2="229" stroke="#16a34a" stroke-width="4.5" />
-                    <circle cx="690" cy="229" r="7" fill="#16a34a" />
-                    <rect x="110" y="182" width="250" height="30" rx="7" fill="var(--bg-surface)" stroke="#16a34a" stroke-width="1.5" />
-                    <rect x="110" y="182" width="250" height="30" rx="7" fill="rgba(22, 163, 74, 0.12)" />
-                    <text x="235" y="202" text-anchor="middle" fill="#15803d" font-family="var(--font-sans)" font-size="13" font-weight="800">DeltaNet O(1): Fijo ~100 MB (0 extra)</text>
+                    <line x1="70" y1="448" x2="690" y2="448" stroke="#16a34a" stroke-width="4.5" />
+                    <circle cx="690" cy="448" r="7" fill="#16a34a" />
+                    <rect x="110" y="352" width="250" height="30" rx="7" fill="var(--bg-surface)" stroke="#16a34a" stroke-width="1.5" />
+                    <rect x="110" y="352" width="250" height="30" rx="7" fill="rgba(22, 163, 74, 0.12)" />
+                    <text x="235" y="372" text-anchor="middle" fill="#15803d" font-family="var(--font-sans)" font-size="13" font-weight="800">DeltaNet O(1): Fijo ~100 MB (0 extra)</text>
                   </g>
                 </svg>
               </div>
