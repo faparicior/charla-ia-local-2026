@@ -23817,6 +23817,26 @@ body.overview-mode #slide-44 .trio-operator {
   }
 }
 
+/* s43 — La Decisión: el texto secundario «Antes de que el mercado explotara»
+   llega con el primer pulso (no está de entrada) */
+body.deck-hardware-part1 #slide-43 .calc-when {
+  margin: -1.2rem 0 0 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.deck-hardware-part1 #slide-43 .calc-when.step-active {
+  opacity: 1;
+  transform: none;
+}
+
 </style>
 </head>
 
