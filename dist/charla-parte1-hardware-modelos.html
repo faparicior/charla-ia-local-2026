@@ -23818,23 +23818,51 @@ body.overview-mode #slide-44 .trio-operator {
 }
 
 /* s43 — La Decisión: el texto secundario «Antes de que el mercado explotara»
-   llega con el primer pulso (no está de entrada) */
+   llega con el primer pulso en plan SELLO (estilo ¡OBSOLETO! de la s44, en
+   ámbar): entra estampándose (escala 1.6 → 1 con muelle) y queda rotado */
 body.deck-hardware-part1 #slide-43 .calc-when {
-  margin: -1.2rem 0 0 0.35rem;
-  font-family: var(--font-heading);
-  font-size: 1.9rem;
-  font-weight: 600;
-  font-style: italic;
-  color: var(--text-muted);
-  letter-spacing: -0.01em;
+  margin: 0.5rem 0 0 0.35rem;
+  align-self: flex-start;
+  width: max-content;
+  font-family: var(--font-mono);
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b45309;
+  border: 4px solid #ea580c;
+  border-radius: 14px;
+  padding: 0.65rem 1.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 28px rgba(234, 88, 12, 0.22), inset 0 0 12px rgba(234, 88, 12, 0.14);
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1.6);
+  transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 body.deck-hardware-part1 #slide-43 .calc-when.step-active {
   opacity: 1;
-  transform: none;
+  transform: scale(1) rotate(-6deg);
+}
+
+body.deck-hardware-part1.theme-dark #slide-43 .calc-when {
+  color: #fb923c;
+  border-color: #f59e0b;
+  background: rgba(24, 24, 27, 0.95);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.35), inset 0 0 12px rgba(245, 158, 11, 0.15);
+}
+
+body.overview-mode #slide-43 .calc-when {
+  opacity: 1 !important;
+  transform: scale(1) rotate(-6deg) !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-43 .calc-when {
+    opacity: 1 !important;
+    transform: scale(1) rotate(-6deg) !important;
+  }
 }
 
 </style>
@@ -29370,7 +29398,7 @@ body.deck-hardware-part1 #slide-43 .calc-when.step-active {
         <div class="tag">Vivencia Personal • La Decisión</div>
         <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
         <!-- Texto secundario: aparece con el primer pulso -->
-        <p class="calc-when step">⏳ <em>Antes de que el mercado explotara</em></p>
+        <p class="calc-when step">⏳ Antes de que el mercado explotara</p>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Con las matemáticas claras (VRAM, cuantización INT4/NVFP4 y el ahorro vs Cloud)... llega el momento de
           adquirir el aparato.
