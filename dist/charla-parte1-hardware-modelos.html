@@ -24930,9 +24930,10 @@ body.deck-hardware-part1 #slide-19 .forja-intro:hover .forja-img {
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
 }
 
-/* El overlay solo se disuelve cuando arranca la gráfica (en-steps); el pulso de la
-   forja (figure.step) NO debe ocultarlo — ver bloque s19 del 14 oct al final del CSS */
-body.deck-hardware-part1 #slide-19:has(.engram-deck .step.step-active) .forja-intro {
+/* El overlay solo se disuelve al pasar a la gráfica (paso en-reveal: gráfica con
+   SOLO la barra base BF16; el FP8 llega con el siguiente pulso, en-s1). El pulso
+   de la forja (figure.step) NO debe ocultarlo — ver bloque s19 del 14 oct al final del CSS */
+body.deck-hardware-part1 #slide-19:has(.en-reveal.step-active) .forja-intro {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -24944,7 +24945,7 @@ body.deck-hardware-part1 #slide-19 .engram-deck {
   transition: opacity 0.55s ease 0.12s, visibility 0.55s 0.12s;
 }
 
-body.deck-hardware-part1 #slide-19:has(.engram-deck .step.step-active) .engram-deck {
+body.deck-hardware-part1 #slide-19:has(.en-reveal.step-active) .engram-deck {
   opacity: 1;
   visibility: visible;
 }
@@ -25619,6 +25620,16 @@ body.overview-mode #slide-2 .buffet-video {
   body.deck-hardware-part1 #slide-2 .buffet-video {
     display: none !important;
   }
+}
+
+/* s19 — paso de revelado de la gráfica (en-reveal): elemento invisible que solo
+   consume un pulso para que la forja se disuelva y la gráfica aparezca con SOLO
+   la barra base BF16; los en-steps (FP8 → NVFP4 → Q4_K_M → Q3) empiezan después */
+body.deck-hardware-part1 #slide-19 .en-reveal {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
 </style>
@@ -27297,6 +27308,9 @@ body.overview-mode #slide-2 .buffet-video {
         </div>
 
         <div class="engram-deck">
+          <!-- Paso de revelado: la gráfica aparece SOLO con la barra base BF16 (244 GB);
+               el FP8 (en-s1) llega con el siguiente pulso -->
+          <span class="en-reveal step" aria-hidden="true"></span>
           <div class="engram-layout">
 
             <div class="engram-stage-card">
