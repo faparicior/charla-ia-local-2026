@@ -25799,6 +25799,38 @@ body.deck-hardware-part1 #slide-12 .engine-logo {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
 }
 
+/* s53 — FINALE a paso y más grande (14 oct 2026): la 1ª línea («El hardware puede
+   encarecerse.») es visible al entrar; «Los pesos, no.» aparece con el 1er pulso
+   con un pop de impacto (escala 0.6 → 1 con muelle). Sin línea de autor.
+   El bloque sube de tamaño (mark 8.5rem, texto 5.6rem) porque sobra espacio. */
+body.deck-hardware-part1 #slide-53 .finale-quote {
+  padding-bottom: 11rem;
+  gap: 2.4rem;
+}
+
+body.deck-hardware-part1 #slide-53 .finale-mark {
+  font-size: 8.5rem;
+}
+
+body.deck-hardware-part1 #slide-53 .finale-text {
+  font-size: 5.6rem;
+  line-height: 1.45;
+}
+
+body.deck-hardware-part1 #slide-53 .finale-punch {
+  display: inline-block;
+  font-weight: 800;
+  color: #ea580c;
+  opacity: 0;
+  transform: scale(0.6) translateY(14px);
+  transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body.deck-hardware-part1 #slide-53 .finale-punch.step-active {
+  opacity: 1;
+  transform: none;
+}
+
 </style>
 </head>
 
@@ -32454,9 +32486,8 @@ body.deck-hardware-part1 #slide-12 .engine-logo {
           <div class="finale-mark">❝</div>
           <div class="finale-text">
             El hardware puede encarecerse.<br>
-            <strong>Los pesos, no.</strong>
+            <span class="finale-punch step">Los pesos, no.</span>
           </div>
-          <div class="finale-author">— AI Local Crafters · Octubre 2026</div>
         </div>
       </div>
     </section>
