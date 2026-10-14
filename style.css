@@ -23942,8 +23942,8 @@ body.overview-mode #slide-11 .calc-when {
    En Documento la forja se ve siempre (regla dorada: nada de Documento).
    Foto más grande y SIN marco: fuera borde y sombra; la caja abraza la imagen
    nativa 1376×768 (width:auto) para que no queden bandas dentro del recuadro.
-   Tanque 440×560 → 540px de ancho y estirado (align-items:stretch) a la altura
-   exacta de la columna derecha (foto + pie de foto).
+   Tanque pinneado a la geometría EXACTA de la s18 (537.7×813.4 en 80,222.6):
+   la transición 18→19 no mueve el gráfico de sitio.
    ========================================================================== */
 
 /* Pulso 1: la forja aparece en su sitio (la caja reserva el hueco: el tanque no baila) */
@@ -23958,28 +23958,30 @@ body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-figure.step-active
   visibility: visible;
 }
 
-/* El split debe usar todo el ancho del overlay (1560px recortaba la foto);
-   stretch hace que la tarjeta del tanque IGUALE la altura de la columna
-   derecha (foto + pie): misma caja visual, sin descentrar */
-body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split {
-  max-width: 1760px;
-  height: auto;   /* sin esto el stretch estiraria al overlay entero (840px): la fila debe medir la columna de la foto */
-  align-items: stretch;
-  gap: 2.25rem;
-}
-
-/* Tanque de pesos: el gráfico entero más grande; la altura la pone el stretch
-   (auto), no una cifra fija, para seguir a la forja pase lo que pase con el pie */
+/* TANQUE PINNADO A LA s18 (medido con Playwright: la tarjeta de la 18 mide
+   537.7×813.4 en (80, 222.6); el overlay arranca en 195.2 → top 27.4px y
+   bottom 0 lo clavan a la caja completa). Así el gráfico NO «se mueve» al
+   pasar de la 18 a la 19: mismo sitio, misma altura, mismo tamaño */
 body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-tank-card {
-  width: 540px;
-  max-width: 540px;
-  height: auto;
+  position: absolute;
+  left: 0;
+  top: 27.4px;
+  bottom: 0;
+  width: 537.7px;
+  max-width: 537.7px;
+  height: auto;      /* la base fija height/max-height 560: sin esto no estira hasta el suelo */
   max-height: none;
 }
 
-/* Foto: caja a ratio nativo, sin marco (ni borde ni sombra) */
+/* La forja ocupa el resto de la fila, centrada contra el span del tanque */
 body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split .forja-figure {
-  max-width: 1200px;
+  position: absolute;
+  left: 573.7px;   /* ancho del tanque 537.7 + gap 2.25rem (36px) */
+  right: 0;
+  top: 27.4px;
+  bottom: 0;
+  max-width: none;
+  justify-content: center;
 }
 
 body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split .forja-img {
@@ -24000,11 +24002,12 @@ body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-caption {
    s25 — PUENTE KV (14 oct 2026) — solo Modo Charla
    La slide 25 abre con el tanque de la s18 (la gráfica de su izquierda):
    pesos azules y buffer en segundo plano (.kv-dim, opacity .32) y la KV
-   Cache REMARCADA (doble anillo ámbar, el externo pulsante) + caption.
-   El 1er pulso (kv-bridge.step, el primero del DOM) disuelve el overlay y
-   arranca la secuencia híbrida normal (hb-greens → hb-curves; su gating es
-   por clase, así que no se desplaza nada). En Documento el puente no existe:
-   el handout ya explica el tanque en la s18 y lee el contenido de entrada.
+   Cache REMARCADA (doble anillo ámbar, el externo pulsante). Sin caption: el
+   habla la pone el orador. El 1er pulso (kv-bridge.step, el primero del DOM)
+   disuelve el overlay y arranca la secuencia híbrida normal (hb-greens →
+   hb-curves; su gating es por clase, así que no se desplaza nada). En
+   Documento el puente no existe: el handout ya explica el tanque en la s18 y
+   lee el contenido de entrada.
    ========================================================================== */
 
 /* Overlay puente: cubre el área de contenido bajo el título (mismo patrón que
@@ -24015,11 +24018,6 @@ body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge {
   left: 5rem;
   right: 5rem;
   bottom: 2.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.1rem;
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s ease, visibility 0.5s;
@@ -24033,12 +24031,17 @@ body.deck-hardware-part1:not(.mode-document) #slide-25:has(.kv-bridge.step-activ
   pointer-events: none;
 }
 
-/* Tarjeta del tanque (misma voz visual que forja-tank-card en la s19) */
+/* Tarjeta del tanque PINNADA a la geometría EXACTA de la s18 (537.7×813.4 en
+   80, 222.6 → top 27.4px dentro del overlay, bottom 0 = línea de suelo común).
+   Misma distribución que la 18 y la 19: el gráfico «no se mueve» entre slides.
+   La derecha queda libre para una foto futura (como la forja en la s19) */
 body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-card {
-  width: 540px;
-  max-width: 540px;
-  height: 660px;
-  max-height: 660px;
+  position: absolute;
+  left: 0;
+  top: 27.4px;
+  bottom: 0;
+  width: 537.7px;
+  max-width: 537.7px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
   border: 1px solid var(--border-medium);
   border-radius: 20px;
@@ -24046,7 +24049,6 @@ body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-card {
   padding: 1.35rem 1.6rem;
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
 }
 
 body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-card .vram-gauge-title {
@@ -24075,19 +24077,6 @@ body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge .kv-dim {
 body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-ring-soft {
   opacity: 0.28;
   animation: kvRingPulse25 2.4s ease-in-out infinite;
-}
-
-body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-caption {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--text-muted);
-  text-align: center;
-  max-width: 940px;
-}
-
-body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-caption strong {
-  color: var(--text-main);
 }
 
 /* La secuencia híbrida normal (deck) arranca con CUALQUIER paso activo:
