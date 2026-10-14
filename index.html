@@ -2671,11 +2671,12 @@
              una slide a otra) con la KV Cache REMARCADA (anillo ámbar) y los
              pesos azules en segundo plano (kv-dim). A la derecha, el artesano de
              la KV Cache (misma composición que la forja en la s19). El 1er pulso
-             disuelve el overlay y arranca la secuencia híbrida normal (hb-greens
-             → hb-curves). En Documento no existe: el handout ya trae el tanque
+             revela el artesano a la derecha (figure.step, como la forja); el 2º
+             (kv-reveal, paso invisible) disuelve el overlay y arranca la secuencia
+             híbrida normal (hb-greens → hb-curves). En Documento no existe: el handout ya trae el tanque
              en la s18 y debe mostrar todo el contenido de entrada.
              ==================================================================== -->
-        <div class="kv-bridge step">
+        <div class="kv-bridge">
           <div class="kv-bridge-card">
             <div class="vram-gauge-header">
               <div class="vram-gauge-title">
@@ -2744,7 +2745,7 @@
 
           <!-- Columna derecha: el artesano de la KV Cache (misma voz que la forja en la s19:
                caja a ratio nativo 1376×768, sin marco, caption corta) -->
-          <figure class="kv-bridge-figure">
+          <figure class="kv-bridge-figure step">
             <img class="kv-bridge-img" src="script/img/artesano-kv-cache-conversaciones.jpg"
                  alt="El artesano de la KV Cache: solda los hilos de cada conversación que fluyen hacia su consola">
             <figcaption class="kv-bridge-caption">
@@ -2756,6 +2757,9 @@
         </div>
 
         <div class="hybrid-arch-deck">
+          <!-- Paso de revelado: disuelve el puente (como en-reveal en la s19);
+               sin él, la disolución saltaría pegada al primer elemento hb -->
+          <span class="kv-reveal step" aria-hidden="true"></span>
 
     <!-- Fila Superior: 2 Gráficos Visuales Panorámicos -->
           <div class="hybrid-visuals-grid">

@@ -25405,7 +25405,7 @@ body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge {
   z-index: 3;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-25:has(.kv-bridge.step-active) .kv-bridge {
+body.deck-hardware-part1:not(.mode-document) #slide-25:has(.kv-reveal.step-active) .kv-bridge {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -25507,7 +25507,7 @@ body.deck-hardware-part1:not(.mode-document) #slide-25 .hybrid-arch-deck {
   transition: opacity 0.55s ease 0.12s, visibility 0.55s 0.12s;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-25:has(.step.step-active) .hybrid-arch-deck {
+body.deck-hardware-part1:not(.mode-document) #slide-25:has(.kv-reveal.step-active) .hybrid-arch-deck {
   opacity: 1;
   visibility: visible;
 }
@@ -25607,6 +25607,34 @@ body.overview-mode #slide-2 .buffet-video {
    consume un pulso para que la forja se disuelva y la gráfica aparezca con SOLO
    la barra base BF16; los en-steps (FP8 → NVFP4 → Q4_K_M → Q3) empiezan después */
 body.deck-hardware-part1 #slide-19 .en-reveal {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* s25 — puente de entrada partida en 2 pulsos (como la forja de la s19):
+   P1 = aparece el artesano de la KV Cache (figure.step); P2 = el paso invisible
+   .kv-reveal (primer hijo de .hybrid-arch-deck) disuelve el overlay y deja ver
+   la secuencia híbrida (hb-greens → hb-curves → ...). El overlay (.kv-bridge)
+   ya no es .step: era el primer paso del DOM y disolvía antes de enseñar el
+   artesano. En Documento el puente entero es display:none (regla previa), así
+   que estas reglas no afectan al handout. */
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-figure {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.5s;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-figure.step-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+body.deck-hardware-part1 #slide-25 .kv-reveal {
   position: absolute;
   width: 0;
   height: 0;
