@@ -707,137 +707,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 9: LA DECISIÓN: LAS "CALCULASIONES"
+         SLIDE 9: EL CHOQUE DE PRECIOS II — EL SILICIO (MERCADO HARDWARE OCT 2026)
          ==================================================================== -->
     <section class="slide" id="slide-9">
-      <div class="slide-content">
-        <div class="tag">Vivencia Personal • La Decisión</div>
-        <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
-        <!-- Texto secundario: aparece con el primer pulso -->
-        <p class="calc-when step">⏳ Antes de que el mercado explotara</p>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Con las matemáticas claras (VRAM, cuantización INT4/NVFP4 y el ahorro vs Cloud)... llega el momento de
-          adquirir el aparato.
-        </p>
-
-        <div class="calculasiones-layout-split">
-          <div class="calculasiones-visual-stage">
-            <img src="script/img/gato-calculasiones-1.webp" alt="Meme: Gato haciendo cálculos con un bolígrafo" class="gato-hero-img">
-          </div>
-
-          <div class="calculasiones-cards-column">
-            <div class="calc-reason-card">
-              <span class="calc-reason-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
-              <div>
-                <div class="calc-reason-title" style="color:#0284c7">Cálculo de Inferencia Cloud vs Local</div>
-                <p>Las APIs de frontera ($1.25 – $4.00 / 1M tok) en un flujo de desarrollo diario intensivo escalan a cientos de euros al mes.</p>
-              </div>
-            </div>
-
-            <div class="calc-reason-card">
-              <span class="calc-reason-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
-              <div>
-                <div class="calc-reason-title" style="color:#7c3aed">La Ecuación de la VRAM (128 GB)</div>
-                <p>INT4 / NVFP4 permite encajar modelos MoE de 122B y 35B con 256K de contexto nativo sin recurrir a costoso alquiler de H100.</p>
-              </div>
-            </div>
-
-            <div class="calc-reason-card highlight">
-              <span class="calc-reason-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
-              <div>
-                <div class="calc-reason-title" style="color:#ea580c">La Conclusión Inevitable</div>
-                <p>Amortización en meses, latencia cero, soberanía total de código y experimentación sin mirar el taxímetro de tokens.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 10: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
-         ==================================================================== -->
-    <section class="slide" id="slide-10">
-      <div class="slide-content">
-        <div class="tag">Vivencia Personal • Caso de Estudio</div>
-        <h2>¡Llegó el Aparato! <span class="serif-italic" style="color: #ea580c;">(llegué a tiempo)</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Compré antes del disparo de precios: hoy esta misma caja cuesta $3.449 y está agotada. La confesión es
-          honesta — si empezara hoy, no la compraría: empezaría por el peldaño 2 de la escalera.
-        </p>
-
-        <div class="trio-stage">
-
-    <!-- 1. El Hardware (Blackwell GB10 con fondo blanco) -->
-          <div class="trio-item step item-hardware">
-            <div class="trio-viewport hardware">
-              <img src="script/img/gb10-nvidia-2.webp" alt="NVIDIA Blackwell GB10 Hardware" class="gb10-img">
-            </div>
-            <div class="trio-caption blue">
-              <span>📦</span> 1. Hardware (GB10 • 128 GB)
-            </div>
-          </div>
-
-    <!-- Operador: MÁS (+) -->
-          <div class="trio-operator plus">+</div>
-
-    <!-- 2. Los Modelos (Logo Qwen + 2 Tags MoE) -->
-          <div class="trio-item step item-modelos">
-            <div class="trio-viewport model">
-              <!-- Sello / Marca interactiva de Obsolescencia (Paso 2) -->
-              <div class="model-obsolete-overlay step" data-step="2">
-                <span class="obsolete-stamp">¡OBSOLETO!</span>
-              </div>
-
-              <img src="script/img/qwen-logo.webp" alt="Logo de Qwen (Alibaba Cloud)">
-
-              <div class="trio-model-list">
-                <div class="trio-model-chip chip-model-122b">
-                  <!-- Modelo original -->
-                  <div class="chip-content original-model">
-                    <span>Qwen 3.5 122B A10B MoE</span>
-                    <span class="quant-tag int4">INT4</span>
-                  </div>
-                  <!-- Modelo actualizado (Paso 3) -->
-                  <div class="chip-content updated-model step" data-step="3">
-                    <span class="updated-model-title">Qwen 3.8 FlashNext MoE</span>
-                    <span class="quant-tag next-gen">NUEVO</span>
-                  </div>
-                </div>
-                <div class="trio-model-chip">
-                  <div class="chip-content">
-                    <span>Qwen 3.6 35B A3B MoE</span>
-                    <span class="quant-tag fp8">FP8</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="trio-caption purple">
-              <span>🧠</span> 2. Modelos Open-Weights
-            </div>
-          </div>
-
-    <!-- Operador: IGUAL (=) -->
-          <div class="trio-operator equals">=</div>
-
-    <!-- 3. La Foto / Alquimia (100% visible, entera sin zoom) -->
-          <div class="trio-item step item-alquimia">
-            <div class="trio-viewport alchemy">
-              <img src="script/img/alquimia-aparato.webp" alt="Modo alquimia activado">
-            </div>
-            <div class="trio-caption orange">
-              <span>⚗️</span> 3. «Alquimia de la buena»
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 11: EL CHOQUE DE PRECIOS II — EL SILICIO (MERCADO HARDWARE OCT 2026)
-         ==================================================================== -->
-    <section class="slide" id="slide-11">
       <div class="slide-content">
         <p class="src-stamp">Datos de mercado · corte Oct 2026 · 1 USD ≈ 0,92 € · hardware 128 GB+</p>
         <div class="tag">Prensa y Análisis</div>
@@ -924,99 +796,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 12: ECONOMÍA DE LOS TOKENS / COSTES DE INFERENCIA
+         SLIDE 10: ALQUILER DE GPUS A TERCEROS (H200)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-12">
-      <div class="slide-content">
-        <p class="src-stamp">Precios verificados el 19 sep 2026 · 1 USD ≈ 0,92 €</p>
-          <div class="tag">Economía de Inferencia</div>
-        <h2>Costes de Inferencia por 1M de Tokens</h2>
-
-        <div class="table-container">
-          <table class="editorial-table">
-            <thead>
-              <tr>
-                <th>Proveedor</th>
-                <th>Modelo</th>
-                <th>Entrada ($ / €)</th>
-                <th>Entrada con Caché</th>
-                <th>Tipo / Categoría</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="row-commercial">
-                <td>OpenAI</td>
-                <td class="model-name">GPT-5.6 Sol / o3</td>
-                <td class="mono-price">$4.00 / 3,68 €</td>
-                <td class="mono-price">$0.40 / 0,37 €</td>
-                <td>Frontier Flagship</td>
-              </tr>
-              <tr class="row-commercial">
-                <td>Anthropic</td>
-                <td class="model-name">Claude Sonnet 5</td>
-                <td class="mono-price">$3.00 / 2,76 €</td>
-                <td class="mono-price">$0.30 / 0,28 €</td>
-                <td>Gama Media / Agentes</td>
-              </tr>
-              <tr class="row-commercial">
-                <td>Google</td>
-                <td class="model-name">Gemini 3.6 Flash</td>
-                <td class="mono-price">$0.75 / 0,69 €</td>
-                <td class="mono-price">$0.075 / 0,07 €</td>
-                <td>Equilibrado Cloud</td>
-              </tr>
-              <tr class="row-commercial">
-                <td>xAI</td>
-                <td class="model-name">Grok 4.6</td>
-                <td class="mono-price">$2.00 / 1,84 €</td>
-                <td class="mono-price">$0.50 / 0,46 €</td>
-                <td>Frontier Multimodal</td>
-              </tr>
-              <tr class="row-openweight">
-                <td>DeepSeek</td>
-                <td class="model-name">DeepSeek V4 Flash / R1</td>
-                <td class="mono-price">$0.14 – $0.66</td>
-                <td class="mono-price">$0.003 / 0,003 €</td>
-                <td>Open-Weight MoE</td>
-              </tr>
-              <tr class="row-openweight">
-                <td>Alibaba Qwen</td>
-                <td class="model-name">Qwen 3.8 27B</td>
-                <td class="mono-price">$0.10 – $0.45</td>
-                <td class="mono-price">≈ $0.05 / 0,05 €</td>
-                <td>Open-Weight Eficiente</td>
-              </tr>
-              <tr class="row-openweight">
-                <td>Alibaba Qwen</td>
-                <td class="model-name">Qwen 3.8 Flash Next</td>
-                <td class="mono-price">$0.15 / 0,14 €</td>
-                <td class="mono-price">$0.075 / 0,07 €</td>
-                <td>Open-Weight MoE Ligero</td>
-              </tr>
-              <tr class="row-openweight">
-                <td>Zhipu (Z.ai)</td>
-                <td class="model-name">GLM 5.3 Flash</td>
-                <td class="mono-price">$0.15 / 0,14 €</td>
-                <td class="mono-price">$0.03 / 0,03 €</td>
-                <td>Open-Weight Agéntico</td>
-              </tr>
-              <tr class="highlight-row">
-                <td><strong>AI Local Crafters</strong></td>
-                <td class="model-name"><strong>Hardware Propio (GGUF / vLLM)</strong></td>
-                <td class="mono-price"><strong>0,00 € / token</strong></td>
-                <td class="mono-price"><strong>Ilimitado</strong></td>
-                <td><strong>100% Privado &amp; Autónomo</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 13: ALQUILER DE GPUS A TERCEROS (H200)
-         ==================================================================== -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-10">
       <div class="slide-content">
         <p class="src-stamp">Tarifas H200 verificadas el 19 sep 2026 · DeepInfra · Vast.ai · Latitude.sh</p>
           <div class="tag">El Pivote de 2026</div>
@@ -1111,9 +893,484 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 14: EL TRILEMA DE LA IA LOCAL (DIAGRAMA TRIANGULAR MINIMALISTA)
+         SLIDE 11: LA DECISIÓN: LAS "CALCULASIONES"
+         ==================================================================== -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <div class="tag">Vivencia Personal • La Decisión</div>
+        <h2>La Decisión: <span class="serif-italic">Haciendo «calculasiones»</span></h2>
+        <!-- Texto secundario: aparece con el primer pulso -->
+        <p class="calc-when step">⏳ Antes de que el mercado explotara</p>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Con las matemáticas claras (VRAM, cuantización INT4/NVFP4 y el ahorro vs Cloud)... llega el momento de
+          adquirir el aparato.
+        </p>
+
+        <div class="calculasiones-layout-split">
+          <div class="calculasiones-visual-stage">
+            <img src="script/img/gato-calculasiones-1.webp" alt="Meme: Gato haciendo cálculos con un bolígrafo" class="gato-hero-img">
+          </div>
+
+          <div class="calculasiones-cards-column">
+            <div class="calc-reason-card">
+              <span class="calc-reason-num" style="--c:#0284c7; --ct:rgba(2, 132, 199, 0.1)">1</span>
+              <div>
+                <div class="calc-reason-title" style="color:#0284c7">Cálculo de Inferencia Cloud vs Local</div>
+                <p>Las APIs de frontera ($1.25 – $4.00 / 1M tok) en un flujo de desarrollo diario intensivo escalan a cientos de euros al mes.</p>
+              </div>
+            </div>
+
+            <div class="calc-reason-card">
+              <span class="calc-reason-num" style="--c:#7c3aed; --ct:rgba(124, 58, 237, 0.1)">2</span>
+              <div>
+                <div class="calc-reason-title" style="color:#7c3aed">La Ecuación de la VRAM (128 GB)</div>
+                <p>INT4 / NVFP4 permite encajar modelos MoE de 122B y 35B con 256K de contexto nativo sin recurrir a costoso alquiler de H100.</p>
+              </div>
+            </div>
+
+            <div class="calc-reason-card highlight">
+              <span class="calc-reason-num" style="--c:#ea580c; --ct:rgba(234, 88, 12, 0.1)">3</span>
+              <div>
+                <div class="calc-reason-title" style="color:#ea580c">La Conclusión Inevitable</div>
+                <p>Amortización en meses, latencia cero, soberanía total de código y experimentación sin mirar el taxímetro de tokens.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 12: LLEGÓ EL APARATO: ALQUIMIA DE LA BUENA
+         ==================================================================== -->
+    <section class="slide" id="slide-12">
+      <div class="slide-content">
+        <div class="tag">Vivencia Personal • Caso de Estudio</div>
+        <h2>¡Llegó el Aparato! <span class="serif-italic" style="color: #ea580c;">(llegué a tiempo)</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Compré antes del disparo de precios: hoy esta misma caja cuesta $3.449 y está agotada. La confesión es
+          honesta — si empezara hoy, no la compraría: empezaría por el peldaño 2 de la escalera.
+        </p>
+
+        <div class="trio-stage">
+
+    <!-- 1. El Hardware (Blackwell GB10 con fondo blanco) -->
+          <div class="trio-item step item-hardware">
+            <div class="trio-viewport hardware">
+              <img src="script/img/gb10-nvidia-2.webp" alt="NVIDIA Blackwell GB10 Hardware" class="gb10-img">
+            </div>
+            <div class="trio-caption blue">
+              <span>📦</span> 1. Hardware (GB10 • 128 GB)
+            </div>
+          </div>
+
+    <!-- Operador: MÁS (+) -->
+          <div class="trio-operator plus">+</div>
+
+    <!-- 2. Los Modelos (Logo Qwen + 2 Tags MoE) -->
+          <div class="trio-item step item-modelos">
+            <div class="trio-viewport model">
+              <!-- Sello / Marca interactiva de Obsolescencia (Paso 2) -->
+              <div class="model-obsolete-overlay step" data-step="2">
+                <span class="obsolete-stamp">¡OBSOLETO!</span>
+              </div>
+
+              <img src="script/img/qwen-logo.webp" alt="Logo de Qwen (Alibaba Cloud)">
+
+              <div class="trio-model-list">
+                <div class="trio-model-chip chip-model-122b">
+                  <!-- Modelo original -->
+                  <div class="chip-content original-model">
+                    <span>Qwen 3.5 122B A10B MoE</span>
+                    <span class="quant-tag int4">INT4</span>
+                  </div>
+                  <!-- Modelo actualizado (Paso 3) -->
+                  <div class="chip-content updated-model step" data-step="3">
+                    <span class="updated-model-title">Qwen 3.8 FlashNext MoE</span>
+                    <span class="quant-tag next-gen">NUEVO</span>
+                  </div>
+                </div>
+                <div class="trio-model-chip">
+                  <div class="chip-content">
+                    <span>Qwen 3.6 35B A3B MoE</span>
+                    <span class="quant-tag fp8">FP8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="trio-caption purple">
+              <span>🧠</span> 2. Modelos Open-Weights
+            </div>
+          </div>
+
+    <!-- Operador: IGUAL (=) -->
+          <div class="trio-operator equals">=</div>
+
+    <!-- 3. La Foto / Alquimia (100% visible, entera sin zoom) -->
+          <div class="trio-item step item-alquimia">
+            <div class="trio-viewport alchemy">
+              <img src="script/img/alquimia-aparato.webp" alt="Modo alquimia activado">
+            </div>
+            <div class="trio-caption orange">
+              <span>⚗️</span> 3. «Alquimia de la buena»
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 13: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
+         ==================================================================== -->
+    <section class="slide" id="slide-13">
+      <div class="slide-content">
+        <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
+        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          De la desincronización de energía al vacío de kernels oficiales: la frustración técnica de los primeros
+          compradores de GB10.
+        </p>
+
+        <div class="press-grid">
+
+    <!-- 1. NVIDIA Dev Forums -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">NVIDIA Dev Forums</span>
+                <span class="press-date">14 Mar 2026</span>
+              </div>
+              <span class="tag">Power Throttle</span>
+            </div>
+            <div class="press-headline">«DGX Spark &amp; ASUS GX10 stuck at 611MHz / 13W throttle state»</div>
+            <p class="press-desc">
+              Bugs en el controlador USB-C PD bloquean la GPU en modo seguro inutilizable. <mark class="highlighter">El
+                soporte oficial confirma que el único fix temporal es el "cold drain"</mark>: desconectar físicamente de
+              la corriente y esperar a vaciar condensadores.
+            </p>
+          </div>
+
+    <!-- 2. GitHub Issues vLLM -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">GitHub Issues (vLLM)</span>
+                <span class="press-date">8 Abr 2026</span>
+              </div>
+              <span class="tag">SM 12.1a Mismatch</span>
+            </div>
+            <div class="press-headline">«Fatal CUDA error: Datacenter sm_100 containers fail on GB10»</div>
+            <p class="press-desc">
+              La arquitectura de consumo SM 12.1a no es compatible con binarios oficiales. <mark class="highlighter">Los
+                kernels de Tensor Core tcgen05 para FP4 vienen deshabilitados o sin compilar</mark>, provocando fallos
+              inmediatos.
+            </p>
+          </div>
+
+    <!-- 3. Reddit r/LocalLLaMA -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Reddit (r/LocalLLaMA)</span>
+                <span class="press-date">19 May 2026</span>
+              </div>
+              <span class="tag">Roadmap Trap</span>
+            </div>
+            <div class="press-headline">«NVFP4 on GB10 performs WORSE than INT4 on Ada: Where are the kernels?»</div>
+            <p class="press-desc">
+              Compradores de estaciones de 128GB descubren que <mark class="highlighter">NVIDIA no liberará soporte
+                maduro de NVFP4 hasta finales de 2026</mark>, dejando el hardware puntero a un tercio de su velocidad
+              teórica.
+            </p>
+          </div>
+
+    <!-- 4. Community Release Notes -->
+          <div class="press-card">
+            <div class="press-header">
+              <div class="press-meta">
+                <span class="press-source">Community Release</span>
+                <span class="press-date">2 Jun 2026</span>
+              </div>
+              <span class="tag">Open Source Fix</span>
+            </div>
+            <div class="press-headline">«avarok/vllm-nvfp4-gb10 &amp; spark-vllm-docker: Unlocking 128GB Unified Memory»
+            </div>
+            <p class="press-desc">
+              Desarrolladores independientes publican <mark class="highlighter">imágenes Docker con kernels CUTLASS
+                recompilados a mano</mark>, permitiendo correr Nemotron y Qwen 72B a máxima velocidad sin esperar a los
+              drivers oficiales.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 14: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
          ==================================================================== -->
     <section class="slide" id="slide-14">
+      <div class="slide-content">
+        <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
+        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          La promesa de ejecutar NVFP4 en hardware de consumo... "pero a finales de 2026".
+        </p>
+
+        <div class="meme-stage-single">
+          <div class="meme-theatrical-card">
+            <div class="meme-dialogue-bar">
+              <div class="meme-speaker left">
+                <div class="meme-speaker-meta">
+                  <span class="meme-speaker-role">Comunidad &amp; Desarrolladores</span>
+                  <span class="meme-speaker-tag">La Promesa Blackwell</span>
+                </div>
+                <div class="meme-quote-text">«¡Me dijiste que podría ejecutar NVFP4!»</div>
+              </div>
+
+              <div class="meme-dialogue-divider"></div>
+
+              <div class="meme-speaker right">
+                <div class="meme-speaker-meta">
+                  <span class="meme-speaker-role">NVIDIA &amp; Drivers Oficiales</span>
+                  <span class="meme-speaker-tag warning">Roadmap Oficial</span>
+                </div>
+                <div class="meme-quote-text">
+                  «Pero no dije cuándo…»
+                  <span class="meme-highlight-date">(A finales de 2026)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="meme-photo-stage">
+              <img src="script/img/gato-nvfp4-clean.webp"
+                alt="Meme NVFP4: Me dijiste que podría ejecutar NVFP4... pero no dije cuándo (A finales de 2026)"
+                class="meme-theatrical-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 15: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
+         ==================================================================== -->
+    <section class="slide" id="slide-15">
+      <div class="slide-content">
+        <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
+        <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Cuando los drivers propietarios fallan o se retrasan, los artesanos y la comunidad abren el camino a base de
+          kernels y parches.
+        </p>
+
+        <div class="hackers-deck">
+
+          <div class="hackers-grid">
+
+    <!-- Card 1: Eugr -->
+            <div class="hacker-card highlight">
+              <div class="hacker-profile-header">
+                <img src="script/img/eugr.png" alt="Eugr" class="hacker-avatar">
+                <div class="hacker-profile-info">
+                  <div class="hacker-name-row">
+                    <span class="hacker-name">Eugr</span>
+                    <span class="hacker-handle">@eugr</span>
+                  </div>
+                  <span class="hacker-role">Independent Hacker &amp; ML Engineer</span>
+                  <span class="hacker-repo-tag">eugr/spark-vllm-docker</span>
+                </div>
+              </div>
+
+              <div class="hacker-list">
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Contenedores Docker para DGX Spark</div>
+                    <div class="hacker-item-desc">Creó las primeras imágenes y <em>build recipes</em> de vLLM
+                      optimizadas para Asus Ascent GX10 / DGX Spark, permitiendo levantar el stack de inferencia.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Soporte MTP &amp; Aceleración Especulativa</div>
+                    <div class="hacker-item-desc">Integró recetas de Multi-Token Prediction directamente en vLLM para
+                      multiplicar la velocidad de inferencia sin VRAM adicional.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">128 GB Unificados al Máximo</div>
+                    <div class="hacker-item-desc">Habilitó la ejecución de modelos MoE y densos masivos (Qwen, Nemotron)
+                      sorteando las trabas iniciales de software del vendor.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    <!-- Card 2: Thomas Braun (Avarok) -->
+            <div class="hacker-card highlight-blue">
+              <div class="hacker-profile-header">
+                <img src="script/img/thomas-braun.jpeg" alt="Thomas Braun (Avarok)" class="hacker-avatar avarok">
+                <div class="hacker-profile-info">
+                  <div class="hacker-name-row">
+                    <span class="hacker-name">Thomas Braun</span>
+                    <span class="hacker-handle">@tbraun96 • Avarok</span>
+                  </div>
+                  <span class="hacker-role">Founder of Avarok &amp; Kernel Hacker</span>
+                  <span class="hacker-repo-tag blue">avarok/vllm-nvfp4-gb10</span>
+                </div>
+              </div>
+
+              <div class="hacker-list">
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Recompilación de Kernels CUTLASS</div>
+                    <div class="hacker-item-desc">Parcheó y recompiló a mano los kernels para la microarquitectura
+                      <code>sm_121a</code> de Blackwell GB10 saltándose los binarios oficiales.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">NVFP4 Nativo Meses Antes del Roadmap</div>
+                    <div class="hacker-item-desc">Desbloqueó la aceleración FP4 en Tensor Cores en mayo/junio 2026,
+                      mientras NVIDIA posponía el soporte oficial a finales de año.</div>
+                  </div>
+                </div>
+
+                <div class="hacker-item">
+                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
+                  <div class="hacker-item-body">
+                    <div class="hacker-item-title">Rendimiento Teórico Recuperado</div>
+                    <div class="hacker-item-desc">Multiplicó por 3x la velocidad de Nemotron y Qwen 72B frente a los
+                      lentos fallbacks por software estándar.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+    <!-- Ribbon explicativo vLLM & SGLang Upstream -->
+          <div class="hackers-upstream-ribbon">
+            <div class="hackers-upstream-left">
+              <div class="hackers-upstream-icon">🛠️</div>
+              <div class="hackers-upstream-text">
+                <strong>El Ecosistema vLLM &amp; SGLang al Rescate:</strong> La comunidad y los mantenedores integran
+                continuamente parches de kernels CUTLASS/PTX y PRs upstream para que el hardware funcione a máxima
+                potencia sin esperar a los drivers oficiales.
+              </div>
+            </div>
+            <div class="hackers-upstream-badge">Comunidad Open Source</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 16: ECONOMÍA DE LOS TOKENS / COSTES DE INFERENCIA
+         ==================================================================== -->
+    <section class="slide doc-only" id="slide-16">
+      <div class="slide-content">
+        <p class="src-stamp">Precios verificados el 19 sep 2026 · 1 USD ≈ 0,92 €</p>
+          <div class="tag">Economía de Inferencia</div>
+        <h2>Costes de Inferencia por 1M de Tokens</h2>
+
+        <div class="table-container">
+          <table class="editorial-table">
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Modelo</th>
+                <th>Entrada ($ / €)</th>
+                <th>Entrada con Caché</th>
+                <th>Tipo / Categoría</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-commercial">
+                <td>OpenAI</td>
+                <td class="model-name">GPT-5.6 Sol / o3</td>
+                <td class="mono-price">$4.00 / 3,68 €</td>
+                <td class="mono-price">$0.40 / 0,37 €</td>
+                <td>Frontier Flagship</td>
+              </tr>
+              <tr class="row-commercial">
+                <td>Anthropic</td>
+                <td class="model-name">Claude Sonnet 5</td>
+                <td class="mono-price">$3.00 / 2,76 €</td>
+                <td class="mono-price">$0.30 / 0,28 €</td>
+                <td>Gama Media / Agentes</td>
+              </tr>
+              <tr class="row-commercial">
+                <td>Google</td>
+                <td class="model-name">Gemini 3.6 Flash</td>
+                <td class="mono-price">$0.75 / 0,69 €</td>
+                <td class="mono-price">$0.075 / 0,07 €</td>
+                <td>Equilibrado Cloud</td>
+              </tr>
+              <tr class="row-commercial">
+                <td>xAI</td>
+                <td class="model-name">Grok 4.6</td>
+                <td class="mono-price">$2.00 / 1,84 €</td>
+                <td class="mono-price">$0.50 / 0,46 €</td>
+                <td>Frontier Multimodal</td>
+              </tr>
+              <tr class="row-openweight">
+                <td>DeepSeek</td>
+                <td class="model-name">DeepSeek V4 Flash / R1</td>
+                <td class="mono-price">$0.14 – $0.66</td>
+                <td class="mono-price">$0.003 / 0,003 €</td>
+                <td>Open-Weight MoE</td>
+              </tr>
+              <tr class="row-openweight">
+                <td>Alibaba Qwen</td>
+                <td class="model-name">Qwen 3.8 27B</td>
+                <td class="mono-price">$0.10 – $0.45</td>
+                <td class="mono-price">≈ $0.05 / 0,05 €</td>
+                <td>Open-Weight Eficiente</td>
+              </tr>
+              <tr class="row-openweight">
+                <td>Alibaba Qwen</td>
+                <td class="model-name">Qwen 3.8 Flash Next</td>
+                <td class="mono-price">$0.15 / 0,14 €</td>
+                <td class="mono-price">$0.075 / 0,07 €</td>
+                <td>Open-Weight MoE Ligero</td>
+              </tr>
+              <tr class="row-openweight">
+                <td>Zhipu (Z.ai)</td>
+                <td class="model-name">GLM 5.3 Flash</td>
+                <td class="mono-price">$0.15 / 0,14 €</td>
+                <td class="mono-price">$0.03 / 0,03 €</td>
+                <td>Open-Weight Agéntico</td>
+              </tr>
+              <tr class="highlight-row">
+                <td><strong>AI Local Crafters</strong></td>
+                <td class="model-name"><strong>Hardware Propio (GGUF / vLLM)</strong></td>
+                <td class="mono-price"><strong>0,00 € / token</strong></td>
+                <td class="mono-price"><strong>Ilimitado</strong></td>
+                <td><strong>100% Privado &amp; Autónomo</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 17: EL TRILEMA DE LA IA LOCAL (DIAGRAMA TRIANGULAR MINIMALISTA)
+         ==================================================================== -->
+    <section class="slide" id="slide-17">
       <div class="slide-content">
         <div class="tag">Marco Mental • Las 3 Variables Clave</div>
         <h2>El Trilema de la IA Local: <span class="serif-italic" style="color: #0284c7;">Memoria, Calidad y
@@ -1157,9 +1414,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 15: ANATOMÍA DE LA MEMORIA: PESOS VS. KV CACHE
+         SLIDE 18: ANATOMÍA DE LA MEMORIA: PESOS VS. KV CACHE
          ==================================================================== -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-18">
       <div class="slide-content">
         <div class="tag">Anatomía de la Memoria • VRAM &amp; Hardware</div>
         <h2>¿En qué se gasta la Memoria? <span class="serif-italic">Pesos vs. KV Cache</span></h2>
@@ -1364,9 +1621,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 16: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
+         SLIDE 19: EL DILEMA DE LA CUANTIZACIÓN (PÉRDIDA DE CALIDAD VS. COMPRESIÓN)
          ==================================================================== -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-19">
       <div class="slide-content">
         <div class="tag">Precisión &amp; Benchmarks • Qwen 122B MoE</div>
         <h2>El Peaje de Comprimir: <span class="serif-italic">¿Cuánta Inteligencia se Pierde?</span></h2>
@@ -1521,9 +1778,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 17: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
+         SLIDE 20: LA TRAMPA DEL BENCHMARK & EFECTO DOMINÓ EN RAZONAMIENTO
          ==================================================================== -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-20">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • La Realidad Oculta</div>
         <h2>La Trampa del Benchmark: <span class="serif-italic" style="color: #dc2626;">El Efecto Domin&oacute;</span></h2>
@@ -1679,9 +1936,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 18: EL EQUILIBRISTA DE LA INFERENCIA — AUTOROUND & PENSAMIENTO LARGO
+         SLIDE 21: EL EQUILIBRISTA DE LA INFERENCIA — AUTOROUND & PENSAMIENTO LARGO
          ==================================================================== -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="tag">Razonamiento &amp; Thinking Models • Compensaci&oacute;n de Error</div>
         <h2>El Equilibrista de la Inferencia: <span class="serif-italic" style="color: #0284c7;">Compensaci&oacute;n Activa de Pesos</span></h2>
@@ -1808,9 +2065,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 19: ROMPIENDO EL ABISMO DE LOS 2-3 BITS — GSQ + RCO
+         SLIDE 22: ROMPIENDO EL ABISMO DE LOS 2-3 BITS — GSQ + RCO
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-19">
+    <section class="slide doc-only" id="slide-22">
       <div class="slide-content">
         <div class="tag">Vanguardia 2026 &bull; Cuantizaci&oacute;n Extrema (2&ndash;3 bits) &bull; ISTA-DASLab</div>
         <h2>Rompiendo el Abismo de los 2&ndash;3 Bits: <span class="serif-italic" style="color: #c026d3;">GSQ + RCO</span></h2>
@@ -1992,9 +2249,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 20: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
+         SLIDE 23: NVIDIA NVFP4 (EL SECRETO DE LOS 4 BITS EN BLACKWELL)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-20">
+    <section class="slide doc-only" id="slide-23">
       <div class="slide-content">
         <div class="tag">Hardware &amp; Silicio • NVIDIA Blackwell</div>
         <h2>NVIDIA NVFP4: <span class="serif-italic" style="color: #0284c7;">El Secreto de los 4 Bits</span></h2>
@@ -2186,9 +2443,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 21: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
+         SLIDE 24: AUTOROUND INT4 EN MODELOS MOE (QWEN 122B)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-21">
+    <section class="slide doc-only" id="slide-24">
       <div class="slide-content">
         <div class="tag">Cuantizaci&oacute;n Abierta • Intel Labs &amp; Modelos MoE</div>
         <h2>AutoRound INT4: <span class="serif-italic" style="color: #15803d;">El Secreto en Modelos MoE</span></h2>
@@ -2348,9 +2605,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 22: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
+         SLIDE 25: ARQUITECTURA HÍBRIDA — DELTANET VS. ATTENTION & KV CACHE
          ==================================================================== -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="tag">Arquitectura Híbrida • Física de la Memoria</div>
         <h2>DeltaNet vs. Attention: <span class="serif-italic" style="color: #0284c7;">El Secreto de la Memoria
@@ -2574,9 +2831,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 23: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
+         SLIDE 26: FÍSICA DE LA MEMORIA — EL ARCHIVADOR VS. LA PIZARRA
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-23">
+    <section class="slide doc-only" id="slide-26">
       <div class="slide-content">
         <div class="tag">Física de la Memoria • Inferencia a 256K Contexto</div>
         <h2>La Pizarra vs. El Archivador: <span class="serif-italic" style="color: #047857;">¿Dónde vive la
@@ -2703,9 +2960,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 24: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
+         SLIDE 27: EXTENSIÓN A 1 MEGA CON YARN (CONTEXTO MASIVO EN LOCAL)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-24">
+    <section class="slide doc-only" id="slide-27">
       <div class="slide-content">
         <div class="tag">Escalabilidad Extrema • 1 Millón de Tokens (1M)</div>
         <h2>Escalando a 1 Mega con YaRN: <span class="serif-italic" style="color: #047857;">Contexto Masivo en
@@ -2880,9 +3137,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 25: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
+         SLIDE 28: LOS 3 NIVELES DE ATENCIÓN (JUNTAS, PRÓXIMAS Y ALEJADAS)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-25">
+    <section class="slide doc-only" id="slide-28">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Cómo Conecta y Recuerda el LLM</div>
         <h2>Los 3 Niveles de Atención: <span class="serif-italic" style="color: #047857;">Juntas, Próximas y Alejadas</span></h2>
@@ -3020,9 +3277,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 26: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
+         SLIDE 29: LA ANALOGÍA DEL IBAN BANCARIO (UN SOLO VECTOR, 3 ESCALAS)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-26">
+    <section class="slide doc-only" id="slide-29">
       <div class="slide-content">
         <div class="tag">Pedagogía Visual • Desmitificando los Vectores de Embedding</div>
         <h2>La Analogía del IBAN Bancario: <span class="serif-italic" style="color: #6366f1;">Un Solo Vector, 3 Escalas</span></h2>
@@ -3155,9 +3412,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 27: EL VIAJE DEL TOKEN — MEMORIA Y VELOCIDAD (BF16 vs NVFP4)
+         SLIDE 30: EL VIAJE DEL TOKEN — MEMORIA Y VELOCIDAD (BF16 vs NVFP4)
          ==================================================================== -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <div class="tag">Rendimiento • El Viaje del Token — BF16 vs NVFP4</div>
         <h2>La Velocidad es Memoria: <span class="serif-italic" style="color: #15803d;">el Viaje del Token</span>
@@ -3310,9 +3567,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 28: MODELO DENSO COMO PANEL DE LUZ (TODAS LAS CAJITAS SE ENCIENDEN)
+         SLIDE 31: MODELO DENSO COMO PANEL DE LUZ (TODAS LAS CAJITAS SE ENCIENDEN)
          ==================================================================== -->
-    <section class="slide" id="slide-28">
+    <section class="slide" id="slide-31">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos — Panel Visual</div>
         <h2>Modelos Densos: <span class="serif-italic" style="color: #b45309;">Una Petición Enciende las 48 Luces</span>
@@ -3421,9 +3678,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 29: MODELOS DENSOS: LA JUNTA MÉDICA COMPLETA
+         SLIDE 32: MODELOS DENSOS: LA JUNTA MÉDICA COMPLETA
          ==================================================================== -->
-    <section class="slide" id="slide-29">
+    <section class="slide" id="slide-32">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Densos (100% Activo)</div>
         <h2>Modelos Densos: <span class="serif-italic" style="color: #b45309;">La Junta Médica Completa</span></h2>
@@ -3484,9 +3741,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 30: MODELO MOE COMO PANEL DE LUZ (EL ROUTER ENCIENDE SOLO 4-5)
+         SLIDE 33: MODELO MOE COMO PANEL DE LUZ (EL ROUTER ENCIENDE SOLO 4-5)
          ==================================================================== -->
-    <section class="slide" id="slide-30">
+    <section class="slide" id="slide-33">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • MoE — Panel Visual</div>
         <h2>Modelos MoE: <span class="serif-italic" style="color: #0284c7;">El Router Enciende solo 5 de 48 Luces</span>
@@ -3613,9 +3870,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 31: MODELOS MOE: EL SERVICIO DE TRIAJE INTELIGENTE
+         SLIDE 34: MODELOS MOE: EL SERVICIO DE TRIAJE INTELIGENTE
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-34">
       <div class="slide-content">
         <div class="tag">Arquitectura de Modelos • Mixture of Experts (MoE)</div>
         <h2>Modelos MoE: <span class="serif-italic" style="color: #0284c7;">El Servicio de Triaje Inteligente</span>
@@ -3677,9 +3934,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 32: PREFILL VS DECODE — LA VELOCIDAD TIENE DOS PERFILES
+         SLIDE 35: PREFILL VS DECODE — LA VELOCIDAD TIENE DOS PERFILES
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-35">
       <div class="slide-content">
         <div class="tag">Rendimiento · Dos Velocidades</div>
         <h2>Prefill vs. Decode: <span class="serif-italic" style="color: #ea580c;">la velocidad tiene dos perfiles</span></h2>
@@ -3725,9 +3982,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 33: ANATOMÍA DEL SILICIO — CÓMPUTO VS BUS DE MEMORIA
+         SLIDE 36: ANATOMÍA DEL SILICIO — CÓMPUTO VS BUS DE MEMORIA
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-33">
+    <section class="slide doc-only" id="slide-36">
       <div class="slide-content">
         <div class="tag">Rendimiento · Anatomía del Silicio</div>
         <h2>Prefill vs. Decode: <span class="serif-italic" style="color: #ea580c;">el cuello de botella en el silicio</span></h2>
@@ -3878,9 +4135,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 34: EL MAPA DE RENDIMIENTO — NVIDIA VS APPLE VS AMD
+         SLIDE 37: EL MAPA DE RENDIMIENTO — NVIDIA VS APPLE VS AMD
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-34">
+    <section class="slide doc-only" id="slide-37">
       <div class="slide-content">
         <p class="src-stamp">Benchmarks de comunidad · Ago–Oct 2026 · r/LocalLLaMA · vLLM / MLX / llama.cpp</p>
         <div class="tag">Rendimiento · Mapa del Silicio 128 GB+</div>
@@ -3954,9 +4211,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 35: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
+         SLIDE 38: TIMELINE 2026: MODELOS Y TÉCNICAS DE ACELERACIÓN
          ==================================================================== -->
-    <section class="slide" id="slide-35">
+    <section class="slide" id="slide-38">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Inferencia Acelerada</div>
         <h2>2026: <span class="serif-italic">Timeline de Modelos &amp; Aceleración</span></h2>
@@ -4226,9 +4483,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 36: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
+         SLIDE 39: ESTRATEGIA MTP (MULTI-TOKEN PREDICTION)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-36">
+    <section class="slide doc-only" id="slide-39">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • MTP</div>
         <h2>¿Cómo funciona MTP? <span class="serif-italic">Predecir el futuro en un solo paso</span></h2>
@@ -4343,9 +4600,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 37: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
+         SLIDE 40: ESTRATEGIA DFLASH (EL ASISTENTE RÁPIDO + EL EXPERTO)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-37">
+    <section class="slide doc-only" id="slide-40">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash</div>
         <h2>¿Cómo funciona DFlash? <span class="serif-italic">El Asistente Rápido + Experto</span></h2>
@@ -4465,9 +4722,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 38: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
+         SLIDE 41: ESTRATEGIA DSPARK & DEEPSPEC (BORRADORES CON FILTRO DE CONFIANZA)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-38">
+    <section class="slide doc-only" id="slide-41">
       <div class="slide-content">
         <div class="tag">Ecosistema DeepSeek • DeepSpec</div>
         <h2>Estrategia DSpark: <span class="serif-italic">Borradores con Filtro de Confianza</span></h2>
@@ -4604,9 +4861,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 39: ESTRATEGIA DFLASH 2 (GRAFOS MULTI-CANDIDATO & PATH SELECTOR)
+         SLIDE 42: ESTRATEGIA DFLASH 2 (GRAFOS MULTI-CANDIDATO & PATH SELECTOR)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-39">
+    <section class="slide doc-only" id="slide-42">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • DFlash 2</div>
         <h2>Estrategia DFlash 2: <span class="serif-italic" style="color: #be123c;">Grafos sin Tail Decay</span></h2>
@@ -4756,9 +5013,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 40: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
+         SLIDE 43: TIMELINE CASO DEEPSEEK (EL MOMENTO SPUTNIK Y LA REVOLUCIÓN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-40">
+    <section class="slide doc-only" id="slide-43">
       <div class="slide-content">
         <div class="tag">Ecosistema &amp; Geopolítica del Silicio</div>
         <h2>Caso DeepSeek: <span class="serif-italic">Cronología de una Revolución</span></h2>
@@ -4963,9 +5220,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 41: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
+         SLIDE 44: PRENSA & SILICIO: EL HACKEO A NVIDIA Y LA ADOPCIÓN NATIVA
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-41">
+    <section class="slide doc-only" id="slide-44">
       <div class="slide-content">
         <div class="tag">Prensa &amp; Silicio • La Batalla del Software</div>
         <h2>El "Hackeo" a NVIDIA: <span class="serif-italic">De PTX a integración nativa</span></h2>
@@ -5063,9 +5320,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 42: RESUMEN DE ESTRATEGIAS DE ACELERACIÓN (¿CUÁNDO USAR QUÉ?)
+         SLIDE 45: RESUMEN DE ESTRATEGIAS DE ACELERACIÓN (¿CUÁNDO USAR QUÉ?)
          ==================================================================== -->
-<section class="slide doc-only" id="slide-42">
+<section class="slide doc-only" id="slide-45">
       <div class="slide-content">
         <div class="tag">Estrategia de Aceleración • Resumen Comparativo</div>
         <h2>Las Cuatro Vías de Aceleración: <span class="serif-italic" style="color: #15803d;">¿Cuándo usar qué?</span></h2>
@@ -5140,9 +5397,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 43: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
+         SLIDE 46: MATRIZ DE PESOS QWEN & ZONA RICITOS DE ORO (GOLDILOCKS)
          ==================================================================== -->
-    <section class="slide" id="slide-43">
+    <section class="slide" id="slide-46">
       <div class="slide-content">
         <div class="tag">Hardware Sizing • Familia Qwen (3.5 – 3.8)</div>
         <h2>Matriz de Pesos: <span class="serif-italic" style="color: #15803d;">La Zona Ricitos de Oro</span></h2>
@@ -5336,9 +5593,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 44: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
+         SLIDE 47: ESCOGIENDO MODELOS: CALIDAD, MEMORIA Y VELOCIDAD
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-44">
+    <section class="slide doc-only" id="slide-47">
       <div class="slide-content">
         <div class="tag">Benchmarking Local • Calidad, Memoria &amp; Velocidad</div>
         <h2 class="model-sizing-title">Escogiendo Modelos: <span class="serif-italic" style="color: #ea580c;">Calidad,
@@ -5589,9 +5846,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 45: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
+         SLIDE 48: QWEN 3.8 FLASH NEXT - MÁS CEREBRO, MENOS RAM (EL ENGRAM)
          ==================================================================== -->
-    <section class="slide" id="slide-45">
+    <section class="slide" id="slide-48">
       <div class="slide-content">
         <div class="tag">Hardware Sizing &bull; Caso Especial &bull; Qwen 3.8 Flash Next</div>
         <h2>Qwen 3.8 Flash Next: <span class="serif-italic">m&aacute;s cerebro, menos RAM</span></h2>
@@ -5710,9 +5967,9 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 46: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
+         SLIDE 49: ANATOMÍA DE QWEN 3.8 FLASH NEXT - CINCO PIEZAS EN 48 CAPAS
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-46">
+    <section class="slide doc-only" id="slide-49">
       <div class="slide-content">
         <div class="tag">Qwen 3.8 Flash Next &bull; Anatom&iacute;a</div>
         <h2>Por dentro: <span class="serif-italic">cinco piezas en 48 capas</span></h2>
@@ -5832,263 +6089,6 @@
               <p class="anat-detail doc-only">Gated Residual: 4 ramas con gates de lectura din&aacute;micos y escritura por rama; suprime outliers y permite estado FP8. MTP: 1 capa entrenada multi-step; en 8&times;3090 acelera el decode a 100&ndash;107 tok/s con 2,25 tok/paso aceptados.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 47: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (NOTICIAS)
-         ==================================================================== -->
-    <section class="slide" id="slide-47">
-      <div class="slide-content">
-        <div class="tag">Foros &amp; Comunidad • Early Adopters</div>
-        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          De la desincronización de energía al vacío de kernels oficiales: la frustración técnica de los primeros
-          compradores de GB10.
-        </p>
-
-        <div class="press-grid">
-
-    <!-- 1. NVIDIA Dev Forums -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">NVIDIA Dev Forums</span>
-                <span class="press-date">14 Mar 2026</span>
-              </div>
-              <span class="tag">Power Throttle</span>
-            </div>
-            <div class="press-headline">«DGX Spark &amp; ASUS GX10 stuck at 611MHz / 13W throttle state»</div>
-            <p class="press-desc">
-              Bugs en el controlador USB-C PD bloquean la GPU en modo seguro inutilizable. <mark class="highlighter">El
-                soporte oficial confirma que el único fix temporal es el "cold drain"</mark>: desconectar físicamente de
-              la corriente y esperar a vaciar condensadores.
-            </p>
-          </div>
-
-    <!-- 2. GitHub Issues vLLM -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">GitHub Issues (vLLM)</span>
-                <span class="press-date">8 Abr 2026</span>
-              </div>
-              <span class="tag">SM 12.1a Mismatch</span>
-            </div>
-            <div class="press-headline">«Fatal CUDA error: Datacenter sm_100 containers fail on GB10»</div>
-            <p class="press-desc">
-              La arquitectura de consumo SM 12.1a no es compatible con binarios oficiales. <mark class="highlighter">Los
-                kernels de Tensor Core tcgen05 para FP4 vienen deshabilitados o sin compilar</mark>, provocando fallos
-              inmediatos.
-            </p>
-          </div>
-
-    <!-- 3. Reddit r/LocalLLaMA -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Reddit (r/LocalLLaMA)</span>
-                <span class="press-date">19 May 2026</span>
-              </div>
-              <span class="tag">Roadmap Trap</span>
-            </div>
-            <div class="press-headline">«NVFP4 on GB10 performs WORSE than INT4 on Ada: Where are the kernels?»</div>
-            <p class="press-desc">
-              Compradores de estaciones de 128GB descubren que <mark class="highlighter">NVIDIA no liberará soporte
-                maduro de NVFP4 hasta finales de 2026</mark>, dejando el hardware puntero a un tercio de su velocidad
-              teórica.
-            </p>
-          </div>
-
-    <!-- 4. Community Release Notes -->
-          <div class="press-card">
-            <div class="press-header">
-              <div class="press-meta">
-                <span class="press-source">Community Release</span>
-                <span class="press-date">2 Jun 2026</span>
-              </div>
-              <span class="tag">Open Source Fix</span>
-            </div>
-            <div class="press-headline">«avarok/vllm-nvfp4-gb10 &amp; spark-vllm-docker: Unlocking 128GB Unified Memory»
-            </div>
-            <p class="press-desc">
-              Desarrolladores independientes publican <mark class="highlighter">imágenes Docker con kernels CUTLASS
-                recompilados a mano</mark>, permitiendo correr Nemotron y Qwen 72B a máxima velocidad sin esperar a los
-              drivers oficiales.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 48: EL DRAMA DE BLACKWELL GB10: LA ODISEA EN LOS FOROS (EL MEME)
-         ==================================================================== -->
-    <section class="slide" id="slide-48">
-      <div class="slide-content">
-        <div class="tag">Foros &amp; Comunidad • La Promesa NVFP4</div>
-        <h2>El Drama de Blackwell GB10: <span class="serif-italic">La odisea en los foros</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          La promesa de ejecutar NVFP4 en hardware de consumo... "pero a finales de 2026".
-        </p>
-
-        <div class="meme-stage-single">
-          <div class="meme-theatrical-card">
-            <div class="meme-dialogue-bar">
-              <div class="meme-speaker left">
-                <div class="meme-speaker-meta">
-                  <span class="meme-speaker-role">Comunidad &amp; Desarrolladores</span>
-                  <span class="meme-speaker-tag">La Promesa Blackwell</span>
-                </div>
-                <div class="meme-quote-text">«¡Me dijiste que podría ejecutar NVFP4!»</div>
-              </div>
-
-              <div class="meme-dialogue-divider"></div>
-
-              <div class="meme-speaker right">
-                <div class="meme-speaker-meta">
-                  <span class="meme-speaker-role">NVIDIA &amp; Drivers Oficiales</span>
-                  <span class="meme-speaker-tag warning">Roadmap Oficial</span>
-                </div>
-                <div class="meme-quote-text">
-                  «Pero no dije cuándo…»
-                  <span class="meme-highlight-date">(A finales de 2026)</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="meme-photo-stage">
-              <img src="script/img/gato-nvfp4-clean.webp"
-                alt="Meme NVFP4: Me dijiste que podría ejecutar NVFP4... pero no dije cuándo (A finales de 2026)"
-                class="meme-theatrical-img">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 49: ARTESANÍA DEL HIERRO: LA COMUNIDAD AL RESCATE
-         ==================================================================== -->
-    <section class="slide" id="slide-49">
-      <div class="slide-content">
-        <div class="tag">Artesanía de Software &amp; Open Source • Hackers de Silicio</div>
-        <h2>Hackeando el Hierro: <span class="serif-italic">La Comunidad al Rescate</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Cuando los drivers propietarios fallan o se retrasan, los artesanos y la comunidad abren el camino a base de
-          kernels y parches.
-        </p>
-
-        <div class="hackers-deck">
-
-          <div class="hackers-grid">
-
-    <!-- Card 1: Eugr -->
-            <div class="hacker-card highlight">
-              <div class="hacker-profile-header">
-                <img src="script/img/eugr.png" alt="Eugr" class="hacker-avatar">
-                <div class="hacker-profile-info">
-                  <div class="hacker-name-row">
-                    <span class="hacker-name">Eugr</span>
-                    <span class="hacker-handle">@eugr</span>
-                  </div>
-                  <span class="hacker-role">Independent Hacker &amp; ML Engineer</span>
-                  <span class="hacker-repo-tag">eugr/spark-vllm-docker</span>
-                </div>
-              </div>
-
-              <div class="hacker-list">
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Contenedores Docker para DGX Spark</div>
-                    <div class="hacker-item-desc">Creó las primeras imágenes y <em>build recipes</em> de vLLM
-                      optimizadas para Asus Ascent GX10 / DGX Spark, permitiendo levantar el stack de inferencia.</div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Soporte MTP &amp; Aceleración Especulativa</div>
-                    <div class="hacker-item-desc">Integró recetas de Multi-Token Prediction directamente en vLLM para
-                      multiplicar la velocidad de inferencia sin VRAM adicional.</div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">128 GB Unificados al Máximo</div>
-                    <div class="hacker-item-desc">Habilitó la ejecución de modelos MoE y densos masivos (Qwen, Nemotron)
-                      sorteando las trabas iniciales de software del vendor.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-    <!-- Card 2: Thomas Braun (Avarok) -->
-            <div class="hacker-card highlight-blue">
-              <div class="hacker-profile-header">
-                <img src="script/img/thomas-braun.jpeg" alt="Thomas Braun (Avarok)" class="hacker-avatar avarok">
-                <div class="hacker-profile-info">
-                  <div class="hacker-name-row">
-                    <span class="hacker-name">Thomas Braun</span>
-                    <span class="hacker-handle">@tbraun96 • Avarok</span>
-                  </div>
-                  <span class="hacker-role">Founder of Avarok &amp; Kernel Hacker</span>
-                  <span class="hacker-repo-tag blue">avarok/vllm-nvfp4-gb10</span>
-                </div>
-              </div>
-
-              <div class="hacker-list">
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Recompilación de Kernels CUTLASS</div>
-                    <div class="hacker-item-desc">Parcheó y recompiló a mano los kernels para la microarquitectura
-                      <code>sm_121a</code> de Blackwell GB10 saltándose los binarios oficiales.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">NVFP4 Nativo Meses Antes del Roadmap</div>
-                    <div class="hacker-item-desc">Desbloqueó la aceleración FP4 en Tensor Cores en mayo/junio 2026,
-                      mientras NVIDIA posponía el soporte oficial a finales de año.</div>
-                  </div>
-                </div>
-
-                <div class="hacker-item">
-                  <div class="hacker-icon-badge pro" style="color: #0284c7; background: rgba(2,132,199,0.12);">✓</div>
-                  <div class="hacker-item-body">
-                    <div class="hacker-item-title">Rendimiento Teórico Recuperado</div>
-                    <div class="hacker-item-desc">Multiplicó por 3x la velocidad de Nemotron y Qwen 72B frente a los
-                      lentos fallbacks por software estándar.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-    <!-- Ribbon explicativo vLLM & SGLang Upstream -->
-          <div class="hackers-upstream-ribbon">
-            <div class="hackers-upstream-left">
-              <div class="hackers-upstream-icon">🛠️</div>
-              <div class="hackers-upstream-text">
-                <strong>El Ecosistema vLLM &amp; SGLang al Rescate:</strong> La comunidad y los mantenedores integran
-                continuamente parches de kernels CUTLASS/PTX y PRs upstream para que el hardware funcione a máxima
-                potencia sin esperar a los drivers oficiales.
-              </div>
-            </div>
-            <div class="hackers-upstream-badge">Comunidad Open Source</div>
-          </div>
-
         </div>
       </div>
     </section>
