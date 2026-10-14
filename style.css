@@ -23942,7 +23942,8 @@ body.overview-mode #slide-11 .calc-when {
    En Documento la forja se ve siempre (regla dorada: nada de Documento).
    Foto más grande y SIN marco: fuera borde y sombra; la caja abraza la imagen
    nativa 1376×768 (width:auto) para que no queden bandas dentro del recuadro.
-   Tanque 440×560 → 500×660 (el gráfico entero crece, no solo la barra).
+   Tanque 440×560 → 540px de ancho y estirado (align-items:stretch) a la altura
+   exacta de la columna derecha (foto + pie de foto).
    ========================================================================== */
 
 /* Pulso 1: la forja aparece en su sitio (la caja reserva el hueco: el tanque no baila) */
@@ -23957,17 +23958,23 @@ body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-figure.step-active
   visibility: visible;
 }
 
-/* El split debe usar todo el ancho del overlay (1560px recortaba la foto) */
+/* El split debe usar todo el ancho del overlay (1560px recortaba la foto);
+   stretch hace que la tarjeta del tanque IGUALE la altura de la columna
+   derecha (foto + pie): misma caja visual, sin descentrar */
 body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split {
   max-width: 1760px;
+  height: auto;   /* sin esto el stretch estiraria al overlay entero (840px): la fila debe medir la columna de la foto */
+  align-items: stretch;
+  gap: 2.25rem;
 }
 
-/* Tanque de pesos: el gráfico entero más grande */
+/* Tanque de pesos: el gráfico entero más grande; la altura la pone el stretch
+   (auto), no una cifra fija, para seguir a la forja pase lo que pase con el pie */
 body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-tank-card {
-  width: 500px;
-  max-width: 500px;
-  height: 660px;
-  max-height: 660px;
+  width: 540px;
+  max-width: 540px;
+  height: auto;
+  max-height: none;
 }
 
 /* Foto: caja a ratio nativo, sin marco (ni borde ni sombra) */
