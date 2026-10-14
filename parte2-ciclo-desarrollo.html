@@ -27,9 +27,9 @@
   <main id="deck">
 
     <!-- ====================================================================
-         SLIDE 0: PRÓLOGO — CON LOS COSTES ACTUALES EL HARDWARE NO SE COMPRA
+         SLIDE 1: PRÓLOGO — CON LOS COSTES ACTUALES EL HARDWARE NO SE COMPRA
          ==================================================================== -->
-    <section class="slide active" id="slide-0">
+    <section class="slide active" id="slide-1">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
           <a href="index.html#last" class="deck-back-btn">← Parte 1: Hardware &amp; Modelos</a>
@@ -48,12 +48,12 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 1: PARADIGMA CLOUD — API TOKEN & FUERZA BRUTA
+         SLIDE 2: PARADIGMA CLOUD — API TOKEN & FUERZA BRUTA
          ==================================================================== -->
-    <section class="slide" id="slide-1">
+    <section class="slide" id="slide-2">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-0" class="deck-back-btn">← Slide 0: Desbloqueo</a>
+          <a href="#slide-1" class="deck-back-btn">← Slide 1: Desbloqueo</a>
           <span class="deck-part-badge" style="background: rgba(234, 88, 12, 0.15); color: #c2410c;">Parte 2 • Paradigma 1 • API Token Cloud</span>
         </div>
         <h2>Paradigma Cloud: <span class="serif-italic" style="color: #ea580c;">API Token &amp; Fuerza Bruta</span></h2>
@@ -68,17 +68,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 2: PARADIGMA LOCAL — HARDWARE LOCAL & TRACCIÓN DISCIPLINADA
+    <!-- ====================================================================
+         SLIDE 3: PARADIGMA LOCAL — HARDWARE LOCAL & TRACCIÓN DISCIPLINADA
          ==================================================================== -->
-    <section class="slide" id="slide-2">
+    <section class="slide" id="slide-3">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-1" class="deck-back-btn">← Paradigma Cloud</a>
+          <a href="#slide-2" class="deck-back-btn">← Paradigma Cloud</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0284c7;">Parte 2 • Paradigma 2 • Hardware Local &amp; ADRs</span>
         </div>
         <h2>Paradigma Local: <span class="serif-italic" style="color: #0284c7;">Tracci&oacute;n, Control &amp; Coste Cero</span></h2>
@@ -93,18 +89,35 @@
       </div>
     </section>
 
-
-    
-
-
+    <!-- ====================================================================
+         SLIDE 4: LA REGLA DEL ERROR — DINERO (API) VS. TIEMPO (IA LOCAL)
+         Cita gemela de la s53 de la Parte 1: la 1a frase entra con la slide;
+         el remate aparece con el primer pulso (.step).
+         ==================================================================== -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <div class="deck-back-bar">
+          <a href="#slide-3" class="deck-back-btn">← Paradigma Local</a>
+          <span class="deck-part-badge">Parte 2 • Paradigmas • El Precio del Error</span>
+        </div>
+        <div class="finale-quote">
+          <div class="finale-mark">❝</div>
+          <div class="finale-text">
+            Cuando te equivocas, con una API<br>
+            tu enemigo es el <strong class="e-dinero">dinero</strong>.<br>
+            <span class="finale-punch step">Con IA local, tu enemigo es el <strong class="e-tiempo">tiempo</strong>.</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ====================================================================
-         SLIDE 3: EL EMBUDO DEL SDLC CON IA (REDUCCIÓN DE VARIABILIDAD)
+         SLIDE 5: EL EMBUDO DEL SDLC CON IA (REDUCCIÓN DE VARIABILIDAD)
          ==================================================================== -->
-    <section class="slide" id="slide-3">
+    <section class="slide" id="slide-5">
       <div class="slide-content" style="gap: 1.05rem;">
         <div class="deck-back-bar">
-          <a href="#slide-2" class="deck-back-btn">← Paradigma Local</a>
+          <a href="#slide-3" class="deck-back-btn">← Paradigma Local</a>
           <span class="deck-part-badge">Parte 2 • Reducción de Variabilidad</span>
         </div>
         <h2>El Embudo del SDLC: <span class="serif-italic" style="color: #6366f1;">Del Caos a la Certeza</span></h2>
@@ -149,19 +162,16 @@
         </div>
       </div>
     </section>
-    
 
-
-
-<!-- ====================================================================
-         SLIDE 4: SÍNTESIS E2E — EL EMBUDO DEL DOMINIO
+    <!-- ====================================================================
+         SLIDE 6: SÍNTESIS E2E — EL EMBUDO DEL DOMINIO
          (Journeys → Barreras BR/INV → Entidades & Máquina de Estado → Respuesta)
          Interactiva: 3 vistas de Journey + estaciones explicables (click).
          ==================================================================== -->
-    <section class="slide view-all doc-only" id="slide-4">
+    <section class="slide view-all doc-only" id="slide-6">
       <div class="slide-content" style="gap: 0.55rem;">
         <div class="deck-back-bar">
-          <a href="#slide-2" class="deck-back-btn">← Paradigma Local</a>
+          <a href="#slide-3" class="deck-back-btn">← Paradigma Local</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">Síntesis E2E • Del Journey a la Respuesta</span>
         </div>
         <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
@@ -435,12 +445,12 @@
       </div>
     </section>
 
-<!-- SLIDE NUEVA: EL EMBUDO DEL DOMINIO — VERSIÓN ESQUEMÁTICA (comparación con el embudo interactivo) -->
     <!-- SLIDE NUEVA: EL EMBUDO DEL DOMINIO — VERSIÓN ESQUEMÁTICA (comparación con el embudo interactivo) -->
-    <section class="slide doc-only" id="slide-5">
+    <!-- SLIDE NUEVA: EL EMBUDO DEL DOMINIO — VERSIÓN ESQUEMÁTICA (comparación con el embudo interactivo) -->
+    <section class="slide doc-only" id="slide-7">
       <div class="slide-content" style="gap: 0.9rem;">
         <div class="deck-back-bar">
-          <a href="#slide-2" class="deck-back-btn">← Paradigma Local</a>
+          <a href="#slide-3" class="deck-back-btn">← Paradigma Local</a>
           <span class="deck-part-badge" style="background:#0891b2;">Parte 2 · Ciclo de Desarrollo</span>
         </div>
         <div class="tag">Síntesis E2E • El Embudo del Dominio — versión esquemática</div>
@@ -603,14 +613,13 @@
       </div>
     </section>
 
-
-<!-- ====================================================================
-         SLIDE 6: EL VIAJE DE UNA HISTORIA: DEL USER JOURNEY AL DOMINIO
+    <!-- ====================================================================
+         SLIDE 8: EL VIAJE DE UNA HISTORIA: DEL USER JOURNEY AL DOMINIO
          ==================================================================== -->
-            <section class="slide doc-only" id="slide-6">
+            <section class="slide doc-only" id="slide-8">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-4" class="deck-back-btn">← El Embudo del Dominio</a>
+          <a href="#slide-6" class="deck-back-btn">← El Embudo del Dominio</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4338ca;">El Puente Negocio ↔ Técnica • Colaboración</span>
         </div>
         <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">
@@ -865,18 +874,13 @@
       </div>
     </section>
 
-
-  
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 4: LOS TRES PILARES DEL CÓDIGO CON IA
          ==================================================================== -->
-    <section class="slide" id="slide-7">
+    <section class="slide" id="slide-9">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-6" class="deck-back-btn">← El Viaje de una Petición</a>
+          <a href="#slide-8" class="deck-back-btn">← El Viaje de una Petición</a>
           <span class="deck-part-badge" style="background: rgba(14, 165, 233, 0.15); color: #0369a1;">Parte 2 • Tres Pilares de Calidad</span>
         </div>
         <h2>Los Tres Pilares: <span class="serif-italic" style="color: #0284c7;">Código de Calidad con IA</span></h2>
@@ -959,18 +963,13 @@
       </div>
     </section>
 
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 8: PIPELINE SDLC DE 5 FASES (TIMELINE ALTERNADO PODADO)
+    <!-- ====================================================================
+         SLIDE 10: PIPELINE SDLC DE 5 FASES (TIMELINE ALTERNADO PODADO)
          ==================================================================== -->
-    <section class="slide" id="slide-8">
+    <section class="slide" id="slide-10">
       <div class="slide-content" style="gap: 1.25rem;">
         <div class="deck-back-bar">
-          <a href="#slide-7" class="deck-back-btn">← Los Tres Pilares</a>
+          <a href="#slide-9" class="deck-back-btn">← Los Tres Pilares</a>
           <span class="deck-part-badge">Parte 2 • Pipeline SDLC en 5 Fases</span>
         </div>
         <h2>El Ciclo de Desarrollo con IA: <span class="serif-italic" style="color: #6366f1;">5 Fases Disciplinadas</span></h2>
@@ -1140,18 +1139,14 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 8: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
+    <!-- ====================================================================
+         SLIDE 10: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
          Recreación del diagrama de docs/SDLC-WORKFLOW-DIRECTORY.md (con Fase 2b Features)
          ==================================================================== -->
-    <section class="slide" id="slide-9" data-steps-doc-only>
+    <section class="slide" id="slide-11" data-steps-doc-only>
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5;">Parte 2 • Mapa Vivo
             del Workflow</span>
         </div>
@@ -1404,17 +1399,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 10: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 12: PASO 1 - MATRIZ DE FRONTERAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-10">
+    <section class="slide doc-only" id="slide-12">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0369a1;">Fase 1: Inception • Paso 1 de 8</span>
         </div>
         <h2>Paso 1: Matriz de Fronteras <span class="serif-italic" style="color: #0284c7;">(IS / IS NOT)</span></h2>
@@ -1588,19 +1579,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 11: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 13: PASO 2 - TABLERO DE TRADEOFFS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-11">
+    <section class="slide doc-only" id="slide-13">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">Fase 1: Inception • Paso 2 de 8</span>
         </div>
         <h2>Paso 2: Tablero de Tradeoffs <span class="serif-italic" style="color: #8b5cf6;">(Sliders)</span></h2>
@@ -1816,19 +1801,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 12: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 14: PASO 3 - USER PERSONAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-12">
+    <section class="slide doc-only" id="slide-14">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 1 • Inception
             Workshop • Paso 3</span>
         </div>
@@ -1984,19 +1963,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 13: PASO 4 - MAPA DE EMPATÍA (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 15: PASO 4 - MAPA DE EMPATÍA (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-13">
+    <section class="slide doc-only" id="slide-15">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #92400e;">Fase 1 • Inception
             Workshop • Paso 4</span>
         </div>
@@ -2146,19 +2119,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 14: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 16: PASO 5 - USER JOURNEY MAPPING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-14">
+    <section class="slide doc-only" id="slide-16">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(6, 182, 212, 0.15); color: #0e7490;">Fase 1 • Inception
             Workshop • Paso 5</span>
         </div>
@@ -2343,19 +2310,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 15: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 17: PASO 6 - FEATURES BRAINSTORMING (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-15">
+    <section class="slide doc-only" id="slide-17">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5;">Fase 1 • Inception
             Workshop • Paso 6</span>
         </div>
@@ -2518,19 +2479,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 16: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 18: PASO 7 - SECUENCIADOR DE OLAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-16">
+    <section class="slide doc-only" id="slide-18">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(236, 72, 153, 0.15); color: #be185d;">Fase 1 • Inception
             Workshop • Paso 7</span>
         </div>
@@ -2707,19 +2662,13 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 17: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
+    <!-- ====================================================================
+         SLIDE 19: PASO 8 - CONTRATO MVP CANVAS (CONSOLA MARKDOWN)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-17">
+    <section class="slide doc-only" id="slide-19">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(5, 150, 105, 0.15); color: #047857;">Fase 1 • Inception
             Workshop • Paso 8</span>
         </div>
@@ -2901,17 +2850,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 18: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
+    <!-- ====================================================================
+         SLIDE 20: INCEPTION - GREENFIELD VS. BROWNFIELD (ORDEN Y MÍNIMOS)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-18">
+    <section class="slide doc-only" id="slide-20">
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(2, 132, 199, 0.15); color: #0369a1;">Fase 1 • Inception
             Workshop • Metodología</span>
         </div>
@@ -3250,20 +3195,13 @@
       </div>
     </section>
 
-
-
-
-    
-
-
-
-<!-- ====================================================================
-     SLIDE 19: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 2
+    <!-- ====================================================================
+     SLIDE 21: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 2
      ==================================================================== -->
-<section class="slide map-checkpoint doc-only" id="slide-19">
+<section class="slide map-checkpoint doc-only" id="slide-21">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-18" class="deck-back-btn">← Greenfield vs. Brownfield</a>
+          <a href="#slide-20" class="deck-back-btn">← Greenfield vs. Brownfield</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.14); color: #6d28d9;">Estación del Mapa • Entrando en Fase 2</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #6d28d9; border-color: rgba(139, 92, 246, 0.3);">📍 Estamos Aquí • Fase 2: Especificación Viva</div>
@@ -3272,14 +3210,13 @@
       </div>
     </section>
 
-
-<!-- ====================================================================
-         SLIDE 20: FASE 2 (1 DE 3) - DIAGRAMA DE SECUENCIA E2E (MERMAID LIVE)
+    <!-- ====================================================================
+         SLIDE 22: FASE 2 (1 DE 3) - DIAGRAMA DE SECUENCIA E2E (MERMAID LIVE)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-20">
+    <section class="slide doc-only" id="slide-22">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-19" class="deck-back-btn">← Estación: Mapa · Fase 2</a>
+          <a href="#slide-21" class="deck-back-btn">← Estación: Mapa · Fase 2</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama
             1 de 3: Secuencia E2E</span>
         </div>
@@ -3414,18 +3351,13 @@
       </div>
     </section>
 
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 21: FASE 2 (2 DE 3) - FLOWCHART DE BIFURCACIONES & DECISIONES (MERMAID LIVE)
+    <!-- ====================================================================
+         SLIDE 23: FASE 2 (2 DE 3) - FLOWCHART DE BIFURCACIONES & DECISIONES (MERMAID LIVE)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-21">
+    <section class="slide doc-only" id="slide-23">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama
             2 de 3: Flowchart &amp; Decisiones</span>
         </div>
@@ -3563,18 +3495,13 @@
       </div>
     </section>
 
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 22: FASE 2 (3 DE 3) - CICLO DE VIDA DE LA ENTIDAD / FSM (MERMAID LIVE)
+    <!-- ====================================================================
+         SLIDE 24: FASE 2 (3 DE 3) - CICLO DE VIDA DE LA ENTIDAD / FSM (MERMAID LIVE)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-22">
+    <section class="slide doc-only" id="slide-24">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">Fase 2 • Diagrama
             3 de 3: Máquina de Estados FSM</span>
         </div>
@@ -3700,20 +3627,22 @@
       </div>
     </section>
 
-    <section class="slide map-checkpoint doc-only" id="slide-23">
+    <section class="slide map-checkpoint doc-only" id="slide-25">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-22" class="deck-back-btn">← Fase 2 · Ciclo de Vida (FSM)</a>
+          <a href="#slide-24" class="deck-back-btn">← Fase 2 · Ciclo de Vida (FSM)</a>
           <span class="deck-part-badge" style="background: rgba(217, 70, 239, 0.14); color: #a21caf;">Estación del Mapa • Entrando en Fase 2b</span>
         </div>
         <div class="tag" style="background: rgba(217, 70, 239, 0.12); color: #a21caf; border-color: rgba(217, 70, 239, 0.3);">📍 Estamos Aquí • Fase 2b: Slicing Vertical</div>
         <p class="map-ckpt-kicker">La especificación ya es ejecutable. Ahora la troceamos en features verticales que cruzan toda la tubería — cada una, un ciclo TDD completo.</p>
         <div class="sdlc-map-panel map-ckpt-host" data-map-lit="1,3" data-map-here="4"></div>
       </div>
-    </section><section class="slide doc-only" id="slide-24">
+    </section>
+
+    <section class="slide doc-only" id="slide-26">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-23" class="deck-back-btn">← Estación: Mapa · Fase 2b</a>
+          <a href="#slide-25" class="deck-back-btn">← Estación: Mapa · Fase 2b</a>
           <span class="deck-part-badge" style="background: rgba(217, 70, 239, 0.15); color: #a21caf;">Fase 2b • Features
             &amp; Slicing</span>
         </div>
@@ -3871,17 +3800,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-     SLIDE 25: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 3
+    <!-- ====================================================================
+     SLIDE 27: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 3
      ==================================================================== -->
-<section class="slide map-checkpoint doc-only" id="slide-25">
+<section class="slide map-checkpoint doc-only" id="slide-27">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-24" class="deck-back-btn">← Fase 2b: Features</a>
+          <a href="#slide-26" class="deck-back-btn">← Fase 2b: Features</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.14); color: #047857;">Estación del Mapa • Entrando en Fase 3</span>
         </div>
         <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #047857; border-color: rgba(16, 185, 129, 0.3);">📍 Estamos Aquí • Fase 3: Modelo DDD Rico</div>
@@ -3890,14 +3815,13 @@
       </div>
     </section>
 
-
-<!-- ====================================================================
-         SLIDE 26: FASE 3 - MODELO DDD RICO (/create-entity-lifecycle, FSM + INV/BR + DOMAIN EVENTS)
+    <!-- ====================================================================
+         SLIDE 28: FASE 3 - MODELO DDD RICO (/create-entity-lifecycle, FSM + INV/BR + DOMAIN EVENTS)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-26">
+    <section class="slide doc-only" id="slide-28">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-25" class="deck-back-btn">← Estación: Mapa · Fase 3</a>
+          <a href="#slide-27" class="deck-back-btn">← Estación: Mapa · Fase 3</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 3 • Modelo DDD
             Rico</span>
         </div>
@@ -4040,17 +3964,13 @@
       </div>
     </section>
 
-
-
-
-
-<!-- ====================================================================
-         SLIDE 27: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
+    <!-- ====================================================================
+         SLIDE 29: FASE 2 - REGLAS DE NEGOCIO (BR) VS INVARIANTES (INV)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-27">
+    <section class="slide doc-only" id="slide-29">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Fase 3 • Modelado
             Formal &amp; Contratos</span>
         </div>
@@ -4205,18 +4125,13 @@
       </div>
     </section>
 
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 28: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
+    <!-- ====================================================================
+         SLIDE 30: FASE 2 - PLANTILLA MARKDOWN DE REGLA DE NEGOCIO (BR-XXX)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-28">
+    <section class="slide doc-only" id="slide-30">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(59, 130, 246, 0.15); color: #1d4ed8;">Fase 3 •
             Modelo DDD Rico (BR-XXX)</span>
         </div>
@@ -4352,18 +4267,13 @@
       </div>
     </section>
 
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 29: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
+    <!-- ====================================================================
+         SLIDE 31: FASE 2 - PLANTILLA MARKDOWN DE INVARIANTE DE DOMINIO (INV-XXX)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-29">
+    <section class="slide doc-only" id="slide-31">
       <div class="slide-content" style="gap: 1.15rem;">
         <div class="deck-back-bar">
-          <a href="#slide-8" class="deck-back-btn">← Pipeline SDLC</a>
+          <a href="#slide-10" class="deck-back-btn">← Pipeline SDLC</a>
           <span class="deck-part-badge" style="background: rgba(239, 68, 68, 0.15); color: #b91c1c;">Fase 3 • Invariante
             de Dominio (INV-XXX)</span>
         </div>
@@ -4507,17 +4417,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-     SLIDE 30: CHECKPOINT · ESTACIÓN DEL MAPA — GOBERNANZA
+    <!-- ====================================================================
+     SLIDE 32: CHECKPOINT · ESTACIÓN DEL MAPA — GOBERNANZA
      ==================================================================== -->
-<section class="slide map-checkpoint" id="slide-30">
+<section class="slide map-checkpoint" id="slide-32">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-29" class="deck-back-btn">← Fase 3: Plantilla INV</a>
+          <a href="#slide-31" class="deck-back-btn">← Fase 3: Plantilla INV</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.14); color: #4338ca;">Estación del Mapa • Gobernanza</span>
         </div>
         <div class="tag" style="background: rgba(99, 102, 241, 0.12); color: #4338ca; border-color: rgba(99, 102, 241, 0.3);">📍 Estamos Aquí • Gobernanza: ADRs</div>
@@ -4526,14 +4432,13 @@
       </div>
     </section>
 
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 24: FRICCIÓN ENTRE ADRs Y PRE-ENTRENAMIENTO DEL MODELO (AX)
          ==================================================================== -->
-    <section class="slide" id="slide-31">
+    <section class="slide" id="slide-33">
       <div class="slide-content" style="gap: 0.95rem;">
         <div class="deck-back-bar">
-          <a href="#slide-30" class="deck-back-btn">← Estación: Mapa · Gobernanza</a>
+          <a href="#slide-32" class="deck-back-btn">← Estación: Mapa · Gobernanza</a>
           <span class="deck-part-badge" style="background: rgba(56, 189, 248, 0.15); color: #0369a1;">Pilar 2 •
             Ergonomía para IA (AX)</span>
         </div>
@@ -4600,18 +4505,13 @@
       </div>
     </section>
 
-
-    
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 25: CASO REAL NEXT.JS - EL GUARDRAIL TAX EN LA PRENSA
          ==================================================================== -->
-    <section class="slide" id="slide-32">
+    <section class="slide" id="slide-34">
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-31" class="deck-back-btn">← La Fricción (AX)</a>
+          <a href="#slide-33" class="deck-back-btn">← La Fricción (AX)</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">Pilar 1 • Caso
             Real en Producción</span>
         </div>
@@ -4725,17 +4625,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 26: CASO REAL NEXT.JS - EL DOCUMENTO INYECTADO (AGENTS.MD)
          ==================================================================== -->
-    <section class="slide" id="slide-33">
+    <section class="slide" id="slide-35">
       <div class="slide-content" style="gap: 0.75rem;">
         <div class="deck-back-bar">
-          <a href="#slide-32" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
+          <a href="#slide-34" class="deck-back-btn">← Caso Real Next.js (Prensa)</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">Pilar 1 • El Documento Inyectado</span>
         </div>
         <div class="tag" style="background: rgba(139, 92, 246, 0.12); color: #6d28d9; border-color: rgba(139, 92, 246, 0.3);">
@@ -4836,17 +4732,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 27: PILAR 1 - TIMELINE HORIZONTAL DE UN ADR (5 PASOS)
          ==================================================================== -->
-    <section class="slide" id="slide-34">
+    <section class="slide" id="slide-36">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="#slide-33" class="deck-back-btn">← Archivo AGENTS.md</a>
+          <a href="#slide-35" class="deck-back-btn">← Archivo AGENTS.md</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #92400e;">Pilar 1 • Timeline
             Canónico</span>
         </div>
@@ -5019,17 +4911,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 28: PILAR 1 - ÁRBOL DE DECISIÓN DE GOBERNANZA (DE IZQ A DER)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-35">
+    <section class="slide doc-only" id="slide-37">
       <div class="slide-content" style="gap: 1.1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-34" class="deck-back-btn">← Timeline Canónico</a>
+          <a href="#slide-36" class="deck-back-btn">← Timeline Canónico</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.15); color: #92400e;">Pilar 1 • Matriz
             de Decisión</span>
         </div>
@@ -5163,17 +5051,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-     SLIDE 36: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 4
+    <!-- ====================================================================
+     SLIDE 38: CHECKPOINT · ESTACIÓN DEL MAPA — ENTRANDO EN FASE 4
      ==================================================================== -->
-<section class="slide map-checkpoint" id="slide-36">
+<section class="slide map-checkpoint" id="slide-38">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-35" class="deck-back-btn">← Gobernanza ADR</a>
+          <a href="#slide-37" class="deck-back-btn">← Gobernanza ADR</a>
           <span class="deck-part-badge" style="background: rgba(245, 158, 11, 0.14); color: #b45309;">Estación del Mapa • Entrando en Fase 4</span>
         </div>
         <div class="tag" style="background: rgba(245, 158, 11, 0.12); color: #b45309; border-color: rgba(245, 158, 11, 0.3);">📍 Estamos Aquí • Fase 4: Construcción TDD</div>
@@ -5182,13 +5066,13 @@
       </div>
     </section>
 
-<!-- ====================================================================
-         SLIDE 37: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
+    <!-- ====================================================================
+         SLIDE 39: IMPLEMENTACIÓN Y EVOLUCIÓN (TDD HÍBRIDO Y LIVING DOCS)
          ==================================================================== -->
-    <section class="slide" id="slide-37">
+    <section class="slide" id="slide-39">
       <div class="slide-content">
 <div class="deck-back-bar">
-          <a href="#slide-36" class="deck-back-btn">← Estación: Mapa · Fase 4</a>
+          <a href="#slide-38" class="deck-back-btn">← Estación: Mapa · Fase 4</a>
         </div>
         <div class="tag">Fases 4 y 5+ • Construcción, Cambio y Auditoría</div>
         <h2>Evolución sin Drift: <span class="serif-italic" style="color: #b45309;">TDD Híbrido y Living Docs</span></h2>
@@ -5341,14 +5225,14 @@
       </div>
     </section>
 
-<!-- ====================================================================
-         SLIDE 38: ESTACIÓN DEL MAPA — EL ECOSISTEMA COMPLETO ENCENDIDO
+    <!-- ====================================================================
+         SLIDE 40: ESTACIÓN DEL MAPA — EL ECOSISTEMA COMPLETO ENCENDIDO
          (9/9 pasos lit, sin "estamos aquí": el ecosistema entero sube a la vez)
          ==================================================================== -->
-    <section class="slide map-checkpoint" id="slide-38">
+    <section class="slide map-checkpoint" id="slide-40">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-37" class="deck-back-btn">← TDD Híbrido</a>
+          <a href="#slide-39" class="deck-back-btn">← TDD Híbrido</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.14); color: #047857;">Estación del Mapa • El Ecosistema Completo</span>
         </div>
         <div class="tag" style="background: rgba(16, 185, 129, 0.12); color: #047857; border-color: rgba(16, 185, 129, 0.3);">✨ Ciclo Completo • Todo el Ecosistema Encendido</div>
@@ -5357,20 +5241,22 @@
       </div>
     </section>
 
-    <section class="slide map-checkpoint doc-only" id="slide-39">
+    <section class="slide map-checkpoint doc-only" id="slide-41">
       <div class="slide-content">
         <div class="deck-back-bar">
-          <a href="#slide-37" class="deck-back-btn">← TDD Híbrido</a>
+          <a href="#slide-39" class="deck-back-btn">← TDD Híbrido</a>
           <span class="deck-part-badge" style="background: rgba(244, 63, 94, 0.14); color: #be123c;">Estación del Mapa • Entrando en Fase 5+</span>
         </div>
         <div class="tag" style="background: rgba(244, 63, 94, 0.12); color: #be123c; border-color: rgba(244, 63, 94, 0.3);">📍 Estamos Aquí • Fase 5+: Cambio Guiado</div>
         <p class="map-ckpt-kicker">El ciclo no acaba al desplegar: cuando algo cambie, /modify-flow te devuelve al mapa — cero drift.</p>
         <div class="sdlc-map-panel map-ckpt-host" data-map-lit="1,2,3,4,5,6" data-map-here="7"></div>
       </div>
-    </section><section class="slide doc-only" id="slide-40">
+    </section>
+
+    <section class="slide doc-only" id="slide-42">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="slide-39" class="deck-back-btn">← Estación: Mapa · Fase 5+</a>
+          <a href="slide-41" class="deck-back-btn">← Estación: Mapa · Fase 5+</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Pilar 2 • Timeline
             de Producto</span>
         </div>
@@ -5575,17 +5461,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 30: PILAR 2 - MATRIZ DE DECISIÓN DE PRODUCTO (4 RUTAS)
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-41">
+    <section class="slide doc-only" id="slide-43">
       <div class="slide-content" style="gap: 1.1rem;">
         <div class="deck-back-bar">
-          <a href="slide-40" class="deck-back-btn">← Ciclo Canónico SDLC</a>
+          <a href="slide-42" class="deck-back-btn">← Ciclo Canónico SDLC</a>
           <span class="deck-part-badge" style="background: rgba(16, 185, 129, 0.15); color: #047857;">Pilar 2 • Matriz
             de Producto</span>
         </div>
@@ -5751,17 +5633,13 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
+    <!-- ====================================================================
          SLIDE SPECIAL 31: LA CONEXIÓN - CÓMO TODO ENLAZA EN EL REPOSITORIO
          ==================================================================== -->
-    <section class="slide doc-only" id="slide-42">
+    <section class="slide doc-only" id="slide-44">
       <div class="slide-content" style="gap: 0.65rem;">
         <div class="deck-back-bar">
-          <a href="slide-41" class="deck-back-btn">← Matriz de Producto</a>
+          <a href="slide-43" class="deck-back-btn">← Matriz de Producto</a>
           <span class="deck-part-badge" style="background: rgba(139, 92, 246, 0.15); color: #6d28d9;">La Conexión •
             Arquitectura Viva</span>
         </div>
@@ -5911,24 +5789,10 @@
       </div>
     </section>
 
-
-
-    
-
-
-
-
-
-
-
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 43: CITA EDITORIAL
+    <!-- ====================================================================
+         SLIDE 45: CITA EDITORIAL
          ==================================================================== -->
-    <section class="slide" id="slide-43">
+    <section class="slide" id="slide-45">
       <div class="slide-content">
         <div class="quote-box">
           <div class="quote-text">
@@ -5942,14 +5806,10 @@
       </div>
     </section>
 
-    
-
-
-
-<!-- ====================================================================
-         SLIDE 44: CIERRE & Q&A
+    <!-- ====================================================================
+         SLIDE 46: CIERRE & Q&A
          ==================================================================== -->
-    <section class="slide" id="slide-44">
+    <section class="slide" id="slide-46">
       <div class="slide-content">
         <h2>Preguntas &amp; <span class="serif-italic">Debate</span></h2>
 
@@ -5970,15 +5830,11 @@
           </div>
         </div>
         <div style="margin-top: 1.2rem; text-align: center;">
-          <a href="#slide-43" class="deck-back-btn" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5; border-color: rgba(99, 102, 241, 0.3); font-weight: 700; padding: 0.5rem 1.2rem;">
+          <a href="#slide-45" class="deck-back-btn" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5; border-color: rgba(99, 102, 241, 0.3); font-weight: 700; padding: 0.5rem 1.2rem;">
             ← Frase de Cierre</a>
         </div>
       </div>
     </section>
-
-    
-
-
 
 </main>
 
@@ -6149,7 +6005,7 @@
     (function () {
       const bannerText = document.getElementById('scenario-banner-text');
       const bannerBadge = document.getElementById('scenario-banner-badge');
-      const cards = document.querySelectorAll('#slide-18 .scenario-step-card');
+      const cards = document.querySelectorAll('#slide-20 .scenario-step-card');
       const tabAll = document.getElementById('tab-scen-all');
       const tabCore = document.getElementById('tab-scen-core');
       const tabSwap = document.getElementById('tab-scen-swap');
@@ -6231,7 +6087,7 @@
       cards.forEach(card => {
         const step = card.getAttribute('data-step');
         card.addEventListener('mouseenter', () => {
-          document.querySelectorAll(`#slide-18 .scenario-step-card[data-step="${step}"]`).forEach(c => {
+          document.querySelectorAll(`#slide-20 .scenario-step-card[data-step="${step}"]`).forEach(c => {
             c.classList.add('is-linked-hover');
           });
           if (stepAdvice[step] && bannerText) {
@@ -6243,7 +6099,7 @@
         });
 
         card.addEventListener('mouseleave', () => {
-          document.querySelectorAll('#slide-18 .scenario-step-card').forEach(c => {
+          document.querySelectorAll('#slide-20 .scenario-step-card').forEach(c => {
             c.classList.remove('is-linked-hover');
           });
           updateModeUI(currentMode);
@@ -6274,7 +6130,7 @@
   </script>
     <script>
     // =========================================================================
-    // SLIDE 31: Filtro de Perspectiva (Audiencia: Negocio PM vs Técnica DDD)
+    // SLIDE 33: Filtro de Perspectiva (Audiencia: Negocio PM vs Técnica DDD)
     // =========================================================================
     window.setFlowPerspective = function(mode) {
       const btnAll = document.getElementById("btn-view-all");
@@ -6285,9 +6141,9 @@
       if (btnTech) btnTech.classList.toggle("active", mode === "tech");
 
       const takeawayEl = document.getElementById("perspective-takeaway-text");
-      const stations = document.querySelectorAll("#slide-6 .flow-station");
-      const bizBadges = document.querySelectorAll("#slide-6 .role-biz-badge");
-      const techBadges = document.querySelectorAll("#slide-6 .role-tech-badge");
+      const stations = document.querySelectorAll("#slide-8 .flow-station");
+      const bizBadges = document.querySelectorAll("#slide-8 .role-biz-badge");
+      const techBadges = document.querySelectorAll("#slide-8 .role-tech-badge");
 
       stations.forEach(s => {
         s.classList.remove("flow-dimmed", "flow-highlight-biz", "flow-highlight-tech");
@@ -6349,7 +6205,7 @@
 
     // Click en cualquier estación para explicar su rol
     document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll("#slide-6 .flow-station").forEach(station => {
+      document.querySelectorAll("#slide-8 .flow-station").forEach(station => {
         station.addEventListener("click", () => {
           const id = station.id;
           const takeawayEl = document.getElementById("perspective-takeaway-text");
@@ -6373,7 +6229,7 @@
 <script>
     // Checkpoints del mapa SDLC: clona el panel de la slide 6 y fija el estado "estamos aquí"
     (function () {
-      const srcPanel = document.querySelector('#slide-9 .sdlc-map-panel');
+      const srcPanel = document.querySelector('#slide-11 .sdlc-map-panel');
       if (!srcPanel) return;
       document.querySelectorAll('.map-ckpt-host').forEach(host => {
         const lit = (host.getAttribute('data-map-lit') || '').split(',').filter(Boolean).map(Number);
@@ -6396,13 +6252,13 @@
 
   <script>
     // =========================================================================
-    // SLIDE 40 (slide-4): EL EMBUDO DEL DOMINIO
+    // SLIDE 40 (slide-6): EL EMBUDO DEL DOMINIO
     // Vistas por Journey: 'all' | 'j1' (reservar) | 'j2' (cuota) | 'j3' (ilegal)
     // El JS alterna la clase view-* en la <section> y los pills; el CSS puro
     // enciende/apaga wires, veredictos, transiciones y outcomes.
     // =========================================================================
     window.setFunnelView = function (mode) {
-      const slide = document.getElementById("slide-4");
+      const slide = document.getElementById("slide-6");
       if (!slide) return;
       slide.classList.remove("view-all", "view-j1", "view-j2", "view-j3");
       slide.classList.add("view-" + mode);
@@ -6436,7 +6292,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       // Tarjetas de Journey dentro del SVG → equivalen a los pills superiores
-      document.querySelectorAll("#slide-4 .fn-jcard").forEach((card) => {
+      document.querySelectorAll("#slide-6 .fn-jcard").forEach((card) => {
         card.addEventListener("click", (e) => {
           e.stopPropagation();
           const j = card.getAttribute("data-journey");
@@ -6452,7 +6308,7 @@
         "fn-st-estado": "📦 <strong>Entidades &amp; Máquina de Estado:</strong> La entidad Reserva solo cambia por transiciones legales (borrador → activa → cerrada). El estado nunca se corrompe.",
         "fn-st-sal": "💬 <strong>Respuesta &amp; Notificaciones:</strong> Salida del sistema: 201/4xx al cliente, email/webhook y UI sincronizada. Éxito o aviso: siempre hay respuesta."
       };
-      document.querySelectorAll("#slide-4 .flow-station").forEach((st) => {
+      document.querySelectorAll("#slide-6 .flow-station").forEach((st) => {
         st.addEventListener("click", () => {
           const t = document.getElementById("fn-takeaway-text");
           if (t && ROLES[st.id]) t.innerHTML = ROLES[st.id];
