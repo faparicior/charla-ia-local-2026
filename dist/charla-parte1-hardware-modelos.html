@@ -24015,6 +24015,142 @@ body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-caption {
   max-width: 1190px;
 }
 
+/* ==========================================================================
+   s25 — PUENTE KV (14 oct 2026) — solo Modo Charla
+   La slide 25 abre con el tanque de la s18 (la gráfica de su izquierda):
+   pesos azules y buffer en segundo plano (.kv-dim, opacity .32) y la KV
+   Cache REMARCADA (doble anillo ámbar, el externo pulsante) + caption.
+   El 1er pulso (kv-bridge.step, el primero del DOM) disuelve el overlay y
+   arranca la secuencia híbrida normal (hb-greens → hb-curves; su gating es
+   por clase, así que no se desplaza nada). En Documento el puente no existe:
+   el handout ya explica el tanque en la s18 y lee el contenido de entrada.
+   ========================================================================== */
+
+/* Overlay puente: cubre el área de contenido bajo el título (mismo patrón que
+   el forja-intro de la s19) */
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge {
+  position: absolute;
+  top: 12.2rem;
+  left: 5rem;
+  right: 5rem;
+  bottom: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s;
+  cursor: pointer;
+  z-index: 3;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25:has(.kv-bridge.step-active) .kv-bridge {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Tarjeta del tanque (misma voz visual que forja-tank-card en la s19) */
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-card {
+  width: 540px;
+  max-width: 540px;
+  height: 660px;
+  max-height: 660px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  background: var(--bg-surface);
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-card .vram-gauge-title {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Segundo plano: pesos azules + buffer */
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge .kv-dim {
+  opacity: 0.32;
+}
+
+/* Anillo ámbar exterior con pulso suave (remarca la KV Cache) */
+@keyframes kvRingPulse25 {
+
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-ring-soft {
+  opacity: 0.28;
+  animation: kvRingPulse25 2.4s ease-in-out infinite;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-caption {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 940px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25 .kv-bridge-caption strong {
+  color: var(--text-main);
+}
+
+/* La secuencia híbrida normal (deck) arranca con CUALQUIER paso activo:
+   el 1er paso es el puente, así el «cómo está hoy» queda en pantalla al
+   disolverse este. El box no desaparece del flujo (visibility, no display) */
+body.deck-hardware-part1:not(.mode-document) #slide-25 .hybrid-arch-deck {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.55s ease 0.12s, visibility 0.55s 0.12s;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-25:has(.step.step-active) .hybrid-arch-deck {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* En Documento el puente no existe: el handout ya explica el tanque en la s18
+   y debe leer el contenido completo de entrada (si no, entra en flujo y rompe) */
+body.deck-hardware-part1.mode-document #slide-25 .kv-bridge {
+  display: none;
+}
+
+/* Overview e impresión: estado completo, sin puente */
+body.overview-mode #slide-25 .kv-bridge {
+  display: none !important;
+}
+
+body.overview-mode #slide-25 .hybrid-arch-deck {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-25 .kv-bridge {
+    display: none !important;
+  }
+
+  body.deck-hardware-part1 #slide-25 .hybrid-arch-deck {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
 </style>
 </head>
 
@@ -26658,6 +26794,87 @@ body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-caption {
           Por qué el patrón híbrido 3:1 de Qwen permite 256K tokens de contexto sin devorar la VRAM: estado recurrente
           fijo vs. caché acumulativo.
         </p>
+
+        <!-- ====================================================================
+             Puente de entrada (Modo Charla): el tanque de la s18 (la gráfica de
+             la izquierda) con la KV Cache REMARCADA (anillo ámbar) y los pesos
+             azules en segundo plano (kv-dim). El 1er pulso disuelve el overlay
+             y arranca la secuencia híbrida normal (hb-greens → hb-curves).
+             En Documento no existe: el handout ya trae el tanque en la s18 y
+             debe mostrar todo el contenido de entrada.
+             ==================================================================== -->
+        <div class="kv-bridge step">
+          <div class="kv-bridge-card">
+            <div class="vram-gauge-header">
+              <div class="vram-gauge-title">
+                <span>🎮 Tanque de 24 GB (Qwen 3.6 27B INT4)</span>
+              </div>
+              <span class="vram-capacity-badge">24 GB VRAM</span>
+            </div>
+            <div class="mem-tank-stage">
+              <svg class="mem-tank-svg" viewBox="0 0 400 470" role="img" aria-label="Tanque de 24 GB: pesos 15.2 GB en segundo plano; protagonismo de la KV cache 7.3 GB que crece token a token">
+                <defs>
+                  <linearGradient id="gW25" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#1d4ed8"/><stop offset="1" stop-color="#3b82f6"/>
+                  </linearGradient>
+                  <linearGradient id="gK25" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#c2410c"/><stop offset="1" stop-color="#f59e0b"/>
+                  </linearGradient>
+                  <pattern id="pBuf25" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <rect width="12" height="12" fill="#64748b" opacity="0.45"/>
+                    <line x1="0" y1="0" x2="0" y2="12" stroke="#94a3b8" stroke-width="4"/>
+                  </pattern>
+                  <clipPath id="tankClip25"><rect x="60" y="15" width="280" height="440" rx="14"/></clipPath>
+                </defs>
+                <text x="30" y="8" text-anchor="end" font-size="11" font-weight="700" fill="#64748b">GB</text>
+                <line x1="44" y1="15" x2="44" y2="455" stroke="#94a3b8" stroke-width="1.5"/>
+                <g stroke="#94a3b8" stroke-width="1.5">
+                  <line x1="36" y1="455" x2="44" y2="455"/><line x1="36" y1="345" x2="44" y2="345"/>
+                  <line x1="36" y1="235" x2="44" y2="235"/><line x1="36" y1="125" x2="44" y2="125"/>
+                  <line x1="36" y1="15" x2="44" y2="15"/>
+                </g>
+                <g text-anchor="end" font-size="11" fill="#64748b">
+                  <text x="30" y="459">0</text><text x="30" y="349">6</text><text x="30" y="239">12</text>
+                  <text x="30" y="129">18</text><text x="30" y="19">24</text>
+                </g>
+                <!-- Pesos: en segundo plano (kv-dim) -->
+                <g class="kv-dim">
+                  <g clip-path="url(#tankClip25)">
+                    <rect x="60" y="176" width="280" height="279" fill="url(#gW25)"/>
+                  </g>
+                  <text x="200" y="303" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">🧠 Pesos del Modelo</text>
+                  <text x="200" y="347" text-anchor="middle" font-size="40" font-weight="800" fill="#ffffff">15.2 GB</text>
+                  <text x="200" y="376" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.85)">63% del tanque · INT4 · fijo</text>
+                  <rect x="60" y="15" width="280" height="26" fill="url(#pBuf25)"/>
+                  <text x="200" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9">⚡ Buffer 1.5 GB · margen</text>
+                </g>
+                <!-- KV Cache: protagonista (anillo ámbar pulsante + etiquetas completas) -->
+                <g clip-path="url(#tankClip25)">
+                  <path d="M60,47 Q88,38 116,47 T172,47 T228,47 T284,47 T340,47 L340,176 L60,176 Z" fill="url(#gK25)"/>
+                  <path d="M60,47 Q88,38 116,47 T172,47 T228,47 T284,47 T340,47" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2.5"/>
+                  <line x1="60" y1="176" x2="340" y2="176" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                </g>
+                <rect class="kv-ring-soft" x="48" y="34" width="304" height="150" rx="14" fill="none" stroke="#ea580c" stroke-width="7"/>
+                <rect x="48" y="34" width="304" height="150" rx="14" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+                <text x="200" y="100" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">💬 KV Cache</text>
+                <text x="200" y="144" text-anchor="middle" font-size="40" font-weight="800" fill="#ffffff">7.3 GB</text>
+                <text x="200" y="168" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)">31% · sube token a token</text>
+                <g stroke="#ea580c" stroke-width="4" stroke-linecap="round">
+                  <line x1="356" y1="168" x2="356" y2="66"/><line x1="370" y1="168" x2="370" y2="52"/>
+                </g>
+                <polygon points="356,56 349,70 363,70" fill="#ea580c"/>
+                <polygon points="370,42 363,56 377,56" fill="#ea580c"/>
+                <text x="392" y="115" transform="rotate(-90 392 115)" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c2410c">crece con el chat y usuarios</text>
+                <rect class="tk-frame" x="60" y="15" width="280" height="440" rx="14" fill="none" stroke-width="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <p class="kv-bridge-caption">
+            🎯 <strong>El mismo tanque de 24 GB de antes:</strong> los 15.2 GB azules son pesos fijos, ya domados. Hoy la
+            protagonista es la barra ámbar: <strong>la KV Cache, 7.3 GB que crecen token a token</strong>. ¿Cómo evitamos
+            que devore la VRAM? De eso va esta parte.
+          </p>
+        </div>
 
         <div class="hybrid-arch-deck">
 
