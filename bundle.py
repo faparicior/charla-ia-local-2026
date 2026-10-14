@@ -124,6 +124,35 @@ def bundle_presentation(entry_html: Path, output_file: Path):
         flags=re.IGNORECASE
     )
 
+    # 3. Incrustar vídeos locales (<video src="..."> y <source src="...">)
+    def replace_media_src(match):
+        full_tag = match.group(0)
+        src = match.group(1)
+        if src.startswith(('data:', 'http://', 'https://', '//')):
+            return full_tag
+
+        media_path = (base_dir / src).resolve()
+        if media_path.exists():
+            print(f"   ↳ 🎬 Incrustando vídeo Base64: {src}")
+            data_uri = get_base64_data_uri(media_path)
+            return full_tag.replace(src, data_uri)
+        else:
+            print(f"   ⚠️ Advertencia: No se encontró el vídeo: {media_path}")
+            return full_tag
+
+    html_content = re.sub(
+        r'<video\s+[^>]*src=["\']([^"\']+)["\'][^>]*>',
+        replace_media_src,
+        html_content,
+        flags=re.IGNORECASE
+    )
+    html_content = re.sub(
+        r'<source\s+[^>]*src=["\']([^"\']+)["\'][^>]*>',
+        replace_media_src,
+        html_content,
+        flags=re.IGNORECASE
+    )
+
     # 4. Ajustar enlaces entre decks si es necesario para la versión dist/
     if entry_html.name == "index.html":
         html_content = html_content.replace('data-next-deck="parte2-ciclo-desarrollo.html"', 'data-next-deck="charla-parte2-ciclo-desarrollo.html"')

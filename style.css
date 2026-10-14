@@ -25538,3 +25538,66 @@ body.overview-mode #slide-25 .hybrid-arch-deck {
     visibility: visible !important;
   }
 }
+/* s2 — El Fin del Bufé Libre: la columna derecha arranca VACÍA; P1 = aparece el
+   vídeo (bufe-libre.webm) y se reproduce; P2 = el vídeo desaparece y en su lugar
+   entra la tarjeta «El Despertar». El vídeo se gestiona desde slides.js
+   (syncSlideVideos): play desde 0 al activarse, pausa al quedar tapado o al
+   perder la slide el foco. */
+body.deck-hardware-part1 #slide-2 .buffet-media-slot {
+  position: relative;
+  display: flex;
+}
+
+body.deck-hardware-part1 #slide-2 .buffet-media-slot > .buffet-card {
+  width: 100%;
+}
+
+body.deck-hardware-part1 #slide-2 .buffet-video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 2px solid var(--border-subtle);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06);
+  background: var(--bg-surface);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+body.deck-hardware-part1 #slide-2 .buffet-video.step-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.deck-hardware-part1 #slide-2:has(.buffet-trap.step-active) .buffet-video {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.deck-hardware-part1 #slide-2 .buffet-trap.step {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+
+body.deck-hardware-part1 #slide-2 .buffet-trap.step-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* Overview e impresión: estado final = solo la tarjeta (el vídeo no pinta) */
+body.overview-mode #slide-2 .buffet-video {
+  display: none !important;
+}
+
+@media print {
+
+  body.deck-hardware-part1 #slide-2 .buffet-video {
+    display: none !important;
+  }
+}

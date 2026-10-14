@@ -146,6 +146,27 @@ function initDeck() {
     }
   }
 
+  // Vídeos ligados a pasos (.step con <video> dentro): se reproducen desde el
+  // principio cuando su paso está activo y ningún paso posterior lo tapa; se
+  // pausan en cuanto dejan de verse o la slide pierde el foco.
+  function syncSlideVideos(slide) {
+    if (!slide) return;
+    const steps = Array.from(slide.querySelectorAll('.step'));
+    slide.querySelectorAll('video').forEach(v => {
+      const vStep = v.closest('.step') || v;
+      const idx = steps.indexOf(vStep);
+      const covered = steps.some((s, i) => i > idx && s.classList.contains('step-active'));
+      const shouldPlay = vStep.classList.contains('step-active') && !covered;
+      if (shouldPlay) {
+        try { v.currentTime = 0; } catch (e) {}
+        const p = v.play();
+        if (p && p.catch) p.catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }
+
   function updateStepsStatus(slide) {
     if (!slide) return;
     const steps = Array.from(slide.querySelectorAll('.step'));
@@ -167,6 +188,8 @@ function initDeck() {
         seg.classList.remove('segment-active');
       }
     });
+
+    syncSlideVideos(slide);
   }
 
   function goToSlide(index, updateHistory = true, direction = 'forward') {
@@ -198,6 +221,8 @@ function initDeck() {
         }
       } else {
         slide.classList.remove('active');
+        // Pausar cualquier vídeo de la slide que pierde el foco
+        slide.querySelectorAll('video').forEach(v => v.pause());
       }
     });
 
