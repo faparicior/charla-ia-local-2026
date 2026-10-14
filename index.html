@@ -1632,9 +1632,10 @@
           3 bits. Altura de barra = VRAM que ocupa; línea = calidad que sobrevive.
         </p>
 
-        <!-- Gancho de entrada (Modo Charla): puente visual con slide 18 (tanque pesos azules a la izquierda)
-             + la forja de la cuantización a la derecha; el primer clic disuelve el overlay y revela la gráfica del peaje -->
-        <div class="forja-intro step">
+        <!-- Gancho de entrada (Modo Charla): puente visual con slide 18 (tanque pesos azules a la izquierda).
+             Secuencia en 2 pulsos: la slide entra SOLO con el tanque; el 1er pulso revela la forja a la derecha
+             (la figure es .step); el 2º disuelve el overlay y revela la gráfica del peaje (los en-steps siguen). -->
+        <div class="forja-intro">
           <div class="forja-split">
             <!-- Columna Izquierda: El Tanque de la Slide 18 (solo pesos azules) -->
             <div class="mem-tank-card forja-tank-card">
@@ -1674,8 +1675,8 @@
               </div>
             </div>
 
-            <!-- Columna Derecha: La Forja -->
-            <figure class="forja-figure">
+            <!-- Columna Derecha: La Forja (2º pulso: aparece aquí, sin marco) -->
+            <figure class="forja-figure step">
               <img class="forja-img" src="script/img/forja-cuantizacion-fp8-a-nvfp4-clara.jpg"
                    alt="Forjadora martillando un lingote de FP8 hasta convertirlo en NVFP4 entre chispas de bits">
               <figcaption class="forja-caption">

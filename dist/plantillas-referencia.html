@@ -23585,7 +23585,9 @@ body.deck-hardware-part1 #slide-19 .forja-intro:hover .forja-img {
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
 }
 
-body.deck-hardware-part1 #slide-19:has(.step.step-active) .forja-intro {
+/* El overlay solo se disuelve cuando arranca la gráfica (en-steps); el pulso de la
+   forja (figure.step) NO debe ocultarlo — ver bloque s19 del 14 oct al final del CSS */
+body.deck-hardware-part1 #slide-19:has(.engram-deck .step.step-active) .forja-intro {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -23597,7 +23599,7 @@ body.deck-hardware-part1 #slide-19 .engram-deck {
   transition: opacity 0.55s ease 0.12s, visibility 0.55s 0.12s;
 }
 
-body.deck-hardware-part1 #slide-19:has(.step.step-active) .engram-deck {
+body.deck-hardware-part1 #slide-19:has(.engram-deck .step.step-active) .engram-deck {
   opacity: 1;
   visibility: visible;
 }
@@ -23949,6 +23951,61 @@ body.overview-mode #slide-11 .calc-when {
     opacity: 1 !important;
     transform: scale(1) rotate(-6deg) !important;
   }
+}
+
+/* ==========================================================================
+   s19 — FORJA EN 2 PULSOS (14 oct 2026) — solo Modo Charla
+   La slide entra SOLO con el tanque de pesos (puente con s18); el 1er pulso
+   revela la forja a la derecha (figure.step, gated por .step-active); el 2º
+   disuelve el overlay y arranca la gráfica del peaje (en-steps intactos).
+   En Documento la forja se ve siempre (regla dorada: nada de Documento).
+   Foto más grande y SIN marco: fuera borde y sombra; la caja abraza la imagen
+   nativa 1376×768 (width:auto) para que no queden bandas dentro del recuadro.
+   Tanque 440×560 → 500×660 (el gráfico entero crece, no solo la barra).
+   ========================================================================== */
+
+/* Pulso 1: la forja aparece en su sitio (la caja reserva el hueco: el tanque no baila) */
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-figure {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-figure.step-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* El split debe usar todo el ancho del overlay (1560px recortaba la foto) */
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split {
+  max-width: 1760px;
+}
+
+/* Tanque de pesos: el gráfico entero más grande */
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-tank-card {
+  width: 500px;
+  max-width: 500px;
+  height: 660px;
+  max-height: 660px;
+}
+
+/* Foto: caja a ratio nativo, sin marco (ni borde ni sombra) */
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split .forja-figure {
+  max-width: 1200px;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-split .forja-img {
+  height: 660px;
+  width: auto;
+  max-width: 100%;
+  max-height: none;
+  border: none;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+body.deck-hardware-part1:not(.mode-document) #slide-19 .forja-caption {
+  max-width: 1190px;
 }
 
 </style>
