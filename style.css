@@ -25239,8 +25239,10 @@ body.deck-hardware-part1 #slide-12 .trio-operator {
   transition: opacity 0.45s ease 0.15s, transform 0.5s var(--ease-spring) 0.15s;
 }
 
-body.deck-hardware-part1:not(.mode-document) #slide-12:has(.item-modelos.step-active) .trio-operator.plus,
-body.deck-hardware-part1 #slide-12:has(.item-modelos.step-active) .trio-operator.plus {
+body.deck-hardware-part1:not(.mode-document) #slide-12:has(.item-motores.step-active) .trio-operator.plus,
+body.deck-hardware-part1 #slide-12:has(.item-motores.step-active) .trio-operator.plus,
+body.deck-hardware-part1:not(.mode-document) #slide-12:has(.item-modelos.step-active) .trio-operator.plus-2,
+body.deck-hardware-part1 #slide-12:has(.item-modelos.step-active) .trio-operator.plus-2 {
   opacity: 1;
   transform: none;
 }
@@ -25639,4 +25641,141 @@ body.deck-hardware-part1 #slide-25 .kv-reveal {
   width: 0;
   height: 0;
   pointer-events: none;
+}
+
+/* s12 — CUARTETO «¡Llegó el Aparato!» (13 oct 2026): Hardware + MOTORES + Modelos
+   = Alquimia. Se añade la caja de Motores de Inferencia (vLLM · llama.cpp · SGLang)
+   como PASO 2 (entre Hardware y Modelos). Cuatro cajas más el triple de operadores
+   obligan a reescalar anchos y tipografía; los anchos de arriba (bloque de la 12)
+   quedan sobreescritos aquí abajo. Secuencia: P1 Hardware · P2 «+»+Motores ·
+   P3 «+»+Modelos · P4 sello ¡OBSOLETO! · P5 swap Qwen 3.8 · P6 «=»+Alquimia. */
+body.deck-hardware-part1 #slide-12 .trio-stage {
+  gap: 1.4rem;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-viewport {
+  height: 520px;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-viewport.hardware {
+  width: 380px;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-viewport.engines {
+  width: 340px;
+  padding: 1.6rem 1.4rem;
+  gap: 1.4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body.deck-hardware-part1 #slide-12 .engines-hero {
+  font-size: 4.6rem;
+  line-height: 1;
+  filter: drop-shadow(0 8px 18px rgba(21, 128, 61, 0.25));
+}
+
+body.deck-hardware-part1 #slide-12 .trio-engine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-engine-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.72rem 1.05rem;
+  border-radius: 12px;
+  background: rgba(22, 163, 74, 0.09);
+  border: 1px solid rgba(22, 163, 74, 0.28);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+body.deck-hardware-part1 #slide-12 .engine-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+body.deck-hardware-part1 #slide-12 .engine-tag.t-vllm { background: #0284c7; }
+body.deck-hardware-part1 #slide-12 .engine-tag.t-llamacpp { background: #15803d; }
+body.deck-hardware-part1 #slide-12 .engine-tag.t-sglang { background: #d97706; }
+
+body.deck-hardware-part1 #slide-12 .trio-viewport.model {
+  width: 350px;
+  padding: 1.5rem 1.4rem;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-viewport.model img {
+  width: 170px;
+  height: 170px;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-model-list {
+  gap: 0.7rem;
+  width: 100%;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-model-chip {
+  padding: 0.7rem 1rem;
+  font-size: 0.92rem;
+  border-radius: 12px;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-viewport.alchemy {
+  width: 380px;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-operator {
+  font-size: 3rem;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-caption {
+  font-size: 1.02rem;
+  padding: 0.6rem 1.25rem;
+}
+
+body.deck-hardware-part1 #slide-12 .trio-caption.green {
+  background: rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.45);
+  color: #15803d;
+}
+
+body.deck-hardware-part1.theme-dark #slide-12 .trio-caption.green {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(74, 222, 128, 0.5);
+  color: #4ade80;
+}
+
+body.deck-hardware-part1.theme-dark #slide-12 .trio-engine-chip {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+/* s12 — logos reales de los motores (vLLM · llama.cpp · SGLang) dentro de sus
+   chips; iconos oficiales recortados y reducidos a 96px en script/img/ */
+body.deck-hardware-part1 #slide-12 .engine-chip-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+body.deck-hardware-part1 #slide-12 .engine-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
 }
