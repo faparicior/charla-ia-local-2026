@@ -6055,7 +6055,7 @@
   <script>
     if (typeof mermaid !== 'undefined') {
       mermaid.initialize({
-        startOnLoad: true,
+        startOnLoad: false,
         theme: 'dark',
         themeVariables: {
           fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
@@ -6102,15 +6102,45 @@
           useMaxWidth: true
         }
       });
-      const runMermaid = () => {
-        if (typeof mermaid !== 'undefined' && mermaid.run) {
-          mermaid.run();
+      /* Los diagramas viven en slides doc-only (display:none durante la carga):
+         si mermaid renderiza midiendo ese contenedor oculto (mermaid.run pasa el
+         elemento como contenedor), flowchart y FSM salen con layout roto (svg
+         0x0, viewBox absurdo). Renderizado propio: se guarda el código al
+         arrancar, se deja un placeholder y tras fonts.ready se renderiza SIN
+         pasar contenedor (mermaid usa su propio espacio temporal, con layout
+         correcto); el CSS del wrap (.mermaid-diagram-wrap svg) ya escala el
+         resultado al hueco disponible. */
+      const stashMermaid = () => {
+        document.querySelectorAll('.mermaid').forEach(el => {
+          if (el.dataset.mcode === undefined) {
+            el.dataset.mcode = el.textContent.trim();
+            el.innerHTML = '<div class="mermaid-loading" style="min-height:260px;display:flex;align-items:center;justify-content:center;color:var(--text-muted,#94a3b8);font-size:1.05rem;">⏳ Renderizando diagrama…</div>';
+          }
+        });
+      };
+      const renderOneMermaid = async (el) => {
+        const code = el.dataset.mcode || el.textContent.trim();
+        try {
+          const { svg: svgCode } = await mermaid.render('mmd-' + Date.now() + '-' + Math.floor(Math.random() * 1e5), code);
+          el.innerHTML = svgCode;
+          el.dataset.mrendered = '1';
+        } catch (err) {
+          console.error('Mermaid:', el.closest('.slide')?.id, err);
+          el.innerHTML = '<pre class="mermaid-error" style="color:#f87171;white-space:pre-wrap;font-size:0.95rem;">' + code.replace(/</g, '&lt;') + '</pre>';
+          el.dataset.mrendered = 'error';
         }
       };
+      const renderAllMermaid = async () => {
+        stashMermaid();
+        const pending = Array.from(document.querySelectorAll('.mermaid')).filter(el => !el.dataset.mrendered);
+        for (const el of pending) await renderOneMermaid(el);
+      };
+      stashMermaid();
       if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(runMermaid);
+        document.fonts.ready.then(renderAllMermaid);
+      } else {
+        window.addEventListener('load', renderAllMermaid);
       }
-      window.addEventListener('load', runMermaid);
     }
   </script>
 
