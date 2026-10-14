@@ -21486,20 +21486,20 @@ body.theme-dark .drift-viewport-clean {
   box-shadow: 0 16px 52px rgba(0, 0, 0, 0.6);
 }
 
-body.deck-sdlc-part2 #slide-2 .drift-viewport-clean {
+body.deck-sdlc-part2 #slide-1 .drift-viewport-clean {
   border-color: rgba(234, 88, 12, 0.35);
 }
 
-body.deck-sdlc-part2.theme-dark #slide-2 .drift-viewport-clean {
+body.deck-sdlc-part2.theme-dark #slide-1 .drift-viewport-clean {
   border-color: rgba(234, 88, 12, 0.5);
   box-shadow: 0 16px 52px rgba(234, 88, 12, 0.18);
 }
 
-body.deck-sdlc-part2 #slide-3 .drift-viewport-clean {
+body.deck-sdlc-part2 #slide-2 .drift-viewport-clean {
   border-color: rgba(2, 132, 199, 0.35);
 }
 
-body.deck-sdlc-part2.theme-dark #slide-3 .drift-viewport-clean {
+body.deck-sdlc-part2.theme-dark #slide-2 .drift-viewport-clean {
   border-color: rgba(56, 189, 248, 0.5);
   box-shadow: 0 16px 52px rgba(2, 132, 199, 0.18);
 }
