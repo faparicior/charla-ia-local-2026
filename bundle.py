@@ -197,7 +197,7 @@ def main():
         print("\n🎉 ¡Todos los paquetes han sido generados en la carpeta dist/!")
         print("   1. dist/charla-parte1-hardware-modelos.html (Parte 1: 53 slides)")
         print("   2. dist/charla-parte2-ciclo-desarrollo.html (Parte 2: 45 secciones · charla: 17 visibles)")
-        print("   3. dist/plantillas-referencia.html          (Plantillas: 8 slides)")
+        print("   3. dist/plantillas-referencia.html          (Plantillas: 9 slides)")
 
 if __name__ == "__main__":
     main()

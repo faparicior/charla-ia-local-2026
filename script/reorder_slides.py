@@ -275,8 +275,9 @@ def slide_title(block: str) -> str:
 
 
 def cmd_order(deck: DeckInfo, blocks):
+    start_num = 0 if blocks and blocks[0][0] == "slide-0" else 1
     print(f"Deck: {deck.path}  (body: {' '.join(sorted(deck.body_classes)) or '—'})")
-    for pos, (sid, s, e) in enumerate(blocks, 1):
+    for pos, (sid, s, e) in enumerate(blocks, start_num):
         title = slide_title(deck.text[s:e])
         marker = "" if sid == f"slide-{pos}" else "  ← id desalineado"
         print(f"  {pos:>3}: {sid:<12} {title}{marker}")
@@ -305,21 +306,17 @@ def do_move(deck_path: Path, args):
         insert_at = ref_idx
     new_blocks = rest[:insert_at] + moved + rest[insert_at:]
 
-    # Extender cada bloque hacia atrás (banners de comentario) una vez conocida
-    # la vecindad final: se hace sobre el texto original por bloque.
-    pieces = []
-    prev_end = 0
-    for sid, s, e in new_blocks:
-        s2 = extend_block_start(text, s)
-        pieces.append(text[prev_end:s2])
-        pieces.append(text[s2:e])
-        prev_end = e
-    pieces.append(text[prev_end:])
-    new_text = "".join(pieces)
+    # Reconstrucción limpia respetando los bloques originales y comentarios
+    first_start = extend_block_start(text, blocks[0][1])
+    header = text[:first_start]
+    footer = text[blocks[-1][2]:]
+    block_chunks = {b[0]: text[extend_block_start(text, b[1]):b[2]] for b in blocks}
+    new_text = header + "\n\n    ".join(block_chunks[b[0]].strip() for b in new_blocks) + "\n\n" + footer.lstrip()
 
-    # Renumeración: id = posición final
+    # Renumeración: id = posición final (respetando base 0 si el deck empieza en slide-0)
+    start_num = 0 if blocks and blocks[0][0] == "slide-0" else 1
     final_ids = [b[0] for b in new_blocks]
-    mapping = {int(sid.split("-")[1]): pos for pos, sid in enumerate(final_ids, 1)}
+    mapping = {int(sid.split("-")[1]): pos for pos, sid in enumerate(final_ids, start_num)}
     mapping = {k: v for k, v in mapping.items() if k != v}
     if not mapping:
         print("Orden ya alineado; nada que renumerar.")
@@ -367,8 +364,9 @@ def do_renumber(deck_path: Path, args):
     deck = DeckInfo(deck_path)
     blocks = find_blocks(deck.text)
     cmd_order(deck, blocks)
+    start_num = 0 if blocks and blocks[0][0] == "slide-0" else 1
     mapping = {}
-    for pos, (sid, s, e) in enumerate(blocks, 1):
+    for pos, (sid, s, e) in enumerate(blocks, start_num):
         n = deck.slide_num(sid)
         if n != pos:
             mapping[n] = pos
@@ -415,15 +413,19 @@ def do_fix_banners(deck_path: Path, args):
     fixed = 0
     out = list(text)
     # Recorremos de atrás hacia delante para que los offsets sean estables
-    matches = list(re.finditer(r"SLIDE (\d+):", text))
+    matches = list(re.finditer(r"SLIDE\s+(\d+)([^:]*:)", text))
     for m in reversed(matches):
-        nxt = re.search(r'id="slide-(\d+)"', text[m.end():])
-        if not nxt or m.group(1) == nxt.group(1):
+        nxt = re.search(r'id="slide-(\d+)"', text[m.end():m.end() + 250])
+        if not nxt:
+            continue
+        target_num = nxt.group(1)
+        if m.group(1) == target_num and m.group(2).strip() == ":":
             continue
         old_span = m.span(1)
-        out[old_span[0] : old_span[1]] = nxt.group(1)
+        suffix_span = m.span(2)
+        out[old_span[0] : suffix_span[1]] = f"{target_num}:"
         fixed += 1
-        print(f"  banner SLIDE {m.group(1)}: -> SLIDE {nxt.group(1)}:")
+        print(f"  banner SLIDE {m.group(1)}{m.group(2)} -> SLIDE {target_num}:")
     if not fixed:
         print("Todos los banners están alineados con su sección.")
         return
@@ -457,17 +459,17 @@ def main():
         # move <ids...> after|before <ref>   |   move <id> to <pos>
         rest = args.rest
         if len(rest) >= 3 and rest[-2] in ("after", "before"):
-            ids = [int(x) for x in rest[:-2]]
+            args.ids = [int(x) for x in rest[:-2]]
             args.where = rest[-2]
             args.ref = int(rest[-1])
         elif len(rest) == 3 and rest[-2] == "to":
-            ids = [int(rest[0])]
+            args.ids = [int(rest[0])]
             args.where = None
             args.ref = int(rest[-1])
             # 'to N' se traduce a before/after según el destino final
             blocks = find_blocks(deck_path.read_text(encoding="utf-8"))
             order_now = [int(b[0].split("-")[1]) for b in blocks]
-            order_now = [x for x in order_now if x != ids[0]]
+            order_now = [x for x in order_now if x != args.ids[0]]
             if args.ref <= len(order_now) + 1:
                 # posición destino 1-indexada sobre la lista sin el movido
                 if args.ref == len(order_now) + 1:

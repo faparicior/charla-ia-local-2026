@@ -10,7 +10,7 @@ producción lo hace `bundle.py` hacia `dist/` (CSS/JS/imágenes inline en un ún
 |---|---|---|
 | `dist/charla-parte1-hardware-modelos.html` | `index.html` (`body.deck-hardware-part1`) | 53 slides: Hardware, Cuantización, VRAM, Modelos locales |
 | `dist/charla-parte2-ciclo-desarrollo.html` | `parte2-ciclo-desarrollo.html` (`body.deck-sdlc-part2`) | 45 secciones · 17 visibles en charla: Ciclo de Desarrollo con IA |
-| `dist/plantillas-referencia.html` | `templates.html` | 8 slides: Plantillas de referencia y prompt engineering |
+| `dist/plantillas-referencia.html` | `templates.html` | 9 slides: Plantillas de referencia y prompt engineering |
 
 ## Convenciones del sistema de slides
 
