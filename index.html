@@ -1632,17 +1632,58 @@
           3 bits. Altura de barra = VRAM que ocupa; línea = calidad que sobrevive.
         </p>
 
-        <!-- Gancho de entrada (Modo Charla): la forja de la cuantización; el primer
-             clic disuelve la imagen y revela la gráfica del peaje (en-steps) -->
+        <!-- Gancho de entrada (Modo Charla): puente visual con slide 18 (tanque pesos azules a la izquierda)
+             + la forja de la cuantización a la derecha; el primer clic disuelve el overlay y revela la gráfica del peaje -->
         <div class="forja-intro step">
-          <figure class="forja-figure">
-            <img class="forja-img" src="script/img/forja-cuantizacion-fp8-a-nvfp4-clara.jpg"
-                 alt="Forjadora martillando un lingote de FP8 hasta convertirlo en NVFP4 entre chispas de bits">
-            <figcaption class="forja-caption">
-              🔨 <strong>La forja de la cuantización:</strong> cada martillazo quita material (precisión) para que la
-              hoja &mdash;el modelo de 244&nbsp;GB&mdash; quepa en la fragua de 128&nbsp;GB. La pregunta: ¿cuánto filo sobrevive?
-            </figcaption>
-          </figure>
+          <div class="forja-split">
+            <!-- Columna Izquierda: El Tanque de la Slide 18 (solo pesos azules) -->
+            <div class="mem-tank-card forja-tank-card">
+              <div class="vram-gauge-header">
+                <div class="vram-gauge-title">
+                  <span>🎮 Tanque de 24 GB (Qwen 3.6 27B INT4)</span>
+                </div>
+                <span class="vram-capacity-badge">24 GB VRAM</span>
+              </div>
+              <div class="mem-tank-stage">
+                <svg class="mem-tank-svg" viewBox="0 0 400 470" role="img" aria-label="Tanque de 24 GB: pesos 15.2 GB en VRAM">
+                  <defs>
+                    <linearGradient id="gW19" x1="0" y1="1" x2="0" y2="0">
+                      <stop offset="0" stop-color="#1d4ed8"/><stop offset="1" stop-color="#3b82f6"/>
+                    </linearGradient>
+                    <clipPath id="tankClip19"><rect x="60" y="15" width="280" height="440" rx="14"/></clipPath>
+                  </defs>
+                  <text x="30" y="8" text-anchor="end" font-size="11" font-weight="700" fill="#64748b">GB</text>
+                  <line x1="44" y1="15" x2="44" y2="455" stroke="#94a3b8" stroke-width="1.5"/>
+                  <g stroke="#94a3b8" stroke-width="1.5">
+                    <line x1="36" y1="455" x2="44" y2="455"/><line x1="36" y1="345" x2="44" y2="345"/>
+                    <line x1="36" y1="235" x2="44" y2="235"/><line x1="36" y1="125" x2="44" y2="125"/>
+                    <line x1="36" y1="15" x2="44" y2="15"/>
+                  </g>
+                  <g text-anchor="end" font-size="11" fill="#64748b">
+                    <text x="30" y="459">0</text><text x="30" y="349">6</text><text x="30" y="239">12</text>
+                    <text x="30" y="129">18</text><text x="30" y="19">24</text>
+                  </g>
+                  <g clip-path="url(#tankClip19)">
+                    <rect x="60" y="176" width="280" height="279" fill="url(#gW19)"/>
+                  </g>
+                  <rect class="tk-frame" x="60" y="15" width="280" height="440" rx="14" fill="none" stroke-width="1.5"/>
+                  <text x="200" y="303" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">🧠 Pesos del Modelo</text>
+                  <text x="200" y="347" text-anchor="middle" font-size="40" font-weight="800" fill="#ffffff">15.2 GB</text>
+                  <text x="200" y="376" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.85)">63% del tanque · INT4 · fijo</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: La Forja -->
+            <figure class="forja-figure">
+              <img class="forja-img" src="script/img/forja-cuantizacion-fp8-a-nvfp4-clara.jpg"
+                   alt="Forjadora martillando un lingote de FP8 hasta convertirlo en NVFP4 entre chispas de bits">
+              <figcaption class="forja-caption">
+                🔨 <strong>La forja de la cuantización:</strong> cada martillazo quita material (precisión) para que la
+                hoja &mdash;el modelo de 244&nbsp;GB&mdash; quepa en la fragua de 128&nbsp;GB. La pregunta: ¿cuánto filo sobrevive?
+              </figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="engram-deck">
