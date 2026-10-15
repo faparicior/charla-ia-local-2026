@@ -22331,10 +22331,19 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-media {
   padding: 0;
 }
 
-/* Slide 8: foto un 20% más pequeña (78% de la columna ≈ 733px; antes llenaba
-   la columna completa ≈ 913px) */
+/* Slide 8: foto pegada a la IZQUIERDA y columna de cita más ancha
+   (0.85fr/1.15fr) para que la cita ocupe menos líneas */
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-deck {
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 2rem;
+}
+
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-media {
+  justify-content: flex-start;
+}
+
 body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-img {
-  width: 78%;
+  width: 100%;
   height: auto;
 }
 
