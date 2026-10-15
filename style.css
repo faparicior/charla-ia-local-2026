@@ -26230,3 +26230,25 @@ body.deck-sdlc-part2.mode-document #slide-11 .cloud-takeaway {
 body.deck-sdlc-part2.mode-document #slide-11 .cloud-stage {
   padding-bottom: 0;
 }
+
+/* ==========================================================================
+   PARTE 2 · SLIDE 50 — FRASE DE CIERRE: a la escala de la quote de la 4
+   (solo Modo Charla; Documento mantiene sus paneles íntegros)
+   ========================================================================== */
+body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-box {
+  flex: 1 1 0;
+  min-height: 0;
+  max-width: 1640px;
+  justify-content: center;
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-text {
+  font-size: 5.2rem;
+  line-height: 1.4;
+}
+
+body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-author {
+  font-size: 1.45rem;
+}
