@@ -998,7 +998,7 @@ body.theme-dark .press-footer-link a:hover {
 body.deck-sdlc-part2
 
 /* Ajuste específico para Slide 28 (Caso Next.js) con enlaces */
-#slide-35 .press-grid {
+#slide-38 .press-grid {
   gap: 1.15rem 2.0rem;
   padding-top: 0.15rem;
 }
@@ -1007,17 +1007,17 @@ body.deck-sdlc-part2
 
 /* receta prensa (igual que s3/s4 de parte 1): titular grande, aire uniforme, link al pie
    (en parte 2 la back-bar roba ~30px → padding/desc un pelín más compactos) */
-#slide-35 .press-card {
+#slide-38 .press-card {
   padding: 1.25rem 2rem;
   gap: 0.6rem;
   justify-content: space-between;
 }
 
-body.deck-sdlc-part2 #slide-35 .press-footer-link {
+body.deck-sdlc-part2 #slide-38 .press-footer-link {
   margin-top: 0;
 }
 
-body.deck-sdlc-part2 #slide-35 .press-desc {
+body.deck-sdlc-part2 #slide-38 .press-desc {
   font-size: 1.25rem;
   line-height: 1.48;
 }
@@ -14535,39 +14535,39 @@ body:not(.mode-document) .doc-only {
 }
 
 /* En Modo Charla: banner "Regla de Oro" de steps + invariants/templates/timelines/bridge SE MUESTRA compacto (takeaway; la consola flex:1 absorbe su altura). Solo se oculta en los 3 diagramas mermaid de Fase 2 y los 2 árboles de decisión (slides densas sin hueco) */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25) .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-38 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-44 .chosen-synergy-banner {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28) .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-41 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .chosen-synergy-banner {
   display: none !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-30 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-31 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-32 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-37 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-45 .chosen-synergy-banner {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-33 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-34 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-35 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-48 .chosen-synergy-banner {
   padding: 0.55rem 1.2rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-30 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-31 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-32 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-37 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-45 .chosen-synergy-icon {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-33 .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-34 .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-35 .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-48 .chosen-synergy-icon {
   font-size: 1.15rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-30 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-31 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-32 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-37 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-45 .chosen-synergy-text {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-33 .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-34 .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-35 .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-48 .chosen-synergy-text {
   font-size: 0.9rem !important;
   line-height: 1.35 !important;
 }
@@ -14584,10 +14584,10 @@ body.deck-sdlc-part2 .deck-part-badge {
 }
 
 /* En Modo Charla, dotar de presencia y legibilidad a las terminales y tablas */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-terminal-body {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-terminal-body {
   font-size: 1.125rem !important;
   /* 18px: legible en proyector; was 0.90rem (14.4px) */
   line-height: 1.52 !important;
@@ -14597,106 +14597,106 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-3
   /* al hacer scroll no corta el contenido inicial */
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-table,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-table,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .md-table {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-table,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-table,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .md-table {
   font-size: 0.88rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-table td,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-table th,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-table td,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-table th,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .md-table td,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .md-table th {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-table td,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-table th,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-table td,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-table th,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .md-table td,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .md-table th {
   padding: 0.52rem 0.8rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-h1,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-h1,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .md-h1 {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-h1,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-h1,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .md-h1 {
   font-size: 1.05rem !important;
   padding-bottom: 0.45rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-h2,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-h2,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .md-h2 {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-h2,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-h2,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .md-h2 {
   font-size: 0.94rem !important;
   margin-top: 0.35rem !important;
 }
 
 /* [Composición] Modo Charla: las columnas consola ajustan su altura al contenido y
    se centran verticalmente en el área restante, evitando el panel negro vacío */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .boundaries-console-deck {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .boundaries-console-deck {
   align-items: center;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-terminal,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-terminal,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-terminal,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .boundaries-terminal {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .boundaries-terminal {
   height: auto;
   max-height: 100%;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .boundaries-terminal-body {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .boundaries-terminal-body {
   max-height: calc(1080px - 19rem);
   overflow-y: auto;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .boundaries-explain-col {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .boundaries-explain-col {
   justify-content: center;
   gap: 1.05rem;
 }
 
 /* Sesgo óptico: centrar el cluster un poco más cerca del título que del pie */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .boundaries-console-deck {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .boundaries-console-deck {
   padding-bottom: 2.1rem;
 }
 
 /* Tipografía de terminal algo mayor para proyección en Modo Charla */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .boundaries-terminal-body {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .boundaries-terminal-body {
   font-size: 1.125rem !important;
   gap: 1.05rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-table,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-table {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-table,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-table {
   font-size: 1.05rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-h1,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-h1 {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-h1,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-h1 {
   font-size: 1.15rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .md-h2,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .md-h2 {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .md-h2,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .md-h2 {
   font-size: 1.02rem !important;
 }
 
 /* Tableros de pilares: centrar verticalmente en el aire libre (Modo Charla) */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .adr-timeline-container,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .adr-decision-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .adr-friction-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .press-grid,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .agents-case-grid {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .adr-timeline-container,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .adr-decision-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .adr-friction-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .press-grid,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .agents-case-grid {
   margin-top: auto;
   margin-bottom: auto;
   padding-bottom: 2.1rem;
@@ -14718,7 +14718,7 @@ body:not(.mode-document) .slide[id="slide-local-inference-client"] .code-window 
   padding-bottom: 2.1rem;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .sdlc-build-deck {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .sdlc-build-deck {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
@@ -14726,22 +14726,22 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .sdlc-build-deck {
 }
 
 /* Texto pequeño del detalle TDD: bump legible (slack verificado: 27px en la card) */
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .sdlc-tdd-desc {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .sdlc-tdd-desc {
   font-size: 0.84rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-40 .sdlc-tdd-layer {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .sdlc-tdd-layer {
   font-size: 0.88rem !important;
 }
 
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .mermaid-diagram-wrap,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .mermaid-diagram-wrap {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .mermaid-diagram-wrap,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .mermaid-diagram-wrap {
   height: 640px !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .mermaid-diagram-wrap svg,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .mermaid-diagram-wrap svg {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .mermaid-diagram-wrap svg,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .mermaid-diagram-wrap svg {
   max-height: 610px !important;
 }
 
@@ -14775,80 +14775,80 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-3
 }
 
 /* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) p.subtitle,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) p.subtitle,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) p.subtitle {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) p.subtitle,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) p.subtitle,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) p.subtitle {
   display: none !important;
 }
 
 /* En Modo Charla, ocultar subtítulos, hero-subs y descs de puntos (en TODAS las plantillas: pasos, fase2 y pilares — son texto secundario que genera ruido; reaparecen en modo documento) */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-point-desc,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-point-desc,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-point-desc,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-point-desc {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-point-desc,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-point-desc,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-point-desc,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-point-desc {
   display: none !important;
 }
 
 /* En Modo Charla, columna izquierda equilibrada: flujo natural sin abismos vacíos */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-explain-col {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-explain-col {
   gap: 1.5rem;
   justify-content: space-between;
   align-self: stretch;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-hero-box,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-hero-box,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-hero-box,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-hero-box {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-hero-box {
   padding: 1.25rem 1.6rem;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-hero-quote,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-hero-quote,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-hero-quote,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-hero-quote {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-hero-quote,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-hero-quote,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-hero-quote,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-hero-quote {
   font-size: 1.75rem !important;
   line-height: 1.3 !important;
   margin-bottom: 0 !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-points-card,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-points-card,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-points-card,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-points-card {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-points-card {
   padding: 1.2rem 1.5rem !important;
   gap: 0.95rem !important;
   justify-content: flex-start;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-point-item {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-point-item {
   align-items: flex-start !important;
   gap: 1rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-point-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-point-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-point-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-point-icon {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-point-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-point-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-point-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-point-icon {
   font-size: 1.85rem !important;
   line-height: 1.1 !important;
   margin-top: 0.15rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-point-title,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-point-title,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-point-title,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-point-title {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-point-title,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-point-title,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-point-title,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-point-title {
   font-size: 1.22rem !important;
   font-weight: 700 !important;
   margin-bottom: 0.15rem !important;
@@ -14868,17 +14868,17 @@ body.mode-document .slide.doc-only {
   display: flex;
 }
 
-body.deck-sdlc-part2.mode-document .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) p.subtitle,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-hero-sub,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-hero-sub,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-point-desc,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-point-desc,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) p.subtitle,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-hero-sub,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-point-desc,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) p.subtitle,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-hero-sub,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .sdlc-point-desc {
+body.deck-sdlc-part2.mode-document .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) p.subtitle,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-hero-sub,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-hero-sub,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-point-desc,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-point-desc,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) p.subtitle,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-hero-sub,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-point-desc,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) p.subtitle,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-hero-sub,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .sdlc-point-desc {
   display: block !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -14895,9 +14895,9 @@ body.mode-document span.doc-only {
   display: inline !important;
 }
 
-body.deck-sdlc-part2.mode-document .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .chosen-synergy-banner,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .chosen-synergy-banner,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-34, #slide-35, #slide-36, #slide-37, #slide-38, #slide-43, #slide-44, #slide-45) .chosen-synergy-banner {
+body.deck-sdlc-part2.mode-document .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .chosen-synergy-banner,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .chosen-synergy-banner,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-9, #slide-37, #slide-38, #slide-39, #slide-40, #slide-41, #slide-46, #slide-47, #slide-48) .chosen-synergy-banner {
   display: flex !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -16439,8 +16439,8 @@ body.theme-dark .adr-lane-action-box {
    (limpieza visual: la terminal es la única caja sólida; la explicación respira;
    el takeaway deja de ser la barra más discreta de la slide)
    ========================================================================== */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-hero-box,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-hero-box {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-hero-box {
   background: transparent !important;
   border-top-width: 0 !important;
   border-right-width: 0 !important;
@@ -16450,8 +16450,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-
   padding: 0.3rem 0 0.3rem 1.4rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-points-card,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-points-card {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-points-card {
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
@@ -16460,8 +16460,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-
   gap: 1.25rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-point-item+.sdlc-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .boundaries-point-item+.boundaries-point-item {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-point-item+.sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .boundaries-point-item+.boundaries-point-item {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 1.2rem;
 }
@@ -16489,7 +16489,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide .chosen-synergy-icon {
 }
 
 /* --- Extensión del des-cajado a Fase 2 (s13-18: mismas clases que los pasos) --- */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-hero-box {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-hero-box {
   background: transparent !important;
   border-top-width: 0 !important;
   border-right-width: 0 !important;
@@ -16499,7 +16499,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-
   padding: 0.3rem 0 0.3rem 1.4rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-points-card {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-points-card {
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
@@ -16508,24 +16508,24 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-
   gap: 1.25rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-point-item+.sdlc-point-item {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-point-item+.sdlc-point-item {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 1.2rem;
 }
 
 /* --- Diagramas mermaid (s13-15): panel más alto (banners ocultos → aire libre), diagrama y texto +19% --- */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25) .mermaid-diagram-wrap {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28) .mermaid-diagram-wrap {
   height: 620px;
   padding: 0.8rem 1rem;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25) .mermaid-diagram-wrap svg {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28) .mermaid-diagram-wrap svg {
   max-height: 588px !important;
 }
 
 /* --- Consola llena: terminal estirada al alto de la fila (misma caja que la columna des-cajada) --- */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-13, #slide-14, #slide-15, #slide-16, #slide-17, #slide-18, #slide-19, #slide-20) .sdlc-terminal,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-23, #slide-24, #slide-25, #slide-30, #slide-31, #slide-32) .sdlc-terminal {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-16, #slide-17, #slide-18, #slide-19, #slide-20, #slide-21, #slide-22, #slide-23) .sdlc-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-26, #slide-27, #slide-28, #slide-33, #slide-34, #slide-35) .sdlc-terminal {
   align-self: stretch;
 }
 
@@ -19778,7 +19778,7 @@ body.deck-sdlc-part2
    ========================================================================== */
 
 /* ---- Paleta por banda (variables locales, tema claro/oscuro) ---- */
-#slide-12 .band-sky {
+#slide-15 .band-sky {
   --ac: #0369a1;
   --edge: #0ea5e9;
   --tint: rgba(14, 165, 233, .09);
@@ -19786,7 +19786,7 @@ body.deck-sdlc-part2
   --pd: 0s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-indigo {
+body.deck-sdlc-part2 #slide-15 .band-indigo {
   --ac: #4338ca;
   --edge: #818cf8;
   --tint: rgba(99, 102, 241, .09);
@@ -19794,7 +19794,7 @@ body.deck-sdlc-part2 #slide-12 .band-indigo {
   --pd: .2s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-purple {
+body.deck-sdlc-part2 #slide-15 .band-purple {
   --ac: #6d28d9;
   --edge: #a78bfa;
   --tint: rgba(139, 92, 246, .09);
@@ -19802,7 +19802,7 @@ body.deck-sdlc-part2 #slide-12 .band-purple {
   --pd: .4s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-fuchsia {
+body.deck-sdlc-part2 #slide-15 .band-fuchsia {
   --ac: #a21caf;
   --edge: #e879f9;
   --tint: rgba(217, 70, 239, .09);
@@ -19810,7 +19810,7 @@ body.deck-sdlc-part2 #slide-12 .band-fuchsia {
   --pd: .6s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-emerald {
+body.deck-sdlc-part2 #slide-15 .band-emerald {
   --ac: #047857;
   --edge: #34d399;
   --tint: rgba(16, 185, 129, .09);
@@ -19818,7 +19818,7 @@ body.deck-sdlc-part2 #slide-12 .band-emerald {
   --pd: .8s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-amber {
+body.deck-sdlc-part2 #slide-15 .band-amber {
   --ac: #b45309;
   --edge: #fbbf24;
   --tint: rgba(245, 158, 11, .09);
@@ -19826,7 +19826,7 @@ body.deck-sdlc-part2 #slide-12 .band-amber {
   --pd: 1s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-crimson {
+body.deck-sdlc-part2 #slide-15 .band-crimson {
   --ac: #be123c;
   --edge: #fb7185;
   --tint: rgba(244, 63, 94, .09);
@@ -19834,7 +19834,7 @@ body.deck-sdlc-part2 #slide-12 .band-crimson {
   --pd: 1.2s;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-slate {
+body.deck-sdlc-part2 #slide-15 .band-slate {
   --ac: #334155;
   --edge: #94a3b8;
   --tint: rgba(148, 163, 184, .09);
@@ -19842,42 +19842,42 @@ body.deck-sdlc-part2 #slide-12 .band-slate {
   --pd: 1.4s;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-sky {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-sky {
   --ac: #7dd3fc;
   --edge: #38bdf8;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-indigo {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-indigo {
   --ac: #a5b4fc;
   --edge: #96a1fa;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-purple {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-purple {
   --ac: #c4b5fd;
   --edge: #b79cfb;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-fuchsia {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-fuchsia {
   --ac: #f0abfc;
   --edge: #e879f9;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-emerald {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-emerald {
   --ac: #6ee7b7;
   --edge: #4ade80;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-amber {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-amber {
   --ac: #fcd34d;
   --edge: #fbbf24;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-crimson {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-crimson {
   --ac: #fda4af;
   --edge: #fb7185;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-12 .band-slate {
+body.deck-sdlc-part2.theme-dark #slide-15 .band-slate {
   --ac: #cbd5e1;
   --edge: #a8b3c4;
 }
@@ -19885,7 +19885,7 @@ body.deck-sdlc-part2.theme-dark #slide-12 .band-slate {
 body.deck-sdlc-part2
 
 /* ---- Panel estilo terminal (siempre oscuro, como los consoles del deck) ---- */
-#slide-12 .sdlc-map-panel {
+#slide-15 .sdlc-map-panel {
   flex: none;
   width: 1564px;
   margin: 0 auto;
@@ -19896,7 +19896,7 @@ body.deck-sdlc-part2
   box-shadow: 0 18px 50px rgba(10, 12, 18, 0.28);
 }
 
-body.deck-sdlc-part2 #slide-12 .sdlc-map-progress {
+body.deck-sdlc-part2 #slide-15 .sdlc-map-progress {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
@@ -19909,19 +19909,19 @@ body.deck-sdlc-part2 #slide-12 .sdlc-map-progress {
   white-space: nowrap;
 }
 
-body.deck-sdlc-part2 #slide-12 .sdlc-map-viewport {
+body.deck-sdlc-part2 #slide-15 .sdlc-map-viewport {
   position: relative;
   height: 580px;
   overflow: hidden;
   background: #0d1117;
 }
 
-body.deck-sdlc-part2 #slide-12 .sdlc-map-canvas {
+body.deck-sdlc-part2 #slide-15 .sdlc-map-canvas {
   width: 1560px;
   height: 580px;
 }
 
-body.deck-sdlc-part2 #slide-12 .sdlc-map-hint {
+body.deck-sdlc-part2 #slide-15 .sdlc-map-hint {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19936,62 +19936,62 @@ body.deck-sdlc-part2 #slide-12 .sdlc-map-hint {
 body.deck-sdlc-part2
 
 /* ---- Estilos base de los elementos SVG ---- */
-#slide-12 .sdlc-map-svg {
+#slide-15 .sdlc-map-svg {
   display: block;
   font-family: var(--font-sans);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step {
+body.deck-sdlc-part2 #slide-15 .map-step {
   cursor: pointer;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-band-bg {
+body.deck-sdlc-part2 #slide-15 .map-band-bg {
   fill: var(--tint);
   stroke: var(--tintline);
   stroke-width: 1;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-kicker {
+body.deck-sdlc-part2 #slide-15 .map-kicker {
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.1em;
   fill: var(--edge);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-skill {
+body.deck-sdlc-part2 #slide-15 .map-skill {
   fill: var(--bg-surface);
   stroke: var(--tintline);
   stroke-width: 1.5;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-title {
+body.deck-sdlc-part2 #slide-15 .map-title {
   font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.01em;
   fill: var(--text-main);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-title-sm {
+body.deck-sdlc-part2 #slide-15 .map-title-sm {
   font-size: 16px;
   font-weight: 800;
   fill: var(--text-main);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-cmd-chip {
+body.deck-sdlc-part2 #slide-15 .map-cmd-chip {
   fill: var(--tint);
   stroke: var(--tintline);
   stroke-width: 1;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-cmd,
-body.deck-sdlc-part2 #slide-12 .map-cmd-sm {
+body.deck-sdlc-part2 #slide-15 .map-cmd,
+body.deck-sdlc-part2 #slide-15 .map-cmd-sm {
   font-family: var(--font-mono);
   font-size: 11.5px;
   font-weight: 600;
   fill: var(--ac);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-chip {
+body.deck-sdlc-part2 #slide-15 .map-chip {
   fill: rgba(255, 255, 255, 0.03);
   stroke: var(--edge);
   stroke-opacity: 0.5;
@@ -19999,7 +19999,7 @@ body.deck-sdlc-part2 #slide-12 .map-chip {
   stroke-dasharray: 6 5;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-chip-sm {
+body.deck-sdlc-part2 #slide-15 .map-chip-sm {
   fill: rgba(255, 255, 255, 0.03);
   stroke: var(--edge);
   stroke-opacity: 0.5;
@@ -20007,43 +20007,43 @@ body.deck-sdlc-part2 #slide-12 .map-chip-sm {
   stroke-dasharray: 5 4;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-chip-path,
-body.deck-sdlc-part2 #slide-12 .map-chip-path-sm {
+body.deck-sdlc-part2 #slide-15 .map-chip-path,
+body.deck-sdlc-part2 #slide-15 .map-chip-path-sm {
   font-family: var(--font-mono);
   font-size: 10.5px;
   fill: var(--edge);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-chip-item {
+body.deck-sdlc-part2 #slide-15 .map-chip-item {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 600;
   fill: var(--edge);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-note {
+body.deck-sdlc-part2 #slide-15 .map-note {
   font-size: 16px;
   font-weight: 500;
   fill: #b6bec9;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-op-cmd {
+body.deck-sdlc-part2 #slide-15 .map-op-cmd {
   font-family: var(--font-mono);
   font-size: 12.5px;
   font-weight: 700;
   fill: var(--ac);
 }
 
-body.deck-sdlc-part2 #slide-12 .map-op-cap {
+body.deck-sdlc-part2 #slide-15 .map-op-cap {
   font-size: 11px;
   fill: var(--text-muted);
 }
 
-body.deck-sdlc-part2 #slide-12 .band-indigo .map-op-cap {
+body.deck-sdlc-part2 #slide-15 .band-indigo .map-op-cap {
   fill: #9aa3b5;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-flow {
+body.deck-sdlc-part2 #slide-15 .map-flow {
   fill: none;
   stroke: var(--edge);
   stroke-width: 2.4;
@@ -20052,7 +20052,7 @@ body.deck-sdlc-part2 #slide-12 .map-flow {
   stroke-dasharray: 100;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-dash {
+body.deck-sdlc-part2 #slide-15 .map-dash {
   fill: none;
   stroke: var(--edge);
   stroke-width: 2;
@@ -20060,13 +20060,13 @@ body.deck-sdlc-part2 #slide-12 .map-dash {
   stroke-linecap: round;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-head {
+body.deck-sdlc-part2 #slide-15 .map-head {
   fill: var(--edge);
   transform-box: fill-box;
   transform-origin: center;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-rule-label {
+body.deck-sdlc-part2 #slide-15 .map-rule-label {
   font-size: 10.5px;
   font-style: italic;
   font-weight: 600;
@@ -20075,13 +20075,13 @@ body.deck-sdlc-part2 #slide-12 .map-rule-label {
   opacity: 0.9;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-pill {
+body.deck-sdlc-part2 #slide-15 .map-pill {
   fill: var(--bg-surface-elevated);
   stroke: var(--tintline);
   stroke-width: 1.5;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-pill-t {
+body.deck-sdlc-part2 #slide-15 .map-pill-t {
   font-size: 13.5px;
   font-weight: 700;
   fill: var(--text-main);
@@ -20090,19 +20090,19 @@ body.deck-sdlc-part2 #slide-12 .map-pill-t {
 body.deck-sdlc-part2
 
 /* Contraste: el título del ADR va directo sobre el panel oscuro */
-#slide-12 .band-indigo .map-title {
+#slide-15 .band-indigo .map-title {
   fill: #eef0ff;
 }
 
-body.deck-sdlc-part2 #slide-12 .band-indigo .map-cmd {
+body.deck-sdlc-part2 #slide-15 .band-indigo .map-cmd {
   fill: #a5b4fc;
 }
 
 body.deck-sdlc-part2
 
 /* Banda en foco (último paso activado) */
-#slide-12 .map-step.step-current .map-band-bg,
-body.deck-sdlc-part2 #slide-12 .map-step.step-current .map-skill {
+#slide-15 .map-step.step-current .map-band-bg,
+body.deck-sdlc-part2 #slide-15 .map-step.step-current .map-skill {
   stroke: var(--edge);
   stroke-width: 2;
 }
@@ -20110,7 +20110,7 @@ body.deck-sdlc-part2 #slide-12 .map-step.step-current .map-skill {
 body.deck-sdlc-part2
 
 /* ---- Barrido de luz (paso 8 · ciclo completo) ---- */
-#slide-12 .map-sweep {
+#slide-15 .map-sweep {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -20202,136 +20202,136 @@ body.deck-sdlc-part2
    ========================================================================== */
 
 /* Todo el mapa en silueta tenue hasta que su paso se activa */
-body.deck-sdlc-part2 #slide-12 .map-step {
+body.deck-sdlc-part2 #slide-15 .map-step {
   opacity: 0.2;
   filter: grayscale(0.9);
   transition: opacity 0.55s ease, filter 0.55s ease;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step.step-active {
+body.deck-sdlc-part2 #slide-15 .map-step.step-active {
   opacity: 1;
   filter: none;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step:not(.step-active):hover {
+body.deck-sdlc-part2 #slide-15 .map-step:not(.step-active):hover {
   opacity: 0.4;
   filter: grayscale(0.5);
 }
 
 /* El pill del paso 8 se ve desde el principio como asequimiento */
-body.deck-sdlc-part2 #slide-12 .map-step-reveal {
+body.deck-sdlc-part2 #slide-15 .map-step-reveal {
   opacity: 0.55;
   filter: none;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step-reveal.step-active {
+body.deck-sdlc-part2 #slide-15 .map-step-reveal.step-active {
   opacity: 1;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step.step-current {
+body.deck-sdlc-part2 #slide-15 .map-step.step-current {
   filter: drop-shadow(0 0 10px var(--tintline));
 }
 
 /* Cajas: siempre visibles en silueta; al activar el paso, pop animado */
-body.deck-sdlc-part2 #slide-12 .map-step.step-active .pop {
+body.deck-sdlc-part2 #slide-15 .map-step.step-active .pop {
   animation: mapPopIn 0.55s var(--ease-spring) var(--d, 0s) both;
 }
 
 /* Flechas sólidas: al activar, se dibujan */
-body.deck-sdlc-part2 #slide-12 .map-step.step-active .map-flow {
+body.deck-sdlc-part2 #slide-15 .map-step.step-active .map-flow {
   animation: mapDraw 0.65s ease-out var(--d, 0s) both;
 }
 
 /* Flechas discontinuas: al activar, fade in */
-body.deck-sdlc-part2 #slide-12 .map-step.step-active .map-dash {
+body.deck-sdlc-part2 #slide-15 .map-step.step-active .map-dash {
   animation: mapFadeIn 0.5s ease var(--d, 0s) both;
 }
 
 /* Puntas de flecha: aparecen al final del trazado */
-body.deck-sdlc-part2 #slide-12 .map-step.step-active .map-head {
+body.deck-sdlc-part2 #slide-15 .map-step.step-active .map-head {
   animation: mapHeadIn 0.35s var(--ease-spring) var(--d, 0s) both;
 }
 
 /* Paso 8: barrido de luz + pulso de las bandas */
-body.deck-sdlc-part2 #slide-12:has(.step[data-step="9"].step-active) .map-sweep {
+body.deck-sdlc-part2 #slide-15:has(.step[data-step="9"].step-active) .map-sweep {
   animation: mapSweep 1.9s ease-in-out 0.15s both;
 }
 
-body.deck-sdlc-part2 #slide-12:has(.step[data-step="9"].step-active) .map-band-bg {
+body.deck-sdlc-part2 #slide-15:has(.step[data-step="9"].step-active) .map-band-bg {
   animation: bandGlowPulse 1.05s ease-in-out var(--pd, 0s) 2;
 }
 
 /* Contador de pasos en la barra del panel (N iluminados / 9) */
-body.deck-sdlc-part2.mode-document #slide-12 .sdlc-map-progress {
+body.deck-sdlc-part2.mode-document #slide-15 .sdlc-map-progress {
   visibility: hidden;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15 .map-step-counter::after {
   content: "▶ 0 / 9 · Pulsa: Fase 1 · Discovery";
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-12 .map-step-counter::after {
+body.deck-sdlc-part2:not(.mode-document) #slide-15 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 1 · Inception";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="1"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="1"] .map-step-counter::after {
   content: "1 / 9 · Fase 1 · Discovery";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="2"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="2"] .map-step-counter::after {
   content: "2 / 9 · Gobierno ADR";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="3"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="3"] .map-step-counter::after {
   content: "3 / 9 · Fase 2 · Specs";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="4"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="4"] .map-step-counter::after {
   content: "4 / 9 · Fase 2b · Features";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="5"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="5"] .map-step-counter::after {
   content: "5 / 9 · Fase 3 · Dominio";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="6"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="6"] .map-step-counter::after {
   content: "6 / 9 · Fase 4 · TDD";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="7"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="7"] .map-step-counter::after {
   content: "7 / 9 · Fase 5+ · Evolución";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="8"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="8"] .map-step-counter::after {
   content: "8 / 9 · Operaciones";
 }
 
-body.deck-sdlc-part2 #slide-12[data-active-steps="9"] .map-step-counter::after {
+body.deck-sdlc-part2 #slide-15[data-active-steps="9"] .map-step-counter::after {
   content: "9 / 9 · Ciclo completo";
 }
 
 /* ==========================================================================
    OVERVIEW & IMPRESIÓN: mapa completo iluminado
    ========================================================================== */
-body.deck-sdlc-part2.overview-mode #slide-12 .map-step,
-body.deck-sdlc-part2.overview-mode #slide-12 .pop,
-body.deck-sdlc-part2.overview-mode #slide-12 .svg-t {
+body.deck-sdlc-part2.overview-mode #slide-15 .map-step,
+body.deck-sdlc-part2.overview-mode #slide-15 .pop,
+body.deck-sdlc-part2.overview-mode #slide-15 .svg-t {
   opacity: 1 !important;
   filter: none !important;
   transform: none !important;
 }
 
-body.deck-sdlc-part2.overview-mode #slide-12 .map-flow {
+body.deck-sdlc-part2.overview-mode #slide-15 .map-flow {
   stroke-dashoffset: 0 !important;
 }
 
-body.deck-sdlc-part2.overview-mode #slide-12 .map-dash,
-body.deck-sdlc-part2.overview-mode #slide-12 .map-head {
+body.deck-sdlc-part2.overview-mode #slide-15 .map-dash,
+body.deck-sdlc-part2.overview-mode #slide-15 .map-head {
   opacity: 1 !important;
   transform: none !important;
 }
 
-body.deck-sdlc-part2.overview-mode #slide-12 .map-sweep {
+body.deck-sdlc-part2.overview-mode #slide-15 .map-sweep {
   display: none !important;
 }
 
@@ -21577,23 +21577,23 @@ body.deck-sdlc-part2
 /* ==========================================================================
    PARTE 2 — Slide 27 (timeline SDLC): tarjeta Fase 2b Features (fucsia) + grid a 6
    ========================================================================== */
-#slide-44 .adr-timeline-track {
+#slide-47 .adr-timeline-track {
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
 }
 
-body.deck-sdlc-part2 #slide-43 .adr-step-icon-box.fuchsia {
+body.deck-sdlc-part2 #slide-46 .adr-step-icon-box.fuchsia {
   background: rgba(217, 70, 239, 0.12);
   border-color: rgba(217, 70, 239, 0.3);
   box-shadow: 0 0 18px rgba(217, 70, 239, 0.15);
 }
 
-body.deck-sdlc-part2 #slide-43 .adr-step-bullet-item.fuchsia {
+body.deck-sdlc-part2 #slide-46 .adr-step-bullet-item.fuchsia {
   background: rgba(217, 70, 239, 0.08);
   border-color: rgba(217, 70, 239, 0.25);
 }
 
-body.deck-sdlc-part2 #slide-43 .adr-step-bullet-item.fuchsia code {
+body.deck-sdlc-part2 #slide-46 .adr-step-bullet-item.fuchsia code {
   color: #a21caf;
 }
 
@@ -21629,25 +21629,25 @@ body.theme-dark .sdlc-skill-pill.fuchsia {
    En Charla: quote + títulos de puntos + terminal núcleo + banner compacto.
    El detalle (subs, descs, secciones doc-only) vive en Modo Documento.
    ========================================================================== */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-point-desc,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-point-desc {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-point-desc,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-point-desc {
   display: none !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .chosen-synergy-banner {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .chosen-synergy-banner {
   padding: 0.55rem 1.2rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .chosen-synergy-icon {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .chosen-synergy-icon {
   font-size: 1.05rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .chosen-synergy-text {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .chosen-synergy-text {
   font-size: 0.88rem !important;
 }
 
@@ -21656,8 +21656,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .chosen-synergy-te
 /* — Geometría EXACTA de la serie phase2- en Charla: quote sin caja (solo barra de
    acento izq.), columna repartida (quote arriba / puntos centro / pill abajo),
    terminal que abraza y consola centrada con sesgo óptico — */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-hero-box,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-hero-box {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-hero-box,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-hero-box {
   background: transparent !important;
   border-top-width: 0 !important;
   border-right-width: 0 !important;
@@ -21667,33 +21667,33 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-hero-box {
   padding: 0.3rem 0 0.3rem 1.4rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-hero-quote,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-hero-quote {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-hero-quote,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-hero-quote {
   font-size: 1.75rem !important;
   line-height: 1.3 !important;
   margin-bottom: 0 !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-console-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-console-deck {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-console-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-console-deck {
   align-items: center;
   padding-bottom: 2.1rem;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-terminal,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-terminal {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-terminal,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-terminal {
   height: auto;
   max-height: 100%;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-terminal-body {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-terminal-body,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-terminal-body {
   max-height: calc(1080px - 19rem);
   overflow-y: auto;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-explain-col {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-explain-col,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-explain-col {
   gap: 1.5rem;
   justify-content: space-between;
   align-self: stretch;
@@ -21703,8 +21703,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-explain-col 
    PARTE 2 — Slides 2b & Fase 3: lista de puntos SIN caja en Modo Charla
    (mismo patrón que las slides [id^="slide-phase2-"]: transparente + separadores)
    ========================================================================== */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-points-card,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-points-card {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-points-card,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-points-card {
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
@@ -21713,20 +21713,20 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-points-card 
   gap: 1.25rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-point-item+.sdlc-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-point-item+.sdlc-point-item {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-point-item+.sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-point-item+.sdlc-point-item {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 1.2rem;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-point-item {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-point-item,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-point-item {
   align-items: flex-start !important;
   gap: 1rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-27) .sdlc-point-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-point-icon {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-30) .sdlc-point-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-32) .sdlc-point-icon {
   font-size: 1.85rem !important;
 }
 
@@ -21734,18 +21734,18 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29) .sdlc-point-icon {
    PARTE 2 — Slide 15 Greenfield vs Brownfield: franja de flujo compacta
    (solo Modo Charla; la tabla interactiva 8v8 queda para Modo Documento)
    ========================================================================== */
-body.deck-sdlc-part2.mode-document #slide-21 .gb-strip {
+body.deck-sdlc-part2.mode-document #slide-24 .gb-strip {
   display: none;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-strip {
+body.deck-sdlc-part2 #slide-24 .gb-strip {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 0.35rem;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-panel {
+body.deck-sdlc-part2 #slide-24 .gb-panel {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
@@ -21756,20 +21756,20 @@ body.deck-sdlc-part2 #slide-21 .gb-panel {
   gap: 0.85rem;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-panel-head {
+body.deck-sdlc-part2 #slide-24 .gb-panel-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-panel-title {
+body.deck-sdlc-part2 #slide-24 .gb-panel-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-order-badge {
+body.deck-sdlc-part2 #slide-24 .gb-order-badge {
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 700;
@@ -21779,25 +21779,25 @@ body.deck-sdlc-part2 #slide-21 .gb-order-badge {
   white-space: nowrap;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-badge-green {
+body.deck-sdlc-part2 #slide-24 .gb-badge-green {
   background: rgba(16, 185, 129, 0.13);
   color: #047857;
   border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-badge-amber {
+body.deck-sdlc-part2 #slide-24 .gb-badge-amber {
   background: rgba(217, 119, 6, 0.13);
   color: #b45309;
   border: 1px solid rgba(217, 119, 6, 0.4);
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-chip-row {
+body.deck-sdlc-part2 #slide-24 .gb-chip-row {
   display: flex;
   align-items: stretch;
   gap: 0.4rem;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-chip {
+body.deck-sdlc-part2 #slide-24 .gb-chip {
   flex: 1;
   display: flex;
   align-items: center;
@@ -21812,7 +21812,7 @@ body.deck-sdlc-part2 #slide-21 .gb-chip {
   line-height: 1.15;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-num {
+body.deck-sdlc-part2 #slide-24 .gb-num {
   font-style: normal;
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -21826,46 +21826,46 @@ body.deck-sdlc-part2 #slide-21 .gb-num {
   justify-content: center;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-green .gb-num {
+body.deck-sdlc-part2 #slide-24 .gb-green .gb-num {
   background: rgba(16, 185, 129, 0.16);
   color: #047857;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-brown .gb-num {
+body.deck-sdlc-part2 #slide-24 .gb-brown .gb-num {
   background: rgba(217, 119, 6, 0.16);
   color: #b45309;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-arrow {
+body.deck-sdlc-part2 #slide-24 .gb-arrow {
   color: rgba(15, 23, 42, 0.4);
   font-size: 1.05rem;
   min-width: 1.1rem;
   text-align: center;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-chip.gb-hot {
+body.deck-sdlc-part2 #slide-24 .gb-chip.gb-hot {
   background: rgba(217, 119, 6, 0.1);
   border-color: rgba(217, 119, 6, 0.55);
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-chip.gb-dim {
+body.deck-sdlc-part2 #slide-24 .gb-chip.gb-dim {
   opacity: 0.62;
   border-style: dashed;
   flex: 0.75;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-dim .gb-num {
+body.deck-sdlc-part2 #slide-24 .gb-dim .gb-num {
   width: auto;
   min-width: 1.75rem;
   padding: 0 0.25rem;
   border-radius: 999px;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-chip.gb-contract {
+body.deck-sdlc-part2 #slide-24 .gb-chip.gb-contract {
   border-color: rgba(16, 185, 129, 0.55);
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-swap {
+body.deck-sdlc-part2 #slide-24 .gb-swap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21879,13 +21879,13 @@ body.deck-sdlc-part2 #slide-21 .gb-swap {
   animation: gbSwapPulse 2.4s ease-in-out infinite;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-swap b {
+body.deck-sdlc-part2 #slide-24 .gb-swap b {
   font-size: 1.25rem;
   color: #b45309;
   line-height: 1;
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-swap small {
+body.deck-sdlc-part2 #slide-24 .gb-swap small {
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 700;
@@ -21906,54 +21906,54 @@ body.deck-sdlc-part2 #slide-21 .gb-swap small {
   }
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-caption {
+body.deck-sdlc-part2 #slide-24 .gb-caption {
   font-size: 0.92rem;
   color: rgba(15, 23, 42, 0.62);
 }
 
-body.deck-sdlc-part2 #slide-21 .gb-caption strong {
+body.deck-sdlc-part2 #slide-24 .gb-caption strong {
   color: #b45309;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-panel {
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-panel {
   background: rgba(255, 255, 255, 0.02);
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: none;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-chip {
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-chip {
   background: rgba(255, 255, 255, 0.045);
   border-color: rgba(255, 255, 255, 0.14);
   color: #e6edf3;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-arrow {
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-arrow {
   color: rgba(255, 255, 255, 0.4);
 }
 
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-caption {
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-caption {
   color: #9aa4b2;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-badge-green,
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-green .gb-num {
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-badge-green,
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-green .gb-num {
   color: #6ee7b7;
 }
 
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-badge-amber,
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-brown .gb-num,
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-swap b,
-body.deck-sdlc-part2.theme-dark #slide-21 .gb-swap small {
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-badge-amber,
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-brown .gb-num,
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-swap b,
+body.deck-sdlc-part2.theme-dark #slide-24 .gb-swap small {
   color: #fcd34d;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-21 .slide-content {
+body.deck-sdlc-part2:not(.mode-document) #slide-24 .slide-content {
   height: 100%;
   justify-content: center;
   padding-bottom: 45px;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-21 .gb-strip {
+body.deck-sdlc-part2:not(.mode-document) #slide-24 .gb-strip {
   flex: 1;
   justify-content: center;
   max-height: 560px;
@@ -22621,31 +22621,31 @@ body.overview-mode .map-ckpt-host .map-sweep {
   content: none;
 }
 
-body.deck-sdlc-part2 #slide-22 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-25 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 2 · Specs";
 }
 
-body.deck-sdlc-part2 #slide-26 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-29 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 2b · Features";
 }
 
-body.deck-sdlc-part2 #slide-28 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-31 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 3 · Dominio";
 }
 
-body.deck-sdlc-part2 #slide-33 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-36 .map-step-counter::after {
   content: "📍 Estamos aquí · Gobernanza · ADRs";
 }
 
-body.deck-sdlc-part2 #slide-39 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-42 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 4 · TDD";
 }
 
-body.deck-sdlc-part2 #slide-42 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-45 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 5+ · Cambio Guiado";
 }
 
-body.deck-sdlc-part2 #slide-41 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-44 .map-step-counter::after {
   content: "✨ 9 / 9 · Todo el ecosistema encendido";
 }
 
@@ -23612,12 +23612,12 @@ body.deck-sdlc-part2.overview-mode #slide-7 .fd-chip {
    encendida de serie, como se ve en la estación 19; el resto del
    mapa en silueta hasta que el recorrido ilumina paso a paso.
    ================================================================ */
-body.deck-sdlc-part2 #slide-12 .map-step.band-sky {
+body.deck-sdlc-part2 #slide-15 .map-step.band-sky {
   opacity: 1;
   filter: none;
 }
 
-body.deck-sdlc-part2 #slide-12 .map-step.band-sky:not(.step-active):hover {
+body.deck-sdlc-part2 #slide-15 .map-step.band-sky:not(.step-active):hover {
   opacity: 1;
   filter: none;
 }
@@ -26033,4 +26033,64 @@ body.deck-sdlc-part2.theme-dark #slide-11 .bif-node {
 body.deck-sdlc-part2.theme-dark #slide-11 .bif-rule {
   fill: rgba(16, 185, 129, 0.1);
   stroke: rgba(52, 211, 153, 0.4);
+}
+
+/* P2 s12-14 — esquemas SVG a página completa (secuencia, flowchart, FSM):
+   estilos por CLASE (inmunes a renumeraciones). Cartas claras con variante
+   oscura; rombos ámbar; errores rojos; notas con esquina doblada. */
+.esq-stage {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esq-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.esq-card {
+  fill: #ffffff;
+  stroke: #d7dfea;
+  stroke-width: 1.5;
+}
+
+.esq-diamond {
+  fill: #fff8ed;
+  stroke: #f59e0b;
+  stroke-width: 1.5;
+}
+
+.esq-err {
+  fill: #fef2f2;
+  stroke: #fca5a5;
+  stroke-width: 1.5;
+}
+
+.esq-note {
+  fill: #f6f9fc;
+  stroke: #dbe3ec;
+  stroke-width: 1.5;
+}
+
+body.theme-dark .esq-card {
+  fill: #18202e;
+  stroke: #334155;
+}
+
+body.theme-dark .esq-diamond {
+  fill: #292013;
+  stroke: #f59e0b;
+}
+
+body.theme-dark .esq-err {
+  fill: #2a1215;
+  stroke: #7f1d1d;
+}
+
+body.theme-dark .esq-note {
+  fill: #0b1220;
+  stroke: #26334a;
 }
