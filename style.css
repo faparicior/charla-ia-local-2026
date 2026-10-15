@@ -25907,16 +25907,33 @@ body.deck-sdlc-part2 #slide-11 .bifront-stage {
 body.deck-sdlc-part2 #slide-11 .bifront-svg {
   width: 100%;
   height: 100%;
-  max-width: 980px;
+  max-width: 1140px;
 }
 
+/* papel claro (Modo Claro) / papel oscuro (Modo Oscuro) */
 body.deck-sdlc-part2 #slide-11 .bif-sheet {
-  fill: #0d1117;
-  stroke: #334155;
+  fill: #ffffff;
+  stroke: #d7dfea;
   stroke-width: 1.5;
+}
+
+body.deck-sdlc-part2 #slide-11 .bif-head {
+  fill: #eef2f7;
+}
+
+body.deck-sdlc-part2 #slide-11 .bif-line {
+  fill: #dfe7f0;
 }
 
 body.deck-sdlc-part2.theme-dark #slide-11 .bif-sheet {
   fill: #10151f;
   stroke: #3b4a63;
+}
+
+body.deck-sdlc-part2.theme-dark #slide-11 .bif-head {
+  fill: #1e293b;
+}
+
+body.deck-sdlc-part2.theme-dark #slide-11 .bif-line {
+  fill: #334155;
 }

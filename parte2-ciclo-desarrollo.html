@@ -1153,63 +1153,90 @@
           <span class="deck-part-badge">Parte 2 • Fase 2 • El Documento Bifronte</span>
         </div>
         <div class="tag">Fase 2 • Especificación Viva • Formato de Documento</div>
-        <h2>El Documento Bifronte: <span class="serif-italic" style="color: #8b5cf6;">el Negocio Arriba, el Código Abajo</span></h2>
+        <h2>El Documento Bifronte: <span class="serif-italic" style="color: #8b5cf6;">Negocio e Implementación</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Cada doc del SDLC tiene dos mitades: arriba, el negocio y su funcionamiento abstracto — el idioma de PMs y
           del equipo técnico; abajo, tras el desgarro, el contrato técnico: qué implica implementar esa funcionalidad.
         </p>
 
-        <div class="bifront-stage">
-          <svg class="bifront-svg" viewBox="0 0 760 672" role="img" aria-label="Documento del SDLC partido en dos mitades por un desgarro de papel: arriba el negocio, abajo la implementación técnica">
+                <div class="bifront-stage">
+          <svg class="bifront-svg" viewBox="0 0 1120 640" role="img" aria-label="Documento del SDLC rasgado en dos mitades: a la izquierda la parte del negocio, a la derecha la implementación técnica">
                   <defs>
                     <filter id="bifTear" x="-15%" y="-15%" width="130%" height="130%">
-                      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+                      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#1e293b" flood-opacity="0.35"/>
                     </filter>
                   </defs>
 
-                  <!-- Mitad de abajo (la hoja rota, ligeramente girada) -->
-                  <g transform="rotate(0.7 380 480)">
-                    <path class="bif-sheet" d="M 60 323.7 L60 323.7 L79.9 319.5 L99.7 303.2 L116.8 304.1 L132.2 299.6 L152.3 299.0 L168.5 321.5 L186.4 298.8 L206.1 304.4 L220.6 299.0 L239.8 319.4 L259.6 298.6 L276.6 300.4 L291.8 297.9 L307.3 299.9 L320.6 301.0 L340.3 315.7 L353.5 302.9 L373.9 300.3 L394.7 319.2 L412.3 297.2 L427.4 301.9 L440.5 322.6 L454.5 297.9 L467.6 323.0 L482.0 300.5 L496.5 300.8 L512.6 319.2 L527.3 323.6 L548.1 325.0 L561.2 301.1 L581.1 304.6 L595.2 317.6 L614.4 323.3 L630.5 304.1 L648.2 304.8 L664.1 316.3 L681.8 296.3 L700 311 V 634 Q 700 648 686 648 H 74 Q 60 648 60 634 Z"/>
-                    <!-- PARTE 2 · LA IMPLEMENTACIÓN -->
-                    <rect x="88" y="342" width="252" height="28" rx="7" fill="#10b981"/>
-                    <text x="214" y="361" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff" letter-spacing="0.06em">PARTE 2 · LA IMPLEMENTACIÓN</text>
-                    <text x="88" y="392" font-size="10.5" fill="#64748b">el contrato técnico: qué implica implementar esa funcionalidad</text>
-                    <rect x="88" y="404" width="584" height="172" rx="10" fill="#060b18" stroke="#1e293b" stroke-width="1.5"/>
-                    <text x="108" y="432" font-family="var(--font-mono)" font-size="12.5" font-weight="700" fill="#38bdf8">POST /api/v1/conferences</text>
-                    <text x="108" y="458" font-family="var(--font-mono)" font-size="12.5" fill="#a5b4fc">→ schema.parse(payload)  <tspan fill="#475569">// Zod, INV-001</tspan></text>
-                    <text x="108" y="484" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ Conference.create(DRAFT)</text>
-                    <text x="108" y="510" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ emit(ConferenceCreated) → outbox</text>
-                    <text x="108" y="536" font-family="var(--font-mono)" font-size="12.5" fill="#fbbf24">ADR-004 · tests ✓ 21/21</text>
-                    <rect x="88" y="596" width="500" height="10" rx="5" fill="#334155" opacity="0.55"/>
-                    <rect x="88" y="618" width="420" height="10" rx="5" fill="#334155" opacity="0.4"/>
+                  <!-- HOJA DERECHA: PARTE 2 · LA IMPLEMENTACIÓN (girada, como papel rasgado) -->
+                  <g transform="rotate(0.8 840 320)" filter="url(#bifTear)">
+                    <path class="bif-sheet" d="M 1086 20 Q 1100 20 1100 34 V 606 Q 1100 620 1086 620 H 575 L575 620 L581.4 587.2 L567.5 570.4 L569.4 548.9 L563.3 525.0 L583.5 506.3 L581.9 490.5 L582.4 471.2 L582.1 455.0 L580.7 437.9 L567.7 414.7 L569.9 393.4 L564.1 376.3 L567.5 360.7 L584.4 341.0 L562.9 322.5 L589.6 299.1 L567.3 276.2 L568.7 257.0 L560.2 237.2 L569.1 217.8 L582.4 200.6 L560.7 177.7 L564.0 158.3 L568.5 136.5 L561.3 118.8 L589.7 96.9 L584.3 77.8 L587.7 59.8 L563.2 43.7 L585.3 20 H 569 Q 575 20 569 20 Z"/>
+                    <path class="bif-head" d="M 1086 20 Q 1100 20 1100 34 V 68 H 575 L 569 20 Z" fill-opacity="1"/>
+                    <text x="594" y="49" font-family="var(--font-mono)" font-size="11.5" fill="#94a3b8">journey-01-setup.md · 2/2</text>
+                    <rect x="600" y="88" width="264" height="30" rx="8" fill="#10b981"/>
+                    <text x="732" y="108" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.05em">PARTE 2 · LA IMPLEMENTACIÓN</text>
+                    <text x="600" y="142" font-size="11" fill="#64748b">el contrato técnico: qué implica implementar esa funcionalidad</text>
+                    <rect x="600" y="158" width="474" height="238" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+                    <text x="620" y="190" font-family="var(--font-mono)" font-size="13" font-weight="700" fill="#38bdf8">POST /api/v1/conferences</text>
+                    <text x="620" y="218" font-family="var(--font-mono)" font-size="12.5" fill="#a5b4fc">→ schema.parse(payload)  <tspan fill="#475569">// Zod · INV-001</tspan></text>
+                    <text x="620" y="246" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ Conference.create(DRAFT)</text>
+                    <text x="620" y="274" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ emit(ConferenceCreated) → outbox</text>
+                    <text x="620" y="302" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ outbox worker → email bienvenida</text>
+                    <text x="620" y="330" font-family="var(--font-mono)" font-size="12.5" fill="#fbbf24">ADR-004 · INV-001 · tests ✓ 21/21</text>
+                    <text x="620" y="368" font-family="var(--font-mono)" font-size="12" fill="#94a3b8">✓ tests de dominio en verde</text>
+                    <text x="620" y="390" font-family="var(--font-mono)" font-size="12" fill="#94a3b8">✓ contract tests del API</text>
+                    <rect class="bif-line" x="600" y="416" width="440" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="438" width="392" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="460" width="452" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="482" width="330" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="510" width="474" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="532" width="404" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="554" width="360" height="10" rx="5"/>
+                    <rect class="bif-line" x="600" y="576" width="286" height="10" rx="5"/>
                   </g>
 
-                  <!-- Mitad de arriba (con sombra que proyecta sobre la rota) -->
+                  <!-- HOJA IZQUIERDA: PARTE 1 · EL NEGOCIO -->
                   <g filter="url(#bifTear)">
-                    <path class="bif-sheet" d="M 74 24 H 686 Q 700 24 700 38 V 311 L700 311 L681.8 296.3 L664.1 316.3 L648.2 304.8 L630.5 304.1 L614.4 323.3 L595.2 317.6 L581.1 304.6 L561.2 301.1 L548.1 325.0 L527.3 323.6 L512.6 319.2 L496.5 300.8 L482.0 300.5 L467.6 323.0 L454.5 297.9 L440.5 322.6 L427.4 301.9 L412.3 297.2 L394.7 319.2 L373.9 300.3 L353.5 302.9 L340.3 315.7 L320.6 301.0 L307.3 299.9 L291.8 297.9 L276.6 300.4 L259.6 298.6 L239.8 319.4 L220.6 299.0 L206.1 304.4 L186.4 298.8 L168.5 321.5 L152.3 299.0 L132.2 299.6 L116.8 304.1 L99.7 303.2 L79.9 319.5 L60 323.7 L 60 323.7 V 38 Q 60 24 74 24 Z"/>
+                    <path class="bif-sheet" d="M 34 20 H 531 L539.7 20 L538.6 37.5 L534.1 53.4 L537.8 68.7 L534.4 88.2 L552.2 109.7 L532.4 130.0 L553.4 146.4 L551.0 162.8 L558.5 181.2 L532.7 201.7 L550.8 221.5 L555.8 239.1 L533.4 260.5 L531.4 282.4 L552.8 305.2 L551.6 326.0 L557.0 344.1 L533.9 365.3 L538.4 381.8 L533.2 400.3 L537.7 422.8 L554.0 438.1 L552.1 453.7 L551.4 473.2 L557.5 489.5 L553.6 508.3 L534.9 532.3 L531.4 548.1 L532.1 564.5 L536.2 583.3 L545 620 L 545 620 H 34 Q 20 620 20 606 V 34 Q 20 20 34 20 Z"/>
+                    <path class="bif-head" d="M 34 20 H 531 L 545 20 V 68 H 20 V 34 Q 20 20 34 20 Z" fill-opacity="1"/>
+                    <circle cx="42" cy="44" r="5.5" fill="#ef4444"/>
+                    <circle cx="62" cy="44" r="5.5" fill="#f59e0b"/>
+                    <circle cx="82" cy="44" r="5.5" fill="#22c55e"/>
+                    <text x="102" y="48" font-family="var(--font-mono)" font-size="11.5" fill="#94a3b8">journey-01-setup.md · 1/2</text>
+                    <rect x="40" y="88" width="228" height="30" rx="8" fill="#6366f1"/>
+                    <text x="154" y="108" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.05em">PARTE 1 · EL NEGOCIO</text>
+                    <text x="40" y="142" font-size="11" fill="#64748b">el qué y el por qué, de forma abstracta · un idioma común</text>
+                    <rect x="40" y="158" width="76" height="24" rx="12" fill="#eef2f7" stroke="#dbe3ec" stroke-width="1"/>
+                    <text x="78" y="174" text-anchor="middle" font-size="10.5" fill="#64748b">👥 PMs</text>
+                    <rect x="124" y="158" width="128" height="24" rx="12" fill="#eef2f7" stroke="#dbe3ec" stroke-width="1"/>
+                    <text x="188" y="174" text-anchor="middle" font-size="10.5" fill="#64748b">🛠 Equipo técnico</text>
+                    <rect x="260" y="158" width="140" height="24" rx="12" fill="#eef2f7" stroke="#dbe3ec" stroke-width="1"/>
+                    <text x="330" y="174" text-anchor="middle" font-size="10.5" fill="#64748b">🗣 Sin tecnología</text>
+                    <rect x="40" y="200" width="280" height="14" rx="7" fill="#6366f1" opacity="0.55"/>
+                    <rect class="bif-line" x="40" y="228" width="460" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="252" width="420" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="276" width="452" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="300" width="386" height="11" rx="5"/>
+                    <!-- flujo abstracto del negocio -->
+                    <rect x="40" y="330" width="130" height="40" rx="9" fill="#eef2f7" stroke="#c7d2fe" stroke-width="1.5"/>
+                    <text x="105" y="354" text-anchor="middle" font-size="11" font-weight="700" fill="#4f46e5">Organizador</text>
+                    <line x1="172" y1="350" x2="206" y2="350" stroke="#94a3b8" stroke-width="2"/>
+                    <path d="M206 350 l-9 -5 v10 z" fill="#94a3b8"/>
+                    <rect x="210" y="330" width="130" height="40" rx="9" fill="#eef2f7" stroke="#c7d2fe" stroke-width="1.5"/>
+                    <text x="275" y="354" text-anchor="middle" font-size="11" font-weight="700" fill="#4f46e5">Sistema</text>
+                    <line x1="342" y1="350" x2="376" y2="350" stroke="#94a3b8" stroke-width="2"/>
+                    <path d="M376 350 l-9 -5 v10 z" fill="#94a3b8"/>
+                    <rect x="380" y="330" width="130" height="40" rx="9" fill="#eef2f7" stroke="#c7d2fe" stroke-width="1.5"/>
+                    <text x="445" y="354" text-anchor="middle" font-size="11" font-weight="700" fill="#4f46e5">Estado</text>
+                    <rect class="bif-line" x="40" y="392" width="470" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="416" width="430" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="440" width="456" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="464" width="340" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="492" width="490" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="516" width="410" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="540" width="464" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="564" width="310" height="11" rx="5"/>
+                    <rect class="bif-line" x="40" y="588" width="380" height="11" rx="5"/>
                   </g>
-                  <!-- Cabecera del documento -->
-                  <path d="M 74 24 H 686 Q 700 24 700 38 V 62 H 60 V 38 Q 60 24 74 24 Z" fill="#1e293b"/>
-                  <circle cx="86" cy="43" r="5.5" fill="#ef4444"/>
-                  <circle cx="106" cy="43" r="5.5" fill="#f59e0b"/>
-                  <circle cx="126" cy="43" r="5.5" fill="#22c55e"/>
-                  <text x="148" y="47" font-family="var(--font-mono)" font-size="12" fill="#94a3b8">docs/sdlc/journey-01-setup.md</text>
-                  <rect x="534" y="31" width="148" height="24" rx="6" fill="rgba(99,102,241,0.16)" stroke="rgba(99,102,241,0.4)" stroke-width="1"/>
-                  <text x="608" y="47" text-anchor="middle" font-size="10" font-weight="800" fill="#a5b4fc">1 doc · 2 mitades</text>
-
-                  <!-- PARTE 1 · EL NEGOCIO -->
-                  <rect x="88" y="100" width="212" height="28" rx="7" fill="#6366f1"/>
-                  <text x="194" y="119" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff" letter-spacing="0.06em">PARTE 1 · EL NEGOCIO</text>
-                  <text x="88" y="150" font-size="10.5" fill="#64748b">el qué y el por qué, de forma abstracta · un idioma común</text>
-                  <rect x="88" y="160" width="72" height="22" rx="11" fill="rgba(148,163,184,0.12)" stroke="#334155" stroke-width="1"/>
-                  <text x="124" y="175" text-anchor="middle" font-size="10" fill="#94a3b8">👥 PMs</text>
-                  <rect x="168" y="160" width="126" height="22" rx="11" fill="rgba(148,163,184,0.12)" stroke="#334155" stroke-width="1"/>
-                  <text x="231" y="175" text-anchor="middle" font-size="10" fill="#94a3b8">🛠 Equipo técnico</text>
-                  <rect x="88" y="196" width="250" height="13" rx="6" fill="#6366f1" opacity="0.5"/>
-                  <rect x="88" y="224" width="520" height="10" rx="5" fill="#334155" opacity="0.55"/>
-                  <rect x="88" y="246" width="470" height="10" rx="5" fill="#334155" opacity="0.45"/>
-                  <rect x="88" y="268" width="495" height="10" rx="5" fill="#334155" opacity="0.5"/>
-                  <rect x="88" y="290" width="360" height="10" rx="5" fill="#334155" opacity="0.4"/>
                 </svg>
         </div>
       </div>
