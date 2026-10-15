@@ -22284,6 +22284,24 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-deck {
   padding-bottom: 4.2rem;
 }
 
+/* Slide 8 en Charla: cita DESNUDA — más grande, sin caja y sin firma.
+   En Documento se conserva la burbuja y la atribución. */
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-quote-bubble {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-quote-text {
+  font-size: 2.85rem;
+  line-height: 1.25;
+}
+
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-quote-author {
+  display: none;
+}
+
 body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-deck {
   flex: none;
   margin-top: auto;
