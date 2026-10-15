@@ -22328,6 +22328,24 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-deck {
   padding-bottom: 4.2rem;
 }
 
+/* Slide 10 en Charla: cita DESNUDA — más grande, sin caja y sin firma (igual que la 8).
+   En Documento se conserva la burbuja y la atribución. */
+body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-quote-bubble {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-quote-text {
+  font-size: 2.85rem;
+  line-height: 1.25;
+}
+
+body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-quote-author {
+  display: none;
+}
+
 /* Slide 10: foto cuadrada y pequeña (391px) — marco de altura fija para
    hacer upscale (×1.2, acepta perder calidad) y columna de foto más estrecha
    para dar aire a la cita */
@@ -22336,7 +22354,15 @@ body.deck-hardware-part1 .slide#slide-10 .bro-scene-deck {
 }
 
 body.deck-hardware-part1 .slide#slide-10 .bro-scene-media {
-  height: 470px;
+  height: 580px;
+}
+
+/* La pintura es pequeña (391×380): altura explícita para el upscale — el
+   max-height:100% no resuelve dentro del flex con padding y la dejaba a tamaño
+   natural. Width auto mantiene el ratio (566px de ancho < 624 disponibles). */
+body.deck-hardware-part1 .slide#slide-10 .bro-scene-img {
+  height: 550px;
+  width: auto;
 }
 
 
