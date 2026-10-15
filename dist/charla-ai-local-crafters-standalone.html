@@ -22313,12 +22313,29 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-quote-bubble {
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-quote-text {
-  font-size: 2.85rem;
-  line-height: 1.25;
+  font-size: 4.28rem;
+  line-height: 1.2;
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-quote-author {
   display: none;
+}
+
+/* Escenas en Charla: fotos SIN marco (Documento conserva el enmarcado) */
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-media,
+body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-media {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* Slide 8: foto un 20% más pequeña (78% de la columna ≈ 733px; antes llenaba
+   la columna completa ≈ 913px) */
+body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-img {
+  width: 78%;
+  height: auto;
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-deck {
@@ -22338,8 +22355,8 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-quote-bubble {
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-quote-text {
-  font-size: 2.85rem;
-  line-height: 1.25;
+  font-size: 4.28rem;
+  line-height: 1.2;
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-quote-author {
