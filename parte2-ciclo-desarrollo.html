@@ -1155,8 +1155,9 @@
         <div class="tag">Fase 2 • Especificación Viva • Formato de Documento</div>
         <h2>El Documento Bifronte: <span class="serif-italic" style="color: #8b5cf6;">Negocio e Implementación</span></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Cada doc del SDLC tiene dos mitades: arriba, el negocio y su funcionamiento abstracto — el idioma de PMs y
-          del equipo técnico; abajo, tras el desgarro, el contrato técnico: qué implica implementar esa funcionalidad.
+          Cada doc del SDLC tiene dos mitades: a la izquierda, el negocio y su funcionamiento abstracto — el idioma de PMs
+          y del equipo técnico; a la derecha, tras el desgarro, lo innegociable: el contrato técnico con sus flujos en
+          visual. Un documento para humanos: se lee en menos de dos minutos y gasta pocos tokens.
         </p>
 
                 <div class="bifront-stage">
@@ -1172,27 +1173,36 @@
                     <path class="bif-sheet" d="M 1086 20 Q 1100 20 1100 34 V 606 Q 1100 620 1086 620 H 575 L575 620 L581.4 587.2 L567.5 570.4 L569.4 548.9 L563.3 525.0 L583.5 506.3 L581.9 490.5 L582.4 471.2 L582.1 455.0 L580.7 437.9 L567.7 414.7 L569.9 393.4 L564.1 376.3 L567.5 360.7 L584.4 341.0 L562.9 322.5 L589.6 299.1 L567.3 276.2 L568.7 257.0 L560.2 237.2 L569.1 217.8 L582.4 200.6 L560.7 177.7 L564.0 158.3 L568.5 136.5 L561.3 118.8 L589.7 96.9 L584.3 77.8 L587.7 59.8 L563.2 43.7 L585.3 20 H 569 Q 575 20 569 20 Z"/>
                     <path class="bif-head" d="M 1086 20 Q 1100 20 1100 34 V 68 H 575 L 569 20 Z" fill-opacity="1"/>
                     <text x="594" y="49" font-family="var(--font-mono)" font-size="11.5" fill="#94a3b8">journey-01-setup.md · 2/2</text>
-                    <rect x="600" y="88" width="264" height="30" rx="8" fill="#10b981"/>
-                    <text x="732" y="108" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.05em">PARTE 2 · LA IMPLEMENTACIÓN</text>
-                    <text x="600" y="142" font-size="11" fill="#64748b">el contrato técnico: qué implica implementar esa funcionalidad</text>
-                    <rect x="600" y="158" width="474" height="238" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
-                    <text x="620" y="190" font-family="var(--font-mono)" font-size="13" font-weight="700" fill="#38bdf8">POST /api/v1/conferences</text>
-                    <text x="620" y="218" font-family="var(--font-mono)" font-size="12.5" fill="#a5b4fc">→ schema.parse(payload)  <tspan fill="#475569">// Zod · INV-001</tspan></text>
-                    <text x="620" y="246" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ Conference.create(DRAFT)</text>
-                    <text x="620" y="274" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ emit(ConferenceCreated) → outbox</text>
-                    <text x="620" y="302" font-family="var(--font-mono)" font-size="12.5" fill="#6ee7b7">→ outbox worker → email bienvenida</text>
-                    <text x="620" y="330" font-family="var(--font-mono)" font-size="12.5" fill="#fbbf24">ADR-004 · INV-001 · tests ✓ 21/21</text>
-                    <text x="620" y="368" font-family="var(--font-mono)" font-size="12" fill="#94a3b8">✓ tests de dominio en verde</text>
-                    <text x="620" y="390" font-family="var(--font-mono)" font-size="12" fill="#94a3b8">✓ contract tests del API</text>
-                    <rect class="bif-line" x="600" y="416" width="440" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="438" width="392" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="460" width="452" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="482" width="330" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="510" width="474" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="532" width="404" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="554" width="360" height="10" rx="5"/>
-                    <rect class="bif-line" x="600" y="576" width="286" height="10" rx="5"/>
-                  </g>
+                    <rect x="600" y="88" width="252" height="30" rx="8" fill="#10b981"/>
+                    <text x="726" y="108" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.05em">PARTE 2 · LO INNEGOCIABLE</text>
+                    <text x="600" y="142" font-size="11" fill="#64748b">el contrato técnico: lo que no admite discusión</text>
+                    <rect class="bif-flow" x="600" y="156" width="474" height="256" rx="12"/>
+                    <rect class="bif-node" x="616" y="172" width="442" height="34" rx="9"/>
+                    <rect x="616" y="172" width="5" height="34" rx="2.5" fill="#38bdf8"/>
+                    <text x="636" y="194" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#38bdf8">POST /api/v1/conferences</text>
+                    <path d="M837 210 l-5 -8 h10 z" fill="#94a3b8"/>
+                    <rect class="bif-node" x="616" y="224" width="442" height="34" rx="9"/>
+                    <rect x="616" y="224" width="5" height="34" rx="2.5" fill="#6366f1"/>
+                    <text x="636" y="246" font-family="var(--font-mono)" font-size="12" fill="#6366f1">schema.parse(payload) · Zod</text>
+                    <path d="M837 262 l-5 -8 h10 z" fill="#94a3b8"/>
+                    <rect class="bif-node" x="616" y="276" width="442" height="34" rx="9"/>
+                    <rect x="616" y="276" width="5" height="34" rx="2.5" fill="#10b981"/>
+                    <text x="636" y="298" font-family="var(--font-mono)" font-size="12" fill="#0d9488">Conference.create(DRAFT)</text>
+                    <path d="M837 314 l-5 -8 h10 z" fill="#94a3b8"/>
+                    <rect class="bif-node" x="616" y="328" width="442" height="34" rx="9"/>
+                    <rect x="616" y="328" width="5" height="34" rx="2.5" fill="#10b981"/>
+                    <text x="636" y="350" font-family="var(--font-mono)" font-size="12" fill="#0d9488">emit(ConferenceCreated) → outbox</text>
+                    <path d="M837 366 l-5 -8 h10 z" fill="#94a3b8"/>
+                    <rect class="bif-node" x="616" y="380" width="442" height="34" rx="9"/>
+                    <rect x="616" y="380" width="5" height="34" rx="2.5" fill="#f59e0b"/>
+                    <text x="636" y="402" font-family="var(--font-mono)" font-size="12" fill="#d97706">outbox worker → email bienvenida</text>
+                    <rect class="bif-rule" x="600" y="430" width="474" height="44" rx="10"/>
+                    <text x="622" y="458" font-family="var(--font-mono)" font-size="12.5" font-weight="700" style="fill:var(--text-main)">🔒 ADR-004 — el outbox es asíncrono</text>
+                    <rect class="bif-rule" x="600" y="488" width="474" height="44" rx="10"/>
+                    <text x="622" y="516" font-family="var(--font-mono)" font-size="12.5" font-weight="700" style="fill:var(--text-main)">🔒 INV-001 — slug único · 400 si choca</text>
+                    <rect class="bif-rule" x="600" y="546" width="474" height="44" rx="10"/>
+                    <text x="622" y="574" font-family="var(--font-mono)" font-size="12.5" font-weight="700" fill="#0d9488">✓ tests 21/21 — el gate no se salta</text>
+                    </g>
 
                   <!-- HOJA IZQUIERDA: PARTE 1 · EL NEGOCIO -->
                   <g filter="url(#bifTear)">
@@ -1238,6 +1248,11 @@
                     <rect class="bif-line" x="40" y="588" width="380" height="11" rx="5"/>
                   </g>
                 </svg>
+          <div class="bif-virtudes">
+            <span class="bif-virt">📖 Legible por humanos · menos de 2 min</span>
+            <span class="bif-virt">⚡ Pocos tokens</span>
+            <span class="bif-virt">👁 Flujos explicados en visual</span>
+          </div>
         </div>
       </div>
     </section>
