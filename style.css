@@ -14734,6 +14734,22 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-tdd-layer {
   font-size: 0.88rem !important;
 }
 
+/* Slide 46 en Modo Charla: solo títulos de pasos y badges; el texto secundario
+   (intros de paneles, descripciones TDD, detalles de modify-flow y nota de drift)
+   queda reservado al Modo Documento, que lo conserva íntegro. */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-panel-intro,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-tdd-desc,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-wf-detail,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-drift-note {
+  display: none;
+}
+
+/* Leads de modify-flow como texto principal: igualar a los títulos de pasos TDD
+   (slack verificado: 31px de hueco bajo el panel 2, sin riesgo de wrap) */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-workflow-steps {
+  font-size: 0.88rem;
+}
+
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .mermaid-diagram-wrap,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .mermaid-diagram-wrap {

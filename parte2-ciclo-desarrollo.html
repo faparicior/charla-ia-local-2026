@@ -5572,7 +5572,7 @@
                 <div class="sdlc-col-title">🧪 TDD Híbrido Capa por Capa</div>
                 <span class="sdlc-phase-badge amber">Fase 4 • /implement-flow</span>
               </div>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+              <p class="sdlc-panel-intro" style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
                 El código de producción no se genera de golpe: se construye en capas estrictas donde cada capa valida a
                 la anterior. Cada <strong>feature (2b)</strong> aporta su checklist y su contrato de errores HTTP; el <strong>modelo (Fase 3)</strong> blinda las invariantes.
               </p>
@@ -5641,29 +5641,29 @@
                   <span>🔄 Gestión del Cambio</span>
                   <span class="sdlc-phase-badge rose">Fase 5+ • /modify-flow</span>
                 </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                <p class="sdlc-panel-intro" style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
                   Protocolo estricto para modificar comportamiento existente:
                 </p>
                 <div class="sdlc-workflow-steps">
                   <div class="sdlc-wf-step">
                     <span class="sdlc-wf-num">1.</span>
-                    <span><strong>Leer docs y código real:</strong> Verifica contra el repositorio antes de proponer
-                      cambios.</span>
+                    <span><strong>Leer docs y código real</strong><span class="sdlc-wf-detail">: Verifica contra el
+                      repositorio antes de proponer cambios.</span></span>
                   </div>
                   <div class="sdlc-wf-step">
                     <span class="sdlc-wf-num">2.</span>
-                    <span><strong>Redactar <code>proposal.md</code>:</strong> Rationale (As a / I want / So that) +
-                      Contraste código actual vs deseado.</span>
+                    <span><strong>Redactar <code>proposal.md</code></strong><span class="sdlc-wf-detail">: Rationale
+                      (As a / I want / So that) + Contraste código actual vs deseado.</span></span>
                   </div>
                   <div class="sdlc-wf-step">
                     <span class="sdlc-wf-num">3.</span>
-                    <span><strong>Plan por fases DDD:</strong> Tareas acotadas con tests ejecutados con herramientas
-                      reales (Maven, pytest).</span>
+                    <span><strong>Plan por fases DDD</strong><span class="sdlc-wf-detail">: Tareas acotadas con tests
+                      ejecutados con herramientas reales (Maven, pytest).</span></span>
                   </div>
                   <div class="sdlc-wf-step">
                     <span class="sdlc-wf-num">4.</span>
-                    <span><strong>Actualización in-place:</strong> Modifica los diagramas y docs existentes en el mismo
-                      commit.</span>
+                    <span><strong>Actualización in-place</strong><span class="sdlc-wf-detail">: Modifica los diagramas
+                      y docs existentes en el mismo commit.</span></span>
                   </div>
                 </div>
               </div>
@@ -5674,7 +5674,7 @@
                   <span>🛡️ Cero Drift de Documentación</span>
                   <span class="yarn-badge green">/audit-docs</span>
                 </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                <p class="sdlc-panel-intro" style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
                   El mayor problema de la documentación tradicional es que envejece. La IA audita el código real
                   periódicamente y clasifica:
                 </p>
@@ -5684,7 +5684,7 @@
                   <span class="sdlc-phase-badge rose">❌ Missing</span>
                   <span class="sdlc-phase-badge purple">➕ Undocumented</span>
                 </div>
-                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
+                <div class="sdlc-drift-note" style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
                   Permite hacer barridos pre-release o auditorías por bounded context para garantizar que el modelo
                   siempre lee especificaciones veraces.
                 </div>
