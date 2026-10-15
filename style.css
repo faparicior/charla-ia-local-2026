@@ -25900,29 +25900,65 @@ body.deck-sdlc-part2 #slide-11 .bifront-stage {
   flex: 1 1 0;
   min-height: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.6rem;
+}
+
+/* el documento se desplaza a la izquierda; las tarjetas ocupan la derecha */
+body.deck-sdlc-part2 #slide-11 .bifront-svg {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
 }
 
 body.deck-sdlc-part2 #slide-11 .bif-virtudes {
   display: flex;
-  gap: 0.9rem;
-  justify-content: center;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 356px;
   flex: none;
 }
 
 body.deck-sdlc-part2 #slide-11 .bif-virt {
-  font-family: var(--font-mono);
-  font-size: 0.98rem;
-  font-weight: 700;
-  padding: 0.55rem 1.25rem;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.3rem;
+  border-radius: 18px;
   background: var(--bg-surface);
   border: 1.5px solid #d7dfea;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.07);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.deck-sdlc-part2 #slide-11 .bif-virt.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+body.deck-sdlc-part2 #slide-11 .bv-icon {
+  font-size: 2.1rem;
+  line-height: 1;
+  flex: none;
+  filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.15));
+}
+
+body.deck-sdlc-part2 #slide-11 .bv-text strong {
+  display: block;
+  font-size: 1.22rem;
+  font-weight: 800;
   color: var(--text-main);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+body.deck-sdlc-part2 #slide-11 .bv-text span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
 }
 
 body.deck-sdlc-part2.theme-dark #slide-11 .bif-virt {
