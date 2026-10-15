@@ -14793,94 +14793,15 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-workflow-steps {
 }
 
 /* ==========================================================================
-   EL CÍRCULO VIRTUOSO (slide 47): 4 pasos con reveal «siguiente» + hueco
-   reservado a imagen. Componente keyado por clases (circulo-*) para sobrevivir
-   a renumeraciones; solo centrado y reveal van anclados a #slide-47.
+   EL CÍRCULO VIRTUOSO (slide 47): título + imagen grande centrada
+   (Ciclos Conectados SDLC; los 4 pasos con reveal se retiraron: no servían
+   al ritmo final de la charla)
    ========================================================================== */
-.circulo-deck {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 1.25rem;
-  width: 100%;
-  align-items: stretch;
-}
-
-.circulo-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  justify-content: center;
-}
-
-.circulo-step {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 0.8rem 1.05rem;
-}
-
-body.theme-dark .circulo-step {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.circulo-icon {
-  width: 2.35rem;
-  height: 2.35rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9px;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.circulo-icon.c-amber { background: rgba(217, 119, 6, 0.15); }
-.circulo-icon.c-violet { background: rgba(139, 92, 246, 0.15); }
-.circulo-icon.c-emerald { background: rgba(16, 185, 129, 0.15); }
-.circulo-icon.c-cyan { background: rgba(6, 182, 212, 0.15); }
-
-.circulo-text {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-
-.circulo-text strong {
-  font-weight: 800;
-}
-
-.circulo-loop {
-  align-self: center;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  padding: 0.32rem 1rem;
-  border: 1px dashed var(--border-medium);
-  border-radius: 999px;
-}
-
-/* Contenedor de la imagen del ciclo SDLC */
 .circulo-media {
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  background: #ffffff;
-  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-}
-
-body.theme-dark .circulo-media {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
 .circulo-media-img {
@@ -14888,43 +14809,25 @@ body.theme-dark .circulo-media {
   max-height: 100%;
   object-fit: contain;
   border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
 }
 
-/* Modo Charla: centrado con sesgo óptico (mismo patrón que la slide 46) */
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-deck {
+body.theme-dark .circulo-media-img {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* Tamaño del hueco en la 47 (a imagen completa, 16:9): 692 = 640 de área útil
+   + 52 de padding del sesgo, para que el padding no le coma altura a la img */
+body.deck-sdlc-part2 .slide#slide-47 .circulo-media {
+  height: 692px;
+}
+
+/* Modo Charla: centrado con sesgo óptico (mismo patrón que la 46) */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-media {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
   padding-bottom: 3.25rem;
-}
-
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-step {
-  cursor: pointer;
-}
-
-/* Chip de bucle: aparece junto al paso 4 vía :has() — no consume un «siguiente» propio.
-   En Documento no hay atenuación (regla scoped a Charla) y en Overview/impresión se ve siempre. */
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-loop {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-47:has(.circulo-step[data-step="4"].step-active) .circulo-loop {
-  opacity: 1;
-  transform: none;
-}
-
-body.deck-sdlc-part2.overview-mode .slide#slide-47 .circulo-loop {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-@media print {
-  body.deck-sdlc-part2 .slide#slide-47 .circulo-loop {
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }
 
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
