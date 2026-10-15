@@ -26240,15 +26240,49 @@ body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-box {
   min-height: 0;
   max-width: 1640px;
   justify-content: center;
-  gap: 3rem;
-  padding-bottom: 3.5rem;
+  gap: 2.4rem;
+  padding-bottom: 2.6rem;
 }
 
 body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-text {
-  font-size: 5.2rem;
+  font-size: 4.9rem;
   line-height: 1.4;
 }
 
 body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-author {
   font-size: 1.45rem;
+}
+
+/* Tira de QRs del cierre (contenido: visible también en Modo Documento) */
+body.deck-sdlc-part2 #slide-50 .qr-strip {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2.2rem;
+}
+
+body.deck-sdlc-part2 #slide-50 .qr-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  background: #ffffff;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 12px 12px 9px;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(14, 15, 18, 0.08);
+}
+
+body.deck-sdlc-part2 #slide-50 .qr-tile img {
+  width: 148px;
+  height: 148px;
+  display: block;
+}
+
+body.deck-sdlc-part2 #slide-50 .qr-tile span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #525660;
 }
