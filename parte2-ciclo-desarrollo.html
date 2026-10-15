@@ -1312,10 +1312,10 @@
                     <text x="233" y="140" text-anchor="middle" font-weight="700" fill="#6366f1">1 · rellena y envía el formulario</text>
                     <line x1="340" y1="196" x2="546" y2="196" stroke="#6366f1" stroke-width="2.2" marker-end="url(#s12aI)"/>
                     <text x="443" y="186" text-anchor="middle" font-family="var(--font-mono)" font-weight="700" fill="#0284c7">2 · POST /api/v1/conferences</text>
-                    <path d="M550 238 h46 v24 h-42" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#s12aG)"/>
+                    <path d="M550 240 h38 a8 8 0 0 1 8 8 v4 a8 8 0 0 1 -8 8 h-38" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#s12aG)"/>
                     <text x="612" y="254" font-family="var(--font-mono)" fill="#64748b">3 · schema.parse(payload) // Zod</text>
-                    <line x1="550" y1="288" x2="756" y2="288" stroke="#6366f1" stroke-width="2.2" marker-end="url(#s12aI)"/>
-                    <text x="653" y="278" text-anchor="middle" font-family="var(--font-mono)" font-weight="700" fill="#0d9488">4 · Conference.create(DRAFT)</text>
+                    <line x1="550" y1="296" x2="756" y2="296" stroke="#6366f1" stroke-width="2.2" marker-end="url(#s12aI)"/>
+                    <text x="653" y="286" text-anchor="middle" font-family="var(--font-mono)" font-weight="700" fill="#0d9488">4 · Conference.create(DRAFT)</text>
                     <line x1="760" y1="334" x2="966" y2="334" stroke="#6366f1" stroke-width="2.2" marker-end="url(#s12aI)"/>
                     <text x="863" y="324" text-anchor="middle" font-family="var(--font-mono)" font-weight="700" fill="#475569">5 · INSERT + eventos → outbox</text>
                     <line x1="970" y1="380" x2="554" y2="380" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#s12aG)"/>
@@ -1325,9 +1325,9 @@
                     <line x1="340" y1="472" x2="134" y2="472" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#s12aG)"/>
                     <text x="237" y="462" text-anchor="middle" fill="#64748b">8 · dashboard ✓</text>
                     <line x1="970" y1="528" x2="1146" y2="528" stroke="#f59e0b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#s12aA)"/>
-                    <text x="1058" y="518" text-anchor="middle" fill="#d97706">9 · polling: eventos nuevos</text>
+                    <text x="1140" y="518" text-anchor="end" fill="#d97706">9 · polling: eventos nuevos</text>
                     <line x1="1150" y1="574" x2="974" y2="574" stroke="#f59e0b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#s12aA)"/>
-                    <text x="1062" y="564" text-anchor="middle" fill="#d97706">10 · email de bienvenida (Resend)</text>
+                    <text x="1140" y="564" text-anchor="end" fill="#d97706">10 · email de bienvenida (Resend)</text>
                   </g>
                   <rect x="310" y="636" width="660" height="44" rx="10" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.45)" stroke-width="1.5"/>
                   <text x="640" y="663" text-anchor="middle" font-size="13" font-weight="700" fill="#d97706">⏳ Todo lo asíncrono vive en el outbox: la respuesta HTTP nunca espera al email</text>
@@ -1451,37 +1451,37 @@
                     <line x1="325" y1="310" x2="401" y2="310" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
                     <text x="363" y="296" text-anchor="middle" style="fill:var(--text-main)">create</text>
                     <line x1="545" y1="285" x2="668" y2="212" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
-                    <text x="575" y="230" fill="#0d9488">publishCfp()</text>
+                    <text x="540" y="222" fill="#0d9488">publishCfp()</text>
                     <line x1="792" y1="231" x2="792" y2="395" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
                     <text x="806" y="318" fill="#d97706">closeCfp()</text>
                     <line x1="728" y1="395" x2="728" y2="235" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
                     <text x="714" y="318" text-anchor="end" fill="#0d9488">reopenCfp()</text>
                     <line x1="855" y1="205" x2="955" y2="284" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
-                    <text x="872" y="228" fill="#a855f7">publishSchedule()</text>
+                    <text x="860" y="196" fill="#a855f7">publishSchedule()</text>
                     <line x1="855" y1="435" x2="952" y2="342" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
-                    <text x="862" y="425" fill="#a855f7">publishSchedule()</text>
+                    <text x="900" y="455" fill="#a855f7">publishSchedule()</text>
                     <line x1="1030" y1="341" x2="1030" y2="515" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#s14aG)"/>
                     <text x="1046" y="435" fill="#6366f1">conferenceDatePassed</text>
                   </g>
                   <g font-size="11.5">
                     <rect x="330" y="500" width="250" height="64" rx="9" class="esq-note"/>
-                    <path d="M580 500 l16 0 l-16 16 z" class="bif-head" opacity="0.6"/>
+                    <path d="M580 500 l16 0 l-16 16 z" class="esq-fold" opacity="0.6"/>
                     <text x="348" y="526" style="fill:var(--text-main)" font-weight="700">nota · DRAFT</text>
                     <text x="348" y="546" style="fill:var(--text-muted)">creada con datos iniciales;</text>
                     <text x="348" y="560" style="fill:var(--text-muted)">sin presencia pública aún</text>
-                    <rect x="800" y="90" width="264" height="64" rx="9" class="esq-note"/>
-                    <path d="M1064 90 l16 0 l-16 16 z" class="bif-head" opacity="0.6"/>
-                    <text x="818" y="116" style="fill:var(--text-main)" font-weight="700">nota · CfpOpen</text>
-                    <text x="818" y="136" style="fill:var(--text-muted)">CfP activo: aceptando propuestas</text>
-                    <text x="818" y="150" style="fill:var(--text-muted)">de speakers</text>
+                    <rect x="956" y="90" width="264" height="64" rx="9" class="esq-note"/>
+                    <path d="M1220 90 l16 0 l-16 16 z" class="esq-fold" opacity="0.6"/>
+                    <text x="974" y="116" style="fill:var(--text-main)" font-weight="700">nota · CfpOpen</text>
+                    <text x="974" y="136" style="fill:var(--text-muted)">CfP activo: aceptando propuestas</text>
+                    <text x="974" y="150" style="fill:var(--text-muted)">de speakers</text>
                     <rect x="620" y="600" width="290" height="64" rx="9" class="esq-note"/>
-                    <path d="M910 600 l16 0 l-16 16 z" class="bif-head" opacity="0.6"/>
+                    <path d="M910 600 l16 0 l-16 16 z" class="esq-fold" opacity="0.6"/>
                     <text x="638" y="626" style="fill:var(--text-main)" font-weight="700">nota · PUBLISHED</text>
                     <text x="638" y="646" style="fill:var(--text-muted)">agenda pública, speakers</text>
                     <text x="638" y="660" style="fill:var(--text-muted)">confirmados</text>
                   </g>
-                  <rect x="180" y="60" width="880" height="46" rx="10" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
-                  <text x="620" y="89" text-anchor="middle" font-size="13" font-weight="700" fill="#6366f1">INV-001 · el espacio de estados es finito: toda mutación pasa por un método del Aggregate</text>
+                  <rect x="180" y="60" width="760" height="46" rx="10" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
+                  <text x="560" y="89" text-anchor="middle" font-size="13" font-weight="700" fill="#6366f1">INV-001 · el espacio de estados es finito: toda mutación pasa por un método del Aggregate</text>
                 </svg>
         </div>
       </div>
