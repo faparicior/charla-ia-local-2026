@@ -26141,13 +26141,9 @@ body.deck-sdlc-part2 #slide-15 .cloud-stage {
 }
 
 body.deck-sdlc-part2 #slide-15 .cloud-field {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: center;
-  column-gap: 2.4rem;
-  row-gap: 1.4rem;
-  max-width: 1560px;
+  position: relative;
+  width: min(1600px, 100%);
+  height: 460px;
 }
 
 body.deck-sdlc-part2 #slide-15 .cloud-group {
@@ -26155,6 +26151,9 @@ body.deck-sdlc-part2 #slide-15 .cloud-group {
 }
 
 body.deck-sdlc-part2 #slide-15 .cloud-tag {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
   font-size: var(--sz);
   font-weight: 800;
   line-height: 1.08;
@@ -26228,12 +26227,6 @@ body.deck-sdlc-part2.mode-document #slide-15 .cloud-tag {
 
 body.deck-sdlc-part2.mode-document #slide-15 .cloud-stage {
   padding-bottom: 0;
-}
-
-/* Separadores de fila de la nube: cada grupo .step = una fila completa */
-body.deck-sdlc-part2 #slide-15 .cloud-break {
-  flex-basis: 100%;
-  height: 0;
 }
 
 </style>
