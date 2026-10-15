@@ -26240,8 +26240,8 @@ body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-box {
   min-height: 0;
   max-width: 1640px;
   justify-content: center;
-  gap: 2.4rem;
-  padding-bottom: 2.6rem;
+  gap: 2.2rem;
+  padding-bottom: 1.8rem;
 }
 
 body.deck-sdlc-part2:not(.mode-document) #slide-50 .quote-text {
@@ -26275,8 +26275,8 @@ body.deck-sdlc-part2 #slide-50 .qr-tile {
 }
 
 body.deck-sdlc-part2 #slide-50 .qr-tile img {
-  width: 148px;
-  height: 148px;
+  width: 188px;
+  height: 188px;
   display: block;
 }
 
