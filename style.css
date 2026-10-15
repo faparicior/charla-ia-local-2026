@@ -26122,19 +26122,21 @@ body.deck-sdlc-part2 #slide-15 .cloud-stage {
 }
 
 body.deck-sdlc-part2 #slide-15 .cloud-field {
-  position: relative;
-  width: min(1600px, 100%);
-  height: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.1rem;
+  width: 100%;
 }
 
 body.deck-sdlc-part2 #slide-15 .cloud-group {
-  display: contents;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  column-gap: 2.6rem;
 }
 
 body.deck-sdlc-part2 #slide-15 .cloud-tag {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
   font-size: var(--sz);
   font-weight: 800;
   line-height: 1.08;
@@ -26162,32 +26164,35 @@ body.deck-sdlc-part2 #slide-15 .cloud-group.step-active .cloud-tag:nth-child(2) 
 body.deck-sdlc-part2 #slide-15 .cloud-group.step-active .cloud-tag:nth-child(3) { transition-delay: 0.18s; }
 body.deck-sdlc-part2 #slide-15 .cloud-group.step-active .cloud-tag:nth-child(4) { transition-delay: 0.27s; }
 
-body.deck-sdlc-part2 #slide-15 .cloud-hint {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-}
-
 body.deck-sdlc-part2 #slide-15 .cloud-takeaway {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  max-width: 1240px;
+  gap: 1.2rem;
+  max-width: 1620px;
   margin: 0 auto;
-  padding: 1rem 1.7rem;
+  padding: 1.9rem 2.8rem;
   background: rgba(99, 102, 241, 0.08);
   border: 1.5px solid rgba(99, 102, 241, 0.35);
-  border-radius: 14px;
+  border-radius: 16px;
+  opacity: 0;
+  transform: scale(0.92) translateY(20px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0s;
 }
 
-body.deck-sdlc-part2 #slide-15 .cloud-takeaway-icon { font-size: 1.25rem; }
+/* El takeaway es un paso extra (4º clic): se revela al activarse su .step */
+body.deck-sdlc-part2 #slide-15 .cloud-takeaway.step-active {
+  opacity: 1;
+  transform: none;
+}
+
+body.deck-sdlc-part2 #slide-15 .cloud-takeaway-icon { font-size: 2.2rem; }
 
 body.deck-sdlc-part2 #slide-15 .cloud-takeaway p {
   margin: 0;
-  font-size: 1.06rem;
-  line-height: 1.45;
+  font-size: 1.72rem;
+  line-height: 1.5;
   color: var(--text-main);
 }
 
@@ -26204,6 +26209,11 @@ body.deck-sdlc-part2.theme-dark #slide-15 .cloud-takeaway strong { color: #a5b4f
 body.deck-sdlc-part2.mode-document #slide-15 .cloud-tag {
   opacity: 1;
   transform: rotate(var(--rot));
+}
+
+body.deck-sdlc-part2.mode-document #slide-15 .cloud-takeaway {
+  opacity: 1;
+  transform: none;
 }
 
 body.deck-sdlc-part2.mode-document #slide-15 .cloud-stage {
