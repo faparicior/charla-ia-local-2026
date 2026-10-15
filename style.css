@@ -22196,7 +22196,7 @@ body.deck-hardware-part1.theme-dark #slide-48 .goldilocks-table td.acel-gain {
 /* ==========================================================================
    ESCENAS «BRO…» (parte 1): slide 8 (El viaje del prompt / Signals) y
    slide 10 (Lo que le digo al CEO / nerfeo). Foto + cita en dos columnas.
-   Componente keyado por clases (bro-scene-*/bro-quote-*); solo el centrado
+   Componente keyado por clases (prefijo bro-) para las dos escenas; solo el centrado
    con sesgo óptico va anclado a #slide-8 / #slide-10 en Modo Charla.
    ========================================================================== */
 .bro-scene-deck {
@@ -22254,10 +22254,10 @@ body.theme-dark .bro-quote-bubble {
 
 .bro-quote-text {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.95rem;
   font-weight: 600;
   font-style: italic;
-  line-height: 1.45;
+  line-height: 1.42;
   color: var(--text-main);
   letter-spacing: -0.01em;
 }
@@ -22281,14 +22281,25 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-deck {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 2.6rem;
+  padding-bottom: 4.2rem;
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-deck {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 2.6rem;
+  padding-bottom: 4.2rem;
+}
+
+/* Slide 10: foto cuadrada y pequeña (391px) — marco de altura fija para
+   hacer upscale (×1.2, acepta perder calidad) y columna de foto más estrecha
+   para dar aire a la cita */
+body.deck-hardware-part1 .slide#slide-10 .bro-scene-deck {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+body.deck-hardware-part1 .slide#slide-10 .bro-scene-media {
+  height: 470px;
 }
 
 

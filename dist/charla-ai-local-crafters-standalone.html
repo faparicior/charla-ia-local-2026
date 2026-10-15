@@ -22215,7 +22215,7 @@ body.deck-hardware-part1.theme-dark #slide-48 .goldilocks-table td.acel-gain {
 /* ==========================================================================
    ESCENAS «BRO…» (parte 1): slide 8 (El viaje del prompt / Signals) y
    slide 10 (Lo que le digo al CEO / nerfeo). Foto + cita en dos columnas.
-   Componente keyado por clases (bro-scene-*/bro-quote-*); solo el centrado
+   Componente keyado por clases (prefijo bro-) para las dos escenas; solo el centrado
    con sesgo óptico va anclado a #slide-8 / #slide-10 en Modo Charla.
    ========================================================================== */
 .bro-scene-deck {
@@ -22273,10 +22273,10 @@ body.theme-dark .bro-quote-bubble {
 
 .bro-quote-text {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.95rem;
   font-weight: 600;
   font-style: italic;
-  line-height: 1.45;
+  line-height: 1.42;
   color: var(--text-main);
   letter-spacing: -0.01em;
 }
@@ -22300,14 +22300,25 @@ body.deck-hardware-part1:not(.mode-document) .slide#slide-8 .bro-scene-deck {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 2.6rem;
+  padding-bottom: 4.2rem;
 }
 
 body.deck-hardware-part1:not(.mode-document) .slide#slide-10 .bro-scene-deck {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 2.6rem;
+  padding-bottom: 4.2rem;
+}
+
+/* Slide 10: foto cuadrada y pequeña (391px) — marco de altura fija para
+   hacer upscale (×1.2, acepta perder calidad) y columna de foto más estrecha
+   para dar aire a la cita */
+body.deck-hardware-part1 .slide#slide-10 .bro-scene-deck {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+body.deck-hardware-part1 .slide#slide-10 .bro-scene-media {
+  height: 470px;
 }
 
 
@@ -27312,12 +27323,12 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
     </section>
 
     <!-- ====================================================================
-         SLIDE 8: EL VIAJE DEL PROMPT — ESCENA «BRO…» CON LA IMAGEN DE SIGNALS
+         SLIDE 8: CONVERSACIÓN CON EL CEO — SIGNALS (VUELTAS AL GLOBO)
          ==================================================================== -->
     <section class="slide" id="slide-8">
       <div class="slide-content">
         <div class="tag">Escena real · Latencia Cloud</div>
-        <h2>El viaje del prompt: <span class="serif-italic" style="color: #ea580c;">¿dos vueltas al globo?</span></h2>
+        <h2>Conversación con el CEO</h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           En cloud, la petición pasa por proxies, balanceadores y regiones ajenas antes de volver; la comunidad la
           vigila con proxies locales. Sospecha confirmada: por eso se llevan sombreros de papelillo.
@@ -27329,7 +27340,7 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
           </div>
           <div class="bro-quote-col">
             <div class="bro-quote-bubble">
-              <p class="bro-quote-text">«Bro, sospecho que nuestro prompt ha dado <strong>dos vueltas al globo</strong> antes de responder.»</p>
+              <p class="bro-quote-text">«Bro, sospecho que nuestro prom ha dado <strong>varias vueltas al globo</strong>.»</p>
             </div>
             <div class="bro-quote-author">— Yo, mirando el cronómetro</div>
           </div>
@@ -27430,12 +27441,12 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
     </section>
 
     <!-- ====================================================================
-         SLIDE 10: LO QUE LE DIGO AL CEO — ESCENA «BRO…» CON EL NERFEO (CRUZ)
+         SLIDE 10: CONVERSACIÓN CON EL CEO — NERFEO (EL MODELO CARGA CON LA CRUZ)
          ==================================================================== -->
     <section class="slide" id="slide-10">
       <div class="slide-content">
         <div class="tag">Escena real · Variabilidad</div>
-        <h2>Lo que le digo al CEO: <span class="serif-italic" style="color: #ea580c;">«que no dependa de nadie»</span></h2>
+        <h2>Conversación con el CEO</h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Contexto real: los post-mortems de la slide anterior. Mi propuesta está justo en la siguiente:
           infraestructura propia — alquilar o poseer.
@@ -27447,7 +27458,7 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
           </div>
           <div class="bro-quote-col">
             <div class="bro-quote-bubble">
-              <p class="bro-quote-text">«Bro, Anthropic me ha nerfeado el modelo, <strong>¿ahora qué hacemos?</strong>»</p>
+              <p class="bro-quote-text">«Bro, <strong>me han nerfeado el modelo</strong>. ¿Ahora qué hacemos?»</p>
             </div>
             <div class="bro-quote-author">— Yo, desarrollador</div>
           </div>

@@ -224,9 +224,14 @@ def main():
         bundle_presentation(Path("templates.html"), tmpl_out)
 
         print("\n🎉 ¡Todos los paquetes han sido generados en la carpeta dist/!")
-        print("   1. dist/charla-parte1-hardware-modelos.html (Parte 1: 54 slides)")
-        print("   2. dist/charla-parte2-ciclo-desarrollo.html (Parte 2: 52 secciones · charla: 24 visibles)")
-        print("   3. dist/plantillas-referencia.html          (Plantillas: 9 slides)")
+        n1 = len(re.findall(r'<section class="slide', Path("index.html").read_text(encoding="utf-8")))
+        p2_src = Path("parte2-ciclo-desarrollo.html").read_text(encoding="utf-8")
+        n2 = len(re.findall(r'<section class="slide', p2_src))
+        n2_vis = n2 - len(re.findall(r'class="slide[^"]*\bdoc-only', p2_src))
+        n3 = len(re.findall(r'<section class="slide', Path("templates.html").read_text(encoding="utf-8")))
+        print(f"   1. dist/charla-parte1-hardware-modelos.html (Parte 1: {n1} slides)")
+        print(f"   2. dist/charla-parte2-ciclo-desarrollo.html (Parte 2: {n2} secciones · charla: {n2_vis} visibles)")
+        print(f"   3. dist/plantillas-referencia.html          (Plantillas: {n3} slides)")
 
 if __name__ == "__main__":
     main()

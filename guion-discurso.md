@@ -12,7 +12,7 @@
 
 ---
 
-# PARTE 2 — El Ciclo de Desarrollo con IA (44 secciones, portada = 0 · **Modo Charla: 16 visibles** — recorte de ritmo 8 oct 2026, ver «Estado técnico actual»; la numeración de esta sección conserva el orden original)
+# PARTE 2 — El Ciclo de Desarrollo con IA (53 secciones · **Modo Charla: 25 visibles** — recortes de ritmo 8 y 15 oct 2026, ver «Estado técnico actual»; la numeración de esta sección conserva el orden original)
 
 El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo convierten en software; la gobernanza impide que la IA lo destruya»*.
 
@@ -67,7 +67,7 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 
 **Puente C→D (29→30→31):** *"El dominio está blindado... ¿quién garantiza que se respeta? → Los ADRs (30-35) y la estación de la 36 lo clavan."*
 
-## Bloque D — Gobernanza y Fases 4-5 (31-40)
+## Bloque D — Gobernanza y Fases 4-5 (31-42)
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
@@ -78,35 +78,35 @@ El hilo en una frase: *«el embudo convierte caos en certeza; las 5 fases lo con
 | 35 | **Gobernanza en Acción (Decision Tree ADR)** | De la intención a la ruta óptima. |
 | **36** | **📍 Checkpoint del mapa: Fase 4** | Estación: banda ADR ya encendida + **Construcción TDD brillando** (ámbar). *"¿Quién garantiza que se respeta? → Estamos en Fase 4: a construir."* |
 | 37 | **Evolución sin Drift: TDD Híbrido** | Fases 4-5: `/implement-flow` (TDD) + `/modify-flow` (cambio) + `/audit-docs` (cero drift). |
-| **38** | **✨ Estación del Mapa: Ecosistema Completo** (NUEVA, 10 oct) | Estación: **los 9 pasos encendidos a la vez** (Fases 1–5+ + ADR + operaciones + pill final). *"Así sube el ecosistema entero: del /inception-workshop al /modify-flow, todo vivo."* |
-| **39** | **📍 Checkpoint del mapa: Fase 5+** (doc-only) | Estación: TDD ya encendida + **Cambio Guiado brillando** (carmesí). *"El ciclo no acaba al desplegar: cuando algo cambie, /modify-flow te devuelve al mapa — cero drift."* |
-| 40 | **El Ciclo Canónico del SDLC** | *Puente: "el pipeline de la 8, ahora como pilar canónico".* |
-| 41 | **Producto en Acción (Decision Tree)** | De la necesidad al artefacto. |
+| **38** | **💫 El Círculo Virtuoso** (NUEVA, 15 oct) 🖱️ | Síntesis de Fases 4-5 en **4 pasos que se revelan con «siguiente»**: *el test define la intención → la IA escribe la solución → el compilador valida la realidad → la auditoría garantiza que la documentación nunca envejece*. El chip «↻ vuelta al paso 1» entra con el paso 4 (sin consumir pulso propio). **Hueco a la derecha reservado para imagen** (pendiente de que el autor la inserte). *"El test manda, la IA obedece, el compilador verifica y la auditoría vela — y el círculo se cierra en cada feature."* |
+| **39** | **✨ Estación del Mapa: Ecosistema Completo** (NUEVA, 10 oct) | Estación: **los 9 pasos encendidos a la vez** (Fases 1–5+ + ADR + operaciones + pill final). *"Así sube el ecosistema entero: del /inception-workshop al /modify-flow, todo vivo."* |
+| **40** | **📍 Checkpoint del mapa: Fase 5+** (doc-only) | Estación: TDD ya encendida + **Cambio Guiado brillando** (carmesí). *"El ciclo no acaba al desplegar: cuando algo cambie, /modify-flow te devuelve al mapa — cero drift."* |
+| 41 | **El Ciclo Canónico del SDLC** | *Puente: "el pipeline de la 8, ahora como pilar canónico".* |
+| 42 | **Producto en Acción (Decision Tree)** | De la necesidad al artefacto. |
 
-**Puente D→E (41→42):** *"Ya tenemos gobernanza y ciclo. ¿Dónde viven los artefactos? → El repositorio."*
+**Puente D→E (42→43):** *"Ya tenemos gobernanza y ciclo. ¿Dónde viven los artefactos? → El repositorio."*
 
-## Bloque E — Cierre técnico (42-44)
+## Bloque E — Cierre técnico (43-44)
 
 | # | Slide | Qué contar |
 |---|-------|-----------|
-| 42 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
-| 43 | **Frase de Cierre** | "La verdadera maestría artesanal consiste en entender y controlar las herramientas que moldean nuestro código." — pausa. |
-| 44 | **Preguntas & Debate** | Cierre. Back-bar "← Frase de Cierre". |
+| 43 | **La Conexión** | El repo como sistema nervioso: `docs/adr/` → `docs/product/` → `packages/`. (Estático.) |
+| 44 | **Frase de Cierre — cierre absoluto** | A pasos (4 pulsos): «…entender **el producto** y controlar las herramientas que moldean nuestro código.» + tira de 4 QRs (LinkedIn · SessioFlow · SDLC Skills · la charla en web). «Preguntas & Debate» **eliminada** (15 oct): las preguntas viven en el pasillo y en el repo. |
 
 ## Cheat-sheet de puentes hablados (Parte 2)
 
 1. 9→10: *"el mapa ya está señalando el Inception: entramos al taller"* · 18→19: *"el taller da el mapa; la estación lo re-clava"*
 2. 22→23: *"la FSM dice DÓNDE; la estación 2b lo clava: a trocear"* · 24→25: *"features listas → estación: el dominio"*
 3. 29→30: *"¿quién blinda esto? → la banda ADR"* (el salto temático grande, ahora visualizado)
-4. 35→36: *"el ADR gobierna; la estación clava la Fase 4"* · 36→37: *"a construir: TDD + cambio sin drift"* · 37→38: *"mira el mapa entero: así sube el ecosistema"*
-5. 37→39: *"todo ese trabajo se ordena en el ciclo canónico"* · 39→40: *"el índice gobierna el flujo"*
-6. 40→41: *"¿dónde viven los artefactos? → el repo"* (la petición viva ya se vio en la síntesis de la 4) · 41→42: pausa → quote
+4. 35→36: *"el ADR gobierna; la estación clava la Fase 4"* · 36→37: *"a construir: TDD + cambio sin drift"* · 37→38: *"el círculo virtuoso, paso a paso"* (NUEVA 15 oct) · 38→39: *"mira el mapa entero: así sube el ecosistema"*
+5. 39→41: *"todo ese trabajo se ordena en el ciclo canónico"* · 41→42: *"el índice gobierna el flujo"*
+6. 42→43: *"¿dónde viven los artefactos? → el repo"* (la petición viva ya se vio en la síntesis de la 4) · 43→44: pausa → quote
 
 ---
 
-# PARTE 1 — Hardware & Modelos (51 slides · contador dinámico) · Evaluación
+# PARTE 1 — Hardware & Modelos (56 slides · contador dinámico) · Evaluación
 
-> ℹ️ **Numeración**: tras la renumeración, en ambas partes el ID de la slide == el contador en pantalla == las posiciones de estas tablas (en Parte 2 el prólogo es la 0). Ej.: la Matriz de Pesos = slide-36 = contador 36.
+> ℹ️ **Numeración**: tras la renumeración, en ambas partes el ID de la slide == el contador en pantalla == las posiciones de estas tablas. Ej.: la Matriz de Pesos = slide-49 = contador 49. *(actualizado 15 oct 2026 con las 2 escenas «Conversación con el CEO» — 8 y 10)*
 
 El hilo en una frase: *«el bufé cloud se acabó → el local es viable si entiendes memoria, arquitectura y velocidad → elegimos modelos → sobrevivimos al hardware»*.
 
@@ -114,23 +114,25 @@ El hilo en una frase: *«el bufé cloud se acabó → el local es viable si enti
 
 | Bloque | Slides | Juicio |
 |--------|--------|--------|
-| A. Crisis cloud (1-4) | Fin del bufé → choque de precios → Copilot refunds → cloud occidental/asiático | ✅ Hook fuerte |
-| B. Infraestructura (5-8) | GPUs cloud vs local → radar 4 alternativas → costes 1M tokens → GPUs de terceros | ✅ Decisión económica |
-| C. Trilema & memoria (9-11) | Trilema → pesos vs KV cache → peaje de comprimir | ✅ Fundamenta lo que viene |
-| D. Cuantización avanzada (12-17) | Benchmark dominó → equilibrista AutoRound → GSQ+RCO → NVFP4 → AutoRound INT4 MoE | ⚠️ El bloque más denso; HUD ya pulido; puentes hablados abajo |
-| E. Atención & memoria (18-22) | DeltaNet → pizarra/archivador → YaRN 1M → 3 niveles → analogía IBAN | ✅ La IBAN es oro pedagógico |
-| F. Densos vs MoE (24-27) | Panel denso 48 luces → Junta médica → Panel MoE router 5/48 → Triaje | ✅ Contraste perfecto (**intercambio 12 oct 2026: 23↔24 y 25↔26 — cada panel visual precede a su slide teórica**) |
-| G. Velocidad (23, 28-35) | **Viaje del token (23, adelantado 12 oct 2026 a petición del autor para alinear memoria↔velocidad)** → timeline 2026 → MTP → DFlash → DSpark → DFlash 2 → **caso DeepSeek (cronología + hackeo)** → **resumen "¿Cuándo usar qué?" (35, nueva)** | ✅ Reordenado + resumen nuevo |
-| H. La elección (36-40) | Matriz ricitos de oro → escogiendo modelos → Qwen 3.8 Flash → por dentro 48 capas → la decisión | ✅ Funnel bien resuelto |
-| I. El aparato (41-44) | ¡Llegó el aparato! → Drama Blackwell GB10 ×2 → Hackeando el hierro | ✅ Saga de cierre |
-| J. Handoff (45) | Los 2 Modelos Escogidos → link a Parte 2 | ✅ Puente entre partes |
+| A. Crisis cloud (4-7) | Choque de precios → Copilot refunds → cloud occidental/asiático → espionaje de modelos | ✅ Hook fuerte |
+| B. Escenas «Conversación con el CEO» (8 y 10) | **🆕 Signals/latencia (8)**: sombreros de papelillo + *«Bro, sospecho que nuestro prom ha dado varias vueltas al globo.»* (enlaza con las rutas ocultas de la 7) → **nerfeo en prensa (9)** → **🆕 Nerfeo/la cruz (10)**: *«Bro, me han nerfeado el modelo. ¿Ahora qué hacemos?»* — la réplica al CEO (*«que no dependa de nadie»*) enlaza con la 11 | ✅ Humor + tesis (NUEVAS 15 oct) |
+| C. Infraestructura y decisión (11-14) | Alquilar o Poseer → choque de precios II → salida honesta (alquilar GPUs) → la decisión (calculasiones) | ✅ Decisión económica |
+| D. El aparato (15-18) | ¡Llegó el aparato! → Drama Blackwell GB10 ×2 → Hackeando el hierro | ✅ Saga de cierre de la odisea |
+| E. Economía y trilema (19-22) | Costes 1M tokens → Trilema → pesos vs KV cache → peaje de comprimir | ✅ Fundamenta lo que viene |
+| F. Cuantización avanzada (23-27) | Trampa benchmark → Equilibrista → GSQ+RCO → NVFP4 → AutoRound MoE | ⚠️ El bloque más denso; se narra verbal |
+| G. Atención & memoria (28-32) | DeltaNet → pizarra/archivador → YaRN 1M → 3 niveles → analogía IBAN | ✅ La IBAN es oro pedagógico |
+| H. Densos vs MoE (34-37) | Panel denso 48 luces → Junta médica → Router MoE 5/48 → Triaje | ✅ Contraste perfecto (cada panel precede a su slide teórica) |
+| I. Velocidad (33, 38-40) | **Viaje del token (33, adelantado a petición del autor)** → prefill vs decode ×2 → NVIDIA vs Apple vs AMD | ✅ Memoria ↔ velocidad alineadas |
+| J. Aceleración 2026 (41-48) | Timeline → MTP → DFlash → DSpark → DFlash 2 → caso DeepSeek (cronología + hackeo) → ¿Cuándo usar qué? | ✅ Estado del arte con caso real |
+| K. La elección (49-52) | Matriz ricitos de oro → escogiendo modelos → Qwen 3.8 Flash → por dentro 48 capas | ✅ Funnel bien resuelto |
+| L. Cierre y handoff (53-56) | Los 2 modelos escogidos → la escalera de 2026 → dueño del modelo → la frase | ✅ Puente entre partes |
 
 ## Ajustes sugeridos para la Parte 1
 
-1. **Puente D→E (18→19)**, hoy implícito: *"ya sabemos comprimir el modelo; ¿dónde vive esa memoria comprimida?"*
-2. **Bloque G como mini-arco** (26→35): *el problema* (viaje del token, slide 27) → *el estado del arte* (timeline 2026 + técnicas MTP/DFlash/DSpark/DFlash 2) → *el colofón* (caso DeepSeek: cronología y hackeo, 33-34) → *la conclusión* (tabla "¿cuándo usar qué?", slide 35). Anunciar el arco en la 26.
-3. **Slide 45**: verbalizar los badges "OBSOLETO" (registro de descartes) y cerrar con el puente a parte 2 (el CTA ya existe).
-4. **Ritmo**: ~30 min; el bloque D es el candidato a resumirse en vivo (*"4 bits bastan si se compensa"*).
+1. **Puente F→G (27→28)**, hoy implícito: *"ya sabemos comprimir el modelo; ¿dónde vive esa memoria comprimida?"*
+2. **Bloques I+J como mini-arco (33→48)**: *el problema* (viaje del token, slide 33) → *el estado del arte* (timeline 41 + técnicas MTP/DFlash/DSpark/DFlash 2, 42-45) → *el colofón* (caso DeepSeek: cronología y hackeo, 46-47) → *la conclusión* (tabla "¿cuándo usar qué?", slide 48). Anunciar el arco en la 33.
+3. **Slide 53**: verbalizar los badges "OBSOLETO" (registro de descartes) y cerrar con el puente a parte 2 (el CTA ya existe).
+4. **Ritmo**: ~30 min; el bloque F (23-27) es el candidato a resumirse en vivo (*"4 bits bastan si se compensa"*).
 
 ## Ocultación en Modo Charla — APLICADA en Parte 1 (Parte 2 pendiente de decidir)
 
@@ -170,7 +172,7 @@ Criterio: lo que es **anatomía interna, investigación de frontera o caso hist�
 
 **Candidata:** 21 (Flowchart de decisiones) si el tiempo aprieta.
 
-**Se quedan:** síntesis Embudo (**5** esquemática — la 4 interactiva queda oculta, solo Documento), intro E2E (6 — el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/23/25/30/36/38 — visibles también en Modo Documento), franja G/B (18), 24-27, TDD (37), quote (42).
+**Se quedan:** síntesis Embudo (**5** esquemática — la 4 interactiva queda oculta, solo Documento), intro E2E (6 — el filtro de audiencia como dispositivo de colaboración), mapa (9), checkpoints (19/23/25/30/36/38 — visibles también en Modo Documento), franja G/B (18), 24-27, Evolución sin Drift (37), **Círculo Virtuoso (38, NUEVA 15 oct)**, quote (44).
 
 ### Mecanismo aplicado
 
@@ -241,8 +243,14 @@ Clase `doc-only` en la `<section>` (reutiliza el CSS existente de Modo Charla/Do
     - **s27 «El Viaje del Token» alineada con la 18 (memoria ↔ velocidad):** el **carril 2 (NVFP4) está oculto hasta el PASO 2** (`g.vt-lane2`, no es `.step`: el recorrido sigue siendo de 3 pulsos — viaje BF16 → aparece el comprimido y su token vuela → veredicto). Estado inicial = solo el carril BF16 («cómo está», 140 GB, 75% VRAM), igual patrón «cómo está → luego la diferencia» que la s18. Overview/print y vuelta atrás verificados.
   - **INTERCAMBIO 23↔24 y 25↔26 (12 oct 2026):** a petición del autor, cada panel visual precede ahora a su slide teórica: **s23 = Panel Denso** (dp-*, «Una Petición Enciende las 48 Luces», antes s24) → **s24 = Junta Médica** (estática, antes s23) → **s25 = Panel MoE** (mp-*, «El Router Enciende solo 5 de 48», antes s26) → **s26 = Triaje** (estática, antes s25). Secciones movidas en `index.html` (ids renumerados: id = posición intacto) + banners SLIDE N actualizados; en `style.css` se desplazaron solo los selectores dp-*/mp-* (60 líneas scoped `deck-hardware-part1` o bare con componentes dp-/mp-; los `#slide-24/26` de deck-sdlc-part2 — checkpoints Fase 1 y Fase 2b — NO se tocan). Las juntas/triaje no tienen `.step` (estáticas, igual que antes). Copia ajustada: la tarjeta del panel denso dice ahora «la junta médica completa de la slide siguiente». Verificado con Playwright: ids contiguos 1..53, títulos por posición correctos, pasos de ambos paneles activan (2 pulsos), vuelta atrás y doc/overview OK.
 
+- **P1+P2 · ESCENAS «CONVERSACIÓN CON EL CEO» + EL CÍRCULO VIRTUOSO (15 oct tarde):** tres slides nuevas a petición del autor. **P1 (56 slides):** tras «El espionaje de modelos» (7), la **8 · «Conversación con el CEO»** (tag «Escena real · Latencia Cloud»), y tras «El nerfeo» en prensa (9), la **10 · «Conversación con el CEO»** (tag «Escena real · Variabilidad») — componente compartido `bro-scene-*` (grid: foto izquierda + cita en grande a la derecha, burbuja con borde naranja #ea580c y firma mono): la 8 con `signals-movie.png` (sombreros de papelillo) y *«Bro, sospecho que nuestro prom ha dado varias vueltas al globo.»* (— Yo, mirando el cronómetro); la 10 con `nerfeo-modelo.png` (Cristo cargando la cruz, **upscale ×1.2** aceptado por el autor: columna 0.75fr + marco de 470px de altura fija) y *«Bro, me han nerfeado el modelo. ¿Ahora qué hacemos?»* (— Yo, desarrollador). La foto del nerfeo en prensa queda en la **9**; la réplica al CEO deja preparada la 11 (Alquilar o Poseer). **P2 (53 secciones · 25 visibles):** tras «Evolución sin Drift» (46), la **47 · «El Círculo Virtuoso: la documentación nunca envejece»** — los 4 pasos `.step` del antiguo banner de la 46 (retirado para no duplicar): *test define intención → IA escribe solución → compilador valida realidad → auditoría: la documentación nunca envejece*; chip «↻ vuelta al paso 1» que entra con el paso 4 vía `:has(.circulo-step[data-step="4"].step-active)` (sin consumir pulso propio; siempre visible en Documento) + **hueco reservado a la derecha para imagen** (`circulo-media`, a sustituir por `<img class="circulo-media-img">` — pendiente del autor). Renumeraciones con `reorder_slides.py` (P1: dos pasadas de 695 selectores · P2: 101) + `fix-banners`; ids contiguos, 0 duplicados (⚠️ el mapping del tool colisiona con ids duplicados: la slide insertada hereda el id de la siguiente y hay que corregirlo a mano — hecho en ambas partes). **Lección de CSS:** el comentario `(bro-scene-*/bro-quote-*)` cerraba el comentario con el `*/` de `bro-scene-*/` → el parser se comía la regla `.bro-scene-deck` del grid y la composición caía apilada con la foto a tamaño natural (ovf=4 en el primer audit); en comentarios CSS, jamás escribir `*/` dentro del texto. Audits en verde: s8 bias +38 · s10 +37 · s47 +25, 0 overflow; chip y 4 pulsos verificados en Charla, chip+pasos completos en Documento. `bundle.py` cuenta ahora las slides dinámicamente (los strings «54/52» hardcodeados despistaban). Guion actualizado: fila 38 (círculo), 39-42 renumeradas, cheat-sheet y puentes realineados y tabla de bloques de P1 reescrita con rangos reales.
+
 ### Puentes verbales del reenfoque (Modo Charla, a decir — no están en las slides)
 
+- **s7 → s8 (escena Signals):** *(entra la escena: la familia de Signs con sombreros de papelillo)* «Y hablando de rutas ocultas… esta es la conversación de hoy en cualquier oficina. *(leer la cita)* "Bro, sospecho que nuestro prom ha dado varias vueltas al globo." Todo el mundo sospecha lo mismo: ¿dónde ha estado mi prompt antes de volver? Y no es paranoia: hay proxies, balanceadores y reenrutados que no eliges tú.»
+- **s8 → s9 (de la latencia al nerfeo):** «Y si el viaje ya es sospechoso, lo que te encuentras al llegar es peor: tu modelo cambia bajo tus pies. La prensa lo documenta: 4 titulares.»
+- **s9 → s10 (escena del nerfeo):** *(entra el Cristo cargando la cruz)* «Los post-mortems son la versión oficial. Esta es la llamada que de verdad duele: *(leer la cita)* "Bro, me han nerfeado el modelo. ¿Ahora qué hacemos?" — Y al CEO le contesto una sola cosa: que no dependa de nadie.»
+- **s10 → s11 (remate a la decisión):** «¿Qué hacemos? Lo que llevo diciendo toda la charla: infraestructura propia. ¿Alquilamos o poseemos? Números.»
 - **s11 → s12 (forja):** *(entra la slide: tanque de pesos solo, puente con s11; clic: aparece la forja a la derecha; clic: la gráfica)* «Ya vimos cuánto pesa el modelo: 15 GB de pesos. Comprimirlo es esto: forjarlo. Del lingote FP8 al NVFP4 — cada martillazo quita material, precisión, para que la hoja quepa en la fragua de 128 GB. La pregunta es cuánto filo sobrevive. *(clic: disuelve la forja y aparece la gráfica)* Vamos a medirlo.»
 - **s17 → s18 (puente KV):** *(entra el tanque de nuevo — mismo sitio que en la s11 — con la KV Cache ámbar remarcada y, a la derecha, el artesano soldando los hilos de conversación; clic: la secuencia híbrida)* «Volvemos al tanque. Los 15 GB azules ya sabéis domarlos: son fijos. Hoy nos interesa la barra ámbar: la KV Cache que sube token a token — el artesano de la derecha soldando hilos: cada conversación, un hilo que hay que guardar. ¿Cómo hacemos que no se coma la VRAM? Pues con una arquitectura híbrida: 3 de cada 4 capas no guardan casi nada. *(clic: aparece el bloque 3:1)* Mirad la anatomía.»
 - **s2 → s3/s4 (del bufé libre a la crisis Copilot):** «Y cuando el mercado vio que las suscripciones ilimitadas se acababan, la factura llegó por todos lados — hasta GitHub tuvo que devolver dinero. Veamos el eco en la prensa.»
