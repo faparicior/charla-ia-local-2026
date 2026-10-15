@@ -14537,7 +14537,7 @@ body:not(.mode-document) .doc-only {
 /* En Modo Charla: banner "Regla de Oro" de steps + invariants/templates/timelines/bridge SE MUESTRA compacto (takeaway; la consola flex:1 absorbe su altura). Solo se oculta en los 3 diagramas mermaid de Fase 2 y los 2 árboles de decisión (slides densas sin hueco) */
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31) .chosen-synergy-banner,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-44 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-50 .chosen-synergy-banner {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-51 .chosen-synergy-banner {
   display: none !important;
 }
 
@@ -14546,8 +14546,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-36 .chosen-synergy-banner,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-37 .chosen-synergy-banner,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-38 .chosen-synergy-banner,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-49 .chosen-synergy-banner,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-51 .chosen-synergy-banner {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-50 .chosen-synergy-banner,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-52 .chosen-synergy-banner {
   padding: 0.55rem 1.2rem !important;
 }
 
@@ -14556,8 +14556,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-36 .chosen-synergy-icon,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-37 .chosen-synergy-icon,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-38 .chosen-synergy-icon,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-49 .chosen-synergy-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-51 .chosen-synergy-icon {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-50 .chosen-synergy-icon,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-52 .chosen-synergy-icon {
   font-size: 1.15rem !important;
 }
 
@@ -14566,8 +14566,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-36 .chosen-synergy-text,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-37 .chosen-synergy-text,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-38 .chosen-synergy-text,
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-43 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-49 .chosen-synergy-text,
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-51 .chosen-synergy-text {
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-50 .chosen-synergy-text,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-52 .chosen-synergy-text {
   font-size: 0.9rem !important;
   line-height: 1.35 !important;
 }
@@ -14587,7 +14587,7 @@ body.deck-sdlc-part2 .deck-part-badge {
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-terminal-body,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-terminal-body,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-terminal-body,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-terminal-body {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-terminal-body {
   font-size: 1.125rem !important;
   /* 18px: legible en proyector; was 0.90rem (14.4px) */
   line-height: 1.52 !important;
@@ -14599,7 +14599,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .md-table,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .md-table,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .md-table {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .md-table {
   font-size: 0.88rem !important;
 }
 
@@ -14607,21 +14607,21 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .md-table th,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .md-table td,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .md-table th,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .md-table td,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .md-table th {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .md-table td,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .md-table th {
   padding: 0.52rem 0.8rem !important;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .md-h1,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .md-h1,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .md-h1 {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .md-h1 {
   font-size: 1.05rem !important;
   padding-bottom: 0.45rem !important;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .md-h2,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .md-h2,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .md-h2 {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .md-h2 {
   font-size: 0.94rem !important;
   margin-top: 0.35rem !important;
 }
@@ -14692,11 +14692,11 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-
 }
 
 /* Tableros de pilares: centrar verticalmente en el aire libre (Modo Charla) */
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .adr-timeline-container,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .adr-decision-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .adr-friction-deck,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .press-grid,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .agents-case-grid {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .adr-timeline-container,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .adr-decision-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .adr-friction-deck,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .press-grid,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .agents-case-grid {
   margin-top: auto;
   margin-bottom: auto;
   padding-bottom: 2.1rem;
@@ -14725,13 +14725,24 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-build-deck {
   padding-bottom: 3.25rem;
 }
 
-/* Texto pequeño del detalle TDD: bump legible (slack verificado: 27px en la card) */
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-tdd-desc {
-  font-size: 0.84rem !important;
+/* Títulos de los pasos TDD a 1.15rem: sin texto secundario en Charla sobran
+   ~306px de aire (gap↑/gap↓ 134/172); los line-box los sigue dominando el emoji
+   de estado, así que el tablero casi no crece */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-tdd-layer {
+  font-size: 1.15rem !important;
 }
 
-body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-tdd-layer {
-  font-size: 0.88rem !important;
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-tdd-layer code {
+  font-size: 0.85rem;
+}
+
+/* Jerarquía conservada: título de tarjeta > títulos de panel > pasos */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-col-title {
+  font-size: 1.25rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-mini-title {
+  font-size: 1.2rem;
 }
 
 /* Slide 46 en Modo Charla: solo títulos de pasos y badges; el texto secundario
@@ -14745,19 +14756,136 @@ body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-drift-note {
 }
 
 /* Leads de modify-flow como texto principal: igualar a los títulos de pasos TDD
-   (slack verificado: 31px de hueco bajo el panel 2, sin riesgo de wrap) */
+   (stack natural ~322px < fila de grid ~325px: sin clipping bajo el panel 2) */
 body.deck-sdlc-part2:not(.mode-document) .slide#slide-46 .sdlc-workflow-steps {
-  font-size: 0.88rem;
+  font-size: 1.15rem;
+}
+
+/* ==========================================================================
+   EL CÍRCULO VIRTUOSO (slide 47): 4 pasos con reveal «siguiente» + hueco
+   reservado a imagen. Componente keyado por clases (circulo-*) para sobrevivir
+   a renumeraciones; solo centrado y reveal van anclados a #slide-47.
+   ========================================================================== */
+.circulo-deck {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.25rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.circulo-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  justify-content: center;
+}
+
+.circulo-step {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.8rem 1.05rem;
+}
+
+body.theme-dark .circulo-step {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.circulo-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.circulo-icon.c-amber { background: rgba(217, 119, 6, 0.15); }
+.circulo-icon.c-violet { background: rgba(139, 92, 246, 0.15); }
+.circulo-icon.c-emerald { background: rgba(16, 185, 129, 0.15); }
+.circulo-icon.c-cyan { background: rgba(6, 182, 212, 0.15); }
+
+.circulo-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.circulo-text strong {
+  font-weight: 800;
+}
+
+.circulo-loop {
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 0.32rem 1rem;
+  border: 1px dashed var(--border-medium);
+  border-radius: 999px;
+}
+
+/* Hueco reservado para la imagen: sustituir el div por <img class="circulo-media-img"> */
+.circulo-media {
+  border: 2px dashed var(--border-medium);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.015);
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body.theme-dark .circulo-media {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.circulo-media-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Modo Charla: centrado con sesgo óptico (mismo patrón que la slide 46) */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-deck {
+  flex: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 3.25rem;
+}
+
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-step,
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-loop {
+  cursor: pointer;
+}
+
+/* Reveal: en Charla los pasos dormidos se atenúan; en Documento se ven todos
+   (estas reglas de atenuación solo existen bajo :not(.mode-document)) */
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-step:not(.step-active),
+body.deck-sdlc-part2:not(.mode-document) .slide#slide-47 .circulo-loop:not(.step-active) {
+  opacity: 0.26;
+  filter: grayscale(0.65);
+  transform: translateY(8px);
 }
 
 /* En Modo Charla, mayor altura para diagramas Mermaid de Fase 2 y Pilares */
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .mermaid-diagram-wrap,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .mermaid-diagram-wrap {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .mermaid-diagram-wrap {
   height: 640px !important;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .mermaid-diagram-wrap svg,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .mermaid-diagram-wrap svg {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .mermaid-diagram-wrap svg {
   max-height: 610px !important;
 }
 
@@ -14793,7 +14921,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 /* En Modo Charla, ocultar el subtítulo explicativo bajo el titular h2 */
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) p.subtitle,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) p.subtitle,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) p.subtitle {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) p.subtitle {
   display: none !important;
 }
 
@@ -14804,8 +14932,8 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-point-desc,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-hero-sub,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-point-desc,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-hero-sub,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-point-desc {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-hero-sub,
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-point-desc {
   display: none !important;
 }
 
@@ -14813,7 +14941,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-explain-col,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-explain-col,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-explain-col,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-explain-col {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-explain-col {
   gap: 1.5rem;
   justify-content: space-between;
   align-self: stretch;
@@ -14822,14 +14950,14 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-hero-box,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-hero-box,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-hero-box,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-hero-box {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-hero-box {
   padding: 1.25rem 1.6rem;
 }
 
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-hero-quote,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-hero-quote,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-hero-quote,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-hero-quote {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-hero-quote {
   font-size: 1.75rem !important;
   line-height: 1.3 !important;
   margin-bottom: 0 !important;
@@ -14838,7 +14966,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-points-card,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-points-card,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-points-card,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-points-card {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-points-card {
   padding: 1.2rem 1.5rem !important;
   gap: 0.95rem !important;
   justify-content: flex-start;
@@ -14847,7 +14975,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-point-item,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-point-item,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-point-item,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-point-item {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-point-item {
   align-items: flex-start !important;
   gap: 1rem !important;
 }
@@ -14855,7 +14983,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-point-icon,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-point-icon,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-point-icon,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-point-icon {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-point-icon {
   font-size: 1.85rem !important;
   line-height: 1.1 !important;
   margin-top: 0.15rem !important;
@@ -14864,7 +14992,7 @@ body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .sdlc-point-title,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .boundaries-point-title,
 body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-point-title,
-body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-point-title {
+body.deck-sdlc-part2:not(.mode-document) .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-point-title {
   font-size: 1.22rem !important;
   font-weight: 700 !important;
   margin-bottom: 0.15rem !important;
@@ -14892,9 +15020,9 @@ body.deck-sdlc-part2.mode-document .slide:is(#slide-19, #slide-20, #slide-21, #s
 body.deck-sdlc-part2.mode-document .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) p.subtitle,
 body.deck-sdlc-part2.mode-document .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-hero-sub,
 body.deck-sdlc-part2.mode-document .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .sdlc-point-desc,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) p.subtitle,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-hero-sub,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .sdlc-point-desc {
+body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) p.subtitle,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-hero-sub,
+body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .sdlc-point-desc {
   display: block !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -14913,7 +15041,7 @@ body.mode-document span.doc-only {
 
 body.deck-sdlc-part2.mode-document .slide:is(#slide-19, #slide-20, #slide-21, #slide-22, #slide-23, #slide-24, #slide-25, #slide-26) .chosen-synergy-banner,
 body.deck-sdlc-part2.mode-document .slide:is(#slide-29, #slide-30, #slide-31, #slide-36, #slide-37, #slide-38) .chosen-synergy-banner,
-body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-49, #slide-50, #slide-51) .chosen-synergy-banner {
+body.deck-sdlc-part2.mode-document .slide:is(#slide-10, #slide-40, #slide-41, #slide-42, #slide-43, #slide-44, #slide-50, #slide-51, #slide-52) .chosen-synergy-banner {
   display: flex !important;
   animation: fadeIn 0.25s ease-out;
 }
@@ -21593,23 +21721,23 @@ body.deck-sdlc-part2
 /* ==========================================================================
    PARTE 2 — Slide 27 (timeline SDLC): tarjeta Fase 2b Features (fucsia) + grid a 6
    ========================================================================== */
-#slide-50 .adr-timeline-track {
+#slide-51 .adr-timeline-track {
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
 }
 
-body.deck-sdlc-part2 #slide-49 .adr-step-icon-box.fuchsia {
+body.deck-sdlc-part2 #slide-50 .adr-step-icon-box.fuchsia {
   background: rgba(217, 70, 239, 0.12);
   border-color: rgba(217, 70, 239, 0.3);
   box-shadow: 0 0 18px rgba(217, 70, 239, 0.15);
 }
 
-body.deck-sdlc-part2 #slide-49 .adr-step-bullet-item.fuchsia {
+body.deck-sdlc-part2 #slide-50 .adr-step-bullet-item.fuchsia {
   background: rgba(217, 70, 239, 0.08);
   border-color: rgba(217, 70, 239, 0.25);
 }
 
-body.deck-sdlc-part2 #slide-49 .adr-step-bullet-item.fuchsia code {
+body.deck-sdlc-part2 #slide-50 .adr-step-bullet-item.fuchsia code {
   color: #a21caf;
 }
 
@@ -22657,11 +22785,11 @@ body.deck-sdlc-part2 #slide-45 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 4 · TDD";
 }
 
-body.deck-sdlc-part2 #slide-48 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-49 .map-step-counter::after {
   content: "📍 Estamos aquí · Fase 5+ · Cambio Guiado";
 }
 
-body.deck-sdlc-part2 #slide-47 .map-step-counter::after {
+body.deck-sdlc-part2 #slide-48 .map-step-counter::after {
   content: "✨ 9 / 9 · Todo el ecosistema encendido";
 }
 
@@ -26251,7 +26379,7 @@ body.deck-sdlc-part2.mode-document #slide-12 .cloud-stage {
    PARTE 2 · SLIDE 50 — FRASE DE CIERRE: a la escala de la quote de la 4
    (solo Modo Charla; Documento mantiene sus paneles íntegros)
    ========================================================================== */
-body.deck-sdlc-part2:not(.mode-document) #slide-52 .quote-box {
+body.deck-sdlc-part2:not(.mode-document) #slide-53 .quote-box {
   flex: 1 1 0;
   min-height: 0;
   max-width: 1640px;
@@ -26260,24 +26388,24 @@ body.deck-sdlc-part2:not(.mode-document) #slide-52 .quote-box {
   padding-bottom: 1.8rem;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-52 .quote-text {
+body.deck-sdlc-part2:not(.mode-document) #slide-53 .quote-text {
   font-size: 4.9rem;
   line-height: 1.4;
 }
 
-body.deck-sdlc-part2:not(.mode-document) #slide-52 .quote-author {
+body.deck-sdlc-part2:not(.mode-document) #slide-53 .quote-author {
   font-size: 1.45rem;
 }
 
 /* Tira de QRs del cierre (contenido: visible también en Modo Documento) */
-body.deck-sdlc-part2 #slide-52 .qr-strip {
+body.deck-sdlc-part2 #slide-53 .qr-strip {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 2.2rem;
 }
 
-body.deck-sdlc-part2 #slide-52 .qr-tile {
+body.deck-sdlc-part2 #slide-53 .qr-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26290,13 +26418,13 @@ body.deck-sdlc-part2 #slide-52 .qr-tile {
   box-shadow: 0 10px 26px rgba(14, 15, 18, 0.08);
 }
 
-body.deck-sdlc-part2 #slide-52 .qr-tile img {
+body.deck-sdlc-part2 #slide-53 .qr-tile img {
   width: 188px;
   height: 188px;
   display: block;
 }
 
-body.deck-sdlc-part2 #slide-52 .qr-tile span {
+body.deck-sdlc-part2 #slide-53 .qr-tile span {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.04em;
