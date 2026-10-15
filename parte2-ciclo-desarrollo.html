@@ -1141,15 +1141,61 @@
     </section>
 
     <!-- ====================================================================
+       SLIDE NUEVA: ANATOMÍA DEL DOCUMENTO — NUBE DE TAGS PROGRESIVA (entrará en posición 15)
+       Grupos .step: cada clic despliega 3-4 tags; display:contents mantiene el layout final
+       ==================================================================== -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content" style="gap: 0.9rem;">
+        <div class="deck-back-bar">
+          <a href="#slide-10" class="deck-back-btn">← El Ciclo de Desarrollo: 5 Fases</a>
+          <span class="deck-part-badge">Parte 2 • Fase 2 • Anatomía del Documento</span>
+        </div>
+        <div class="tag">Fase 2 • Especificación Viva • Lo que fija el documento</div>
+        <h2>¿De qué hablan estos documentos? <span class="serif-italic" style="color: #6366f1;">(¿memoria viva?)</span></h2>
+        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
+          Invariantes, reglas de negocio, flujos de información, comportamiento, usuarios y objetivos: el vocabulario
+          que el equipo y el modelo comparten.
+        </p>
+
+        <div class="cloud-stage">
+          <div class="cloud-field">
+            <div class="cloud-group step" data-step="1">
+              <span class="cloud-tag" style="--x: 390px; --y: 26px; --sz: 3.6rem; --rot: -1.5deg; color: #64748b;">usuarios</span>
+              <span class="cloud-tag" style="--x: 705px; --y: 10px; --sz: 3.1rem; --rot: 1.2deg; color: #0284c7;">necesidades</span>
+              <span class="cloud-tag cloud-serif" style="--x: 1050px; --y: 0px; --sz: 4.6rem; --rot: -1deg; color: #10b981;">objetivos</span>
+            </div>
+            <div class="cloud-group step" data-step="2">
+              <span class="cloud-tag" style="--x: 60px; --y: 118px; --sz: 3.2rem; --rot: 1deg; color: #0284c7;">flujo de información</span>
+              <span class="cloud-tag" style="--x: 470px; --y: 196px; --sz: 2.9rem; --rot: -1.5deg; color: #a855f7;">comportamiento</span>
+              <span class="cloud-tag" style="--x: 760px; --y: 108px; --sz: 3.4rem; --rot: 1.2deg; color: #d97706;">reglas de negocio</span>
+              <span class="cloud-tag" style="--x: 1120px; --y: 210px; --sz: 2.6rem; --rot: -2deg; color: #ea580c;">decisiones cerradas</span>
+            </div>
+            <div class="cloud-group step" data-step="3">
+              <span class="cloud-tag" style="--x: 300px; --y: 330px; --sz: 3.4rem; --rot: -2deg; color: #6366f1;">invariantes</span>
+              <span class="cloud-tag" style="--x: 700px; --y: 308px; --sz: 2.9rem; --rot: -1deg; color: #0d9488;">estados y transiciones</span>
+              <span class="cloud-tag" style="--x: 1180px; --y: 366px; --sz: 2.7rem; --rot: 1.5deg; color: #6366f1;">eventos asíncronos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cloud-takeaway step" data-step="4">
+          <span class="cloud-takeaway-icon">📌</span>
+          <p><strong>Todo esto es lo que debería estar en nuestro día a día:</strong> escrito donde el modelo lo
+            entiende — y así nos comunicamos con él de forma efectiva.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          SLIDE NUEVA: EL DOCUMENTO BIFRONTE — EL NEGOCIO ARRIBA, LA IMPLEMENTACIÓN ABAJO
          SVG de un documento con cabecera, la parte 1 (negocio abstracto, para
          PMs y equipo técnico), un desgarro de papel y la parte 2 (el contrato
          técnico de la implementación) en la hoja rota de abajo.
          ==================================================================== -->
-    <section class="slide" id="slide-11">
+    <section class="slide" id="slide-12">
       <div class="slide-content" style="gap: 1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-10" class="deck-back-btn">← El Ciclo de Desarrollo: 5 Fases</a>
+          <a href="#slide-11" class="deck-back-btn">← Anatomía del documento</a>
           <span class="deck-part-badge">Parte 2 • Fase 2 • El Documento Bifronte</span>
         </div>
         <div class="tag">Fase 2 • Especificación Viva • Formato de Documento</div>
@@ -1270,10 +1316,10 @@
     <!-- ====================================================================
          SLIDE NUEVA: ESQUEMA SVG (Modo Charla de los diagramas mermaid doc-only)
          ==================================================================== -->
-    <section class="slide" id="slide-12">
+    <section class="slide" id="slide-13">
       <div class="slide-content" style="gap: 1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-11" class="deck-back-btn">← El Documento Bifronte</a>
+          <a href="#slide-12" class="deck-back-btn">← El Documento Bifronte</a>
           <span class="deck-part-badge">Parte 2 • Fase 2 • Esquema 1 de 3</span>
         </div>
         <div class="tag">Fase 2 • Especificación Viva • Diagrama de Secuencia</div>
@@ -1339,10 +1385,10 @@
     <!-- ====================================================================
          SLIDE NUEVA: ESQUEMA SVG (Modo Charla de los diagramas mermaid doc-only)
          ==================================================================== -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-14">
       <div class="slide-content" style="gap: 1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-12" class="deck-back-btn">← Esquema 1: La Secuencia</a>
+          <a href="#slide-13" class="deck-back-btn">← Esquema 1: La Secuencia</a>
           <span class="deck-part-badge">Parte 2 • Fase 2 • Esquema 2 de 3</span>
         </div>
         <div class="tag">Fase 2 • Especificación Viva • Flowchart de Decisiones</div>
@@ -1420,10 +1466,10 @@
     <!-- ====================================================================
          SLIDE NUEVA: ESQUEMA SVG (Modo Charla de los diagramas mermaid doc-only)
          ==================================================================== -->
-    <section class="slide" id="slide-14">
+    <section class="slide" id="slide-15">
       <div class="slide-content" style="gap: 1rem;">
         <div class="deck-back-bar">
-          <a href="#slide-13" class="deck-back-btn">← Esquema 2: El Flowchart</a>
+          <a href="#slide-14" class="deck-back-btn">← Esquema 2: El Flowchart</a>
           <span class="deck-part-badge">Parte 2 • Fase 2 • Esquema 3 de 3</span>
         </div>
         <div class="tag">Fase 2 • Especificación Viva • Máquina de Estados (FSM)</div>
@@ -1488,59 +1534,13 @@
     </section>
 
     <!-- ====================================================================
-       SLIDE NUEVA: ANATOMÍA DEL DOCUMENTO — NUBE DE TAGS PROGRESIVA (entrará en posición 15)
-       Grupos .step: cada clic despliega 3-4 tags; display:contents mantiene el layout final
-       ==================================================================== -->
-    <section class="slide" id="slide-15">
-      <div class="slide-content" style="gap: 0.9rem;">
-        <div class="deck-back-bar">
-          <a href="#slide-14" class="deck-back-btn">← Esquema 3: La FSM</a>
-          <span class="deck-part-badge">Parte 2 • Fase 2 • Anatomía del Documento</span>
-        </div>
-        <div class="tag">Fase 2 • Especificación Viva • Lo que fija el documento</div>
-        <h2>¿De qué hablan estos documentos? <span class="serif-italic" style="color: #6366f1;">(¿memoria viva?)</span></h2>
-        <p class="subtitle doc-only" style="margin-top: -0.85rem;">
-          Invariantes, reglas de negocio, flujos de información, comportamiento, usuarios y objetivos: el vocabulario
-          que el equipo y el modelo comparten.
-        </p>
-
-        <div class="cloud-stage">
-          <div class="cloud-field">
-            <div class="cloud-group step" data-step="1">
-              <span class="cloud-tag" style="--x: 390px; --y: 26px; --sz: 3.6rem; --rot: -1.5deg; color: #64748b;">usuarios</span>
-              <span class="cloud-tag" style="--x: 705px; --y: 10px; --sz: 3.1rem; --rot: 1.2deg; color: #0284c7;">necesidades</span>
-              <span class="cloud-tag cloud-serif" style="--x: 1050px; --y: 0px; --sz: 4.6rem; --rot: -1deg; color: #10b981;">objetivos</span>
-            </div>
-            <div class="cloud-group step" data-step="2">
-              <span class="cloud-tag" style="--x: 60px; --y: 118px; --sz: 3.2rem; --rot: 1deg; color: #0284c7;">flujo de información</span>
-              <span class="cloud-tag" style="--x: 470px; --y: 196px; --sz: 2.9rem; --rot: -1.5deg; color: #a855f7;">comportamiento</span>
-              <span class="cloud-tag" style="--x: 760px; --y: 108px; --sz: 3.4rem; --rot: 1.2deg; color: #d97706;">reglas de negocio</span>
-              <span class="cloud-tag" style="--x: 1120px; --y: 210px; --sz: 2.6rem; --rot: -2deg; color: #ea580c;">decisiones cerradas</span>
-            </div>
-            <div class="cloud-group step" data-step="3">
-              <span class="cloud-tag" style="--x: 300px; --y: 330px; --sz: 3.4rem; --rot: -2deg; color: #6366f1;">invariantes</span>
-              <span class="cloud-tag" style="--x: 700px; --y: 308px; --sz: 2.9rem; --rot: -1deg; color: #0d9488;">estados y transiciones</span>
-              <span class="cloud-tag" style="--x: 1180px; --y: 366px; --sz: 2.7rem; --rot: 1.5deg; color: #6366f1;">eventos asíncronos</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="cloud-takeaway step" data-step="4">
-          <span class="cloud-takeaway-icon">📌</span>
-          <p><strong>Todo esto es lo que debería estar en nuestro día a día:</strong> escrito donde el modelo lo
-            entiende — y así nos comunicamos con él de forma efectiva.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
          SLIDE 10: MAPA INTERACTIVO DEL SDLC (SVG IZQUIERDA→DERECHA • FASES QUE SE ILUMINAN)
          Recreación del diagrama de docs/SDLC-WORKFLOW-DIRECTORY.md (con Fase 2b Features)
          ==================================================================== -->
     <section class="slide" id="slide-16" data-steps-doc-only>
       <div class="slide-content" style="gap: 0.85rem;">
         <div class="deck-back-bar">
-          <a href="#slide-15" class="deck-back-btn">← Anatomía del documento</a>
+          <a href="#slide-15" class="deck-back-btn">← Esquema 3: La FSM</a>
           <span class="deck-part-badge" style="background: rgba(99, 102, 241, 0.15); color: #4f46e5;">Parte 2 • Mapa Vivo
             del Workflow</span>
         </div>
