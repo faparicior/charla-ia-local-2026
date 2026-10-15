@@ -712,6 +712,32 @@ body.theme-dark .versus-card.highlight-card {
   line-height: 1.15;
 }
 
+/* Slide 6: siluetas de país junto a los títulos (EE. UU. occidental / China asiática) */
+.versus-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.country-map {
+  height: 58px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Banderas junto al h2 de las escenas (8 y 10) */
+.h2-flag {
+  height: 0.92em;
+  width: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
+  margin-left: 0.3rem;
+  vertical-align: -0.06em;
+}
+
 .versus-providers {
   font-family: var(--font-mono);
   font-size: 1.15rem;
@@ -14852,20 +14878,23 @@ body.theme-dark .circulo-step {
   border-radius: 999px;
 }
 
-/* Hueco reservado para la imagen: sustituir el div por <img class="circulo-media-img"> */
+/* Contenedor de la imagen del ciclo SDLC */
 .circulo-media {
-  border: 2px dashed var(--border-medium);
+  border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  background: rgba(0, 0, 0, 0.015);
+  background: #ffffff;
   min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 body.theme-dark .circulo-media {
   background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
 .circulo-media-img {
@@ -27240,7 +27269,10 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
               <span class="tag">Propietario Cloud</span>
               <div class="versus-price-tag">$2.00 – $5.00 / 1M</div>
             </div>
-            <div class="versus-title">APIs Occidentales</div>
+            <div class="versus-title-row">
+              <div class="versus-title">APIs norteamericanas</div>
+              <svg class="country-map" viewBox="0 0 100 62" aria-hidden="true"><rect width="100" height="62" fill="#fff"/><rect y="0.00" width="100" height="4.77" fill="#B22234"/><rect y="9.54" width="100" height="4.77" fill="#B22234"/><rect y="19.08" width="100" height="4.77" fill="#B22234"/><rect y="28.62" width="100" height="4.77" fill="#B22234"/><rect y="38.15" width="100" height="4.77" fill="#B22234"/><rect y="47.69" width="100" height="4.77" fill="#B22234"/><rect y="57.23" width="100" height="4.77" fill="#B22234"/><rect width="40" height="33.38" fill="#3C3B6E"/><circle cx="3.30" cy="1.67" r="1.25" fill="#fff"/><circle cx="10.00" cy="1.67" r="1.25" fill="#fff"/><circle cx="16.70" cy="1.67" r="1.25" fill="#fff"/><circle cx="23.40" cy="1.67" r="1.25" fill="#fff"/><circle cx="30.10" cy="1.67" r="1.25" fill="#fff"/><circle cx="36.80" cy="1.67" r="1.25" fill="#fff"/><circle cx="6.65" cy="5.00" r="1.25" fill="#fff"/><circle cx="13.35" cy="5.00" r="1.25" fill="#fff"/><circle cx="20.05" cy="5.00" r="1.25" fill="#fff"/><circle cx="26.75" cy="5.00" r="1.25" fill="#fff"/><circle cx="33.45" cy="5.00" r="1.25" fill="#fff"/><circle cx="3.30" cy="8.33" r="1.25" fill="#fff"/><circle cx="10.00" cy="8.33" r="1.25" fill="#fff"/><circle cx="16.70" cy="8.33" r="1.25" fill="#fff"/><circle cx="23.40" cy="8.33" r="1.25" fill="#fff"/><circle cx="30.10" cy="8.33" r="1.25" fill="#fff"/><circle cx="36.80" cy="8.33" r="1.25" fill="#fff"/><circle cx="6.65" cy="11.66" r="1.25" fill="#fff"/><circle cx="13.35" cy="11.66" r="1.25" fill="#fff"/><circle cx="20.05" cy="11.66" r="1.25" fill="#fff"/><circle cx="26.75" cy="11.66" r="1.25" fill="#fff"/><circle cx="33.45" cy="11.66" r="1.25" fill="#fff"/><circle cx="3.30" cy="14.99" r="1.25" fill="#fff"/><circle cx="10.00" cy="14.99" r="1.25" fill="#fff"/><circle cx="16.70" cy="14.99" r="1.25" fill="#fff"/><circle cx="23.40" cy="14.99" r="1.25" fill="#fff"/><circle cx="30.10" cy="14.99" r="1.25" fill="#fff"/><circle cx="36.80" cy="14.99" r="1.25" fill="#fff"/><circle cx="6.65" cy="18.32" r="1.25" fill="#fff"/><circle cx="13.35" cy="18.32" r="1.25" fill="#fff"/><circle cx="20.05" cy="18.32" r="1.25" fill="#fff"/><circle cx="26.75" cy="18.32" r="1.25" fill="#fff"/><circle cx="33.45" cy="18.32" r="1.25" fill="#fff"/><circle cx="3.30" cy="21.65" r="1.25" fill="#fff"/><circle cx="10.00" cy="21.65" r="1.25" fill="#fff"/><circle cx="16.70" cy="21.65" r="1.25" fill="#fff"/><circle cx="23.40" cy="21.65" r="1.25" fill="#fff"/><circle cx="30.10" cy="21.65" r="1.25" fill="#fff"/><circle cx="36.80" cy="21.65" r="1.25" fill="#fff"/><circle cx="6.65" cy="24.98" r="1.25" fill="#fff"/><circle cx="13.35" cy="24.98" r="1.25" fill="#fff"/><circle cx="20.05" cy="24.98" r="1.25" fill="#fff"/><circle cx="26.75" cy="24.98" r="1.25" fill="#fff"/><circle cx="33.45" cy="24.98" r="1.25" fill="#fff"/><circle cx="3.30" cy="28.31" r="1.25" fill="#fff"/><circle cx="10.00" cy="28.31" r="1.25" fill="#fff"/><circle cx="16.70" cy="28.31" r="1.25" fill="#fff"/><circle cx="23.40" cy="28.31" r="1.25" fill="#fff"/><circle cx="30.10" cy="28.31" r="1.25" fill="#fff"/><circle cx="36.80" cy="28.31" r="1.25" fill="#fff"/></svg>
+            </div>
             <div class="versus-providers">
               OpenAI (GPT-5.6 / o3) • Anthropic (Claude 5) • Google
             </div>
@@ -27271,7 +27303,10 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
               <span class="tag">Open-Weights Cloud</span>
               <div class="versus-price-tag">$0.08 – $0.55 / 1M</div>
             </div>
-            <div class="versus-title">APIs Asiáticas</div>
+            <div class="versus-title-row">
+              <div class="versus-title">APIs chinas</div>
+              <svg class="country-map" viewBox="0 0 100 67" aria-hidden="true"><rect width="100" height="67" fill="#DE2910"/><polygon points="16.67,6.75 18.91,13.66 26.18,13.66 20.30,17.93 22.54,24.84 16.67,20.57 10.79,24.84 13.03,17.93 7.16,13.66 14.42,13.66" fill="#FFDE00"/><polygon points="35.05,9.55 33.22,7.97 31.15,9.22 32.09,6.99 30.26,5.40 32.68,5.61 33.62,3.38 34.17,5.74 36.58,5.95 34.51,7.20" fill="#FFDE00"/><polygon points="40.47,16.70 39.41,14.53 37.01,14.87 38.75,13.18 37.68,11.01 39.82,12.14 41.56,10.45 41.14,12.84 43.28,13.97 40.89,14.31" fill="#FFDE00"/><polygon points="39.08,26.65 39.00,24.23 36.67,23.57 38.94,22.74 38.86,20.32 40.35,22.23 42.63,21.40 41.27,23.41 42.76,25.31 40.44,24.65" fill="#FFDE00"/><polygon points="31.24,32.75 32.10,30.48 30.22,28.97 32.64,29.08 33.50,26.82 34.13,29.16 36.55,29.28 34.52,30.60 35.16,32.94 33.27,31.42" fill="#FFDE00"/></svg>
+            </div>
             <div class="versus-providers">
               DeepSeek (V4 / R1) • Alibaba Qwen (3.8 Max / 72B)
             </div>
@@ -27398,7 +27433,7 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
     <section class="slide" id="slide-8">
       <div class="slide-content">
         <div class="tag">Escena real · Filtración de datos</div>
-        <h2>Conversación con el CEO</h2>
+        <h2>Conversación con el CEO: <span class="serif-italic" style="color: #ea580c;">APIs chinas</span> <svg class="country-map h2-flag" viewBox="0 0 100 67" aria-hidden="true"><rect width="100" height="67" fill="#DE2910"/><polygon points="16.67,6.75 18.91,13.66 26.18,13.66 20.30,17.93 22.54,24.84 16.67,20.57 10.79,24.84 13.03,17.93 7.16,13.66 14.42,13.66" fill="#FFDE00"/><polygon points="35.05,9.55 33.22,7.97 31.15,9.22 32.09,6.99 30.26,5.40 32.68,5.61 33.62,3.38 34.17,5.74 36.58,5.95 34.51,7.20" fill="#FFDE00"/><polygon points="40.47,16.70 39.41,14.53 37.01,14.87 38.75,13.18 37.68,11.01 39.82,12.14 41.56,10.45 41.14,12.84 43.28,13.97 40.89,14.31" fill="#FFDE00"/><polygon points="39.08,26.65 39.00,24.23 36.67,23.57 38.94,22.74 38.86,20.32 40.35,22.23 42.63,21.40 41.27,23.41 42.76,25.31 40.44,24.65" fill="#FFDE00"/><polygon points="31.24,32.75 32.10,30.48 30.22,28.97 32.64,29.08 33.50,26.82 34.13,29.16 36.55,29.28 34.52,30.60 35.16,32.94 33.27,31.42" fill="#FFDE00"/></svg></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           En cloud, la petición pasa por proxies, balanceadores y regiones ajenas antes de volver; la comunidad la
           vigila con proxies locales. Sospecha confirmada: por eso se llevan sombreros de papelillo.
@@ -27516,7 +27551,7 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
     <section class="slide" id="slide-10">
       <div class="slide-content">
         <div class="tag">Escena real · Variabilidad</div>
-        <h2>Conversación con el CEO</h2>
+        <h2>Conversación con el CEO: <span class="serif-italic" style="color: #ea580c;">APIs norteamericanas</span> <svg class="country-map h2-flag" viewBox="0 0 100 62" aria-hidden="true"><rect width="100" height="62" fill="#fff"/><rect y="0.00" width="100" height="4.77" fill="#B22234"/><rect y="9.54" width="100" height="4.77" fill="#B22234"/><rect y="19.08" width="100" height="4.77" fill="#B22234"/><rect y="28.62" width="100" height="4.77" fill="#B22234"/><rect y="38.15" width="100" height="4.77" fill="#B22234"/><rect y="47.69" width="100" height="4.77" fill="#B22234"/><rect y="57.23" width="100" height="4.77" fill="#B22234"/><rect width="40" height="33.38" fill="#3C3B6E"/><circle cx="3.30" cy="1.67" r="1.25" fill="#fff"/><circle cx="10.00" cy="1.67" r="1.25" fill="#fff"/><circle cx="16.70" cy="1.67" r="1.25" fill="#fff"/><circle cx="23.40" cy="1.67" r="1.25" fill="#fff"/><circle cx="30.10" cy="1.67" r="1.25" fill="#fff"/><circle cx="36.80" cy="1.67" r="1.25" fill="#fff"/><circle cx="6.65" cy="5.00" r="1.25" fill="#fff"/><circle cx="13.35" cy="5.00" r="1.25" fill="#fff"/><circle cx="20.05" cy="5.00" r="1.25" fill="#fff"/><circle cx="26.75" cy="5.00" r="1.25" fill="#fff"/><circle cx="33.45" cy="5.00" r="1.25" fill="#fff"/><circle cx="3.30" cy="8.33" r="1.25" fill="#fff"/><circle cx="10.00" cy="8.33" r="1.25" fill="#fff"/><circle cx="16.70" cy="8.33" r="1.25" fill="#fff"/><circle cx="23.40" cy="8.33" r="1.25" fill="#fff"/><circle cx="30.10" cy="8.33" r="1.25" fill="#fff"/><circle cx="36.80" cy="8.33" r="1.25" fill="#fff"/><circle cx="6.65" cy="11.66" r="1.25" fill="#fff"/><circle cx="13.35" cy="11.66" r="1.25" fill="#fff"/><circle cx="20.05" cy="11.66" r="1.25" fill="#fff"/><circle cx="26.75" cy="11.66" r="1.25" fill="#fff"/><circle cx="33.45" cy="11.66" r="1.25" fill="#fff"/><circle cx="3.30" cy="14.99" r="1.25" fill="#fff"/><circle cx="10.00" cy="14.99" r="1.25" fill="#fff"/><circle cx="16.70" cy="14.99" r="1.25" fill="#fff"/><circle cx="23.40" cy="14.99" r="1.25" fill="#fff"/><circle cx="30.10" cy="14.99" r="1.25" fill="#fff"/><circle cx="36.80" cy="14.99" r="1.25" fill="#fff"/><circle cx="6.65" cy="18.32" r="1.25" fill="#fff"/><circle cx="13.35" cy="18.32" r="1.25" fill="#fff"/><circle cx="20.05" cy="18.32" r="1.25" fill="#fff"/><circle cx="26.75" cy="18.32" r="1.25" fill="#fff"/><circle cx="33.45" cy="18.32" r="1.25" fill="#fff"/><circle cx="3.30" cy="21.65" r="1.25" fill="#fff"/><circle cx="10.00" cy="21.65" r="1.25" fill="#fff"/><circle cx="16.70" cy="21.65" r="1.25" fill="#fff"/><circle cx="23.40" cy="21.65" r="1.25" fill="#fff"/><circle cx="30.10" cy="21.65" r="1.25" fill="#fff"/><circle cx="36.80" cy="21.65" r="1.25" fill="#fff"/><circle cx="6.65" cy="24.98" r="1.25" fill="#fff"/><circle cx="13.35" cy="24.98" r="1.25" fill="#fff"/><circle cx="20.05" cy="24.98" r="1.25" fill="#fff"/><circle cx="26.75" cy="24.98" r="1.25" fill="#fff"/><circle cx="33.45" cy="24.98" r="1.25" fill="#fff"/><circle cx="3.30" cy="28.31" r="1.25" fill="#fff"/><circle cx="10.00" cy="28.31" r="1.25" fill="#fff"/><circle cx="16.70" cy="28.31" r="1.25" fill="#fff"/><circle cx="23.40" cy="28.31" r="1.25" fill="#fff"/><circle cx="30.10" cy="28.31" r="1.25" fill="#fff"/><circle cx="36.80" cy="28.31" r="1.25" fill="#fff"/></svg></h2>
         <p class="subtitle doc-only" style="margin-top: -0.85rem;">
           Contexto real: los post-mortems de la slide anterior. Mi propuesta está justo en la siguiente:
           infraestructura propia — alquilar o poseer.
