@@ -626,6 +626,32 @@ body.theme-dark .legend-dot.black {
   color: var(--text-muted);
 }
 
+/* Curiosidad de portada: tokens consumidos por la charla (pie, derecha, pequeñito) */
+.hero-meta {
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hero-meta-main {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+}
+
+.hero-meta-main strong {
+  color: var(--text-main);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-meta-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  opacity: 0.78;
+}
+
 /* Tarjetas refinadas */
 .split-grid {
   display: grid;
@@ -26837,8 +26863,12 @@ body.deck-sdlc-part2 #slide-6 .pd-poster {
             <div class="speaker-avatar">01</div>
             <div>
               <div class="speaker-name">Fernando</div>
-              <div class="speaker-role">Software Crafter &amp; AI Architect</div>
+              <div class="speaker-role">Software Crafter · AI Survivor</div>
             </div>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-main">Tokens de esta charla: <strong>688.461.222</strong> de entrada · <strong>3.935.651</strong> de salida ≈ <strong>114&nbsp;$</strong></div>
+            <div class="hero-meta-sub">a 0,16&nbsp;$/M la entrada · 0,96&nbsp;$/M la salida</div>
           </div>
         </div>
       </div>
