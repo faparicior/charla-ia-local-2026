@@ -24295,6 +24295,13 @@ body.overview-mode #slide-11 .meme-expensive {
     display: none !important;
   }
 
+  /* PDF: la slide va justa a 1080px y el meme estático (777px de flujo) la desborda
+     (tarjetas cortadas en el borde inferior). El remate impreso es la línea de cierre;
+     la imagen del meme queda para Charla/Documento/Overview. */
+  body.deck-hardware-part1 #slide-11 .localhost-meme-img {
+    display: none !important;
+  }
+
   body.deck-hardware-part1 #slide-11 .meme-expensive {
     display: flex !important;
   }
