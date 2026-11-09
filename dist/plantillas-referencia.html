@@ -28135,6 +28135,28 @@ function initDeck() {
         twin.classList.remove('print-skip-original');
         twin.classList.add('print-twin-page', `print-twin-${srcId.replace('slide-', '')}-${String.fromCharCode(98 + i)}`);
         twin.setAttribute('aria-hidden', 'true');
+        // Autocontenido: los clones duplican los ids de <defs> (gradientes,
+        // marcadores, clipPaths…) y si el original queda display:none, Chrome
+        // resuelve url(#id) contra el original oculto → barras/cajas SIN
+        // relleno («solo lo de alrededor»). Se sufijan los ids del clon y se
+        // rewiran sus referencias url(#)/href="#" para que apunten a sus
+        // propias defs.
+        const pSuffix = `-pt${String.fromCharCode(98 + i)}`;
+        const idSet = new Set([...twin.querySelectorAll('[id]')].map((el) => el.id));
+        const reurl = (v) => v.replace(/url\(#([^)]+)\)/g, (m, id) => (idSet.has(id) ? `url(#${id}${pSuffix})` : m));
+        twin.querySelectorAll('*').forEach((el) => {
+          for (const attr of ['fill', 'stroke', 'filter', 'clip-path', 'mask', 'marker-end', 'marker-start', 'marker-mid']) {
+            const v = el.getAttribute(attr);
+            if (v && v.includes('url(#')) el.setAttribute(attr, reurl(v));
+          }
+          const style = el.getAttribute('style');
+          if (style && style.includes('url(#')) el.setAttribute('style', reurl(style));
+          for (const attr of ['href', 'xlink:href']) {
+            const v = el.getAttribute(attr);
+            if (v && v.startsWith('#') && idSet.has(v.slice(1))) el.setAttribute(attr, `#${v.slice(1)}${pSuffix}`);
+          }
+        });
+        twin.querySelectorAll('[id]').forEach((el) => { el.id += pSuffix; });
         setStepState(twin, k);
         anchor.after(twin);
         anchor = twin;
