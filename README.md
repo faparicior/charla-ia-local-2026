@@ -31,6 +31,11 @@ producción lo hace `bundle.py` hacia `dist/` (CSS/JS/imágenes inline en un ún
 # Reempaquetar todo a producción (dist/)
 python3 bundle.py
 
+# Exportar a PDF limpio (una slide = una página a sangre, sin cabeceras/pies ni
+# márgenes del navegador; solo salen las slides de Modo Charla) → dist/pdf/
+python3 script/export_pdf.py          # los 3 decks
+python3 script/export_pdf.py parte1   # solo uno: parte1 | parte2 | plantillas
+
 # Ver el orden actual de un deck (y detectar ids desalineados)
 python3 script/reorder_slides.py index.html order
 

@@ -6087,6 +6087,11 @@ body.mode-document .hospital-narrative-card p {
   color: #ffffff;
 }
 
+.quant-tag.nvfp4 {
+  background: #0284c7;
+  color: #ffffff;
+}
+
 .trio-operator {
   font-size: 2.8rem;
   font-weight: 900;
@@ -19063,6 +19068,13 @@ body.deck-hardware-part1 #slide-15 .chip-model-122b {
   transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
+body.deck-hardware-part1 #slide-15 .chip-model-36b {
+  position: relative;
+  overflow: hidden;
+  min-height: 52px;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
 body.deck-hardware-part1 #slide-15 .chip-content {
   display: flex;
   align-items: center;
@@ -19071,7 +19083,8 @@ body.deck-hardware-part1 #slide-15 .chip-content {
   gap: 0.6rem;
 }
 
-body.deck-hardware-part1 #slide-15 .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-15 .chip-model-122b .original-model,
+body.deck-hardware-part1 #slide-15 .chip-model-36b .original-model {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -19092,7 +19105,8 @@ body.deck-hardware-part1 #slide-15 .updated-model {
 }
 
 /* Step 3 activo: el original se oculta y entra Qwen 3.8 FlashNext */
-body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-122b .original-model {
+body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-122b .original-model,
+body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-36b .original-model {
   opacity: 0;
   transform: translateY(-100%);
 }
@@ -19103,7 +19117,34 @@ body.deck-hardware-part1 #slide-15 .updated-model.step-active {
   transform: translateY(0);
 }
 
-body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-122b {
+/* El swap FP8 → NVFP4 del segundo chip NO es un pulso propio: entra con el
+   mismo paso que el 3.8 (paso 3) — el :has del .updated-model.step-active
+   del chip 122b lo revela y oculta su original en el mismo pulso. */
+body.deck-hardware-part1 #slide-15:has(.chip-model-122b .updated-model.step-active) .chip-model-36b .updated-model {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* PDF/print: estado final del paso 3 — el 3.5 (marcado OBSOLETO) sale y entra
+   Qwen 3.8 FlashNext. El print genérico solo fuerza opacity, y el 3.8 queda
+   visibility:hidden + translateY(100%) → en el PDF aparecía el estado del paso 1. */
+@media print {
+  body.deck-hardware-part1 #slide-15 .chip-model-122b .original-model,
+  body.deck-hardware-part1 #slide-15 .chip-model-36b .original-model {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  body.deck-hardware-part1 #slide-15 .updated-model {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-122b,
+body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-36b {
   border-color: rgba(16, 185, 129, 0.6);
   background: rgba(16, 185, 129, 0.08);
   box-shadow: 0 4px 18px rgba(16, 185, 129, 0.25);
