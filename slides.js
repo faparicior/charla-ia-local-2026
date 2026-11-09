@@ -386,6 +386,28 @@ function initDeck() {
     if (isOverview) toggleOverview(false);
     window.print();
   });
+
+  // PRINT — La 11 de Parte 1 ocupa 2 páginas del PDF: la original imprime el
+  // paso 1 de la transición del meme («No place like localhost») y este clon
+  // print-only imprime el paso 2 («expensive»). El clon conserva el id (solo
+  // existe durante la impresión: hereda todo el CSS #slide-11 sin duplicar
+  // reglas) y el HUD/navegación/renumeración nunca lo ven. Guard: solo decks
+  // con el meme de la 11 (Parte 1).
+  const insertMemeTwin = () => {
+    const s11 = document.getElementById('slide-11');
+    if (!s11 || !s11.querySelector('.localhost-meme-overlay')) return;
+    if (document.querySelector('.print-twin-11b')) return;
+    const twin = s11.cloneNode(true);
+    twin.classList.add('print-twin-11b');
+    twin.setAttribute('aria-hidden', 'true');
+    s11.after(twin);
+  };
+  const removeMemeTwin = () => document.querySelector('.print-twin-11b')?.remove();
+  window.addEventListener('beforeprint', insertMemeTwin);
+  window.addEventListener('afterprint', removeMemeTwin);
+  // Red de seguridad: algunos flujos de impresión no disparan beforeprint
+  const printMQ = window.matchMedia('print');
+  printMQ.addEventListener?.('change', (e) => (e.matches ? insertMemeTwin() : removeMemeTwin()));
   btnHelp?.addEventListener('click', () => toggleHelp());
 
   // Delegación de clic para botones locales de cambio de modo en diapositivas

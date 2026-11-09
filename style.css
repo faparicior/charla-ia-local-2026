@@ -24324,26 +24324,25 @@ body.overview-mode #slide-11 .meme-expensive {
 
 @media print {
 
+  /* La 11 ocupa 2 páginas del PDF: la original imprime el estado INICIAL de
+     la transición (las dos tarjetas — GPU a la izquierda, local a la derecha —
+     sin meme) y el clon print-only (#slide-11.print-twin-11b, insertado en
+     beforeprint desde slides.js) imprime el estado FINAL (paso 2 — el meme
+     «expensive» sobre la tarjeta soberana, look de Charla: overlay absolute,
+     sin desbordes). El paso intermedio (camiseta «localhost») no se imprime. */
   body.deck-hardware-part1 #slide-11 .localhost-meme-overlay {
-    display: flex;
-    position: static;
-    padding: 0.8rem 0 0;
-    border-top: 1px dashed var(--border-subtle);
-    margin-top: 0.6rem;
-  }
-
-  body.deck-hardware-part1 #slide-11 .meme-fine {
     display: none !important;
   }
 
-  /* PDF: la slide va justa a 1080px y el meme estático (777px de flujo) la desborda
-     (tarjetas cortadas en el borde inferior). El remate impreso es la línea de cierre;
-     la imagen del meme queda para Charla/Documento/Overview. */
-  body.deck-hardware-part1 #slide-11 .localhost-meme-img {
+  body.deck-hardware-part1 #slide-11.print-twin-11b .localhost-meme-overlay {
+    display: flex !important;
+  }
+
+  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-fine {
     display: none !important;
   }
 
-  body.deck-hardware-part1 #slide-11 .meme-expensive {
+  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-expensive {
     display: flex !important;
   }
 }

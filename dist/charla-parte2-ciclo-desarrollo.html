@@ -24343,26 +24343,25 @@ body.overview-mode #slide-11 .meme-expensive {
 
 @media print {
 
+  /* La 11 ocupa 2 páginas del PDF: la original imprime el estado INICIAL de
+     la transición (las dos tarjetas — GPU a la izquierda, local a la derecha —
+     sin meme) y el clon print-only (#slide-11.print-twin-11b, insertado en
+     beforeprint desde slides.js) imprime el estado FINAL (paso 2 — el meme
+     «expensive» sobre la tarjeta soberana, look de Charla: overlay absolute,
+     sin desbordes). El paso intermedio (camiseta «localhost») no se imprime. */
   body.deck-hardware-part1 #slide-11 .localhost-meme-overlay {
-    display: flex;
-    position: static;
-    padding: 0.8rem 0 0;
-    border-top: 1px dashed var(--border-subtle);
-    margin-top: 0.6rem;
-  }
-
-  body.deck-hardware-part1 #slide-11 .meme-fine {
     display: none !important;
   }
 
-  /* PDF: la slide va justa a 1080px y el meme estático (777px de flujo) la desborda
-     (tarjetas cortadas en el borde inferior). El remate impreso es la línea de cierre;
-     la imagen del meme queda para Charla/Documento/Overview. */
-  body.deck-hardware-part1 #slide-11 .localhost-meme-img {
+  body.deck-hardware-part1 #slide-11.print-twin-11b .localhost-meme-overlay {
+    display: flex !important;
+  }
+
+  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-fine {
     display: none !important;
   }
 
-  body.deck-hardware-part1 #slide-11 .meme-expensive {
+  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-expensive {
     display: flex !important;
   }
 }
@@ -37576,6 +37575,28 @@ function initDeck() {
     if (isOverview) toggleOverview(false);
     window.print();
   });
+
+  // PRINT — La 11 de Parte 1 ocupa 2 páginas del PDF: la original imprime el
+  // paso 1 de la transición del meme («No place like localhost») y este clon
+  // print-only imprime el paso 2 («expensive»). El clon conserva el id (solo
+  // existe durante la impresión: hereda todo el CSS #slide-11 sin duplicar
+  // reglas) y el HUD/navegación/renumeración nunca lo ven. Guard: solo decks
+  // con el meme de la 11 (Parte 1).
+  const insertMemeTwin = () => {
+    const s11 = document.getElementById('slide-11');
+    if (!s11 || !s11.querySelector('.localhost-meme-overlay')) return;
+    if (document.querySelector('.print-twin-11b')) return;
+    const twin = s11.cloneNode(true);
+    twin.classList.add('print-twin-11b');
+    twin.setAttribute('aria-hidden', 'true');
+    s11.after(twin);
+  };
+  const removeMemeTwin = () => document.querySelector('.print-twin-11b')?.remove();
+  window.addEventListener('beforeprint', insertMemeTwin);
+  window.addEventListener('afterprint', removeMemeTwin);
+  // Red de seguridad: algunos flujos de impresión no disparan beforeprint
+  const printMQ = window.matchMedia('print');
+  printMQ.addEventListener?.('change', (e) => (e.matches ? insertMemeTwin() : removeMemeTwin()));
   btnHelp?.addEventListener('click', () => toggleHelp());
 
   // Delegación de clic para botones locales de cambio de modo en diapositivas
