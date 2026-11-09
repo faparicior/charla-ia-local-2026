@@ -25367,14 +25367,14 @@ body.overview-mode #slide-28 .hb-card-pct {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-28 .hb-greens rect {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-greens rect {
     transform: scaleY(1) !important;
   }
 
-  body.deck-hardware-part1 #slide-28 .hb-fade,
-  body.deck-hardware-part1 #slide-28 .hb-pill-step,
-  body.deck-hardware-part1 #slide-28 .hb-pct,
-  body.deck-hardware-part1 #slide-28 .hb-card-pct {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-fade,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-pill-step,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-pct,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-card-pct {
     opacity: 1 !important;
   }
 }
@@ -25461,12 +25461,12 @@ body.overview-mode #slide-28 .hb-ribbon-step {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-28 .hb-ghost {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-ghost {
     opacity: 0 !important;
   }
 
-  body.deck-hardware-part1 #slide-28 .hb-card-step,
-  body.deck-hardware-part1 #slide-28 .hb-ribbon-step {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-card-step,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-ribbon-step {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -25830,11 +25830,11 @@ body.overview-mode #slide-28 .hybrid-arch-deck {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-28 .kv-bridge {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .kv-bridge {
     display: none !important;
   }
 
-  body.deck-hardware-part1 #slide-28 .hybrid-arch-deck {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hybrid-arch-deck {
     opacity: 1 !important;
     visibility: visible !important;
   }

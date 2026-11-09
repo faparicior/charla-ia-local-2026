@@ -25386,14 +25386,14 @@ body.overview-mode #slide-28 .hb-card-pct {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-28 .hb-greens rect {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-greens rect {
     transform: scaleY(1) !important;
   }
 
-  body.deck-hardware-part1 #slide-28 .hb-fade,
-  body.deck-hardware-part1 #slide-28 .hb-pill-step,
-  body.deck-hardware-part1 #slide-28 .hb-pct,
-  body.deck-hardware-part1 #slide-28 .hb-card-pct {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-fade,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-pill-step,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-pct,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-card-pct {
     opacity: 1 !important;
   }
 }
@@ -25480,12 +25480,12 @@ body.overview-mode #slide-28 .hb-ribbon-step {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-28 .hb-ghost {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-ghost {
     opacity: 0 !important;
   }
 
-  body.deck-hardware-part1 #slide-28 .hb-card-step,
-  body.deck-hardware-part1 #slide-28 .hb-ribbon-step {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-card-step,
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hb-ribbon-step {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -25849,11 +25849,11 @@ body.overview-mode #slide-28 .hybrid-arch-deck {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-28 .kv-bridge {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .kv-bridge {
     display: none !important;
   }
 
-  body.deck-hardware-part1 #slide-28 .hybrid-arch-deck {
+  body.deck-hardware-part1 #slide-28:not(.print-twin-page) .hybrid-arch-deck {
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -28110,6 +28110,10 @@ function initDeck() {
     { srcId: 'slide-23', marker: '.en-step', originalK: 'hide', twins: [1, 2, 3, 4, 5, 6, 7] },
     // 24: penúltima (tabla) y última (fila GSQ+RCO iluminada) — sin página inicial
     { srcId: 'slide-24', marker: '.tightrope-hero-gif', originalK: 'hide', twins: [1, 2] },
+    // 28: desde la 1ª interacción (tanque-gráfica + imagen) hasta el final — sin página inicial.
+    // OJO: solo 4 pasos REALES (figure, kv-reveal, hb-greens, hb-curves); el pill,
+    // la tarjeta y el ribbon se revelan por :has encadenado, no son .step.
+    { srcId: 'slide-28', marker: '.kv-bridge-figure', originalK: 'hide', twins: [1, 2, 3, 4] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));

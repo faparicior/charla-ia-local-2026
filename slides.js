@@ -408,6 +408,10 @@ function initDeck() {
     { srcId: 'slide-23', marker: '.en-step', originalK: 'hide', twins: [1, 2, 3, 4, 5, 6, 7] },
     // 24: penúltima (tabla) y última (fila GSQ+RCO iluminada) — sin página inicial
     { srcId: 'slide-24', marker: '.tightrope-hero-gif', originalK: 'hide', twins: [1, 2] },
+    // 28: desde la 1ª interacción (tanque-gráfica + imagen) hasta el final — sin página inicial.
+    // OJO: solo 4 pasos REALES (figure, kv-reveal, hb-greens, hb-curves); el pill,
+    // la tarjeta y el ribbon se revelan por :has encadenado, no son .step.
+    { srcId: 'slide-28', marker: '.kv-bridge-figure', originalK: 'hide', twins: [1, 2, 3, 4] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));
