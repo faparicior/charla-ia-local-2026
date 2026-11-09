@@ -12865,13 +12865,21 @@ body.deck-sdlc-part2.overview-mode #slide-11 .chosen-synergy-banner.step {
 
 @media print {
 
-  .step,
+  /* .print-twin-page (originales y clones del storyboard de print, ver
+     PRINT_TWIN_SPECS en slides.js) se rigen por su estado .step-active, igual
+     que en Charla; el resto de slides imprimen con todos los pasos encendidos. */
+  .slide:not(.print-twin-page) .step,
   body.deck-sdlc-part2 #slide-11 .rect-col.step,
   body.deck-sdlc-part2 #slide-11 .chosen-synergy-banner.step {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
     pointer-events: auto !important;
+  }
+
+  /* Slides cuyo storyboard no incluye página propia (empiezan en el 1er clic) */
+  .slide.print-skip-original {
+    display: none !important;
   }
 }
 
@@ -18011,10 +18019,10 @@ body.overview-mode #slide-22 .enc-4 {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-22 .enc-1,
-  body.deck-hardware-part1 #slide-22 .enc-2,
-  body.deck-hardware-part1 #slide-22 .enc-3,
-  body.deck-hardware-part1 #slide-22 .enc-4 {
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-1,
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-2,
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-3,
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-4 {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -19126,73 +19134,11 @@ body.deck-hardware-part1 #slide-15:has(.chip-model-122b .updated-model.step-acti
   transform: translateY(0);
 }
 
-/* PDF/print: la 15 imprime su coreografía en 4 páginas (storyboard, clones
-   insertados en beforeprint — ver PRINT_TWIN_SPECS en slides.js):
-   · original       = estado INICIAL: 3 tiles + chips originales (3.5 INT4 · 3.6 FP8),
-                      sin sello y sin el último paso (tile alquimia + su «=»);
-   · -b (página 2)  = con el sello ¡OBSOLETO!;
-   · -c (página 3)  = con los nuevos: sello fuera, 3.8 FlashNext + NVFP4 dentro;
-   · -d (página 4)  = el final completo: nuevos + alquimia «de la buena».
-   Los últimos pasos se ocultan por visibility (NO display) para conservar el
-   layout: el hueco del 4º tile queda como en Charla. */
-@media print {
-  body.deck-hardware-part1 #slide-15 .model-obsolete-overlay {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15 .updated-model {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15 .chip-model-122b .original-model,
-  body.deck-hardware-part1 #slide-15 .chip-model-36b .original-model {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15 .item-alquimia,
-  body.deck-hardware-part1 #slide-15 .trio-operator.equals {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: none !important;
-  }
-
-  /* Página 2 (-b): el sello ¡OBSOLETO! entra */
-  body.deck-hardware-part1 #slide-15.print-twin-15-b .model-obsolete-overlay {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  /* Páginas 3 y 4 (-c/-d): los nuevos — sello fuera, 3.8 + NVFP4 dentro */
-  body.deck-hardware-part1 #slide-15.print-twin-15-c .updated-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .updated-model {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15.print-twin-15-c .chip-model-122b .original-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-c .chip-model-36b .original-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .chip-model-122b .original-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .chip-model-36b .original-model {
-    opacity: 0 !important;
-    visibility: hidden !important;
-  }
-
-  /* Página 4 (-d): el último paso — tile de la alquimia y su «=» */
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .item-alquimia,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .trio-operator.equals {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-}
+/* PDF/print: la 15 imprime su coreografía como storyboard — los estados los
+   fija slides.js en beforeprint (PRINT_TWIN_SPECS: la original en su estado
+   inicial y un clon por clic con los mismos .step-active que en Charla), así
+   que el render de cada página es el propio CSS de Charla. Las reglas print
+   que fuerzan estados (p. ej. .trio-operator) excluyen .print-twin-page. */
 
 body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-122b,
 body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-36b {
@@ -19708,7 +19654,7 @@ body.deck-hardware-part1.overview-mode #slide-33 .vt-cap-final {
 }
 
 @media print {
-  body.deck-hardware-part1 #slide-23 .vt-cap-final {
+  body.deck-hardware-part1 #slide-23:not(.print-twin-page) .vt-cap-final {
     opacity: 1 !important;
   }
 }
@@ -24392,30 +24338,9 @@ body.overview-mode #slide-11 .meme-expensive {
   display: flex !important;
 }
 
-@media print {
-
-  /* La 11 ocupa 2 páginas del PDF: la original imprime el estado INICIAL de
-     la transición (las dos tarjetas — GPU a la izquierda, local a la derecha —
-     sin meme) y el clon print-only (#slide-11.print-twin-11b, insertado en
-     beforeprint desde slides.js) imprime el estado FINAL (paso 2 — el meme
-     «expensive» sobre la tarjeta soberana, look de Charla: overlay absolute,
-     sin desbordes). El paso intermedio (camiseta «localhost») no se imprime. */
-  body.deck-hardware-part1 #slide-11 .localhost-meme-overlay {
-    display: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-11.print-twin-11b .localhost-meme-overlay {
-    display: flex !important;
-  }
-
-  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-fine {
-    display: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-expensive {
-    display: flex !important;
-  }
-}
+/* PDF/print: la 11 imprime la transición de su meme como storyboard fijado
+   por slides.js (PRINT_TWIN_SPECS) con los .step-active de Charla — sin CSS
+   por estado aquí: el render de cada página es el propio CSS de Charla. */
 
 /* ==========================================================================
    SLIDE 45 — LA DUPLA ESCOGIDA: tipografía para proyector (solo Modo Charla)
@@ -24590,7 +24515,7 @@ body.overview-mode #slide-21 .kv-pillar-step {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-21 .kv-pillar-step {
+  body.deck-hardware-part1 #slide-21:not(.print-twin-page) .kv-pillar-step {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -24629,7 +24554,7 @@ body.overview-mode #slide-23 .vram-capacity-badge {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-23 .vram-capacity-badge {
+  body.deck-hardware-part1 #slide-23:not(.print-twin-page) .vram-capacity-badge {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -24705,7 +24630,7 @@ body.overview-mode #slide-24 .tightrope-visual-card {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-24 .tightrope-visual-card {
+  body.deck-hardware-part1 #slide-24:not(.print-twin-page) .tightrope-visual-card {
     transform: none !important;
   }
 }
@@ -25334,11 +25259,11 @@ body.overview-mode #slide-22 .engram-deck {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-22 .forja-intro {
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .forja-intro {
     display: none;
   }
 
-  body.deck-hardware-part1 #slide-22 .engram-deck {
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .engram-deck {
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -25652,7 +25577,7 @@ body.overview-mode #slide-15 .trio-operator {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-15 .trio-operator {
+  body.deck-hardware-part1 #slide-15:not(.print-twin-page) .trio-operator {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -37628,34 +37553,72 @@ function initDeck() {
   });
 
   // PRINT — Storyboard de transiciones: slides que imprimen su coreografía en
-  // varias páginas (la original = estado inicial; cada clon = el estado
-  // siguiente). Los clones conservan el id (solo existen durante la impresión:
-  // heredan todo el CSS #slide-N sin duplicar reglas; HUD/navegación/
-  // renumeración nunca los ven) y llevan aria-hidden + clase por página.
+  // varias páginas. La original imprime su estado `originalK` (o no imprime,
+  // originalK: 'hide') y cada clon imprime el estado tras sus primeros K clics,
+  // fijado con los MISMOS .step-active que en Charla (los clones conservan el
+  // id: solo existen durante la impresión — heredan todo el CSS #slide-N sin
+  // duplicar reglas; HUD/navegación/renumeración nunca los ven). El CSS de
+  // print excluye .print-twin-page de sus reglas que fuerzan estados. En
+  // afterprint se elimina todo y se restaura el estado vivo de la presentación.
   const PRINT_TWIN_SPECS = [
     // 11: inicial (tarjetas) + final (meme expensive) — el paso intermedio no se imprime
-    { srcId: 'slide-11', marker: '.localhost-meme-overlay', pageClass: 'print-twin-11b', count: 1 },
-    // 15: inicial → sello ¡OBSOLETO! → los nuevos (3.8 + NVFP4) → alquimia (final)
-    { srcId: 'slide-15', marker: '.model-obsolete-overlay', pageClass: 'print-twin-15', count: 3 },
+    { srcId: 'slide-11', marker: '.localhost-meme-overlay', originalK: 0, twins: [2] },
+    // 15: inicial (3 tiles + chips originales) → sello → los nuevos → alquimia
+    { srcId: 'slide-15', marker: '.model-obsolete-overlay', originalK: 3, twins: [4, 5, 6] },
+    // 21: inicial + el 2º clic (KV Cache iluminada)
+    { srcId: 'slide-21', marker: '.mem-reveal', originalK: 0, twins: [2] },
+    // 22: desde la 1ª transición (la forja) hasta el final — sin página inicial
+    { srcId: 'slide-22', marker: '.forja-figure', originalK: 'hide', twins: [1, 2, 3, 4, 5, 6] },
+    // 23: todas las transiciones — sin página inicial
+    { srcId: 'slide-23', marker: '.en-step', originalK: 'hide', twins: [1, 2, 3, 4, 5, 6, 7] },
+    // 24: penúltima (tabla) y última (fila GSQ+RCO iluminada) — sin página inicial
+    { srcId: 'slide-24', marker: '.tightrope-hero-gif', originalK: 'hide', twins: [1, 2] },
   ];
+  const setStepState = (slide, k) => {
+    slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));
+    slide.setAttribute('data-active-steps', String(k));
+  };
+  const savedPrintStates = [];
   const insertPrintTwins = () => {
-    PRINT_TWIN_SPECS.forEach(({ srcId, marker, pageClass, count }) => {
+    // Idempotente: beforeprint Y matchMedia('print') pueden disparar en el
+    // mismo print (y el segundo, durante la paginación → duplicados y PDF
+    // truncado). Si ya hay páginas de storyboard, no se toca nada.
+    if (document.querySelector('.print-twin-page')) return;
+    savedPrintStates.length = 0;
+    PRINT_TWIN_SPECS.forEach(({ srcId, marker, originalK, twins }) => {
       const src = document.getElementById(srcId);
       if (!src || !src.querySelector(marker)) return;
+      // guardar el estado vivo de la original para restaurarlo tras imprimir
+      const steps = [...src.querySelectorAll('.step')];
+      savedPrintStates.push({ el: src, active: steps.filter((s) => s.classList.contains('step-active')) });
+      // clonar ANTES de mutar la original; cada clon recibe su estado
       let anchor = src;
-      for (let i = 0; i < count; i++) {
-        const cls = count === 1 ? pageClass : `${pageClass}-${String.fromCharCode(98 + i)}`;
-        if (document.querySelector(`.${cls}`)) continue;
+      twins.forEach((k, i) => {
         const twin = src.cloneNode(true);
-        twin.classList.add(cls);
+        twin.classList.remove('print-skip-original');
+        twin.classList.add('print-twin-page', `print-twin-${srcId.replace('slide-', '')}-${String.fromCharCode(98 + i)}`);
         twin.setAttribute('aria-hidden', 'true');
+        setStepState(twin, k);
         anchor.after(twin);
         anchor = twin;
-      }
+      });
+      // la original: o se oculta (sin página propia) o imprime su estado inicial
+      src.classList.add('print-twin-page');
+      if (originalK === 'hide') src.classList.add('print-skip-original');
+      else setStepState(src, originalK);
     });
   };
   const removePrintTwins = () => {
-    document.querySelectorAll('[class*="print-twin-"]').forEach((el) => el.remove());
+    document.querySelectorAll('.print-twin-page').forEach((el) => {
+      if (!savedPrintStates.some((s) => s.el === el)) el.remove();
+    });
+    savedPrintStates.forEach(({ el, active }) => {
+      el.classList.remove('print-twin-page', 'print-skip-original');
+      setStepState(el, 0);
+      active.forEach((s) => s.classList.add('step-active'));
+      updateStepsStatus(el);
+    });
+    savedPrintStates.length = 0;
   };
   window.addEventListener('beforeprint', insertPrintTwins);
   window.addEventListener('afterprint', removePrintTwins);

@@ -388,34 +388,72 @@ function initDeck() {
   });
 
   // PRINT — Storyboard de transiciones: slides que imprimen su coreografía en
-  // varias páginas (la original = estado inicial; cada clon = el estado
-  // siguiente). Los clones conservan el id (solo existen durante la impresión:
-  // heredan todo el CSS #slide-N sin duplicar reglas; HUD/navegación/
-  // renumeración nunca los ven) y llevan aria-hidden + clase por página.
+  // varias páginas. La original imprime su estado `originalK` (o no imprime,
+  // originalK: 'hide') y cada clon imprime el estado tras sus primeros K clics,
+  // fijado con los MISMOS .step-active que en Charla (los clones conservan el
+  // id: solo existen durante la impresión — heredan todo el CSS #slide-N sin
+  // duplicar reglas; HUD/navegación/renumeración nunca los ven). El CSS de
+  // print excluye .print-twin-page de sus reglas que fuerzan estados. En
+  // afterprint se elimina todo y se restaura el estado vivo de la presentación.
   const PRINT_TWIN_SPECS = [
     // 11: inicial (tarjetas) + final (meme expensive) — el paso intermedio no se imprime
-    { srcId: 'slide-11', marker: '.localhost-meme-overlay', pageClass: 'print-twin-11b', count: 1 },
-    // 15: inicial → sello ¡OBSOLETO! → los nuevos (3.8 + NVFP4) → alquimia (final)
-    { srcId: 'slide-15', marker: '.model-obsolete-overlay', pageClass: 'print-twin-15', count: 3 },
+    { srcId: 'slide-11', marker: '.localhost-meme-overlay', originalK: 0, twins: [2] },
+    // 15: inicial (3 tiles + chips originales) → sello → los nuevos → alquimia
+    { srcId: 'slide-15', marker: '.model-obsolete-overlay', originalK: 3, twins: [4, 5, 6] },
+    // 21: inicial + el 2º clic (KV Cache iluminada)
+    { srcId: 'slide-21', marker: '.mem-reveal', originalK: 0, twins: [2] },
+    // 22: desde la 1ª transición (la forja) hasta el final — sin página inicial
+    { srcId: 'slide-22', marker: '.forja-figure', originalK: 'hide', twins: [1, 2, 3, 4, 5, 6] },
+    // 23: todas las transiciones — sin página inicial
+    { srcId: 'slide-23', marker: '.en-step', originalK: 'hide', twins: [1, 2, 3, 4, 5, 6, 7] },
+    // 24: penúltima (tabla) y última (fila GSQ+RCO iluminada) — sin página inicial
+    { srcId: 'slide-24', marker: '.tightrope-hero-gif', originalK: 'hide', twins: [1, 2] },
   ];
+  const setStepState = (slide, k) => {
+    slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));
+    slide.setAttribute('data-active-steps', String(k));
+  };
+  const savedPrintStates = [];
   const insertPrintTwins = () => {
-    PRINT_TWIN_SPECS.forEach(({ srcId, marker, pageClass, count }) => {
+    // Idempotente: beforeprint Y matchMedia('print') pueden disparar en el
+    // mismo print (y el segundo, durante la paginación → duplicados y PDF
+    // truncado). Si ya hay páginas de storyboard, no se toca nada.
+    if (document.querySelector('.print-twin-page')) return;
+    savedPrintStates.length = 0;
+    PRINT_TWIN_SPECS.forEach(({ srcId, marker, originalK, twins }) => {
       const src = document.getElementById(srcId);
       if (!src || !src.querySelector(marker)) return;
+      // guardar el estado vivo de la original para restaurarlo tras imprimir
+      const steps = [...src.querySelectorAll('.step')];
+      savedPrintStates.push({ el: src, active: steps.filter((s) => s.classList.contains('step-active')) });
+      // clonar ANTES de mutar la original; cada clon recibe su estado
       let anchor = src;
-      for (let i = 0; i < count; i++) {
-        const cls = count === 1 ? pageClass : `${pageClass}-${String.fromCharCode(98 + i)}`;
-        if (document.querySelector(`.${cls}`)) continue;
+      twins.forEach((k, i) => {
         const twin = src.cloneNode(true);
-        twin.classList.add(cls);
+        twin.classList.remove('print-skip-original');
+        twin.classList.add('print-twin-page', `print-twin-${srcId.replace('slide-', '')}-${String.fromCharCode(98 + i)}`);
         twin.setAttribute('aria-hidden', 'true');
+        setStepState(twin, k);
         anchor.after(twin);
         anchor = twin;
-      }
+      });
+      // la original: o se oculta (sin página propia) o imprime su estado inicial
+      src.classList.add('print-twin-page');
+      if (originalK === 'hide') src.classList.add('print-skip-original');
+      else setStepState(src, originalK);
     });
   };
   const removePrintTwins = () => {
-    document.querySelectorAll('[class*="print-twin-"]').forEach((el) => el.remove());
+    document.querySelectorAll('.print-twin-page').forEach((el) => {
+      if (!savedPrintStates.some((s) => s.el === el)) el.remove();
+    });
+    savedPrintStates.forEach(({ el, active }) => {
+      el.classList.remove('print-twin-page', 'print-skip-original');
+      setStepState(el, 0);
+      active.forEach((s) => s.classList.add('step-active'));
+      updateStepsStatus(el);
+    });
+    savedPrintStates.length = 0;
   };
   window.addEventListener('beforeprint', insertPrintTwins);
   window.addEventListener('afterprint', removePrintTwins);

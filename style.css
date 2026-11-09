@@ -12846,13 +12846,21 @@ body.deck-sdlc-part2.overview-mode #slide-11 .chosen-synergy-banner.step {
 
 @media print {
 
-  .step,
+  /* .print-twin-page (originales y clones del storyboard de print, ver
+     PRINT_TWIN_SPECS en slides.js) se rigen por su estado .step-active, igual
+     que en Charla; el resto de slides imprimen con todos los pasos encendidos. */
+  .slide:not(.print-twin-page) .step,
   body.deck-sdlc-part2 #slide-11 .rect-col.step,
   body.deck-sdlc-part2 #slide-11 .chosen-synergy-banner.step {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
     pointer-events: auto !important;
+  }
+
+  /* Slides cuyo storyboard no incluye página propia (empiezan en el 1er clic) */
+  .slide.print-skip-original {
+    display: none !important;
   }
 }
 
@@ -17992,10 +18000,10 @@ body.overview-mode #slide-22 .enc-4 {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-22 .enc-1,
-  body.deck-hardware-part1 #slide-22 .enc-2,
-  body.deck-hardware-part1 #slide-22 .enc-3,
-  body.deck-hardware-part1 #slide-22 .enc-4 {
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-1,
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-2,
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-3,
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .enc-4 {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -19107,73 +19115,11 @@ body.deck-hardware-part1 #slide-15:has(.chip-model-122b .updated-model.step-acti
   transform: translateY(0);
 }
 
-/* PDF/print: la 15 imprime su coreografía en 4 páginas (storyboard, clones
-   insertados en beforeprint — ver PRINT_TWIN_SPECS en slides.js):
-   · original       = estado INICIAL: 3 tiles + chips originales (3.5 INT4 · 3.6 FP8),
-                      sin sello y sin el último paso (tile alquimia + su «=»);
-   · -b (página 2)  = con el sello ¡OBSOLETO!;
-   · -c (página 3)  = con los nuevos: sello fuera, 3.8 FlashNext + NVFP4 dentro;
-   · -d (página 4)  = el final completo: nuevos + alquimia «de la buena».
-   Los últimos pasos se ocultan por visibility (NO display) para conservar el
-   layout: el hueco del 4º tile queda como en Charla. */
-@media print {
-  body.deck-hardware-part1 #slide-15 .model-obsolete-overlay {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15 .updated-model {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15 .chip-model-122b .original-model,
-  body.deck-hardware-part1 #slide-15 .chip-model-36b .original-model {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15 .item-alquimia,
-  body.deck-hardware-part1 #slide-15 .trio-operator.equals {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: none !important;
-  }
-
-  /* Página 2 (-b): el sello ¡OBSOLETO! entra */
-  body.deck-hardware-part1 #slide-15.print-twin-15-b .model-obsolete-overlay {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  /* Páginas 3 y 4 (-c/-d): los nuevos — sello fuera, 3.8 + NVFP4 dentro */
-  body.deck-hardware-part1 #slide-15.print-twin-15-c .updated-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .updated-model {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-15.print-twin-15-c .chip-model-122b .original-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-c .chip-model-36b .original-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .chip-model-122b .original-model,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .chip-model-36b .original-model {
-    opacity: 0 !important;
-    visibility: hidden !important;
-  }
-
-  /* Página 4 (-d): el último paso — tile de la alquimia y su «=» */
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .item-alquimia,
-  body.deck-hardware-part1 #slide-15.print-twin-15-d .trio-operator.equals {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-}
+/* PDF/print: la 15 imprime su coreografía como storyboard — los estados los
+   fija slides.js en beforeprint (PRINT_TWIN_SPECS: la original en su estado
+   inicial y un clon por clic con los mismos .step-active que en Charla), así
+   que el render de cada página es el propio CSS de Charla. Las reglas print
+   que fuerzan estados (p. ej. .trio-operator) excluyen .print-twin-page. */
 
 body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-122b,
 body.deck-hardware-part1 #slide-15:has(.updated-model.step-active) .chip-model-36b {
@@ -19689,7 +19635,7 @@ body.deck-hardware-part1.overview-mode #slide-33 .vt-cap-final {
 }
 
 @media print {
-  body.deck-hardware-part1 #slide-23 .vt-cap-final {
+  body.deck-hardware-part1 #slide-23:not(.print-twin-page) .vt-cap-final {
     opacity: 1 !important;
   }
 }
@@ -24373,30 +24319,9 @@ body.overview-mode #slide-11 .meme-expensive {
   display: flex !important;
 }
 
-@media print {
-
-  /* La 11 ocupa 2 páginas del PDF: la original imprime el estado INICIAL de
-     la transición (las dos tarjetas — GPU a la izquierda, local a la derecha —
-     sin meme) y el clon print-only (#slide-11.print-twin-11b, insertado en
-     beforeprint desde slides.js) imprime el estado FINAL (paso 2 — el meme
-     «expensive» sobre la tarjeta soberana, look de Charla: overlay absolute,
-     sin desbordes). El paso intermedio (camiseta «localhost») no se imprime. */
-  body.deck-hardware-part1 #slide-11 .localhost-meme-overlay {
-    display: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-11.print-twin-11b .localhost-meme-overlay {
-    display: flex !important;
-  }
-
-  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-fine {
-    display: none !important;
-  }
-
-  body.deck-hardware-part1 #slide-11.print-twin-11b .meme-expensive {
-    display: flex !important;
-  }
-}
+/* PDF/print: la 11 imprime la transición de su meme como storyboard fijado
+   por slides.js (PRINT_TWIN_SPECS) con los .step-active de Charla — sin CSS
+   por estado aquí: el render de cada página es el propio CSS de Charla. */
 
 /* ==========================================================================
    SLIDE 45 — LA DUPLA ESCOGIDA: tipografía para proyector (solo Modo Charla)
@@ -24571,7 +24496,7 @@ body.overview-mode #slide-21 .kv-pillar-step {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-21 .kv-pillar-step {
+  body.deck-hardware-part1 #slide-21:not(.print-twin-page) .kv-pillar-step {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -24610,7 +24535,7 @@ body.overview-mode #slide-23 .vram-capacity-badge {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-23 .vram-capacity-badge {
+  body.deck-hardware-part1 #slide-23:not(.print-twin-page) .vram-capacity-badge {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -24686,7 +24611,7 @@ body.overview-mode #slide-24 .tightrope-visual-card {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-24 .tightrope-visual-card {
+  body.deck-hardware-part1 #slide-24:not(.print-twin-page) .tightrope-visual-card {
     transform: none !important;
   }
 }
@@ -25315,11 +25240,11 @@ body.overview-mode #slide-22 .engram-deck {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-22 .forja-intro {
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .forja-intro {
     display: none;
   }
 
-  body.deck-hardware-part1 #slide-22 .engram-deck {
+  body.deck-hardware-part1 #slide-22:not(.print-twin-page) .engram-deck {
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -25633,7 +25558,7 @@ body.overview-mode #slide-15 .trio-operator {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-15 .trio-operator {
+  body.deck-hardware-part1 #slide-15:not(.print-twin-page) .trio-operator {
     opacity: 1 !important;
     transform: none !important;
   }
