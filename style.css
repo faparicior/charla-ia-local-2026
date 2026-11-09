@@ -19107,17 +19107,68 @@ body.deck-hardware-part1 #slide-15:has(.chip-model-122b .updated-model.step-acti
   transform: translateY(0);
 }
 
-/* PDF/print: estado final del paso 3 — el 3.5 (marcado OBSOLETO) sale y entra
-   Qwen 3.8 FlashNext. El print genérico solo fuerza opacity, y el 3.8 queda
-   visibility:hidden + translateY(100%) → en el PDF aparecía el estado del paso 1. */
+/* PDF/print: la 15 imprime su coreografía en 4 páginas (storyboard, clones
+   insertados en beforeprint — ver PRINT_TWIN_SPECS en slides.js):
+   · original       = estado INICIAL: 3 tiles + chips originales (3.5 INT4 · 3.6 FP8),
+                      sin sello y sin el último paso (tile alquimia + su «=»);
+   · -b (página 2)  = con el sello ¡OBSOLETO!;
+   · -c (página 3)  = con los nuevos: sello fuera, 3.8 FlashNext + NVFP4 dentro;
+   · -d (página 4)  = el final completo: nuevos + alquimia «de la buena».
+   Los últimos pasos se ocultan por visibility (NO display) para conservar el
+   layout: el hueco del 4º tile queda como en Charla. */
 @media print {
+  body.deck-hardware-part1 #slide-15 .model-obsolete-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: none !important;
+  }
+
+  body.deck-hardware-part1 #slide-15 .updated-model {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: none !important;
+  }
+
   body.deck-hardware-part1 #slide-15 .chip-model-122b .original-model,
   body.deck-hardware-part1 #slide-15 .chip-model-36b .original-model {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  body.deck-hardware-part1 #slide-15 .item-alquimia,
+  body.deck-hardware-part1 #slide-15 .trio-operator.equals {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: none !important;
+  }
+
+  /* Página 2 (-b): el sello ¡OBSOLETO! entra */
+  body.deck-hardware-part1 #slide-15.print-twin-15-b .model-obsolete-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  /* Páginas 3 y 4 (-c/-d): los nuevos — sello fuera, 3.8 + NVFP4 dentro */
+  body.deck-hardware-part1 #slide-15.print-twin-15-c .updated-model,
+  body.deck-hardware-part1 #slide-15.print-twin-15-d .updated-model {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  body.deck-hardware-part1 #slide-15.print-twin-15-c .chip-model-122b .original-model,
+  body.deck-hardware-part1 #slide-15.print-twin-15-c .chip-model-36b .original-model,
+  body.deck-hardware-part1 #slide-15.print-twin-15-d .chip-model-122b .original-model,
+  body.deck-hardware-part1 #slide-15.print-twin-15-d .chip-model-36b .original-model {
     opacity: 0 !important;
     visibility: hidden !important;
   }
 
-  body.deck-hardware-part1 #slide-15 .updated-model {
+  /* Página 4 (-d): el último paso — tile de la alquimia y su «=» */
+  body.deck-hardware-part1 #slide-15.print-twin-15-d .item-alquimia,
+  body.deck-hardware-part1 #slide-15.print-twin-15-d .trio-operator.equals {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;

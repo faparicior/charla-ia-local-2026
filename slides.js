@@ -387,27 +387,41 @@ function initDeck() {
     window.print();
   });
 
-  // PRINT — La 11 de Parte 1 ocupa 2 páginas del PDF: la original imprime el
-  // paso 1 de la transición del meme («No place like localhost») y este clon
-  // print-only imprime el paso 2 («expensive»). El clon conserva el id (solo
-  // existe durante la impresión: hereda todo el CSS #slide-11 sin duplicar
-  // reglas) y el HUD/navegación/renumeración nunca lo ven. Guard: solo decks
-  // con el meme de la 11 (Parte 1).
-  const insertMemeTwin = () => {
-    const s11 = document.getElementById('slide-11');
-    if (!s11 || !s11.querySelector('.localhost-meme-overlay')) return;
-    if (document.querySelector('.print-twin-11b')) return;
-    const twin = s11.cloneNode(true);
-    twin.classList.add('print-twin-11b');
-    twin.setAttribute('aria-hidden', 'true');
-    s11.after(twin);
+  // PRINT — Storyboard de transiciones: slides que imprimen su coreografía en
+  // varias páginas (la original = estado inicial; cada clon = el estado
+  // siguiente). Los clones conservan el id (solo existen durante la impresión:
+  // heredan todo el CSS #slide-N sin duplicar reglas; HUD/navegación/
+  // renumeración nunca los ven) y llevan aria-hidden + clase por página.
+  const PRINT_TWIN_SPECS = [
+    // 11: inicial (tarjetas) + final (meme expensive) — el paso intermedio no se imprime
+    { srcId: 'slide-11', marker: '.localhost-meme-overlay', pageClass: 'print-twin-11b', count: 1 },
+    // 15: inicial → sello ¡OBSOLETO! → los nuevos (3.8 + NVFP4) → alquimia (final)
+    { srcId: 'slide-15', marker: '.model-obsolete-overlay', pageClass: 'print-twin-15', count: 3 },
+  ];
+  const insertPrintTwins = () => {
+    PRINT_TWIN_SPECS.forEach(({ srcId, marker, pageClass, count }) => {
+      const src = document.getElementById(srcId);
+      if (!src || !src.querySelector(marker)) return;
+      let anchor = src;
+      for (let i = 0; i < count; i++) {
+        const cls = count === 1 ? pageClass : `${pageClass}-${String.fromCharCode(98 + i)}`;
+        if (document.querySelector(`.${cls}`)) continue;
+        const twin = src.cloneNode(true);
+        twin.classList.add(cls);
+        twin.setAttribute('aria-hidden', 'true');
+        anchor.after(twin);
+        anchor = twin;
+      }
+    });
   };
-  const removeMemeTwin = () => document.querySelector('.print-twin-11b')?.remove();
-  window.addEventListener('beforeprint', insertMemeTwin);
-  window.addEventListener('afterprint', removeMemeTwin);
+  const removePrintTwins = () => {
+    document.querySelectorAll('[class*="print-twin-"]').forEach((el) => el.remove());
+  };
+  window.addEventListener('beforeprint', insertPrintTwins);
+  window.addEventListener('afterprint', removePrintTwins);
   // Red de seguridad: algunos flujos de impresión no disparan beforeprint
   const printMQ = window.matchMedia('print');
-  printMQ.addEventListener?.('change', (e) => (e.matches ? insertMemeTwin() : removeMemeTwin()));
+  printMQ.addEventListener?.('change', (e) => (e.matches ? insertPrintTwins() : removePrintTwins()));
   btnHelp?.addEventListener('click', () => toggleHelp());
 
   // Delegación de clic para botones locales de cambio de modo en diapositivas
