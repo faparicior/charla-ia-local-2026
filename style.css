@@ -22936,22 +22936,34 @@ body.overview-mode .map-ckpt-host .map-sweep {
 
 @media print {
 
-  .map-ckpt-host .map-step,
-  .map-ckpt-host .pop,
-  .map-ckpt-host .svg-t {
+  /* Los checkpoints imprimen su estado natural: lo recorrido encendido, lo
+     actual brillando, lo futuro en silueta (clases baked en el clon).
+     OJO: el pipeline print-to-pdf REINICIA las CSS animations → los .pop de
+     las estaciones step-active (kicker + tarjetas: TODO su contenido es pop)
+     caen al from-state (opacity 0) y la estación entera desaparece. Se fijan
+     los estados finales SOLO de las encendidas; las silueta quedan en base.
+     Sin pin de transform: los transforms de posición van en atributo SVG. */
+  .map-ckpt-host .map-step.step-active {
     opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .map-ckpt-host .map-step.step-active:not(.step-current) {
     filter: none !important;
-    transform: none !important;
   }
 
-  .map-ckpt-host .map-flow {
-    stroke-dashoffset: 0 !important;
-  }
-
-  .map-ckpt-host .map-dash,
-  .map-ckpt-host .map-head {
+  .map-ckpt-host .map-step.step-active .pop,
+  .map-ckpt-host .map-step.step-active .svg-t,
+  .map-ckpt-host .map-step.step-active .map-dash,
+  .map-ckpt-host .map-step.step-active .map-head {
+    animation: none !important;
     opacity: 1 !important;
-    transform: none !important;
+  }
+
+  .map-ckpt-host .map-step.step-active .map-flow {
+    animation: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
   }
 
   .map-ckpt-host .map-sweep,

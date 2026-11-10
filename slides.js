@@ -416,6 +416,10 @@ function initDeck() {
     { srcId: 'slide-34', marker: '.dp-request', originalK: 'hide', twins: [1, 2] },
     // 36 (MoE: router 5 de 48): ídem
     { srcId: 'slide-36', marker: '.mp-request', originalK: 'hide', twins: [1, 2] },
+    // 18 de P2 (Mapa Real, data-steps-doc-only): en Charla no se activa nunca —
+    // imprime su estado de entrada (Fase 1 · Discovery iluminada, resto silueta).
+    // Sin clones: solo se excluye de las reglas print que fuerzan pasos.
+    { srcId: 'slide-18', marker: '.sdlc-map-panel', originalK: 0, twins: [] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));
