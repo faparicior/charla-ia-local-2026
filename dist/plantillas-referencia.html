@@ -12881,6 +12881,32 @@ body.deck-sdlc-part2.overview-mode #slide-11 .chosen-synergy-banner.step {
   .slide.print-skip-original {
     display: none !important;
   }
+
+  /* P2: la slide 1 (hook de apertura «¿Comprar Hardware? Hoy, Imposible») no
+     entra en el PDF — a petición del autor; sigue existiendo en Charla. */
+  body.deck-sdlc-part2 #slide-1 {
+    display: none !important;
+  }
+
+  /* P2 s2: imprime el frame del GIF con coche + helicóptero a la vez (el webp
+     animado imprime solo su 1er frame, el coche solo). */
+  body.deck-sdlc-part2 #slide-2 .drift-hero-img-contain:not(.drift-print-frame) {
+    display: none;
+  }
+
+  body.deck-sdlc-part2 #slide-2 .drift-hero-img-contain.drift-print-frame {
+    display: block;
+  }
+
+  /* P2 s3 (Paradigma Local): igual — frame avanzado, el coche más entrado en
+     la curva. */
+  body.deck-sdlc-part2 #slide-3 .drift-hero-img-contain:not(.drift-print-frame) {
+    display: none;
+  }
+
+  body.deck-sdlc-part2 #slide-3 .drift-hero-img-contain.drift-print-frame {
+    display: block;
+  }
 }
 
 body.deck-sdlc-part2
@@ -21663,6 +21689,12 @@ body.deck-sdlc-part2.theme-dark #slide-3 .drift-viewport-clean {
   max-height: 100%;
   object-fit: contain;
   display: block;
+}
+
+/* El frame estático (coche + helicóptero) solo sale en print — en Charla
+   rueda el webp animado. Reglas de print en el bloque @media print global. */
+.drift-hero-img-contain.drift-print-frame {
+  display: none;
 }
 
 
