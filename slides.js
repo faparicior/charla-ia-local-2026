@@ -412,6 +412,10 @@ function initDeck() {
     // OJO: solo 4 pasos REALES (figure, kv-reveal, hb-greens, hb-curves); el pill,
     // la tarjeta y el ribbon se revelan por :has encadenado, no son .step.
     { srcId: 'slide-28', marker: '.kv-bridge-figure', originalK: 'hide', twins: [1, 2, 3, 4] },
+    // 34 (Densos: 48 luces): el 2º y 3er estado — petición y luces encendidas
+    { srcId: 'slide-34', marker: '.dp-request', originalK: 'hide', twins: [1, 2] },
+    // 36 (MoE: router 5 de 48): ídem
+    { srcId: 'slide-36', marker: '.mp-request', originalK: 'hide', twins: [1, 2] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));

@@ -18739,8 +18739,8 @@ body.deck-hardware-part1.overview-mode #slide-36 .mp-request {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-34 .dp-request,
-  body.deck-hardware-part1 #slide-36 .mp-request {
+  body.deck-hardware-part1 #slide-34:not(.print-twin-page) .dp-request,
+  body.deck-hardware-part1 #slide-36:not(.print-twin-page) .mp-request {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -18753,8 +18753,8 @@ body.deck-hardware-part1.overview-mode #slide-36 .mp-lights {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-34 .dp-lights,
-  body.deck-hardware-part1 #slide-36 .mp-lights {
+  body.deck-hardware-part1 #slide-34:not(.print-twin-page) .dp-lights,
+  body.deck-hardware-part1 #slide-36:not(.print-twin-page) .mp-lights {
     opacity: 1 !important;
   }
 }
@@ -18766,7 +18766,7 @@ body.deck-hardware-part1.overview-mode #slide-34 .dp-cell {
 }
 
 @media print {
-  body.deck-hardware-part1 #slide-34 .dp-cell {
+  body.deck-hardware-part1 #slide-34:not(.print-twin-page) .dp-cell {
     fill: rgba(245, 158, 11, 0.2) !important;
     stroke: #d97706 !important;
     filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.45)) !important;
@@ -18780,7 +18780,7 @@ body.deck-hardware-part1.overview-mode #slide-36 .mp-cell.mp-on {
 }
 
 @media print {
-  body.deck-hardware-part1 #slide-36 .mp-cell.mp-on {
+  body.deck-hardware-part1 #slide-36:not(.print-twin-page) .mp-cell.mp-on {
     fill: rgba(16, 185, 129, 0.18) !important;
     stroke: #059669 !important;
     filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)) !important;
@@ -18796,10 +18796,10 @@ body.deck-hardware-part1.overview-mode #slide-36 .mp-strip-wait {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-34 .dp-strip-static,
-  body.deck-hardware-part1 #slide-34 .dp-strip-wait,
-  body.deck-hardware-part1 #slide-36 .mp-strip-static,
-  body.deck-hardware-part1 #slide-36 .mp-strip-wait {
+  body.deck-hardware-part1 #slide-34:not(.print-twin-page) .dp-strip-static,
+  body.deck-hardware-part1 #slide-34:not(.print-twin-page) .dp-strip-wait,
+  body.deck-hardware-part1 #slide-36:not(.print-twin-page) .mp-strip-static,
+  body.deck-hardware-part1 #slide-36:not(.print-twin-page) .mp-strip-wait {
     opacity: 0 !important;
   }
 }
@@ -18811,8 +18811,8 @@ body.deck-hardware-part1.overview-mode #slide-36 .mp-cap-final {
 
 @media print {
 
-  body.deck-hardware-part1 #slide-34 .dp-cap-final,
-  body.deck-hardware-part1 #slide-36 .mp-cap-final {
+  body.deck-hardware-part1 #slide-34:not(.print-twin-page) .dp-cap-final,
+  body.deck-hardware-part1 #slide-36:not(.print-twin-page) .mp-cap-final {
     opacity: 1 !important;
   }
 }
@@ -37577,6 +37577,10 @@ function initDeck() {
     // OJO: solo 4 pasos REALES (figure, kv-reveal, hb-greens, hb-curves); el pill,
     // la tarjeta y el ribbon se revelan por :has encadenado, no son .step.
     { srcId: 'slide-28', marker: '.kv-bridge-figure', originalK: 'hide', twins: [1, 2, 3, 4] },
+    // 34 (Densos: 48 luces): el 2º y 3er estado — petición y luces encendidas
+    { srcId: 'slide-34', marker: '.dp-request', originalK: 'hide', twins: [1, 2] },
+    // 36 (MoE: router 5 de 48): ídem
+    { srcId: 'slide-36', marker: '.mp-request', originalK: 'hide', twins: [1, 2] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));
