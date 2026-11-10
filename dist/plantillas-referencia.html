@@ -26711,7 +26711,10 @@ body.deck-sdlc-part2:not(.mode-document):not(.overview-mode) #slide-43:has(.adr-
 }
 
 @media print {
-  body.deck-sdlc-part2 #slide-43 .adr-step-card {
+  /*Storyboard: la original (print-twin-page) imprime su k0 neutro y el clon
+    k1 muestra el remarcado con las reglas :has de Charla → scope para no
+    aplastar el estado del clon. */
+  body.deck-sdlc-part2 #slide-43:not(.print-twin-page) .adr-step-card {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
@@ -28166,6 +28169,9 @@ function initDeck() {
     // imprime su estado de entrada (Fase 1 · Discovery iluminada, resto silueta).
     // Sin clones: solo se excluye de las reglas print que fuerzan pasos.
     { srcId: 'slide-18', marker: '.sdlc-map-panel', originalK: 0, twins: [] },
+    // 43 de P2 (Ciclo Canónico de un ADR): la normal + el clic que remarca
+    // la 3ª cajita (Ergonomía IA · AX) con las reglas :has de Charla.
+    { srcId: 'slide-43', marker: '.adr-ergo-click', originalK: 0, twins: [1] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));

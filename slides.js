@@ -420,6 +420,9 @@ function initDeck() {
     // imprime su estado de entrada (Fase 1 · Discovery iluminada, resto silueta).
     // Sin clones: solo se excluye de las reglas print que fuerzan pasos.
     { srcId: 'slide-18', marker: '.sdlc-map-panel', originalK: 0, twins: [] },
+    // 43 de P2 (Ciclo Canónico de un ADR): la normal + el clic que remarca
+    // la 3ª cajita (Ergonomía IA · AX) con las reglas :has de Charla.
+    { srcId: 'slide-43', marker: '.adr-ergo-click', originalK: 0, twins: [1] },
   ];
   const setStepState = (slide, k) => {
     slide.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('step-active', i < k));

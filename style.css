@@ -26692,7 +26692,10 @@ body.deck-sdlc-part2:not(.mode-document):not(.overview-mode) #slide-43:has(.adr-
 }
 
 @media print {
-  body.deck-sdlc-part2 #slide-43 .adr-step-card {
+  /*Storyboard: la original (print-twin-page) imprime su k0 neutro y el clon
+    k1 muestra el remarcado con las reglas :has de Charla → scope para no
+    aplastar el estado del clon. */
+  body.deck-sdlc-part2 #slide-43:not(.print-twin-page) .adr-step-card {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
