@@ -9,7 +9,8 @@ de style.css fija el papel y el print CSS de style.css hace el resto (steps en
 estado final, HUD oculto, doc-only excluidas → solo salen las slides de Charla).
 
 Uso:
-  python3 script/export_pdf.py              # los 3 decks → dist/pdf/
+  python3 script/export_pdf.py              # los 3 decks + el PDF fusionado → dist/pdf/
+  python3 script/export_pdf.py completo     # parte1 + parte2 + el PDF fusionado
   python3 script/export_pdf.py parte1       # solo uno (parte1 | parte2 | plantillas)
 """
 import shutil
@@ -26,6 +27,8 @@ DECKS = {
     "parte2": "charla-parte2-ciclo-desarrollo.html",
     "plantillas": "plantillas-referencia.html",
 }
+
+MERGED_NAME = "charla-completo.pdf"
 
 
 def chrome_bin():
@@ -57,12 +60,40 @@ def export(key, fname):
     print(f"✅ {dst.relative_to(ROOT)}  ·  {pages} páginas  ·  {dst.stat().st_size / 1e6:.1f} MB")
 
 
+def merge_completo():
+    """Fusiona parte1 + parte2 (en este orden) en charla-completo.pdf."""
+    parts = [OUT / DECKS[k].replace(".html", ".pdf") for k in ("parte1", "parte2")]
+    if not all(p.exists() for p in parts):
+        print("⚠️  Falta parte1/parte2 en dist/pdf/ — no se genera el fusionado")
+        return
+    if not shutil.which("pdfunite"):
+        print("⚠️  pdfunite no está (poppler-utils) — no se genera el fusionado")
+        return
+    subprocess.run(["pdfunite", *[str(p) for p in parts], str(OUT / MERGED_NAME)],
+                   check=True, capture_output=True)
+    merged = OUT / MERGED_NAME
+    pages = "?"
+    if shutil.which("pdfinfo"):
+        info = subprocess.run(["pdfinfo", str(merged)], capture_output=True, text=True).stdout
+        for line in info.splitlines():
+            if line.startswith("Pages:"):
+                pages = line.split()[-1]
+    print(f"✅ {merged.relative_to(ROOT)}  ·  {pages} páginas (parte1 + parte2)  ·  {merged.stat().st_size / 1e6:.1f} MB")
+
+
 def main():
-    keys = sys.argv[1:] or list(DECKS)
+    argv = sys.argv[1:]
+    if argv == ["completo"]:
+        keys = ["parte1", "parte2"]
+    else:
+        keys = argv or list(DECKS)
     for key in keys:
         if key not in DECKS:
-            sys.exit(f"❌ Deck desconocido: {key} (usa: {', '.join(DECKS)})")
+            sys.exit(f"❌ Deck desconocido: {key} (usa: {', '.join(DECKS)} | completo)")
         export(key, DECKS[key])
+    # Con los dos decks recién exportados, el PDF fusionado sale gratis
+    if {"parte1", "parte2"} <= set(keys):
+        merge_completo()
 
 
 if __name__ == "__main__":
